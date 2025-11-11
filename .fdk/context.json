@@ -1,0 +1,18 @@
+{
+  "theme": {
+    "active_context": "vision-express-uat",
+    "contexts": {
+      "vision-express-uat": {
+        "name": "vision-express-uat",
+        "application_id": "687f311ed5f36b2821fa25cd",
+        "domain": "vision-express-uat.fynd.io",
+        "company_id": 1076,
+        "theme_id": "6881ba3ff77b3a9f0a94d504",
+        "application_token": "NeSiak9xu",
+        "theme_type": "react",
+        "env": "api.fynd.com"
+      }
+    }
+  },
+  "partners": {}
+}

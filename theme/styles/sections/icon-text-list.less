@@ -1,0 +1,126 @@
+.iconListSection {
+  padding: 50px;
+  margin: 50px auto;
+  max-width: 1200px;
+  border-radius: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 35px;
+    text-align: center;
+  }
+
+.listIcon{
+    width: 50px !important;
+    height: 50px !important;
+    margin: auto;
+
+      img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+}
+
+
+  .title {
+    font-family: Verdana;
+    font-weight: 700;
+    margin: 10px 0; 
+    font-size: 32px;
+    color:rgba(26, 26, 26, 1);
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .text {
+    font-size: 14px;
+    font-family: Verdana;
+    font-weight: 400;
+    color:rgba(46, 43, 44, 1);
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+
+
+.iconListSection.iconListSectionHome {
+  border: none;
+  padding: 80px 20px;
+  margin: auto;  
+
+    .grid {
+      gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+  .iconListSection {
+       border: none !important;
+       padding: 50px 18px;
+       margin:0;
+        max-width: 1100px;
+
+    .grid {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     justify-content: center;
+     flex-wrap: wrap;
+    }
+
+   .iconItem{
+    padding: 20px 5px;
+    background-color: rgba(158, 0, 126, 0.04);
+    border-radius: 16px;
+    max-width: 105px;
+    min-height: 145px;
+    }
+
+   .listIcon{
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+    border-radius: 50%;
+    background-color:rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+ .title {
+  font-size: 16px;
+    margin-top: 15px !important;
+    margin-bottom: 5px;
+    line-height: 120%;
+ }
+
+   .text {
+    font-size: 9px;
+   }
+
+  }
+
+
+  .iconListSection.iconListSectionHome{
+ padding: 50px 18px;
+
+    .grid{
+      gap: 8px;
+    }
+  }
+
+}
+

@@ -1,0 +1,50 @@
+.comparisonSection {
+    padding: 64px;
+    max-width: 1240px;
+    margin: 0 auto;
+    background: rgba(248, 247, 245, 1);
+    border-radius: 56px;
+    margin-bottom: 80px;
+     text-align: center;
+}
+
+ .desktopImg {
+      display: block;
+    }
+
+    .mobileImg {
+      display: none;
+    }
+
+
+.imageWrapper {
+  max-width: 100%;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+  }
+  picture {
+   background-color: transparent;
+  }
+}
+
+@media(max-width: 768px){ 
+    .comparisonSection  {
+        padding: 20px;
+        border-radius: 16px;
+        margin: 40px 20px;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    }
+
+     .desktopImg {
+      display: none;
+    }
+
+    .mobileImg {
+      display: block;
+    }
+}

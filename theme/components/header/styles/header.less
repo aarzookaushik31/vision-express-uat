@@ -1,0 +1,214 @@
+@import "../../../styles/main.less";
+
+.ctHeaderWrapper {
+  position: sticky;
+  top: 0;
+  z-index: @header;
+ 
+  &.unsetBoxShadow {
+    box-shadow: unset !important;
+  }
+}
+
+
+  .homepageTicker{
+    width: 100%;
+  overflow: hidden;  
+  position: relative;
+
+
+    .tickerSlide{
+    background-color: #9E007E;
+    padding: 10px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+      font-size: 12px;
+      color:#FFFFFF;
+      font-weight: 400;
+      line-height: 100%;
+    }
+   
+
+    img{
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    p{
+      font-size: 12px;
+      color:#FFFFFF;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+
+  .alwaysOnSearch {
+    padding-bottom: 8px;
+  width: 100%;
+  max-width: 100%;
+  .customSearchClass {
+    position: relative;
+    transform: scaleY(1) !important;
+    opacity: 1 !important;
+    transition: none !important;
+    .search__wrapper {
+      width: unset !important;
+    }
+  }
+  .customSearchWrapperClass {
+    width: unset;
+  }
+}
+
+
+.header {
+  position: relative;
+  background-color: @HeaderBackground;
+  z-index: unset !important;
+  &.transparentBackground {
+    background-color: unset !important;
+  }
+  &.seperator {
+    @media @desktop {
+      border-bottom: 1px solid @DividerStokes;
+    }
+  }
+  .headerContainer {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    @media @desktop {
+      padding-inline: 0px;
+    }
+    @media @tablet {
+      position: relative;
+    }
+  }
+  .headerIcon {
+   
+    g > path {
+      fill: @HeaderIcon;
+    }
+    cursor: pointer;
+  }
+  .desktop {
+    @media @tablet {
+      display: none;
+    }
+  }
+
+  .mobile {
+    background-color: rgba(51, 51, 51, 1);
+
+    @media @desktop {
+      display: none;
+    }
+  }
+
+  .mobileTop {
+    display: flex;
+    align-content: center;
+    padding: 7px 8px;
+    .middle {
+      .logo {
+        max-height: 38px;
+      }
+    }
+    .left,
+    .right {
+      flex: 1;
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      & > * {
+        padding: 4px 8px;
+      }
+      .headerIcon {
+        display: flex;
+      }
+      &__icons {
+        &--bag {
+          position: relative;
+          .cartCount {
+            min-width: 16px;
+            min-height: 16px;
+            padding: 0 2px;
+            line-height: 16px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: @HeaderIcon;
+            color: @HeaderBackground;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 10px;
+            .flex-center();
+            position: absolute;
+            top: 0;
+            inset-inline-end: 0;
+            transform: translate(50%, -50%);
+            [dir="rtl"] & {
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    @media @desktop {
+      display: none;
+    }
+    &.single {
+      .right__icons--bag {
+        & > .cart-count {
+          width: 14px;
+          height: 14px;
+          transform: translate(4px, 0px);
+          [dir="rtl"] & {
+            transform: translate(-4px, 0px);
+          }
+        }
+      }
+    }
+
+    &.i18Wrapper {
+      border-top: 1px solid @DividerStokes;
+    }
+  }
+  .mobileBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+    min-height: 51.6px;
+    color: @HeaderIcon;
+    padding: 8px 16px;
+    width: 100%;
+    border-top: 1px solid @DividerStokes;
+    border-bottom: 1px solid @DividerStokes;
+    &.unsetBorder {
+      border: unset;
+    }
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pincode {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: -0.24px;
+    }
+  }
+
+  .mobileIcon {
+    width: 24px;
+    height: 24px;
+  }
+}

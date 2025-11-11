@@ -1,0 +1,246 @@
+.slideWrapper {
+  position: relative;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.slideContenttt {
+  width: fit-content !important;
+  position: relative;
+}
+
+.textOverlayy {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 500px;
+  z-index: 10;
+
+  h2 {
+    margin: 0 0 0.6rem;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    line-height: 120%;
+    letter-spacing: 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #2E2B2C;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .primaryBtn {
+    background-color: #9E007E;
+  }
+
+  .secondaryBtn {
+    background-color: transparent;
+    border: 2px solid #E8D2E4;
+  }
+
+  .primaryBtn, .secondaryBtn
+  {
+    color: #FFF;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    text-transform: uppercase;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.slideContenttt img {
+    object-fit: cover !important;
+    max-height: 340px !important;
+    aspect-ratio: unset;
+    border-radius: 10px;
+    object-position: unset !important;
+    display: inline-flex;
+    width: unset !important;
+}
+
+.slideContenttt picture {
+    display: block;
+    text-align: end;
+    border-radius: 1.25rem;
+    justify-content: center;
+}
+
+
+.textOverlayy {
+    .brand_name {
+        aspect-ratio: unset !important;
+        border-radius: unset !important;
+        max-height: 340px !important;
+        object-fit: unset !important;
+        width: unset !important;
+    }
+}
+
+.exclusive-collections-section {
+    h2 {
+        font-family: Verdana;
+        font-weight: 700;
+        font-size: 32px;
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        vertical-align: bottom;
+        text-transform: uppercase;
+        color: #2E2B2C;
+    }
+}
+
+.centerText {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  left: 0 !important;
+
+  h2,
+  p,
+  .buttons {
+    justify-content: center;
+  }
+}
+
+.mainoffers {
+    padding: 0 20px;
+
+ .sectionHeading {
+  font-size: 32px;
+  font-weight: 700;
+    color: rgba(26, 26, 26, 1);
+    text-align: center;
+    text-transform: uppercase;
+    margin: 1.25rem 0;
+  }
+}
+
+
+@media (max-width: 767px) {
+    .slideContenttt img {
+        object-fit: cover !important;
+        max-height: unset !important;
+        aspect-ratio: unset;
+        width: 100% !important;
+        border-radius: 20px;
+    }
+    
+
+    .textOverlayy {
+        top: unset;
+        bottom: 0px;
+        left: 0px;
+        padding: 20px;
+        transform: unset;
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #2E2B2C;
+        font-weight: 400;
+        margin: 0 0 1.5rem;
+      }
+    }
+
+
+    .mainoffers {
+ .sectionHeading {
+font-size: 22px;
+
+ }}
+}
+
+
+
+
+
+
+:global{
+  // exclusive collections
+
+ .exclusive-collections-section{
+  padding-bottom: 60px;
+ }
+.exclusive-collections-section .slick-dots li.slick-active button {
+    background-color: #A15A95;
+    width: 60px;
+    height: 10px;
+}
+.exclusive-collections-section .slick-dots li:not(.slick-active) button {
+    filter: blur(2px);
+    border-radius: 100%;
+    background-color: #A15A9580;
+    width: 10px;
+    height: 10px;
+}
+
+.exclusive-collections-section .slick-slider{
+max-width: 1140px;
+margin: auto;
+}
+
+.exclusive-collections-section .slick-next {
+    top: 45%;
+    right: -50px;
+    z-index: 10;
+    border-radius: 100%;
+    background: #A15A9533 !important;
+    transform: unset;
+}
+
+.exclusive-collections-section .slick-prev {
+    top: 45%;
+    transform: unset;
+    left: -50px;
+    z-index: 10;
+    border-radius: 100%;
+    background: #A15A9533 !important;
+}
+.exclusive-collections-section .slick-prev path, .exclusive-collections-section .slick-next path {
+    stroke: #FFFFFF;
+}
+
+.exclusive-collections-section .slick-slider:has(.slick-dots) {
+    padding-bottom: 20px;
+}
+
+.exclusive-collections-section .slick-arrow+.slick-dots {
+    padding: 0;
+}
+
+
+
+@media (max-width: 767px) {
+  .exclusive-collections-section .slick-dots li.slick-active button {
+    background-color: #A15A95;
+    width: 36px;
+    height: 8px;
+  }
+
+  .exclusive-collections-section .slick-dots li:not(.slick-active) button {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+}

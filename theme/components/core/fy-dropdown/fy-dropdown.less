@@ -1,0 +1,122 @@
+@import "../../../styles/main.less";
+
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .error {
+    color: @ErrorText;
+    font-weight: 400;
+    font-size: 12px;
+    padding-top: 5px;
+  }
+  .required {
+    color: @ErrorText;
+  }
+
+  .dropdown {
+    box-sizing: border-box;
+    border: 1px solid @DividerStokes;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &.disabled {
+      color: @TextDisabled !important;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.dropDownError {
+      border-color: @ErrorText;
+    }
+
+    .dropdownButton {
+      border-radius: 3px;
+      min-height: 22px;
+      padding: 10px 14px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .dropdownIcon {
+        transition: all linear 0.3s;
+        height: 20px;
+        width: 20px;
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+      .text_field {
+        width: 100%;
+        border: none;
+      }
+
+      .selectedValue {
+        font-size: 14px;
+        line-height: 22px;
+        color: @TextHeading;
+        background: transparent;
+      }
+    }
+  }
+}
+
+.label {
+  color: @TextLabel;
+  font-size: 12px;
+  line-height: 21px;
+}
+
+.dropdownList {
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 3px;
+  z-index: 999;
+  box-shadow:
+    0 4px 8px 0 hsla(0, 0%, 90%, 0.2),
+    0 6px 20px 0 hsla(0, 0%, 90%, 0.19);
+  border: 1px solid @DividerStokes;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  background-color: @PageBackground;
+
+  &.open {
+    display: block;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .dropdownOption {
+    position: relative;
+    font-size: 14px;
+    color: @TextBody;
+    line-height: 22px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 9px 14px;
+
+    &.disabled {
+      user-select: none;
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &.selected,
+    &:hover {
+      background: @HighlightColor;
+    }
+  }
+}

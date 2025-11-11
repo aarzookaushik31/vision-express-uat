@@ -1,0 +1,173 @@
+
+// Hero Banner 
+
+
+.collection-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.collection-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+.collection-banner-img-mobile{
+   width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: none;
+}
+
+.collection-banner-content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  text-align: center; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  padding: 20px 40px;
+  max-width: 50%;
+}
+
+.collection-banner-content h2 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.collection-banner-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color:rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+
+
+
+
+@media(max-width: 768px){
+  .collection-banner-content {
+    top: auto;
+    bottom:0px;
+    left: 0px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-end;
+    padding: 40px 20px;
+  }
+
+  .collection-banner-img{
+  display: none;
+}
+.collection-banner-img-mobile{
+  display: block;
+}
+  .collection-banner-content h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  }
+  
+.collection-banner-content p{
+  font-size: 14px;
+}
+}
+
+
+
+
+// banner between products
+
+
+.custom-banner-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  min-height: 250px; 
+  grid-column: 1 / -1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.custom-banner-card .banner-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.custom-banner-card .banner-content {
+  color: #fff; 
+  max-width: 50%;
+}
+
+.custom-banner-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 150%;
+  color:rgba(0, 0, 0, 1);
+
+}
+
+.custom-banner-card p {
+  font-size: 14px;
+  color:rgba(0, 0, 0, 1);
+  line-height: 150%;
+  margin-bottom: 16px;
+}
+
+.custom-banner-card .banner-btn {
+  padding: 10px 24px;
+  border-radius: 40px;
+  background: transparent;
+  border: 1px solid rgba(158, 0, 126, 1);
+  color:rgba(158, 0, 126, 1);
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.custom-banner-card .banner-btn:hover {
+  background:  rgba(158, 0, 126, 1);
+  color: #fff;
+}
+
+
+@media(max-width: 768px){
+    .custom-banner-card {
+        min-height: 170px;
+    }
+    .custom-banner-card .banner-overlay {
+      padding: 20px 10px;
+    }
+    .custom-banner-card h2 {
+        font-size: 14px;
+    }
+      .custom-banner-card p {
+        font-size: 10px;
+    }
+    .custom-banner-card .banner-btn{
+        font-size: 10px;
+        padding: 7px 17px
+    }
+    .custom-banner-card .banner-content{
+        max-width: 60%;
+    }
+}

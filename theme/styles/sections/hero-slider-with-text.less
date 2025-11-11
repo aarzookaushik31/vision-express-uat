@@ -1,0 +1,475 @@
+.slideshowSlider {
+  :global {
+    .slick-slide>div {
+      display: flex;
+    }
+  }
+}
+
+.slideWrapper {
+  position: relative;
+}
+
+.desktopBannerImage img{
+  min-height: 400px;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  z-index: 10;
+
+  h2 {
+    color: #fff;
+    margin: 0 0 1rem;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 120%;
+    letter-spacing: 0;
+    max-width: 500px;
+  }
+
+  span {
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    display: inline-block;
+  }
+
+  p{
+       color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    max-width: 405px;
+  }
+
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .primaryBtn {
+    background-color: #9E007E;
+  }
+
+  .secondaryBtn {
+    background-color: transparent;
+    border: 2px solid #E8D2E4;
+  }
+
+  .primaryBtn, .secondaryBtn
+  {
+    color: #FFF;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    font-weight: 600;
+    padding: 14px 44px;
+    align-items: center;
+    display: flex;
+    text-transform: uppercase;
+  }
+
+
+
+  .extraBlockwrapper{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+
+ .tickerWrapper{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  .tickerContainer{
+     display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 500px;
+  padding: 4px;
+  padding-right: 32px;
+  gap: 8px;
+  max-width: 340px;
+
+  .tickerIconContainer{
+    background-color: rgba(158, 0, 126, 1);
+    color: #fff;
+    font-size: 24px;
+    border-radius: 500px;
+    padding: 14px 20px;
+    font-weight: bold;
+     font-family: Poppins !important;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+  }
+
+
+  p{
+    color:rgba(0, 0, 0, 1);
+    font-size: 18px;
+    font-weight: 600;
+     font-family: Poppins !important;
+     text-transform: none;
+     margin: 0;
+  }
+
+  picture{
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    aspect-ratio: auto;
+  }
+
+  img{
+    aspect-ratio: 1;
+    object-position: center;
+    object-fit: contain !important;
+    transform: scale(1);
+  }
+  }
+
+  .tickerRatingContainer{
+    background-color: rgba(6, 143, 6, 1);
+    border-radius: 500px;
+    font-size: 24px;
+    font-weight: 700;
+    color:rgba(255, 255, 255, 1);
+    padding: 20px 40px;
+  }
+ }
+
+  }
+
+
+  .extraBlockContainer{
+    font-family: Poppins !important;
+    padding: 30px;
+    border-radius: 32px;
+    max-width: 470px;
+    background-color: rgba(255, 255, 255, 1);
+
+    .blockImageWrapper{
+      border-radius: 32px;
+      margin-bottom: 15px;
+      overflow: hidden;
+
+      picture{
+        aspect-ratio: auto;
+      }
+
+    }
+
+    .blockHeading{
+       font-family: Poppins !important;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 0px;
+      color: rgba(158, 0, 126, 1);
+      line-height: 120%;
+      margin: 0;
+     margin-bottom: 5px;
+     text-transform: capitalize;
+    }
+
+    .blockSubheading{
+       font-family: Poppins !important;
+      text-transform: none;
+      color:rgba(0, 0, 0, 0.5);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: 0px;
+      margin-bottom: 0px;
+    }
+
+
+     .inputGroup {
+      margin-top: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.04);
+    
+
+    .pincodeInput {
+      width: 200px;
+      flex:1;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+    }
+
+    .findButton {
+       font-family: Poppins !important;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      text-transform: uppercase;
+      background-color: rgba(158, 0, 126, 1);
+      color: white;
+      padding: 18px 30px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+  }
+}
+
+.slideContent img {
+  object-fit: cover !important;
+  max-height: 540px !important;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  header {
+      background: #000 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .slideContent {
+    img {
+      aspect-ratio: auto;
+      transform: scale(1);
+      object-position: center;
+    }
+
+    p {
+      font-size: 0.75rem;
+    }
+
+
+
+    h2 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      line-height: 1.24;
+    }
+  }
+
+    .textOverlay {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      height: 100%;
+        top: auto;
+        bottom: 0%;
+        transform: translate(-50%, 0);
+
+        h2{
+          margin: 0 0 0.5rem;
+        }
+
+        p {
+            margin: 0 0 0.9rem;
+        }
+            span{
+      font-size: 12px;
+       margin: 0 0 0.5rem;
+    }
+        .secondaryBtn {
+            display: none;
+        }
+        .primaryBtn {
+            padding: 0.9rem 1.3rem;
+            font-size: 0.75rem;
+        }
+
+          .extraBlockwrapper{
+         flex-direction: column;
+         gap: 10px;
+         justify-content: flex-end;
+
+          .tickerWrapper{
+            gap: 5px;
+
+              .tickerContainer{
+                 padding-right: 4px;
+
+              .tickerIconContainer{
+                font-size: 14px;
+                padding: 12px;
+              }
+
+            p{
+              font-size: 14px;
+            }
+          }
+
+           .tickerRatingContainer{
+            font-size: 20px;
+            padding: 15px;
+            white-space: nowrap;
+          }
+        }
+
+         
+            }
+
+
+              .extraBlockContainer{
+                padding: 14px;
+                border-radius: 16px;
+
+                 .blockHeading{
+                  font-size: 16px;
+                 }
+                  .blockSubheading{
+                    font-size: 10px;
+                  }
+
+                  .blockImageWrapper{
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 12px;
+                    margin-bottom: 0;
+                    min-width: 72px;
+
+                    picture{
+                      aspect-ratio: auto;
+                    }
+
+                    img{
+                      aspect-ratio: 1;
+    object-position: center;
+    object-fit: cover !important;
+    transform: scale(1);
+                    }
+                  }
+
+                 .inputGroup {
+                 
+                   .findButton {
+                    font-size: 12px;
+                    white-space: nowrap;
+                    padding: 10px 12px;
+                   }
+                }
+
+              }
+    }
+}
+
+
+
+:global{
+
+    .heroSlideshowWithTextSection .slick-slider:has(.slick-dots) {
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+.heroSlideshowWithTextSection .slick-dots li.slick-active button {
+    background-color: #A15A95;
+    width: 60px;
+    height: 10px;
+}
+.heroSlideshowWithTextSection .slick-dots li:not(.slick-active) button {
+    filter: blur(2px);
+    border-radius: 100%;
+    background-color: #A15A9580;
+    width: 10px;
+    height: 10px;
+}
+
+.heroSlideshowWithTextSection .slick-next {
+    top: 50%;
+    right: 10px;
+    transform: unset;
+}
+
+.heroSlideshowWithTextSection .slick-prev {
+    top: 50%;
+    transform: unset;
+    left: 10px;
+    z-index: 10
+}
+.heroSlideshowWithTextSection .slick-prev path, .heroSlideshowWithTextSection .slick-next path {
+    stroke: #A15A95;
+}
+
+
+.heroSlideshowWithTextSection .slick-arrow+.slick-dots {
+    padding: 0;
+}
+
+
+
+
+
+      .heroSlideshowWithTextSection {     
+      .textoverlay-1 h2{
+        font-size: 48px;
+      }
+   }
+
+   .extraBlockwrapperFindStore{
+    height: 400px;
+   }
+  .extraBlockwrapperProductCard{
+    flex-direction: row-reverse;
+  }
+
+
+
+
+
+
+
+@media(max-width: 768px){
+
+.heroSlideshowWithTextSection .slick-dots{
+  bottom: 0px !important;
+}
+
+     .heroSlideshowWithTextSection {
+      
+      .textoverlay-1 h2{
+        font-size: 22px;
+      }
+
+
+   }
+  .extraBlockwrapperFindStore .blockContentWrapper{
+   display: flex;
+   align-items: center;
+    gap: 10px;
+  }
+  .extraBlockwrapperFindStore .blockContentWrapper h2{
+    min-width: 120px;
+  }
+   .extraBlockwrapperFindStore {
+    height: 100%;
+   }
+ .extraBlockwrapperProductCard {
+  height: 100%;
+  justify-content: space-between !important;
+ }
+  .extraBlockwrapperProductCard .extraBlock-Container{
+    display: flex;
+    align-items: center;
+    gap:10px;
+  }
+}
+
+}

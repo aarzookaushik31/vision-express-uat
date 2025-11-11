@@ -1,0 +1,250 @@
+.contactPageContainer{
+  display: flex;
+  align-items: center;
+  max-width: 1300px;
+  background-color: rgba(158, 0, 126, 0.04);
+  border-radius: 32px;
+  margin: 30px auto;
+  padding: 50px;
+  gap: 120px;
+
+.logo{
+    max-width: 230px;
+    margin: auto;
+    margin-bottom: 30px;
+    display: block;
+}
+
+  .contactInfo {
+    flex:1;
+
+    h1{
+        color:rgba(26, 26, 26, 1);
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 120%;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        margin:0;
+        margin-bottom: 25px;
+    }
+
+    .storeDescription{
+        color:rgba(26, 26, 26, 0.8);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: -0.5px;
+        margin:0;
+        margin-bottom: 50px;
+    }
+
+    .iconItemContainer{
+        display: flex;
+        gap: 8px;
+        margin-top: 24px;
+        align-items: start;
+
+        img{
+            width: 48px;
+            border-radius: 50%;
+            min-width: 48px;
+        }
+
+        h2{
+            color:rgba(26, 26, 26, 1);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 150%;
+            letter-spacing: -0.5px;
+        }
+
+        p{
+              color:rgba(26, 26, 26, 0.8);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%;
+            letter-spacing: -0.5px;
+        }
+    }
+     
+
+  }
+
+
+  .contactFormContainer{
+    position: relative;
+    flex:1;
+    padding: 48px;
+    border-radius: 32px;
+    background-color: rgba(255, 255, 255, 1);
+
+      &.successBackground{
+      background-color: rgba(158, 0, 126, 1);
+    }
+  }
+
+  .contactForm{
+    label{
+        font-size: 14px;
+        font-weight: 700;
+        color:rgba(46, 43, 44, 1);
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    input, textarea{
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        color:rgba(46, 43, 44, 0.5);
+        font-size: 12px;
+        font-weight: 400;
+        padding: 20px;
+        width: 100%;
+        letter-spacing: -0.5px;
+        margin-bottom: 15px;
+    }
+
+
+    .submitButton{
+        border-radius: 500px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        padding: 18px 36px;
+        margin-top: 20px;
+        background-color: rgba(158, 0, 126, 1);
+    }
+      .inputFlexGroup{
+    display: flex;
+    gap: 15px;
+  }
+
+
+  }
+
+
+}
+
+
+.successWrapper {
+    text-align: center;
+
+    .closeSuccessButton{
+                     position: absolute;
+                     top: 50px;
+                     right: 50px;
+                     cursor: pointer;
+            svg{
+ width: 30px;
+ fill: #fff;
+            }
+           
+          }
+    
+      img{
+        width: 180px;
+      }
+      h2{
+        font-size: 40px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 1);
+        letter-spacing: 0px;
+        line-height: 120%;
+        text-transform: uppercase;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      p{
+        color:rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 400;
+        letter-spacing: -0.3px;
+        margin-bottom: 30px;
+      }
+    }
+
+@media(max-width: 768px){
+    .contactPageContainer{
+        flex-direction: column;
+        margin:0;
+        border-radius: 0;
+        padding: 50px 20px;
+        gap: 50px;
+
+        .logo{
+            max-width: 180px;
+        }
+
+         .contactInfo{
+            h1{
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .storeDescription{
+             font-size: 14px;
+             margin-bottom: 20px;
+            }
+
+              .iconItemContainer{
+
+                img{
+                    min-width: 40px;
+                    width: 40px;
+                }
+
+                h2{
+                    font-size: 15px;
+                }
+
+                p{
+                    font-size: 14px;
+                }
+             }
+         }
+
+
+          .contactFormContainer{
+            border-radius: 16px;
+            padding: 40px 20px;
+          }
+
+
+           .contactForm{
+            .inputFlexGroup{
+                flex-direction: column;
+                gap: 0px;
+            }
+
+            .submitButton{
+                padding: 12px 24px;
+                font-size: 14px;
+                margin-top: 15px;
+            }
+           }
+
+           
+           
+    }
+
+      .successWrapper{
+        .closeSuccessButton{
+          top: 20px;
+          right: 20px;
+        }
+            img{
+              width: 100px;
+            }
+            h2{
+              font-size: 28px;
+            }
+            p{
+              font-size: 15px;
+            }
+        }
+}

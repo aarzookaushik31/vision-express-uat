@@ -1,0 +1,229 @@
+@import "./main.less";
+
+.loader {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+}
+
+.wishlistWrap {
+  min-height: 700px;
+  max-width: 1300px;
+    margin: auto;
+    padding: 50px 20px;
+
+
+  .breadcrumbs {
+    margin-bottom: 16px;
+
+    @media @mobile-up {
+      margin-bottom: 24px;
+    }
+
+    span {
+      color: @TextDisabled;
+
+      // &.active {
+      //   color: @ButtonPrimary;
+      // }
+    }
+  }
+
+  .title__block {
+    .column-gap(8px);
+    margin-bottom: 10px;
+    align-items: baseline;
+
+    @media @mobile-up {
+      margin-bottom: 24px;
+    }
+  }
+
+  .wlLink {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .productsContainer {
+    ::v-deep .list-items {
+      background: none;
+    }
+
+    .loadingAnimation {
+      margin: 10px auto 0 !important;
+    }
+  }
+
+  .gridWrapper {
+    display: grid;
+    .grid-gap(10px, 16px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+
+    @media @mobile-up {
+      .grid-gap(24px, 16px);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media @desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .emptyContainer {
+    background: @ThemeAccentL4;
+    flex-grow: 1;
+
+    .emptyState {
+      margin: 0 auto;
+      max-width: 254px;
+      text-align: center;
+
+      @media @mobile-up {
+        max-width: 450px;
+      }
+
+      .title {
+        margin-bottom: 8px;
+      }
+
+      .subTitle {
+        margin-bottom: 32px;
+      }
+
+      .ctaBtn {
+        border: none;
+        min-width: 180px;
+        padding: 17px;
+
+        @media @desktop {
+          min-width: 220px;
+          padding: 20px 24px;
+        }
+      }
+    }
+  }
+}
+.flexRow {
+  display: flex;
+}
+
+
+
+:global{
+
+  .wishlist__breadcrumbWrapper___u4WGp{
+    margin-bottom: 15px;
+  }
+
+  .breadcrumb__breadcrumbs___lMY9E span{
+     color:rgba(26, 26, 26, 0.3) !important;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+  }
+
+  .wishlist__title___eyUKF{
+    color: #2e2b2c;
+    font-size: 32px;
+    font-style: Bold;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+
+  .product-card__productCard___VMIjd{
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 400;
+    height: 100%;
+    letter-spacing: -.02em;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+  }
+
+  .product-card__productCard___VMIjd:after {
+    background-color: rgba(161, 90, 149, .04);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+  .product-card__imageContainer___lRTmc{  
+    position: relative;
+       padding-top: 30px;
+
+    .product-card__productImage___Cd89M{
+       max-height: 130px;  
+
+        @media @mobile {
+           max-height: 80px;  
+        }
+    }
+
+    picture{
+      max-height: 130px;
+          aspect-ratio: auto !important;
+    background-color: transparent !important;
+
+        @media @mobile {
+           max-height: 80px;  
+        }
+    }
+  }
+
+  .product-card__productDesc___nZT4A{
+text-align: center;
+
+    .product-card__productBrand___ngzg2{
+      display: -webkit-box;
+    line-height: 120%;
+    margin-bottom: 4px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #1a1a1a !important;
+    letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-align: center;
+    }
+
+    .product-card__productName___jTJTQ{
+      font-size: 12px !important;
+      font-weight: 700;
+          display: -webkit-box;
+    line-height: 120%;
+    margin-bottom: 4px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #1a1a1a !important;
+    letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+    .product-card__productPrice___c5WT7 {
+      justify-content: center;
+
+      span{
+        color:rgba(46, 43, 44, 1);
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+
+
+  }
+
+}

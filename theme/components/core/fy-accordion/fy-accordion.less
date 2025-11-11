@@ -1,0 +1,35 @@
+@import "../../../styles/main.less";
+
+.accordion {
+  width: 100%;
+  overflow: hidden;
+  padding: 24px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+ &.open{
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+ }
+
+
+  @media @tablet {
+    width: 100%;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .accordion__content{
+    margin-top: 15px;
+  }
+  .accordionHead {
+    padding:  0;
+    cursor: pointer;
+    width: 100%;
+  }
+}

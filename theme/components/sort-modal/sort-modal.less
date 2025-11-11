@@ -1,0 +1,71 @@
+@import "../../styles/main.less";
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modalContent {
+  flex: 1;
+  padding: 8px;
+  overflow-y: auto;
+
+  .sortList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    .sortItem {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: -0.24px;
+      color: @TextBody;
+
+      .radioIcon {
+        min-width: 28px;
+        height: 28px;
+        padding: 4px;
+      }
+      
+      &.selected {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.modalFooter {
+
+  display: flex;
+  padding: 5px !important;
+  column-gap: 5px !important;
+  box-shadow: 0px -2px 39.7px 0px rgba(0, 0, 0, 0.25);
+
+ .applyBtn{
+  flex:1;
+color: rgba(255, 255, 255, 1) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  background-color: rgba(158, 0, 126, 1) !important;
+  text-transform: uppercase;
+  padding: 15px !important;
+  border: none !important;
+ }
+
+   .resetBtn{
+     flex: 1;
+     background-color: rgba(158, 0, 126, 0.1) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  color:rgba(158, 0, 126, 1) !important;
+  text-transform: uppercase;
+  padding: 15px !important;
+  border: none !important;
+  }
+}

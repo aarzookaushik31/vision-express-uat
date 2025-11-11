@@ -1,0 +1,303 @@
+.storeLocatorSection {
+  background-size: cover;
+  background-position: top center;
+  color: #fff;
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  width: 100%;
+}
+
+.cityModalLocateUs{
+  position: relative;
+
+  p{
+      font-size: 14px;
+       color:rgba(46, 43, 44, 1);
+      font-weight: 700;
+      line-height: 140%;
+      letter-spacing: 0px;
+      margin-bottom: 15px;
+  }
+
+  .closeIcon{
+    position: absolute;
+    right:0px;
+    top: -30px;
+    cursor: pointer;
+
+    svg{
+      width: 24px;
+    }
+  }
+}
+
+.cityModalList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+   gap: 10px;
+
+
+  .cityModalButton{
+       background-color: rgba(158, 0, 126, 0.1);
+      padding: 10px 16px;
+      border-radius: 8px;
+        font-size: 14px;
+        color:rgba(158, 0, 126, 1);
+        line-height: 120%;
+        white-space: nowrap;
+    }
+
+    .activeCity{
+      background-color: rgba(158, 0, 126, 1);
+      color: #fff;
+      font-weight: 700;
+    
+  }
+}
+
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+
+  h2 {
+    color: #fff;
+    font-size: 48px;
+    line-height: 120%;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 140%;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+
+  .currentLocationButton {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: underline;
+  margin: auto;
+    margin-top: 15px;
+
+  img{
+    width: 20px;
+  }
+}
+
+
+  .inputGroup {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 2px solid #fff;
+    width: fit-content;
+
+    .pincodeInput {
+      width: 400px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      color: #333;
+
+      &::placeholder{
+        color:rgba(119, 119, 119, 0.5);
+        font-weight: 700;
+      }
+    }
+
+    .locateButton {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 24px;
+      text-transform: uppercase;
+      background-color: rgba(158, 0, 126, 1);
+      color: white;
+      padding: 18px 30px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img{
+        width: 24px;
+      }
+
+      &:hover {
+        background-color: rgba(130, 0, 105, 1);
+      }
+    }
+  }
+}
+
+
+.storeListWrapper{
+  max-width: 1130px;
+  margin: auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.mapContainer{
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+
+.cityFilterWrapper{
+ padding: 60px 20px 0px;
+   max-width: 1130px;
+  margin: auto;
+
+  .cityFilterHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    p{
+      font-size: 14px;
+      color:rgba(56, 56, 56, 1);
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .showcitiesBtn{
+      border: 1px solid rgba(158, 0, 126, 1);
+      padding:5px 16px;
+      font-size: 12px;
+      color:rgba(158, 0, 126, 1);
+      border-radius: 10px;
+      margin-left: 15px;
+    }
+
+    .clearFilterBtn{
+        text-decoration: underline;
+      border: none;
+      padding:0px;
+      font-size: 12px;
+      color:rgba(56, 56, 56, 1);
+    }
+  }
+
+  .cityList{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    overflow: auto;
+
+    button.cityButton{
+      background-color: rgba(158, 0, 126, 0.1);
+      padding: 10px 16px;
+      border-radius: 8px;
+        font-size: 14px;
+        color:rgba(158, 0, 126, 1);
+        line-height: 120%;
+        white-space: nowrap;
+    }
+
+    button.activeCity{
+      background-color: rgba(158, 0, 126, 1);
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .storeLocatorSection {
+    padding: 30px 20px;
+    padding-top: 200px;
+  }
+
+  .cityFilterWrapper{
+.cityFilterHeader{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  }
+  
+
+  .cityModalList{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 400px;
+  overflow: auto;
+   gap: 5px;
+
+
+  .cityModalButton{
+  font-size: 12px;
+  padding: 8px;
+    }
+
+
+}
+
+  .storeListWrapper{
+    grid-template-columns: 1fr;
+  }
+
+  .mapContainer{
+    height: 350px;
+    width: 100%;
+  }
+
+  .contentWrapper {
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .inputGroup {
+      .pincodeInput {
+        width: 60%;
+      }
+
+      .locateButton {
+        padding: 8px 16px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
