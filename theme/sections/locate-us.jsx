@@ -211,7 +211,7 @@ useEffect(() => {
     if (!window.google) {
       const script = document.createElement("script");
       script.src =
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOoSC7Ny7q7JBAAHmIBE0UTkPCZqaop9E";
+        "https://maps.googleapis.com/maps/api/js?key=apikey";
       script.async = true;
       script.defer = true;
       script.onload = initMap;
