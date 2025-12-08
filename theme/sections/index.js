@@ -81,6 +81,8 @@ const LensComparisonSectionChunk = loadable(() => import(/* webpackChunkName:"Le
 
 const LensHeroBannerSectionChunk = loadable(() => import(/* webpackChunkName:"LensHeroBannerSectionChunk" */ './lens-hero-banner.jsx'));
 
+const LensTestSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestSectionChunk" */ './lens-test.jsx'));
+
 const LensTypeFindSectionChunk = loadable(() => import(/* webpackChunkName:"LensTypeFindSectionChunk" */ './lens-type-find.jsx'));
 
 const LinkSectionChunk = loadable(() => import(/* webpackChunkName:"LinkSectionChunk" */ './link.jsx'));
@@ -202,6 +204,8 @@ const getbundle = (type) => {
             return (props) => <LensComparisonSectionChunk {...props}/>;
         case 'lens-hero-banner':
             return (props) => <LensHeroBannerSectionChunk {...props}/>;
+        case 'lens-test':
+            return (props) => <LensTestSectionChunk {...props}/>;
         case 'lens-type-find':
             return (props) => <LensTypeFindSectionChunk {...props}/>;
         case 'link':
@@ -287,6 +291,7 @@ export default {
         'lens-catalogue': { ...LensCatalogueSectionChunk, Component: getbundle('lens-catalogue') },
         'lens-comparison': { ...LensComparisonSectionChunk, Component: getbundle('lens-comparison') },
         'lens-hero-banner': { ...LensHeroBannerSectionChunk, Component: getbundle('lens-hero-banner') },
+        'lens-test': { ...LensTestSectionChunk, Component: getbundle('lens-test') },
         'lens-type-find': { ...LensTypeFindSectionChunk, Component: getbundle('lens-type-find') },
         'link': { ...LinkSectionChunk, Component: getbundle('link') },
         'locate-us': { ...LocateUsSectionChunk, Component: getbundle('locate-us') },

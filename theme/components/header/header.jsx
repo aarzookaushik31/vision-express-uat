@@ -25,10 +25,11 @@ import useHyperlocal from "./useHyperlocal";
 import CartIcon from "../../assets/images/single-row-cart.svg";
 import AngleDownIcon from "../../assets/images/header-angle-down.svg";
 import "@gofynd/theme-template/components/location-modal/location-modal.css";
-import { LANGUAGES } from "../../queries/languageQuery";
 import I18Dropdown from "./i18n-dropdown";
 import Tickerimage from "../../assets/images/tabler_eye-bolt.png";
 import Slider from "react-slick";
+import WishlistIcon from "../../assets/images/wishlistIconMobileHeader.png";
+import LocationIcon from "../../assets/images/locationIconMobileHeader.png";
 
 const LocationModal = React.lazy(
   () =>
@@ -359,6 +360,37 @@ const tickerSlides = rawTicker
                           </button>
                         </div>
                       )}
+
+
+
+                          
+                                     <button
+                                    type="button"
+                                    className={styles.wishlistIcon}
+                                     onClick={() => {
+                                      window.location.href = "/locate-us";
+                                    
+                                    }}
+                                  >
+                                      <img 
+                                          src={LocationIcon} 
+                                          alt="WishlistIcon" 
+                                        />
+                                  </button>
+                      
+                                    <button
+                                    type="button"
+                                    className={styles.wishlistIcon}
+                                     onClick={() => {
+                                      checkLogin("wishlist");
+                                    
+                                    }}
+                                  >
+                                      <img 
+                                          src={WishlistIcon} 
+                                          alt="WishlistIcon" 
+                                        />
+                                  </button>
 
 
                        <Navigation

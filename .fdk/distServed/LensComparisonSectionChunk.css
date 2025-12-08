@@ -1,0 +1,107 @@
+/*!*****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/less-loader/dist/cjs.js!./theme/styles/sections/lens-comparison.less ***!
+  \*****************************************************************************************************************************************************************/
+.theme-styles-sections-lens-comparison__comparisonSection--nmZfD {
+  background: #f8f7f5;
+  border-radius: 56px;
+  max-width: 1240px;
+  display: flex;
+  margin: 0 auto;
+  padding: 64px;
+  margin-bottom: 64px !important;
+}
+.theme-styles-sections-lens-comparison__cardsWrapper--I0uYY {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.theme-styles-sections-lens-comparison__card--w04rk {
+  background: transparent;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+.theme-styles-sections-lens-comparison__imageWrapper--ENeuP {
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.theme-styles-sections-lens-comparison__imageWrapper--ENeuP img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.theme-styles-sections-lens-comparison__cardFooter--Eio0S {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin-top: 32px;
+  border-radius: 16px;
+  height: 80px;
+}
+.theme-styles-sections-lens-comparison__badge--tQIJG {
+  font-size: 14px;
+  color: #444;
+  background: #fff;
+  border-radius: 8px;
+  padding: unset;
+  border: unset;
+  max-height: 64px;
+}
+.theme-styles-sections-lens-comparison__badge--tQIJG img {
+  width: 96px;
+  height: 64px;
+}
+.theme-styles-sections-lens-comparison__heading--LFN92 {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  width: 100%;
+  text-align: center;
+}
+.theme-styles-sections-lens-comparison__heading--LFN92 span {
+  font-family: Verdana;
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 150%;
+  color: #2e2b2c;
+}
+.theme-styles-sections-lens-comparison__heading--LFN92:last-child {
+  color: #5c2d91;
+}
+.theme-styles-sections-lens-comparison__heading--LFN92 img {
+  max-height: 36px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-comparison__comparisonSection--nmZfD {
+    border-radius: 16px;
+    padding: 20px;
+    margin: 40px 20px;
+  }
+  .theme-styles-sections-lens-comparison__cardsWrapper--I0uYY {
+    flex-direction: column;
+  }
+  .theme-styles-sections-lens-comparison__cardFooter--Eio0S {
+    margin-top: 15px;
+    height: 60px;
+  }
+  .theme-styles-sections-lens-comparison__badge--tQIJG img {
+    width: auto;
+    height: 50px;
+  }
+  .theme-styles-sections-lens-comparison__heading--LFN92 span {
+    font-size: 16px;
+  }
+  .theme-styles-sections-lens-comparison__heading--LFN92 img {
+    max-height: 20px;
+  }
+}
+
+
+/*# sourceMappingURL=LensComparisonSectionChunk.css.map*/

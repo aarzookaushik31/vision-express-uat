@@ -370,6 +370,15 @@
               "show_description": true
             }
           }
+        },
+        {
+          "page": "lens-test",
+          "settings": {
+            "props": {
+              "header": false,
+              "footer": false
+            }
+          }
         }
       ]
     }

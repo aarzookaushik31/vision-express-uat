@@ -1,0 +1,267 @@
+/*!*****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/less-loader/dist/cjs.js!./theme/styles/sections/trending-offers.less ***!
+  \*****************************************************************************************************************************************************************/
+.theme-styles-sections-trending-offers__slideshowSlider--IZf3f .slick-slide > div {
+  display: flex;
+}
+.theme-styles-sections-trending-offers__slideWrapper--BqHH3 {
+  padding: 0 8px;
+  position: relative;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 500px;
+  z-index: 10;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK h2 {
+  margin: 0 0 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFF;
+  line-height: 120%;
+  letter-spacing: 0;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__buttons--ZWLHI {
+  display: flex;
+  gap: 1rem;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__primaryBtn--FzrRt {
+  background-color: #9E007E;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__secondaryBtn--kUWaL {
+  background-color: transparent;
+  border: 2px solid #E8D2E4;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__primaryBtn--FzrRt,
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__secondaryBtn--kUWaL {
+  color: #FFF;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 1.75rem;
+  align-items: center;
+  display: flex;
+}
+.theme-styles-sections-trending-offers__trendingOffersSection--s2xu7 {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #fff;
+}
+.theme-styles-sections-trending-offers__sectionTitle--e_w35 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.theme-styles-sections-trending-offers__offersSlider--GbbsG .theme-styles-sections-trending-offers__slick-slide--HDKVP {
+  padding: 0 10px;
+}
+.theme-styles-sections-trending-offers__offerCardWrapper--ClOQQ {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.theme-styles-sections-trending-offers__offerCardContent--atCkc {
+  position: relative;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 16px;
+  min-height: 250px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-trending-offers__offerCardContent--atCkc {
+    flex-direction: column;
+  }
+}
+.theme-styles-sections-trending-offers__offerTextBlock--quLl2 {
+  text-align: left;
+  flex: 1;
+}
+.theme-styles-sections-trending-offers__offerTextBlock--quLl2 .theme-styles-sections-trending-offers__offerTitle--NqISG {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.theme-styles-sections-trending-offers__offerTextBlock--quLl2 .theme-styles-sections-trending-offers__offerDescription--aSXWX {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.theme-styles-sections-trending-offers__offerTextBlock--quLl2 .theme-styles-sections-trending-offers__offerCTA--HbzSN {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+.theme-styles-sections-trending-offers__offerImage--I8CRi {
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-left: 20px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-trending-offers__offerImage--I8CRi {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+.theme-styles-sections-trending-offers__sliderTitle--pQ7MP {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #222;
+}
+.theme-styles-sections-trending-offers__sectionHeading--KpVco {
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 32px;
+  padding-bottom: 2rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  color: #2E2B2C;
+}
+.theme-styles-sections-trending-offers__mainoffers--UJVY6 {
+  margin: auto;
+  max-width: 1280px;
+  padding: 0 20px;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK {
+  left: 6%;
+}
+.theme-styles-sections-trending-offers__slideContentt--JdWXQ img {
+  object-fit: cover !important;
+  aspect-ratio: 3 / 2;
+  max-height: 340px !important;
+  border-radius: 10px;
+}
+.theme-styles-sections-trending-offers__secondImageStyle--WXBj5 {
+  border-radius: 20px;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK h2 {
+  font-size: 32px;
+  line-height: 120%;
+  margin-bottom: 15px;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK p {
+  font-size: 14px !important;
+  color: #FFFFFFCC;
+  line-height: 120%;
+}
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__primaryBtn--FzrRt,
+.theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__secondaryBtn--kUWaL {
+  padding: 15px 32px !important;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .theme-styles-sections-trending-offers__slideWrapper--BqHH3 {
+    padding: 0px;
+  }
+  .theme-styles-sections-trending-offers__mainoffers--UJVY6 h2 {
+    font-size: 18px;
+  }
+  .theme-styles-sections-trending-offers__slideContentt--JdWXQ img {
+    object-fit: cover !important;
+    max-height: unset !important;
+    aspect-ratio: unset;
+    width: 100% !important;
+    border-radius: 20px;
+    aspect-ratio: 1 / 1;
+  }
+  .theme-styles-sections-trending-offers__textOverlayy--YCaKK {
+    top: auto;
+    bottom: 20px;
+    transform: translate(0);
+  }
+  .theme-styles-sections-trending-offers__textOverlayy--YCaKK h2 {
+    margin-bottom: 10px;
+  }
+  .theme-styles-sections-trending-offers__textOverlayy--YCaKK p {
+    margin-bottom: 10px;
+  }
+  .theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__primaryBtn--FzrRt {
+    padding: 10px 24px !important;
+  }
+  .theme-styles-sections-trending-offers__textOverlayy--YCaKK .theme-styles-sections-trending-offers__buttons--ZWLHI {
+    align-items: center;
+  }
+}
+ {
+  /* Trending Offers Section */
+}
+.custom-offers-section .slick-dots li.slick-active button {
+  background-color: #A15A95;
+  width: 60px;
+  height: 10px;
+}
+.custom-offers-section .slick-dots li:not(.slick-active) button {
+  filter: blur(2px);
+  border-radius: 100%;
+  background-color: #A15A9580;
+  width: 10px;
+  height: 10px;
+}
+.custom-offers-section .slick-list {
+  padding: 0px !important;
+  border-radius: 20px;
+}
+.custom-offers-section .slick-list .slick-slide {
+  width: 720px;
+}
+.custom-offers-section .slick-next {
+  top: 45%;
+  right: -50px;
+  z-index: 10;
+  border-radius: 50%;
+  background: #A15A9533 !important;
+  transform: unset;
+}
+.custom-offers-section .slick-prev {
+  top: 45%;
+  transform: unset;
+  left: -50px;
+  z-index: 10;
+  border-radius: 50%;
+  background: #A15A9533 !important;
+}
+.custom-offers-section .slick-prev path, .custom-offers-section .slick-next path {
+  stroke: #FFFFFF;
+}
+.custom-offers-section .slick-slider:has(.slick-dots) {
+  padding-bottom: 20px;
+}
+.custom-offers-section .slick-arrow + .slick-dots {
+  padding: 0;
+}
+@media (max-width: 767px) {
+  .custom-offers-section .slick-dots li.slick-active button {
+    background-color: #A15A95;
+    width: 36px;
+    height: 8px;
+  }
+  .custom-offers-section .slick-dots li:not(.slick-active) button {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+
+/*# sourceMappingURL=TrendingOffersSectionChunk.css.map*/

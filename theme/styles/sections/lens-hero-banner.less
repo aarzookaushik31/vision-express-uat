@@ -1,9 +1,14 @@
 .heroSection {
   background: #f5f5f5 no-repeat center center/cover;
   padding: 130px 20px;
+   background-image: var(--bg-desktop);
+     background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   @media (max-width: 768px) {
-    padding: 80px 20px;
+    background-image: var(--bg-mobile);
+     padding: 180px 20px 20px;
   }
 }
 
@@ -12,6 +17,10 @@
   margin: auto;
   display: flex;
   justify-content: flex-end;
+
+   @media (max-width: 768px) {
+     justify-content: center;
+   }
 
   .heroContentInner{
     max-width: 500px;
@@ -36,6 +45,7 @@
 
    @media (max-width: 768px) {
     max-width: 200px;
+    margin-bottom: 15px;
    }
 }
 
@@ -47,7 +57,7 @@
   margin-bottom: 30px;
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
@@ -75,6 +85,7 @@
         justify-content: space-between;
         width: 100%;
        margin-bottom: 8px;
+       gap: 5px;
       }
 
       .visionRowText{

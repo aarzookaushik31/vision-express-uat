@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/sections/lens-catalogue.less";
 
 function LensCatalogueTabs({ props, blocks }) {
@@ -19,15 +19,46 @@ function LensCatalogueTabs({ props, blocks }) {
 
 
   const getInitialTab = () => {
-  if (typeof window !== "undefined") {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("progressive")) return "progressive";
-  }
-  return "single";
-};
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("progressive")) return "progressive";
+    }
+    return "single";
+  };
 
-const [activeTab, setActiveTab] = useState(getInitialTab());
+  const [activeTab, setActiveTab] = useState(getInitialTab());
 
+
+    useEffect(() => {
+    const updateTabFromUrl = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tab = urlParams.has("progressive") ? "progressive" : "single";
+      setActiveTab(tab);
+    };
+
+    const wrapHistory = (type) => {
+      const orig = history[type];
+      return function (...args) {
+        const result = orig.apply(this, args);
+        window.dispatchEvent(new Event(type.toLowerCase()));
+        return result;
+      };
+    };
+    history.pushState = wrapHistory("pushState");
+    history.replaceState = wrapHistory("replaceState");
+
+    window.addEventListener("popstate", updateTabFromUrl);
+    window.addEventListener("pushstate", updateTabFromUrl);
+    window.addEventListener("replacestate", updateTabFromUrl);
+
+    updateTabFromUrl();
+
+    return () => {
+      window.removeEventListener("popstate", updateTabFromUrl);
+      window.removeEventListener("pushstate", updateTabFromUrl);
+      window.removeEventListener("replacestate", updateTabFromUrl);
+    };
+  }, []);
 
 
   const visibleBlocks = blocks.filter(

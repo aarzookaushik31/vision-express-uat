@@ -106,7 +106,7 @@ useEffect(() => {
         const maps = await new Promise((resolve, reject) => {
           if (window.google?.maps?.places) return resolve(window.google.maps);
           const script = document.createElement("script");
-          script.src = `https://maps.googleapis.com/maps/api/js?key=apikey&libraries=places`;
+          script.src = `https://maps.googleapis.com/maps/api/js?key=api-key&libraries=places`;
           script.async = true;
           script.defer = true;
           script.onload = () =>

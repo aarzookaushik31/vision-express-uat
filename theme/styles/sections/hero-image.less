@@ -94,6 +94,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
   }
 
   .cta_button {
@@ -111,7 +112,7 @@
     }
 
     @media @tablet {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 14px;
     }
   }
@@ -126,28 +127,31 @@
   .heroImageContainer{
 
     img{
-min-height: 400px;
+min-height: 300px;
 object-fit: cover !important;
     }
     
     .overlayItems{
 
       .header{
-        font-size: 30px !important;
+        font-size: 24px !important;
         margin-bottom: 15px;
       }
 
         .description{
-          font-size: 16px !important;
+          font-size: 14px !important;
         
         }
 
           .buttonContainer{
             gap: 8px;
+            flex-direction: column;
+            align-items: stretch;
           }
 
             .cta_button{
-              padding: 10px 30px;
+              padding: 12px 30px;
+              width: 100%;
             }
               }
 

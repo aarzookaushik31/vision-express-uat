@@ -209,7 +209,7 @@ function Search({
                 autoComplete="off"
                 defaultValue={searchText}
                 placeholder={
-                  isDoubleRowHeader ? t("resource.facets.search") : ""
+                  isDoubleRowHeader ? "Search 3800+ Products, 100+ Stores" : ""
                 }
                 onChange={(e) => setEnterSearchData(e)}
                 onKeyUp={(e) =>

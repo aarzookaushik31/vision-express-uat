@@ -211,7 +211,7 @@ useEffect(() => {
     if (!window.google) {
       const script = document.createElement("script");
       script.src =
-        "https://maps.googleapis.com/maps/api/js?key=apikey";
+        "https://maps.googleapis.com/maps/api/js?key=api-key";
       script.async = true;
       script.defer = true;
       script.onload = initMap;
@@ -384,6 +384,41 @@ const handleCityFilter = (city) => {
 };
 
 
+
+const applyCityFilter = () => {
+  if (selectedCities.length === 0) {
+    setFilteredStores(stores);
+  } else {
+    const selectedStores = stores.filter((s) =>
+      selectedCities.map((c) => c.toLowerCase()).includes(
+        s.store_city?.toLowerCase()
+      )
+    );
+    setFilteredStores(selectedStores);
+  }
+
+  setShowCityModal(false); 
+};
+
+
+
+const selectCityFilter = (city) => {
+  setSearchQuery("");
+  setError(null);
+
+  setSelectedCities((prev) => {
+    if (prev.includes(city)) {
+      return prev.filter((c) => c !== city);
+    } else {
+      return [...prev, city]; 
+    }
+  });
+};
+
+
+
+
+
 const handleClearFilter = () => {
   setSelectedCities([]);
   setFilteredStores(stores);
@@ -527,18 +562,29 @@ const cities = [
       .slice()
       .sort((a, b) => a.localeCompare(b))
       .map((city) => (
-        <button
-          key={city}
-          onClick={() => handleCityFilter(city)}
-         className={`${styles.cityModalButton} ${
-  selectedCities.includes(city) ? styles.activeCity : ""
-}`}
+      <button
+  key={city}
+  onClick={() => selectCityFilter(city)}
+  className={`${styles.cityModalButton} ${
+    selectedCities.includes(city) ? styles.activeCity : ""
+  }`}
+>
+  {city}
+</button>
 
-        >
-          {city}
-        </button>
       ))}
   </div>
+
+
+<div className={styles.applycityfilterContainer} >
+  <button
+  className={styles.applycityfilterbtn}
+  onClick={applyCityFilter}
+>
+  Apply
+</button></div>
+  
+
   </div>
 </Modal>
 

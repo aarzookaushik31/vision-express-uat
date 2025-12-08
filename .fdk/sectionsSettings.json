@@ -4574,6 +4574,12 @@
         "label": "Background Image"
       },
       {
+        "id": "background_image_mobile",
+        "type": "image_picker",
+        "default": "",
+        "label": "Background Image (Mobile)"
+      },
+      {
         "id": "logo",
         "type": "image_picker",
         "default": "",
@@ -4766,6 +4772,146 @@
           }
         ],
         "default": "0"
+      }
+    ]
+  },
+  "lens-test": {
+    "label": "Lens Test",
+    "props": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Logo Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_1",
+        "label": "Image: Age < 20"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_2",
+        "label": "Image: Age 20-40"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_3",
+        "label": "Image: Age 40+"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_platform_image",
+        "label": "Background Platform Image"
+      },
+      {
+        "type": "video",
+        "id": "vision_video",
+        "label": "Vision Question Video"
+      },
+      {
+        "type": "video",
+        "id": "life_video_1",
+        "label": "Video: Study & Screens"
+      },
+      {
+        "type": "video",
+        "id": "life_video_2",
+        "label": "Video: Home & Family"
+      },
+      {
+        "type": "video",
+        "id": "life_video_3",
+        "label": "Video: Work & Commute"
+      },
+      {
+        "type": "video",
+        "id": "life_video_4",
+        "label": "Video: Business Leaders"
+      },
+      {
+        "type": "video",
+        "id": "life_video_5",
+        "label": "Video: Specialist Work"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_1",
+        "label": "Icon: Study & Screens"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_2",
+        "label": "Icon: Home & Family"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_3",
+        "label": "Icon: Work & Commute"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_4",
+        "label": "Icon: Business Leaders"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_5",
+        "label": "Icon: Specialist Work"
+      },
+      {
+        "type": "image_picker",
+        "id": "studyscreens_image",
+        "label": "Study and Screens result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "homefamily_image",
+        "label": "Home and Family result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "workcommute_image",
+        "label": "Work and Commute result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "businessleaders_image",
+        "label": "Business Leaders result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "specialistwork_image",
+        "label": "Specialist Work result Image"
+      },
+      {
+        "type": "video",
+        "id": "progressive_normal_video",
+        "label": "Progressive Lens Video"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_normal_image",
+        "label": "Progressive Normal Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_wide_image",
+        "label": "Progressive Wide Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_digital_image",
+        "label": "Progressive Digital Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_customized_image",
+        "label": "Progressive Customized Result Image"
       }
     ]
   },

@@ -306,7 +306,7 @@ const tickerSlides = rawTicker
            
               <button
                 type="button"
-                className={`${styles.icon}`}
+                className={`${styles.icon} ${styles.findStoreicon}`}
                 aria-label={`Find store`}
                  onClick={() => {
                window.location.href = "/locate-us";

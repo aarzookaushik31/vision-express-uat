@@ -1,8 +1,8 @@
 import React, { useRef, useCallback } from "react";
 import FyImage from "@gofynd/theme-template/components/core/fy-image/fy-image";
 import "@gofynd/theme-template/components/core/fy-image/fy-image.css";
-import placeholderDesktop from "../assets/images/placeholder/application-banner-desktop.png";
-import placeholderMobile from "../assets/images/placeholder/application-banner-mobile.png";
+import placeholderDesktop from "../assets/images/placeholder.png";
+import placeholderMobile from "../assets/images/placeholder.png";
 import { FDKLink } from "fdk-core/components";
 import styles from "../styles/sections/application-banner.less";
 import Hotspot from "../components/hotspot/product-hotspot";

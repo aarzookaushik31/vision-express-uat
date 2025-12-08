@@ -1,0 +1,112 @@
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/less-loader/dist/cjs.js!./theme/styles/sections/lens-hero-banner.less ***!
+  \******************************************************************************************************************************************************************/
+.theme-styles-sections-lens-hero-banner__heroSection--ARbXC {
+  background: #f5f5f5 no-repeat center center / cover;
+  padding: 130px 20px;
+  background-image: var(--bg-desktop);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-hero-banner__heroSection--ARbXC {
+    background-image: var(--bg-mobile);
+    padding: 180px 20px 20px;
+  }
+}
+.theme-styles-sections-lens-hero-banner__heroContent--poz3j {
+  max-width: 1240px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-hero-banner__heroContent--poz3j {
+    justify-content: center;
+  }
+}
+.theme-styles-sections-lens-hero-banner__heroContent--poz3j .theme-styles-sections-lens-hero-banner__heroContentInner--ObieQ {
+  max-width: 500px;
+}
+.theme-styles-sections-lens-hero-banner__heroContent--poz3j.theme-styles-sections-lens-hero-banner__left--yObgg {
+  text-align: left;
+}
+.theme-styles-sections-lens-hero-banner__heroContent--poz3j.theme-styles-sections-lens-hero-banner__center--xJek9 {
+  text-align: center;
+}
+.theme-styles-sections-lens-hero-banner__heroContent--poz3j.theme-styles-sections-lens-hero-banner__right--FyEtu {
+  text-align: right;
+}
+.theme-styles-sections-lens-hero-banner__logo--dDJzY {
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-hero-banner__logo--dDJzY {
+    max-width: 200px;
+    margin-bottom: 15px;
+  }
+}
+.theme-styles-sections-lens-hero-banner__heading--evp2Q {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+  color: #2e2b2c;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-hero-banner__heading--evp2Q {
+    font-size: 14px;
+  }
+}
+.theme-styles-sections-lens-hero-banner__featureImage--FGB4r {
+  max-width: 200px;
+}
+@media (max-width: 768px) {
+  .theme-styles-sections-lens-hero-banner__featureImage--FGB4r {
+    max-width: 160px;
+  }
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw {
+  max-width: 370px;
+  margin: auto;
+  margin-top: 20px;
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw .theme-styles-sections-lens-hero-banner__visionRow--pGVQv {
+  box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+  gap: 5px;
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw .theme-styles-sections-lens-hero-banner__visionRowText--Nu4KS {
+  color: rgba(46, 43, 44, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.5px;
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw .theme-styles-sections-lens-hero-banner__rowBlocks--lYfPE {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw .theme-styles-sections-lens-hero-banner__visionBlock--IGTxG {
+  width: 20px;
+  height: 24px;
+  background-color: rgba(158, 0, 126, 0.2);
+  border-radius: 6px;
+  display: inline-block;
+}
+.theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw .theme-styles-sections-lens-hero-banner__visionBlock--IGTxG.theme-styles-sections-lens-hero-banner__filled--ROdy7 {
+  background-color: #9e007e;
+}
+
+
+/*# sourceMappingURL=LensHeroBannerSectionChunk.css.map*/

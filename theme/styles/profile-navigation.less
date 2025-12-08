@@ -1,6 +1,14 @@
 .profile-navigation-container{
     margin-bottom: 50px;
 
+
+
+ [class*="profile-navigation__mainView"] {
+flex-direction: row-reverse;
+ }
+
+
+
      [class*="profile-navigation__profilePageContainer"] {
 max-width: 1300px;
 margin: auto;
@@ -112,6 +120,14 @@ svg path{
     fill:rgba(158, 0, 126, 1) !important;
 }
  }
+
+
+[class*="profile-navigation__navContainer"]  ul > *:nth-child(1),
+[class*="profile-navigation__navContainer"] ul > *:nth-child(4) {
+  display: none !important;
+}
+
+
 
 
  [class*="profile-navigation__selected"]{

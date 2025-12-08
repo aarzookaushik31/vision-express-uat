@@ -1,44 +1,92 @@
 @import "../../styles/main.less";
 
 .notFoundContainer {
-  display: flex;
-  height: 664px;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  @media @tablet {
-    padding: 64px 16px;
-  }
+max-width: 1000px;
+margin: auto;
+padding: 40px 20px;
+
+@media @mobile{
+min-height: 80vh;
+display: flex;
+align-items: center;
+padding: 40px 0;
+}
+
   .container {
-    display: flex;
-    width: 532px;
-    padding: 0px 24px;
-    flex-direction: column;
-    align-items: center;
-    @media @tablet {
-      width: 100%;
-      padding: 0;
+    text-align: center;
+
+
+
+    .errorImgMobile{
+      display: none;
+      max-width: 100%;
+
+      @media @mobile{
+        display: block;
+      }
     }
-    gap: 32px;
-    .title {
-      text-align: center;
-    }
-    .btnPrimary {
-      height: 48px;
-      padding: 12px 32px;
-      gap: 4px;
-      border: 1px solid @ButtonPrimary;
-      border-radius: @ButtonRadius !important;
+
+    h1{
+      font-size: 38px;
+      font-weight: 700;
+      color:rgba(0, 0, 0, 0.8);
+      letter-spacing: 0px;
+      line-height: 120%;
       text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: -0.28px;
+
+      @media @mobile{
+        font-size: 28px;
+      }
+    }
+
+    .errorImgDesktop{
+      max-width: 100%;
+
+      @media @mobile{
+       display: none;
+      }
+    }
+
+    h2{
+      font-size: 32px;
+      font-weight: 700;
+      color:rgba(0, 0, 0, 0.8);
+      letter-spacing: 0px;
+      line-height: 120%;
+      margin-bottom: 16px;
+
+        @media @mobile{
+        font-size: 20px;
+      }
+    }
+
+    p{
+       font-size: 18px;
+      font-weight: 400;
+      color:rgba(0, 0, 0, 0.6);
+      letter-spacing: 0px;
+      line-height: 120%;
+      margin-bottom: 24px;
+
+
+        @media @mobile{
+        font-size: 14px;
+      }
+    }
+  
+    button {
+      padding: 15px 50px;
+      background-color: rgba(158, 0, 126, 1);
+      color: #fff;
+      border-radius: 500px !important;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0px;
 
       @media @tablet {
-        height: 44px;
-        font-size: 12px;
-        letter-spacing: -0.24px;
-        padding: 12px 20px;
+        font-size: 14px;
+        padding: 20px 45px;
       }
     }
   }

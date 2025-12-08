@@ -3,9 +3,15 @@ import styles from "../styles/sections/lens-hero-banner.less";
 
 function HeroSection({ props = {} }) {
   
-    const {background_image, logo, heading,feature_image, text_alignment,  near_filled,
+    const {background_image,background_image_mobile, logo, heading,feature_image, text_alignment,  near_filled,
              intermediate_filled,
              far_filled } = props;
+
+
+
+
+
+
 
 
     const renderFilledSpans = (count) => {
@@ -23,8 +29,9 @@ function HeroSection({ props = {} }) {
     <section
       className={styles.heroSection}
       style={{
-        backgroundImage: background_image?.value ? `url(${background_image.value})` : "none",
-      }}
+    "--bg-desktop": background_image?.value ? `url(${background_image.value})` : "none",
+    "--bg-mobile": background_image_mobile?.value ? `url(${background_image_mobile.value})` : "none",
+  }}
     >
       <div className={`${styles.heroContent} ${styles[text_alignment.value]}`}>
 
@@ -81,6 +88,7 @@ export const settings = {
   label: "Lens Hero Banner",
   props: [
     { id: "background_image", type: "image_picker", default: "", label: "Background Image" },
+     { id: "background_image_mobile", type: "image_picker", default: "", label: "Background Image (Mobile)" },
     { id: "logo", type: "image_picker", default: "", label: "Logo Image" },
     { id: "heading", type: "text", default: "Your Heading", label: "Heading" },
     { id: "feature_image", type: "image_picker", default: "", label: "Feature Image" },
