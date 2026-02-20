@@ -2508,7 +2508,6 @@ h5,
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-hero-banner--Utpk6 {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -2517,6 +2516,20 @@ h5,
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-hero-banner--Utpk6::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-unofficial--iuq2Z .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-hero-banner--Utpk6::after,
+.theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-dbyd--lBmt0 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-hero-banner--Utpk6::after {
+  display: none;
 }
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-banner-img-mobile--drN37 {
   width: 100%;
@@ -2528,14 +2541,20 @@ h5,
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-unofficial--iuq2Z .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-banner-content--ZQRJL,
+.theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-dbyd--lBmt0 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-banner-content--ZQRJL {
+  display: none;
 }
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-banner-content--ZQRJL h2 {
   color: #fff;
@@ -2554,7 +2573,7 @@ h5,
   .theme-page-layouts-profile-styles-profile-my-order-shipment-page__collection-banner-content--ZQRJL {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;
@@ -3311,7 +3330,6 @@ html body * {
 .theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -3320,6 +3338,20 @@ html body * {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-components-empty-state-empty-state__collection-unofficial--YVhgB .theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk::after,
+.theme-components-empty-state-empty-state__collection-dbyd--OjkVw .theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk::after {
+  display: none;
 }
 .theme-components-empty-state-empty-state__collection-banner-img-mobile--TbSQl {
   width: 100%;
@@ -3331,14 +3363,20 @@ html body * {
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-components-empty-state-empty-state__collection-unofficial--YVhgB .theme-components-empty-state-empty-state__collection-banner-content--VETKH,
+.theme-components-empty-state-empty-state__collection-dbyd--OjkVw .theme-components-empty-state-empty-state__collection-banner-content--VETKH {
+  display: none;
 }
 .theme-components-empty-state-empty-state__collection-banner-content--VETKH h2 {
   color: #fff;
@@ -3357,7 +3395,7 @@ html body * {
   .theme-components-empty-state-empty-state__collection-banner-content--VETKH {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;

@@ -322,6 +322,11 @@ function Component({
         touchMove: true,
         slidesToShow: 1
       }
+    }, {
+      breakpoint: 1025,
+      settings: {
+        arrows: false
+      }
     }]
   }), [autoplay?.value, slide_interval?.value, blocksData]);
   const dynamicStyles = {
@@ -593,7 +598,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"slideWrapper\":\"theme-styles-sections-exclusive-offers__slideWrapper--Qyh3q\",\"slideContenttt\":\"theme-styles-sections-exclusive-offers__slideContenttt--TKdEr\",\"textOverlayy\":\"theme-styles-sections-exclusive-offers__textOverlayy--vevNI\",\"buttons\":\"theme-styles-sections-exclusive-offers__buttons--bW5iO\",\"primaryBtn\":\"theme-styles-sections-exclusive-offers__primaryBtn--bXMGF\",\"secondaryBtn\":\"theme-styles-sections-exclusive-offers__secondaryBtn--S2v7i\",\"brand_name\":\"theme-styles-sections-exclusive-offers__brand_name--XwvBF\",\"exclusive-collections-section\":\"theme-styles-sections-exclusive-offers__exclusive-collections-section--T3YPC\",\"centerText\":\"theme-styles-sections-exclusive-offers__centerText--Ls_S8\",\"mainoffers\":\"theme-styles-sections-exclusive-offers__mainoffers--mrGdJ\",\"sectionHeading\":\"theme-styles-sections-exclusive-offers__sectionHeading--JtT71\"}";
-        // 1765175337715
+        // 1771504637148
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

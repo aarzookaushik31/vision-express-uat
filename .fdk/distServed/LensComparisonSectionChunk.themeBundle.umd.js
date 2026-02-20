@@ -232,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"comparisonSection\":\"theme-styles-sections-lens-comparison__comparisonSection--nmZfD\",\"cardsWrapper\":\"theme-styles-sections-lens-comparison__cardsWrapper--I0uYY\",\"card\":\"theme-styles-sections-lens-comparison__card--w04rk\",\"imageWrapper\":\"theme-styles-sections-lens-comparison__imageWrapper--ENeuP\",\"cardFooter\":\"theme-styles-sections-lens-comparison__cardFooter--Eio0S\",\"badge\":\"theme-styles-sections-lens-comparison__badge--tQIJG\",\"heading\":\"theme-styles-sections-lens-comparison__heading--LFN92\"}";
-        // 1765175336756
+        // 1771504636300
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

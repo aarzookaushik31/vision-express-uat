@@ -59,6 +59,8 @@ const FilterCategoryTabsSectionChunk = loadable(() => import(/* webpackChunkName
 
 const FindStoreSectionChunk = loadable(() => import(/* webpackChunkName:"FindStoreSectionChunk" */ './find-store.jsx'));
 
+const GlamARDemoSectionChunk = loadable(() => import(/* webpackChunkName:"GlamARDemoSectionChunk" */ './GlamARDemo.jsx'));
+
 const HeroImageSectionChunk = loadable(() => import(/* webpackChunkName:"HeroImageSectionChunk" */ './hero-image.jsx'));
 
 const HeroSliderWithTextSectionChunk = loadable(() => import(/* webpackChunkName:"HeroSliderWithTextSectionChunk" */ './hero-slider-with-text.jsx'));
@@ -121,6 +123,14 @@ const TrendingOffersSectionChunk = loadable(() => import(/* webpackChunkName:"Tr
 
 const TrustMarkerSectionChunk = loadable(() => import(/* webpackChunkName:"TrustMarkerSectionChunk" */ './trust-marker.jsx'));
 
+const VeCareClaimSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareClaimSectionChunk" */ './ve-care-claim.jsx'));
+
+const VeCareCoverageSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareCoverageSectionChunk" */ './ve-care-coverage.jsx'));
+
+const VeCareHeroBannerSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareHeroBannerSectionChunk" */ './ve-care-hero-banner.jsx'));
+
+const VeCarePricingSectionChunk = loadable(() => import(/* webpackChunkName:"VeCarePricingSectionChunk" */ './ve-care-pricing.jsx'));
+
 
 const getbundle = (type) => {
         switch(type) {
@@ -182,6 +192,8 @@ const getbundle = (type) => {
             return (props) => <FilterCategoryTabsSectionChunk {...props}/>;
         case 'find-store':
             return (props) => <FindStoreSectionChunk {...props}/>;
+        case 'GlamARDemo':
+            return (props) => <GlamARDemoSectionChunk {...props}/>;
         case 'hero-image':
             return (props) => <HeroImageSectionChunk {...props}/>;
         case 'hero-slider-with-text':
@@ -244,6 +256,14 @@ const getbundle = (type) => {
             return (props) => <TrendingOffersSectionChunk {...props}/>;
         case 'trust-marker':
             return (props) => <TrustMarkerSectionChunk {...props}/>;
+        case 've-care-claim':
+            return (props) => <VeCareClaimSectionChunk {...props}/>;
+        case 've-care-coverage':
+            return (props) => <VeCareCoverageSectionChunk {...props}/>;
+        case 've-care-hero-banner':
+            return (props) => <VeCareHeroBannerSectionChunk {...props}/>;
+        case 've-care-pricing':
+            return (props) => <VeCarePricingSectionChunk {...props}/>;
             default:
                 return null;
         }
@@ -280,6 +300,7 @@ export default {
         'featured-collection': { ...FeaturedCollectionSectionChunk, Component: getbundle('featured-collection') },
         'filter-category-tabs': { ...FilterCategoryTabsSectionChunk, Component: getbundle('filter-category-tabs') },
         'find-store': { ...FindStoreSectionChunk, Component: getbundle('find-store') },
+        'GlamARDemo': { ...GlamARDemoSectionChunk, Component: getbundle('GlamARDemo') },
         'hero-image': { ...HeroImageSectionChunk, Component: getbundle('hero-image') },
         'hero-slider-with-text': { ...HeroSliderWithTextSectionChunk, Component: getbundle('hero-slider-with-text') },
         'hero-video': { ...HeroVideoSectionChunk, Component: getbundle('hero-video') },
@@ -311,4 +332,8 @@ export default {
         'top-brands': { ...TopBrandsSectionChunk, Component: getbundle('top-brands') },
         'trending-offers': { ...TrendingOffersSectionChunk, Component: getbundle('trending-offers') },
         'trust-marker': { ...TrustMarkerSectionChunk, Component: getbundle('trust-marker') },
+        've-care-claim': { ...VeCareClaimSectionChunk, Component: getbundle('ve-care-claim') },
+        've-care-coverage': { ...VeCareCoverageSectionChunk, Component: getbundle('ve-care-coverage') },
+        've-care-hero-banner': { ...VeCareHeroBannerSectionChunk, Component: getbundle('ve-care-hero-banner') },
+        've-care-pricing': { ...VeCarePricingSectionChunk, Component: getbundle('ve-care-pricing') },
         };

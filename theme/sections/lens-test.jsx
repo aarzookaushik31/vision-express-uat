@@ -1,6 +1,5 @@
 import React, { useState, useEffect , useRef} from "react";
 import styles from "../styles/sections/lens-test.less";
-import BlurEffect from "../assets/images/blur-vision-lens.png";
 
 const questions = [
   {
@@ -51,6 +50,7 @@ const resultsMap = (props) => ({
     description: "Ideal for long screen hours & digital comfort.",
     image: props?.studyscreens_image?.value,
     link: "/sections/gadget-pro-lens",
+    logo: props?.gadget_pro_logo?.value,
     points: [
       "Reduces eye strain from screens & devices",
       "Includes blue-light protection",
@@ -63,6 +63,7 @@ const resultsMap = (props) => ({
     description: "Comfortable clarity for your daily routine.",
     image: props?.homefamily_image?.value,
     link: "/sections/gadget-pro-lens",
+    logo: props?.gadget_pro_logo?.value,
     points: [
       "Perfect for indoor and casual outdoor use",
       "Provides gentle eye protection from light",
@@ -75,6 +76,7 @@ const resultsMap = (props) => ({
     description: "Made for focus and comfort on the move.",
     image: props?.workcommute_image?.value,
     link: "/sections/drive-sure-lens",
+    logo: props?.drive_sure_logo?.value,
     points: [
       "Reduces glare while driving or traveling",
       "Enhances clarity in changing light",
@@ -87,6 +89,7 @@ const resultsMap = (props) => ({
     description: "Professional clarity with a premium look.",
     image: props?.businessleaders_image?.value,
      link: "/sections/clear-vision-lens",
+     logo: props?.clear_vision_logo?.value,
     points: [
       "Sharp vision for meetings and screens",
       "Anti-reflective for a polished appearance",
@@ -99,6 +102,7 @@ const resultsMap = (props) => ({
     description: "Designed for technical and detail-focused tasks.",
     image: props?.specialistwork_image?.value,
      link: "/sections/tru-vision-lens",
+     logo: props?.tru_vision_logo?.value,
     points: [
       "Delivers high-definition clarity and focus",
       "Enhances contrast for accurate vision",
@@ -114,6 +118,7 @@ const progressiveResultMap = (props) => ({
     image: props?.progressive_normal_image.value,
     title: "Regular lenses",
     link: "/sections/progressive-regular-lens",
+    logo: props?.regular_lens_logo?.value,
     description: "Everyday clarity with lasting comfort.",
     points: [
       "Great for reading and daily use at home",
@@ -126,6 +131,7 @@ const progressiveResultMap = (props) => ({
     image: props?.progressive_wide_image.value,
     title: "Comfort lenses",
      link: "/sections/progressive-comfort-lens",
+     logo: props?.comfort_lens_logo?.value,
     description: "All-day ease for active eyes.",
     points: [
       "Keeps eyes fresh, cool, and relaxed",
@@ -138,6 +144,7 @@ const progressiveResultMap = (props) => ({
     image: props?.progressive_digital_image.value,
     title: "Supreme lenses",
      link: "/sections/progressive-supreme-lens",
+     logo: props?.supreme_lens_logo?.value,
     description: "Premium clarity with total care.",
     points: [
       "Sharp vision in every light condition",
@@ -150,6 +157,7 @@ const progressiveResultMap = (props) => ({
     image: props?.progressive_customized_image.value,
     title: "Lumino lenses",
      link: "/sections/progressive-lumino-lens",
+     logo: props?.lumino_lens_logo?.value,
     description: "Smart vision that adapts to light.",
     points: [
       "Adjusts to brightness instantly and smoothly",
@@ -176,10 +184,10 @@ const progressiveDotsMap = {
 };
 
 const visionTimings = {
-  default: 3,
+  default: 2,
   near: 4,
   far: 6,
-  both: 8
+  both: 8,
 };
 
 
@@ -234,6 +242,8 @@ useEffect(() => {
     if (q.id === "age") {
       const firstImage = props[`age_image_${firstIndex + 1}`]?.value;
       setCurrentImage(firstImage);
+
+       setSelectedOption(q.options[firstIndex]);
     }
 
 
@@ -241,6 +251,8 @@ useEffect(() => {
       if (q.id === "lifestyle" && q.videoKeys) {
  const firstVideo = props[`life_video_${firstIndex + 1}`]?.value;
     setCurrentLifestyleVideo(firstVideo);
+
+     setSelectedOption(q.options[firstIndex]);
 
   }
 
@@ -274,9 +286,6 @@ useEffect(() => {
   setSelectedOption(null);
 }
 
-
-
-    setSelectedOption(q.options[firstIndex]);
   }
 
 
@@ -505,8 +514,7 @@ const jumpToLensType = (type) => {
 };
 
 
-
-
+const previousLensType = useRef("normal");
 
 const handleSlider = (e) => {
   const value = Number(e.target.value);
@@ -515,62 +523,36 @@ const handleSlider = (e) => {
     clearInterval(sliderIntervalRef.current);
     sliderIntervalRef.current = null;
   }
-  
+
   setSliderValue(value);
 
-  let type = "normal";
-  if (value < 25) type = "normal";
-  else if (value < 50) type = "wide";
-  else if (value < 75) type = "digital";
-  else type = "customized";
+  let newType = "normal";
+  if (value < 25) newType = "normal";
+  else if (value < 50) newType = "wide";
+  else if (value < 75) newType = "digital";
+  else newType = "customized";
 
-  setLensType(type);
+  // Detect if the tab actually changed
+  const tabChanged = previousLensType.current !== newType;
 
-  const { start, end } = timeline[type];
-  const relative = (value % 25) / 25;
-  const targetTime = start + (end - start) * relative;
+  // Always update lens type
+  setLensType(newType);
 
-  if (videoRef.current) {
-    const video = videoRef.current;
-    const currentTime = video.currentTime;
-    
-    // Clear any existing intervals
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    
-    video.pause();
-    
-    if (currentTime > targetTime) {
-      // Reverse playback using setInterval
-      intervalRef.current = setInterval(() => {
-        if (video.currentTime <= targetTime) {
-          clearInterval(intervalRef.current);
-          intervalRef.current = null;
-          video.currentTime = targetTime;
-        } else {
-          video.currentTime -= 0.033;
-        }
-      }, 33);
-      
-    } else if (currentTime < targetTime) {
-      // Play forward with actual video playback
-      video.playbackRate = 1;
-      video.play();
-      
-      const checkForward = () => {
-        if (video.currentTime >= targetTime) {
-          video.pause();
-          video.currentTime = targetTime;
-        } else {
-          requestAnimationFrame(checkForward);
-        }
-      };
-      requestAnimationFrame(checkForward);
-    }
+  // If tab did NOT change → do NOT play video
+  if (!tabChanged) {
+    return;
   }
+
+  // Save new tab for next comparison
+  previousLensType.current = newType;
+
+  // NOW play the video using the same animation used on tab click
+  jumpToLensType(newType);
 };
+
+
+
+
 
 const handleTabClick = (type) => {
   setLensType(type);
@@ -674,7 +656,7 @@ const handleTabClick = (type) => {
     return (
       <div className={styles["lens-test-section"]}>
         <div className={styles["card-wrapper"]}>
-          <div className={styles.card}>
+          <div className={`${styles.card} ${styles[q.id]}`}>
             <div key={currentQuestion} className={styles["question-wrapper"]}>
               
               {/* Logo */}
@@ -961,7 +943,16 @@ const handleTabClick = (type) => {
               <div className={`${styles["result-box"]} ${styles.animateBottom}`}>
                 <img src={logo_image?.value} className={styles["result-logo"]} />
 
-                <h3 className={styles["result-lens-title"]}>{resultData.title}</h3>
+               {resultData.logo ? (
+  <img 
+    src={resultData.logo} 
+    alt={resultData.title} 
+    className={styles["result-lens-logo"]} 
+  />
+) : (
+  <h3 className={styles["result-lens-title"]}>{resultData.title}</h3>
+)}
+
                 <p className={styles["result-lens-description"]}>{resultData.description}</p>
 
                 <ul className={styles["result-points"] }>
@@ -1030,6 +1021,16 @@ export const settings = {
     { type: "image_picker", id: "progressive_wide_image", label: "Progressive Wide Result Image" },
     { type: "image_picker", id: "progressive_digital_image", label: "Progressive Digital Result Image" },
     { type: "image_picker", id: "progressive_customized_image", label: "Progressive Customized Result Image" },
+
+
+    { type: "image_picker", id: "gadget_pro_logo", label: "Gadget Pro Lens Logo" },
+    { type: "image_picker", id: "drive_sure_logo", label: "Drive Sure Lens Logo" },
+    { type: "image_picker", id: "clear_vision_logo", label: "Clear Vision Lens Logo" },
+    { type: "image_picker", id: "tru_vision_logo", label: "Tru Vision Lens Logo" },
+    { type: "image_picker", id: "regular_lens_logo", label: "Regular Lens Logo" },
+    { type: "image_picker", id: "comfort_lens_logo", label: "Comfort Lens Logo" },
+    { type: "image_picker", id: "supreme_lens_logo", label: "Supreme Lens Logo" },
+    { type: "image_picker", id: "lumino_lens_logo", label: "Lumino Lens Logo" },
   ]
 };
 

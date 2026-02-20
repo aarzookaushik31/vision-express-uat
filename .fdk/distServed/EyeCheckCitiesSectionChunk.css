@@ -103,6 +103,16 @@
   color: #9e007e;
   font-weight: 400;
 }
+@media (max-width: 1025px) {
+  .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD .theme-styles-sections-eye-check-cities__content-wrapper--Sy_Ec {
+    max-width: 500px;
+  }
+}
+@media (max-width: 800px) and (min-width: 768px) {
+  .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD .theme-styles-sections-eye-check-cities__city-highlight-section-container--vGaQa {
+    background-position: center -100px;
+  }
+}
 @media (max-width: 768px) {
   .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD {
     padding: 0 20px;
@@ -130,9 +140,6 @@
   .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD .theme-styles-sections-eye-check-cities__city-highlight-bottom-row--HEgvc .theme-styles-sections-eye-check-cities__cities-list--V0ABM {
     gap: 8px;
     flex-wrap: wrap;
-  }
-  .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD .theme-styles-sections-eye-check-cities__city-highlight-bottom-row--HEgvc .theme-styles-sections-eye-check-cities__city-item--Sikha {
-    flex: 1;
   }
   .theme-styles-sections-eye-check-cities__city-highlight-section--ep2JD .theme-styles-sections-eye-check-cities__city-highlight-bottom-row--HEgvc .theme-styles-sections-eye-check-cities__city-item--Sikha picture {
     width: 24px;

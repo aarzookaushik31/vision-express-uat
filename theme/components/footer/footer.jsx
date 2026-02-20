@@ -76,6 +76,8 @@ function Footer({ fpi }) {
     ? globalConfig?.logo?.replace("original", "resize-h:100")
     : fallbackFooterLogo;
 
+
+
   const isSocialLinks = Object.values(contactInfo?.social_links ?? {}).some(
     (value) => value?.link?.trim?.()?.length > 0
   );
@@ -306,7 +308,7 @@ function Footer({ fpi }) {
             <div className={styles.footer__bottom}>
               <div className={styles.footerContainer}>
                 <div className={`${styles.copyright} b1 ${styles.fontBody}`}>
-                 © Vision Express 2025. All Right Reserved
+       {contactInfo.copyright_text ? contactInfo.copyright_text : "© Vision Express 2026. All Right Reserved"}
                 </div>
                
               </div>

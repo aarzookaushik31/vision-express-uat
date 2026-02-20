@@ -10,9 +10,9 @@
   position: relative;
 }
 
-.desktopBannerImage img{
-  min-height: 400px;
-}
+// .desktopBannerImage img{
+//   min-height: 400px;
+// }
 
 .textOverlay {
   position: absolute;
@@ -236,10 +236,149 @@
 
 .slideContent img {
   object-fit: cover !important;
-  max-height: 540px !important;
   height: 100%;
   width: 100%;
 }
+
+
+
+
+
+
+
+@media(max-width: 1025px){
+ .slideContent {
+  h2{
+    font-size: 28px;
+    max-width: 400px;
+  }
+
+  img{
+    object-position: left;
+  }
+ }
+
+
+
+
+
+
+
+
+
+ .textOverlay {
+ 
+        h2{
+          margin: 0 0 0.5rem;
+        }
+
+        p {
+            margin: 0 0 0.9rem;
+        }
+            span{
+      font-size: 12px;
+       margin: 0 0 0.5rem;
+    }
+        .secondaryBtn {
+            display: none;
+        }
+        .primaryBtn {
+            padding: 0.9rem 1.3rem;
+            font-size: 0.75rem;
+        }
+
+          .extraBlockwrapper{
+         flex-direction: column;
+         gap: 10px;
+         align-items: start;
+         justify-content: flex-end;
+
+          .tickerWrapper{
+            gap: 5px;
+
+              .tickerContainer{
+                 padding-right: 4px;
+
+              .tickerIconContainer{
+                font-size: 14px;
+                padding: 12px;
+              }
+
+            p{
+              font-size: 14px;
+            }
+          }
+
+           .tickerRatingContainer{
+            font-size: 20px;
+            padding: 15px;
+            white-space: nowrap;
+          }
+        }
+
+         
+            }
+
+
+              .extraBlockContainer{
+                padding: 14px;
+                border-radius: 16px;
+
+                 .blockHeading{
+                  font-size: 16px;
+                 }
+                  .blockSubheading{
+                    font-size: 10px;
+                  }
+
+                  .blockImageWrapper{
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 12px;
+                    margin-bottom: 0;
+                    min-width: 72px;
+
+                    picture{
+                      aspect-ratio: auto;
+                    }
+
+                    img{
+                      aspect-ratio: 1;
+    object-position: center;
+    object-fit: cover !important;
+    transform: scale(1);
+                    }
+                  }
+
+                 .inputGroup {
+                 
+                   .findButton {
+                    font-size: 12px;
+                    white-space: nowrap;
+                    padding: 10px 12px;
+                   }
+                }
+
+              }
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
 
 @media (max-width: 767px) {
   header {
@@ -433,10 +572,23 @@
 
 
 
+  
+@media(max-width: 1025px){
+  .heroSlideshowWithTextSection {
+      
+      .textoverlay-1 h2{
+        font-size: 28px;
+        max-width: 400px;
+      }
+
+
+   }
+}
 
 
 
-@media(max-width: 768px){
+
+@media(max-width: 1025px){
 
 .heroSlideshowWithTextSection .slick-dots{
   bottom: 0px !important;
@@ -473,3 +625,7 @@
 }
 
 }
+
+
+
+

@@ -55,7 +55,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .theme-styles-sections-text-and-image-with-grid__imageGridSection--V_9nO .theme-styles-sections-text-and-image-with-grid__rightGrid--sY2hq {
     grid-template-columns: 1fr;
   }
@@ -103,6 +103,11 @@
   line-height: 150%;
   letter-spacing: -0.5px;
   color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 1025px) {
+  .theme-styles-sections-text-and-image-with-grid__imageGridSection--V_9nO .theme-styles-sections-text-and-image-with-grid__leftContent--rdNHO h2 {
+    font-size: 28px;
+  }
 }
 @media (max-width: 768px) {
   .theme-styles-sections-text-and-image-with-grid__imageGridSection--V_9nO {

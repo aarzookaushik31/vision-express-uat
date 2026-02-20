@@ -24,6 +24,9 @@ function ProductDescription({ fpi }) {
       <div
         className={`${styles.productDescWrapper} basePageContainer margin0auto`}
       >
+
+<script src="https://cdn.glamar.io/sdk/wrapper"></script> 
+
         {page?.value === "product-description" && (
           <SectionRenderer
             sections={sections}
@@ -34,6 +37,9 @@ function ProductDescription({ fpi }) {
       </div>
       {/* Note: Do not remove the below empty div, it is required to insert sticky add to cart at the bottom of the sections */}
       <div id="sticky-add-to-cart" className={styles.stickyAddToCart}></div>
+
+       
+
     </>
   );
 }

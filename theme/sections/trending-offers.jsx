@@ -101,6 +101,12 @@ const config = useMemo(
           touchMove: true
         },
       },
+       {
+                  breakpoint: 1025,
+                  settings: {
+                  arrows: false,
+                  },
+              },
     ],
   }),
   [autoplay?.value, slide_interval?.value, blocksData]

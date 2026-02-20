@@ -171,6 +171,14 @@
   font-size: 14px;
   text-transform: uppercase;
 }
+@media (max-width: 1025px) {
+  .theme-styles-sections-trending-offers__mainoffers--UJVY6 h2 {
+    font-size: 24px;
+  }
+  .theme-styles-sections-trending-offers__mainoffers--UJVY6 p {
+    max-width: 300px;
+  }
+}
 @media (max-width: 767px) {
   .theme-styles-sections-trending-offers__slideWrapper--BqHH3 {
     padding: 0px;
@@ -184,7 +192,6 @@
     aspect-ratio: unset;
     width: 100% !important;
     border-radius: 20px;
-    aspect-ratio: 1 / 1;
   }
   .theme-styles-sections-trending-offers__textOverlayy--YCaKK {
     top: auto;

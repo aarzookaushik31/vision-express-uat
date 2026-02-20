@@ -439,7 +439,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"blogSliderSection\":\"theme-styles-sections-blog-slider__blogSliderSection--gLPk7\",\"heading\":\"theme-styles-sections-blog-slider__heading--JMV7e\",\"subHeading\":\"theme-styles-sections-blog-slider__subHeading--sMKgM\",\"sliderWrapper\":\"theme-styles-sections-blog-slider__sliderWrapper--lipM3\",\"blogCard\":\"theme-styles-sections-blog-slider__blogCard--j0vAf\",\"imageWrapper\":\"theme-styles-sections-blog-slider__imageWrapper--OSQ_c\",\"content\":\"theme-styles-sections-blog-slider__content--IbIFW\",\"meta\":\"theme-styles-sections-blog-slider__meta--S2EJz\",\"blogCardContent\":\"theme-styles-sections-blog-slider__blogCardContent--KZMTC\",\"title\":\"theme-styles-sections-blog-slider__title--VLKdg\",\"summary\":\"theme-styles-sections-blog-slider__summary--qEQU1\"}";
-        // 1765175338394
+        // 1771504638179
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

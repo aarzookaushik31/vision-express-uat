@@ -1,0 +1,128 @@
+.veCareClaim {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color:rgba(46, 43, 44, 1);
+  margin-bottom: 20px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.iconWrapper img{
+  width: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color:rgba(46, 43, 44, 1);
+  line-height: 120%;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.stepDescription {
+  font-size: 14px;
+  line-height: 120%;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.terms {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.termsHeader {
+  width: 100%;
+  border: none;
+  padding: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  color:rgba(26, 26, 26, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow img{
+  width: 32px;
+  transition: transform 0.3s ease;
+}
+
+.open img{
+  transform: rotate(180deg);
+}
+
+.termsContent {
+  padding: 30px 20px;
+  padding-top: 0px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.termsContent ul{
+  padding-left: 30px;
+  list-style: disc;
+  line-height: 150%;
+}
+
+
+.termsContent ul li{
+  margin-bottom: 5px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .veCareClaim{
+    padding: 50px 20px;
+  }
+  .heading {
+    font-size: 24px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .stepCard{
+    padding: 30px;
+  }
+  .termsHeader {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+
+  .arrow img{
+    width: 27px;
+  }
+
+  .termsContent{
+    padding: 20px;
+    padding-top:0px;
+  }
+}

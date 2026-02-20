@@ -51,9 +51,11 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   return (
     <>
       {getHelmet({ seo })}
-      <div className="margin0auto basePageContainer custom-listing-container">
+    <div
+  className={`margin0auto basePageContainer custom-listing-container collection-${slug}`}
+>
 
-      <div className="collection-hero-banner">
+      <div className="collection-hero-banner ">
   <img
           src={assets?.banners?.desktop || placeholderDesktop}
           alt={listingProps.title || "Collection Banner"}

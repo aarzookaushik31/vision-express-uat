@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"comparisonSection\":\"theme-styles-sections-solo-image__comparisonSection--d2SXE\",\"desktopImg\":\"theme-styles-sections-solo-image__desktopImg--ofGHS\",\"mobileImg\":\"theme-styles-sections-solo-image__mobileImg--MraqD\",\"imageWrapper\":\"theme-styles-sections-solo-image__imageWrapper--pA5Kh\"}";
-        // 1765175330674
+        // 1771504631981
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

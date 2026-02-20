@@ -9,7 +9,7 @@
 .theme-styles-sections-book-test-form__booktest_container--F1VAf .theme-styles-sections-book-test-form__breadcrumbs--mMVst {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(26, 26, 26, 0.3);
+  color: rgba(26, 26, 26, 0.7);
   line-height: 100%;
   letter-spacing: 0px;
   text-transform: uppercase;
@@ -32,7 +32,8 @@
   margin-bottom: 40px;
 }
 .theme-styles-sections-book-test-form__booktest_container--F1VAf .theme-styles-sections-book-test-form__bookTestTabs--Oc7ef div {
-  color: #383838;
+  text-align: center;
+  color: #0e0000;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
@@ -243,6 +244,11 @@
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+}
+@media (max-width: 1025px) {
+  .theme-styles-sections-book-test-form__booktest_container--F1VAf .theme-styles-sections-book-test-form__booktest_content--F2XH1 {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 768px) {
   .theme-styles-sections-book-test-form__booktest_container--F1VAf .theme-styles-sections-book-test-form__bookTestTabs--Oc7ef {

@@ -40,6 +40,25 @@
       0 4px 4px rgba(0, 0, 0, 0.15);
 }
 
+
+.megamenuWrapper.simpleDropdown{
+  position: absolute;
+  top: 80%;
+  width: max-content; 
+  min-width: 180px;
+
+
+  .megamenuContainer{
+    padding: 40px 20px;
+  padding-bottom: 20px;
+  }
+}
+
+.navigationItem:last-child .megamenuWrapper.simpleDropdown {
+  left: auto;
+  right: 0;
+}
+
 .megamenuContainer {
   max-width: 1300px;
   margin: auto;
@@ -83,11 +102,22 @@
 
   .l2NavigationText{
            color: rgba(46, 43, 44, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .l3NavigationTextnotabs{
+           color: rgba(46, 43, 44, 1);
     font-size: 12px;
     font-weight: 400;
     line-height: 100%;
     letter-spacing: 0px;
     width: 100%;
+    padding-left: 30px;
     margin-bottom: 20px;
   }
 
@@ -304,4 +334,11 @@
   fill: @HeaderIcon;
   min-width: 24px;
   transform: translate(5px, 0px);
+}
+
+@media(max-width: 1000px){
+  
+.headerNavigation{
+  gap: 10px;
+}
 }

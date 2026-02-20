@@ -311,7 +311,6 @@
 .theme-styles-sections-image-gallery__collection-hero-banner--OpVys {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -320,6 +319,20 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-styles-sections-image-gallery__collection-hero-banner--OpVys::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-styles-sections-image-gallery__collection-unofficial--MUAg2 .theme-styles-sections-image-gallery__collection-hero-banner--OpVys::after,
+.theme-styles-sections-image-gallery__collection-dbyd--Tlb_i .theme-styles-sections-image-gallery__collection-hero-banner--OpVys::after {
+  display: none;
 }
 .theme-styles-sections-image-gallery__collection-banner-img-mobile--RdNz7 {
   width: 100%;
@@ -331,14 +344,20 @@
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-styles-sections-image-gallery__collection-unofficial--MUAg2 .theme-styles-sections-image-gallery__collection-banner-content--_IT1f,
+.theme-styles-sections-image-gallery__collection-dbyd--Tlb_i .theme-styles-sections-image-gallery__collection-banner-content--_IT1f {
+  display: none;
 }
 .theme-styles-sections-image-gallery__collection-banner-content--_IT1f h2 {
   color: #fff;
@@ -357,7 +376,7 @@
   .theme-styles-sections-image-gallery__collection-banner-content--_IT1f {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;

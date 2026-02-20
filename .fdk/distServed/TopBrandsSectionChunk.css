@@ -117,6 +117,13 @@
   left: 50%;
   transform: translateX(-50%);
 }
+@media (max-width: 1025px) {
+  .theme-styles-sections-top-brands__top-brands-section--zFzyi .theme-styles-sections-top-brands__heading-row--BXSOZ {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
 @media (max-width: 768px) {
   .theme-styles-sections-top-brands__top-brands-section--zFzyi {
     padding: 50px 20px;
@@ -155,6 +162,7 @@
   .theme-styles-sections-top-brands__top-brands-section--zFzyi .theme-styles-sections-top-brands__brand-section-content--bjYcI .theme-styles-sections-top-brands__brand-featured-slider--inKVE {
     width: 100%;
     max-width: 450px;
+    margin: auto;
   }
 }
 

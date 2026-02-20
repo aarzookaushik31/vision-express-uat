@@ -311,7 +311,6 @@
 .theme-styles-sections-product-description__collection-hero-banner--NelYx {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -320,6 +319,20 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-styles-sections-product-description__collection-hero-banner--NelYx::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-styles-sections-product-description__collection-unofficial--MD2Fi .theme-styles-sections-product-description__collection-hero-banner--NelYx::after,
+.theme-styles-sections-product-description__collection-dbyd--QLuke .theme-styles-sections-product-description__collection-hero-banner--NelYx::after {
+  display: none;
 }
 .theme-styles-sections-product-description__collection-banner-img-mobile--_43v4 {
   width: 100%;
@@ -331,14 +344,20 @@
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-styles-sections-product-description__collection-unofficial--MD2Fi .theme-styles-sections-product-description__collection-banner-content--cmgnp,
+.theme-styles-sections-product-description__collection-dbyd--QLuke .theme-styles-sections-product-description__collection-banner-content--cmgnp {
+  display: none;
 }
 .theme-styles-sections-product-description__collection-banner-content--cmgnp h2 {
   color: #fff;
@@ -357,7 +376,7 @@
   .theme-styles-sections-product-description__collection-banner-content--cmgnp {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;

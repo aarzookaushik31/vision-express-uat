@@ -539,7 +539,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"slideWrapper\":\"theme-styles-sections-image-slide-show__slideWrapper--YQ810\",\"dIszp\":\"theme-styles-sections-image-slide-show__dIszp--rwsaL\",\"efzS3\":\"theme-styles-sections-image-slide-show__efzS3--U2PbJ\",\"NpDWp\":\"theme-styles-sections-image-slide-show__NpDWp--KvBDK\",\"slick-dots\":\"theme-styles-sections-image-slide-show__slick-dots--bf5in\",\"slick-active\":\"theme-styles-sections-image-slide-show__slick-active--gOO6c\",\"slick-next\":\"theme-styles-sections-image-slide-show__slick-next--t0qqW\",\"slick-prev\":\"theme-styles-sections-image-slide-show__slick-prev--Toq2c\",\"slick-slider\":\"theme-styles-sections-image-slide-show__slick-slider--Lf4cM\",\"slick-arrow\":\"theme-styles-sections-image-slide-show__slick-arrow--GmLoa\",\"section_687f20e215e7a579d29de88c\":\"theme-styles-sections-image-slide-show__section_687f20e215e7a579d29de88c--tZCof\"}";
-        // 1765175336765
+        // 1771504636311
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

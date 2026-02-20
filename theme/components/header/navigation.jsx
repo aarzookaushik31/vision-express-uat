@@ -624,6 +624,8 @@ const goBack = (level) => {
               className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2`}
             >
               {convertActionToUrl(l2nav?.action) ? (
+
+                <>
                 <FDKLink
                   className={styles.navLink}
                   action={l2nav?.action}
@@ -634,6 +636,24 @@ const goBack = (level) => {
                 >
                   {l2nav.display}
                 </FDKLink>
+
+                 {!!l2nav?.sub_navigation?.length && (
+                            <div className={styles.l3NavigationBlock}>
+                              {l2nav?.sub_navigation.map((l3nav, l3index) => (
+                                <FDKLink
+                                  key={`${l3nav.display}_${l3index}`}
+                                  action={l3nav?.action}
+                                  className={styles.l3NavigationItem}
+                                >
+                                  <NavLogo nav={l3nav} />
+                                  <div>{l3nav.display}</div>
+                                </FDKLink>
+                              ))}
+                            </div>
+                          )}
+
+              </>
+
               ) : (
                 <span
                   onClick={() => {

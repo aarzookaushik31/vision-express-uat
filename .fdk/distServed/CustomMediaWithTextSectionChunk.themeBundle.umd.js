@@ -271,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"sectionWrapper\":\"theme-styles-sections-custom-image-text__sectionWrapper--NlY1E\",\"container\":\"theme-styles-sections-custom-image-text__container--QYwsZ\",\"reverse\":\"theme-styles-sections-custom-image-text__reverse--Y_FNh\",\"fullWidth\":\"theme-styles-sections-custom-image-text__fullWidth--bayNf\",\"imageWrapper\":\"theme-styles-sections-custom-image-text__imageWrapper--yHJPY\",\"textWrapper\":\"theme-styles-sections-custom-image-text__textWrapper--DM2sI\",\"heading\":\"theme-styles-sections-custom-image-text__heading--S__5U\",\"content\":\"theme-styles-sections-custom-image-text__content--GJiiP\",\"button\":\"theme-styles-sections-custom-image-text__button--zxLov\",\"bottomContent\":\"theme-styles-sections-custom-image-text__bottomContent--EGVRk\"}";
-        // 1765175338385
+        // 1771504637570
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

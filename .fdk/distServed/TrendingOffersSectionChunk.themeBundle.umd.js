@@ -324,6 +324,11 @@ function Component({
         draggable: false,
         touchMove: true
       }
+    }, {
+      breakpoint: 1025,
+      settings: {
+        arrows: false
+      }
     }]
   }), [autoplay?.value, slide_interval?.value, blocksData]);
   const dynamicStyles = {
@@ -606,7 +611,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"slideshowSlider\":\"theme-styles-sections-trending-offers__slideshowSlider--IZf3f\",\"slideWrapper\":\"theme-styles-sections-trending-offers__slideWrapper--BqHH3\",\"textOverlayy\":\"theme-styles-sections-trending-offers__textOverlayy--YCaKK\",\"buttons\":\"theme-styles-sections-trending-offers__buttons--ZWLHI\",\"primaryBtn\":\"theme-styles-sections-trending-offers__primaryBtn--FzrRt\",\"secondaryBtn\":\"theme-styles-sections-trending-offers__secondaryBtn--kUWaL\",\"trendingOffersSection\":\"theme-styles-sections-trending-offers__trendingOffersSection--s2xu7\",\"sectionTitle\":\"theme-styles-sections-trending-offers__sectionTitle--e_w35\",\"offersSlider\":\"theme-styles-sections-trending-offers__offersSlider--GbbsG\",\"slick-slide\":\"theme-styles-sections-trending-offers__slick-slide--HDKVP\",\"offerCardWrapper\":\"theme-styles-sections-trending-offers__offerCardWrapper--ClOQQ\",\"offerCardContent\":\"theme-styles-sections-trending-offers__offerCardContent--atCkc\",\"offerTextBlock\":\"theme-styles-sections-trending-offers__offerTextBlock--quLl2\",\"offerTitle\":\"theme-styles-sections-trending-offers__offerTitle--NqISG\",\"offerDescription\":\"theme-styles-sections-trending-offers__offerDescription--aSXWX\",\"offerCTA\":\"theme-styles-sections-trending-offers__offerCTA--HbzSN\",\"offerImage\":\"theme-styles-sections-trending-offers__offerImage--I8CRi\",\"sliderTitle\":\"theme-styles-sections-trending-offers__sliderTitle--pQ7MP\",\"sectionHeading\":\"theme-styles-sections-trending-offers__sectionHeading--KpVco\",\"mainoffers\":\"theme-styles-sections-trending-offers__mainoffers--UJVY6\",\"slideContentt\":\"theme-styles-sections-trending-offers__slideContentt--JdWXQ\",\"secondImageStyle\":\"theme-styles-sections-trending-offers__secondImageStyle--WXBj5\"}";
-        // 1765175330668
+        // 1771504631410
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

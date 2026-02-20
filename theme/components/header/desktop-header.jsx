@@ -346,7 +346,7 @@ const tickerSlides = rawTicker
           
 
            { globalConfig?.logo_menu_alignment === "layout_3" &&
-           <FDKLink to="/">
+           <FDKLink  className={styles.headerlogo} to="/">
             <img
               className={styles.logo}
               style={{

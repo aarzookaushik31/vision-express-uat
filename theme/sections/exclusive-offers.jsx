@@ -98,6 +98,12 @@ export function Component({ props, blocks, globalConfig, preset }) {
             slidesToShow: 1,
             },
         },
+         {
+            breakpoint: 1025,
+            settings: {
+            arrows: false,
+            },
+        },
         ],
     }),
     [autoplay?.value, slide_interval?.value, blocksData]

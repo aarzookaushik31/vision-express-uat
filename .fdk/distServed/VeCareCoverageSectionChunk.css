@@ -1,0 +1,107 @@
+/*!******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/less-loader/dist/cjs.js!./theme/styles/sections/ve-care-coverage.less ***!
+  \******************************************************************************************************************************************************************/
+.theme-styles-sections-ve-care-coverage__veCareCoverage--QwiaR {
+  padding: 80px 20px;
+}
+.theme-styles-sections-ve-care-coverage__container--LNfMo {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.theme-styles-sections-ve-care-coverage__header--DwqNL {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.theme-styles-sections-ve-care-coverage__logoBlock--hMnAW {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.theme-styles-sections-ve-care-coverage__logoBlock--hMnAW img {
+  max-width: 235px;
+}
+.theme-styles-sections-ve-care-coverage__bar--j5UXo {
+  width: 4px;
+  height: 96px;
+  background: #9e007e;
+}
+.theme-styles-sections-ve-care-coverage__description--KYwrh {
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 0.7);
+}
+.theme-styles-sections-ve-care-coverage__description--KYwrh span {
+  color: #9e007e;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.theme-styles-sections-ve-care-coverage__cards--YekcU {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.theme-styles-sections-ve-care-coverage__card--XCx4T {
+  background: #fcf6fc;
+  border-radius: 14px;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.theme-styles-sections-ve-care-coverage__cardLabel--h0Gxi {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0px;
+  color: #9e007e;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.theme-styles-sections-ve-care-coverage__cardTitle--X2VRK {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-bottom: 16px;
+}
+.theme-styles-sections-ve-care-coverage__cardMeta--_eIc0 {
+  font-size: 16px;
+  line-height: 120%;
+  color: rgba(0, 0, 0, 0.5);
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .theme-styles-sections-ve-care-coverage__veCareCoverage--QwiaR {
+    padding: 50px 20px;
+  }
+  .theme-styles-sections-ve-care-coverage__header--DwqNL {
+    gap: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .theme-styles-sections-ve-care-coverage__bar--j5UXo {
+    height: 65px;
+  }
+  .theme-styles-sections-ve-care-coverage__logoBlock--hMnAW img {
+    max-width: 170px;
+  }
+  .theme-styles-sections-ve-care-coverage__cards--YekcU {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .theme-styles-sections-ve-care-coverage__card--XCx4T {
+    padding: 30px;
+  }
+  .theme-styles-sections-ve-care-coverage__cardTitle--X2VRK {
+    font-size: 20px;
+  }
+  .theme-styles-sections-ve-care-coverage__cardMeta--_eIc0 {
+    font-size: 14px;
+  }
+}
+
+
+/*# sourceMappingURL=VeCareCoverageSectionChunk.css.map*/

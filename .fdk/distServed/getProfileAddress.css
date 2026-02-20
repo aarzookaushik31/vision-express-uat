@@ -772,7 +772,6 @@ h5,
 .theme-page-layouts-profile-address-profile-address-page__collection-hero-banner--FHuDZ {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -781,6 +780,20 @@ h5,
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-page-layouts-profile-address-profile-address-page__collection-hero-banner--FHuDZ::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-page-layouts-profile-address-profile-address-page__collection-unofficial--z6PBT .theme-page-layouts-profile-address-profile-address-page__collection-hero-banner--FHuDZ::after,
+.theme-page-layouts-profile-address-profile-address-page__collection-dbyd--TzLPx .theme-page-layouts-profile-address-profile-address-page__collection-hero-banner--FHuDZ::after {
+  display: none;
 }
 .theme-page-layouts-profile-address-profile-address-page__collection-banner-img-mobile--Y0P2T {
   width: 100%;
@@ -792,14 +805,20 @@ h5,
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-page-layouts-profile-address-profile-address-page__collection-unofficial--z6PBT .theme-page-layouts-profile-address-profile-address-page__collection-banner-content--xwFSy,
+.theme-page-layouts-profile-address-profile-address-page__collection-dbyd--TzLPx .theme-page-layouts-profile-address-profile-address-page__collection-banner-content--xwFSy {
+  display: none;
 }
 .theme-page-layouts-profile-address-profile-address-page__collection-banner-content--xwFSy h2 {
   color: #fff;
@@ -818,7 +837,7 @@ h5,
   .theme-page-layouts-profile-address-profile-address-page__collection-banner-content--xwFSy {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;

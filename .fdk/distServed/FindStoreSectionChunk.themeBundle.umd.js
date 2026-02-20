@@ -115,10 +115,18 @@ function Component(input = {}) {
     buttonText
   } = props || {};
   const [pincode, setPincode] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
-  const isWindow = typeof window !== "undefined";
-  const isMobile = isWindow && window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   const bgImage = isMobile ? mobileBackgroundImage?.value || _assets_images_placeholder_slideshow_mobile2_jpg__WEBPACK_IMPORTED_MODULE_4__ : backgroundImage?.value || _assets_images_placeholder_slideshow_desktop2_jpg__WEBPACK_IMPORTED_MODULE_3__;
-  const isHome = isWindow && window.location && window.location.pathname === "/";
+  console.log(isMobile);
+  const isHome = window.location && window.location.pathname === "/";
   const handleFindStore = () => {
     if (pincode) {
       window.location.href = `/locate-us?pincode=${encodeURIComponent(pincode)}`;
@@ -155,7 +163,7 @@ function Component(input = {}) {
     alt: "Find"
   }), " ", buttonText?.value || "Find Stores")))));
 }
-_s(Component, "OyuqAH1AYp6lK97miInEFWsUaz4=");
+_s(Component, "4sr1cgJgaRClx8d05gFRX4oLhOY=");
 _c = Component;
 Component.displayName = "FindStoreComponent";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Component);
@@ -244,7 +252,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"findStoreSection\":\"theme-styles-sections-find-store__findStoreSection--onp6b\",\"overlay\":\"theme-styles-sections-find-store__overlay--cEIPk\",\"homepageFindStore\":\"theme-styles-sections-find-store__homepageFindStore--DL6Z6\",\"contentWrapper\":\"theme-styles-sections-find-store__contentWrapper--MZVga\",\"inputGroup\":\"theme-styles-sections-find-store__inputGroup--o94ml\",\"pincodeInput\":\"theme-styles-sections-find-store__pincodeInput--6Wy5O\",\"findButton\":\"theme-styles-sections-find-store__findButton--I5SKJ\"}";
-        // 1765175337705
+        // 1771504636327
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

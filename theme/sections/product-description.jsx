@@ -21,6 +21,7 @@ import Badges from "../page-layouts/pdp/components/badges/badges";
 import StickyAddToCart from "../page-layouts/pdp/components/sticky-addtocart/sticky-addtocart";
 import MoreOffers from "../page-layouts/pdp/components/offers/more-offers";
 import StoreModal from "../page-layouts/pdp/components/store/store-modal";
+import PdpHighlights from "../page-layouts/pdp/components/product-highlight/product-highlight";
 import EmptyState from "../components/empty-state/empty-state";
 import {
   isEmptyOrNull,
@@ -46,6 +47,7 @@ import ReturnIcon from "../assets/images/return.png";
 import ExchangeIcon from "../assets/images/exchange.png";
 import WarrantyIcon from "../assets/images/warranty.png";
 import WishlistIcon from "../assets/images/wishlist";
+
 
 export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   const fpi = useFPI();
@@ -80,6 +82,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [showStoreModal, setShowStoreModal] = useState(false);
   const [isLoadingCart, setIsLaodingCart] = useState(false);
+
 
   const getBlockConfigValue = (block, id) => block?.props?.[id]?.value ?? "";
   const { showSnackbar } = useSnackbar();
@@ -124,6 +127,10 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
 
       if (block.type === "product_tax_label") {
         currentProps.tax_label = getBlockConfigValue(block, "tax_label") || "";
+      }
+
+       if (block.type === "product_highlights") {
+        currentProps.tax_label = getBlockConfigValue(block, "product_highlights") || "";
       }
 
       if (block.type === "product_price") {
@@ -306,6 +313,13 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     setCurrentSize(size);
     setShowSizeDropdown(false);
   };
+
+
+
+
+
+
+  
 
   useEffect(() => {
     if (
@@ -491,6 +505,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
 
   return (
     <>
+
       <div className={`${styles.mainContainer}`}>
         <BreadCrumb
           productData={productDetails}
@@ -650,9 +665,19 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                                 />
                               )}
                            </div>
+              
                         </div>
 
                       );
+
+
+
+ case "product_highlights":
+    return (
+ <PdpHighlights highlights={productDetails?.highlights} />
+    );
+
+
 
                      case "product_tax_label":
                       return (
@@ -1419,17 +1444,6 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
       {isRunningOnClient() &&
         document?.getElementById("sticky-add-to-cart") &&
         !disable_cart &&
@@ -1676,6 +1690,11 @@ export const settings = {
           default: "t:resource.default_values.tax_label",
         },
       ],
+    },
+     {
+      type: "product_highlights",
+      name: "Product Highlights",
+      props: [],
     },
     {
       type: "short_description",
@@ -1925,6 +1944,7 @@ export const settings = {
       { name: "t:resource.sections.product_description.product_name" },
       { name: "t:resource.sections.product_description.product_price" },
       { name: "t:resource.sections.product_description.product_tax_label" },
+       { name: "t:resource.sections.product_description.product_highlights" },
       { name: "t:resource.sections.product_description.short_description" },
       { name: "t:resource.sections.product_description.product_variants" },
       { name: "t:resource.sections.product_description.seller_details" },

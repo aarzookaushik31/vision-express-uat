@@ -247,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"top-brands-section\":\"theme-styles-sections-top-brands__top-brands-section--zFzyi\",\"top-brands-section-content\":\"theme-styles-sections-top-brands__top-brands-section-content--rgoTz\",\"heading-row\":\"theme-styles-sections-top-brands__heading-row--BXSOZ\",\"brand-section-content\":\"theme-styles-sections-top-brands__brand-section-content--bjYcI\",\"brands-grid\":\"theme-styles-sections-top-brands__brands-grid--C1KCF\",\"brand-block\":\"theme-styles-sections-top-brands__brand-block--mCE1B\",\"view-all-link\":\"theme-styles-sections-top-brands__view-all-link--y4PoP\",\"brand-featured-slider\":\"theme-styles-sections-top-brands__brand-featured-slider--inKVE\",\"featured-slide\":\"theme-styles-sections-top-brands__featured-slide--P1gJr\",\"brand-featured-section-brand-image\":\"theme-styles-sections-top-brands__brand-featured-section-brand-image--xvSfn\",\"brand-button\":\"theme-styles-sections-top-brands__brand-button--ApZNf\"}";
-        // 1765175330672
+        // 1771504631412
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

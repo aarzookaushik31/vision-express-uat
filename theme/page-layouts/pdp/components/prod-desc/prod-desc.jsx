@@ -21,10 +21,10 @@ function ProdDesc({ product, config, customClass }) {
     details: product?.description || "",
     title: t("resource.product.product_description"),
   });
-  const [productHighlight, setProductHighlight] = useState({
-    details: product?.highlights || [],
-    title: t("resource.product.product_highlights"),
-  });
+  // const [productHighlight, setProductHighlight] = useState({
+  //   details: product?.highlights || [],
+  //   title: t("resource.product.product_highlights"),
+  // });
 
   useEffect(() => {
     setActiveTab(getInitialActiveTab(product));
@@ -32,10 +32,10 @@ function ProdDesc({ product, config, customClass }) {
       ...productDescription,
       details: product?.description || "",
     });
-    setProductHighlight({
-      ...productHighlight,
-      details: product?.highlights || [],
-    });
+    // setProductHighlight({
+    //   ...productHighlight,
+    //   details: product?.highlights || [],
+    // });
   }, [product]);
 
   const isGroupedAttrAvailable = (attribute) => attribute?.details?.length;
@@ -59,14 +59,15 @@ function ProdDesc({ product, config, customClass }) {
 
   const isDescriptionTabs = () => config?.variant_position?.value === "tabs";
 
-  const isProductHighlightAvailable = () =>
-    productHighlight?.details?.length > 0;
+  // const isProductHighlightAvailable = () =>
+  //   productHighlight?.details?.length > 0;
+
+
   const isProductDescAvailable = () =>
     productDescription?.details?.length > 0 &&
     !productDescription?.details.startsWith("<style");
 
   const isDisplayDataAvailable = () =>
-    isProductHighlightAvailable() ||
     isProductDescAvailable() ||
     getGroupedAttributes().some((attr) => isGroupedAttrAvailable(attr));
 
@@ -96,7 +97,9 @@ function ProdDesc({ product, config, customClass }) {
               ]}
             </FyAccordion>
           )}
-          {isProductHighlightAvailable() && (
+
+
+          {/* {isProductHighlightAvailable() && (
             <FyAccordion>
               {[
                 <div className={styles.accordiontitle}>{productHighlight?.title}</div>,
@@ -107,7 +110,7 @@ function ProdDesc({ product, config, customClass }) {
                 </ul>,
               ]}
             </FyAccordion>
-          )}
+          )} */}
 
 
 

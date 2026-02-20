@@ -182,7 +182,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"shopCategorySection\":\"theme-styles-sections-shop-by-category-grid__shopCategorySection--CDftT\",\"heading\":\"theme-styles-sections-shop-by-category-grid__heading--UtRnB\",\"grid\":\"theme-styles-sections-shop-by-category-grid__grid--X12eV\",\"gridItem\":\"theme-styles-sections-shop-by-category-grid__gridItem--lK8pB\",\"imageContainer\":\"theme-styles-sections-shop-by-category-grid__imageContainer--zjYZE\",\"overlay\":\"theme-styles-sections-shop-by-category-grid__overlay--d3aAx\",\"item1\":\"theme-styles-sections-shop-by-category-grid__item1--N5Vm2\",\"item2\":\"theme-styles-sections-shop-by-category-grid__item2--UGMb7\",\"item3\":\"theme-styles-sections-shop-by-category-grid__item3--HRgnp\",\"item4\":\"theme-styles-sections-shop-by-category-grid__item4--xNYc_\",\"item5\":\"theme-styles-sections-shop-by-category-grid__item5--QCZjZ\",\"item6\":\"theme-styles-sections-shop-by-category-grid__item6--uBRLJ\"}";
-        // 1765175330678
+        // 1771504631987
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

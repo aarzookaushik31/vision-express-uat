@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"infoBlocksSection\":\"theme-styles-sections-collection-banner-links__infoBlocksSection--uVkn8\",\"block\":\"theme-styles-sections-collection-banner-links__block--gRBWW\",\"content\":\"theme-styles-sections-collection-banner-links__content--s7V1t\",\"arrow\":\"theme-styles-sections-collection-banner-links__arrow--pIvVa\"}";
-        // 1765175338391
+        // 1771504637853
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

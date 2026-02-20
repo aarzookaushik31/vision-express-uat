@@ -26,6 +26,12 @@
   width: 180px;
   height: auto;
 }
+.theme-styles-sections-lens-test__age--mus3J .theme-styles-sections-lens-test__brand-image--Vs4jE,
+.theme-styles-sections-lens-test__vision--FDbdk .theme-styles-sections-lens-test__brand-image--Vs4jE,
+.theme-styles-sections-lens-test__lifestyle--f5f9D .theme-styles-sections-lens-test__brand-image--Vs4jE {
+  position: absolute;
+  top: 0;
+}
 .theme-styles-sections-lens-test__hero--LMmOo {
   position: relative;
   height: 100%;
@@ -70,6 +76,8 @@
 .theme-styles-sections-lens-test__brand--GzOvk {
   max-width: 208px;
   margin: auto;
+  position: relative;
+  z-index: 4;
 }
 .theme-styles-sections-lens-test__brand--GzOvk img {
   width: 100%;
@@ -83,7 +91,7 @@
   line-height: 120%;
 }
 .theme-styles-sections-lens-test__subheading--JzQb6 {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   margin-bottom: 25px;
   line-height: 120%;
@@ -344,6 +352,12 @@ video {
   margin: auto;
   line-height: 120%;
 }
+.theme-styles-sections-lens-test__result-lens-logo--y6xYl {
+  width: 200px;
+  margin: auto;
+  margin-bottom: 5px;
+  display: block;
+}
 /* Glasses Image container */
 .theme-styles-sections-lens-test__result-glasses--afz6O {
   margin-bottom: 10px;
@@ -363,8 +377,8 @@ video {
 }
 /* Logo inside result box */
 .theme-styles-sections-lens-test__result-logo--vLgjC {
-  width: 208px;
-  margin: 0 auto 22px;
+  width: 120px;
+  margin: 0 auto 10px;
 }
 /* Lens title */
 .theme-styles-sections-lens-test__result-lens-title--xnkUD {

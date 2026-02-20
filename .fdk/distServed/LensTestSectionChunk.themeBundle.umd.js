@@ -46,16 +46,6 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["LensTestSectionChunk"],{
 
-/***/ "./theme/assets/images/blur-vision-lens.png":
-/*!**************************************************!*\
-  !*** ./theme/assets/images/blur-vision-lens.png ***!
-  \**************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/cd2e3bfe4431257422f6.png";
-
-/***/ }),
-
 /***/ "./theme/sections/lens-test.jsx":
 /*!**************************************!*\
   !*** ./theme/sections/lens-test.jsx ***!
@@ -71,12 +61,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/sections/lens-test.less */ "./theme/styles/sections/lens-test.less");
-/* harmony import */ var _assets_images_blur_vision_lens_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/blur-vision-lens.png */ "./theme/assets/images/blur-vision-lens.png");
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
 
 var _s = __webpack_require__.$Refresh$.signature();
-
 
 
 const questions = [{
@@ -104,6 +92,7 @@ const resultsMap = props => ({
     description: "Ideal for long screen hours & digital comfort.",
     image: props?.studyscreens_image?.value,
     link: "/sections/gadget-pro-lens",
+    logo: props?.gadget_pro_logo?.value,
     points: ["Reduces eye strain from screens & devices", "Includes blue-light protection", "Lightweight and great for all-day wear", "Available in multiple colors and styles"]
   },
   "Home & Family": {
@@ -111,6 +100,7 @@ const resultsMap = props => ({
     description: "Comfortable clarity for your daily routine.",
     image: props?.homefamily_image?.value,
     link: "/sections/gadget-pro-lens",
+    logo: props?.gadget_pro_logo?.value,
     points: ["Perfect for indoor and casual outdoor use", "Provides gentle eye protection from light", "Designed for long home hours", "Stylish, durable and easy to wear"]
   },
   "Work & Commute": {
@@ -118,6 +108,7 @@ const resultsMap = props => ({
     description: "Made for focus and comfort on the move.",
     image: props?.workcommute_image?.value,
     link: "/sections/drive-sure-lens",
+    logo: props?.drive_sure_logo?.value,
     points: ["Reduces glare while driving or traveling", "Enhances clarity in changing light", "Lightweight for busy workdays", "Offers both UV and screen protection"]
   },
   "Business Leaders": {
@@ -125,6 +116,7 @@ const resultsMap = props => ({
     description: "Professional clarity with a premium look.",
     image: props?.businessleaders_image?.value,
     link: "/sections/clear-vision-lens",
+    logo: props?.clear_vision_logo?.value,
     points: ["Sharp vision for meetings and screens", "Anti-reflective for a polished appearance", "Comfortable during long hours at work", "Sleek and elegant frame options"]
   },
   "Specialist Work": {
@@ -132,6 +124,7 @@ const resultsMap = props => ({
     description: "Designed for technical and detail-focused tasks.",
     image: props?.specialistwork_image?.value,
     link: "/sections/tru-vision-lens",
+    logo: props?.tru_vision_logo?.value,
     points: ["Delivers high-definition clarity and focus", "Enhances contrast for accurate vision", "Custom coatings for specialist needs", "Stable, precise fit for long sessions"]
   }
 });
@@ -140,6 +133,7 @@ const progressiveResultMap = props => ({
     image: props?.progressive_normal_image.value,
     title: "Regular lenses",
     link: "/sections/progressive-regular-lens",
+    logo: props?.regular_lens_logo?.value,
     description: "Everyday clarity with lasting comfort.",
     points: ["Great for reading and daily use at home", "Gentle on eyes, reduces strain naturally", "Clear, reliable, and easy to wear daily", "Durable for everyday life and comfort"]
   },
@@ -147,6 +141,7 @@ const progressiveResultMap = props => ({
     image: props?.progressive_wide_image.value,
     title: "Comfort lenses",
     link: "/sections/progressive-comfort-lens",
+    logo: props?.comfort_lens_logo?.value,
     description: "All-day ease for active eyes.",
     points: ["Keeps eyes fresh, cool, and relaxed", "Prevents dryness and eye fatigue", "Soft, light, and breathable design", "Effortless comfort throughout the day"]
   },
@@ -154,6 +149,7 @@ const progressiveResultMap = props => ({
     image: props?.progressive_digital_image.value,
     title: "Supreme lenses",
     link: "/sections/progressive-supreme-lens",
+    logo: props?.supreme_lens_logo?.value,
     description: "Premium clarity with total care.",
     points: ["Sharp vision in every light condition", "Advanced anti-glare protection", "Steady focus for screens and reading", "Long-lasting comfort and superior quality"]
   },
@@ -161,6 +157,7 @@ const progressiveResultMap = props => ({
     image: props?.progressive_customized_image.value,
     title: "Lumino lenses",
     link: "/sections/progressive-lumino-lens",
+    logo: props?.lumino_lens_logo?.value,
     description: "Smart vision that adapts to light.",
     points: ["Adjusts to brightness instantly and smoothly", "Reduces glare indoors and outdoors", "Enhances color depth and contrast", "Stylish, protective, and crystal clear"]
   }
@@ -190,7 +187,7 @@ const progressiveDotsMap = {
   customized: 9
 };
 const visionTimings = {
-  default: 3,
+  default: 2,
   near: 4,
   far: 6,
   both: 8
@@ -238,10 +235,12 @@ function Component({
       if (q.id === "age") {
         const firstImage = props[`age_image_${firstIndex + 1}`]?.value;
         setCurrentImage(firstImage);
+        setSelectedOption(q.options[firstIndex]);
       }
       if (q.id === "lifestyle" && q.videoKeys) {
         const firstVideo = props[`life_video_${firstIndex + 1}`]?.value;
         setCurrentLifestyleVideo(firstVideo);
+        setSelectedOption(q.options[firstIndex]);
       }
       if (q.id === "vision") {
         if (visionVideoRef.current) {
@@ -265,7 +264,6 @@ function Component({
         }
         setSelectedOption(null);
       }
-      setSelectedOption(q.options[firstIndex]);
     }
     if (currentStep === "progressive") {
       console.log("progressive lens question");
@@ -420,6 +418,7 @@ function Component({
       requestAnimationFrame(checkForward);
     }
   };
+  const previousLensType = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)("normal");
   const handleSlider = e => {
     const value = Number(e.target.value);
     if (sliderIntervalRef.current) {
@@ -427,51 +426,25 @@ function Component({
       sliderIntervalRef.current = null;
     }
     setSliderValue(value);
-    let type = "normal";
-    if (value < 25) type = "normal";else if (value < 50) type = "wide";else if (value < 75) type = "digital";else type = "customized";
-    setLensType(type);
-    const {
-      start,
-      end
-    } = timeline[type];
-    const relative = value % 25 / 25;
-    const targetTime = start + (end - start) * relative;
-    if (videoRef.current) {
-      const video = videoRef.current;
-      const currentTime = video.currentTime;
+    let newType = "normal";
+    if (value < 25) newType = "normal";else if (value < 50) newType = "wide";else if (value < 75) newType = "digital";else newType = "customized";
 
-      // Clear any existing intervals
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-      video.pause();
-      if (currentTime > targetTime) {
-        // Reverse playback using setInterval
-        intervalRef.current = setInterval(() => {
-          if (video.currentTime <= targetTime) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-            video.currentTime = targetTime;
-          } else {
-            video.currentTime -= 0.033;
-          }
-        }, 33);
-      } else if (currentTime < targetTime) {
-        // Play forward with actual video playback
-        video.playbackRate = 1;
-        video.play();
-        const checkForward = () => {
-          if (video.currentTime >= targetTime) {
-            video.pause();
-            video.currentTime = targetTime;
-          } else {
-            requestAnimationFrame(checkForward);
-          }
-        };
-        requestAnimationFrame(checkForward);
-      }
+    // Detect if the tab actually changed
+    const tabChanged = previousLensType.current !== newType;
+
+    // Always update lens type
+    setLensType(newType);
+
+    // If tab did NOT change → do NOT play video
+    if (!tabChanged) {
+      return;
     }
+
+    // Save new tab for next comparison
+    previousLensType.current = newType;
+
+    // NOW play the video using the same animation used on tab click
+    jumpToLensType(newType);
   };
   const handleTabClick = type => {
     setLensType(type);
@@ -559,7 +532,7 @@ function Component({
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["card-wrapper"]
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"].card
+      className: `${_styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"].card} ${_styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"][q.id]}`
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       key: currentQuestion,
       className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["question-wrapper"]
@@ -739,7 +712,11 @@ function Component({
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
       src: logo_image?.value,
       className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["result-logo"]
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    }), resultData.logo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+      src: resultData.logo,
+      alt: resultData.title,
+      className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["result-lens-logo"]
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
       className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["result-lens-title"]
     }, resultData.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
       className: _styles_sections_lens_test_less__WEBPACK_IMPORTED_MODULE_1__["default"]["result-lens-description"]
@@ -759,7 +736,7 @@ function Component({
   }
   return null;
 }
-_s(Component, "CgEG3EA0Xjm6oFgoo148jOLUm5Y=");
+_s(Component, "dJ36q4BCOTMXEPvQwFdQY6ztFos=");
 _c = Component;
 const settings = {
   label: "Lens Test",
@@ -871,6 +848,38 @@ const settings = {
     type: "image_picker",
     id: "progressive_customized_image",
     label: "Progressive Customized Result Image"
+  }, {
+    type: "image_picker",
+    id: "gadget_pro_logo",
+    label: "Gadget Pro Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "drive_sure_logo",
+    label: "Drive Sure Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "clear_vision_logo",
+    label: "Clear Vision Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "tru_vision_logo",
+    label: "Tru Vision Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "regular_lens_logo",
+    label: "Regular Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "comfort_lens_logo",
+    label: "Comfort Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "supreme_lens_logo",
+    label: "Supreme Lens Logo"
+  }, {
+    type: "image_picker",
+    id: "lumino_lens_logo",
+    label: "Lumino Lens Logo"
   }]
 };
 Component.settings = settings;
@@ -922,11 +931,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"lens-test-section":"theme-styles-sections-lens-test__lens-test-section--joE9E","card-wrapper":"theme-styles-sections-lens-test__card-wrapper--jT8a4","card":"theme-styles-sections-lens-test__card--_i4yI","brand":"theme-styles-sections-lens-test__brand--GzOvk","hero":"theme-styles-sections-lens-test__hero--LMmOo","hero-photo":"theme-styles-sections-lens-test__hero-photo--l_BfH","content":"theme-styles-sections-lens-test__content--uYtsS","heading":"theme-styles-sections-lens-test__heading--XG5La","subheading":"theme-styles-sections-lens-test__subheading--JzQb6","questionContentWrapper":"theme-styles-sections-lens-test__questionContentWrapper--Fop7q","video-wrapper":"theme-styles-sections-lens-test__video-wrapper--W1boM","questionVideo":"theme-styles-sections-lens-test__questionVideo--OBaqO","question-wrapper":"theme-styles-sections-lens-test__question-wrapper--BPKBw","question-subtitle":"theme-styles-sections-lens-test__question-subtitle--sLyte","question-title":"theme-styles-sections-lens-test__question-title--MA85U","options":"theme-styles-sections-lens-test__options--mCHWp","option":"theme-styles-sections-lens-test__option--MWSOG","selected":"theme-styles-sections-lens-test__selected--eSIRX","button":"theme-styles-sections-lens-test__button--XyN6a","button-primary":"theme-styles-sections-lens-test__button-primary--vtIZT","buttonIcon":"theme-styles-sections-lens-test__buttonIcon--qbSIB","nextQuestionbutton":"theme-styles-sections-lens-test__nextQuestionbutton--HypkZ","counter":"theme-styles-sections-lens-test__counter--_adQj","lifestyle-options":"theme-styles-sections-lens-test__lifestyle-options--PE7cY","lifestyle-option":"theme-styles-sections-lens-test__lifestyle-option--Lohdn","lifestyle-icon-wrapper":"theme-styles-sections-lens-test__lifestyle-icon-wrapper--PmT42","lifestyle-selected":"theme-styles-sections-lens-test__lifestyle-selected--NnGED","lifestyle-icon":"theme-styles-sections-lens-test__lifestyle-icon--q8QO_","lifestyle-option-text":"theme-styles-sections-lens-test__lifestyle-option-text--Kol7r","lifestyle-glasses-wrapper":"theme-styles-sections-lens-test__lifestyle-glasses-wrapper--Dkgkt","lifestyle-video":"theme-styles-sections-lens-test__lifestyle-video--KiDNB","lifestyle-video-copy":"theme-styles-sections-lens-test__lifestyle-video-copy--eGNDX","zoomfadeIn":"theme-styles-sections-lens-test__zoomfadeIn--QROLN","fadeZoomInAnim":"theme-styles-sections-lens-test__fadeZoomInAnim--OM4ip","zoomfadeOut":"theme-styles-sections-lens-test__zoomfadeOut--MsuwG","fadeZoomOutAnim":"theme-styles-sections-lens-test__fadeZoomOutAnim--bkuR4","thankyou-wrapper":"theme-styles-sections-lens-test__thankyou-wrapper--u51Go","result-subtitle":"theme-styles-sections-lens-test__result-subtitle--Nqcga","result-title":"theme-styles-sections-lens-test__result-title--reMCn","result-text":"theme-styles-sections-lens-test__result-text--QrlTG","result-glasses":"theme-styles-sections-lens-test__result-glasses--afz6O","result-box":"theme-styles-sections-lens-test__result-box--q5rjv","result-logo":"theme-styles-sections-lens-test__result-logo--vLgjC","result-lens-title":"theme-styles-sections-lens-test__result-lens-title--xnkUD","result-lens-description":"theme-styles-sections-lens-test__result-lens-description--nfCRY","result-points":"theme-styles-sections-lens-test__result-points--uDeX9","learn-more-button":"theme-styles-sections-lens-test__learn-more-button--XZq4o","visit-store":"theme-styles-sections-lens-test__visit-store--AR1wG","slider-wrapper":"theme-styles-sections-lens-test__slider-wrapper--WI0oY","pink-slider":"theme-styles-sections-lens-test__pink-slider--TM_D6","progressive-tabs":"theme-styles-sections-lens-test__progressive-tabs--Uqpdc","active":"theme-styles-sections-lens-test__active--Z7ajB","progressiveGrid":"theme-styles-sections-lens-test__progressiveGrid--TK4Qk","gridRow":"theme-styles-sections-lens-test__gridRow--q_vdM","gridLabel":"theme-styles-sections-lens-test__gridLabel--MYbfM","dotsRow":"theme-styles-sections-lens-test__dotsRow--h9rez","dot":"theme-styles-sections-lens-test__dot--NnVE9","filledDot":"theme-styles-sections-lens-test__filledDot--FLf2z","bgplatformIMage":"theme-styles-sections-lens-test__bgplatformIMage--NtXep","slideUpBg":"theme-styles-sections-lens-test__slideUpBg--TrJGU","vision-video-wrapper":"theme-styles-sections-lens-test__vision-video-wrapper--lJaNv","age-image-wrapper":"theme-styles-sections-lens-test__age-image-wrapper--QpGVv","ageImage":"theme-styles-sections-lens-test__ageImage--czBuT","ageImageCopy":"theme-styles-sections-lens-test__ageImageCopy--Qm3P3","fadeIn":"theme-styles-sections-lens-test__fadeIn--bMTic","fadeInAnim":"theme-styles-sections-lens-test__fadeInAnim--my4tx","fadeOut":"theme-styles-sections-lens-test__fadeOut--IQLOK","fadeOutAnim":"theme-styles-sections-lens-test__fadeOutAnim--biy9t","slideFromBottom":"theme-styles-sections-lens-test__slideFromBottom--DhMqz","slideUp":"theme-styles-sections-lens-test__slideUp--i4hau","animateTop":"theme-styles-sections-lens-test__animateTop--F6SuC","slideDown":"theme-styles-sections-lens-test__slideDown--WXtRk","animateBottom":"theme-styles-sections-lens-test__animateBottom--zVXIG","fadeInVideo":"theme-styles-sections-lens-test__fadeInVideo--lXdR4","progressive-video-wrapper":"theme-styles-sections-lens-test__progressive-video-wrapper--Rv6Sm"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"lens-test-section":"theme-styles-sections-lens-test__lens-test-section--joE9E","card-wrapper":"theme-styles-sections-lens-test__card-wrapper--jT8a4","card":"theme-styles-sections-lens-test__card--_i4yI","brand":"theme-styles-sections-lens-test__brand--GzOvk","age":"theme-styles-sections-lens-test__age--mus3J","brand-image":"theme-styles-sections-lens-test__brand-image--Vs4jE","vision":"theme-styles-sections-lens-test__vision--FDbdk","lifestyle":"theme-styles-sections-lens-test__lifestyle--f5f9D","hero":"theme-styles-sections-lens-test__hero--LMmOo","hero-photo":"theme-styles-sections-lens-test__hero-photo--l_BfH","content":"theme-styles-sections-lens-test__content--uYtsS","heading":"theme-styles-sections-lens-test__heading--XG5La","subheading":"theme-styles-sections-lens-test__subheading--JzQb6","questionContentWrapper":"theme-styles-sections-lens-test__questionContentWrapper--Fop7q","video-wrapper":"theme-styles-sections-lens-test__video-wrapper--W1boM","questionVideo":"theme-styles-sections-lens-test__questionVideo--OBaqO","question-wrapper":"theme-styles-sections-lens-test__question-wrapper--BPKBw","question-subtitle":"theme-styles-sections-lens-test__question-subtitle--sLyte","question-title":"theme-styles-sections-lens-test__question-title--MA85U","options":"theme-styles-sections-lens-test__options--mCHWp","option":"theme-styles-sections-lens-test__option--MWSOG","selected":"theme-styles-sections-lens-test__selected--eSIRX","button":"theme-styles-sections-lens-test__button--XyN6a","button-primary":"theme-styles-sections-lens-test__button-primary--vtIZT","buttonIcon":"theme-styles-sections-lens-test__buttonIcon--qbSIB","nextQuestionbutton":"theme-styles-sections-lens-test__nextQuestionbutton--HypkZ","counter":"theme-styles-sections-lens-test__counter--_adQj","lifestyle-options":"theme-styles-sections-lens-test__lifestyle-options--PE7cY","lifestyle-option":"theme-styles-sections-lens-test__lifestyle-option--Lohdn","lifestyle-icon-wrapper":"theme-styles-sections-lens-test__lifestyle-icon-wrapper--PmT42","lifestyle-selected":"theme-styles-sections-lens-test__lifestyle-selected--NnGED","lifestyle-icon":"theme-styles-sections-lens-test__lifestyle-icon--q8QO_","lifestyle-option-text":"theme-styles-sections-lens-test__lifestyle-option-text--Kol7r","lifestyle-glasses-wrapper":"theme-styles-sections-lens-test__lifestyle-glasses-wrapper--Dkgkt","lifestyle-video":"theme-styles-sections-lens-test__lifestyle-video--KiDNB","lifestyle-video-copy":"theme-styles-sections-lens-test__lifestyle-video-copy--eGNDX","zoomfadeIn":"theme-styles-sections-lens-test__zoomfadeIn--QROLN","fadeZoomInAnim":"theme-styles-sections-lens-test__fadeZoomInAnim--OM4ip","zoomfadeOut":"theme-styles-sections-lens-test__zoomfadeOut--MsuwG","fadeZoomOutAnim":"theme-styles-sections-lens-test__fadeZoomOutAnim--bkuR4","thankyou-wrapper":"theme-styles-sections-lens-test__thankyou-wrapper--u51Go","result-subtitle":"theme-styles-sections-lens-test__result-subtitle--Nqcga","result-title":"theme-styles-sections-lens-test__result-title--reMCn","result-text":"theme-styles-sections-lens-test__result-text--QrlTG","result-lens-logo":"theme-styles-sections-lens-test__result-lens-logo--y6xYl","result-glasses":"theme-styles-sections-lens-test__result-glasses--afz6O","result-box":"theme-styles-sections-lens-test__result-box--q5rjv","result-logo":"theme-styles-sections-lens-test__result-logo--vLgjC","result-lens-title":"theme-styles-sections-lens-test__result-lens-title--xnkUD","result-lens-description":"theme-styles-sections-lens-test__result-lens-description--nfCRY","result-points":"theme-styles-sections-lens-test__result-points--uDeX9","learn-more-button":"theme-styles-sections-lens-test__learn-more-button--XZq4o","visit-store":"theme-styles-sections-lens-test__visit-store--AR1wG","slider-wrapper":"theme-styles-sections-lens-test__slider-wrapper--WI0oY","pink-slider":"theme-styles-sections-lens-test__pink-slider--TM_D6","progressive-tabs":"theme-styles-sections-lens-test__progressive-tabs--Uqpdc","active":"theme-styles-sections-lens-test__active--Z7ajB","progressiveGrid":"theme-styles-sections-lens-test__progressiveGrid--TK4Qk","gridRow":"theme-styles-sections-lens-test__gridRow--q_vdM","gridLabel":"theme-styles-sections-lens-test__gridLabel--MYbfM","dotsRow":"theme-styles-sections-lens-test__dotsRow--h9rez","dot":"theme-styles-sections-lens-test__dot--NnVE9","filledDot":"theme-styles-sections-lens-test__filledDot--FLf2z","bgplatformIMage":"theme-styles-sections-lens-test__bgplatformIMage--NtXep","slideUpBg":"theme-styles-sections-lens-test__slideUpBg--TrJGU","vision-video-wrapper":"theme-styles-sections-lens-test__vision-video-wrapper--lJaNv","age-image-wrapper":"theme-styles-sections-lens-test__age-image-wrapper--QpGVv","ageImage":"theme-styles-sections-lens-test__ageImage--czBuT","ageImageCopy":"theme-styles-sections-lens-test__ageImageCopy--Qm3P3","fadeIn":"theme-styles-sections-lens-test__fadeIn--bMTic","fadeInAnim":"theme-styles-sections-lens-test__fadeInAnim--my4tx","fadeOut":"theme-styles-sections-lens-test__fadeOut--IQLOK","fadeOutAnim":"theme-styles-sections-lens-test__fadeOutAnim--biy9t","slideFromBottom":"theme-styles-sections-lens-test__slideFromBottom--DhMqz","slideUp":"theme-styles-sections-lens-test__slideUp--i4hau","animateTop":"theme-styles-sections-lens-test__animateTop--F6SuC","slideDown":"theme-styles-sections-lens-test__slideDown--WXtRk","animateBottom":"theme-styles-sections-lens-test__animateBottom--zVXIG","fadeInVideo":"theme-styles-sections-lens-test__fadeInVideo--lXdR4","progressive-video-wrapper":"theme-styles-sections-lens-test__progressive-video-wrapper--Rv6Sm"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"lens-test-section\":\"theme-styles-sections-lens-test__lens-test-section--joE9E\",\"card-wrapper\":\"theme-styles-sections-lens-test__card-wrapper--jT8a4\",\"card\":\"theme-styles-sections-lens-test__card--_i4yI\",\"brand\":\"theme-styles-sections-lens-test__brand--GzOvk\",\"hero\":\"theme-styles-sections-lens-test__hero--LMmOo\",\"hero-photo\":\"theme-styles-sections-lens-test__hero-photo--l_BfH\",\"content\":\"theme-styles-sections-lens-test__content--uYtsS\",\"heading\":\"theme-styles-sections-lens-test__heading--XG5La\",\"subheading\":\"theme-styles-sections-lens-test__subheading--JzQb6\",\"questionContentWrapper\":\"theme-styles-sections-lens-test__questionContentWrapper--Fop7q\",\"video-wrapper\":\"theme-styles-sections-lens-test__video-wrapper--W1boM\",\"questionVideo\":\"theme-styles-sections-lens-test__questionVideo--OBaqO\",\"question-wrapper\":\"theme-styles-sections-lens-test__question-wrapper--BPKBw\",\"question-subtitle\":\"theme-styles-sections-lens-test__question-subtitle--sLyte\",\"question-title\":\"theme-styles-sections-lens-test__question-title--MA85U\",\"options\":\"theme-styles-sections-lens-test__options--mCHWp\",\"option\":\"theme-styles-sections-lens-test__option--MWSOG\",\"selected\":\"theme-styles-sections-lens-test__selected--eSIRX\",\"button\":\"theme-styles-sections-lens-test__button--XyN6a\",\"button-primary\":\"theme-styles-sections-lens-test__button-primary--vtIZT\",\"buttonIcon\":\"theme-styles-sections-lens-test__buttonIcon--qbSIB\",\"nextQuestionbutton\":\"theme-styles-sections-lens-test__nextQuestionbutton--HypkZ\",\"counter\":\"theme-styles-sections-lens-test__counter--_adQj\",\"lifestyle-options\":\"theme-styles-sections-lens-test__lifestyle-options--PE7cY\",\"lifestyle-option\":\"theme-styles-sections-lens-test__lifestyle-option--Lohdn\",\"lifestyle-icon-wrapper\":\"theme-styles-sections-lens-test__lifestyle-icon-wrapper--PmT42\",\"lifestyle-selected\":\"theme-styles-sections-lens-test__lifestyle-selected--NnGED\",\"lifestyle-icon\":\"theme-styles-sections-lens-test__lifestyle-icon--q8QO_\",\"lifestyle-option-text\":\"theme-styles-sections-lens-test__lifestyle-option-text--Kol7r\",\"lifestyle-glasses-wrapper\":\"theme-styles-sections-lens-test__lifestyle-glasses-wrapper--Dkgkt\",\"lifestyle-video\":\"theme-styles-sections-lens-test__lifestyle-video--KiDNB\",\"lifestyle-video-copy\":\"theme-styles-sections-lens-test__lifestyle-video-copy--eGNDX\",\"zoomfadeIn\":\"theme-styles-sections-lens-test__zoomfadeIn--QROLN\",\"fadeZoomInAnim\":\"theme-styles-sections-lens-test__fadeZoomInAnim--OM4ip\",\"zoomfadeOut\":\"theme-styles-sections-lens-test__zoomfadeOut--MsuwG\",\"fadeZoomOutAnim\":\"theme-styles-sections-lens-test__fadeZoomOutAnim--bkuR4\",\"thankyou-wrapper\":\"theme-styles-sections-lens-test__thankyou-wrapper--u51Go\",\"result-subtitle\":\"theme-styles-sections-lens-test__result-subtitle--Nqcga\",\"result-title\":\"theme-styles-sections-lens-test__result-title--reMCn\",\"result-text\":\"theme-styles-sections-lens-test__result-text--QrlTG\",\"result-glasses\":\"theme-styles-sections-lens-test__result-glasses--afz6O\",\"result-box\":\"theme-styles-sections-lens-test__result-box--q5rjv\",\"result-logo\":\"theme-styles-sections-lens-test__result-logo--vLgjC\",\"result-lens-title\":\"theme-styles-sections-lens-test__result-lens-title--xnkUD\",\"result-lens-description\":\"theme-styles-sections-lens-test__result-lens-description--nfCRY\",\"result-points\":\"theme-styles-sections-lens-test__result-points--uDeX9\",\"learn-more-button\":\"theme-styles-sections-lens-test__learn-more-button--XZq4o\",\"visit-store\":\"theme-styles-sections-lens-test__visit-store--AR1wG\",\"slider-wrapper\":\"theme-styles-sections-lens-test__slider-wrapper--WI0oY\",\"pink-slider\":\"theme-styles-sections-lens-test__pink-slider--TM_D6\",\"progressive-tabs\":\"theme-styles-sections-lens-test__progressive-tabs--Uqpdc\",\"active\":\"theme-styles-sections-lens-test__active--Z7ajB\",\"progressiveGrid\":\"theme-styles-sections-lens-test__progressiveGrid--TK4Qk\",\"gridRow\":\"theme-styles-sections-lens-test__gridRow--q_vdM\",\"gridLabel\":\"theme-styles-sections-lens-test__gridLabel--MYbfM\",\"dotsRow\":\"theme-styles-sections-lens-test__dotsRow--h9rez\",\"dot\":\"theme-styles-sections-lens-test__dot--NnVE9\",\"filledDot\":\"theme-styles-sections-lens-test__filledDot--FLf2z\",\"bgplatformIMage\":\"theme-styles-sections-lens-test__bgplatformIMage--NtXep\",\"slideUpBg\":\"theme-styles-sections-lens-test__slideUpBg--TrJGU\",\"vision-video-wrapper\":\"theme-styles-sections-lens-test__vision-video-wrapper--lJaNv\",\"age-image-wrapper\":\"theme-styles-sections-lens-test__age-image-wrapper--QpGVv\",\"ageImage\":\"theme-styles-sections-lens-test__ageImage--czBuT\",\"ageImageCopy\":\"theme-styles-sections-lens-test__ageImageCopy--Qm3P3\",\"fadeIn\":\"theme-styles-sections-lens-test__fadeIn--bMTic\",\"fadeInAnim\":\"theme-styles-sections-lens-test__fadeInAnim--my4tx\",\"fadeOut\":\"theme-styles-sections-lens-test__fadeOut--IQLOK\",\"fadeOutAnim\":\"theme-styles-sections-lens-test__fadeOutAnim--biy9t\",\"slideFromBottom\":\"theme-styles-sections-lens-test__slideFromBottom--DhMqz\",\"slideUp\":\"theme-styles-sections-lens-test__slideUp--i4hau\",\"animateTop\":\"theme-styles-sections-lens-test__animateTop--F6SuC\",\"slideDown\":\"theme-styles-sections-lens-test__slideDown--WXtRk\",\"animateBottom\":\"theme-styles-sections-lens-test__animateBottom--zVXIG\",\"fadeInVideo\":\"theme-styles-sections-lens-test__fadeInVideo--lXdR4\",\"progressive-video-wrapper\":\"theme-styles-sections-lens-test__progressive-video-wrapper--Rv6Sm\"}";
-        // 1765175343765
+        var localsJsonString = "{\"lens-test-section\":\"theme-styles-sections-lens-test__lens-test-section--joE9E\",\"card-wrapper\":\"theme-styles-sections-lens-test__card-wrapper--jT8a4\",\"card\":\"theme-styles-sections-lens-test__card--_i4yI\",\"brand\":\"theme-styles-sections-lens-test__brand--GzOvk\",\"age\":\"theme-styles-sections-lens-test__age--mus3J\",\"brand-image\":\"theme-styles-sections-lens-test__brand-image--Vs4jE\",\"vision\":\"theme-styles-sections-lens-test__vision--FDbdk\",\"lifestyle\":\"theme-styles-sections-lens-test__lifestyle--f5f9D\",\"hero\":\"theme-styles-sections-lens-test__hero--LMmOo\",\"hero-photo\":\"theme-styles-sections-lens-test__hero-photo--l_BfH\",\"content\":\"theme-styles-sections-lens-test__content--uYtsS\",\"heading\":\"theme-styles-sections-lens-test__heading--XG5La\",\"subheading\":\"theme-styles-sections-lens-test__subheading--JzQb6\",\"questionContentWrapper\":\"theme-styles-sections-lens-test__questionContentWrapper--Fop7q\",\"video-wrapper\":\"theme-styles-sections-lens-test__video-wrapper--W1boM\",\"questionVideo\":\"theme-styles-sections-lens-test__questionVideo--OBaqO\",\"question-wrapper\":\"theme-styles-sections-lens-test__question-wrapper--BPKBw\",\"question-subtitle\":\"theme-styles-sections-lens-test__question-subtitle--sLyte\",\"question-title\":\"theme-styles-sections-lens-test__question-title--MA85U\",\"options\":\"theme-styles-sections-lens-test__options--mCHWp\",\"option\":\"theme-styles-sections-lens-test__option--MWSOG\",\"selected\":\"theme-styles-sections-lens-test__selected--eSIRX\",\"button\":\"theme-styles-sections-lens-test__button--XyN6a\",\"button-primary\":\"theme-styles-sections-lens-test__button-primary--vtIZT\",\"buttonIcon\":\"theme-styles-sections-lens-test__buttonIcon--qbSIB\",\"nextQuestionbutton\":\"theme-styles-sections-lens-test__nextQuestionbutton--HypkZ\",\"counter\":\"theme-styles-sections-lens-test__counter--_adQj\",\"lifestyle-options\":\"theme-styles-sections-lens-test__lifestyle-options--PE7cY\",\"lifestyle-option\":\"theme-styles-sections-lens-test__lifestyle-option--Lohdn\",\"lifestyle-icon-wrapper\":\"theme-styles-sections-lens-test__lifestyle-icon-wrapper--PmT42\",\"lifestyle-selected\":\"theme-styles-sections-lens-test__lifestyle-selected--NnGED\",\"lifestyle-icon\":\"theme-styles-sections-lens-test__lifestyle-icon--q8QO_\",\"lifestyle-option-text\":\"theme-styles-sections-lens-test__lifestyle-option-text--Kol7r\",\"lifestyle-glasses-wrapper\":\"theme-styles-sections-lens-test__lifestyle-glasses-wrapper--Dkgkt\",\"lifestyle-video\":\"theme-styles-sections-lens-test__lifestyle-video--KiDNB\",\"lifestyle-video-copy\":\"theme-styles-sections-lens-test__lifestyle-video-copy--eGNDX\",\"zoomfadeIn\":\"theme-styles-sections-lens-test__zoomfadeIn--QROLN\",\"fadeZoomInAnim\":\"theme-styles-sections-lens-test__fadeZoomInAnim--OM4ip\",\"zoomfadeOut\":\"theme-styles-sections-lens-test__zoomfadeOut--MsuwG\",\"fadeZoomOutAnim\":\"theme-styles-sections-lens-test__fadeZoomOutAnim--bkuR4\",\"thankyou-wrapper\":\"theme-styles-sections-lens-test__thankyou-wrapper--u51Go\",\"result-subtitle\":\"theme-styles-sections-lens-test__result-subtitle--Nqcga\",\"result-title\":\"theme-styles-sections-lens-test__result-title--reMCn\",\"result-text\":\"theme-styles-sections-lens-test__result-text--QrlTG\",\"result-lens-logo\":\"theme-styles-sections-lens-test__result-lens-logo--y6xYl\",\"result-glasses\":\"theme-styles-sections-lens-test__result-glasses--afz6O\",\"result-box\":\"theme-styles-sections-lens-test__result-box--q5rjv\",\"result-logo\":\"theme-styles-sections-lens-test__result-logo--vLgjC\",\"result-lens-title\":\"theme-styles-sections-lens-test__result-lens-title--xnkUD\",\"result-lens-description\":\"theme-styles-sections-lens-test__result-lens-description--nfCRY\",\"result-points\":\"theme-styles-sections-lens-test__result-points--uDeX9\",\"learn-more-button\":\"theme-styles-sections-lens-test__learn-more-button--XZq4o\",\"visit-store\":\"theme-styles-sections-lens-test__visit-store--AR1wG\",\"slider-wrapper\":\"theme-styles-sections-lens-test__slider-wrapper--WI0oY\",\"pink-slider\":\"theme-styles-sections-lens-test__pink-slider--TM_D6\",\"progressive-tabs\":\"theme-styles-sections-lens-test__progressive-tabs--Uqpdc\",\"active\":\"theme-styles-sections-lens-test__active--Z7ajB\",\"progressiveGrid\":\"theme-styles-sections-lens-test__progressiveGrid--TK4Qk\",\"gridRow\":\"theme-styles-sections-lens-test__gridRow--q_vdM\",\"gridLabel\":\"theme-styles-sections-lens-test__gridLabel--MYbfM\",\"dotsRow\":\"theme-styles-sections-lens-test__dotsRow--h9rez\",\"dot\":\"theme-styles-sections-lens-test__dot--NnVE9\",\"filledDot\":\"theme-styles-sections-lens-test__filledDot--FLf2z\",\"bgplatformIMage\":\"theme-styles-sections-lens-test__bgplatformIMage--NtXep\",\"slideUpBg\":\"theme-styles-sections-lens-test__slideUpBg--TrJGU\",\"vision-video-wrapper\":\"theme-styles-sections-lens-test__vision-video-wrapper--lJaNv\",\"age-image-wrapper\":\"theme-styles-sections-lens-test__age-image-wrapper--QpGVv\",\"ageImage\":\"theme-styles-sections-lens-test__ageImage--czBuT\",\"ageImageCopy\":\"theme-styles-sections-lens-test__ageImageCopy--Qm3P3\",\"fadeIn\":\"theme-styles-sections-lens-test__fadeIn--bMTic\",\"fadeInAnim\":\"theme-styles-sections-lens-test__fadeInAnim--my4tx\",\"fadeOut\":\"theme-styles-sections-lens-test__fadeOut--IQLOK\",\"fadeOutAnim\":\"theme-styles-sections-lens-test__fadeOutAnim--biy9t\",\"slideFromBottom\":\"theme-styles-sections-lens-test__slideFromBottom--DhMqz\",\"slideUp\":\"theme-styles-sections-lens-test__slideUp--i4hau\",\"animateTop\":\"theme-styles-sections-lens-test__animateTop--F6SuC\",\"slideDown\":\"theme-styles-sections-lens-test__slideDown--WXtRk\",\"animateBottom\":\"theme-styles-sections-lens-test__animateBottom--zVXIG\",\"fadeInVideo\":\"theme-styles-sections-lens-test__fadeInVideo--lXdR4\",\"progressive-video-wrapper\":\"theme-styles-sections-lens-test__progressive-video-wrapper--Rv6Sm\"}";
+        // 1771504648531
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

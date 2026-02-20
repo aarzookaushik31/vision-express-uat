@@ -90,10 +90,13 @@ const Megamenu = ({ navigation }) => {
     navigation?.tags?.includes("hasTabs") || navigation?.tag === "hasTabs";
 
   return (
-    <div className={styles.megamenuWrapper} style={dynamicStyles}>
+    <div className={`${styles.megamenuWrapper} ${  !hasTabs ? styles.simpleDropdown : ""}`} style={dynamicStyles}>
       <div className={styles.megamenuContainer}>
-        <h2 className={styles.megamenuheading}>{navigation.display}</h2>
 
+
+        { hasTabs ? (
+        <h2 className={styles.megamenuheading}>{navigation.display}</h2>
+        ) : ""}
 
 
         {hasTabs ? (
@@ -214,7 +217,7 @@ const Megamenu = ({ navigation }) => {
                   className={styles.l3NavigationItem}
                 >
                   <NavLogo nav={l3Menu} />
-                  <div className={styles.l3NavigationText}>{l3Menu.display}</div>
+                  <div className={styles.l3NavigationTextnotabs}>{l3Menu.display}</div>
                 </FDKLink>
               ))}
             </div>

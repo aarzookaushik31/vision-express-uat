@@ -311,7 +311,6 @@
 .theme-page-layouts-compare-compare__collection-hero-banner--SGTmr {
   position: relative;
   width: 100%;
-  height: 340px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -320,6 +319,20 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.theme-page-layouts-compare-compare__collection-hero-banner--SGTmr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.theme-page-layouts-compare-compare__collection-unofficial--hywzX .theme-page-layouts-compare-compare__collection-hero-banner--SGTmr::after,
+.theme-page-layouts-compare-compare__collection-dbyd--xI__Q .theme-page-layouts-compare-compare__collection-hero-banner--SGTmr::after {
+  display: none;
 }
 .theme-page-layouts-compare-compare__collection-banner-img-mobile--GnbIM {
   width: 100%;
@@ -331,14 +344,20 @@
   position: absolute;
   top: 0;
   left: 50%;
-  text-align: center;
+  max-width: 1300px;
+  transform: translateX(-50%);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
   padding: 20px 40px;
-  max-width: 50%;
+  width: 100%;
+  z-index: 3;
+}
+.theme-page-layouts-compare-compare__collection-unofficial--hywzX .theme-page-layouts-compare-compare__collection-banner-content--Q_xeZ,
+.theme-page-layouts-compare-compare__collection-dbyd--xI__Q .theme-page-layouts-compare-compare__collection-banner-content--Q_xeZ {
+  display: none;
 }
 .theme-page-layouts-compare-compare__collection-banner-content--Q_xeZ h2 {
   color: #fff;
@@ -357,7 +376,7 @@
   .theme-page-layouts-compare-compare__collection-banner-content--Q_xeZ {
     top: auto;
     bottom: 0px;
-    left: 0px;
+    text-align: center;
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;

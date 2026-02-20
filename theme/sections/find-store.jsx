@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/sections/find-store.less";
 import Location from "../assets/images/mage_location.png";
 import placeholderDesktop from "../assets/images/placeholder/slideshow-desktop2.jpg";
@@ -17,15 +17,34 @@ export function Component(input = {}) {
   } = props || {};
 
   const [pincode, setPincode] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
-  const isWindow = typeof window !== "undefined";
-  const isMobile = isWindow && window.innerWidth <= 768;
+
+
+
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  checkMobile(); 
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
+
+
+
 
   const bgImage = isMobile
     ? (mobileBackgroundImage?.value || placeholderMobile)
     : (backgroundImage?.value || placeholderDesktop);
 
-  const isHome = isWindow && window.location && window.location.pathname === "/";
+    console.log(isMobile)
+
+  const isHome =  window.location && window.location.pathname === "/";
 
   const handleFindStore = () => {
 if (pincode) {

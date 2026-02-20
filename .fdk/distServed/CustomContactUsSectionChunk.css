@@ -143,6 +143,12 @@
   letter-spacing: -0.3px;
   margin-bottom: 30px;
 }
+@media (max-width: 1025px) {
+  .theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
 @media (max-width: 768px) {
   .theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q {
     flex-direction: column;
@@ -175,6 +181,7 @@
   .theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q .theme-styles-sections-custom-contact-us__contactFormContainer--iONDP {
     border-radius: 16px;
     padding: 40px 20px;
+    width: 100%;
   }
   .theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q .theme-styles-sections-custom-contact-us__contactForm--GvibM .theme-styles-sections-custom-contact-us__inputFlexGroup--tXi8f {
     flex-direction: column;

@@ -4912,6 +4912,46 @@
         "type": "image_picker",
         "id": "progressive_customized_image",
         "label": "Progressive Customized Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "gadget_pro_logo",
+        "label": "Gadget Pro Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "drive_sure_logo",
+        "label": "Drive Sure Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "clear_vision_logo",
+        "label": "Clear Vision Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "tru_vision_logo",
+        "label": "Tru Vision Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "regular_lens_logo",
+        "label": "Regular Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "comfort_lens_logo",
+        "label": "Comfort Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "supreme_lens_logo",
+        "label": "Supreme Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "lumino_lens_logo",
+        "label": "Lumino Lens Logo"
       }
     ]
   },
@@ -5755,6 +5795,11 @@
         ]
       },
       {
+        "type": "product_highlights",
+        "name": "Product Highlights",
+        "props": []
+      },
+      {
         "type": "short_description",
         "name": "t:resource.sections.product_description.short_description",
         "props": []
@@ -6031,6 +6076,9 @@
         },
         {
           "name": "t:resource.sections.product_description.product_tax_label"
+        },
+        {
+          "name": "t:resource.sections.product_description.product_highlights"
         },
         {
           "name": "t:resource.sections.product_description.short_description"
@@ -7177,5 +7225,207 @@
         }
       ]
     }
+  },
+  "ve-care-claim": {
+    "label": "How To Claim Section",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Section Heading",
+        "default": "HOW TO CLAIM"
+      },
+      {
+        "id": "termsTitle",
+        "type": "text",
+        "label": "Terms Title",
+        "default": "Terms & Conditions"
+      },
+      {
+        "id": "termsContent",
+        "type": "textarea",
+        "label": "Terms Content (HTML allowed)",
+        "default": "<p>Ve-Care Protect is applicable only at Vision Express stores with a valid invoice.</p>"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "claim_step",
+        "name": "Claim Step",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Step Icon"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Step Title",
+            "default": "Visit Nearest Store"
+          },
+          {
+            "id": "description",
+            "type": "text",
+            "label": "Step Description",
+            "default": "Walk into any Vision Express outlet."
+          }
+        ]
+      }
+    ]
+  },
+  "ve-care-coverage": {
+    "label": "Ve-Care Coverage Section",
+    "props": [
+      {
+        "id": "logo",
+        "type": "image_picker",
+        "label": "Logo Image"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Description",
+        "default": "VE-CARE PROTECT is our premium eyewear protection plan designed to give you complete peace of mind long after your purchase."
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "coverage_card",
+        "name": "Coverage Card",
+        "props": [
+          {
+            "id": "label",
+            "type": "text",
+            "label": "Card Label",
+            "default": "1ST YEAR COVERAGE"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Card Title",
+            "default": "1 Free Replacement"
+          },
+          {
+            "id": "meta",
+            "type": "text",
+            "label": "Card Meta Text",
+            "default": "Lens | Frame | Complete pair"
+          }
+        ]
+      }
+    ]
+  },
+  "ve-care-hero-banner": {
+    "label": "Ve-Care Protection Section",
+    "props": [
+      {
+        "id": "eyebrowText",
+        "type": "text",
+        "label": "Top Small Text",
+        "default": "SCRATCHES, CRACKS, DAMAGE?"
+      },
+      {
+        "id": "heading",
+        "type": "textarea",
+        "label": "Heading",
+        "default": "YOU'RE PROTECTED WITH"
+      },
+      {
+        "id": "highlightText",
+        "type": "text",
+        "label": "Highlighted Brand Text",
+        "default": "Ve-Care Protect"
+      },
+      {
+        "id": "logoImage",
+        "type": "image_picker",
+        "label": "Brand Logo (optional - overrides text)"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Description",
+        "default": "From accidental drops to daily wear & tear - Ve-Care keeps your eyewear protected for 3 years."
+      },
+      {
+        "id": "productImage",
+        "type": "image_picker",
+        "label": "Right Side Product Image"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#f8f5f7"
+      }
+    ],
+    "blocks": []
+  },
+  "ve-care-pricing": {
+    "label": "Ve-Care Pricing Section",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Section Heading",
+        "default": "PRICING"
+      },
+      {
+        "id": "productImage",
+        "type": "image_picker",
+        "label": "Right Side Image"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "pricing_card",
+        "name": "Pricing Card",
+        "props": [
+          {
+            "id": "plan",
+            "type": "text",
+            "label": "Plan Name",
+            "default": "SINGLE VISION"
+          },
+          {
+            "id": "price",
+            "type": "text",
+            "label": "Price",
+            "default": "₹299"
+          },
+          {
+            "id": "suffix",
+            "type": "text",
+            "label": "Price Suffix",
+            "default": "/ PER PAIR"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Perfect for reading or distance glasses."
+          }
+        ]
+      }
+    ]
   }
 }

@@ -192,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"filteredCategorySection\":\"theme-styles-sections-filter-category-tabs__filteredCategorySection--fgvB5\",\"header-row\":\"theme-styles-sections-filter-category-tabs__header-row--yd1jE\",\"item-grid\":\"theme-styles-sections-filter-category-tabs__item-grid--grDYg\",\"item\":\"theme-styles-sections-filter-category-tabs__item--mvZ6V\",\"imageWrapper\":\"theme-styles-sections-filter-category-tabs__imageWrapper--EL_pG\",\"hoverImage\":\"theme-styles-sections-filter-category-tabs__hoverImage--yhXHX\",\"mainImage\":\"theme-styles-sections-filter-category-tabs__mainImage--dfW_2\"}";
-        // 1765175337712
+        // 1771504636323
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (

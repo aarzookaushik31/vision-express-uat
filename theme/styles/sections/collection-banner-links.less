@@ -73,6 +73,45 @@
 
 
 
+@media (max-width: 1025px) and (min-width: 768px) {
+   .infoBlocksSection {
+      .block {
+
+        .content {
+          h2{
+            font-size: 32px;
+          }
+        }
+        
+      .arrow {
+        width: 60px;
+        height: 60px;  
+
+        img{
+             width: 60px !important;
+        height: 60px !important; 
+        }
+      }
+      }
+   }
+}
+
+
+@media (max-width: 768px) and (min-width: 500px) {
+  .infoBlocksSection {
+
+    .block
+  {
+    background-position: center -180px;
+
+     &::before {
+      background-position: center -180px;
+     }
+  }
+}
+}
+
+
 
 
 @media (max-width: 768px) {

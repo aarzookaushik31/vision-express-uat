@@ -29,6 +29,16 @@
 }
 
 
+.age, .vision, .lifestyle{
+  .brand-image{
+    position: absolute;
+    top:0;
+
+  }
+}
+
+
+
 
 
 
@@ -88,6 +98,8 @@
   .brand {
    max-width: 208px;
    margin: auto;
+   position: relative;
+   z-index: 4;
 
     img{
  width: 100%;
@@ -95,6 +107,10 @@
   
   }
 
+
+
+
+  
   // Headings
   .heading {
     font-size: 28px;
@@ -106,7 +122,7 @@
   }
 
   .subheading {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     margin-bottom: 25px;
     line-height: 120%;
@@ -398,6 +414,14 @@ letter-spacing: 0px;
   line-height: 120%;
 }
 
+.result-lens-logo {
+  width: 200px;
+  margin: auto;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
 /* Glasses Image container */
 .result-glasses {
   margin-bottom: 10px;
@@ -420,8 +444,8 @@ backdrop-filter: blur(8px);
 
 /* Logo inside result box */
 .result-logo {
-  width: 208px;
-  margin: 0 auto 22px;
+  width: 120px;
+  margin: 0 auto 10px;
 }
 
 /* Lens title */
