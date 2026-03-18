@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["theme_components_infinite-spinner_infinite-spinner_jsx"],{
 
-/***/ "./theme/components/infinite-spinner/infinite-spinner.jsx":
+/***/ "./theme/components/infinite-spinner/infinite-spinner.jsx"
 /*!****************************************************************!*\
   !*** ./theme/components/infinite-spinner/infinite-spinner.jsx ***!
   \****************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -118,13 +118,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/components/infinite-spinner/infinite-spinner.less":
+/***/ "./theme/components/infinite-spinner/infinite-spinner.less"
 /*!*****************************************************************!*\
   !*** ./theme/components/infinite-spinner/infinite-spinner.less ***!
   \*****************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"loader-container\":\"theme-components-infinite-spinner-infinite-spinner__loader-container--JMOKR\",\"inline-svg\":\"theme-components-infinite-spinner-infinite-spinner__inline-svg--xaIDP\",\"rotate\":\"theme-components-infinite-spinner-infinite-spinner__rotate--KR1jH\"}";
-        // 1771504642743
+        // 1773821709924
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -155,6 +155,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

@@ -5062,6 +5062,51 @@
     ],
     "blocks": []
   },
+  "locate-us": {
+    "label": "Store Locator",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Find a Store Near You"
+      },
+      {
+        "id": "subheading",
+        "type": "text",
+        "label": "Sub Heading",
+        "default": "Search by city or pincode"
+      },
+      {
+        "id": "inputPlaceholder",
+        "type": "text",
+        "label": "Search Placeholder",
+        "default": "Enter Pincode / City"
+      },
+      {
+        "id": "buttonText",
+        "type": "text",
+        "label": "Locate Button Text",
+        "default": "Locate Stores"
+      },
+      {
+        "id": "currentLocationText",
+        "type": "text",
+        "label": "Current Location Text",
+        "default": "Use My Current Location"
+      },
+      {
+        "id": "backgroundImage",
+        "type": "image_picker",
+        "label": "Desktop Background Image"
+      },
+      {
+        "id": "mobileBackgroundImage",
+        "type": "image_picker",
+        "label": "Mobile Background Image"
+      }
+    ]
+  },
   "login": {
     "label": "t:resource.common.login",
     "props": [

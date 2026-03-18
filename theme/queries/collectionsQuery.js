@@ -207,6 +207,7 @@ export const COLLECTION_ITEMS = `query collectionItems(
       }
       slug
       uid
+      item_code 
       sellable
       teaser_tag
       discount
@@ -346,6 +347,7 @@ query collectionWithItems(
       }
       slug
       uid
+      item_code
       sellable
       teaser_tag
       discount

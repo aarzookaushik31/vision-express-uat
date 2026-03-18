@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["CollectionsListingSectionChunk"],{
 
-/***/ "./theme/assets/images/glide-arrow-left.svg":
+/***/ "./theme/assets/images/glide-arrow-left.svg"
 /*!**************************************************!*\
   !*** ./theme/assets/images/glide-arrow-left.svg ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ var SvgGlideArrowLeft = function SvgGlideArrowLeft(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowLeft);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/glide-arrow-right.svg":
+/***/ "./theme/assets/images/glide-arrow-right.svg"
 /*!***************************************************!*\
   !*** ./theme/assets/images/glide-arrow-right.svg ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -110,23 +110,13 @@ var SvgGlideArrowRight = function SvgGlideArrowRight(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowRight);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/placeholder/collections-listing.png":
-/*!*****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/collections-listing.png ***!
-  \*****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/11e298d1251396a52114.png";
-
-/***/ }),
-
-/***/ "./theme/components/collection-card/collection-card.jsx":
+/***/ "./theme/components/collection-card/collection-card.jsx"
 /*!**************************************************************!*\
   !*** ./theme/components/collection-card/collection-card.jsx ***!
   \**************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -220,50 +210,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/components/collection-card/collection-card.less":
-/*!***************************************************************!*\
-  !*** ./theme/components/collection-card/collection-card.less ***!
-  \***************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-collection-card-collection-card__login-auth-container--o_Huq","n2oQ6":"theme-components-collection-card-collection-card__n2oQ6--tzLXA","uiz1K":"theme-components-collection-card-collection-card__uiz1K--OjS5j","P1CJx":"theme-components-collection-card-collection-card__P1CJx--utNEW","kkBOU":"theme-components-collection-card-collection-card__kkBOU--GdcUy","react-international-phone-country-selector-button":"theme-components-collection-card-collection-card__react-international-phone-country-selector-button--ZbelF","react-international-phone-input":"theme-components-collection-card-collection-card__react-international-phone-input--nFQSO","forget-password-container":"theme-components-collection-card-collection-card__forget-password-container--uWTaD","profile-navigation-container":"theme-components-collection-card-collection-card__profile-navigation-container--p0huK","ojp_C":"theme-components-collection-card-collection-card__ojp_C--GisZ_","O32OW":"theme-components-collection-card-collection-card__O32OW--y1pug","collection-hero-banner":"theme-components-collection-card-collection-card__collection-hero-banner--YFiKI","collection-banner-img":"theme-components-collection-card-collection-card__collection-banner-img--j5xIw","collection-unofficial":"theme-components-collection-card-collection-card__collection-unofficial--v0s8t","collection-dbyd":"theme-components-collection-card-collection-card__collection-dbyd--TSuKr","collection-banner-img-mobile":"theme-components-collection-card-collection-card__collection-banner-img-mobile--kgRCp","collection-banner-content":"theme-components-collection-card-collection-card__collection-banner-content--rptuw","custom-banner-card":"theme-components-collection-card-collection-card__custom-banner-card--Jqrj3","banner-overlay":"theme-components-collection-card-collection-card__banner-overlay--lWDyM","banner-content":"theme-components-collection-card-collection-card__banner-content--VNgGH","banner-btn":"theme-components-collection-card-collection-card__banner-btn--PcS3u","flexColumn":"theme-components-collection-card-collection-card__flexColumn--Z9nNw","flexAlignCenter":"theme-components-collection-card-collection-card__flexAlignCenter--J7Al4","flexCenter":"theme-components-collection-card-collection-card__flexCenter--B3nWx","justifyStart":"theme-components-collection-card-collection-card__justifyStart--c95I9","justifyBetween":"theme-components-collection-card-collection-card__justifyBetween--DNpt3","slick-dots":"theme-components-collection-card-collection-card__slick-dots--CJcOn","slick-active":"theme-components-collection-card-collection-card__slick-active--gIW6k","legal-data-container":"theme-components-collection-card-collection-card__legal-data-container--LiESY","collectionCard":"theme-components-collection-card-collection-card__collectionCard--zC8ng","collectionImage":"theme-components-collection-card-collection-card__collectionImage--SSa9o","collectionTitleWrapper":"theme-components-collection-card-collection-card__collectionTitleWrapper--tBUCK","collectionTitle":"theme-components-collection-card-collection-card__collectionTitle--Yd73Z","collectionButton":"theme-components-collection-card-collection-card__collectionButton--WFxAg","inside":"theme-components-collection-card-collection-card__inside--xL3kg"});
-    if(true) {
-      (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-components-collection-card-collection-card__login-auth-container--o_Huq\",\"n2oQ6\":\"theme-components-collection-card-collection-card__n2oQ6--tzLXA\",\"uiz1K\":\"theme-components-collection-card-collection-card__uiz1K--OjS5j\",\"P1CJx\":\"theme-components-collection-card-collection-card__P1CJx--utNEW\",\"kkBOU\":\"theme-components-collection-card-collection-card__kkBOU--GdcUy\",\"react-international-phone-country-selector-button\":\"theme-components-collection-card-collection-card__react-international-phone-country-selector-button--ZbelF\",\"react-international-phone-input\":\"theme-components-collection-card-collection-card__react-international-phone-input--nFQSO\",\"forget-password-container\":\"theme-components-collection-card-collection-card__forget-password-container--uWTaD\",\"profile-navigation-container\":\"theme-components-collection-card-collection-card__profile-navigation-container--p0huK\",\"ojp_C\":\"theme-components-collection-card-collection-card__ojp_C--GisZ_\",\"O32OW\":\"theme-components-collection-card-collection-card__O32OW--y1pug\",\"collection-hero-banner\":\"theme-components-collection-card-collection-card__collection-hero-banner--YFiKI\",\"collection-banner-img\":\"theme-components-collection-card-collection-card__collection-banner-img--j5xIw\",\"collection-unofficial\":\"theme-components-collection-card-collection-card__collection-unofficial--v0s8t\",\"collection-dbyd\":\"theme-components-collection-card-collection-card__collection-dbyd--TSuKr\",\"collection-banner-img-mobile\":\"theme-components-collection-card-collection-card__collection-banner-img-mobile--kgRCp\",\"collection-banner-content\":\"theme-components-collection-card-collection-card__collection-banner-content--rptuw\",\"custom-banner-card\":\"theme-components-collection-card-collection-card__custom-banner-card--Jqrj3\",\"banner-overlay\":\"theme-components-collection-card-collection-card__banner-overlay--lWDyM\",\"banner-content\":\"theme-components-collection-card-collection-card__banner-content--VNgGH\",\"banner-btn\":\"theme-components-collection-card-collection-card__banner-btn--PcS3u\",\"flexColumn\":\"theme-components-collection-card-collection-card__flexColumn--Z9nNw\",\"flexAlignCenter\":\"theme-components-collection-card-collection-card__flexAlignCenter--J7Al4\",\"flexCenter\":\"theme-components-collection-card-collection-card__flexCenter--B3nWx\",\"justifyStart\":\"theme-components-collection-card-collection-card__justifyStart--c95I9\",\"justifyBetween\":\"theme-components-collection-card-collection-card__justifyBetween--DNpt3\",\"slick-dots\":\"theme-components-collection-card-collection-card__slick-dots--CJcOn\",\"slick-active\":\"theme-components-collection-card-collection-card__slick-active--gIW6k\",\"legal-data-container\":\"theme-components-collection-card-collection-card__legal-data-container--LiESY\",\"collectionCard\":\"theme-components-collection-card-collection-card__collectionCard--zC8ng\",\"collectionImage\":\"theme-components-collection-card-collection-card__collectionImage--SSa9o\",\"collectionTitleWrapper\":\"theme-components-collection-card-collection-card__collectionTitleWrapper--tBUCK\",\"collectionTitle\":\"theme-components-collection-card-collection-card__collectionTitle--Yd73Z\",\"collectionButton\":\"theme-components-collection-card-collection-card__collectionButton--WFxAg\",\"inside\":\"theme-components-collection-card-collection-card__inside--xL3kg\"}";
-        // 1771504654795
-        var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./theme/queries/collectionsQuery.js":
+/***/ "./theme/queries/collectionsQuery.js"
 /*!*******************************************!*\
   !*** ./theme/queries/collectionsQuery.js ***!
   \*******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -484,6 +437,7 @@ const COLLECTION_ITEMS = `query collectionItems(
       }
       slug
       uid
+      item_code 
       sellable
       teaser_tag
       discount
@@ -622,6 +576,7 @@ query collectionWithItems(
       }
       slug
       uid
+      item_code
       sellable
       teaser_tag
       discount
@@ -750,13 +705,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/collections-listing.jsx":
+/***/ "./theme/sections/collections-listing.jsx"
 /*!************************************************!*\
   !*** ./theme/sections/collections-listing.jsx ***!
   \************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1211,24 +1166,24 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/collections-listing.less":
-/*!********************************************************!*\
-  !*** ./theme/styles/sections/collections-listing.less ***!
-  \********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ "./theme/components/collection-card/collection-card.less"
+/*!***************************************************************!*\
+  !*** ./theme/components/collection-card/collection-card.less ***!
+  \***************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-collections-listing__login-auth-container--WtUKf","n2oQ6":"theme-styles-sections-collections-listing__n2oQ6--yas_m","uiz1K":"theme-styles-sections-collections-listing__uiz1K--LNHOz","P1CJx":"theme-styles-sections-collections-listing__P1CJx--yqCx1","kkBOU":"theme-styles-sections-collections-listing__kkBOU--QDhwN","react-international-phone-country-selector-button":"theme-styles-sections-collections-listing__react-international-phone-country-selector-button--ZJYJp","react-international-phone-input":"theme-styles-sections-collections-listing__react-international-phone-input--t7XPN","forget-password-container":"theme-styles-sections-collections-listing__forget-password-container--hyJhv","profile-navigation-container":"theme-styles-sections-collections-listing__profile-navigation-container--ZsedY","ojp_C":"theme-styles-sections-collections-listing__ojp_C--cTRJi","O32OW":"theme-styles-sections-collections-listing__O32OW--oqYnw","collection-hero-banner":"theme-styles-sections-collections-listing__collection-hero-banner--y3UlX","collection-banner-img":"theme-styles-sections-collections-listing__collection-banner-img--cAEST","collection-unofficial":"theme-styles-sections-collections-listing__collection-unofficial--_EyIa","collection-dbyd":"theme-styles-sections-collections-listing__collection-dbyd--fXWFn","collection-banner-img-mobile":"theme-styles-sections-collections-listing__collection-banner-img-mobile--R7h8q","collection-banner-content":"theme-styles-sections-collections-listing__collection-banner-content--lG0br","custom-banner-card":"theme-styles-sections-collections-listing__custom-banner-card--s4trl","banner-overlay":"theme-styles-sections-collections-listing__banner-overlay--VaBbV","banner-content":"theme-styles-sections-collections-listing__banner-content--gquTI","banner-btn":"theme-styles-sections-collections-listing__banner-btn--QijxP","flexColumn":"theme-styles-sections-collections-listing__flexColumn--mSU2b","flexAlignCenter":"theme-styles-sections-collections-listing__flexAlignCenter--wn9jI","flexCenter":"theme-styles-sections-collections-listing__flexCenter--mEJ_P","justifyStart":"theme-styles-sections-collections-listing__justifyStart--NhxMM","justifyBetween":"theme-styles-sections-collections-listing__justifyBetween--lann0","slick-dots":"theme-styles-sections-collections-listing__slick-dots--exqlS","slick-active":"theme-styles-sections-collections-listing__slick-active--bhqHP","legal-data-container":"theme-styles-sections-collections-listing__legal-data-container--lAZW5","collections__template":"theme-styles-sections-collections-listing__collections__template--LYpPv","section-title-block":"theme-styles-sections-collections-listing__section-title-block--I0Joc","section-title":"theme-styles-sections-collections-listing__section-title--dSK7_","section-description":"theme-styles-sections-collections-listing__section-description--dtGZ0","collectionGrid":"theme-styles-sections-collections-listing__collectionGrid--tBrJy","defaultGrid":"theme-styles-sections-collections-listing__defaultGrid--tf3_C","collectionSlider":"theme-styles-sections-collections-listing__collectionSlider--K0d9R","sliderItem":"theme-styles-sections-collections-listing__sliderItem--h9qH7","singleItem":"theme-styles-sections-collections-listing__singleItem--YaG5y","hideOnDesktop":"theme-styles-sections-collections-listing__hideOnDesktop--vjexU","hideOnTablet":"theme-styles-sections-collections-listing__hideOnTablet--eV8as","hideOnMobile":"theme-styles-sections-collections-listing__hideOnMobile--m10nb","showOnMobile":"theme-styles-sections-collections-listing__showOnMobile--sRJr_"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-collection-card-collection-card__login-auth-container--o_Huq","n2oQ6":"theme-components-collection-card-collection-card__n2oQ6--tzLXA","uiz1K":"theme-components-collection-card-collection-card__uiz1K--OjS5j","P1CJx":"theme-components-collection-card-collection-card__P1CJx--utNEW","kkBOU":"theme-components-collection-card-collection-card__kkBOU--GdcUy","react-international-phone-country-selector-button":"theme-components-collection-card-collection-card__react-international-phone-country-selector-button--ZbelF","react-international-phone-input":"theme-components-collection-card-collection-card__react-international-phone-input--nFQSO","forget-password-container":"theme-components-collection-card-collection-card__forget-password-container--uWTaD","profile-navigation-container":"theme-components-collection-card-collection-card__profile-navigation-container--p0huK","ojp_C":"theme-components-collection-card-collection-card__ojp_C--GisZ_","O32OW":"theme-components-collection-card-collection-card__O32OW--y1pug","collection-hero-banner":"theme-components-collection-card-collection-card__collection-hero-banner--YFiKI","collection-banner-img":"theme-components-collection-card-collection-card__collection-banner-img--j5xIw","collection-unofficial":"theme-components-collection-card-collection-card__collection-unofficial--v0s8t","collection-dbyd":"theme-components-collection-card-collection-card__collection-dbyd--TSuKr","collection-banner-img-mobile":"theme-components-collection-card-collection-card__collection-banner-img-mobile--kgRCp","collection-banner-content":"theme-components-collection-card-collection-card__collection-banner-content--rptuw","custom-banner-card":"theme-components-collection-card-collection-card__custom-banner-card--Jqrj3","banner-overlay":"theme-components-collection-card-collection-card__banner-overlay--lWDyM","banner-content":"theme-components-collection-card-collection-card__banner-content--VNgGH","banner-btn":"theme-components-collection-card-collection-card__banner-btn--PcS3u","flexColumn":"theme-components-collection-card-collection-card__flexColumn--Z9nNw","flexAlignCenter":"theme-components-collection-card-collection-card__flexAlignCenter--J7Al4","flexCenter":"theme-components-collection-card-collection-card__flexCenter--B3nWx","justifyStart":"theme-components-collection-card-collection-card__justifyStart--c95I9","justifyBetween":"theme-components-collection-card-collection-card__justifyBetween--DNpt3","slick-dots":"theme-components-collection-card-collection-card__slick-dots--CJcOn","slick-active":"theme-components-collection-card-collection-card__slick-active--gIW6k","section_glamar-sdk-binding":"theme-components-collection-card-collection-card__section_glamar-sdk-binding--QjTcs","legal-data-container":"theme-components-collection-card-collection-card__legal-data-container--LiESY","collectionCard":"theme-components-collection-card-collection-card__collectionCard--zC8ng","collectionImage":"theme-components-collection-card-collection-card__collectionImage--SSa9o","collectionTitleWrapper":"theme-components-collection-card-collection-card__collectionTitleWrapper--tBUCK","collectionTitle":"theme-components-collection-card-collection-card__collectionTitle--Yd73Z","collectionButton":"theme-components-collection-card-collection-card__collectionButton--WFxAg","inside":"theme-components-collection-card-collection-card__inside--xL3kg"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-collections-listing__login-auth-container--WtUKf\",\"n2oQ6\":\"theme-styles-sections-collections-listing__n2oQ6--yas_m\",\"uiz1K\":\"theme-styles-sections-collections-listing__uiz1K--LNHOz\",\"P1CJx\":\"theme-styles-sections-collections-listing__P1CJx--yqCx1\",\"kkBOU\":\"theme-styles-sections-collections-listing__kkBOU--QDhwN\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-collections-listing__react-international-phone-country-selector-button--ZJYJp\",\"react-international-phone-input\":\"theme-styles-sections-collections-listing__react-international-phone-input--t7XPN\",\"forget-password-container\":\"theme-styles-sections-collections-listing__forget-password-container--hyJhv\",\"profile-navigation-container\":\"theme-styles-sections-collections-listing__profile-navigation-container--ZsedY\",\"ojp_C\":\"theme-styles-sections-collections-listing__ojp_C--cTRJi\",\"O32OW\":\"theme-styles-sections-collections-listing__O32OW--oqYnw\",\"collection-hero-banner\":\"theme-styles-sections-collections-listing__collection-hero-banner--y3UlX\",\"collection-banner-img\":\"theme-styles-sections-collections-listing__collection-banner-img--cAEST\",\"collection-unofficial\":\"theme-styles-sections-collections-listing__collection-unofficial--_EyIa\",\"collection-dbyd\":\"theme-styles-sections-collections-listing__collection-dbyd--fXWFn\",\"collection-banner-img-mobile\":\"theme-styles-sections-collections-listing__collection-banner-img-mobile--R7h8q\",\"collection-banner-content\":\"theme-styles-sections-collections-listing__collection-banner-content--lG0br\",\"custom-banner-card\":\"theme-styles-sections-collections-listing__custom-banner-card--s4trl\",\"banner-overlay\":\"theme-styles-sections-collections-listing__banner-overlay--VaBbV\",\"banner-content\":\"theme-styles-sections-collections-listing__banner-content--gquTI\",\"banner-btn\":\"theme-styles-sections-collections-listing__banner-btn--QijxP\",\"flexColumn\":\"theme-styles-sections-collections-listing__flexColumn--mSU2b\",\"flexAlignCenter\":\"theme-styles-sections-collections-listing__flexAlignCenter--wn9jI\",\"flexCenter\":\"theme-styles-sections-collections-listing__flexCenter--mEJ_P\",\"justifyStart\":\"theme-styles-sections-collections-listing__justifyStart--NhxMM\",\"justifyBetween\":\"theme-styles-sections-collections-listing__justifyBetween--lann0\",\"slick-dots\":\"theme-styles-sections-collections-listing__slick-dots--exqlS\",\"slick-active\":\"theme-styles-sections-collections-listing__slick-active--bhqHP\",\"legal-data-container\":\"theme-styles-sections-collections-listing__legal-data-container--lAZW5\",\"collections__template\":\"theme-styles-sections-collections-listing__collections__template--LYpPv\",\"section-title-block\":\"theme-styles-sections-collections-listing__section-title-block--I0Joc\",\"section-title\":\"theme-styles-sections-collections-listing__section-title--dSK7_\",\"section-description\":\"theme-styles-sections-collections-listing__section-description--dtGZ0\",\"collectionGrid\":\"theme-styles-sections-collections-listing__collectionGrid--tBrJy\",\"defaultGrid\":\"theme-styles-sections-collections-listing__defaultGrid--tf3_C\",\"collectionSlider\":\"theme-styles-sections-collections-listing__collectionSlider--K0d9R\",\"sliderItem\":\"theme-styles-sections-collections-listing__sliderItem--h9qH7\",\"singleItem\":\"theme-styles-sections-collections-listing__singleItem--YaG5y\",\"hideOnDesktop\":\"theme-styles-sections-collections-listing__hideOnDesktop--vjexU\",\"hideOnTablet\":\"theme-styles-sections-collections-listing__hideOnTablet--eV8as\",\"hideOnMobile\":\"theme-styles-sections-collections-listing__hideOnMobile--m10nb\",\"showOnMobile\":\"theme-styles-sections-collections-listing__showOnMobile--sRJr_\"}";
-        // 1771504642869
+        var localsJsonString = "{\"login-auth-container\":\"theme-components-collection-card-collection-card__login-auth-container--o_Huq\",\"n2oQ6\":\"theme-components-collection-card-collection-card__n2oQ6--tzLXA\",\"uiz1K\":\"theme-components-collection-card-collection-card__uiz1K--OjS5j\",\"P1CJx\":\"theme-components-collection-card-collection-card__P1CJx--utNEW\",\"kkBOU\":\"theme-components-collection-card-collection-card__kkBOU--GdcUy\",\"react-international-phone-country-selector-button\":\"theme-components-collection-card-collection-card__react-international-phone-country-selector-button--ZbelF\",\"react-international-phone-input\":\"theme-components-collection-card-collection-card__react-international-phone-input--nFQSO\",\"forget-password-container\":\"theme-components-collection-card-collection-card__forget-password-container--uWTaD\",\"profile-navigation-container\":\"theme-components-collection-card-collection-card__profile-navigation-container--p0huK\",\"ojp_C\":\"theme-components-collection-card-collection-card__ojp_C--GisZ_\",\"O32OW\":\"theme-components-collection-card-collection-card__O32OW--y1pug\",\"collection-hero-banner\":\"theme-components-collection-card-collection-card__collection-hero-banner--YFiKI\",\"collection-banner-img\":\"theme-components-collection-card-collection-card__collection-banner-img--j5xIw\",\"collection-unofficial\":\"theme-components-collection-card-collection-card__collection-unofficial--v0s8t\",\"collection-dbyd\":\"theme-components-collection-card-collection-card__collection-dbyd--TSuKr\",\"collection-banner-img-mobile\":\"theme-components-collection-card-collection-card__collection-banner-img-mobile--kgRCp\",\"collection-banner-content\":\"theme-components-collection-card-collection-card__collection-banner-content--rptuw\",\"custom-banner-card\":\"theme-components-collection-card-collection-card__custom-banner-card--Jqrj3\",\"banner-overlay\":\"theme-components-collection-card-collection-card__banner-overlay--lWDyM\",\"banner-content\":\"theme-components-collection-card-collection-card__banner-content--VNgGH\",\"banner-btn\":\"theme-components-collection-card-collection-card__banner-btn--PcS3u\",\"flexColumn\":\"theme-components-collection-card-collection-card__flexColumn--Z9nNw\",\"flexAlignCenter\":\"theme-components-collection-card-collection-card__flexAlignCenter--J7Al4\",\"flexCenter\":\"theme-components-collection-card-collection-card__flexCenter--B3nWx\",\"justifyStart\":\"theme-components-collection-card-collection-card__justifyStart--c95I9\",\"justifyBetween\":\"theme-components-collection-card-collection-card__justifyBetween--DNpt3\",\"slick-dots\":\"theme-components-collection-card-collection-card__slick-dots--CJcOn\",\"slick-active\":\"theme-components-collection-card-collection-card__slick-active--gIW6k\",\"section_glamar-sdk-binding\":\"theme-components-collection-card-collection-card__section_glamar-sdk-binding--QjTcs\",\"legal-data-container\":\"theme-components-collection-card-collection-card__legal-data-container--LiESY\",\"collectionCard\":\"theme-components-collection-card-collection-card__collectionCard--zC8ng\",\"collectionImage\":\"theme-components-collection-card-collection-card__collectionImage--SSa9o\",\"collectionTitleWrapper\":\"theme-components-collection-card-collection-card__collectionTitleWrapper--tBUCK\",\"collectionTitle\":\"theme-components-collection-card-collection-card__collectionTitle--Yd73Z\",\"collectionButton\":\"theme-components-collection-card-collection-card__collectionButton--WFxAg\",\"inside\":\"theme-components-collection-card-collection-card__inside--xL3kg\"}";
+        // 1773821721732
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -1248,6 +1203,53 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/styles/sections/collections-listing.less"
+/*!********************************************************!*\
+  !*** ./theme/styles/sections/collections-listing.less ***!
+  \********************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-collections-listing__login-auth-container--WtUKf","n2oQ6":"theme-styles-sections-collections-listing__n2oQ6--yas_m","uiz1K":"theme-styles-sections-collections-listing__uiz1K--LNHOz","P1CJx":"theme-styles-sections-collections-listing__P1CJx--yqCx1","kkBOU":"theme-styles-sections-collections-listing__kkBOU--QDhwN","react-international-phone-country-selector-button":"theme-styles-sections-collections-listing__react-international-phone-country-selector-button--ZJYJp","react-international-phone-input":"theme-styles-sections-collections-listing__react-international-phone-input--t7XPN","forget-password-container":"theme-styles-sections-collections-listing__forget-password-container--hyJhv","profile-navigation-container":"theme-styles-sections-collections-listing__profile-navigation-container--ZsedY","ojp_C":"theme-styles-sections-collections-listing__ojp_C--cTRJi","O32OW":"theme-styles-sections-collections-listing__O32OW--oqYnw","collection-hero-banner":"theme-styles-sections-collections-listing__collection-hero-banner--y3UlX","collection-banner-img":"theme-styles-sections-collections-listing__collection-banner-img--cAEST","collection-unofficial":"theme-styles-sections-collections-listing__collection-unofficial--_EyIa","collection-dbyd":"theme-styles-sections-collections-listing__collection-dbyd--fXWFn","collection-banner-img-mobile":"theme-styles-sections-collections-listing__collection-banner-img-mobile--R7h8q","collection-banner-content":"theme-styles-sections-collections-listing__collection-banner-content--lG0br","custom-banner-card":"theme-styles-sections-collections-listing__custom-banner-card--s4trl","banner-overlay":"theme-styles-sections-collections-listing__banner-overlay--VaBbV","banner-content":"theme-styles-sections-collections-listing__banner-content--gquTI","banner-btn":"theme-styles-sections-collections-listing__banner-btn--QijxP","flexColumn":"theme-styles-sections-collections-listing__flexColumn--mSU2b","flexAlignCenter":"theme-styles-sections-collections-listing__flexAlignCenter--wn9jI","flexCenter":"theme-styles-sections-collections-listing__flexCenter--mEJ_P","justifyStart":"theme-styles-sections-collections-listing__justifyStart--NhxMM","justifyBetween":"theme-styles-sections-collections-listing__justifyBetween--lann0","slick-dots":"theme-styles-sections-collections-listing__slick-dots--exqlS","slick-active":"theme-styles-sections-collections-listing__slick-active--bhqHP","section_glamar-sdk-binding":"theme-styles-sections-collections-listing__section_glamar-sdk-binding--Y1jnm","legal-data-container":"theme-styles-sections-collections-listing__legal-data-container--lAZW5","collections__template":"theme-styles-sections-collections-listing__collections__template--LYpPv","section-title-block":"theme-styles-sections-collections-listing__section-title-block--I0Joc","section-title":"theme-styles-sections-collections-listing__section-title--dSK7_","section-description":"theme-styles-sections-collections-listing__section-description--dtGZ0","collectionGrid":"theme-styles-sections-collections-listing__collectionGrid--tBrJy","defaultGrid":"theme-styles-sections-collections-listing__defaultGrid--tf3_C","collectionSlider":"theme-styles-sections-collections-listing__collectionSlider--K0d9R","sliderItem":"theme-styles-sections-collections-listing__sliderItem--h9qH7","singleItem":"theme-styles-sections-collections-listing__singleItem--YaG5y","hideOnDesktop":"theme-styles-sections-collections-listing__hideOnDesktop--vjexU","hideOnTablet":"theme-styles-sections-collections-listing__hideOnTablet--eV8as","hideOnMobile":"theme-styles-sections-collections-listing__hideOnMobile--m10nb","showOnMobile":"theme-styles-sections-collections-listing__showOnMobile--sRJr_"});
+    if(true) {
+      (function() {
+        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-collections-listing__login-auth-container--WtUKf\",\"n2oQ6\":\"theme-styles-sections-collections-listing__n2oQ6--yas_m\",\"uiz1K\":\"theme-styles-sections-collections-listing__uiz1K--LNHOz\",\"P1CJx\":\"theme-styles-sections-collections-listing__P1CJx--yqCx1\",\"kkBOU\":\"theme-styles-sections-collections-listing__kkBOU--QDhwN\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-collections-listing__react-international-phone-country-selector-button--ZJYJp\",\"react-international-phone-input\":\"theme-styles-sections-collections-listing__react-international-phone-input--t7XPN\",\"forget-password-container\":\"theme-styles-sections-collections-listing__forget-password-container--hyJhv\",\"profile-navigation-container\":\"theme-styles-sections-collections-listing__profile-navigation-container--ZsedY\",\"ojp_C\":\"theme-styles-sections-collections-listing__ojp_C--cTRJi\",\"O32OW\":\"theme-styles-sections-collections-listing__O32OW--oqYnw\",\"collection-hero-banner\":\"theme-styles-sections-collections-listing__collection-hero-banner--y3UlX\",\"collection-banner-img\":\"theme-styles-sections-collections-listing__collection-banner-img--cAEST\",\"collection-unofficial\":\"theme-styles-sections-collections-listing__collection-unofficial--_EyIa\",\"collection-dbyd\":\"theme-styles-sections-collections-listing__collection-dbyd--fXWFn\",\"collection-banner-img-mobile\":\"theme-styles-sections-collections-listing__collection-banner-img-mobile--R7h8q\",\"collection-banner-content\":\"theme-styles-sections-collections-listing__collection-banner-content--lG0br\",\"custom-banner-card\":\"theme-styles-sections-collections-listing__custom-banner-card--s4trl\",\"banner-overlay\":\"theme-styles-sections-collections-listing__banner-overlay--VaBbV\",\"banner-content\":\"theme-styles-sections-collections-listing__banner-content--gquTI\",\"banner-btn\":\"theme-styles-sections-collections-listing__banner-btn--QijxP\",\"flexColumn\":\"theme-styles-sections-collections-listing__flexColumn--mSU2b\",\"flexAlignCenter\":\"theme-styles-sections-collections-listing__flexAlignCenter--wn9jI\",\"flexCenter\":\"theme-styles-sections-collections-listing__flexCenter--mEJ_P\",\"justifyStart\":\"theme-styles-sections-collections-listing__justifyStart--NhxMM\",\"justifyBetween\":\"theme-styles-sections-collections-listing__justifyBetween--lann0\",\"slick-dots\":\"theme-styles-sections-collections-listing__slick-dots--exqlS\",\"slick-active\":\"theme-styles-sections-collections-listing__slick-active--bhqHP\",\"section_glamar-sdk-binding\":\"theme-styles-sections-collections-listing__section_glamar-sdk-binding--Y1jnm\",\"legal-data-container\":\"theme-styles-sections-collections-listing__legal-data-container--lAZW5\",\"collections__template\":\"theme-styles-sections-collections-listing__collections__template--LYpPv\",\"section-title-block\":\"theme-styles-sections-collections-listing__section-title-block--I0Joc\",\"section-title\":\"theme-styles-sections-collections-listing__section-title--dSK7_\",\"section-description\":\"theme-styles-sections-collections-listing__section-description--dtGZ0\",\"collectionGrid\":\"theme-styles-sections-collections-listing__collectionGrid--tBrJy\",\"defaultGrid\":\"theme-styles-sections-collections-listing__defaultGrid--tf3_C\",\"collectionSlider\":\"theme-styles-sections-collections-listing__collectionSlider--K0d9R\",\"sliderItem\":\"theme-styles-sections-collections-listing__sliderItem--h9qH7\",\"singleItem\":\"theme-styles-sections-collections-listing__singleItem--YaG5y\",\"hideOnDesktop\":\"theme-styles-sections-collections-listing__hideOnDesktop--vjexU\",\"hideOnTablet\":\"theme-styles-sections-collections-listing__hideOnTablet--eV8as\",\"hideOnMobile\":\"theme-styles-sections-collections-listing__hideOnMobile--m10nb\",\"showOnMobile\":\"theme-styles-sections-collections-listing__showOnMobile--sRJr_\"}";
+        // 1773821712115
+        var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/collections-listing.png"
+/*!*****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/collections-listing.png ***!
+  \*****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/11e298d1251396a52114.png";
+
+/***/ }
 
 }]);

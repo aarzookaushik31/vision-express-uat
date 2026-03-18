@@ -95,6 +95,7 @@ export const PLP_PRODUCTS = `query products(
             type
             url
         }
+     attributes
         variants {
           display_type
           header
@@ -121,6 +122,7 @@ export const PLP_PRODUCTS = `query products(
         }
         slug
         uid
+        item_code 
         sellable
         teaser_tag
         discount
@@ -370,5 +372,39 @@ export const CATEGORY_META = `query Category($slug: String!) {
         name
         uid
     }
+}
+`;
+
+
+
+
+
+
+
+
+
+
+export const GET_CUSTOM_FIELDS = `
+query customFieldsByResource(
+  $resource: String!
+  $resourceIds: [String!]
+  $keys: [String!]
+) {
+  customFieldsByResource(
+    resource: $resource
+    resourceIds: $resourceIds
+    keys: $keys
+  ) {
+    fields {
+      id
+      key
+      namespace
+      type
+      values
+    }
+    groups {
+      resource_id
+    }
+  }
 }
 `;

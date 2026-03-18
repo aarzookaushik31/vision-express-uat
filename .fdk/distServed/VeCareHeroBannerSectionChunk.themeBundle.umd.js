@@ -46,21 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["VeCareHeroBannerSectionChunk"],{
 
-/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
-
-/***/ }),
-
-/***/ "./theme/sections/ve-care-hero-banner.jsx":
+/***/ "./theme/sections/ve-care-hero-banner.jsx"
 /*!************************************************!*\
   !*** ./theme/sections/ve-care-hero-banner.jsx ***!
   \************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -196,13 +186,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/ve-care-section.less":
+/***/ "./theme/styles/sections/ve-care-section.less"
 /*!****************************************************!*\
   !*** ./theme/styles/sections/ve-care-section.less ***!
   \****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -213,7 +203,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"veCareSection\":\"theme-styles-sections-ve-care-section__veCareSection--KhWlK\",\"container\":\"theme-styles-sections-ve-care-section__container--_Caeq\",\"content\":\"theme-styles-sections-ve-care-section__content--slD18\",\"eyebrow\":\"theme-styles-sections-ve-care-section__eyebrow--ByPkk\",\"heading\":\"theme-styles-sections-ve-care-section__heading--_YWYR\",\"inlineHighlight\":\"theme-styles-sections-ve-care-section__inlineHighlight--RZUFu\",\"description\":\"theme-styles-sections-ve-care-section__description--iJmPh\",\"imageWrapper\":\"theme-styles-sections-ve-care-section__imageWrapper--xpFLH\"}";
-        // 1771504631414
+        // 1773821701234
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -233,6 +223,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
+
+/***/ }
 
 }]);

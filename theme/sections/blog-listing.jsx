@@ -145,7 +145,7 @@ const getEstimatedReadingTime = (blog) => {
       className={styles.loadMoreBtn}
       onClick={handleLoadMore}
     >
-      View More Posts
+     Load More Posts
     </button>
   </div>
 )}

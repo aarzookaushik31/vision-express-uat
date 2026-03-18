@@ -75,7 +75,7 @@ const blogItems =
       <div className={styles.blogBreadcrumb}>
         <a href="/" className={styles.breadcrumbLink}>Home</a>
         <span className={styles.breadcrumbSeparator}>/</span>
-        <a href="/blogs" className={styles.breadcrumbLink}>Blogs</a>
+        <a href="/blog" className={styles.breadcrumbLink}>Blogs</a>
         <span className={styles.breadcrumbSeparator}>/</span>
         <span className={styles.breadcrumbCurrent}>{title}</span>
       </div>

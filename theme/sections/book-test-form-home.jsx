@@ -45,45 +45,105 @@ export function Component({ props = {} }) {
   }, [slug]);
 
 
-  const validateForm = () => {
-    let valid = true;
-    const errors = { ...formError };
-    const now = new Date();
+const validateForm = () => {
+  let valid = true;
+  const errors = {};
+  const now = new Date();
 
-    Object.keys(formData).forEach((key) => {
-      const value = formData[key];
+  Object.keys(formData).forEach((key) => {
+    const rawValue = formData[key];
+    const value =
+      typeof rawValue === "string" ? rawValue.trim() : rawValue;
 
-     if (key === "full-name" && !/^[A-Za-z\s]+$/.test(value)) {
-  errors[key] = "Only letters and spaces allowed";
-  valid = false;
-} else if (key === "contact-number" && (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value))) {
-  errors[key] = "Enter a valid 10 digit mobile number";
-  valid = false;
-} else if (key === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
-  errors[key] = "Enter a valid email address";
-  valid = false;
-} else if (key === "date" && new Date(value) < now) {
-  errors[key] = "Date cannot be in the past";
-  valid = false;
-}
+    const fieldConfig = content.inputs.find((i) => i.key === key);
 
-    });
+    if (fieldConfig?.required && (!value || value === "")) {
+      errors[key] = "This field is required";
+      valid = false;
+      return;
+    }
 
-    setFormError(errors);
-    return valid;
-  };
+    if (key === "full-name" && !/^[A-Za-z\s]+$/.test(value)) {
+      errors[key] = "Only letters and spaces allowed";
+      valid = false;
+    } else if (
+      key === "contact-number" &&
+      (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value))
+    ) {
+      errors[key] = "Enter a valid 10 digit mobile number";
+      valid = false;
+    } else if (key === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
+      errors[key] = "Enter a valid email address";
+      valid = false;
+    } else if (key === "date") {
+      const selected = new Date(value);
+      const tomorrow = new Date();
+      tomorrow.setHours(0, 0, 0, 0);
+      tomorrow.setDate(tomorrow.getDate() + 1);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+      if (selected < tomorrow) {
+        errors[key] = "Date must be from tomorrow onwards";
+        valid = false;
+      }
+    }
+  });
+
+  setFormError(errors);
+  return valid;
+};
+
+
+
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  let newValue = type === "checkbox" ? checked : value;
+
+  if (name === "contact-number") {
+    newValue = value.replace(/\D/g, "").slice(0, 10);
+
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: newValue,
     }));
-  };
+
+    setFormError((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+
+    return;
+  }
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: newValue,
+  }));
+
+  validateField(name, newValue);
+};
+
+
+
+
+
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+
+   const isValid = validateForm();
+
+if (!isValid) {
+  setTimeout(() => {
+    const firstErrorKey = Object.keys(formError).find((key) => formError[key]);
+    const el = document.querySelector(`[name="${firstErrorKey}"]`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 50);
+
+  return;
+}
 
    const responsePayload = content.inputs.map((input) => {
     const value = formData[input.key];
@@ -120,7 +180,65 @@ const requestBody = {
   };
 
 
-  if (loading) return <div>Loading...</div>;
+
+
+
+
+const validateField = (name, value) => {
+  let error = "";
+
+  const fieldConfig = content.inputs.find((i) => i.key === name);
+
+  if (fieldConfig?.required && (!value || value.trim() === "")) {
+    error = "This field is required";
+  }
+
+  else if (name === "full-name") {
+    if (!/^[A-Za-z\s]+$/.test(value)) {
+      error = "Only letters and spaces allowed";
+    }
+  }
+
+  else if (name === "contact-number") {
+    if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
+      error = "Enter a valid 10 digit mobile number";
+    }
+  }
+
+  else if (name === "email") {
+    if (!/^\S+@\S+\.\S+$/.test(value)) {
+      error = "Enter a valid email address";
+    }
+  }
+
+  else if (name === "date") {
+    const selected = new Date(value);
+    const tomorrow = new Date();
+    tomorrow.setHours(0,0,0,0);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (selected < tomorrow) {
+      error = "Date must be from tomorrow onwards";
+    }
+  }
+
+  setFormError((prev) => ({
+    ...prev,
+    [name]: error,
+  }));
+};
+
+
+
+
+
+
+
+
+
+
+
+  if (loading) return <div></div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -174,7 +292,7 @@ A Vision Express representative will contact you soon to confirm your time slot 
 
     </div>
   ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             {content.inputs.map((input) => (
               <div className={styles.fgroup} key={input.key}>
                 {input.type !== "checkbox" && <label>{input.display}</label>}
@@ -185,16 +303,23 @@ A Vision Express representative will contact you soon to confirm your time slot 
     name={input.key}
     value={formData[input.key]}
     onChange={handleChange}
-    min={new Date().toISOString().split("T")[0]} 
-    placeholder="YYYY-MM-DD"
+    onBlur={(e) => validateField(input.key, e.target.value)} 
+   min={(() => {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return tomorrow.toISOString().split("T")[0];
+})()}
+    placeholder="Choose Date"
     required={input.required}
   />
 ) :  input.type === "text" || input.type === "email" ? (
                   <input
                     type={input.key === "contact-number" ? "tel" : input.type}
+                    inputMode={input.key === "contact-number" ? "numeric" : undefined}
                     name={input.key}
                     value={formData[input.key]}
                     onChange={handleChange}
+                    onBlur={(e) => validateField(input.key, e.target.value)} 
                     placeholder={input.placeholder}
                     required={input.required}
                   />
@@ -205,6 +330,7 @@ A Vision Express representative will contact you soon to confirm your time slot 
                     value={formData[input.key]}
                     onChange={handleChange}
                     placeholder={input.placeholder}
+                    onBlur={(e) => validateField(input.key, e.target.value)} 
                     required={input.required}
                   />
                 ) : input.type === "dropdown" ? (
@@ -212,9 +338,12 @@ A Vision Express representative will contact you soon to confirm your time slot 
   name={input.key}
   value={formData[input.key]}
   onChange={handleChange}
+  onBlur={(e) => validateField(input.key, e.target.value)} 
   required={input.required}
 >
-  <option value="">Select {input.display}</option>
+  <option value="" disabled>
+    {input.placeholder || `Choose Your ${input.display}`}
+  </option>
   {input.enum?.map((opt, idx) => (
     <option key={opt.key || idx} value={opt.key}>
       {opt.display || opt.key}
@@ -229,6 +358,7 @@ A Vision Express representative will contact you soon to confirm your time slot 
                       name={input.key}
                       checked={formData[input.key] || false}
                       onChange={handleChange}
+                      onBlur={(e) => validateField(input.key, e.target.value)} 
                       required={input.required}
                     />
                     {input.display}

@@ -103,6 +103,26 @@
 
 
     .wishlistIcon{
+       position: relative;
+          .count {
+            min-width: 16px;
+            min-height: 16px;
+            padding: 0 2px;
+            background-color: @HeaderIcon;
+            color: @HeaderBackground;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 10px;
+            .flex-center();
+            position: absolute;
+            inset-inline-end: 0;
+            top: 0;
+            transform: translate(20%, -20%);
+            [dir="rtl"] & {
+              transform: translate(-50%, -50%);
+            }
+          }
+
       img{
         width: 24px;
       }

@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["SoloImageSectionChunk"],{
 
-/***/ "./theme/sections/solo-image.jsx":
+/***/ "./theme/sections/solo-image.jsx"
 /*!***************************************!*\
   !*** ./theme/sections/solo-image.jsx ***!
   \***************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -177,13 +177,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/solo-image.less":
+/***/ "./theme/styles/sections/solo-image.less"
 /*!***********************************************!*\
   !*** ./theme/styles/sections/solo-image.less ***!
   \***********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"comparisonSection\":\"theme-styles-sections-solo-image__comparisonSection--d2SXE\",\"desktopImg\":\"theme-styles-sections-solo-image__desktopImg--ofGHS\",\"mobileImg\":\"theme-styles-sections-solo-image__mobileImg--MraqD\",\"imageWrapper\":\"theme-styles-sections-solo-image__imageWrapper--pA5Kh\"}";
-        // 1771504631981
+        // 1773821705112
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -214,6 +214,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

@@ -10,7 +10,7 @@ import {
   getProductImgAspectRatio,
   isRunningOnClient,
 } from "../../helper/utils";
-import productPlaceholder from "../../assets/images/placeholder3x4.png";
+import productPlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import useAddToCartModal from "../plp/useAddToCartModal";
 import { useWishlist, useAccounts, useThemeConfig } from "../../helper/hooks";
 import useInternational from "../../components/header/useInternational";
@@ -460,10 +460,12 @@ const useCollectionListing = ({ fpi, slug, props }) => {
   const { isLoggedIn, openLogin } = useAccounts({ fpi });
 
   const handleWishlistToggle = (data) => {
-    if (!isLoggedIn) {
-      openLogin();
-      return;
-    }
+   if (!isLoggedIn) {
+    localStorage.setItem("pendingWishlistProduct", JSON.stringify(data));
+    openLogin({ redirectUrl: "/wishlist"});
+    return;
+  }
+
     toggleWishlist(data);
   };
 

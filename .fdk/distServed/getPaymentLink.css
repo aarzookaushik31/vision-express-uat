@@ -12472,6 +12472,7 @@ h5,
 .theme-styles-payment-link__login-auth-container--HfZdj [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-styles-payment-link__login-auth-container--HfZdj [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -12540,9 +12541,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-styles-payment-link__login-auth-container--HfZdj .theme-styles-payment-link__react-international-phone-input--AA8Ll {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -12948,6 +12950,15 @@ html body * {
 .theme-styles-payment-link__slick-dots--wUSMw {
   transform: translate(-50%, 100%) !important;
 }
+#theme-styles-payment-link__section_glamar-sdk-binding--3u9vW button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-styles-payment-link__legal-data-container--zPrDk {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -13216,6 +13227,7 @@ html body * {
 .theme-components-payment-link-link-expired__login-auth-container--HomuF [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-payment-link-link-expired__login-auth-container--HomuF [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -13284,9 +13296,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-payment-link-link-expired__login-auth-container--HomuF .theme-components-payment-link-link-expired__react-international-phone-input--WHBmv {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -13692,6 +13705,15 @@ html body * {
 .theme-components-payment-link-link-expired__slick-dots--MF03N {
   transform: translate(-50%, 100%) !important;
 }
+#theme-components-payment-link-link-expired__section_glamar-sdk-binding--Rd5mn button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-components-payment-link-link-expired__legal-data-container--E9Ewb {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -13845,6 +13867,7 @@ html body * {
 .theme-components-payment-link-payment-link-loader__login-auth-container--vx_UP [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-payment-link-payment-link-loader__login-auth-container--vx_UP [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -13913,9 +13936,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-payment-link-payment-link-loader__login-auth-container--vx_UP .theme-components-payment-link-payment-link-loader__react-international-phone-input--jxM_z {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -14320,6 +14344,15 @@ html body * {
 }
 .theme-components-payment-link-payment-link-loader__slick-dots--tfa6I {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-payment-link-payment-link-loader__section_glamar-sdk-binding--OvEB_ button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-payment-link-payment-link-loader__legal-data-container--ulJkE {
   border: 1px solid rgba(0, 0, 0, 0.08);

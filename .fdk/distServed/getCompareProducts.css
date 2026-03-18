@@ -32,6 +32,7 @@
 .theme-page-layouts-compare-compare__login-auth-container--QY8gv [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-page-layouts-compare-compare__login-auth-container--QY8gv [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -100,9 +101,10 @@
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-page-layouts-compare-compare__login-auth-container--QY8gv .theme-page-layouts-compare-compare__react-international-phone-input--DwQ_z {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -507,6 +509,15 @@ html body * {
 }
 .theme-page-layouts-compare-compare__slick-dots--SZnMs {
   transform: translate(-50%, 100%) !important;
+}
+#theme-page-layouts-compare-compare__section_glamar-sdk-binding--d4bb2 button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-page-layouts-compare-compare__legal-data-container--BDt5g {
   border: 1px solid rgba(0, 0, 0, 0.08);

@@ -45,136 +45,655 @@ if (!isRunningOnClient()) {
 
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["getProfilePhone"],{
 
-/***/ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css ***!
-  \*******************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504628317
-        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.js":
+/***/ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.js"
 /*!******************************************************************************************************!*\
   !*** ./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.js ***!
   \******************************************************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 !function webpackUniversalModuleDefinition(e,r){ true?module.exports=r(__webpack_require__(/*! fdk-core/components */ "fdk-core/components"),__webpack_require__(/*! fdk-core/utils */ "fdk-core/utils"),__webpack_require__(/*! react */ "react"),__webpack_require__(/*! react-router-dom */ "react-router-dom")):0}("undefined"!=typeof self?self:this,((e,r,n,t)=>(()=>{"use strict";var a={4814:(e,r,n)=>{n.d(r,{A:()=>i});var t,a=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var n=arguments[r];for(var t in n)({}).hasOwnProperty.call(n,t)&&(e[t]=n[t])}return e},_extends.apply(null,arguments)}const i=function SvgAddress(e){return a.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),t||(t=a.createElement("path",{fill:"#4D4D4E",d:"m10.001 5.16 4.167 3.75v6.508h-1.667v-5h-5v5H5.835V8.91zm0-2.242-8.333 7.5h2.5v6.667h5v-5h1.667v5h5v-6.667h2.5z"})))}},7962:(e,r,n)=>{n.d(r,{A:()=>i});var t,a=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var n=arguments[r];for(var t in n)({}).hasOwnProperty.call(n,t)&&(e[t]=n[t])}return e},_extends.apply(null,arguments)}const i=function SvgCall(e){return a.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),t||(t=a.createElement("path",{fill:"#4D4D4E",d:"M5.45 4.167c.05.741.175 1.466.375 2.158l-1 1c-.342-1-.558-2.058-.633-3.158zm8.217 10.016c.708.2 1.433.325 2.166.375V15.8a12.9 12.9 0 0 1-3.166-.625zM6.25 2.5H3.333a.836.836 0 0 0-.833.833C2.5 11.158 8.842 17.5 16.667 17.5a.836.836 0 0 0 .833-.833v-2.909a.836.836 0 0 0-.833-.833 9.5 9.5 0 0 1-2.975-.475.7.7 0 0 0-.259-.042.85.85 0 0 0-.591.242l-1.834 1.833a12.62 12.62 0 0 1-5.491-5.491L7.35 7.158a.84.84 0 0 0 .208-.85 9.5 9.5 0 0 1-.475-2.975.836.836 0 0 0-.833-.833"})))}},7010:(e,r,n)=>{n.d(r,{A:()=>i});var t,a=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var n=arguments[r];for(var t in n)({}).hasOwnProperty.call(n,t)&&(e[t]=n[t])}return e},_extends.apply(null,arguments)}const i=function SvgEmail(e){return a.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),t||(t=a.createElement("path",{fill:"#4D4D4E",d:"M18.335 4.999c0-.917-.75-1.667-1.667-1.667H3.335c-.917 0-1.667.75-1.667 1.667v10c0 .916.75 1.666 1.667 1.666h13.333c.917 0 1.667-.75 1.667-1.666zm-1.667 0-6.667 4.158-6.666-4.158zm0 10H3.335V6.665L10 10.832l6.667-4.167z"})))}},9825:(e,r,n)=>{n.d(r,{A:()=>o});var t,a,i=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var r=1;r<arguments.length;r++){var n=arguments[r];for(var t in n)({}).hasOwnProperty.call(n,t)&&(e[t]=n[t])}return e},_extends.apply(null,arguments)}const o=function SvgOrders(e){return i.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),i.createElement("mask",{id:"orders_svg__a",width:20,height:20,x:0,y:0,maskUnits:"userSpaceOnUse",style:{maskType:"alpha"}},t||(t=i.createElement("path",{fill:"#D9D9D9",d:"M0 0h20v20H0z"}))),a||(a=i.createElement("g",{mask:"url(#orders_svg__a)"},i.createElement("path",{fill:"#4D4D4E",d:"M4.418 17.918q-.625 0-1.063-.437a1.45 1.45 0 0 1-.437-1.063v-9.5q0-.625.437-1.063a1.45 1.45 0 0 1 1.063-.437h1.833q0-1.562 1.094-2.657Q8.44 1.668 10 1.668q1.563 0 2.657 1.093 1.093 1.094 1.093 2.657h1.834q.624 0 1.062.437.438.438.438 1.063v9.5q0 .625-.438 1.063a1.45 1.45 0 0 1-1.062.437zm0-1.25h11.167q.082 0 .166-.083.084-.084.084-.167v-9.5q0-.083-.084-.167-.082-.083-.166-.083H4.418q-.083 0-.167.083-.083.084-.083.167v9.5q0 .084.083.167t.167.083m5.583-5.417q1.563 0 2.657-1.093 1.093-1.094 1.093-2.657h-1.25q0 1.042-.729 1.771a2.4 2.4 0 0 1-1.77.73 2.4 2.4 0 0 1-1.772-.73 2.4 2.4 0 0 1-.729-1.77h-1.25q0 1.562 1.094 2.656Q8.44 11.251 10 11.251m-2.5-5.833h5q0-1.042-.729-1.77a2.4 2.4 0 0 0-1.77-.73 2.4 2.4 0 0 0-1.772.73 2.4 2.4 0 0 0-.729 1.77"}))))}},266:(e,r,n)=>{n.d(r,{_o:()=>_});var t=n(9825),a=n(7962),i=n(7010),o=n(4814);const _=[{key:"orders",Icon:t.A,display:"resource.common.my_orders",link:"/profile/orders",disabled_cart:!1},{key:"phone",Icon:a.A,display:"resource.common.phone_number",link:"/profile/phone",disabled_cart:!0},{key:"email",Icon:i.A,display:"resource.common.email_address",link:"/profile/email",staff:!1,disabled_cart:!0},{key:"address",Icon:o.A,display:"resource.common.my_address",link:"/profile/address",disabled_cart:!1}]},8618:(e,r,n)=>{n.d(r,{useMobile:()=>useMobile});var t=n(9155),a=n(4429);const useMobile=function(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:768;const[r,n]=(0,t.useState)(!1);return(0,t.useEffect)((()=>{if(!(0,a.Wx)())return;const handleResize=()=>{"undefined"!=typeof window&&n(window?.innerWidth<=e)};return handleResize(),window?.addEventListener("resize",handleResize),()=>{window?.removeEventListener("resize",handleResize)}}),[e]),r}},4429:(e,r,n)=>{n.d(r,{Wx:()=>isRunningOnClient});n(266);function isRunningOnClient(){return"undefined"!=typeof window&&globalThis===window}},7438:r=>{r.exports=e},447:e=>{e.exports=r},9155:e=>{e.exports=n},4442:e=>{e.exports=t}},i={};function __nested_webpack_require_5561__(e){var r=i[e];if(void 0!==r)return r.exports;var n=i[e]={exports:{}};return a[e](n,n.exports,__nested_webpack_require_5561__),n.exports}__nested_webpack_require_5561__.n=e=>{var r=e&&e.__esModule?()=>e.default:()=>e;return __nested_webpack_require_5561__.d(r,{a:r}),r},__nested_webpack_require_5561__.d=(e,r)=>{for(var n in r)__nested_webpack_require_5561__.o(r,n)&&!__nested_webpack_require_5561__.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:r[n]})},__nested_webpack_require_5561__.o=(e,r)=>Object.prototype.hasOwnProperty.call(e,r),__nested_webpack_require_5561__.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})};var o={};return(()=>{__nested_webpack_require_5561__.r(o),__nested_webpack_require_5561__.d(o,{default:()=>C});var e={};__nested_webpack_require_5561__.r(e),__nested_webpack_require_5561__.d(e,{vz:()=>_,tU:()=>l,EQ:()=>s,XS:()=>c,bv:()=>d,YO:()=>u,tR:()=>p,dK:()=>f,QU:()=>m,ro:()=>v,UU:()=>g,VW:()=>w,C$:()=>b,xk:()=>h,bs:()=>k,OW:()=>E,wH:()=>y,CI:()=>q,sw:()=>x,co:()=>O});var r=__nested_webpack_require_5561__(9155),n=__nested_webpack_require_5561__.n(r),t=__nested_webpack_require_5561__(4442),a=__nested_webpack_require_5561__(266),i=__nested_webpack_require_5561__(7438),_="profile-navigation__accountHeader___XCw9w",l="profile-navigation__accountIcon___At4UG",s="profile-navigation__basePageContainer___j7nxz",c="profile-navigation__defaultImage___LIVYS",d="profile-navigation__editLink___ECwEQ",u="profile-navigation__flexAlignCenter___i6D9J",p="profile-navigation__flexCenter___VUyQg",f="profile-navigation__mainView___N7sRC",m="profile-navigation__margin0auto___VcZI4",v="profile-navigation__menuIcon___VwDzj",g="profile-navigation__name___sA_rM",w="profile-navigation__nameContainer___G2PUc",b="profile-navigation__nav___Muxd1",h="profile-navigation__navContainer___pxEcU",k="profile-navigation__profileContent___EeXTJ",E="profile-navigation__profilePageContainer___K5iNj",y="profile-navigation__selected___wsc95",q="profile-navigation__signOut___BUQPE",x="profile-navigation__userData___PSyo0",O="profile-navigation__versionContainer___gbdtn",N=__nested_webpack_require_5561__(8618),j=__nested_webpack_require_5561__(447);const C=function ProfileNavigation(o){let{children:C,signOut:D,userProfilePicUrl:P,userName:S}=o;const{t:M}=(0,j.useGlobalTranslation)("translation"),z=(0,N.useMobile)(),{pathname:A}=(0,t.useLocation)(),{language:U}=(0,j.useGlobalStore)(fpi.getters.i18N_DETAILS),I=U?.locale,L=(0,r.useMemo)((()=>"/profile/profile-tabs"===A&&A!==`/${I}/profile/profile-tabs`),[A]),$=(0,r.useMemo)((()=>z&&"/profile/profile-tabs"!==A&&A!==`/${I}/profile/profile-tabs`),[z,A]);return n().createElement("div",{className:`${E} ${m} ${s}`},n().createElement("div",{className:f},!L&&n().createElement("div",{className:k},C),!$&&n().createElement("div",{className:h},n().createElement("div",{className:x},n().createElement("div",{className:`${c} ${p}`},n().createElement("img",{className:l,src:P,alt:M("resource.common.user_alt")})),n().createElement("div",{className:w},n().createElement("p",{title:S,className:g},S),n().createElement(i.FDKLink,{className:u,to:"/profile/details"},n().createElement("p",{className:d},M("resource.profile.edit_profile"))))),n().createElement("div",{className:_},M("resource.profile.my_account")),n().createElement("ul",null,a._o.map((r=>{let{key:t,display:a,link:o,Icon:_}=r;return n().createElement("li",{className:`${b} ${A===o?y:""}`,key:t},n().createElement(i.FDKLink,{className:u,to:o},n().createElement("span",{className:v},n().createElement(_,null)),n().createElement("span",{className:e.itemTitle},M(a))))}))),n().createElement("div",{className:O},n().createElement("div",{className:q,onClick:()=>{D()}},M("resource.profile.sign_out"))))))}})(),o})()));
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css ***!
-  \****************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504625875
-        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/index.js":
+/***/ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/index.js"
 /*!*******************************************************************************!*\
   !*** ./node_modules/@gofynd/theme-template/dist/pages/profile/phone/index.js ***!
   \*******************************************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 !function webpackUniversalModuleDefinition(e,t){ true?module.exports=t(__webpack_require__(/*! fdk-core/utils */ "fdk-core/utils"),__webpack_require__(/*! google-libphonenumber */ "./node_modules/google-libphonenumber/dist/libphonenumber.js"),__webpack_require__(/*! react */ "react"),__webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.cjs.js"),__webpack_require__(/*! react-international-phone */ "./node_modules/react-international-phone/dist/index.js")):0}("undefined"!=typeof self?self:this,((e,t,n,o,r)=>(()=>{"use strict";var a={1252:(e,t,n)=>{n.d(t,{A:()=>a});var o,r=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const a=function SvgAddAddress(e){return r.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:18,height:18,fill:"none"},e),o||(o=r.createElement("path",{fill:"var(--buttonPrimary)",d:"M3.75 9.75h4.5v4.5h1.5v-4.5h4.5v-1.5h-4.5v-4.5h-1.5v4.5h-4.5z"})))}},4814:(e,t,n)=>{n.d(t,{A:()=>a});var o,r=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const a=function SvgAddress(e){return r.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),o||(o=r.createElement("path",{fill:"#4D4D4E",d:"m10.001 5.16 4.167 3.75v6.508h-1.667v-5h-5v5H5.835V8.91zm0-2.242-8.333 7.5h2.5v6.667h5v-5h1.667v5h5v-6.667h2.5z"})))}},7962:(e,t,n)=>{n.d(t,{A:()=>a});var o,r=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const a=function SvgCall(e){return r.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),o||(o=r.createElement("path",{fill:"#4D4D4E",d:"M5.45 4.167c.05.741.175 1.466.375 2.158l-1 1c-.342-1-.558-2.058-.633-3.158zm8.217 10.016c.708.2 1.433.325 2.166.375V15.8a12.9 12.9 0 0 1-3.166-.625zM6.25 2.5H3.333a.836.836 0 0 0-.833.833C2.5 11.158 8.842 17.5 16.667 17.5a.836.836 0 0 0 .833-.833v-2.909a.836.836 0 0 0-.833-.833 9.5 9.5 0 0 1-2.975-.475.7.7 0 0 0-.259-.042.85.85 0 0 0-.591.242l-1.834 1.833a12.62 12.62 0 0 1-5.491-5.491L7.35 7.158a.84.84 0 0 0 .208-.85 9.5 9.5 0 0 1-.475-2.975.836.836 0 0 0-.833-.833"})))}},1030:(e,t,n)=>{n.d(t,{A:()=>a});var o,r=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const a=function SvgCloseBold(e){return r.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:21,height:20,fill:"none"},e),o||(o=r.createElement("path",{fill:"#1F1F1F",d:"m16.752 5.342-1.198-1.175-4.748 4.658-4.749-4.658L4.86 5.342 9.608 10 4.859 14.66l1.198 1.175 4.749-4.659 4.748 4.659 1.198-1.175L12.004 10z"})))}},7010:(e,t,n)=>{n.d(t,{A:()=>a});var o,r=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const a=function SvgEmail(e){return r.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),o||(o=r.createElement("path",{fill:"#4D4D4E",d:"M18.335 4.999c0-.917-.75-1.667-1.667-1.667H3.335c-.917 0-1.667.75-1.667 1.667v10c0 .916.75 1.666 1.667 1.666h13.333c.917 0 1.667-.75 1.667-1.666zm-1.667 0-6.667 4.158-6.666-4.158zm0 10H3.335V6.665L10 10.832l6.667-4.167z"})))}},9825:(e,t,n)=>{n.d(t,{A:()=>l});var o,r,a=n(9155);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const l=function SvgOrders(e){return a.createElement("svg",_extends({xmlns:"http://www.w3.org/2000/svg",width:20,height:20,fill:"none"},e),a.createElement("mask",{id:"orders_svg__a",width:20,height:20,x:0,y:0,maskUnits:"userSpaceOnUse",style:{maskType:"alpha"}},o||(o=a.createElement("path",{fill:"#D9D9D9",d:"M0 0h20v20H0z"}))),r||(r=a.createElement("g",{mask:"url(#orders_svg__a)"},a.createElement("path",{fill:"#4D4D4E",d:"M4.418 17.918q-.625 0-1.063-.437a1.45 1.45 0 0 1-.437-1.063v-9.5q0-.625.437-1.063a1.45 1.45 0 0 1 1.063-.437h1.833q0-1.562 1.094-2.657Q8.44 1.668 10 1.668q1.563 0 2.657 1.093 1.093 1.094 1.093 2.657h1.834q.624 0 1.062.437.438.438.438 1.063v9.5q0 .625-.438 1.063a1.45 1.45 0 0 1-1.062.437zm0-1.25h11.167q.082 0 .166-.083.084-.084.084-.167v-9.5q0-.083-.084-.167-.082-.083-.166-.083H4.418q-.083 0-.167.083-.083.084-.083.167v9.5q0 .084.083.167t.167.083m5.583-5.417q1.563 0 2.657-1.093 1.093-1.094 1.093-2.657h-1.25q0 1.042-.729 1.771a2.4 2.4 0 0 1-1.77.73 2.4 2.4 0 0 1-1.772-.73 2.4 2.4 0 0 1-.729-1.77h-1.25q0 1.562 1.094 2.656Q8.44 11.251 10 11.251m-2.5-5.833h5q0-1.042-.729-1.77a2.4 2.4 0 0 0-1.77-.73 2.4 2.4 0 0 0-1.772.73 2.4 2.4 0 0 0-.729 1.77"}))))}},2847:(e,t,n)=>{n.d(t,{default:()=>$e});var o={};n.r(o),n.d(o,{"accent-btn":()=>l,accentBtn:()=>_,"b-small":()=>c,b1:()=>s,b2:()=>d,bSmall:()=>u,"base-page-container":()=>p,basePageContainer:()=>f,"btn-link":()=>m,btnLink:()=>b,button:()=>y,"caption-medium":()=>h,"caption-semi-bold":()=>v,captionMedium:()=>g,captionSemiBold:()=>w,contained:()=>x,d1:()=>C,"display-block":()=>k,error:()=>E,"flex-align-center":()=>N,"flex-center":()=>j,"flex-column":()=>S,"flex-justify-center":()=>O,"flex-row":()=>A,flexAlignCenter:()=>M,flexCenter:()=>q,flexColumn:()=>T,flexJustifyCenter:()=>z,fullWidth:()=>$,h1:()=>I,h2:()=>B,h3:()=>P,h4:()=>L,h5:()=>D,"hide-overflow":()=>F,hideOverflow:()=>J,info:()=>H,"inline-block":()=>R,inlineBlock:()=>V,"justify-around":()=>G,"justify-between":()=>K,"justify-end":()=>U,"justify-evenly":()=>W,"justify-start":()=>Q,justifyAround:()=>Z,justifyBetween:()=>X,justifyEnd:()=>Y,justifyEvenly:()=>ee,justifyStart:()=>te,large:()=>ne,loader:()=>oe,loaderContainer:()=>re,"margin-0-auto":()=>ae,margin0auto:()=>ie,"markdown-body":()=>le,medium:()=>_e,"mr-2":()=>ce,"mr-5":()=>se,mr2:()=>de,mr5:()=>ue,"no-scroll":()=>pe,noScroll:()=>fe,outlined:()=>me,primary:()=>be,"py-5":()=>ye,py5:()=>he,"remove-scroll":()=>ve,removeScroll:()=>ge,secondary:()=>we,small:()=>xe,success:()=>Ce,text:()=>ke,"user-select-none":()=>Ee,userSelectNone:()=>Ne,"view-all-mobile":()=>je,"view-all-text":()=>Se,"view-mobile":()=>Oe,"view-mobile-up":()=>Ae,"view3d-canvas":()=>Me,viewAllMobile:()=>qe,viewAllText:()=>Te});var r=n(9155),a=n.n(r),l="fy-button__accent-btn___xbDFn",_="fy-button__accentBtn___opgXg",c="fy-button__b-small___s1m8o",s="fy-button__b1___cBoS2",d="fy-button__b2___gOnJ1",u="fy-button__bSmall___fny2f",p="fy-button__base-page-container___blkPJ",f="fy-button__basePageContainer___ciPsX",m="fy-button__btn-link___bKkQ1",b="fy-button__btnLink___jOAiL",y="fy-button__button___UES8C",h="fy-button__caption-medium___PSB4T",v="fy-button__caption-semi-bold___FFG2N",g="fy-button__captionMedium___iW0z_",w="fy-button__captionSemiBold___czTMx",x="fy-button__contained___F5O7g",C="fy-button__d1___jr5H6",k="fy-button__display-block___vef36",E="fy-button__error___guhqH",N="fy-button__flex-align-center___QErLo",j="fy-button__flex-center____Om97",S="fy-button__flex-column___vcBv1",O="fy-button__flex-justify-center___myq9D",A="fy-button__flex-row___PMsJD",M="fy-button__flexAlignCenter___byvov",q="fy-button__flexCenter___PHlCU",T="fy-button__flexColumn___ReqFL",z="fy-button__flexJustifyCenter___mJQrA",$="fy-button__fullWidth___FLrWt",I="fy-button__h1___ljmcG",B="fy-button__h2___dtda8",P="fy-button__h3___HHfmk",L="fy-button__h4___SvINy",D="fy-button__h5___LNYpO",F="fy-button__hide-overflow___wDMEA",J="fy-button__hideOverflow___F8mRq",H="fy-button__info___zO7uV",R="fy-button__inline-block___AP9JK",V="fy-button__inlineBlock___xYCrv",G="fy-button__justify-around___O7fq3",K="fy-button__justify-between___gbKe9",U="fy-button__justify-end___evwo6",W="fy-button__justify-evenly___Fukno",Q="fy-button__justify-start___vgs9K",Z="fy-button__justifyAround___NdK7j",X="fy-button__justifyBetween___XdXo5",Y="fy-button__justifyEnd___fDa0b",ee="fy-button__justifyEvenly____8lbT",te="fy-button__justifyStart___NggTJ",ne="fy-button__large___nv2sC",oe="fy-button__loader___eJW6i",re="fy-button__loaderContainer___BYHJs",ae="fy-button__margin-0-auto___f2LiK",ie="fy-button__margin0auto___LCb81",le="fy-button__markdown-body___uimil",_e="fy-button__medium___uyLw8",ce="fy-button__mr-2___Qtkhv",se="fy-button__mr-5___A5qJJ",de="fy-button__mr2___ajbyt",ue="fy-button__mr5___BRUgW",pe="fy-button__no-scroll___oFpSx",fe="fy-button__noScroll___ghKBa",me="fy-button__outlined___WccQN",be="fy-button__primary___xKz1S",ye="fy-button__py-5___y7k5w",he="fy-button__py5___Zi5JN",ve="fy-button__remove-scroll___Kd5MZ",ge="fy-button__removeScroll___UpL4U",we="fy-button__secondary___z_hBB",xe="fy-button__small___MktU8",Ce="fy-button__success___M7fJl",ke="fy-button__text___HwP6V",Ee="fy-button__user-select-none___CegHT",Ne="fy-button__userSelectNone___DdRnr",je="fy-button__view-all-mobile___T8nf5",Se="fy-button__view-all-text___U6bgs",Oe="fy-button__view-mobile___yMsQF",Ae="fy-button__view-mobile-up___sto08",Me="fy-button__view3d-canvas___E1pOb",qe="fy-button__viewAllMobile___yLYMO",Te="fy-button__viewAllText___CpXoj",ze=n(9636);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const $e=(0,r.forwardRef)(((e,t)=>{let{children:n,className:r,variant:l="contained",size:_="medium",color:c="primary",fullWidth:s=!1,startIcon:d=a().createElement(a().Fragment,null),endIcon:u=a().createElement(a().Fragment,null),ariaLabel:p="",isLoading:f=!1,...m}=e;const b=`${y} ${o[c]} ${s?$:""} ${o[l]} ${o[_]} ${r??""} `;return a().createElement("button",_extends({type:"button",className:b,"aria-label":p},m,{disabled:m?.disabled||f,ref:t}),f?a().createElement(ze.default,{containerClassName:re,loaderClassName:`${oe} ${o[l]} ${o[c]} ${o[_]}`}):a().createElement(a().Fragment,null,d," ",a().createElement("span",null,n)," ",u))}))},6904:(e,t,n)=>{n.d(t,{default:()=>Ie});var o={};n.r(o),n.d(o,{"accent-btn":()=>l,accentBtn:()=>_,adornmentContainer:()=>c,"b-small":()=>s,b1:()=>d,b2:()=>u,bSmall:()=>p,"base-page-container":()=>f,basePageContainer:()=>m,"btn-link":()=>b,btnLink:()=>y,"caption-medium":()=>h,"caption-semi-bold":()=>v,captionMedium:()=>g,captionSemiBold:()=>w,d1:()=>x,"display-block":()=>C,endAdornment:()=>k,error:()=>E,"flex-align-center":()=>N,"flex-center":()=>j,"flex-column":()=>S,"flex-justify-center":()=>O,"flex-row":()=>A,flexAlignCenter:()=>M,flexCenter:()=>q,flexColumn:()=>T,flexJustifyCenter:()=>z,floating:()=>$,fyInput:()=>I,fyTextArea:()=>B,h1:()=>P,h2:()=>L,h3:()=>D,h4:()=>F,h5:()=>J,"hide-overflow":()=>H,hideOverflow:()=>R,"inline-block":()=>V,inlineBlock:()=>G,inputContainer:()=>K,inputDisable:()=>U,inputError:()=>W,"justify-around":()=>Q,"justify-between":()=>Z,"justify-end":()=>X,"justify-evenly":()=>Y,"justify-start":()=>ee,justifyAround:()=>te,justifyBetween:()=>ne,justifyEnd:()=>oe,justifyEvenly:()=>re,justifyStart:()=>ae,label:()=>ie,"margin-0-auto":()=>le,margin0auto:()=>_e,"markdown-body":()=>ce,medium:()=>se,"mr-2":()=>de,"mr-5":()=>ue,mr2:()=>pe,mr5:()=>fe,"no-border":()=>me,"no-scroll":()=>be,noScroll:()=>ye,outlined:()=>he,"py-5":()=>ve,py5:()=>ge,"remove-scroll":()=>we,removeScroll:()=>xe,required:()=>Ce,startAdornment:()=>ke,underline:()=>Ee,"user-select-none":()=>Ne,userSelectNone:()=>je,"view-all-mobile":()=>Se,"view-all-text":()=>Oe,"view-mobile":()=>Ae,"view-mobile-up":()=>Me,"view3d-canvas":()=>qe,viewAllMobile:()=>Te,viewAllText:()=>ze});var r=n(9155),a=n.n(r),l="fy-input__accent-btn____Y1RU",_="fy-input__accentBtn___Jv_le",c="fy-input__adornmentContainer___MtgI6",s="fy-input__b-small___XDJva",d="fy-input__b1___HBrNj",u="fy-input__b2___bhqLO",p="fy-input__bSmall___zjwR7",f="fy-input__base-page-container___DIijL",m="fy-input__basePageContainer___iFW9V",b="fy-input__btn-link___kKnNG",y="fy-input__btnLink___gGoDJ",h="fy-input__caption-medium___ypzRG",v="fy-input__caption-semi-bold___WmtaG",g="fy-input__captionMedium___cFBcK",w="fy-input__captionSemiBold___UuNTY",x="fy-input__d1___YqGZp",C="fy-input__display-block___Qw7AD",k="fy-input__endAdornment___ce3Ta",E="fy-input__error___wplxk",N="fy-input__flex-align-center___CiLo5",j="fy-input__flex-center____wzo4",S="fy-input__flex-column___DUDri",O="fy-input__flex-justify-center___Z4UeV",A="fy-input__flex-row___nxUdL",M="fy-input__flexAlignCenter___d3zzz",q="fy-input__flexCenter___Kbkj1",T="fy-input__flexColumn____JZqm",z="fy-input__flexJustifyCenter___ujbKe",$="fy-input__floating___jgtoq",I="fy-input__fyInput___S4Mtu",B="fy-input__fyTextArea___uikbN",P="fy-input__h1___w3tCr",L="fy-input__h2___kBdEx",D="fy-input__h3___COfff",F="fy-input__h4___pAltU",J="fy-input__h5___wM732",H="fy-input__hide-overflow___ijoCf",R="fy-input__hideOverflow____UGEr",V="fy-input__inline-block___CMLpt",G="fy-input__inlineBlock___KAeA1",K="fy-input__inputContainer___Du9V3",U="fy-input__inputDisable___M8Zn2",W="fy-input__inputError___KsMkv",Q="fy-input__justify-around___C5dCI",Z="fy-input__justify-between___jLrlI",X="fy-input__justify-end___RIbTk",Y="fy-input__justify-evenly___LlzdK",ee="fy-input__justify-start___jEVsy",te="fy-input__justifyAround___GdVeg",ne="fy-input__justifyBetween___ymndX",oe="fy-input__justifyEnd___j4IuY",re="fy-input__justifyEvenly___UyFRu",ae="fy-input__justifyStart___SWORu",ie="fy-input__label___YQgmr",le="fy-input__margin-0-auto___rEi0w",_e="fy-input__margin0auto___dSSwm",ce="fy-input__markdown-body___GUE4l",se="fy-input__medium___L3QsD",de="fy-input__mr-2___u3YuI",ue="fy-input__mr-5___v4vQm",pe="fy-input__mr2___EOVYz",fe="fy-input__mr5___FnOZz",me="fy-input__no-border____9qYF",be="fy-input__no-scroll___QZXax",ye="fy-input__noScroll___iHfSy",he="fy-input__outlined___CEaKm",ve="fy-input__py-5___QoQ9q",ge="fy-input__py5___q5mpm",we="fy-input__remove-scroll___B0TU7",xe="fy-input__removeScroll___ZJHN4",Ce="fy-input__required___MaAlL",ke="fy-input__startAdornment___SVGGG",Ee="fy-input__underline___fCh8Z",Ne="fy-input__user-select-none___rjMZW",je="fy-input__userSelectNone___Prl4C",Se="fy-input__view-all-mobile___FzKuV",Oe="fy-input__view-all-text___jIc9n",Ae="fy-input__view-mobile___iTGo9",Me="fy-input__view-mobile-up___z4OJg",qe="fy-input__view3d-canvas___XFVjx",Te="fy-input__viewAllMobile___zHa_7",ze="fy-input__viewAllText___oV56f",$e=n(447);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const Ie=(0,r.forwardRef)(((e,t)=>{let{label:n="",labelVariant:l="normal",inputVariant:_="outlined",inputSize:s="large",inputClassName:d,containerClassName:u,labelClassName:p,showAsterik:f=!0,id:m,error:b=!1,errorMessage:y,multiline:h=!1,required:v,startAdornment:g,endAdornment:w,...x}=e;const{t:C}=(0,$e.useGlobalTranslation)("translation"),N=(0,r.useMemo)((()=>`${o[s]} ${h?B:""} ${o[_]} ${b?W:""} ${d??""} `),[_,d,b,s]),j=(0,r.useMemo)((()=>`${ie} ${o[l]} ${p??""}`),[p,l]),S=(0,r.useMemo)((()=>`${K}  ${u??""}`),[u]);return a().createElement("div",{className:S},n&&a().createElement("label",{htmlFor:m,className:j},n,v&&f&&a().createElement("span",{className:Ce}," *")),h?a().createElement("textarea",_extends({rows:5},x,{id:m,className:`${N} ${I} `,ref:t})):a().createElement("div",{className:`${c} ${x?.disabled?U:""} ${N}`},g&&a().createElement("div",{className:ke},g),a().createElement("input",_extends({},x,{className:`${I} ${x?.className||""}`,id:m,ref:t})),w&&a().createElement("div",{className:k},w)),b&&a().createElement("div",{className:E},y||C("resource.common.invalid_input")))}))},8744:(e,t,n)=>{n.d(t,{default:()=>s});var o=n(9155),r=n.n(o),a="modal__modalContainer___BoKU8",l=n(8618),_=n(1030),c=n(4429);const s=function Modal(e){let{isOpen:t,isCancellable:n=!0,childHandleFocus:s=!1,hideHeader:d=!1,modalType:u="",closeDialog:p=(()=>{}),children:f,title:m,titleClassName:b,subTitle:y,subTitleClassName:h,headerClassName:v,bodyClassName:g,containerClassName:w,ignoreClickOutsideForClass:x,customClassName:C}=e;const k=(0,o.useRef)(null),E=(0,o.useRef)(null);(0,l.useMobile)(),(0,o.useEffect)((()=>{t&&!s&&k.current&&k.current.focus()}),[t,s]),(0,o.useEffect)((()=>{if(!(0,c.Wx)())return;const e=document.querySelectorAll(`.${a}`);return t?document.body.style.overflow="hidden":e.length<1&&(document.body.style.overflow="unset"),()=>{document.querySelectorAll(`.${a}`).length<1&&(document.body.style.overflow="unset")}}),[t]);const N=(0,o.useMemo)((()=>`modal__modalHeader___xKo1g ${v??""}`),[v]),j=(0,o.useMemo)((()=>`modal__modalTitle___yvZQo ${b??""}`),[b]),S=(0,o.useMemo)((()=>`modal__modalSubTitle___Jr61k ${h??""}`),[h]),O=(0,o.useMemo)((()=>`${a} ${""===u?"modal__modalContainer--borders____AGZf":""} ${w??""}`),[w]),A=(0,o.useMemo)((()=>`modal__modalBody___peHlJ ${g??""}`),[g]);return r().createElement(r().Fragment,null,t&&r().createElement("div",{className:`modal__modal___xT3RX ${"right-modal"===u?"modal__rightModal___acoje":""} ${"center-modal"===u?"modal__centerModal___CkbLu":""} ${C??""}`,ref:k,onClick:e=>{!n||!E.current||E.current.contains(e.target)||x&&(e.target.className.includes(x)||e.target.parentElement?.className.includes(x))||p(e)}},r().createElement("div",{className:O,ref:E},!d&&r().createElement("div",{className:N},r().createElement("div",null,r().createElement("div",{className:j},m),y&&r().createElement("div",{className:S},y)),r().createElement("div",{className:"modal__crossIcon___ieJau",onClick:p},r().createElement(_.A,null))),r().createElement("div",{className:A},f))))}},9636:(e,t,n)=>{n.d(t,{default:()=>loader});var o=n(9155),r=n.n(o);const loader=e=>{let{containerClassName:t,loaderClassName:n,...o}=e;const a=`loader__page-loader-container___jJHee ${t??""}`,l=`loader__loader___ytdT3 ${n??""}`;return r().createElement("div",{className:a},r().createElement("div",{className:l}))}},266:(e,t,n)=>{var o=n(9825),r=n(7962),a=n(7010),l=n(4814);o.A,r.A,a.A,l.A},8618:(e,t,n)=>{n.d(t,{useMobile:()=>useMobile});var o=n(9155),r=n(4429);const useMobile=function(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:768;const[t,n]=(0,o.useState)(!1);return(0,o.useEffect)((()=>{if(!(0,r.Wx)())return;const handleResize=()=>{"undefined"!=typeof window&&n(window?.innerWidth<=e)};return handleResize(),window?.addEventListener("resize",handleResize),()=>{window?.removeEventListener("resize",handleResize)}}),[e]),t}},4429:(e,t,n)=>{n.d(t,{Wx:()=>isRunningOnClient});n(266);function isRunningOnClient(){return"undefined"!=typeof window&&globalThis===window}},4129:(e,t,n)=>{n.d(t,{default:()=>q});var o={};n.r(o),n.d(o,{SP:()=>x,rg:()=>C,kc:()=>k,nM:()=>E,uo:()=>N,QZ:()=>j,QM:()=>S,mw:()=>O});var r=n(9155),a=n.n(r),l=n(3215),_=n(5072),c=n.n(_),s=n(7825),d=n.n(s),u=n(7659),p=n.n(u),f=n(5056),m=n.n(f),b=n(540),y=n.n(b),h=n(1113),v=n.n(h),g=n(8384),w={};w.styleTagTransform=v(),w.setAttributes=m(),w.insert=p().bind(null,"head"),w.domAPI=d(),w.insertStyleElement=y();c()(g.A,w);g.A&&g.A.locals&&g.A.locals;var x="mobile-number__dialCodePreview___E0m4Z",C="mobile-number__errorInput___TKkzT",k="mobile-number__errorText___lRww6",E="mobile-number__inputTitle___QKLCn",N="mobile-number__mobileInputContainer___deIgv",j="mobile-number__mobileInputWrapper___Na12n",S="mobile-number__mobileNumberInput___iRnFG",O="mobile-number__required___yHCeh",A=n(618),M=n(447);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const q=function MobileNumber(e){let{name:t="",mobile:n="",countryCode:_="91",disable:c=!1,isShowLabel:s=!0,isRequired:d,allowDropdown:u=!0,isFocused:p=!1,placeholder:f="",label:m="",error:b,onChange:y,inputClassName:h,containerClassName:v,labelClassName:g,inputContainerClassName:w,inputProps:q,height:T="48px",textColor:z="var(--textBody, #3c3131)",backgroundColor:$="var(--pageBackground, #f8f8f8)",fontSize:I="14px",countryIso:B,...P}=e;const{t:L}=(0,M.useGlobalTranslation)("translation"),D=(0,r.useId)(),F=(0,r.useRef)(null),J=A.PhoneNumberUtil.getInstance(),isPhoneValid=(e,t)=>{try{return J.isValidNumber(J.parseAndKeepRawInput(e,t))}catch(e){return!1}};return(0,r.useEffect)((()=>{p&&document.getElementById(D)?.focus()}),[D,p]),(0,r.useEffect)((()=>{B&&F?.current?.setCountry&&F?.current?.setCountry(B)}),[B,F?.current,n]),a().createElement("div",{className:`${j} ${b?C:""} ${v||""}`},s&&a().createElement("label",{className:`${E} ${g||""}`,htmlFor:D},m||L("resource.common.mobile"),"optional"===d?` (${L("resource.common.optional_lower")})`:a().createElement("span",{className:O}," * ")),a().createElement(l.PhoneInput,_extends({name:t,defaultCountry:"in",value:`+${_}${n}`,onChange:(e,t)=>{let{country:n}=t;var o,r;y?.({mobile:(o=e,r=n?.dialCode,o?.replace(new RegExp(`^\\+${r}`),"")),countryCode:n?.dialCode,isValidNumber:isPhoneValid(e)})},forceDialCode:!0,ref:F,style:{"--react-international-phone-height":T,"--react-international-phone-text-color":z,"--react-international-phone-border-radius":"4px","--react-international-phone-border-color":""+(b?"var(--errorText, #b24141)":"var(--dividerStokes, #d4d1d1)"),"--react-international-phone-background-color":$,"--react-international-phone-dropdown-item-background-color":"var(--pageBackground)","--react-international-phone-selected-dropdown-item-background-color":"var(--highlightColor)","--react-international-phone-dropdown-top":`calc(${T} + 4px)`,"--react-international-phone-font-size":I,"--react-international-phone-country-selector-border-color":""+(b?"var(--errorText, #b24141)":"var(--dividerStokes, #d4d1d1)"),direction:"ltr"},countrySelectorStyleProps:{buttonContentWrapperStyle:{gap:"4px"},buttonStyle:{padding:"0 8px"},buttonClassName:`${o.countryButton}`,dropdownStyleProps:{style:{zIndex:999}}},disabled:c,className:`${N} ${w||""}`,inputClassName:`${S} ${h||""}`,inputProps:{id:D,autoComplete:"tel",...q},placeholder:f,hideDropdown:!u,dialCodePreviewStyleProps:{className:x},disableDialCodePrefill:!0,disableDialCodeAndPrefix:!0,showDisabledDialCodeAndPrefix:!0},P)),b&&a().createElement("span",{className:k},b.message))}},7831:(e,t,n)=>{n.d(t,{default:()=>E});var o={};n.r(o),n.d(o,{Bl:()=>_,Id:()=>c,dd:()=>s,rf:()=>d,Gr:()=>u,wx:()=>p,DT:()=>f,jT:()=>m,GK:()=>b,Ty:()=>y,n8:()=>h,jJ:()=>v});var r=n(9155),a=n.n(r),l=n(1862),_="add-phone-modal__addMobileOtp___TyOZf",c="add-phone-modal__addPhoneBody___yfYlr",s="add-phone-modal__addPhoneContainer___VrCF7",d="add-phone-modal__body___mAvzN",u="add-phone-modal__btnContainer___u4xao",p="add-phone-modal__header___R5jh9",f="add-phone-modal__loginInputGroup___zdvyN",m="add-phone-modal__modalContainer___DCtPy",b="add-phone-modal__modalTitle___eltiu",y="add-phone-modal__resendOtp___sqfGZ",h="add-phone-modal__showResendButton___DobBJ",v="add-phone-modal__yesBtn___e00g_",g=n(8744),w=n(2847),x=n(6904),C=n(4129),k=n(447);function _extends(){return _extends=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)({}).hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},_extends.apply(null,arguments)}const E=function AddPhoneModal(e){let{sendOtpMobile:t,verifyMobileOtp:n,resendOtp:E,isOpen:N,onClose:j,countryCode:S}=e;const{t:O}=(0,k.useGlobalTranslation)("translation"),[A,M]=(0,r.useState)(!1),[q,T]=(0,r.useState)(!1),[z,$]=(0,r.useState)(!1),[I,B]=(0,r.useState)(!1),[P,L]=(0,r.useState)(0),[D,F]=(0,r.useState)({}),{handleSubmit:J,control:H,formState:{isValid:R}}=(0,l.useForm)({mode:"onChange",defaultValues:{phone:{mobile:"",countryCode:S,isValidNumber:!1}}}),{handleSubmit:V,register:G,setValue:K,watch:U,resetField:W}=(0,l.useForm)({mode:"onChange",defaultValues:{otp:""}}),Q=(0,r.useCallback)((async e=>{let{phone:{countryCode:n,mobile:o}}=e;try{M(!0);const e=await t({mobile:o,countryCode:n});F(e),$(!0),L(e?.resend_timer)}catch(e){throw e}finally{M(!1)}}),[]),Z=(0,r.useCallback)((async e=>{let{otp:t}=e;try{T(!0);const{request_id:e}=D;await n({requestId:e,otp:t}),j()}catch(e){throw e}finally{T(!1)}}),[D]),X=(0,r.useCallback)((e=>{const t=e?.target?.value;K("otp",t.toString().slice(0,4))}),[]),Y=(0,r.useCallback)((async()=>{W("otp");try{if(I){M(!0);const{mobile:e,country_code:t,resend_token:n}=D,o=await E({mobile:e,countryCode:t,token:n,action:"resend"});F(o),L(o?.resend_timer),B(!1)}}catch(e){throw e}finally{M(!1)}}),[D,I]);return(0,r.useEffect)((()=>{let e;return z&&(P>0?e=setInterval((()=>{L((e=>e-1))}),1e3):0===P&&B(!0)),()=>clearInterval(e)}),[z,P]),a().createElement(g.default,{isOpen:N,closeDialog:j,title:O(z?"resource.profile.verify_number":"resource.profile.add_number"),containerClassName:s,bodyClassName:c,headerClassName:p,titleClassName:b},a().createElement("div",{className:m},a().createElement("div",{className:d},a().createElement("form",{onSubmit:J(Q),id:"numberForm"},a().createElement(l.Controller,{name:"phone",control:H,rules:{validate:e=>e.isValidNumber||O("resource.common.enter_valid_phone_number")},render:e=>{let{field:t,fieldState:{error:n}}=e;return a().createElement(C.default,{mobile:t?.value?.mobile,countryCode:t?.value?.countryCode,height:"40px",textColor:"var(--textHeading, #26201a)",fontSize:"12px",containerClassName:o.phoneInputContainer,error:n,isRequired:!0,isShowLabel:!1,disable:z&&P>0&&!n,onChange:e=>{t.onChange(e)}})}})),z&&a().createElement("form",{className:f,id:"otpForm",onSubmit:V(Z)},a().createElement(x.default,_extends({id:"otp",label:O("resource.auth.login.otp"),labelVariant:"floating",type:"number",name:"otp",placeholder:O("resource.common.enter_otp"),className:_},G("otp"),{onChange:X})),z&&a().createElement(w.default,{size:"small",variant:"text",onClick:Y,isLoading:A,className:`${y} ${I?h:""}`},O("resource.common.resend_otp"),I?null:O("resource.profile.countdown_in_seconds",{count:P})))),a().createElement("div",{className:u},z?a().createElement(w.default,{fullWidth:!0,type:"submit",isLoading:q,className:v,form:"otpForm",disabled:4!==U("otp")?.length},O("resource.facets.verify")):a().createElement(w.default,{fullWidth:!0,type:"submit",isLoading:A,className:v,form:"numberForm",disabled:!R},O("resource.profile.send_otp")))))}},1847:(e,t,n)=>{n.d(t,{default:()=>empty_state});var o={};n.r(o),n.d(o,{HM:()=>_,do:()=>c,BI:()=>s});var r=n(9155),a=n.n(r),l=n(2847),_="empty-state__btn___EG9SZ",c="empty-state__emptyContainer___hXYwb",s="empty-state__emptyText___svKKU";const empty_state=e=>{let{title:t="",btnTitle:n="",onBtnClick:r="",icon:d=a().createElement(a().Fragment,null),style:u={}}=e;return a().createElement("div",{className:c,style:u},a().createElement("div",{className:s},t),a().createElement("div",{className:o.submitBtnContainer},a().createElement(l.default,{className:_,startIcon:d,onClick:r,variant:"outlined"},n)))}},14:(e,t,n)=>{n.d(t,{default:()=>p});var o=n(9155),r=n.n(o),a=n(4129),l=n(2847),_=n(7831),c=n(9636),s=n(447),d=n(1847),u=n(1252);const p=function Phone(e){let{setMobileNumberAsPrimary:t,deleteMobileNumber:n,phoneNumbers:p,sendOtpMobile:f,verifyMobileOtp:m,resendOtp:b,countryCode:y="91"}=e;const{t:h}=(0,s.useGlobalTranslation)("translation"),[v,g]=(0,o.useState)(!1),[w,x]=(0,o.useState)(!1),[C,k]=(0,o.useState)(!1),[E,N]=(0,o.useState)({}),j=(0,o.useCallback)((e=>{g(e)}),[]),S=((0,o.useCallback)((async e=>{try{x(!0),await t(e)}catch(e){throw e}finally{x(!1)}}),[]),(0,o.useCallback)((e=>{N(e),k(!0)}),[]),(0,o.useCallback)((()=>{N({}),k(!1)}),[]));return(0,o.useCallback)((async()=>{try{x(!0),await n(E),S()}catch(e){throw e}finally{x(!1)}}),[E]),w?r().createElement("div",{className:"phone__loader___XkM1L"},r().createElement(c.default,{containerClassName:"phone__loaderContainer___wi00L",loaderClassName:"phone__customLoader___cm9io"})):r().createElement(r().Fragment,null,r().createElement("div",{className:"phone__main___1a6F8"},r().createElement("div",{className:"phone__header___LRWjE"},h("resource.common.phone_number")),p?.length>0&&r().createElement("div",{className:"phone__formContainer___WhQxn"},r().createElement("div",{className:"phone__formItem___ErNVQ"},p?.map((e=>{const{phone:t,verified:n,country_code:o}=e;return r().createElement(r().Fragment,null,r().createElement("div",{className:"phone__formInput___ugIV0",key:`phone-${t}`},r().createElement(a.default,{mobile:t,countryCode:o,height:"40px",textColor:"var(--textHeading, #26201a)",containerClassName:"phone__phoneInputContainer___fBDbN",isShowLabel:!1,fontSize:"12px",disable:!0}),r().createElement("div",{className:"phone__actionContainer___dXjEJ"},n&&r().createElement(l.default,{color:"success",size:"small",className:"phone__verified___C12uC",disabled:!0},h("resource.profile.verified")),!n&&r().createElement(l.default,{variant:"outlined",className:"phone__verifyBtn___T0zDG",size:"small",isLoading:w},h("resource.facets.verify")))))})))),!p?.length&&r().createElement(d.default,{title:h("resource.profile.no_phone_number_added"),onBtnClick:()=>j(!0),btnTitle:h("resource.profile.add_phone_number_caps"),icon:r().createElement(u.A,null)})),v&&r().createElement(_.default,{sendOtpMobile:f,resendOtp:b,verifyMobileOtp:m,isOpen:v,countryCode:y,onClose:()=>j(!1)}))}},8384:(e,t,n)=>{n.d(t,{A:()=>_});var o=n(1601),r=n.n(o),a=n(6314),l=n.n(a)()(r());l.push([e.id,".react-international-phone-country-selector{position:relative}.react-international-phone-country-selector-button{display:flex;height:var(--react-international-phone-height, 36px);box-sizing:border-box;align-items:center;justify-content:center;padding:0;border:1px solid var(--react-international-phone-country-selector-border-color, var(--react-international-phone-border-color, gainsboro));margin:0;appearance:button;-webkit-appearance:button;background-color:var(--react-international-phone-country-selector-background-color, var(--react-international-phone-background-color, white));cursor:pointer;text-transform:none;user-select:none}.react-international-phone-country-selector-button:hover{background-color:var(--react-international-phone-country-selector-background-color-hover, whitesmoke)}.react-international-phone-country-selector-button--hide-dropdown{cursor:auto}.react-international-phone-country-selector-button--hide-dropdown:hover{background-color:transparent}.react-international-phone-country-selector-button__button-content{display:flex;align-items:center;justify-content:center}.react-international-phone-country-selector-button__flag-emoji{margin:0 4px}.react-international-phone-country-selector-button__flag-emoji--disabled{opacity:.75}.react-international-phone-country-selector-button__dropdown-arrow{border-top:var(--react-international-phone-country-selector-arrow-size, 4px) solid var(--react-international-phone-country-selector-arrow-color, #777);border-right:var(--react-international-phone-country-selector-arrow-size, 4px) solid transparent;border-left:var(--react-international-phone-country-selector-arrow-size, 4px) solid transparent;margin-right:4px;transition:all .1s ease-out}.react-international-phone-country-selector-button__dropdown-arrow--active{transform:rotateX(180deg)}.react-international-phone-country-selector-button__dropdown-arrow--disabled{border-top-color:var(--react-international-phone-disabled-country-selector-arrow-color, #999)}.react-international-phone-country-selector-button--disabled{background-color:var(--react-international-phone-disabled-country-selector-background-color, var(--react-international-phone-disabled-background-color, whitesmoke));cursor:auto}.react-international-phone-country-selector-button--disabled:hover{background-color:var(--react-international-phone-disabled-country-selector-background-color, var(--react-international-phone-disabled-background-color, whitesmoke))}.react-international-phone-flag-emoji{width:var(--react-international-phone-flag-width, 24px);height:var(--react-international-phone-flag-height, 24px);box-sizing:border-box}.react-international-phone-country-selector-dropdown{position:absolute;z-index:1;top:var(--react-international-phone-dropdown-top, 44px);left:var(--react-international-phone-dropdown-left, 0);display:flex;width:300px;max-height:200px;flex-direction:column;padding:4px 0;margin:0;background-color:var(--react-international-phone-dropdown-item-background-color, var(--react-international-phone-background-color, white));box-shadow:var(--react-international-phone-dropdown-shadow, 2px 2px 16px rgba(0, 0, 0, .25));color:var(--react-international-phone-dropdown-item-text-color, var(--react-international-phone-text-color, #222));list-style:none;overflow-y:scroll}.react-international-phone-country-selector-dropdown__preferred-list-divider{height:1px;border:none;margin:var(--react-international-phone-dropdown-preferred-list-divider-margin, 0);background:var(--react-international-phone-dropdown-preferred-list-divider-color, var(--react-international-phone-border-color, gainsboro))}.react-international-phone-country-selector-dropdown__list-item{display:flex;min-height:var(--react-international-phone-dropdown-item-height, 28px);box-sizing:border-box;align-items:center;padding:2px 8px}.react-international-phone-country-selector-dropdown__list-item-flag-emoji{margin-right:8px}.react-international-phone-country-selector-dropdown__list-item-country-name{overflow:hidden;margin-right:8px;font-size:var(--react-international-phone-dropdown-item-font-size, 14px);text-overflow:ellipsis;white-space:nowrap}.react-international-phone-country-selector-dropdown__list-item-dial-code{color:var(--react-international-phone-dropdown-item-dial-code-color, gray);font-size:var(--react-international-phone-dropdown-item-font-size, 14px)}.react-international-phone-country-selector-dropdown__list-item:hover{background-color:var(--react-international-phone-selected-dropdown-item-background-color, var(--react-international-phone-selected-dropdown-item-background-color, whitesmoke));cursor:pointer}.react-international-phone-country-selector-dropdown__list-item--selected,.react-international-phone-country-selector-dropdown__list-item--focused{background-color:var(--react-international-phone-selected-dropdown-item-background-color, whitesmoke);color:var(--react-international-phone-selected-dropdown-item-text-color, var(--react-international-phone-text-color, #222))}.react-international-phone-country-selector-dropdown__list-item--selected .react-international-phone-country-selector-dropdown__list-item-dial-code,.react-international-phone-country-selector-dropdown__list-item--focused .react-international-phone-country-selector-dropdown__list-item-dial-code{color:var(--react-international-phone-selected-dropdown-item-dial-code-color, var(--react-international-phone-dropdown-item-dial-code-color, gray))}.react-international-phone-country-selector-dropdown__list-item--focused{background-color:var(--react-international-phone-selected-dropdown-item-background-color, var(--react-international-phone-selected-dropdown-item-background-color, whitesmoke))}.react-international-phone-dial-code-preview{display:flex;align-items:center;justify-content:center;padding:0 8px;border:1px solid var(--react-international-phone-dial-code-preview-border-color, var(--react-international-phone-border-color, gainsboro));margin-right:-1px;background-color:var(--react-international-phone-dial-code-preview-background-color, var(--react-international-phone-background-color, white));color:var(--react-international-phone-dial-code-preview-text-color, var(--react-international-phone-text-color, #222));font-size:var(--react-international-phone-dial-code-preview-font-size, var(--react-international-phone-font-size, 13px))}.react-international-phone-dial-code-preview--disabled{background-color:var(--react-international-phone-dial-code-preview-disabled-background-color, var(--react-international-phone-disabled-background-color, whitesmoke));color:var(--react-international-phone-dial-code-preview-disabled-text-color, var(--react-international-phone-disabled-text-color, #666))}.react-international-phone-input-container{display:flex}.react-international-phone-input-container .react-international-phone-country-selector-button{border-radius:var(--react-international-phone-border-radius, 4px);margin-right:-1px;border-bottom-right-radius:0;border-top-right-radius:0}.react-international-phone-input-container .react-international-phone-input{overflow:visible;height:var(--react-international-phone-height, 36px);box-sizing:border-box;padding:0 8px;border:1px solid var(--react-international-phone-border-color, gainsboro);border-radius:var(--react-international-phone-border-radius, 4px);margin:0;background-color:var(--react-international-phone-background-color, white);border-bottom-left-radius:0;border-top-left-radius:0;color:var(--react-international-phone-text-color, #222);font-family:inherit;font-size:var(--react-international-phone-font-size, 13px)}.react-international-phone-input-container .react-international-phone-input:focus{outline:none}.react-international-phone-input-container .react-international-phone-input--disabled{background-color:var(--react-international-phone-disabled-background-color, whitesmoke);color:var(--react-international-phone-disabled-text-color, #666)}\n",""]);const _=l},6314:e=>{e.exports=function(e){var t=[];return t.toString=function toString(){return this.map((function(t){var n="",o=void 0!==t[5];return t[4]&&(n+="@supports (".concat(t[4],") {")),t[2]&&(n+="@media ".concat(t[2]," {")),o&&(n+="@layer".concat(t[5].length>0?" ".concat(t[5]):""," {")),n+=e(t),o&&(n+="}"),t[2]&&(n+="}"),t[4]&&(n+="}"),n})).join("")},t.i=function i(e,n,o,r,a){"string"==typeof e&&(e=[[null,e,void 0]]);var l={};if(o)for(var _=0;_<this.length;_++){var c=this[_][0];null!=c&&(l[c]=!0)}for(var s=0;s<e.length;s++){var d=[].concat(e[s]);o&&l[d[0]]||(void 0!==a&&(void 0===d[5]||(d[1]="@layer".concat(d[5].length>0?" ".concat(d[5]):""," {").concat(d[1],"}")),d[5]=a),n&&(d[2]?(d[1]="@media ".concat(d[2]," {").concat(d[1],"}"),d[2]=n):d[2]=n),r&&(d[4]?(d[1]="@supports (".concat(d[4],") {").concat(d[1],"}"),d[4]=r):d[4]="".concat(r)),t.push(d))}},t}},1601:e=>{e.exports=function(e){return e[1]}},5072:e=>{var t=[];function getIndexByIdentifier(e){for(var n=-1,o=0;o<t.length;o++)if(t[o].identifier===e){n=o;break}return n}function modulesToDom(e,n){for(var o={},r=[],a=0;a<e.length;a++){var l=e[a],_=n.base?l[0]+n.base:l[0],c=o[_]||0,s="".concat(_," ").concat(c);o[_]=c+1;var d=getIndexByIdentifier(s),u={css:l[1],media:l[2],sourceMap:l[3],supports:l[4],layer:l[5]};if(-1!==d)t[d].references++,t[d].updater(u);else{var p=addElementStyle(u,n);n.byIndex=a,t.splice(a,0,{identifier:s,updater:p,references:1})}r.push(s)}return r}function addElementStyle(e,t){var n=t.domAPI(t);n.update(e);return function updater(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap&&t.supports===e.supports&&t.layer===e.layer)return;n.update(e=t)}else n.remove()}}e.exports=function(e,n){var o=modulesToDom(e=e||[],n=n||{});return function update(e){e=e||[];for(var r=0;r<o.length;r++){var a=getIndexByIdentifier(o[r]);t[a].references--}for(var l=modulesToDom(e,n),_=0;_<o.length;_++){var c=getIndexByIdentifier(o[_]);0===t[c].references&&(t[c].updater(),t.splice(c,1))}o=l}}},7659:e=>{var t={};e.exports=function insertBySelector(e,n){var o=function getTarget(e){if(void 0===t[e]){var n=document.querySelector(e);if(window.HTMLIFrameElement&&n instanceof window.HTMLIFrameElement)try{n=n.contentDocument.head}catch(e){n=null}t[e]=n}return t[e]}(e);if(!o)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");o.appendChild(n)}},540:e=>{e.exports=function insertStyleElement(e){var t=document.createElement("style");return e.setAttributes(t,e.attributes),e.insert(t,e.options),t}},5056:(e,t,n)=>{e.exports=function setAttributesWithoutAttributes(e){var t=n.nc;t&&e.setAttribute("nonce",t)}},7825:e=>{e.exports=function domAPI(e){if("undefined"==typeof document)return{update:function update(){},remove:function remove(){}};var t=e.insertStyleElement(e);return{update:function update(n){!function apply(e,t,n){var o="";n.supports&&(o+="@supports (".concat(n.supports,") {")),n.media&&(o+="@media ".concat(n.media," {"));var r=void 0!==n.layer;r&&(o+="@layer".concat(n.layer.length>0?" ".concat(n.layer):""," {")),o+=n.css,r&&(o+="}"),n.media&&(o+="}"),n.supports&&(o+="}");var a=n.sourceMap;a&&"undefined"!=typeof btoa&&(o+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(a))))," */")),t.styleTagTransform(o,e,t.options)}(t,e,n)},remove:function remove(){!function removeStyleElement(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(t)}}}},1113:e=>{e.exports=function styleTagTransform(e,t){if(t.styleSheet)t.styleSheet.cssText=e;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(e))}}},447:t=>{t.exports=e},618:e=>{e.exports=t},9155:e=>{e.exports=n},1862:e=>{e.exports=o},3215:e=>{e.exports=r}},l={};function __nested_webpack_require_41931__(e){var t=l[e];if(void 0!==t)return t.exports;var n=l[e]={id:e,exports:{}};return a[e](n,n.exports,__nested_webpack_require_41931__),n.exports}__nested_webpack_require_41931__.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return __nested_webpack_require_41931__.d(t,{a:t}),t},__nested_webpack_require_41931__.d=(e,t)=>{for(var n in t)__nested_webpack_require_41931__.o(t,n)&&!__nested_webpack_require_41931__.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]})},__nested_webpack_require_41931__.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),__nested_webpack_require_41931__.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},__nested_webpack_require_41931__.nc=void 0;var _={};return(()=>{__nested_webpack_require_41931__.r(_),__nested_webpack_require_41931__.d(_,{default:()=>e});const e=__nested_webpack_require_41931__(14).default})(),_})()));
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css ***!
-  \********************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ "./theme/components/profile/profile-root.jsx"
+/*!***************************************************!*\
+  !*** ./theme/components/profile/profile-root.jsx ***!
+  \***************************************************/
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _helper_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helper/hooks */ "./theme/helper/hooks/index.jsx");
+/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @gofynd/theme-template/components/profile-navigation/profile-navigation */ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.js");
+/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @gofynd/theme-template/components/profile-navigation/profile-navigation.css */ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
 
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504625344
-        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
+var _s = __webpack_require__.$Refresh$.signature();
+
+
+
+
+
+function ProfileRoot({
+  children,
+  fpi
+}) {
+  _s();
+  const {
+    first_name,
+    last_name,
+    profile_pic_url,
+    user
+  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__.useGlobalStore)(fpi.getters.USER_DATA);
+  const {
+    signOut
+  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_2__.useAccounts)({
+    fpi
+  });
+  const userName = `${first_name ?? user?.first_name ?? ""} ${last_name ?? user?.last_name ?? ""}`.trim();
+  const userProfilePicUrl = profile_pic_url ?? user?.profile_pic_url;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "profile-navigation-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3___default()), {
+    userName: userName,
+    signOut: signOut,
+    userProfilePicUrl: userProfilePicUrl
+  }, children));
+}
+_s(ProfileRoot, "qpj9O1nz8gTr2HaettI4gE3aNBA=", false, function () {
+  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__.useGlobalStore, _helper_hooks__WEBPACK_IMPORTED_MODULE_2__.useAccounts];
+});
+_c = ProfileRoot;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileRoot);
+var _c;
+__webpack_require__.$Refresh$.register(_c, "ProfileRoot");
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ },
+
+/***/ "./theme/helper/auth-guard.js"
+/*!************************************!*\
+  !*** ./theme/helper/auth-guard.js ***!
+  \************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isLoggedIn: () => (/* binding */ isLoggedIn),
+/* harmony export */   loginGuard: () => (/* binding */ loginGuard)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./theme/helper/utils.js");
+/* harmony import */ var _queries_libQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queries/libQuery */ "./theme/queries/libQuery.js");
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
+
+
+
+
+// return true if user is logged in
+// return false if user is not logged in redirect to login page.
+async function isLoggedIn({
+  fpi,
+  store
+}) {
+  try {
+    const userFetched = store?.auth?.user_fetched ?? false;
+    if (userFetched) {
+      const loggedIn = store?.auth?.logged_in;
+      return !!loggedIn;
     }
-  
+    const userData = await fpi.executeGQL(_queries_libQuery__WEBPACK_IMPORTED_MODULE_1__.USER_DATA_QUERY);
+    return !!(userData?.data?.user?.logged_in_user ?? false);
+  } catch (error) {
+    return false;
+  }
+}
+async function loginGuard({
+  fpi,
+  store
+}) {
+  try {
+    const loggedIn = await isLoggedIn({
+      fpi,
+      store
+    });
+    const locale = fpi?.store?.getState?.()?.custom?.i18nDetailsKey?.language?.locale;
+    if (loggedIn && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.isRunningOnClient)()) {
+      const path = locale && locale !== "en" ? `/${locale}` : "/";
+      window.location.href = path;
+      return false;
+    }
+    return true;
+  } catch (error) {
+    return true;
+  }
+}
 
-/***/ }),
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
 
-/***/ "./node_modules/google-libphonenumber/dist/libphonenumber.js":
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ },
+
+/***/ "./theme/page-layouts/profile/phone.jsx"
+/*!**********************************************!*\
+  !*** ./theme/page-layouts/profile/phone.jsx ***!
+  \**********************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
+/* harmony import */ var _helper_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helper/auth-guard */ "./theme/helper/auth-guard.js");
+/* harmony import */ var _components_profile_profile_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/profile/profile-root */ "./theme/components/profile/profile-root.jsx");
+/* harmony import */ var _gofynd_theme_template_page_layouts_auth_mobile_number_mobile_number_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @gofynd/theme-template/page-layouts/auth/mobile-number/mobile-number.css */ "./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css");
+/* harmony import */ var _usePhone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./usePhone */ "./theme/page-layouts/profile/usePhone.jsx");
+/* harmony import */ var _components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/header/useInternational */ "./theme/components/header/useInternational.jsx");
+/* harmony import */ var _helper_hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../helper/hooks */ "./theme/helper/hooks/index.jsx");
+/* harmony import */ var _gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @gofynd/theme-template/pages/profile/phone */ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/index.js");
+/* harmony import */ var _gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _gofynd_theme_template_pages_profile_phone_phone_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @gofynd/theme-template/pages/profile/phone/phone.css */ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css");
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__);
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
+
+var _s = __webpack_require__.$Refresh$.signature();
+
+
+
+
+
+
+
+
+
+
+
+function Phone({
+  fpi
+}) {
+  _s();
+  const {
+    t
+  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__.useGlobalTranslation)("translation");
+  const {
+    setMobileNumberAsPrimary,
+    deleteMobileNumber,
+    phoneNumbers
+  } = (0,_usePhone__WEBPACK_IMPORTED_MODULE_5__.usePhone)({
+    fpi
+  });
+  const {
+    sendOtpMobile,
+    verifyMobileOtp,
+    resendOtp
+  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useAccounts)({
+    fpi
+  });
+  const {
+    showSnackbar
+  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useSnackbar)();
+  const {
+    countryDetails
+  } = (0,_components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__["default"])({
+    fpi
+  });
+  const handleSetPrimary = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
+    try {
+      await setMobileNumberAsPrimary(phoneDetails);
+      showSnackbar(`${phoneDetails?.phone} ${t("resource.profile.set_as_primary")}`, "success");
+    } catch (error) {
+      showSnackbar(error?.message, "error");
+      throw error;
+    }
+  }, []);
+  const handleSendOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
+    try {
+      const data = await sendOtpMobile(phoneDetails);
+      showSnackbar(`${t("resource.profile.otp_sent_mobile")} ${phoneDetails?.mobile}`, "success");
+      return data;
+    } catch (error) {
+      showSnackbar(error?.message, "error");
+      throw error;
+    }
+  }, []);
+  const handleVerifyOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async otpDetails => {
+    try {
+      await verifyMobileOtp(otpDetails);
+      showSnackbar(t("resource.profile.phone_number_verified"), "success");
+    } catch (error) {
+      showSnackbar(error?.message, "error");
+      throw error;
+    }
+  }, []);
+  const handleResendOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
+    try {
+      const data = await resendOtp(phoneDetails);
+      showSnackbar(`${t("resource.profile.otp_sent_mobile")} ${phoneDetails?.mobile}`, "success");
+      return data;
+    } catch (error) {
+      showSnackbar(error?.message, "error");
+      throw error;
+    }
+  }, []);
+  const handleDelete = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
+    try {
+      await deleteMobileNumber(phoneDetails);
+      showSnackbar(`${phoneDetails?.phone} ${t("resource.common.removed_success")}`, "success");
+    } catch (error) {
+      showSnackbar(error?.message, "error");
+      throw error;
+    }
+  }, []);
+  const phoneList = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => phoneNumbers?.length === 1 ? phoneNumbers : phoneNumbers?.filter(item => item?.primary), [phoneNumbers]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_profile_profile_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    fpi: fpi
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_1__.motion.div, {
+    variants: {
+      hidden: {
+        opacity: 0
+      },
+      visible: {
+        opacity: 1,
+        transition: {
+          duration: 0.5
+        }
+      }
+    },
+    initial: "hidden",
+    animate: "visible"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8___default()), {
+    setMobileNumberAsPrimary: handleSetPrimary,
+    deleteMobileNumber: handleDelete,
+    phoneNumbers: phoneList,
+    sendOtpMobile: handleSendOtp,
+    verifyMobileOtp: handleVerifyOtp,
+    resendOtp: handleResendOtp,
+    countryCode: countryDetails?.phone_code?.replace("+", "")
+  })));
+}
+_s(Phone, "CwVsmyqqS6JI2z0s6PFoVPsTjk8=", false, function () {
+  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__.useGlobalTranslation, _usePhone__WEBPACK_IMPORTED_MODULE_5__.usePhone, _helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useAccounts, _helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useSnackbar, _components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__["default"]];
+});
+_c = Phone;
+Phone.authGuard = _helper_auth_guard__WEBPACK_IMPORTED_MODULE_2__.isLoggedIn;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Phone);
+var _c;
+__webpack_require__.$Refresh$.register(_c, "Phone");
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ },
+
+/***/ "./theme/page-layouts/profile/usePhone.jsx"
+/*!*************************************************!*\
+  !*** ./theme/page-layouts/profile/usePhone.jsx ***!
+  \*************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   usePhone: () => (/* binding */ usePhone)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../queries/phoneQuery */ "./theme/queries/phoneQuery.js");
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
+/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__);
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
+
+var _s = __webpack_require__.$Refresh$.signature();
+
+
+
+const usePhone = ({
+  fpi
+}) => {
+  _s();
+  const {
+    phone_numbers,
+    user = {}
+  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__.useGlobalStore)(fpi.getters.USER_DATA);
+  const [phoneNumbers, setPhoneNumbers] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setPhoneNumbers(phone_numbers ?? user?.phone_numbers);
+  }, [phone_numbers, user?.phone_numbers]);
+  const setMobileNumberAsPrimary = data => {
+    const {
+      active,
+      country_code,
+      phone,
+      primary,
+      verified
+    } = data;
+    const sendVerificationLinkMobileRequestSchemaInput = {
+      active,
+      country_code: country_code?.toString(),
+      phone,
+      primary,
+      verified
+    };
+    const payload = {
+      sendVerificationLinkMobileRequestSchemaInput
+    };
+    return fpi.executeGQL(_queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__.SET_MOBILE_NUMBER_AS_PRIMARY, payload).then(res => {
+      if (res?.errors) {
+        throw res?.errors?.[0];
+      }
+      setPhoneNumbers(res?.data?.setMobileNumberAsPrimary?.user?.phone_numbers);
+      return res?.data?.setMobileNumberAsPrimary;
+    });
+  };
+  const deleteMobileNumber = data => {
+    const id = window.APP_DATA.applicationID;
+    const payload = {
+      ...data,
+      countryCode: data?.country_code?.toString(),
+      platform: id
+    };
+    return fpi.executeGQL(_queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__.DELETE_MOBILE_NUMBER, payload).then(res => {
+      if (res?.errors) {
+        throw res?.errors?.[0];
+      }
+      setPhoneNumbers(res?.data?.deleteMobileNumber?.user?.phone_numbers);
+      return res?.data?.deleteMobileNumber;
+    });
+  };
+  return {
+    setMobileNumberAsPrimary,
+    deleteMobileNumber,
+    phoneNumbers
+  };
+};
+_s(usePhone, "o1pqsX3F9KMBwEvHh+aCd/4TNVs=", false, function () {
+  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__.useGlobalStore];
+});
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ },
+
+/***/ "./theme/queries/phoneQuery.js"
+/*!*************************************!*\
+  !*** ./theme/queries/phoneQuery.js ***!
+  \*************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DELETE_MOBILE_NUMBER: () => (/* binding */ DELETE_MOBILE_NUMBER),
+/* harmony export */   SET_MOBILE_NUMBER_AS_PRIMARY: () => (/* binding */ SET_MOBILE_NUMBER_AS_PRIMARY)
+/* harmony export */ });
+/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
+
+const SET_MOBILE_NUMBER_AS_PRIMARY = `mutation setMobileNumberAsPrimary(
+    $sendVerificationLinkMobileRequestSchemaInput: SendVerificationLinkMobileRequestSchemaInput
+  ) {
+    setMobileNumberAsPrimary(
+      sendVerificationLinkMobileRequestSchemaInput: $sendVerificationLinkMobileRequestSchemaInput
+    ) {
+      register_token
+      request_id
+      user {
+          id
+          account_type
+          active
+          application_id
+          created_at
+          dob
+          first_name
+          gender
+          last_name
+          meta
+          profile_pic_url
+          updated_at
+          user_id
+          username
+          id
+          external_id
+          rr_id
+          phone_numbers {
+              active
+              country_code
+              phone
+              primary
+              verified
+          }
+        }
+      }
+    }
+  `;
+const DELETE_MOBILE_NUMBER = `mutation deleteMobileNumber(
+  $active: Boolean!
+  $countryCode: String!
+  $phone: String!
+  $platform: String
+  $primary: Boolean!
+  $verified: Boolean!
+) {
+  deleteMobileNumber(
+    active: $active
+    countryCode: $countryCode
+    phone: $phone
+    platform: $platform
+    primary: $primary
+    verified: $verified
+  ) {
+    register_token
+    request_id
+    user {
+        id
+        account_type
+        active
+        application_id
+        created_at
+        dob
+        first_name
+        gender
+        last_name
+        meta
+        profile_pic_url
+        updated_at
+        user_id
+        username
+        id
+        external_id
+        rr_id
+        phone_numbers {
+            active
+            country_code
+            phone
+            primary
+            verified
+        }
+      }
+    }
+  }
+`;
+
+const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
+const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
+	$ReactRefreshModuleId$
+);
+
+function $ReactRefreshModuleRuntime$(exports) {
+	if (true) {
+		let errorOverlay;
+		if (true) {
+			errorOverlay = false;
+		}
+		let testMode;
+		if (typeof __react_refresh_test__ !== 'undefined') {
+			testMode = __react_refresh_test__;
+		}
+		return __react_refresh_utils__.executeRuntime(
+			exports,
+			$ReactRefreshModuleId$,
+			module.hot,
+			errorOverlay,
+			testMode
+		);
+	}
+}
+
+if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
+	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
+} else {
+	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
+}
+
+/***/ },
+
+/***/ "./node_modules/google-libphonenumber/dist/libphonenumber.js"
 /*!*******************************************************************!*\
   !*** ./node_modules/google-libphonenumber/dist/libphonenumber.js ***!
   \*******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 (function(f){if(true){module.exports=f()}else // removed by dead control flow
 { var g; }})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c=undefined;if(!f&&c)return require(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u=undefined,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
@@ -1410,654 +1929,135 @@ i18n.phonenumbers.AsYouTypeFormatter.prototype.inputDigitHelper_=function(a){var
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/react-hook-form/dist/index.cjs.js":
+/***/ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css"
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css ***!
+  \*******************************************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821699141
+        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css"
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css ***!
+  \****************************************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821694309
+        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css"
+/*!********************************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css ***!
+  \********************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821693325
+        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./node_modules/react-hook-form/dist/index.cjs.js"
 /*!********************************************************!*\
   !*** ./node_modules/react-hook-form/dist/index.cjs.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 var e=__webpack_require__(/*! react */ "react"),t=e=>"checkbox"===e.type,r=e=>e instanceof Date,s=e=>null==e;const a=e=>"object"==typeof e;var i=e=>!s(e)&&!Array.isArray(e)&&a(e)&&!r(e),n=e=>i(e)&&e.target?t(e.target)?e.target.checked:e.target.value:e,o=(e,t)=>e.has((e=>e.substring(0,e.search(/\.\d+(\.|$)/))||e)(t)),l="undefined"!=typeof window&&void 0!==window.HTMLElement&&"undefined"!=typeof document;function u(e){let t;const r=Array.isArray(e),s="undefined"!=typeof FileList&&e instanceof FileList;if(e instanceof Date)t=new Date(e);else{if(l&&(e instanceof Blob||s)||!r&&!i(e))return e;if(t=r?[]:{},r||(e=>{const t=e.constructor&&e.constructor.prototype;return i(t)&&t.hasOwnProperty("isPrototypeOf")})(e))for(const r in e)e.hasOwnProperty(r)&&(t[r]=u(e[r]));else t=e}return t}var d=e=>/^\w*$/.test(e),c=e=>void 0===e,f=e=>Array.isArray(e)?e.filter(Boolean):[],m=e=>f(e.replace(/["|']|\]/g,"").split(/\.|\[/)),y=(e,t,r)=>{if(!t||!i(e))return r;const a=(d(t)?[t]:m(t)).reduce((e,t)=>s(e)?e:e[t],e);return c(a)||a===e?c(e[t])?r:e[t]:a},_=e=>"boolean"==typeof e,g=(e,t,r)=>{let s=-1;const a=d(t)?[t]:m(t),n=a.length,o=n-1;for(;++s<n;){const t=a[s];let n=r;if(s!==o){const r=e[t];n=i(r)||Array.isArray(r)?r:isNaN(+a[s+1])?{}:[]}if("__proto__"===t||"constructor"===t||"prototype"===t)return;e[t]=n,e=e[t]}};const p="blur",b="focusout",h="change",v="onBlur",V="onChange",x="onSubmit",F="onTouched",A="all",S="max",w="min",k="maxLength",D="minLength",C="pattern",E="required",O="validate",M=e.createContext(null);M.displayName="HookFormContext";const j=()=>e.useContext(M);var U=(e,t,r,s=!0)=>{const a={defaultValues:t._defaultValues};for(const i in e)Object.defineProperty(a,i,{get:()=>{const a=i;return t._proxyFormState[a]!==A&&(t._proxyFormState[a]=!s||A),r&&(r[a]=!0),e[a]}});return a};const T="undefined"!=typeof window?e.useLayoutEffect:e.useEffect;function N(t){const r=j(),{control:s=r.control,disabled:a,name:i,exact:n}=t||{},[o,l]=e.useState(s._formState),u=e.useRef({isDirty:!1,isLoading:!1,dirtyFields:!1,touchedFields:!1,validatingFields:!1,isValidating:!1,isValid:!1,errors:!1});return T(()=>s._subscribe({name:i,formState:u.current,exact:n,callback:e=>{!a&&l({...s._formState,...e})}}),[i,a,n]),e.useEffect(()=>{u.current.isValid&&s._setValid(!0)},[s]),e.useMemo(()=>U(o,s,u.current,!1),[o,s])}var R=e=>"string"==typeof e,B=(e,t,r,s,a)=>R(e)?(s&&t.watch.add(e),y(r,e,a)):Array.isArray(e)?e.map(e=>(s&&t.watch.add(e),y(r,e))):(s&&(t.watchAll=!0),r),L=e=>s(e)||!a(e);function P(e,t,s=new WeakSet){if(L(e)||L(t))return e===t;if(r(e)&&r(t))return e.getTime()===t.getTime();const a=Object.keys(e),n=Object.keys(t);if(a.length!==n.length)return!1;if(s.has(e)||s.has(t))return!0;s.add(e),s.add(t);for(const o of a){const a=e[o];if(!n.includes(o))return!1;if("ref"!==o){const e=t[o];if(r(a)&&r(e)||i(a)&&i(e)||Array.isArray(a)&&Array.isArray(e)?!P(a,e,s):a!==e)return!1}}return!0}function I(t){const r=j(),{control:s=r.control,name:a,defaultValue:i,disabled:n,exact:o,compute:l}=t||{},u=e.useRef(i),d=e.useRef(l),c=e.useRef(void 0);d.current=l;const f=e.useMemo(()=>s._getWatch(a,u.current),[s,a]),[m,y]=e.useState(d.current?d.current(f):f);return T(()=>s._subscribe({name:a,formState:{values:!0},exact:o,callback:e=>{if(!n){const t=B(a,s._names,e.values||s._formValues,!1,u.current);if(d.current){const e=d.current(t);P(e,c.current)||(y(e),c.current=e)}else y(t)}}}),[s,n,a,o]),e.useEffect(()=>s._removeUnmounted()),m}function W(t){const r=j(),{name:s,disabled:a,control:i=r.control,shouldUnregister:l,defaultValue:d}=t,f=o(i._names.array,s),m=e.useMemo(()=>y(i._formValues,s,y(i._defaultValues,s,d)),[i,s,d]),b=I({control:i,name:s,defaultValue:m,exact:!0}),v=N({control:i,name:s,exact:!0}),V=e.useRef(t),x=e.useRef(i.register(s,{...t.rules,value:b,..._(t.disabled)?{disabled:t.disabled}:{}}));V.current=t;const F=e.useMemo(()=>Object.defineProperties({},{invalid:{enumerable:!0,get:()=>!!y(v.errors,s)},isDirty:{enumerable:!0,get:()=>!!y(v.dirtyFields,s)},isTouched:{enumerable:!0,get:()=>!!y(v.touchedFields,s)},isValidating:{enumerable:!0,get:()=>!!y(v.validatingFields,s)},error:{enumerable:!0,get:()=>y(v.errors,s)}}),[v,s]),A=e.useCallback(e=>x.current.onChange({target:{value:n(e),name:s},type:h}),[s]),S=e.useCallback(()=>x.current.onBlur({target:{value:y(i._formValues,s),name:s},type:p}),[s,i._formValues]),w=e.useCallback(e=>{const t=y(i._fields,s);t&&e&&(t._f.ref={focus:()=>e.focus&&e.focus(),select:()=>e.select&&e.select(),setCustomValidity:t=>e.setCustomValidity(t),reportValidity:()=>e.reportValidity()})},[i._fields,s]),k=e.useMemo(()=>({name:s,value:b,..._(a)||v.disabled?{disabled:v.disabled||a}:{},onChange:A,onBlur:S,ref:w}),[s,a,v.disabled,A,S,w,b]);return e.useEffect(()=>{const e=i._options.shouldUnregister||l;i.register(s,{...V.current.rules,..._(V.current.disabled)?{disabled:V.current.disabled}:{}});const t=(e,t)=>{const r=y(i._fields,e);r&&r._f&&(r._f.mount=t)};if(t(s,!0),e){const e=u(y(i._options.defaultValues,s));g(i._defaultValues,s,e),c(y(i._formValues,s))&&g(i._formValues,s,e)}return!f&&i.register(s),()=>{(f?e&&!i._state.action:e)?i.unregister(s):t(s,!1)}},[s,i,f,l]),e.useEffect(()=>{i._setDisabledField({disabled:a,name:s})},[a,s,i]),e.useMemo(()=>({field:k,formState:v,fieldState:F}),[k,v,F])}const q=e=>{const t={};for(const r of Object.keys(e))if(a(e[r])&&null!==e[r]){const s=q(e[r]);for(const e of Object.keys(s))t[`${r}.${e}`]=s[e]}else t[r]=e[r];return t},$="post";var H=(e,t,r,s,a)=>t?{...r[e],types:{...r[e]&&r[e].types?r[e].types:{},[s]:a||!0}}:{},J=e=>Array.isArray(e)?e:[e],z=()=>{let e=[];return{get observers(){return e},next:t=>{for(const r of e)r.next&&r.next(t)},subscribe:t=>(e.push(t),{unsubscribe:()=>{e=e.filter(e=>e!==t)}}),unsubscribe:()=>{e=[]}}},G=e=>i(e)&&!Object.keys(e).length,K=e=>"file"===e.type,Q=e=>"function"==typeof e,X=e=>{if(!l)return!1;const t=e?e.ownerDocument:0;return e instanceof(t&&t.defaultView?t.defaultView.HTMLElement:HTMLElement)},Y=e=>"select-multiple"===e.type,Z=e=>"radio"===e.type,ee=e=>X(e)&&e.isConnected;function te(e,t){const r=Array.isArray(t)?t:d(t)?[t]:m(t),s=1===r.length?e:function(e,t){const r=t.slice(0,-1).length;let s=0;for(;s<r;)e=c(e)?s++:e[t[s++]];return e}(e,r),a=r.length-1,n=r[a];return s&&delete s[n],0!==a&&(i(s)&&G(s)||Array.isArray(s)&&function(e){for(const t in e)if(e.hasOwnProperty(t)&&!c(e[t]))return!1;return!0}(s))&&te(e,r.slice(0,-1)),e}var re=e=>{for(const t in e)if(Q(e[t]))return!0;return!1};function se(e,t={}){const r=Array.isArray(e);if(i(e)||r)for(const r in e)Array.isArray(e[r])||i(e[r])&&!re(e[r])?(t[r]=Array.isArray(e[r])?[]:{},se(e[r],t[r])):s(e[r])||(t[r]=!0);return t}function ae(e,t,r){const a=Array.isArray(e);if(i(e)||a)for(const a in e)Array.isArray(e[a])||i(e[a])&&!re(e[a])?c(t)||L(r[a])?r[a]=Array.isArray(e[a])?se(e[a],[]):{...se(e[a])}:ae(e[a],s(t)?{}:t[a],r[a]):r[a]=!P(e[a],t[a]);return r}var ie=(e,t)=>ae(e,t,se(t));const ne={value:!1,isValid:!1},oe={value:!0,isValid:!0};var le=e=>{if(Array.isArray(e)){if(e.length>1){const t=e.filter(e=>e&&e.checked&&!e.disabled).map(e=>e.value);return{value:t,isValid:!!t.length}}return e[0].checked&&!e[0].disabled?e[0].attributes&&!c(e[0].attributes.value)?c(e[0].value)||""===e[0].value?oe:{value:e[0].value,isValid:!0}:oe:ne}return ne},ue=(e,{valueAsNumber:t,valueAsDate:r,setValueAs:s})=>c(e)?e:t?""===e?NaN:e?+e:e:r&&R(e)?new Date(e):s?s(e):e;const de={isValid:!1,value:null};var ce=e=>Array.isArray(e)?e.reduce((e,t)=>t&&t.checked&&!t.disabled?{isValid:!0,value:t.value}:e,de):de;function fe(e){const r=e.ref;return K(r)?r.files:Z(r)?ce(e.refs).value:Y(r)?[...r.selectedOptions].map(({value:e})=>e):t(r)?le(e.refs).value:ue(c(r.value)?e.ref.value:r.value,e)}var me=e=>e instanceof RegExp,ye=e=>c(e)?e:me(e)?e.source:i(e)?me(e.value)?e.value.source:e.value:e,_e=e=>({isOnSubmit:!e||e===x,isOnBlur:e===v,isOnChange:e===V,isOnAll:e===A,isOnTouch:e===F});const ge="AsyncFunction";var pe=e=>!!e&&!!e.validate&&!!(Q(e.validate)&&e.validate.constructor.name===ge||i(e.validate)&&Object.values(e.validate).find(e=>e.constructor.name===ge)),be=(e,t,r)=>!r&&(t.watchAll||t.watch.has(e)||[...t.watch].some(t=>e.startsWith(t)&&/^\.\w+/.test(e.slice(t.length))));const he=(e,t,r,s)=>{for(const a of r||Object.keys(e)){const r=y(e,a);if(r){const{_f:e,...n}=r;if(e){if(e.refs&&e.refs[0]&&t(e.refs[0],a)&&!s)return!0;if(e.ref&&t(e.ref,e.name)&&!s)return!0;if(he(n,t))break}else if(i(n)&&he(n,t))break}}};function ve(e,t,r){const s=y(e,r);if(s||d(r))return{error:s,name:r};const a=r.split(".");for(;a.length;){const s=a.join("."),i=y(t,s),n=y(e,s);if(i&&!Array.isArray(i)&&r!==s)return{name:r};if(n&&n.type)return{name:s,error:n};if(n&&n.root&&n.root.type)return{name:`${s}.root`,error:n.root};a.pop()}return{name:r}}var Ve=(e,t,r)=>{const s=J(y(e,r));return g(s,"root",t[r]),g(e,r,s),e},xe=e=>R(e);function Fe(e,t,r="validate"){if(xe(e)||Array.isArray(e)&&e.every(xe)||_(e)&&!e)return{type:r,message:xe(e)?e:"",ref:t}}var Ae=e=>i(e)&&!me(e)?e:{value:e,message:""},Se=async(e,r,a,n,o,l)=>{const{ref:u,refs:d,required:f,maxLength:m,minLength:g,min:p,max:b,pattern:h,validate:v,name:V,valueAsNumber:x,mount:F}=e._f,A=y(a,V);if(!F||r.has(V))return{};const M=d?d[0]:u,j=e=>{o&&M.reportValidity&&(M.setCustomValidity(_(e)?"":e||""),M.reportValidity())},U={},T=Z(u),N=t(u),B=T||N,L=(x||K(u))&&c(u.value)&&c(A)||X(u)&&""===u.value||""===A||Array.isArray(A)&&!A.length,P=H.bind(null,V,n,U),I=(e,t,r,s=k,a=D)=>{const i=e?t:r;U[V]={type:e?s:a,message:i,ref:u,...P(e?s:a,i)}};if(l?!Array.isArray(A)||!A.length:f&&(!B&&(L||s(A))||_(A)&&!A||N&&!le(d).isValid||T&&!ce(d).isValid)){const{value:e,message:t}=xe(f)?{value:!!f,message:f}:Ae(f);if(e&&(U[V]={type:E,message:t,ref:M,...P(E,t)},!n))return j(t),U}if(!(L||s(p)&&s(b))){let e,t;const r=Ae(b),a=Ae(p);if(s(A)||isNaN(A)){const s=u.valueAsDate||new Date(A),i=e=>new Date((new Date).toDateString()+" "+e),n="time"==u.type,o="week"==u.type;R(r.value)&&A&&(e=n?i(A)>i(r.value):o?A>r.value:s>new Date(r.value)),R(a.value)&&A&&(t=n?i(A)<i(a.value):o?A<a.value:s<new Date(a.value))}else{const i=u.valueAsNumber||(A?+A:A);s(r.value)||(e=i>r.value),s(a.value)||(t=i<a.value)}if((e||t)&&(I(!!e,r.message,a.message,S,w),!n))return j(U[V].message),U}if((m||g)&&!L&&(R(A)||l&&Array.isArray(A))){const e=Ae(m),t=Ae(g),r=!s(e.value)&&A.length>+e.value,a=!s(t.value)&&A.length<+t.value;if((r||a)&&(I(r,e.message,t.message),!n))return j(U[V].message),U}if(h&&!L&&R(A)){const{value:e,message:t}=Ae(h);if(me(e)&&!A.match(e)&&(U[V]={type:C,message:t,ref:u,...P(C,t)},!n))return j(t),U}if(v)if(Q(v)){const e=Fe(await v(A,a),M);if(e&&(U[V]={...e,...P(O,e.message)},!n))return j(e.message),U}else if(i(v)){let e={};for(const t in v){if(!G(e)&&!n)break;const r=Fe(await v[t](A,a),M,t);r&&(e={...r,...P(t,r.message)},j(r.message),n&&(U[V]=e))}if(!G(e)&&(U[V]={ref:M,...e},!n))return U}return j(!0),U};const we={mode:x,reValidateMode:V,shouldFocusError:!0};function ke(e={}){let a,d={...we,...e},m={submitCount:0,isDirty:!1,isReady:!1,isLoading:Q(d.defaultValues),isValidating:!1,isSubmitted:!1,isSubmitting:!1,isSubmitSuccessful:!1,isValid:!1,touchedFields:{},dirtyFields:{},validatingFields:{},errors:d.errors||{},disabled:d.disabled||!1},h={},v=(i(d.defaultValues)||i(d.values))&&u(d.defaultValues||d.values)||{},V=d.shouldUnregister?{}:u(v),x={action:!1,mount:!1,watch:!1},F={mount:new Set,disabled:new Set,unMount:new Set,array:new Set,watch:new Set},S=0;const w={isDirty:!1,dirtyFields:!1,validatingFields:!1,touchedFields:!1,isValidating:!1,isValid:!1,errors:!1};let k={...w};const D={array:z(),state:z()},C=d.criteriaMode===A,E=async e=>{if(!d.disabled&&(w.isValid||k.isValid||e)){const e=d.resolver?G((await T()).errors):await N(h,!0);e!==m.isValid&&D.state.next({isValid:e})}},O=(e,t)=>{!d.disabled&&(w.isValidating||w.validatingFields||k.isValidating||k.validatingFields)&&((e||Array.from(F.mount)).forEach(e=>{e&&(t?g(m.validatingFields,e,t):te(m.validatingFields,e))}),D.state.next({validatingFields:m.validatingFields,isValidating:!G(m.validatingFields)}))},M=(e,t,r,s)=>{const a=y(h,e);if(a){const i=y(V,e,c(r)?y(v,e):r);c(i)||s&&s.defaultChecked||t?g(V,e,t?i:fe(a._f)):W(e,i),x.mount&&E()}},j=(e,t,r,s,a)=>{let i=!1,n=!1;const o={name:e};if(!d.disabled){if(!r||s){(w.isDirty||k.isDirty)&&(n=m.isDirty,m.isDirty=o.isDirty=L(),i=n!==o.isDirty);const r=P(y(v,e),t);n=!!y(m.dirtyFields,e),r?te(m.dirtyFields,e):g(m.dirtyFields,e,!0),o.dirtyFields=m.dirtyFields,i=i||(w.dirtyFields||k.dirtyFields)&&n!==!r}if(r){const t=y(m.touchedFields,e);t||(g(m.touchedFields,e,r),o.touchedFields=m.touchedFields,i=i||(w.touchedFields||k.touchedFields)&&t!==r)}i&&a&&D.state.next(o)}return i?o:{}},U=(e,t,r,s)=>{const i=y(m.errors,e),n=(w.isValid||k.isValid)&&_(t)&&m.isValid!==t;var o;if(d.delayError&&r?(o=()=>((e,t)=>{g(m.errors,e,t),D.state.next({errors:m.errors})})(e,r),a=e=>{clearTimeout(S),S=setTimeout(o,e)},a(d.delayError)):(clearTimeout(S),a=null,r?g(m.errors,e,r):te(m.errors,e)),(r?!P(i,r):i)||!G(s)||n){const r={...s,...n&&_(t)?{isValid:t}:{},errors:m.errors,name:e};m={...m,...r},D.state.next(r)}},T=async e=>{O(e,!0);const t=await d.resolver(V,d.context,((e,t,r,s)=>{const a={};for(const r of e){const e=y(t,r);e&&g(a,r,e._f)}return{criteriaMode:r,names:[...e],fields:a,shouldUseNativeValidation:s}})(e||F.mount,h,d.criteriaMode,d.shouldUseNativeValidation));return O(e),t},N=async(e,t,r={valid:!0})=>{for(const s in e){const a=e[s];if(a){const{_f:e,...i}=a;if(e){const i=F.array.has(e.name),n=a._f&&pe(a._f);n&&w.validatingFields&&O([s],!0);const o=await Se(a,F.disabled,V,C,d.shouldUseNativeValidation&&!t,i);if(n&&w.validatingFields&&O([s]),o[e.name]&&(r.valid=!1,t))break;!t&&(y(o,e.name)?i?Ve(m.errors,o,e.name):g(m.errors,e.name,o[e.name]):te(m.errors,e.name))}!G(i)&&await N(i,t,r)}}return r.valid},L=(e,t)=>!d.disabled&&(e&&t&&g(V,e,t),!P(ae(),v)),I=(e,t,r)=>B(e,F,{...x.mount?V:c(t)?v:R(e)?{[e]:t}:t},r,t),W=(e,r,a={})=>{const i=y(h,e);let n=r;if(i){const a=i._f;a&&(!a.disabled&&g(V,e,ue(r,a)),n=X(a.ref)&&s(r)?"":r,Y(a.ref)?[...a.ref.options].forEach(e=>e.selected=n.includes(e.value)):a.refs?t(a.ref)?a.refs.forEach(e=>{e.defaultChecked&&e.disabled||(Array.isArray(n)?e.checked=!!n.find(t=>t===e.value):e.checked=n===e.value||!!n)}):a.refs.forEach(e=>e.checked=e.value===n):K(a.ref)?a.ref.value="":(a.ref.value=n,a.ref.type||D.state.next({name:e,values:u(V)})))}(a.shouldDirty||a.shouldTouch)&&j(e,n,a.shouldTouch,a.shouldDirty,!0),a.shouldValidate&&se(e)},q=(e,t,s)=>{for(const a in t){if(!t.hasOwnProperty(a))return;const n=t[a],o=e+"."+a,l=y(h,o);(F.array.has(e)||i(n)||l&&!l._f)&&!r(n)?q(o,n,s):W(o,n,s)}},$=(e,t,r={})=>{const a=y(h,e),i=F.array.has(e),n=u(t);g(V,e,n),i?(D.array.next({name:e,values:u(V)}),(w.isDirty||w.dirtyFields||k.isDirty||k.dirtyFields)&&r.shouldDirty&&D.state.next({name:e,dirtyFields:ie(v,V),isDirty:L(e,n)})):!a||a._f||s(n)?W(e,n,r):q(e,n,r),be(e,F)&&D.state.next({...m,name:e}),D.state.next({name:x.mount?e:void 0,values:u(V)})},H=async e=>{x.mount=!0;const t=e.target;let s=t.name,i=!0;const o=y(h,s),l=e=>{i=Number.isNaN(e)||r(e)&&isNaN(e.getTime())||P(e,y(V,s,e))},c=_e(d.mode),f=_e(d.reValidateMode);if(o){let r,v;const x=t.type?fe(o._f):n(e),A=e.type===p||e.type===b,S=!((_=o._f).mount&&(_.required||_.min||_.max||_.maxLength||_.minLength||_.pattern||_.validate)||d.resolver||y(m.errors,s)||o._f.deps)||((e,t,r,s,a)=>!a.isOnAll&&(!r&&a.isOnTouch?!(t||e):(r?s.isOnBlur:a.isOnBlur)?!e:!(r?s.isOnChange:a.isOnChange)||e))(A,y(m.touchedFields,s),m.isSubmitted,f,c),M=be(s,F,A);g(V,s,x),A?(o._f.onBlur&&o._f.onBlur(e),a&&a(0)):o._f.onChange&&o._f.onChange(e);const R=j(s,x,A),B=!G(R)||M;if(!A&&D.state.next({name:s,type:e.type,values:u(V)}),S)return(w.isValid||k.isValid)&&("onBlur"===d.mode?A&&E():A||E()),B&&D.state.next({name:s,...M?{}:R});if(!A&&M&&D.state.next({...m}),d.resolver){const{errors:e}=await T([s]);if(l(x),i){const t=ve(m.errors,h,s),a=ve(e,h,t.name||s);r=a.error,s=a.name,v=G(e)}}else O([s],!0),r=(await Se(o,F.disabled,V,C,d.shouldUseNativeValidation))[s],O([s]),l(x),i&&(r?v=!1:(w.isValid||k.isValid)&&(v=await N(h,!0)));i&&(o._f.deps&&se(o._f.deps),U(s,v,r,R))}var _},re=(e,t)=>{if(y(m.errors,t)&&e.focus)return e.focus(),1},se=async(e,t={})=>{let r,s;const a=J(e);if(d.resolver){const t=await(async e=>{const{errors:t}=await T(e);if(e)for(const r of e){const e=y(t,r);e?g(m.errors,r,e):te(m.errors,r)}else m.errors=t;return t})(c(e)?e:a);r=G(t),s=e?!a.some(e=>y(t,e)):r}else e?(s=(await Promise.all(a.map(async e=>{const t=y(h,e);return await N(t&&t._f?{[e]:t}:t)}))).every(Boolean),(s||m.isValid)&&E()):s=r=await N(h);return D.state.next({...!R(e)||(w.isValid||k.isValid)&&r!==m.isValid?{}:{name:e},...d.resolver||!e?{isValid:r}:{},errors:m.errors}),t.shouldFocus&&!s&&he(h,re,e?a:F.mount),s},ae=e=>{const t={...x.mount?V:v};return c(e)?t:R(e)?y(t,e):e.map(e=>y(t,e))},ne=(e,t)=>({invalid:!!y((t||m).errors,e),isDirty:!!y((t||m).dirtyFields,e),error:y((t||m).errors,e),isValidating:!!y(m.validatingFields,e),isTouched:!!y((t||m).touchedFields,e)}),oe=(e,t,r)=>{const s=(y(h,e,{_f:{}})._f||{}).ref,a=y(m.errors,e)||{},{ref:i,message:n,type:o,...l}=a;g(m.errors,e,{...l,...t,ref:s}),D.state.next({name:e,errors:m.errors,isValid:!1}),r&&r.shouldFocus&&s&&s.focus&&s.focus()},le=e=>D.state.subscribe({next:t=>{var r,s,a;r=e.name,s=t.name,a=e.exact,r&&s&&r!==s&&!J(r).some(e=>e&&(a?e===s:e.startsWith(s)||s.startsWith(e)))||!((e,t,r,s)=>{r(e);const{name:a,...i}=e;return G(i)||Object.keys(i).length>=Object.keys(t).length||Object.keys(i).find(e=>t[e]===(!s||A))})(t,e.formState||w,ke,e.reRenderRoot)||e.callback({values:{...V},...m,...t,defaultValues:v})}}).unsubscribe,de=(e,t={})=>{for(const r of e?J(e):F.mount)F.mount.delete(r),F.array.delete(r),t.keepValue||(te(h,r),te(V,r)),!t.keepError&&te(m.errors,r),!t.keepDirty&&te(m.dirtyFields,r),!t.keepTouched&&te(m.touchedFields,r),!t.keepIsValidating&&te(m.validatingFields,r),!d.shouldUnregister&&!t.keepDefaultValue&&te(v,r);D.state.next({values:u(V)}),D.state.next({...m,...t.keepDirty?{isDirty:L()}:{}}),!t.keepIsValid&&E()},ce=({disabled:e,name:t})=>{(_(e)&&x.mount||e||F.disabled.has(t))&&(e?F.disabled.add(t):F.disabled.delete(t))},me=(e,r={})=>{let s=y(h,e);const a=_(r.disabled)||_(d.disabled);return g(h,e,{...s||{},_f:{...s&&s._f?s._f:{ref:{name:e}},name:e,mount:!0,...r}}),F.mount.add(e),s?ce({disabled:_(r.disabled)?r.disabled:d.disabled,name:e}):M(e,!0,r.value),{...a?{disabled:r.disabled||d.disabled}:{},...d.progressive?{required:!!r.required,min:ye(r.min),max:ye(r.max),minLength:ye(r.minLength),maxLength:ye(r.maxLength),pattern:ye(r.pattern)}:{},name:e,onChange:H,onBlur:H,ref:a=>{if(a){me(e,r),s=y(h,e);const i=c(a.value)&&a.querySelectorAll&&a.querySelectorAll("input,select,textarea")[0]||a,n=(e=>Z(e)||t(e))(i),o=s._f.refs||[];if(n?o.find(e=>e===i):i===s._f.ref)return;g(h,e,{_f:{...s._f,...n?{refs:[...o.filter(ee),i,...Array.isArray(y(v,e))?[{}]:[]],ref:{type:i.type,name:e}}:{ref:i}}}),M(e,!1,void 0,i)}else s=y(h,e,{}),s._f&&(s._f.mount=!1),(d.shouldUnregister||r.shouldUnregister)&&(!o(F.array,e)||!x.action)&&F.unMount.add(e)}}},ge=()=>d.shouldFocusError&&he(h,re,F.mount),xe=(e,t)=>async r=>{let s;r&&(r.preventDefault&&r.preventDefault(),r.persist&&r.persist());let a=u(V);if(D.state.next({isSubmitting:!0}),d.resolver){const{errors:e,values:t}=await T();m.errors=e,a=u(t)}else await N(h);if(F.disabled.size)for(const e of F.disabled)te(a,e);if(te(m.errors,"root"),G(m.errors)){D.state.next({errors:{}});try{await e(a,r)}catch(e){s=e}}else t&&await t({...m.errors},r),ge(),setTimeout(ge);if(D.state.next({isSubmitted:!0,isSubmitting:!1,isSubmitSuccessful:G(m.errors)&&!s,submitCount:m.submitCount+1,errors:m.errors}),s)throw s},Fe=(e,t={})=>{const r=e?u(e):v,s=u(r),a=G(e),i=a?v:s;if(t.keepDefaultValues||(v=r),!t.keepValues){if(t.keepDirtyValues){const e=new Set([...F.mount,...Object.keys(ie(v,V))]);for(const t of Array.from(e))y(m.dirtyFields,t)?g(i,t,y(V,t)):$(t,y(i,t))}else{if(l&&c(e))for(const e of F.mount){const t=y(h,e);if(t&&t._f){const e=Array.isArray(t._f.refs)?t._f.refs[0]:t._f.ref;if(X(e)){const t=e.closest("form");if(t){t.reset();break}}}}if(t.keepFieldsRef)for(const e of F.mount)$(e,y(i,e));else h={}}V=d.shouldUnregister?t.keepDefaultValues?u(v):{}:u(i),D.array.next({values:{...i}}),D.state.next({values:{...i}})}F={mount:t.keepDirtyValues?F.mount:new Set,unMount:new Set,array:new Set,disabled:new Set,watch:new Set,watchAll:!1,focus:""},x.mount=!w.isValid||!!t.keepIsValid||!!t.keepDirtyValues,x.watch=!!d.shouldUnregister,D.state.next({submitCount:t.keepSubmitCount?m.submitCount:0,isDirty:!a&&(t.keepDirty?m.isDirty:!(!t.keepDefaultValues||P(e,v))),isSubmitted:!!t.keepIsSubmitted&&m.isSubmitted,dirtyFields:a?{}:t.keepDirtyValues?t.keepDefaultValues&&V?ie(v,V):m.dirtyFields:t.keepDefaultValues&&e?ie(v,e):t.keepDirty?m.dirtyFields:{},touchedFields:t.keepTouched?m.touchedFields:{},errors:t.keepErrors?m.errors:{},isSubmitSuccessful:!!t.keepIsSubmitSuccessful&&m.isSubmitSuccessful,isSubmitting:!1})},Ae=(e,t)=>Fe(Q(e)?e(V):e,t),ke=e=>{m={...m,...e}},De={control:{register:me,unregister:de,getFieldState:ne,handleSubmit:xe,setError:oe,_subscribe:le,_runSchema:T,_focusError:ge,_getWatch:I,_getDirty:L,_setValid:E,_setFieldArray:(e,t=[],r,s,a=!0,i=!0)=>{if(s&&r&&!d.disabled){if(x.action=!0,i&&Array.isArray(y(h,e))){const t=r(y(h,e),s.argA,s.argB);a&&g(h,e,t)}if(i&&Array.isArray(y(m.errors,e))){const t=r(y(m.errors,e),s.argA,s.argB);a&&g(m.errors,e,t),((e,t)=>{!f(y(e,t)).length&&te(e,t)})(m.errors,e)}if((w.touchedFields||k.touchedFields)&&i&&Array.isArray(y(m.touchedFields,e))){const t=r(y(m.touchedFields,e),s.argA,s.argB);a&&g(m.touchedFields,e,t)}(w.dirtyFields||k.dirtyFields)&&(m.dirtyFields=ie(v,V)),D.state.next({name:e,isDirty:L(e,t),dirtyFields:m.dirtyFields,errors:m.errors,isValid:m.isValid})}else g(V,e,t)},_setDisabledField:ce,_setErrors:e=>{m.errors=e,D.state.next({errors:m.errors,isValid:!1})},_getFieldArray:e=>f(y(x.mount?V:v,e,d.shouldUnregister?y(v,e,[]):[])),_reset:Fe,_resetDefaultValues:()=>Q(d.defaultValues)&&d.defaultValues().then(e=>{Ae(e,d.resetOptions),D.state.next({isLoading:!1})}),_removeUnmounted:()=>{for(const e of F.unMount){const t=y(h,e);t&&(t._f.refs?t._f.refs.every(e=>!ee(e)):!ee(t._f.ref))&&de(e)}F.unMount=new Set},_disableForm:e=>{_(e)&&(D.state.next({disabled:e}),he(h,(t,r)=>{const s=y(h,r);s&&(t.disabled=s._f.disabled||e,Array.isArray(s._f.refs)&&s._f.refs.forEach(t=>{t.disabled=s._f.disabled||e}))},0,!1))},_subjects:D,_proxyFormState:w,get _fields(){return h},get _formValues(){return V},get _state(){return x},set _state(e){x=e},get _defaultValues(){return v},get _names(){return F},set _names(e){F=e},get _formState(){return m},get _options(){return d},set _options(e){d={...d,...e}}},subscribe:e=>(x.mount=!0,k={...k,...e.formState},le({...e,formState:k})),trigger:se,register:me,handleSubmit:xe,watch:(e,t)=>Q(e)?D.state.subscribe({next:r=>"values"in r&&e(I(void 0,t),r)}):I(e,t,!0),setValue:$,getValues:ae,reset:Ae,resetField:(e,t={})=>{y(h,e)&&(c(t.defaultValue)?$(e,u(y(v,e))):($(e,t.defaultValue),g(v,e,u(t.defaultValue))),t.keepTouched||te(m.touchedFields,e),t.keepDirty||(te(m.dirtyFields,e),m.isDirty=t.defaultValue?L(e,u(y(v,e))):L()),t.keepError||(te(m.errors,e),w.isValid&&E()),D.state.next({...m}))},clearErrors:e=>{e&&J(e).forEach(e=>te(m.errors,e)),D.state.next({errors:e?m.errors:{}})},unregister:de,setError:oe,setFocus:(e,t={})=>{const r=y(h,e),s=r&&r._f;if(s){const e=s.refs?s.refs[0]:s.ref;e.focus&&(e.focus(),t.shouldSelect&&Q(e.select)&&e.select())}},getFieldState:ne};return{...De,formControl:De}}var De=()=>{if("undefined"!=typeof crypto&&crypto.randomUUID)return crypto.randomUUID();const e="undefined"==typeof performance?Date.now():1e3*performance.now();return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,t=>{const r=(16*Math.random()+e)%16|0;return("x"==t?r:3&r|8).toString(16)})},Ce=(e,t,r={})=>r.shouldFocus||c(r.shouldFocus)?r.focusName||`${e}.${c(r.focusIndex)?t:r.focusIndex}.`:"",Ee=(e,t)=>[...e,...J(t)],Oe=e=>Array.isArray(e)?e.map(()=>{}):void 0;function Me(e,t,r){return[...e.slice(0,t),...J(r),...e.slice(t)]}var je=(e,t,r)=>Array.isArray(e)?(c(e[r])&&(e[r]=void 0),e.splice(r,0,e.splice(t,1)[0]),e):[],Ue=(e,t)=>[...J(t),...J(e)];var Te=(e,t)=>c(t)?[]:function(e,t){let r=0;const s=[...e];for(const e of t)s.splice(e-r,1),r++;return f(s).length?s:[]}(e,J(t).sort((e,t)=>e-t)),Ne=(e,t,r)=>{[e[t],e[r]]=[e[r],e[t]]},Re=(e,t,r)=>(e[t]=r,e);exports.Controller=e=>e.render(W(e)),exports.Form=function(t){const r=j(),[s,a]=e.useState(!1),{control:i=r.control,onSubmit:n,children:o,action:l,method:u=$,headers:d,encType:c,onError:f,render:m,onSuccess:y,validateStatus:_,...g}=t,p=async e=>{let r=!1,s="";await i.handleSubmit(async t=>{const a=new FormData;let o="";try{o=JSON.stringify(t)}catch(e){}const m=q(i._formValues);for(const e in m)a.append(e,m[e]);if(n&&await n({data:t,event:e,method:u,formData:a,formDataJson:o}),l)try{const e=[d&&d["Content-Type"],c].some(e=>e&&e.includes("json")),t=await fetch(String(l),{method:u,headers:{...d,...c&&"multipart/form-data"!==c?{"Content-Type":c}:{}},body:e?o:a});t&&(_?!_(t.status):t.status<200||t.status>=300)?(r=!0,f&&f({response:t}),s=String(t.status)):y&&y({response:t})}catch(e){r=!0,f&&f({error:e})}})(e),r&&t.control&&(t.control._subjects.state.next({isSubmitSuccessful:!1}),t.control.setError("root.server",{type:s}))};return e.useEffect(()=>{a(!0)},[]),m?e.createElement(e.Fragment,null,m({submit:p})):e.createElement("form",{noValidate:s,action:l,method:u,encType:c,onSubmit:p,...g},o)},exports.FormProvider=t=>{const{children:r,...s}=t;return e.createElement(M.Provider,{value:s},r)},exports.appendErrors=H,exports.createFormControl=ke,exports.get=y,exports.set=g,exports.useController=W,exports.useFieldArray=function(t){const r=j(),{control:s=r.control,name:a,keyName:i="id",shouldUnregister:n,rules:o}=t,[l,d]=e.useState(s._getFieldArray(a)),c=e.useRef(s._getFieldArray(a).map(De)),f=e.useRef(l),m=e.useRef(!1);f.current=l,s._names.array.add(a),e.useMemo(()=>o&&s.register(a,o),[s,o,a]),T(()=>s._subjects.array.subscribe({next:({values:e,name:t})=>{if(t===a||!t){const t=y(e,a);Array.isArray(t)&&(d(t),c.current=t.map(De))}}}).unsubscribe,[s,a]);const _=e.useCallback(e=>{m.current=!0,s._setFieldArray(a,e)},[s,a]);return e.useEffect(()=>{if(s._state.action=!1,be(a,s._names)&&s._subjects.state.next({...s._formState}),m.current&&(!_e(s._options.mode).isOnSubmit||s._formState.isSubmitted)&&!_e(s._options.reValidateMode).isOnSubmit)if(s._options.resolver)s._runSchema([a]).then(e=>{const t=y(e.errors,a),r=y(s._formState.errors,a);(r?!t&&r.type||t&&(r.type!==t.type||r.message!==t.message):t&&t.type)&&(t?g(s._formState.errors,a,t):te(s._formState.errors,a),s._subjects.state.next({errors:s._formState.errors}))});else{const e=y(s._fields,a);!e||!e._f||_e(s._options.reValidateMode).isOnSubmit&&_e(s._options.mode).isOnSubmit||Se(e,s._names.disabled,s._formValues,s._options.criteriaMode===A,s._options.shouldUseNativeValidation,!0).then(e=>!G(e)&&s._subjects.state.next({errors:Ve(s._formState.errors,e,a)}))}s._subjects.state.next({name:a,values:u(s._formValues)}),s._names.focus&&he(s._fields,(e,t)=>{if(s._names.focus&&t.startsWith(s._names.focus)&&e.focus)return e.focus(),1}),s._names.focus="",s._setValid(),m.current=!1},[l,a,s]),e.useEffect(()=>(!y(s._formValues,a)&&s._setFieldArray(a),()=>{s._options.shouldUnregister||n?s.unregister(a):((e,t)=>{const r=y(s._fields,e);r&&r._f&&(r._f.mount=t)})(a,!1)}),[a,s,i,n]),{swap:e.useCallback((e,t)=>{const r=s._getFieldArray(a);Ne(r,e,t),Ne(c.current,e,t),_(r),d(r),s._setFieldArray(a,r,Ne,{argA:e,argB:t},!1)},[_,a,s]),move:e.useCallback((e,t)=>{const r=s._getFieldArray(a);je(r,e,t),je(c.current,e,t),_(r),d(r),s._setFieldArray(a,r,je,{argA:e,argB:t},!1)},[_,a,s]),prepend:e.useCallback((e,t)=>{const r=J(u(e)),i=Ue(s._getFieldArray(a),r);s._names.focus=Ce(a,0,t),c.current=Ue(c.current,r.map(De)),_(i),d(i),s._setFieldArray(a,i,Ue,{argA:Oe(e)})},[_,a,s]),append:e.useCallback((e,t)=>{const r=J(u(e)),i=Ee(s._getFieldArray(a),r);s._names.focus=Ce(a,i.length-1,t),c.current=Ee(c.current,r.map(De)),_(i),d(i),s._setFieldArray(a,i,Ee,{argA:Oe(e)})},[_,a,s]),remove:e.useCallback(e=>{const t=Te(s._getFieldArray(a),e);c.current=Te(c.current,e),_(t),d(t),!Array.isArray(y(s._fields,a))&&g(s._fields,a,void 0),s._setFieldArray(a,t,Te,{argA:e})},[_,a,s]),insert:e.useCallback((e,t,r)=>{const i=J(u(t)),n=Me(s._getFieldArray(a),e,i);s._names.focus=Ce(a,e,r),c.current=Me(c.current,e,i.map(De)),_(n),d(n),s._setFieldArray(a,n,Me,{argA:e,argB:Oe(t)})},[_,a,s]),update:e.useCallback((e,t)=>{const r=u(t),i=Re(s._getFieldArray(a),e,r);c.current=[...i].map((t,r)=>t&&r!==e?c.current[r]:De()),_(i),d([...i]),s._setFieldArray(a,i,Re,{argA:e,argB:r},!0,!1)},[_,a,s]),replace:e.useCallback(e=>{const t=J(u(e));c.current=t.map(De),_([...t]),d([...t]),s._setFieldArray(a,[...t],e=>e,{},!0,!1)},[_,a,s]),fields:e.useMemo(()=>l.map((e,t)=>({...e,[i]:c.current[t]||De()})),[l,i])}},exports.useForm=function(t={}){const r=e.useRef(void 0),s=e.useRef(void 0),[a,i]=e.useState({isDirty:!1,isValidating:!1,isLoading:Q(t.defaultValues),isSubmitted:!1,isSubmitting:!1,isSubmitSuccessful:!1,isValid:!1,submitCount:0,dirtyFields:{},touchedFields:{},validatingFields:{},errors:t.errors||{},disabled:t.disabled||!1,isReady:!1,defaultValues:Q(t.defaultValues)?void 0:t.defaultValues});if(!r.current)if(t.formControl)r.current={...t.formControl,formState:a},t.defaultValues&&!Q(t.defaultValues)&&t.formControl.reset(t.defaultValues,t.resetOptions);else{const{formControl:e,...s}=ke(t);r.current={...s,formState:a}}const n=r.current.control;return n._options=t,T(()=>{const e=n._subscribe({formState:n._proxyFormState,callback:()=>i({...n._formState}),reRenderRoot:!0});return i(e=>({...e,isReady:!0})),n._formState.isReady=!0,e},[n]),e.useEffect(()=>n._disableForm(t.disabled),[n,t.disabled]),e.useEffect(()=>{t.mode&&(n._options.mode=t.mode),t.reValidateMode&&(n._options.reValidateMode=t.reValidateMode)},[n,t.mode,t.reValidateMode]),e.useEffect(()=>{t.errors&&(n._setErrors(t.errors),n._focusError())},[n,t.errors]),e.useEffect(()=>{t.shouldUnregister&&n._subjects.state.next({values:n._getWatch()})},[n,t.shouldUnregister]),e.useEffect(()=>{if(n._proxyFormState.isDirty){const e=n._getDirty();e!==a.isDirty&&n._subjects.state.next({isDirty:e})}},[n,a.isDirty]),e.useEffect(()=>{t.values&&!P(t.values,s.current)?(n._reset(t.values,{keepFieldsRef:!0,...n._options.resetOptions}),s.current=t.values,i(e=>({...e}))):n._resetDefaultValues()},[n,t.values]),e.useEffect(()=>{n._state.mount||(n._setValid(),n._state.mount=!0),n._state.watch&&(n._state.watch=!1,n._subjects.state.next({...n._formState})),n._removeUnmounted()}),r.current.formState=U(a,n),r.current},exports.useFormContext=j,exports.useFormState=N,exports.useWatch=I;
 //# sourceMappingURL=index.cjs.js.map
 
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/react-international-phone/dist/index.js":
+/***/ "./node_modules/react-international-phone/dist/index.js"
 /*!**************************************************************!*\
   !*** ./node_modules/react-international-phone/dist/index.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 "use strict";
 function e(e,r){if(r==null||r>e.length)r=e.length;for(var t=0,n=new Array(r);t<r;t++)n[t]=e[t];return n}function r(e){if(Array.isArray(e))return e}function t(r){if(Array.isArray(r))return e(r)}function n(e,r,t){if(r in e){Object.defineProperty(e,r,{value:t,enumerable:true,configurable:true,writable:true})}else{e[r]=t}return e}function a(e){if(typeof Symbol!=="undefined"&&e[Symbol.iterator]!=null||e["@@iterator"]!=null)return Array.from(e)}function o(e,r){var t=e==null?null:typeof Symbol!=="undefined"&&e[Symbol.iterator]||e["@@iterator"];if(t==null)return;var n=[];var a=true;var o=false;var i,u;try{for(t=t.call(e);!(a=(i=t.next()).done);a=true){n.push(i.value);if(r&&n.length===r)break}}catch(e){o=true;u=e}finally{try{if(!a&&t["return"]!=null)t["return"]()}finally{if(o)throw u}}return n}function i(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function u(){throw new TypeError("Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function l(e){for(var r=1;r<arguments.length;r++){var t=arguments[r]!=null?arguments[r]:{};var a=Object.keys(t);if(typeof Object.getOwnPropertySymbols==="function"){a=a.concat(Object.getOwnPropertySymbols(t).filter(function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))}a.forEach(function(r){n(e,r,t[r])})}return e}function c(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);if(r){n=n.filter(function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable})}t.push.apply(t,n)}return t}function d(e,r){r=r!=null?r:{};if(Object.getOwnPropertyDescriptors){Object.defineProperties(e,Object.getOwnPropertyDescriptors(r))}else{c(Object(r)).forEach(function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))})}return e}function s(e,r){if(e==null)return{};var t=f(e,r);var n,a;if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);for(a=0;a<o.length;a++){n=o[a];if(r.indexOf(n)>=0)continue;if(!Object.prototype.propertyIsEnumerable.call(e,n))continue;t[n]=e[n]}}return t}function f(e,r){if(e==null)return{};var t={};var n=Object.keys(e);var a,o;for(o=0;o<n.length;o++){a=n[o];if(r.indexOf(a)>=0)continue;t[a]=e[a]}return t}function v(e,t){return r(e)||o(e,t)||m(e,t)||i()}function p(e){return t(e)||a(e)||m(e)||u()}function y(e){"@swc/helpers - typeof";return e&&typeof Symbol!=="undefined"&&e.constructor===Symbol?"symbol":typeof e}function m(r,t){if(!r)return;if(typeof r==="string")return e(r,t);var n=Object.prototype.toString.call(r).slice(8,-1);if(n==="Object"&&r.constructor)n=r.constructor.name;if(n==="Map"||n==="Set")return Array.from(n);if(n==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return e(r,t)}var h=Object.create;var C=Object.defineProperty;var b=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,D=Object.prototype.hasOwnProperty;var P=function(e,r){for(var t in r)C(e,t,{get:r[t],enumerable:!0})},S=function(e,r,t,n){var a=true,o=false,i=undefined;if(r&&(typeof r==="undefined"?"undefined":y(r))=="object"||typeof r=="function")try{var u=function(){var a=c.value;!D.call(e,a)&&a!==t&&C(e,a,{get:function(){return r[a]},enumerable:!(n=b(r,a))||n.enumerable})};for(var l=g(r)[Symbol.iterator](),c;!(a=(c=l.next()).done);a=true)u()}catch(e){o=true;i=e}finally{try{if(!a&&l.return!=null){l.return()}}finally{if(o){throw i}}}return e};var k=function(e,r,t){return t=e!=null?h(w(e)):{},S(r||!e||!e.__esModule?C(t,"default",{value:e,enumerable:!0}):t,e)},x=function(e){return S(C({},"__esModule",{value:!0}),e)};var N={};P(N,{CountrySelector:function(){return eC},CountrySelectorDropdown:function(){return eh},DialCodePreview:function(){return eg},FlagImage:function(){return ep},PhoneInput:function(){return eD},buildCountryData:function(){return B},defaultCountries:function(){return E},getActiveFormattingMask:function(){return en},getCountry:function(){return ei},guessCountryByPartialPhoneNumber:function(){return eu},parseCountry:function(){return ea},removeDialCode:function(){return G},usePhoneInput:function(){return et}});module.exports=x(N);var A=k(__webpack_require__(/*! react */ "react"));var E=[["Afghanistan","af","93"],["Albania","al","355"],["Algeria","dz","213"],["Andorra","ad","376"],["Angola","ao","244"],["Antigua and Barbuda","ag","1268"],["Argentina","ar","54","(..) ........",0],["Armenia","am","374",".. ......"],["Aruba","aw","297"],["Australia","au","61",{default:". .... ....","/^4/":"... ... ...","/^5(?!50)/":"... ... ...","/^1(3|8)00/":".... ... ...","/^13/":".. .. ..","/^180/":"... ...."},0,[]],["Austria","at","43"],["Azerbaijan","az","994","(..) ... .. .."],["Bahamas","bs","1242"],["Bahrain","bh","973"],["Bangladesh","bd","880"],["Barbados","bb","1246"],["Belarus","by","375","(..) ... .. .."],["Belgium","be","32","... .. .. .."],["Belize","bz","501"],["Benin","bj","229"],["Bhutan","bt","975"],["Bolivia","bo","591"],["Bosnia and Herzegovina","ba","387"],["Botswana","bw","267"],["Brazil","br","55","(..) .....-...."],["British Indian Ocean Territory","io","246"],["Brunei","bn","673"],["Bulgaria","bg","359"],["Burkina Faso","bf","226"],["Burundi","bi","257"],["Cambodia","kh","855"],["Cameroon","cm","237"],["Canada","ca","1","(...) ...-....",1,["204","226","236","249","250","289","306","343","365","387","403","416","418","431","437","438","450","506","514","519","548","579","581","587","604","613","639","647","672","705","709","742","778","780","782","807","819","825","867","873","902","905"]],["Cape Verde","cv","238"],["Caribbean Netherlands","bq","599","",1],["Cayman Islands","ky","1","... ... ....",4,["345"]],["Central African Republic","cf","236"],["Chad","td","235"],["Chile","cl","56"],["China","cn","86","... .... ...."],["Colombia","co","57","... ... ...."],["Comoros","km","269"],["Congo","cd","243"],["Congo","cg","242"],["Costa Rica","cr","506","....-...."],["C\xf4te d'Ivoire","ci","225",".. .. .. .. .."],["Croatia","hr","385"],["Cuba","cu","53"],["Cura\xe7ao","cw","599","",0],["Cyprus","cy","357",".. ......"],["Czech Republic","cz","420","... ... ..."],["Denmark","dk","45",".. .. .. .."],["Djibouti","dj","253",".. .. ...."],["Dominica","dm","1767"],["Dominican Republic","do","1","(...) ...-....",2,["809","829","849"]],["Ecuador","ec","593"],["Egypt","eg","20"],["El Salvador","sv","503","....-...."],["Equatorial Guinea","gq","240"],["Eritrea","er","291"],["Estonia","ee","372",".... ......"],["Ethiopia","et","251",".. ... ...."],["Faroe Islands","fo","298",".. .. .."],["Fiji","fj","679"],["Finland","fi","358",".. ... .. .."],["France","fr","33",". .. .. .. .."],["French Guiana","gf","594","... .. .. .."],["French Polynesia","pf","689",{"/^44/":".. .. ..","/^80[0-5]/":"... .. .. ..",default:".. .. .. .."}],["Gabon","ga","241"],["Gambia","gm","220"],["Georgia","ge","995"],["Germany","de","49","... ........."],["Ghana","gh","233"],["Greece","gr","30"],["Greenland","gl","299",".. .. .."],["Grenada","gd","1473"],["Guadeloupe","gp","590","... .. .. ..",0],["Guam","gu","1671"],["Guatemala","gt","502","....-...."],["Guinea","gn","224"],["Guinea-Bissau","gw","245"],["Guyana","gy","592"],["Haiti","ht","509","....-...."],["Honduras","hn","504"],["Hong Kong","hk","852",".... ...."],["Hungary","hu","36"],["Iceland","is","354","... ...."],["India","in","91",".....-....."],["Indonesia","id","62"],["Iran","ir","98","... ... ...."],["Iraq","iq","964"],["Ireland","ie","353",".. ......."],["Israel","il","972","... ... ...."],["Italy","it","39","... .......",0],["Jamaica","jm","1876"],["Japan","jp","81",".. .... ...."],["Jordan","jo","962"],["Kazakhstan","kz","7","... ...-..-..",0],["Kenya","ke","254"],["Kiribati","ki","686"],["Kosovo","xk","383"],["Kuwait","kw","965"],["Kyrgyzstan","kg","996","... ... ..."],["Laos","la","856"],["Latvia","lv","371",".. ... ..."],["Lebanon","lb","961"],["Lesotho","ls","266"],["Liberia","lr","231"],["Libya","ly","218"],["Liechtenstein","li","423"],["Lithuania","lt","370"],["Luxembourg","lu","352"],["Macau","mo","853"],["Macedonia","mk","389"],["Madagascar","mg","261"],["Malawi","mw","265"],["Malaysia","my","60","..-....-...."],["Maldives","mv","960"],["Mali","ml","223"],["Malta","mt","356"],["Marshall Islands","mh","692"],["Martinique","mq","596","... .. .. .."],["Mauritania","mr","222"],["Mauritius","mu","230"],["Mayotte","yt","262","... .. .. ..",1,["269","639"]],["Mexico","mx","52","... ... ....",0],["Micronesia","fm","691"],["Moldova","md","373","(..) ..-..-.."],["Monaco","mc","377"],["Mongolia","mn","976"],["Montenegro","me","382"],["Morocco","ma","212"],["Mozambique","mz","258"],["Myanmar","mm","95"],["Namibia","na","264"],["Nauru","nr","674"],["Nepal","np","977"],["Netherlands","nl","31",{"/^06/":"(.). .........","/^6/":". .........","/^0(10|13|14|15|20|23|24|26|30|33|35|36|38|40|43|44|45|46|50|53|55|58|70|71|72|73|74|75|76|77|78|79|82|84|85|87|88|91)/":"(.).. ........","/^(10|13|14|15|20|23|24|26|30|33|35|36|38|40|43|44|45|46|50|53|55|58|70|71|72|73|74|75|76|77|78|79|82|84|85|87|88|91)/":".. ........","/^0/":"(.)... .......",default:"... ......."}],["New Caledonia","nc","687"],["New Zealand","nz","64","...-...-...."],["Nicaragua","ni","505"],["Niger","ne","227"],["Nigeria","ng","234"],["North Korea","kp","850"],["Norway","no","47","... .. ..."],["Oman","om","968"],["Pakistan","pk","92","...-......."],["Palau","pw","680"],["Palestine","ps","970"],["Panama","pa","507"],["Papua New Guinea","pg","675"],["Paraguay","py","595"],["Peru","pe","51"],["Philippines","ph","63","... ... ...."],["Poland","pl","48","...-...-..."],["Portugal","pt","351"],["Puerto Rico","pr","1","(...) ...-....",3,["787","939"]],["Qatar","qa","974"],["R\xe9union","re","262","... .. .. ..",0],["Romania","ro","40"],["Russia","ru","7","(...) ...-..-..",1],["Rwanda","rw","250"],["Saint Kitts and Nevis","kn","1869"],["Saint Lucia","lc","1758"],["Saint Pierre & Miquelon","pm","508",{"/^708/":"... ... ...","/^8/":"... .. .. ..",default:".. .. .."}],["Saint Vincent and the Grenadines","vc","1784"],["Samoa","ws","685"],["San Marino","sm","378"],["S\xe3o Tom\xe9 and Pr\xedncipe","st","239"],["Saudi Arabia","sa","966"],["Senegal","sn","221"],["Serbia","rs","381"],["Seychelles","sc","248"],["Sierra Leone","sl","232"],["Singapore","sg","65","....-...."],["Slovakia","sk","421"],["Slovenia","si","386"],["Solomon Islands","sb","677"],["Somalia","so","252"],["South Africa","za","27"],["South Korea","kr","82","... .... ...."],["South Sudan","ss","211"],["Spain","es","34","... ... ..."],["Sri Lanka","lk","94"],["Sudan","sd","249"],["Suriname","sr","597"],["Swaziland","sz","268"],["Sweden","se","46","... ... ..."],["Switzerland","ch","41",".. ... .. .."],["Syria","sy","963"],["Taiwan","tw","886"],["Tajikistan","tj","992"],["Tanzania","tz","255"],["Thailand","th","66"],["Timor-Leste","tl","670"],["Togo","tg","228"],["Tonga","to","676"],["Trinidad and Tobago","tt","1868"],["Tunisia","tn","216"],["Turkey","tr","90","... ... .. .."],["Turkmenistan","tm","993"],["Tuvalu","tv","688"],["Uganda","ug","256"],["Ukraine","ua","380","(..) ... .. .."],["United Arab Emirates","ae","971"],["United Kingdom","gb","44",".... ......"],["United States","us","1","(...) ...-....",0],["Uruguay","uy","598"],["Uzbekistan","uz","998",".. ... .. .."],["Vanuatu","vu","678"],["Vatican City","va","39",".. .... ....",1],["Venezuela","ve","58"],["Vietnam","vn","84"],["Wallis & Futuna","wf","681",".. .. .."],["Yemen","ye","967"],["Zambia","zm","260"],["Zimbabwe","zw","263"]];var I="react-international-phone-",M=function(){for(var e=arguments.length,r=new Array(e),t=0;t<e;t++){r[t]=arguments[t]}return r.filter(function(e){return!!e}).join(" ").trim()},O=function(){for(var e=arguments.length,r=new Array(e),t=0;t<e;t++){r[t]=arguments[t]}return M.apply(void 0,p(r)).split(" ").map(function(e){return"".concat(I).concat(e)}).join(" ")},j=function(e){var r=e.addPrefix,t=e.rawClassNames;return M.apply(void 0,[O.apply(void 0,p(r))].concat(p(t)))};var _=function(e){var r=e.value,t=e.mask,n=e.maskSymbol,a=e.offset,o=a===void 0?0:a,i=e.trimNonMaskCharsLeftover,u=i===void 0?!1:i;if(r.length<o)return r;var l=r.slice(0,o),c=r.slice(o),d=l,s=0;var f=true,v=false,p=undefined;try{for(var y=t.split("")[Symbol.iterator](),m;!(f=(m=y.next()).done);f=true){var h=m.value;if(s>=c.length){if(!u&&h!==n){d+=h;continue}break}h===n?(d+=c[s],s+=1):d+=h}}catch(e){v=true;p=e}finally{try{if(!f&&y.return!=null){y.return()}}finally{if(v){throw p}}}return d};var F=function(e){return e?/^\d+$/.test(e):!1};var L=function(e){return e.replace(/\D/g,"")};var z=function(e,r){var t=e.style.display;t!=="block"&&(e.style.display="block");var n=e.getBoundingClientRect(),a=r.getBoundingClientRect(),o=a.top-n.top,i=n.bottom-a.bottom;o>=0&&i>=0||(Math.abs(o)<Math.abs(i)?e.scrollTop+=o:e.scrollTop-=i),e.style.display=t};var B=function(e){var r=e.name,t=e.iso2,n=e.dialCode,a=e.format,o=e.priority,i=e.areaCodes,u=[r,t,n,a,o,i];for(var l=0;l<u.length;l+=1){if(l===0)continue;var c=u[l-1],d=u[l];if(c===void 0&&d!==void 0){var s=JSON.stringify(u,function(e,r){return r===void 0?"__undefined":r}).replace(/"__undefined"/g,"undefined");throw new Error("[react-international-phone] invalid country values passed to buildCountryData. Check ".concat(c," in: ").concat(s))}}return u.filter(function(e){return e!==void 0})};var V=__webpack_require__(/*! react */ "react");var R=function(){return(typeof window==="undefined"?"undefined":y(window))>"u"?!1:window.navigator.userAgent.toLowerCase().includes("macintosh")};var G=function(e){var r=e.phone,t=e.dialCode,n=e.prefix,a=n===void 0?"+":n,o=e.charAfterDialCode,i=o===void 0?" ":o;if(!r||!t)return r;var u=r;return u.startsWith(a)&&(u=u.replace(a,"")),u.startsWith(t)?(u=u.replace(t,""),u.startsWith(i)&&(u=u.replace(i,"")),u):r};var q=function(e,r){var t=r.disableDialCodeAndPrefix?!1:r.forceDialCode,n=r.disableDialCodeAndPrefix?!1:r.insertDialCodeOnEmpty,a=e,o=function(e){return r.trimNonDigitsEnd?e.trim():e};if(!a)return n&&!a.length||t?o("".concat(r.prefix).concat(r.dialCode).concat(r.charAfterDialCode)):o(a);if(a=L(a),a===r.dialCode&&!r.disableDialCodeAndPrefix)return o("".concat(r.prefix).concat(r.dialCode).concat(r.charAfterDialCode));if(r.dialCode.startsWith(a)&&!r.disableDialCodeAndPrefix)return o(t?"".concat(r.prefix).concat(r.dialCode).concat(r.charAfterDialCode):"".concat(r.prefix).concat(a));if(!a.startsWith(r.dialCode)&&!r.disableDialCodeAndPrefix){if(t)return o("".concat(r.prefix).concat(r.dialCode).concat(r.charAfterDialCode));if(a.length<r.dialCode.length)return o("".concat(r.prefix).concat(a))}var i=function(){var e=r.dialCode.length,t=a.slice(0,e),n=a.slice(e);return{phoneLeftSide:t,phoneRightSide:n}},u=i(),l=u.phoneLeftSide,c=u.phoneRightSide;return l="".concat(r.prefix).concat(l).concat(r.charAfterDialCode),c=_({value:c,mask:r.mask,maskSymbol:r.maskChar,trimNonMaskCharsLeftover:r.trimNonDigitsEnd||r.disableDialCodeAndPrefix&&c.length===0}),r.disableDialCodeAndPrefix&&(l=""),o("".concat(l).concat(c))};var T=function(e){var r=e.phoneBeforeInput,t=e.phoneAfterInput,n=e.phoneAfterFormatted,a=e.cursorPositionAfterInput,o=e.leftOffset,i=o===void 0?0:o,u=e.deletion;if(a<i)return i;if(!r)return n.length;var l=null;for(var c=a-1;c>=0;c-=1)if(F(t[c])){l=c;break}if(l===null){for(var d=0;d<t.length;d+=1)if(F(n[d]))return d;return t.length}var s=0;for(var f=0;f<l;f+=1)F(t[f])&&(s+=1);var v=0,p=0;for(var y=0;y<n.length&&(v+=1,F(n[y])&&(p+=1),!(p>=s+1));y+=1);if(u!=="backward")for(;!F(n[v])&&v<n.length;)v+=1;return v};var K=function(e){var r=e.phone,t=e.prefix;return r?"".concat(t).concat(L(r)):""};function W(e){var r=e.value,t=e.country,n=e.insertDialCodeOnEmpty,a=e.trimNonDigitsEnd,o=e.countries,i=e.prefix,u=e.charAfterDialCode,l=e.forceDialCode,c=e.disableDialCodeAndPrefix,d=e.defaultMask,s=e.countryGuessingEnabled,f=e.disableFormatting;var v=r;c&&(v=v.startsWith("".concat(i))?v:"".concat(i).concat(t.dialCode).concat(v));var p;var y=s?eu({phone:v,countries:o,currentCountryIso2:t===null||t===void 0?void 0:t.iso2}):void 0,m=(p=y===null||y===void 0?void 0:y.country)!==null&&p!==void 0?p:t,h=q(v,{prefix:i,mask:en({phone:v,country:m,defaultMask:d,disableFormatting:f}),maskChar:ee,dialCode:m.dialCode,trimNonDigitsEnd:a,charAfterDialCode:u,forceDialCode:l,insertDialCodeOnEmpty:n,disableDialCodeAndPrefix:c}),C=s&&!(y===null||y===void 0?void 0:y.fullDialCodeMatch)?t:m;return{phone:K({phone:c?"".concat(C.dialCode).concat(h):h,prefix:i}),inputValue:h,country:C}}var U=function(e){var r;if((r=e===null||e===void 0?void 0:e.toLocaleLowerCase().includes("delete"))!==null&&r!==void 0?r:!1)return(e===null||e===void 0?void 0:e.toLocaleLowerCase().includes("forward"))?"forward":"backward"},H=function(e,r){var t=r.country,n=r.insertDialCodeOnEmpty,a=r.phoneBeforeInput,o=r.prefix,i=r.charAfterDialCode,u=r.forceDialCode,l=r.disableDialCodeAndPrefix,c=r.countryGuessingEnabled,d=r.defaultMask,s=r.disableFormatting,f=r.countries;var v;var p=e.nativeEvent,y=p.inputType,m=U(y),h=!!(y===null||y===void 0?void 0:y.startsWith("insertFrom")),C=y==="insertText",b=(p===null||p===void 0?void 0:p.data)||void 0,g=e.target.value,w=(v=e.target.selectionStart)!==null&&v!==void 0?v:0;if(y===null||y===void 0?void 0:y.includes("history"))return{inputValue:a,phone:K({phone:a,prefix:o}),cursorPosition:a.length,country:t};var D;if(C&&!F(b)&&g!==o)return{inputValue:a,phone:K({phone:l?"".concat(t.dialCode).concat(a):a,prefix:o}),cursorPosition:w-((D=b===null||b===void 0?void 0:b.length)!==null&&D!==void 0?D:0),country:t};if(u&&!g.startsWith("".concat(o).concat(t.dialCode))&&!h){var P=g?a:"".concat(o).concat(t.dialCode).concat(i);return{inputValue:P,phone:K({phone:P,prefix:o}),cursorPosition:o.length+t.dialCode.length+i.length,country:t}}var S=W({value:g,country:t,trimNonDigitsEnd:m==="backward",insertDialCodeOnEmpty:n,countryGuessingEnabled:c,countries:f,prefix:o,charAfterDialCode:i,forceDialCode:u,disableDialCodeAndPrefix:l,disableFormatting:s,defaultMask:d}),k=S.phone,x=S.inputValue,N=S.country,A=T({cursorPositionAfterInput:w,phoneBeforeInput:a,phoneAfterInput:g,phoneAfterFormatted:x,leftOffset:u?o.length+t.dialCode.length+i.length:0,deletion:m});return{phone:k,inputValue:x,cursorPosition:A,country:N}};var J=__webpack_require__(/*! react */ "react");var Z=function(e,r){var t=Object.keys(e),n=Object.keys(r);if(t.length!==n.length)return!1;var a=true,o=false,i=undefined;try{for(var u=t[Symbol.iterator](),l;!(a=(l=u.next()).done);a=true){var c=l.value;if(e[c]!==r[c])return!1}}catch(e){o=true;i=e}finally{try{if(!a&&u.return!=null){u.return()}}finally{if(o){throw i}}}return!0};var $=__webpack_require__(/*! react */ "react"),Q=function(){var e=(0,$.useRef)(),r=(0,$.useRef)(Date.now());return{check:function(){var t=Date.now(),n=e.current?t-r.current:void 0;return e.current=r.current,r.current=t,n}}};var Y={size:20,overrideLastItemDebounceMS:-1};function X(e,r){var t=l({},Y,r),n=t.size,a=t.overrideLastItemDebounceMS,o=t.onChange,i=v((0,J.useState)(e),2),u=i[0],c=i[1],d=v((0,J.useState)([u]),2),s=d[0],f=d[1],m=v((0,J.useState)(0),2),h=m[0],C=m[1],b=Q();return[u,function(e,r){if((typeof e==="undefined"?"undefined":y(e))=="object"&&(typeof u==="undefined"?"undefined":y(u))=="object"&&Z(e,u)||e===u)return;var t=a>0,i=b.check(),l=t&&i!==void 0?i>a:!0;if((r===null||r===void 0?void 0:r.overrideLastItem)!==void 0?r.overrideLastItem:!l)f(function(r){return p(r.slice(0,h)).concat([e])});else{var d=s.length>=n;f(function(r){return p(r.slice(d?1:0,h+1)).concat([e])}),d||C(function(e){return e+1})}c(e),o===null||o===void 0?void 0:o(e)},function(){if(h<=0)return{success:!1};var e=s[h-1];return c(e),C(function(e){return e-1}),o===null||o===void 0?void 0:o(e),{success:!0,value:e}},function(){if(h+1>=s.length)return{success:!1};var e=s[h+1];return c(e),C(function(e){return e+1}),o===null||o===void 0?void 0:o(e),{success:!0,value:e}}]}var ee=".",er={defaultCountry:"us",value:"",prefix:"+",defaultMask:"............",charAfterDialCode:" ",historySaveDebounceMS:200,disableCountryGuess:!1,disableDialCodePrefill:!1,forceDialCode:!1,disableDialCodeAndPrefix:!1,disableFormatting:!1,countries:E,preferredCountries:[]},et=function(e){var r=e.defaultCountry,t=r===void 0?er.defaultCountry:r,n=e.value,a=n===void 0?er.value:n,o=e.countries,i=o===void 0?er.countries:o,u=e.prefix,c=u===void 0?er.prefix:u,d=e.defaultMask,s=d===void 0?er.defaultMask:d,f=e.charAfterDialCode,p=f===void 0?er.charAfterDialCode:f,m=e.historySaveDebounceMS,h=m===void 0?er.historySaveDebounceMS:m,C=e.disableCountryGuess,b=C===void 0?er.disableCountryGuess:C,g=e.disableDialCodePrefill,w=g===void 0?er.disableDialCodePrefill:g,D=e.forceDialCode,P=D===void 0?er.forceDialCode:D,S=e.disableDialCodeAndPrefix,k=S===void 0?er.disableDialCodeAndPrefix:S,x=e.disableFormatting,N=x===void 0?er.disableFormatting:x,A=e.onChange,E=e.inputRef;var I={countries:i,prefix:c,charAfterDialCode:p,forceDialCode:k?!1:P,disableDialCodeAndPrefix:k,defaultMask:s,countryGuessingEnabled:!b,disableFormatting:N},M=(0,V.useRef)(null),O=E||M,j=function(e){Promise.resolve().then(function(){var r,t;(typeof window==="undefined"?"undefined":y(window))>"u"||O.current!==((r=document)===null||r===void 0?void 0:r.activeElement)||((t=O.current)===null||t===void 0?void 0:t.setSelectionRange(e,e))})},_=v(X(function(){var e=ei({value:t,field:"iso2",countries:i});e||console.error('[react-international-phone]: can not find a country with "'.concat(t,'" iso2 code'));var r=e||ei({value:"us",field:"iso2",countries:i}),n=W(l({value:a,country:r,insertDialCodeOnEmpty:!w},I)),o=n.phone,u=n.inputValue,c=n.country;return j(u.length),{phone:o,inputValue:u,country:c.iso2}},{overrideLastItemDebounceMS:h,onChange:function(e){var r=e.inputValue,t=e.phone,n=e.country;if(!A)return;var a=K(n);A({phone:t,inputValue:r,country:a})}}),4),F=_[0],L=F.phone,z=F.inputValue,B=F.country,G=_[1],q=_[2],T=_[3],K=(0,V.useCallback)(function(e){return ei({value:e,field:"iso2",countries:i})},[i]),U=(0,V.useMemo)(function(){return K(B)},[B,K]);(0,V.useEffect)(function(){var e=O.current;if(!e)return;var r=function(e){if(!e.key)return;var r=e.ctrlKey,t=e.metaKey,n=e.shiftKey;if(e.key.toLowerCase()==="z"){if(R()){if(!t)return}else if(!r)return;n?T():q()}};return e.addEventListener("keydown",r),function(){e.removeEventListener("keydown",r)}},[O,q,T]);var J=function(e){e.preventDefault();var r=H(e,l({country:U,phoneBeforeInput:z,insertDialCodeOnEmpty:!1},I)),t=r.phone,n=r.inputValue,o=r.country,i=r.cursorPosition;return G({inputValue:n,phone:t,country:o.iso2}),j(i),a},Z=function(e){var r=arguments.length>1&&arguments[1]!==void 0?arguments[1]:{focusOnInput:!1};var t=ei({value:e,field:"iso2",countries:i});if(!t){console.error('[react-international-phone]: can not find a country with "'.concat(e,'" iso2 code'));return}var n=k?"":"".concat(c).concat(t.dialCode).concat(p);G({inputValue:n,phone:"".concat(c).concat(t.dialCode),country:t.iso2}),r.focusOnInput&&Promise.resolve().then(function(){var e;(e=O.current)===null||e===void 0?void 0:e.focus()})},$=v((0,V.useState)(!1),2),Q=$[0],Y=$[1];return(0,V.useEffect)(function(){if(!Q){Y(!0),a!==L&&(A===null||A===void 0?void 0:A({inputValue:z,phone:L,country:U}));return}if(a===L)return;var e=W(l({value:a,country:U,insertDialCodeOnEmpty:!w},I)),r=e.phone,t=e.inputValue,n=e.country;G({phone:r,inputValue:t,country:n.iso2})},[a]),{phone:L,inputValue:z,country:U,setCountry:Z,handlePhoneValueChange:J,inputRef:O}};var en=function(e){var r=e.phone,t=e.country,n=e.defaultMask,a=n===void 0?"............":n,o=e.disableFormatting,i=o===void 0?!1:o;var u=t.format,l=function(e){return i?e.replace(new RegExp("[^".concat(ee,"]"),"g"),""):e};if(!u)return l(a);if(typeof u=="string")return l(u);if(!u.default)return console.error("[react-international-phone]: default mask for ".concat(t.iso2," is not provided")),l(a);var c=Object.keys(u).find(function(e){if(e==="default")return!1;if(!(e.charAt(0)==="/"&&e.charAt(e.length-1)==="/"))return console.error('[react-international-phone]: format regex "'.concat(e,'" for ').concat(t.iso2," is not valid")),!1;var n=new RegExp(e.substring(1,e.length-1)),a=r.replace(t.dialCode,"");return n.test(L(a))});return l(c?u[c]:u.default)};var ea=function(e){var r=v(e,6),t=r[0],n=r[1],a=r[2],o=r[3],i=r[4],u=r[5];return{name:t,iso2:n,dialCode:a,format:o,priority:i,areaCodes:u}};var eo=function(e){return'Field "'.concat(e,'" is not supported')},ei=function(e){var r=e.field,t=e.value,n=e.countries,a=n===void 0?E:n;if(["priority"].includes(r))throw new Error(eo(r));var o=a.find(function(e){var n=ea(e);return t===n[r]});if(o)return ea(o)};var eu=function(e){var r=e.phone,t=e.countries,n=t===void 0?E:t,a=e.currentCountryIso2;var o={country:void 0,fullDialCodeMatch:!1};if(!r)return o;var i=L(r);if(!i)return o;var u=o,l=function(e){var r=e.country,t=e.fullDialCodeMatch;var n,a;var o,i;var l=r.dialCode===((n=u.country)===null||n===void 0?void 0:n.dialCode),c=((o=r.priority)!==null&&o!==void 0?o:0)<((i=(a=u.country)===null||a===void 0?void 0:a.priority)!==null&&i!==void 0?i:0);(!l||c)&&(u={country:r,fullDialCodeMatch:t})};var c=true,d=false,s=undefined;try{for(var f=n[Symbol.iterator](),v;!(c=(v=f.next()).done);c=true){var p=v.value;var y=ea(p),m=y.dialCode,h=y.areaCodes;if(i.startsWith(m)){var C=u.country?Number(m)>=Number(u.country.dialCode):!0;if(h){var b=i.substring(m.length);var g=true,w=false,D=undefined;try{for(var P=h[Symbol.iterator](),S;!(g=(S=P.next()).done);g=true){var k=S.value;if(b.startsWith(k))return{country:y,fullDialCodeMatch:!0}}}catch(e){w=true;D=e}finally{try{if(!g&&P.return!=null){P.return()}}finally{if(w){throw D}}}}(C||m===i||!u.fullDialCodeMatch)&&l({country:y,fullDialCodeMatch:!0})}u.fullDialCodeMatch||i.length<m.length&&m.startsWith(i)&&(!u.country||Number(m)<=Number(u.country.dialCode))&&l({country:y,fullDialCodeMatch:!1})}}catch(e){d=true;s=e}finally{try{if(!c&&f.return!=null){f.return()}}finally{if(d){throw s}}}if(a){var x;var N=ei({value:a,field:"iso2",countries:n});if(!N)return u;var A=N?function(e){if(!(e===null||e===void 0?void 0:e.areaCodes))return!1;var r=i.substring(e.dialCode.length);return e.areaCodes.some(function(e){return e.startsWith(r)})}(N):!1;!!u&&((x=u.country)===null||x===void 0?void 0:x.dialCode)===N.dialCode&&u.country!==N&&u.fullDialCodeMatch&&(!N.areaCodes||A)&&(u={country:N,fullDialCodeMatch:!0})}return u};var el=k(__webpack_require__(/*! react */ "react"));var ec=function(e,r){var t=parseInt(e,16);return Number(t+r).toString(16)},ed="abcdefghijklmnopqrstuvwxyz",es="1f1e6",ef=ed.split("").reduce(function(e,r,t){return d(l({},e),n({},r,ec(es,t)))},{}),ev=function(e){return[ef[e[0]],ef[e[1]]].join("-")},ep=function(e){var r=e.iso2,t=e.size,n=e.src,a=e.protocol,o=a===void 0?"https":a,i=e.disableLazyLoading,u=e.className,c=e.style,d=s(e,["iso2","size","src","protocol","disableLazyLoading","className","style"]);if(!r)return el.default.createElement("img",l({className:j({addPrefix:["flag-emoji"],rawClassNames:[u]}),width:t,height:t},d));var f=function(){if(n)return n;var e=ev(r);return"".concat(o,"://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/").concat(e,".svg")};return el.default.createElement("img",l({className:j({addPrefix:["flag-emoji"],rawClassNames:[u]}),src:f(),width:t,height:t,draggable:!1,"data-country":r,loading:i?void 0:"lazy",style:l({width:t,height:t},c),alt:""},d))};var ey=k(__webpack_require__(/*! react */ "react"));var em=1e3,eh=function(e){var r=e.show,t=e.dialCodePrefix,n=t===void 0?"+":t,a=e.selectedCountry,o=e.countries,i=o===void 0?E:o,u=e.preferredCountries,c=u===void 0?[]:u,d=e.flags,f=e.onSelect,y=e.onClose,m=s(e,["show","dialCodePrefix","selectedCountry","countries","preferredCountries","flags","onSelect","onClose"]);var h=(0,ey.useRef)(null),C=(0,ey.useRef)(),b=(0,ey.useMemo)(function(){if(!c||!c.length)return i;var e=[],r=p(i);var t=true,n=false,a=undefined;try{var o=function(){var t=l.value;var n=r.findIndex(function(e){return ea(e).iso2===t});if(n!==-1){var a=r.splice(n,1)[0];e.push(a)}};for(var u=c[Symbol.iterator](),l;!(t=(l=u.next()).done);t=true)o()}catch(e){n=true;a=e}finally{try{if(!t&&u.return!=null){u.return()}}finally{if(n){throw a}}}return e.concat(r)},[i,c]),g=(0,ey.useRef)({updatedAt:void 0,value:""}),w=function(e){var r=g.current.updatedAt&&new Date().getTime()-g.current.updatedAt.getTime()>em;g.current={value:r?e:"".concat(g.current.value).concat(e),updatedAt:new Date};var t=b.findIndex(function(e){return ea(e).name.toLowerCase().startsWith(g.current.value)});t!==-1&&k(t)},D=(0,ey.useCallback)(function(e){return b.findIndex(function(r){return ea(r).iso2===e})},[b]),P=v((0,ey.useState)(D(a)),2),S=P[0],k=P[1],x=function(){C.current!==a&&k(D(a))},N=(0,ey.useCallback)(function(e){k(D(e.iso2)),f===null||f===void 0?void 0:f(e)},[f,D]),A=function(e){var r=b.length-1,t=function(t){return e==="prev"?t-1:e==="next"?t+1:e==="last"?r:0};k(function(e){var n=t(e);return n<0?0:n>r?r:n})},I=function(e){if(e.stopPropagation(),e.key==="Enter"){e.preventDefault();var r=ea(b[S]);N(r);return}if(e.key==="Escape"){y===null||y===void 0?void 0:y();return}if(e.key==="ArrowUp"){e.preventDefault(),A("prev");return}if(e.key==="ArrowDown"){e.preventDefault(),A("next");return}if(e.key==="PageUp"){e.preventDefault(),A("first");return}if(e.key==="PageDown"){e.preventDefault(),A("last");return}e.key===" "&&e.preventDefault(),e.key.length===1&&!e.altKey&&!e.ctrlKey&&!e.metaKey&&w(e.key.toLocaleLowerCase())},M=(0,ey.useCallback)(function(){if(!h.current||S===void 0)return;var e=ea(b[S]).iso2;if(e===C.current)return;var r=h.current.querySelector('[data-country="'.concat(e,'"]'));r&&(z(h.current,r),C.current=e)},[S,b]);return(0,ey.useEffect)(function(){M()},[S,M]),(0,ey.useEffect)(function(){h.current&&(r?h.current.focus():x())},[r]),(0,ey.useEffect)(function(){x()},[a]),ey.default.createElement("ul",{ref:h,role:"listbox",className:j({addPrefix:["country-selector-dropdown"],rawClassNames:[m.className]}),style:l({display:r?"block":"none"},m.style),onKeyDown:I,onBlur:y,tabIndex:-1,"aria-activedescendant":"react-international-phone__".concat(ea(b[S]).iso2,"-option")},b.map(function(e,r){var t=ea(e),o=t.iso2===a,i=r===S,u=c.includes(t.iso2),l=r===c.length-1,s=d===null||d===void 0?void 0:d.find(function(e){return e.iso2===t.iso2});return ey.default.createElement(ey.default.Fragment,{key:t.iso2},ey.default.createElement("li",{"data-country":t.iso2,role:"option","aria-selected":o,"aria-label":"".concat(t.name," ").concat(n).concat(t.dialCode),id:"react-international-phone__".concat(t.iso2,"-option"),className:j({addPrefix:["country-selector-dropdown__list-item",u&&"country-selector-dropdown__list-item--preferred",o&&"country-selector-dropdown__list-item--selected",i&&"country-selector-dropdown__list-item--focused"],rawClassNames:[m.listItemClassName,u&&m.listItemPreferredClassName,o&&m.listItemSelectedClassName,i&&m.listItemFocusedClassName]}),onClick:function(){return N(t)},style:m.listItemStyle,title:t.name},ey.default.createElement(ep,{iso2:t.iso2,src:s===null||s===void 0?void 0:s.src,className:j({addPrefix:["country-selector-dropdown__list-item-flag-emoji"],rawClassNames:[m.listItemFlagClassName]}),style:m.listItemFlagStyle}),ey.default.createElement("span",{className:j({addPrefix:["country-selector-dropdown__list-item-country-name"],rawClassNames:[m.listItemCountryNameClassName]}),style:m.listItemCountryNameStyle},t.name),ey.default.createElement("span",{className:j({addPrefix:["country-selector-dropdown__list-item-dial-code"],rawClassNames:[m.listItemDialCodeClassName]}),style:m.listItemDialCodeStyle},n,t.dialCode)),l?ey.default.createElement("hr",{className:j({addPrefix:["country-selector-dropdown__preferred-list-divider"],rawClassNames:[m.preferredListDividerClassName]}),style:m.preferredListDividerStyle}):null)}))};var eC=function(e){var r=e.selectedCountry,t=e.onSelect,n=e.disabled,a=e.hideDropdown,o=e.countries,i=o===void 0?E:o,u=e.preferredCountries,c=u===void 0?[]:u,f=e.flags,p=e.renderButtonWrapper,y=s(e,["selectedCountry","onSelect","disabled","hideDropdown","countries","preferredCountries","flags","renderButtonWrapper"]);var m=v((0,A.useState)(!1),2),h=m[0],C=m[1],b=(0,A.useMemo)(function(){if(r)return ei({value:r,field:"iso2",countries:i})},[i,r]),g=(0,A.useRef)(null),w=function(e){e.key&&["ArrowUp","ArrowDown"].includes(e.key)&&(e.preventDefault(),C(!0))},D=function(){var e;var t={title:b===null||b===void 0?void 0:b.name,onClick:function(){return C(function(e){return!e})},onMouseDown:function(e){return e.preventDefault()},onKeyDown:w,disabled:a||n,role:"combobox","aria-label":"Country selector","aria-haspopup":"listbox","aria-expanded":h},o=A.default.createElement("div",{className:j({addPrefix:["country-selector-button__button-content"],rawClassNames:[y.buttonContentWrapperClassName]}),style:y.buttonContentWrapperStyle},A.default.createElement(ep,{iso2:r,src:f===null||f===void 0?void 0:(e=f.find(function(e){return e.iso2===r}))===null||e===void 0?void 0:e.src,className:j({addPrefix:["country-selector-button__flag-emoji",n&&"country-selector-button__flag-emoji--disabled"],rawClassNames:[y.flagClassName]}),style:l({visibility:r?"visible":"hidden"},y.flagStyle)}),!a&&A.default.createElement("div",{className:j({addPrefix:["country-selector-button__dropdown-arrow",n&&"country-selector-button__dropdown-arrow--disabled",h&&"country-selector-button__dropdown-arrow--active"],rawClassNames:[y.dropdownArrowClassName]}),style:y.dropdownArrowStyle}));return p?p({children:o,rootProps:t}):A.default.createElement("button",d(l({},t),{type:"button",className:j({addPrefix:["country-selector-button",h&&"country-selector-button--active",n&&"country-selector-button--disabled",a&&"country-selector-button--hide-dropdown"],rawClassNames:[y.buttonClassName]}),"data-country":r,style:y.buttonStyle}),o)};return A.default.createElement("div",{className:j({addPrefix:["country-selector"],rawClassNames:[y.className]}),style:y.style,ref:g},D(),A.default.createElement(eh,l({show:h,countries:i,preferredCountries:c,flags:f,onSelect:function(e){C(!1),t===null||t===void 0?void 0:t(e)},selectedCountry:r,onClose:function(){C(!1)}},y.dropdownStyleProps)))};var eb=k(__webpack_require__(/*! react */ "react"));var eg=function(e){var r=e.dialCode,t=e.prefix,n=e.disabled,a=e.style,o=e.className;return eb.default.createElement("div",{className:j({addPrefix:["dial-code-preview",n&&"dial-code-preview--disabled"],rawClassNames:[o]}),style:a},"".concat(t).concat(r))};var ew=k(__webpack_require__(/*! react */ "react"));var eD=(0,ew.forwardRef)(function(e,r){var t=e.value,n=e.onChange,a=e.countries,o=a===void 0?E:a,i=e.preferredCountries,u=i===void 0?[]:i,c=e.hideDropdown,f=e.showDisabledDialCodeAndPrefix,v=e.disableFocusAfterCountrySelect,p=e.flags,y=e.style,m=e.className,h=e.inputStyle,C=e.inputClassName,b=e.countrySelectorStyleProps,g=e.dialCodePreviewStyleProps,w=e.inputProps,D=e.placeholder,P=e.disabled,S=e.name,k=e.onFocus,x=e.onBlur,N=e.required,A=e.autoFocus,I=s(e,["value","onChange","countries","preferredCountries","hideDropdown","showDisabledDialCodeAndPrefix","disableFocusAfterCountrySelect","flags","style","className","inputStyle","inputClassName","countrySelectorStyleProps","dialCodePreviewStyleProps","inputProps","placeholder","disabled","name","onFocus","onBlur","required","autoFocus"]);var M=et(d(l({value:t,countries:o},I),{onChange:function(e){n===null||n===void 0?void 0:n(e.phone,{country:e.country,inputValue:e.inputValue})}})),O=M.phone,_=M.inputValue,F=M.inputRef,L=M.country,z=M.setCountry,B=M.handlePhoneValueChange,V=I.disableDialCodeAndPrefix&&f&&(L===null||L===void 0?void 0:L.dialCode);var R;return(0,ew.useImperativeHandle)(r,function(){return F.current?Object.assign(F.current,{setCountry:z,state:{phone:O,inputValue:_,country:L}}):null},[F,z,O,_,L]),ew.default.createElement("div",{ref:r,className:j({addPrefix:["input-container"],rawClassNames:[m]}),style:y},ew.default.createElement(eC,l({onSelect:function(e){return z(e.iso2,{focusOnInput:!v})},flags:p,selectedCountry:L.iso2,countries:o,preferredCountries:u,disabled:P,hideDropdown:c},b)),V&&ew.default.createElement(eg,l({dialCode:L.dialCode,prefix:(R=I.prefix)!==null&&R!==void 0?R:"+",disabled:P},g)),ew.default.createElement("input",l({onChange:B,value:_,type:"tel",ref:F,className:j({addPrefix:["input",P&&"input--disabled"],rawClassNames:[C]}),placeholder:D,disabled:P,style:h,name:S,onFocus:k,onBlur:x,autoFocus:A,required:N},w)))});0&&(0);
 
-/***/ }),
-
-/***/ "./theme/components/profile/profile-root.jsx":
-/*!***************************************************!*\
-  !*** ./theme/components/profile/profile-root.jsx ***!
-  \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _helper_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helper/hooks */ "./theme/helper/hooks/index.jsx");
-/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @gofynd/theme-template/components/profile-navigation/profile-navigation */ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.js");
-/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _gofynd_theme_template_components_profile_navigation_profile_navigation_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @gofynd/theme-template/components/profile-navigation/profile-navigation.css */ "./node_modules/@gofynd/theme-template/dist/components/profile-navigation/profile-navigation.css");
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
-
-var _s = __webpack_require__.$Refresh$.signature();
-
-
-
-
-
-function ProfileRoot({
-  children,
-  fpi
-}) {
-  _s();
-  const {
-    first_name,
-    last_name,
-    profile_pic_url,
-    user
-  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__.useGlobalStore)(fpi.getters.USER_DATA);
-  const {
-    signOut
-  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_2__.useAccounts)({
-    fpi
-  });
-  const userName = `${first_name ?? user?.first_name ?? ""} ${last_name ?? user?.last_name ?? ""}`.trim();
-  const userProfilePicUrl = profile_pic_url ?? user?.profile_pic_url;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "profile-navigation-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_gofynd_theme_template_components_profile_navigation_profile_navigation__WEBPACK_IMPORTED_MODULE_3___default()), {
-    userName: userName,
-    signOut: signOut,
-    userProfilePicUrl: userProfilePicUrl
-  }, children));
-}
-_s(ProfileRoot, "qpj9O1nz8gTr2HaettI4gE3aNBA=", false, function () {
-  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_1__.useGlobalStore, _helper_hooks__WEBPACK_IMPORTED_MODULE_2__.useAccounts];
-});
-_c = ProfileRoot;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileRoot);
-var _c;
-__webpack_require__.$Refresh$.register(_c, "ProfileRoot");
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (true) {
-			errorOverlay = false;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "./theme/helper/auth-guard.js":
-/*!************************************!*\
-  !*** ./theme/helper/auth-guard.js ***!
-  \************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   isLoggedIn: () => (/* binding */ isLoggedIn),
-/* harmony export */   loginGuard: () => (/* binding */ loginGuard)
-/* harmony export */ });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./theme/helper/utils.js");
-/* harmony import */ var _queries_libQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queries/libQuery */ "./theme/queries/libQuery.js");
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
-
-
-
-
-// return true if user is logged in
-// return false if user is not logged in redirect to login page.
-async function isLoggedIn({
-  fpi,
-  store
-}) {
-  try {
-    const userFetched = store?.auth?.user_fetched ?? false;
-    if (userFetched) {
-      const loggedIn = store?.auth?.logged_in;
-      return !!loggedIn;
-    }
-    const userData = await fpi.executeGQL(_queries_libQuery__WEBPACK_IMPORTED_MODULE_1__.USER_DATA_QUERY);
-    return !!(userData?.data?.user?.logged_in_user ?? false);
-  } catch (error) {
-    return false;
-  }
-}
-async function loginGuard({
-  fpi,
-  store
-}) {
-  try {
-    const loggedIn = await isLoggedIn({
-      fpi,
-      store
-    });
-    const locale = fpi?.store?.getState?.()?.custom?.i18nDetailsKey?.language?.locale;
-    if (loggedIn && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.isRunningOnClient)()) {
-      const path = locale && locale !== "en" ? `/${locale}` : "/";
-      window.location.href = path;
-      return false;
-    }
-    return true;
-  } catch (error) {
-    return true;
-  }
-}
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (true) {
-			errorOverlay = false;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "./theme/page-layouts/profile/phone.jsx":
-/*!**********************************************!*\
-  !*** ./theme/page-layouts/profile/phone.jsx ***!
-  \**********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framer-motion */ "./node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs");
-/* harmony import */ var _helper_auth_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helper/auth-guard */ "./theme/helper/auth-guard.js");
-/* harmony import */ var _components_profile_profile_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/profile/profile-root */ "./theme/components/profile/profile-root.jsx");
-/* harmony import */ var _gofynd_theme_template_page_layouts_auth_mobile_number_mobile_number_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @gofynd/theme-template/page-layouts/auth/mobile-number/mobile-number.css */ "./node_modules/@gofynd/theme-template/dist/page-layouts/auth/mobile-number/mobile-number.css");
-/* harmony import */ var _usePhone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./usePhone */ "./theme/page-layouts/profile/usePhone.jsx");
-/* harmony import */ var _components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/header/useInternational */ "./theme/components/header/useInternational.jsx");
-/* harmony import */ var _helper_hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../helper/hooks */ "./theme/helper/hooks/index.jsx");
-/* harmony import */ var _gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @gofynd/theme-template/pages/profile/phone */ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/index.js");
-/* harmony import */ var _gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _gofynd_theme_template_pages_profile_phone_phone_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @gofynd/theme-template/pages/profile/phone/phone.css */ "./node_modules/@gofynd/theme-template/dist/pages/profile/phone/phone.css");
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__);
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
-
-var _s = __webpack_require__.$Refresh$.signature();
-
-
-
-
-
-
-
-
-
-
-
-function Phone({
-  fpi
-}) {
-  _s();
-  const {
-    t
-  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__.useGlobalTranslation)("translation");
-  const {
-    setMobileNumberAsPrimary,
-    deleteMobileNumber,
-    phoneNumbers
-  } = (0,_usePhone__WEBPACK_IMPORTED_MODULE_5__.usePhone)({
-    fpi
-  });
-  const {
-    sendOtpMobile,
-    verifyMobileOtp,
-    resendOtp
-  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useAccounts)({
-    fpi
-  });
-  const {
-    showSnackbar
-  } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useSnackbar)();
-  const {
-    countryDetails
-  } = (0,_components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__["default"])({
-    fpi
-  });
-  const handleSetPrimary = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
-    try {
-      await setMobileNumberAsPrimary(phoneDetails);
-      showSnackbar(`${phoneDetails?.phone} ${t("resource.profile.set_as_primary")}`, "success");
-    } catch (error) {
-      showSnackbar(error?.message, "error");
-      throw error;
-    }
-  }, []);
-  const handleSendOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
-    try {
-      const data = await sendOtpMobile(phoneDetails);
-      showSnackbar(`${t("resource.profile.otp_sent_mobile")} ${phoneDetails?.mobile}`, "success");
-      return data;
-    } catch (error) {
-      showSnackbar(error?.message, "error");
-      throw error;
-    }
-  }, []);
-  const handleVerifyOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async otpDetails => {
-    try {
-      await verifyMobileOtp(otpDetails);
-      showSnackbar(t("resource.profile.phone_number_verified"), "success");
-    } catch (error) {
-      showSnackbar(error?.message, "error");
-      throw error;
-    }
-  }, []);
-  const handleResendOtp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
-    try {
-      const data = await resendOtp(phoneDetails);
-      showSnackbar(`${t("resource.profile.otp_sent_mobile")} ${phoneDetails?.mobile}`, "success");
-      return data;
-    } catch (error) {
-      showSnackbar(error?.message, "error");
-      throw error;
-    }
-  }, []);
-  const handleDelete = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async phoneDetails => {
-    try {
-      await deleteMobileNumber(phoneDetails);
-      showSnackbar(`${phoneDetails?.phone} ${t("resource.common.removed_success")}`, "success");
-    } catch (error) {
-      showSnackbar(error?.message, "error");
-      throw error;
-    }
-  }, []);
-  const phoneList = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => phoneNumbers?.length === 1 ? phoneNumbers : phoneNumbers?.filter(item => item?.primary), [phoneNumbers]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_profile_profile_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    fpi: fpi
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(framer_motion__WEBPACK_IMPORTED_MODULE_1__.motion.div, {
-    variants: {
-      hidden: {
-        opacity: 0
-      },
-      visible: {
-        opacity: 1,
-        transition: {
-          duration: 0.5
-        }
-      }
-    },
-    initial: "hidden",
-    animate: "visible"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_gofynd_theme_template_pages_profile_phone__WEBPACK_IMPORTED_MODULE_8___default()), {
-    setMobileNumberAsPrimary: handleSetPrimary,
-    deleteMobileNumber: handleDelete,
-    phoneNumbers: phoneList,
-    sendOtpMobile: handleSendOtp,
-    verifyMobileOtp: handleVerifyOtp,
-    resendOtp: handleResendOtp,
-    countryCode: countryDetails?.phone_code?.replace("+", "")
-  })));
-}
-_s(Phone, "CwVsmyqqS6JI2z0s6PFoVPsTjk8=", false, function () {
-  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_10__.useGlobalTranslation, _usePhone__WEBPACK_IMPORTED_MODULE_5__.usePhone, _helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useAccounts, _helper_hooks__WEBPACK_IMPORTED_MODULE_7__.useSnackbar, _components_header_useInternational__WEBPACK_IMPORTED_MODULE_6__["default"]];
-});
-_c = Phone;
-Phone.authGuard = _helper_auth_guard__WEBPACK_IMPORTED_MODULE_2__.isLoggedIn;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Phone);
-var _c;
-__webpack_require__.$Refresh$.register(_c, "Phone");
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (true) {
-			errorOverlay = false;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "./theme/page-layouts/profile/usePhone.jsx":
-/*!*************************************************!*\
-  !*** ./theme/page-layouts/profile/usePhone.jsx ***!
-  \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   usePhone: () => (/* binding */ usePhone)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../queries/phoneQuery */ "./theme/queries/phoneQuery.js");
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fdk-core/utils */ "fdk-core/utils");
-/* harmony import */ var fdk_core_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__);
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
-
-var _s = __webpack_require__.$Refresh$.signature();
-
-
-
-const usePhone = ({
-  fpi
-}) => {
-  _s();
-  const {
-    phone_numbers,
-    user = {}
-  } = (0,fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__.useGlobalStore)(fpi.getters.USER_DATA);
-  const [phoneNumbers, setPhoneNumbers] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setPhoneNumbers(phone_numbers ?? user?.phone_numbers);
-  }, [phone_numbers, user?.phone_numbers]);
-  const setMobileNumberAsPrimary = data => {
-    const {
-      active,
-      country_code,
-      phone,
-      primary,
-      verified
-    } = data;
-    const sendVerificationLinkMobileRequestSchemaInput = {
-      active,
-      country_code: country_code?.toString(),
-      phone,
-      primary,
-      verified
-    };
-    const payload = {
-      sendVerificationLinkMobileRequestSchemaInput
-    };
-    return fpi.executeGQL(_queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__.SET_MOBILE_NUMBER_AS_PRIMARY, payload).then(res => {
-      if (res?.errors) {
-        throw res?.errors?.[0];
-      }
-      setPhoneNumbers(res?.data?.setMobileNumberAsPrimary?.user?.phone_numbers);
-      return res?.data?.setMobileNumberAsPrimary;
-    });
-  };
-  const deleteMobileNumber = data => {
-    const id = window.APP_DATA.applicationID;
-    const payload = {
-      ...data,
-      countryCode: data?.country_code?.toString(),
-      platform: id
-    };
-    return fpi.executeGQL(_queries_phoneQuery__WEBPACK_IMPORTED_MODULE_1__.DELETE_MOBILE_NUMBER, payload).then(res => {
-      if (res?.errors) {
-        throw res?.errors?.[0];
-      }
-      setPhoneNumbers(res?.data?.deleteMobileNumber?.user?.phone_numbers);
-      return res?.data?.deleteMobileNumber;
-    });
-  };
-  return {
-    setMobileNumberAsPrimary,
-    deleteMobileNumber,
-    phoneNumbers
-  };
-};
-_s(usePhone, "o1pqsX3F9KMBwEvHh+aCd/4TNVs=", false, function () {
-  return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_2__.useGlobalStore];
-});
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (true) {
-			errorOverlay = false;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ }),
-
-/***/ "./theme/queries/phoneQuery.js":
-/*!*************************************!*\
-  !*** ./theme/queries/phoneQuery.js ***!
-  \*************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   DELETE_MOBILE_NUMBER: () => (/* binding */ DELETE_MOBILE_NUMBER),
-/* harmony export */   SET_MOBILE_NUMBER_AS_PRIMARY: () => (/* binding */ SET_MOBILE_NUMBER_AS_PRIMARY)
-/* harmony export */ });
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js */ "../../AppData/Roaming/npm/node_modules/@gofynd/fdk-cli/node_modules/react-refresh/runtime.js");
-
-const SET_MOBILE_NUMBER_AS_PRIMARY = `mutation setMobileNumberAsPrimary(
-    $sendVerificationLinkMobileRequestSchemaInput: SendVerificationLinkMobileRequestSchemaInput
-  ) {
-    setMobileNumberAsPrimary(
-      sendVerificationLinkMobileRequestSchemaInput: $sendVerificationLinkMobileRequestSchemaInput
-    ) {
-      register_token
-      request_id
-      user {
-          id
-          account_type
-          active
-          application_id
-          created_at
-          dob
-          first_name
-          gender
-          last_name
-          meta
-          profile_pic_url
-          updated_at
-          user_id
-          username
-          id
-          external_id
-          rr_id
-          phone_numbers {
-              active
-              country_code
-              phone
-              primary
-              verified
-          }
-        }
-      }
-    }
-  `;
-const DELETE_MOBILE_NUMBER = `mutation deleteMobileNumber(
-  $active: Boolean!
-  $countryCode: String!
-  $phone: String!
-  $platform: String
-  $primary: Boolean!
-  $verified: Boolean!
-) {
-  deleteMobileNumber(
-    active: $active
-    countryCode: $countryCode
-    phone: $phone
-    platform: $platform
-    primary: $primary
-    verified: $verified
-  ) {
-    register_token
-    request_id
-    user {
-        id
-        account_type
-        active
-        application_id
-        created_at
-        dob
-        first_name
-        gender
-        last_name
-        meta
-        profile_pic_url
-        updated_at
-        user_id
-        username
-        id
-        external_id
-        rr_id
-        phone_numbers {
-            active
-            country_code
-            phone
-            primary
-            verified
-        }
-      }
-    }
-  }
-`;
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (true) {
-			errorOverlay = false;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ })
+/***/ }
 
 }]);

@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["VeCareCoverageSectionChunk"],{
 
-/***/ "./theme/sections/ve-care-coverage.jsx":
+/***/ "./theme/sections/ve-care-coverage.jsx"
 /*!*********************************************!*\
   !*** ./theme/sections/ve-care-coverage.jsx ***!
   \*********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -191,13 +191,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/ve-care-coverage.less":
+/***/ "./theme/styles/sections/ve-care-coverage.less"
 /*!*****************************************************!*\
   !*** ./theme/styles/sections/ve-care-coverage.less ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -208,7 +208,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"veCareCoverage\":\"theme-styles-sections-ve-care-coverage__veCareCoverage--QwiaR\",\"container\":\"theme-styles-sections-ve-care-coverage__container--LNfMo\",\"header\":\"theme-styles-sections-ve-care-coverage__header--DwqNL\",\"logoBlock\":\"theme-styles-sections-ve-care-coverage__logoBlock--hMnAW\",\"bar\":\"theme-styles-sections-ve-care-coverage__bar--j5UXo\",\"description\":\"theme-styles-sections-ve-care-coverage__description--KYwrh\",\"cards\":\"theme-styles-sections-ve-care-coverage__cards--YekcU\",\"card\":\"theme-styles-sections-ve-care-coverage__card--XCx4T\",\"cardLabel\":\"theme-styles-sections-ve-care-coverage__cardLabel--h0Gxi\",\"cardTitle\":\"theme-styles-sections-ve-care-coverage__cardTitle--X2VRK\",\"cardMeta\":\"theme-styles-sections-ve-care-coverage__cardMeta--_eIc0\"}";
-        // 1771504631076
+        // 1773821705114
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -228,6 +228,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import FyImage from "@gofynd/theme-template/components/core/fy-image/fy-image";
 import PicZoom from "../pic-zoom/pic-zoom";
 import styles from "./image-gallery.less";
@@ -18,8 +18,26 @@ function PdpImageGallery({
   showShareIcon = true,
   slideTabCentreNone = true,
   imgSources = [],
+  displayTag
 }) {
   const [zoomData, setZoomData] = useState(null);
+
+  /* ==================================================
+     🔥 REMOVE SHADE IMAGE (-99) FROM GALLERY
+  ================================================== */
+
+  const filteredImages = useMemo(() => {
+    return images.filter((item) => {
+      if (!item?.url) return true;
+
+      const fileName = item.url.split("/").pop()?.toLowerCase();
+
+      // remove image containing -99 before extension
+      return !fileName?.match(/-99\.(png|jpg|jpeg|webp)$/);
+    });
+  }, [images]);
+
+  /* ================================================== */
 
   const handleImageClick = (item) => {
     if (item?.type === "image") {
@@ -31,10 +49,21 @@ function PdpImageGallery({
 
   return (
     <div className={styles.galleryBox}>
-      {/* Desktop Grid */}
+
+
+{displayTag && (
+  <div className={styles.displayTagContainer}>
+    <span>{displayTag}</span>
+  </div>
+)}
+
+
+
+
+      {/* ================= DESKTOP ================= */}
       <div className={styles.desktop}>
         <div className={styles.galleryGrid}>
-          {images.map((item, index) => (
+          {filteredImages.map((item, index) => (
             <div
               key={index}
               className={styles.galleryItem}
@@ -54,7 +83,11 @@ function PdpImageGallery({
               )}
 
               {item.type === "video" && (
-                <video className={styles.galleryVideo} src={item?.url} controls />
+                <video
+                  className={styles.galleryVideo}
+                  src={item?.url}
+                  controls
+                />
               )}
 
               {item.type === "3d_model" && (
@@ -64,17 +97,19 @@ function PdpImageGallery({
               )}
 
               {isCustomOrder && (
-                <div className={`${styles.badge} ${styles.b4}`}>Made to Order</div>
+                <div className={`${styles.badge} ${styles.b4}`}>
+                  Made to Order
+                </div>
               )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Mobile */}
+      {/* ================= MOBILE ================= */}
       <div className={styles.mobile}>
         <MobileSlider
-          images={images}
+          images={filteredImages}
           onImageClick={(img) => handleImageClick(img)}
           isCustomOrder={isCustomOrder}
           resumeVideo={resumeVideo}
@@ -86,20 +121,23 @@ function PdpImageGallery({
         />
       </div>
 
-
+      {/* ================= ZOOM ================= */}
       {zoomData && (
         <div className={styles.zoomOverlay} onClick={closeZoom}>
           <div
             className={styles.zoomContainer}
             onClick={(e) => e.stopPropagation()}
           >
-            <button className={styles.closeZoomBtn} onClick={closeZoom}>
+            <button
+              className={styles.closeZoomBtn}
+              onClick={closeZoom}
+            >
               ✕
             </button>
 
             <PicZoom
               source={zoomData.url}
-              type={zoomData.type}              
+              type={zoomData.type}
               alt={zoomData.alt}
               globalConfig={globalConfig}
               customClass={styles.zoomedImage}

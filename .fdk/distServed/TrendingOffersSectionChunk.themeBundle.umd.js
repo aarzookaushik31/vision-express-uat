@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["TrendingOffersSectionChunk"],{
 
-/***/ "./theme/assets/images/glide-arrow-left.svg":
+/***/ "./theme/assets/images/glide-arrow-left.svg"
 /*!**************************************************!*\
   !*** ./theme/assets/images/glide-arrow-left.svg ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ var SvgGlideArrowLeft = function SvgGlideArrowLeft(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowLeft);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/glide-arrow-right.svg":
+/***/ "./theme/assets/images/glide-arrow-right.svg"
 /*!***************************************************!*\
   !*** ./theme/assets/images/glide-arrow-right.svg ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -110,53 +110,13 @@ var SvgGlideArrowRight = function SvgGlideArrowRight(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowRight);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-mobile1.jpg":
-/*!***************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-mobile1.jpg ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/75878745cc3881c9cfc8.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-mobile2.jpg":
-/*!***************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-mobile2.jpg ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/98b5d3629bb1e844dae5.jpg";
-
-/***/ }),
-
-/***/ "./theme/sections/trending-offers.jsx":
+/***/ "./theme/sections/trending-offers.jsx"
 /*!********************************************!*\
   !*** ./theme/sections/trending-offers.jsx ***!
   \********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -594,13 +554,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/trending-offers.less":
+/***/ "./theme/styles/sections/trending-offers.less"
 /*!****************************************************!*\
   !*** ./theme/styles/sections/trending-offers.less ***!
   \****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -611,7 +571,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"slideshowSlider\":\"theme-styles-sections-trending-offers__slideshowSlider--IZf3f\",\"slideWrapper\":\"theme-styles-sections-trending-offers__slideWrapper--BqHH3\",\"textOverlayy\":\"theme-styles-sections-trending-offers__textOverlayy--YCaKK\",\"buttons\":\"theme-styles-sections-trending-offers__buttons--ZWLHI\",\"primaryBtn\":\"theme-styles-sections-trending-offers__primaryBtn--FzrRt\",\"secondaryBtn\":\"theme-styles-sections-trending-offers__secondaryBtn--kUWaL\",\"trendingOffersSection\":\"theme-styles-sections-trending-offers__trendingOffersSection--s2xu7\",\"sectionTitle\":\"theme-styles-sections-trending-offers__sectionTitle--e_w35\",\"offersSlider\":\"theme-styles-sections-trending-offers__offersSlider--GbbsG\",\"slick-slide\":\"theme-styles-sections-trending-offers__slick-slide--HDKVP\",\"offerCardWrapper\":\"theme-styles-sections-trending-offers__offerCardWrapper--ClOQQ\",\"offerCardContent\":\"theme-styles-sections-trending-offers__offerCardContent--atCkc\",\"offerTextBlock\":\"theme-styles-sections-trending-offers__offerTextBlock--quLl2\",\"offerTitle\":\"theme-styles-sections-trending-offers__offerTitle--NqISG\",\"offerDescription\":\"theme-styles-sections-trending-offers__offerDescription--aSXWX\",\"offerCTA\":\"theme-styles-sections-trending-offers__offerCTA--HbzSN\",\"offerImage\":\"theme-styles-sections-trending-offers__offerImage--I8CRi\",\"sliderTitle\":\"theme-styles-sections-trending-offers__sliderTitle--pQ7MP\",\"sectionHeading\":\"theme-styles-sections-trending-offers__sectionHeading--KpVco\",\"mainoffers\":\"theme-styles-sections-trending-offers__mainoffers--UJVY6\",\"slideContentt\":\"theme-styles-sections-trending-offers__slideContentt--JdWXQ\",\"secondImageStyle\":\"theme-styles-sections-trending-offers__secondImageStyle--WXBj5\"}";
-        // 1771504631410
+        // 1773821705062
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -631,6 +591,46 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-mobile1.jpg"
+/*!***************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-mobile1.jpg ***!
+  \***************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/75878745cc3881c9cfc8.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-mobile2.jpg"
+/*!***************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-mobile2.jpg ***!
+  \***************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/98b5d3629bb1e844dae5.jpg";
+
+/***/ }
 
 }]);

@@ -46,31 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["FeatureIconsSectionChunk"],{
 
-/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
-
-/***/ }),
-
-/***/ "./theme/sections/feature-icons.jsx":
+/***/ "./theme/sections/feature-icons.jsx"
 /*!******************************************!*\
   !*** ./theme/sections/feature-icons.jsx ***!
   \******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -252,13 +232,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/feature-icons.less":
+/***/ "./theme/styles/sections/feature-icons.less"
 /*!**************************************************!*\
   !*** ./theme/styles/sections/feature-icons.less ***!
   \**************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -269,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"featuresWrapper\":\"theme-styles-sections-feature-icons__featuresWrapper--UIB3h\",\"featureItem\":\"theme-styles-sections-feature-icons__featureItem--ozJjm\",\"featureIcon\":\"theme-styles-sections-feature-icons__featureIcon--lUcB7\",\"featureText\":\"theme-styles-sections-feature-icons__featureText--jclMj\"}";
-        // 1771504637150
+        // 1773821706729
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -289,6 +269,26 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
+
+/***/ }
 
 }]);

@@ -46,55 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["ArticlesResourcesSectionChunk"],{
 
-/***/ "./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css ***!
-  \**********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504636332
-        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./theme/assets/images/blog-placeholder.png":
-/*!**************************************************!*\
-  !*** ./theme/assets/images/blog-placeholder.png ***!
-  \**************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ef4bdeae71080af5b451.png";
-
-/***/ }),
-
-/***/ "./theme/page-layouts/blog/useBlog.jsx":
+/***/ "./theme/page-layouts/blog/useBlog.jsx"
 /*!*********************************************!*\
   !*** ./theme/page-layouts/blog/useBlog.jsx ***!
   \*********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -405,13 +361,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/queries/blogQuery.js":
+/***/ "./theme/queries/blogQuery.js"
 /*!************************************!*\
   !*** ./theme/queries/blogQuery.js ***!
   \************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -551,13 +507,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/articles-resources.jsx":
+/***/ "./theme/sections/articles-resources.jsx"
 /*!***********************************************!*\
   !*** ./theme/sections/articles-resources.jsx ***!
   \***********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -745,13 +701,47 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/articles-resources.less":
+/***/ "./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css"
+/*!**********************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css ***!
+  \**********************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821705729
+        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./theme/styles/sections/articles-resources.less"
 /*!*******************************************************!*\
   !*** ./theme/styles/sections/articles-resources.less ***!
   \*******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -762,7 +752,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"blogListingcards\":\"theme-styles-sections-articles-resources__blogListingcards--DESSs\",\"blogTitle\":\"theme-styles-sections-articles-resources__blogTitle--guGRE\",\"blogPara\":\"theme-styles-sections-articles-resources__blogPara--yT8Lg\",\"blogInfoContainer\":\"theme-styles-sections-articles-resources__blogInfoContainer--fHLfr\",\"blogGrid\":\"theme-styles-sections-articles-resources__blogGrid--nBX5q\",\"blogCard\":\"theme-styles-sections-articles-resources__blogCard--go9Ev\",\"blogCardTitle\":\"theme-styles-sections-articles-resources__blogCardTitle--fQCRB\",\"blogImage\":\"theme-styles-sections-articles-resources__blogImage--GkoXZ\",\"blogMeta\":\"theme-styles-sections-articles-resources__blogMeta--MsxVd\",\"blogTags\":\"theme-styles-sections-articles-resources__blogTags--uT8i2\",\"blogTag\":\"theme-styles-sections-articles-resources__blogTag--FtlGW\",\"viewAllWrapper\":\"theme-styles-sections-articles-resources__viewAllWrapper--_dbSG\",\"viewAllBtn\":\"theme-styles-sections-articles-resources__viewAllBtn--l8vTh\",\"breadcrumbs\":\"theme-styles-sections-articles-resources__breadcrumbs--qq4Qk\"}";
-        // 1771504641031
+        // 1773821709912
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -782,6 +772,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/blog-placeholder.png"
+/*!**************************************************!*\
+  !*** ./theme/assets/images/blog-placeholder.png ***!
+  \**************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ef4bdeae71080af5b451.png";
+
+/***/ }
 
 }]);

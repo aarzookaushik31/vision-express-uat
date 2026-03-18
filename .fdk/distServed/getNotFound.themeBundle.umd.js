@@ -46,65 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["getNotFound"],{
 
-/***/ "./node_modules/@gofynd/theme-template/dist/components/core/fy-button/fy-button.css":
-/*!******************************************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/components/core/fy-button/fy-button.css ***!
-  \******************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504620606
-        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./theme/assets/images/not-found-mobile.png":
-/*!**************************************************!*\
-  !*** ./theme/assets/images/not-found-mobile.png ***!
-  \**************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/dcf7faaa627d92bc69a3.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/not-found.png":
-/*!*******************************************!*\
-  !*** ./theme/assets/images/not-found.png ***!
-  \*******************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f69cc4676068efd2fb8f.png";
-
-/***/ }),
-
-/***/ "./theme/components/page-not-found/page-not-found.jsx":
+/***/ "./theme/components/page-not-found/page-not-found.jsx"
 /*!************************************************************!*\
   !*** ./theme/components/page-not-found/page-not-found.jsx ***!
   \************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -194,24 +140,58 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/components/page-not-found/page-not-found.less":
+/***/ "./node_modules/@gofynd/theme-template/dist/components/core/fy-button/fy-button.css"
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/components/core/fy-button/fy-button.css ***!
+  \******************************************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821689708
+        var cssReload = __webpack_require__(/*! ../../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./theme/components/page-not-found/page-not-found.less"
 /*!*************************************************************!*\
   !*** ./theme/components/page-not-found/page-not-found.less ***!
   \*************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-page-not-found-page-not-found__login-auth-container--qa7J2","n2oQ6":"theme-components-page-not-found-page-not-found__n2oQ6--tBWaD","uiz1K":"theme-components-page-not-found-page-not-found__uiz1K--f4HKc","P1CJx":"theme-components-page-not-found-page-not-found__P1CJx--aICGf","kkBOU":"theme-components-page-not-found-page-not-found__kkBOU--gCpcP","react-international-phone-country-selector-button":"theme-components-page-not-found-page-not-found__react-international-phone-country-selector-button--ROUrl","react-international-phone-input":"theme-components-page-not-found-page-not-found__react-international-phone-input--WqhWY","forget-password-container":"theme-components-page-not-found-page-not-found__forget-password-container--V5mJE","profile-navigation-container":"theme-components-page-not-found-page-not-found__profile-navigation-container--m5Ym5","ojp_C":"theme-components-page-not-found-page-not-found__ojp_C--ai2co","O32OW":"theme-components-page-not-found-page-not-found__O32OW--TmXAc","collection-hero-banner":"theme-components-page-not-found-page-not-found__collection-hero-banner--ueUhC","collection-banner-img":"theme-components-page-not-found-page-not-found__collection-banner-img--qOA2c","collection-unofficial":"theme-components-page-not-found-page-not-found__collection-unofficial--Gjk1H","collection-dbyd":"theme-components-page-not-found-page-not-found__collection-dbyd--IFw2A","collection-banner-img-mobile":"theme-components-page-not-found-page-not-found__collection-banner-img-mobile--G1KBB","collection-banner-content":"theme-components-page-not-found-page-not-found__collection-banner-content--TYhTN","custom-banner-card":"theme-components-page-not-found-page-not-found__custom-banner-card--snqHV","banner-overlay":"theme-components-page-not-found-page-not-found__banner-overlay--UdXyl","banner-content":"theme-components-page-not-found-page-not-found__banner-content--PuQCH","banner-btn":"theme-components-page-not-found-page-not-found__banner-btn--sVq2k","flexColumn":"theme-components-page-not-found-page-not-found__flexColumn--KMyRs","flexAlignCenter":"theme-components-page-not-found-page-not-found__flexAlignCenter--Flp86","flexCenter":"theme-components-page-not-found-page-not-found__flexCenter--cenFb","justifyStart":"theme-components-page-not-found-page-not-found__justifyStart--j02sP","justifyBetween":"theme-components-page-not-found-page-not-found__justifyBetween--jXNvD","slick-dots":"theme-components-page-not-found-page-not-found__slick-dots--lC3V8","slick-active":"theme-components-page-not-found-page-not-found__slick-active--vS75N","legal-data-container":"theme-components-page-not-found-page-not-found__legal-data-container--ONqwW","notFoundContainer":"theme-components-page-not-found-page-not-found__notFoundContainer--MjnXL","container":"theme-components-page-not-found-page-not-found__container--L3iSS","errorImgMobile":"theme-components-page-not-found-page-not-found__errorImgMobile--ywfeY","errorImgDesktop":"theme-components-page-not-found-page-not-found__errorImgDesktop--t4mWn"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-page-not-found-page-not-found__login-auth-container--qa7J2","n2oQ6":"theme-components-page-not-found-page-not-found__n2oQ6--tBWaD","uiz1K":"theme-components-page-not-found-page-not-found__uiz1K--f4HKc","P1CJx":"theme-components-page-not-found-page-not-found__P1CJx--aICGf","kkBOU":"theme-components-page-not-found-page-not-found__kkBOU--gCpcP","react-international-phone-country-selector-button":"theme-components-page-not-found-page-not-found__react-international-phone-country-selector-button--ROUrl","react-international-phone-input":"theme-components-page-not-found-page-not-found__react-international-phone-input--WqhWY","forget-password-container":"theme-components-page-not-found-page-not-found__forget-password-container--V5mJE","profile-navigation-container":"theme-components-page-not-found-page-not-found__profile-navigation-container--m5Ym5","ojp_C":"theme-components-page-not-found-page-not-found__ojp_C--ai2co","O32OW":"theme-components-page-not-found-page-not-found__O32OW--TmXAc","collection-hero-banner":"theme-components-page-not-found-page-not-found__collection-hero-banner--ueUhC","collection-banner-img":"theme-components-page-not-found-page-not-found__collection-banner-img--qOA2c","collection-unofficial":"theme-components-page-not-found-page-not-found__collection-unofficial--Gjk1H","collection-dbyd":"theme-components-page-not-found-page-not-found__collection-dbyd--IFw2A","collection-banner-img-mobile":"theme-components-page-not-found-page-not-found__collection-banner-img-mobile--G1KBB","collection-banner-content":"theme-components-page-not-found-page-not-found__collection-banner-content--TYhTN","custom-banner-card":"theme-components-page-not-found-page-not-found__custom-banner-card--snqHV","banner-overlay":"theme-components-page-not-found-page-not-found__banner-overlay--UdXyl","banner-content":"theme-components-page-not-found-page-not-found__banner-content--PuQCH","banner-btn":"theme-components-page-not-found-page-not-found__banner-btn--sVq2k","flexColumn":"theme-components-page-not-found-page-not-found__flexColumn--KMyRs","flexAlignCenter":"theme-components-page-not-found-page-not-found__flexAlignCenter--Flp86","flexCenter":"theme-components-page-not-found-page-not-found__flexCenter--cenFb","justifyStart":"theme-components-page-not-found-page-not-found__justifyStart--j02sP","justifyBetween":"theme-components-page-not-found-page-not-found__justifyBetween--jXNvD","slick-dots":"theme-components-page-not-found-page-not-found__slick-dots--lC3V8","slick-active":"theme-components-page-not-found-page-not-found__slick-active--vS75N","section_glamar-sdk-binding":"theme-components-page-not-found-page-not-found__section_glamar-sdk-binding--G85EC","legal-data-container":"theme-components-page-not-found-page-not-found__legal-data-container--ONqwW","notFoundContainer":"theme-components-page-not-found-page-not-found__notFoundContainer--MjnXL","container":"theme-components-page-not-found-page-not-found__container--L3iSS","errorImgMobile":"theme-components-page-not-found-page-not-found__errorImgMobile--ywfeY","errorImgDesktop":"theme-components-page-not-found-page-not-found__errorImgDesktop--t4mWn"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-components-page-not-found-page-not-found__login-auth-container--qa7J2\",\"n2oQ6\":\"theme-components-page-not-found-page-not-found__n2oQ6--tBWaD\",\"uiz1K\":\"theme-components-page-not-found-page-not-found__uiz1K--f4HKc\",\"P1CJx\":\"theme-components-page-not-found-page-not-found__P1CJx--aICGf\",\"kkBOU\":\"theme-components-page-not-found-page-not-found__kkBOU--gCpcP\",\"react-international-phone-country-selector-button\":\"theme-components-page-not-found-page-not-found__react-international-phone-country-selector-button--ROUrl\",\"react-international-phone-input\":\"theme-components-page-not-found-page-not-found__react-international-phone-input--WqhWY\",\"forget-password-container\":\"theme-components-page-not-found-page-not-found__forget-password-container--V5mJE\",\"profile-navigation-container\":\"theme-components-page-not-found-page-not-found__profile-navigation-container--m5Ym5\",\"ojp_C\":\"theme-components-page-not-found-page-not-found__ojp_C--ai2co\",\"O32OW\":\"theme-components-page-not-found-page-not-found__O32OW--TmXAc\",\"collection-hero-banner\":\"theme-components-page-not-found-page-not-found__collection-hero-banner--ueUhC\",\"collection-banner-img\":\"theme-components-page-not-found-page-not-found__collection-banner-img--qOA2c\",\"collection-unofficial\":\"theme-components-page-not-found-page-not-found__collection-unofficial--Gjk1H\",\"collection-dbyd\":\"theme-components-page-not-found-page-not-found__collection-dbyd--IFw2A\",\"collection-banner-img-mobile\":\"theme-components-page-not-found-page-not-found__collection-banner-img-mobile--G1KBB\",\"collection-banner-content\":\"theme-components-page-not-found-page-not-found__collection-banner-content--TYhTN\",\"custom-banner-card\":\"theme-components-page-not-found-page-not-found__custom-banner-card--snqHV\",\"banner-overlay\":\"theme-components-page-not-found-page-not-found__banner-overlay--UdXyl\",\"banner-content\":\"theme-components-page-not-found-page-not-found__banner-content--PuQCH\",\"banner-btn\":\"theme-components-page-not-found-page-not-found__banner-btn--sVq2k\",\"flexColumn\":\"theme-components-page-not-found-page-not-found__flexColumn--KMyRs\",\"flexAlignCenter\":\"theme-components-page-not-found-page-not-found__flexAlignCenter--Flp86\",\"flexCenter\":\"theme-components-page-not-found-page-not-found__flexCenter--cenFb\",\"justifyStart\":\"theme-components-page-not-found-page-not-found__justifyStart--j02sP\",\"justifyBetween\":\"theme-components-page-not-found-page-not-found__justifyBetween--jXNvD\",\"slick-dots\":\"theme-components-page-not-found-page-not-found__slick-dots--lC3V8\",\"slick-active\":\"theme-components-page-not-found-page-not-found__slick-active--vS75N\",\"legal-data-container\":\"theme-components-page-not-found-page-not-found__legal-data-container--ONqwW\",\"notFoundContainer\":\"theme-components-page-not-found-page-not-found__notFoundContainer--MjnXL\",\"container\":\"theme-components-page-not-found-page-not-found__container--L3iSS\",\"errorImgMobile\":\"theme-components-page-not-found-page-not-found__errorImgMobile--ywfeY\",\"errorImgDesktop\":\"theme-components-page-not-found-page-not-found__errorImgDesktop--t4mWn\"}";
-        // 1771504620512
+        var localsJsonString = "{\"login-auth-container\":\"theme-components-page-not-found-page-not-found__login-auth-container--qa7J2\",\"n2oQ6\":\"theme-components-page-not-found-page-not-found__n2oQ6--tBWaD\",\"uiz1K\":\"theme-components-page-not-found-page-not-found__uiz1K--f4HKc\",\"P1CJx\":\"theme-components-page-not-found-page-not-found__P1CJx--aICGf\",\"kkBOU\":\"theme-components-page-not-found-page-not-found__kkBOU--gCpcP\",\"react-international-phone-country-selector-button\":\"theme-components-page-not-found-page-not-found__react-international-phone-country-selector-button--ROUrl\",\"react-international-phone-input\":\"theme-components-page-not-found-page-not-found__react-international-phone-input--WqhWY\",\"forget-password-container\":\"theme-components-page-not-found-page-not-found__forget-password-container--V5mJE\",\"profile-navigation-container\":\"theme-components-page-not-found-page-not-found__profile-navigation-container--m5Ym5\",\"ojp_C\":\"theme-components-page-not-found-page-not-found__ojp_C--ai2co\",\"O32OW\":\"theme-components-page-not-found-page-not-found__O32OW--TmXAc\",\"collection-hero-banner\":\"theme-components-page-not-found-page-not-found__collection-hero-banner--ueUhC\",\"collection-banner-img\":\"theme-components-page-not-found-page-not-found__collection-banner-img--qOA2c\",\"collection-unofficial\":\"theme-components-page-not-found-page-not-found__collection-unofficial--Gjk1H\",\"collection-dbyd\":\"theme-components-page-not-found-page-not-found__collection-dbyd--IFw2A\",\"collection-banner-img-mobile\":\"theme-components-page-not-found-page-not-found__collection-banner-img-mobile--G1KBB\",\"collection-banner-content\":\"theme-components-page-not-found-page-not-found__collection-banner-content--TYhTN\",\"custom-banner-card\":\"theme-components-page-not-found-page-not-found__custom-banner-card--snqHV\",\"banner-overlay\":\"theme-components-page-not-found-page-not-found__banner-overlay--UdXyl\",\"banner-content\":\"theme-components-page-not-found-page-not-found__banner-content--PuQCH\",\"banner-btn\":\"theme-components-page-not-found-page-not-found__banner-btn--sVq2k\",\"flexColumn\":\"theme-components-page-not-found-page-not-found__flexColumn--KMyRs\",\"flexAlignCenter\":\"theme-components-page-not-found-page-not-found__flexAlignCenter--Flp86\",\"flexCenter\":\"theme-components-page-not-found-page-not-found__flexCenter--cenFb\",\"justifyStart\":\"theme-components-page-not-found-page-not-found__justifyStart--j02sP\",\"justifyBetween\":\"theme-components-page-not-found-page-not-found__justifyBetween--jXNvD\",\"slick-dots\":\"theme-components-page-not-found-page-not-found__slick-dots--lC3V8\",\"slick-active\":\"theme-components-page-not-found-page-not-found__slick-active--vS75N\",\"section_glamar-sdk-binding\":\"theme-components-page-not-found-page-not-found__section_glamar-sdk-binding--G85EC\",\"legal-data-container\":\"theme-components-page-not-found-page-not-found__legal-data-container--ONqwW\",\"notFoundContainer\":\"theme-components-page-not-found-page-not-found__notFoundContainer--MjnXL\",\"container\":\"theme-components-page-not-found-page-not-found__container--L3iSS\",\"errorImgMobile\":\"theme-components-page-not-found-page-not-found__errorImgMobile--ywfeY\",\"errorImgDesktop\":\"theme-components-page-not-found-page-not-found__errorImgDesktop--t4mWn\"}";
+        // 1773821691172
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -231,6 +211,26 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/not-found-mobile.png"
+/*!**************************************************!*\
+  !*** ./theme/assets/images/not-found-mobile.png ***!
+  \**************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/dcf7faaa627d92bc69a3.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/not-found.png"
+/*!*******************************************!*\
+  !*** ./theme/assets/images/not-found.png ***!
+  \*******************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f69cc4676068efd2fb8f.png";
+
+/***/ }
 
 }]);

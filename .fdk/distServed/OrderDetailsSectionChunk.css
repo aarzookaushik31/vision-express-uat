@@ -2229,6 +2229,7 @@ h5,
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__login-auth-container--m4vTy [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__login-auth-container--m4vTy [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -2297,9 +2298,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__login-auth-container--m4vTy .theme-page-layouts-profile-styles-profile-my-order-shipment-page__react-international-phone-input--mk0rC {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -2705,6 +2707,15 @@ html body * {
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__slick-dots--q2DTC {
   transform: translate(-50%, 100%) !important;
 }
+#theme-page-layouts-profile-styles-profile-my-order-shipment-page__section_glamar-sdk-binding--ng4fW button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-page-layouts-profile-styles-profile-my-order-shipment-page__legal-data-container--SSYeh {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -3051,6 +3062,7 @@ html body * {
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -3119,9 +3131,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL .theme-components-empty-state-empty-state__react-international-phone-input--pXdGc {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -3526,6 +3539,15 @@ html body * {
 }
 .theme-components-empty-state-empty-state__slick-dots--Cn3ER {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-empty-state-empty-state__section_glamar-sdk-binding--zc409 button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-empty-state-empty-state__legal-data-container--yBVVP {
   border: 1px solid rgba(0, 0, 0, 0.08);

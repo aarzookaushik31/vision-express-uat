@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./store-details.less";
-import placeholderImage from "../../assets/images/storeImagePlaceholder.png";
-import CardplaceholderImage from "../../assets/images/placeholder/store-image-placeholder.png";
+import placeholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
+import CardplaceholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
 import PhoneIcon from "../../assets/images/phone.png";
 import Purchase from "../../assets/images/purchase.png";
 import Eye from "../../assets/images/eyeicon.png";
@@ -128,21 +128,32 @@ useEffect(() => {
             const place = results[0];
             const detailsRequest = {
               placeId: place.place_id,
-              fields: ["name", "rating", "user_ratings_total", "reviews"],
+              fields: ["name", "rating", "user_ratings_total", "reviews", "photos"],
             };
 
-            service.getDetails(detailsRequest, (details, status2) => {
-              if (status2 === maps.places.PlacesServiceStatus.OK && details) {
-                setGoogleData({
-                  ratingData: {
-                    name: details.name,
-                    rating: details.rating || 0,
-                    total: details.user_ratings_total || 0,
-                  },
-                  reviews: details.reviews || [],
-                });
-              }
-            });
+          service.getDetails(detailsRequest, (details, status2) => {
+  if (status2 === maps.places.PlacesServiceStatus.OK && details) {
+
+    let googlePhoto = null;
+
+    if (details.photos && details.photos.length > 0) {
+      googlePhoto = details.photos[0].getUrl({
+        maxWidth: 800,
+        maxHeight: 600,
+      });
+    }
+
+    setGoogleData({
+      ratingData: {
+        name: details.name,
+        rating: details.rating || 0,
+        total: details.user_ratings_total || 0,
+      },
+      reviews: details.reviews || [],
+      photo: googlePhoto,
+    });
+  }
+});
           }
         });
       } catch (e) {
@@ -154,7 +165,31 @@ useEffect(() => {
   }, [formattedAddress]);
 
 
+let weekdayTiming = "";
+let weekendTiming = "";
 
+if (Array.isArray(store_timings)) {
+  const weekday = store_timings.find((d) => d.weekday === "monday");
+  const weekend = store_timings.find((d) => d.weekday === "sunday");
+
+  if (weekday?.slots?.length) {
+    const slot = weekday.slots[0];
+    weekdayTiming = `${slot.opening.hour}:${
+      slot.opening.minute.toString().padStart(2, "0")
+    } - ${slot.closing.hour}:${slot.closing.minute
+      .toString()
+      .padStart(2, "0")}`;
+  }
+
+  if (weekend?.slots?.length) {
+    const slot = weekend.slots[0];
+    weekendTiming = `${slot.opening.hour}:${
+      slot.opening.minute.toString().padStart(2, "0")
+    } - ${slot.closing.hour}:${slot.closing.minute
+      .toString()
+      .padStart(2, "0")}`;
+  }
+}
 
 
 
@@ -166,7 +201,7 @@ useEffect(() => {
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
         <p>
-          <a href="/">Home</a> / <a href="/stores">Stores</a> /{" "}
+          <a href="/">Home</a> / <a href="/locate-us">Stores</a> /{" "}
           <span>{store_city}</span> / <strong>{store_name}</strong>
         </p>
       </div>
@@ -174,7 +209,7 @@ useEffect(() => {
       {/* Top Section */}
       <div className={styles.topSection}>
         <div className={styles.imageCarousel}>
-          <img src={store_image[0] || placeholderImage} alt={store_name} />
+          <img src={store_image[0] || googleData?.photo || placeholderImage} alt={store_name} />
         </div>
 
         <div className={styles.infoBlock}>
@@ -264,13 +299,18 @@ useEffect(() => {
           <div className={styles.locationSection}>
             <h3>Location</h3>
 
-            {store_timings && (store_timings.weekdays || store_timings.weekends) && (
-              <p className={styles.timings}>
-                {store_timings?.weekdays && <>MON - FRI: {store_timings.weekdays}</>}
-                {store_timings?.weekdays && store_timings?.weekends && " | "}
-                {store_timings?.weekends && <>SAT - SUN: {store_timings.weekends}</>}
-              </p>
-            )}
+           
+           
+          {(weekdayTiming || weekendTiming) && (
+  <p className={styles.timings}>
+    {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
+    {weekdayTiming && weekendTiming && " | "}
+    {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
+  </p>
+)}
+
+
+
             {latitude && longitude && (
               <iframe
                 src={mapSrc}

@@ -33,9 +33,8 @@ export function Component({ props = {} }) {
   const storeCodeRef = useRef(null);
 
   const { image, imageTitle } = props;
-  const slug = "book-an-eye-test";
+  const slug = "book-an-eye-test-store";
 
-  // ✅ Fetch form structure
   useEffect(() => {
     const fetchPageData = async () => {
       try {
@@ -63,7 +62,6 @@ export function Component({ props = {} }) {
     fetchPageData();
   }, [slug]);
 
-  // ✅ Fetch stores via API
   useEffect(() => {
     const fetchStores = async () => {
       try {
@@ -74,12 +72,10 @@ export function Component({ props = {} }) {
           console.log("✅ Stores fetched:", stores);
           setAllStores(stores);
 
-          // Extract unique states
           const states = [
             ...new Set(stores.map((s) => s.store_state).filter(Boolean)),
           ];
 
-          // Update state dropdown
           setContent((prev) => {
             if (!prev?.inputs) return prev;
             const updatedInputs = prev.inputs.map((input) =>
@@ -100,7 +96,6 @@ export function Component({ props = {} }) {
     fetchStores();
   }, []);
 
-  // ✅ Update city dropdown when state changes
   useEffect(() => {
     if (!allStores.length) return;
 
@@ -128,7 +123,6 @@ export function Component({ props = {} }) {
     setFormData((prev) => ({ ...prev, city: "", store: "" }));
   }, [formData.state, allStores]);
 
-  // ✅ Update store dropdown when city changes
   useEffect(() => {
     if (!allStores.length) return;
 
@@ -160,14 +154,12 @@ export function Component({ props = {} }) {
 
 
 
-// ✅ STEP 1: Auto-select store based on storeCode from URL
 useEffect(() => {
   const params = new URLSearchParams(window.location.search);
   const code = params.get("storeCode");
   if (code) storeCodeRef.current = code.trim();
 }, []);
 
-// ✅ STEP 2: When all stores load, initialize states + maybe preselect store state
 useEffect(() => {
   if (!allStores.length) return;
 
@@ -256,64 +248,115 @@ useEffect(() => {
 
 
 
-  // ✅ Form validation
-  const validateForm = () => {
-    let valid = true;
-    const errors = { ...formError };
-    const now = new Date();
+const validateForm = () => {
+  let valid = true;
+  const errors = {};
 
-    Object.keys(formData).forEach((key) => {
-      const value = formData[key];
-      if (key === "full-name" && !/^[A-Za-z\s]+$/.test(value)) {
-        errors[key] = "Only letters and spaces allowed";
-        valid = false;
-      } else if (
-        key === "contact-number" &&
-        (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value))
-      ) {
+  Object.keys(formData).forEach((key) => {
+    const rawValue = formData[key];
+    const value = typeof rawValue === "string" ? rawValue.trim() : rawValue;
+
+    const field = content.inputs.find((i) => i.key === key);
+
+    if (field?.required && (!value || value === "")) {
+      errors[key] = "This field is required";
+      valid = false;
+      return;
+    }
+
+    if (key === "contact-number") {
+      if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
         errors[key] = "Enter a valid 10 digit mobile number";
         valid = false;
-      } else if (key === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
-        errors[key] = "Enter a valid email address";
-        valid = false;
-      } else if (key === "date" && new Date(value) < now) {
-        errors[key] = "Date cannot be in the past";
+      }
+    }
+
+    if (key === "full-name") {
+      if (value && !/^[A-Za-z\s]+$/.test(value)) {
+        errors[key] = "Only letters and spaces allowed";
         valid = false;
       }
-    });
+    }
 
-    setFormError(errors);
-    return valid;
-  };
+    if (key === "email") {
+      if (value && !/^\S+@\S+\.\S+$/.test(value)) {
+        errors[key] = "Enter a valid email address";
+        valid = false;
+      }
+    }
+  });
 
-// ✅ Handle change
+  setFormError(errors);
+  return { valid, errors };
+};
+
+
+
+
 const handleChange = (e) => {
   const { name, value, type, checked } = e.target;
 
-  setFormData((prev) => {
-    const updated = {
+  let newValue = type === "checkbox" ? checked : value;
+
+  if (name === "contact-number") {
+    newValue = value.replace(/\D/g, "").slice(0, 10);
+
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    };
+      [name]: newValue,
+    }));
 
-    if (name === "state") {
-      updated.city = "";
-      updated.store = "";
-      setIsAutoSelected(false);
-    }
-    if (name === "city") {
-      updated.store = "";
-      setIsAutoSelected(false);
-    }
+    setFormError((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
 
-    return updated;
-  });
+    return;
+  }
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: newValue,
+  }));
+
+  if (formError[name]) {
+    validateField(name, newValue);
+  }
+
+  if (name === "state") {
+    setFormData((prev) => ({ ...prev, city: "", store: "" }));
+    setIsAutoSelected(false);
+  }
+
+  if (name === "city") {
+    setFormData((prev) => ({ ...prev, store: "" }));
+    setIsAutoSelected(false);
+  }
 };
+
+
+
 
 // ✅ Handle submit
 const handleSubmit = async (e) => {
   e.preventDefault();
-  if (!validateForm()) return;
+
+
+ const { valid, errors } = validateForm();
+
+  if (!valid) {
+    const firstErrorKey = Object.keys(errors)[0];
+
+    const el = document.querySelector(`[name="${firstErrorKey}"]`);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    }
+
+    return;
+  }
+
 
 const responsePayload = content.inputs.map((input) => {
   const value = formData[input.key];
@@ -392,7 +435,51 @@ console.log(selectedStore)
     setShowSuccessMessage(false)
   };
 
-  if (loading) return <div>Loading...</div>;
+
+
+const validateField = (name, value) => {
+  let error = "";
+
+  const field = content.inputs.find((i) => i.key === name);
+
+  if (field?.required && (!value || value.trim() === "")) {
+    error = "This field is required";
+  }
+
+  else if (name === "contact-number") {
+    if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
+      error = "Enter a valid 10 digit mobile number";
+    }
+  }
+
+  else if (name === "full-name") {
+    if (!/^[A-Za-z\s]+$/.test(value)) {
+      error = "Only letters and spaces allowed";
+    }
+  }
+
+  else if (name === "email") {
+    if (!/^\S+@\S+\.\S+$/.test(value)) {
+      error = "Enter a valid email address";
+    }
+  }
+
+  setFormError((prev) => ({
+    ...prev,
+    [name]: error,
+  }));
+};
+
+
+const handleBlur = (e) => {
+  const { name, value } = e.target;
+  validateField(name, value.trim());
+};
+
+
+
+
+  if (loading) return <div></div>;
   if (error) return <div>Error: {String(error)}</div>;
 
   return (
@@ -443,7 +530,7 @@ console.log(selectedStore)
           </div>
         ) : (
 
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} noValidate>
   {content.inputs.map((input) => {
     const isDynamicSelect = ["state", "city", "store", "store-name", "choose-store"].includes(input.key);
 
@@ -458,7 +545,13 @@ console.log(selectedStore)
             name={input.key}
             value={formData[input.key]}
             onChange={handleChange}
-            min={new Date().toISOString().split("T")[0]}
+            onBlur={(e) => validateField(e.target.name, e.target.value)} 
+             placeholder="Choose Date"
+            min={(() => {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return tomorrow.toISOString().split("T")[0];
+})()}
             required={input.required}
           />
         ) : 
@@ -469,8 +562,11 @@ console.log(selectedStore)
     value={formData[input.key]}
     onChange={handleChange}
     required={input.required}
+    onBlur={(e) => validateField(e.target.name, e.target.value)}
   >
-    <option value="">Select {input.display}</option>
+    <option value="" disabled>
+    {input.placeholder || `Choose Your ${input.display}`}
+  </option>
     {input.enum?.map((opt, idx) => (
       <option key={opt.key || idx} value={opt.display || opt.key}>
         {opt.display || opt.key}
@@ -482,9 +578,11 @@ console.log(selectedStore)
         input.type === "text" || input.type === "email" || input.type === "number" ? (
           <input
             type={input.key === "contact-number" ? "tel" : input.type}
+            inputMode={input.key === "contact-number" ? "numeric" : undefined}
             name={input.key}
             value={formData[input.key]}
             onChange={handleChange}
+             onBlur={handleBlur}
             placeholder={input.placeholder}
             required={input.required}
           />
@@ -497,6 +595,7 @@ console.log(selectedStore)
               name={input.key}
               checked={formData[input.key] || false}
               onChange={handleChange}
+              onBlur={(e) => validateField(e.target.name, e.target.value)}
               required={input.required}
             />
             {input.display}

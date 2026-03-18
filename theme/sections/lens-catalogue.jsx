@@ -177,7 +177,7 @@ function LensCatalogueTabs({ props, blocks }) {
 
 
            <div className={styles.visionRowContainer}>
-                 {near_filled?.value && (
+                 {Number(near_filled?.value) > 0 && (
                  <div className={`${styles.nearFilledContainer} ${styles.visionRow}`}>
                     <span className={styles.visionRowText}>
                      Near
@@ -187,7 +187,7 @@ function LensCatalogueTabs({ props, blocks }) {
       </div>
                   </div>
                  )}
-                  {intermediate_filled?.value && (
+                  {Number(intermediate_filled?.value) > 0 && (
                    <div className={`${styles.intermediateFilledContainer} ${styles.visionRow}`}>
                     <span className={styles.visionRowText}>
                       Intermediate
@@ -197,7 +197,7 @@ function LensCatalogueTabs({ props, blocks }) {
       </div>
                   </div>
                    )}
-                   {far_filled?.value && (
+                   {Number(far_filled?.value) > 0 && (
                    <div className={`${styles.farFilledContainer} ${styles.visionRow}`}>
                      <span className={styles.visionRowText}>
                           Far

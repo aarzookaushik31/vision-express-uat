@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["BrandListingSectionChunk"],{
 
-/***/ "./theme/assets/images/glide-arrow-left.svg":
+/***/ "./theme/assets/images/glide-arrow-left.svg"
 /*!**************************************************!*\
   !*** ./theme/assets/images/glide-arrow-left.svg ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ var SvgGlideArrowLeft = function SvgGlideArrowLeft(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowLeft);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/glide-arrow-right.svg":
+/***/ "./theme/assets/images/glide-arrow-right.svg"
 /*!***************************************************!*\
   !*** ./theme/assets/images/glide-arrow-right.svg ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -110,23 +110,13 @@ var SvgGlideArrowRight = function SvgGlideArrowRight(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowRight);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/placeholder/brand-listing.png":
-/*!***********************************************************!*\
-  !*** ./theme/assets/images/placeholder/brand-listing.png ***!
-  \***********************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f99d61036953ebcdc307.png";
-
-/***/ }),
-
-/***/ "./theme/queries/brandsQuery.js":
+/***/ "./theme/queries/brandsQuery.js"
 /*!**************************************!*\
   !*** ./theme/queries/brandsQuery.js ***!
   \**************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -257,13 +247,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/brand-listing.jsx":
+/***/ "./theme/sections/brand-listing.jsx"
 /*!******************************************!*\
   !*** ./theme/sections/brand-listing.jsx ***!
   \******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -900,24 +890,24 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/brand-listing.less":
+/***/ "./theme/styles/sections/brand-listing.less"
 /*!**************************************************!*\
   !*** ./theme/styles/sections/brand-listing.less ***!
   \**************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-brand-listing__login-auth-container--L366G","n2oQ6":"theme-styles-sections-brand-listing__n2oQ6--c5nkI","uiz1K":"theme-styles-sections-brand-listing__uiz1K--LGQSw","P1CJx":"theme-styles-sections-brand-listing__P1CJx--c0W_y","kkBOU":"theme-styles-sections-brand-listing__kkBOU--vBBSH","react-international-phone-country-selector-button":"theme-styles-sections-brand-listing__react-international-phone-country-selector-button--WCD1u","react-international-phone-input":"theme-styles-sections-brand-listing__react-international-phone-input--IfKAH","forget-password-container":"theme-styles-sections-brand-listing__forget-password-container--qVF5w","profile-navigation-container":"theme-styles-sections-brand-listing__profile-navigation-container--jyRII","ojp_C":"theme-styles-sections-brand-listing__ojp_C--il33o","O32OW":"theme-styles-sections-brand-listing__O32OW--FUZl8","collection-hero-banner":"theme-styles-sections-brand-listing__collection-hero-banner--dT1uC","collection-banner-img":"theme-styles-sections-brand-listing__collection-banner-img--eHLBl","collection-unofficial":"theme-styles-sections-brand-listing__collection-unofficial--AmTiY","collection-dbyd":"theme-styles-sections-brand-listing__collection-dbyd--f4LeD","collection-banner-img-mobile":"theme-styles-sections-brand-listing__collection-banner-img-mobile--FLII2","collection-banner-content":"theme-styles-sections-brand-listing__collection-banner-content--gNhCl","custom-banner-card":"theme-styles-sections-brand-listing__custom-banner-card--um7sz","banner-overlay":"theme-styles-sections-brand-listing__banner-overlay--A0z1W","banner-content":"theme-styles-sections-brand-listing__banner-content--MgmYd","banner-btn":"theme-styles-sections-brand-listing__banner-btn--hEr5J","flexColumn":"theme-styles-sections-brand-listing__flexColumn--uJ_iL","flexAlignCenter":"theme-styles-sections-brand-listing__flexAlignCenter--ff04I","flexCenter":"theme-styles-sections-brand-listing__flexCenter--w5WB9","justifyStart":"theme-styles-sections-brand-listing__justifyStart--AQJr6","justifyBetween":"theme-styles-sections-brand-listing__justifyBetween--AsBvm","slick-dots":"theme-styles-sections-brand-listing__slick-dots--pkeU9","slick-active":"theme-styles-sections-brand-listing__slick-active--NhU_C","legal-data-container":"theme-styles-sections-brand-listing__legal-data-container--BVClB","streach":"theme-styles-sections-brand-listing__streach--IcXtv","slick-slide":"theme-styles-sections-brand-listing__slick-slide--jZ_yQ","section-heading":"theme-styles-sections-brand-listing__section-heading--lKQHK","logo-only":"theme-styles-sections-brand-listing__logo-only--xxVB9","section-description":"theme-styles-sections-brand-listing__section-description--cHlDU","categories-block":"theme-styles-sections-brand-listing__categories-block--mBJxg","card-count-4":"theme-styles-sections-brand-listing__card-count-4--MoXSp","left":"theme-styles-sections-brand-listing__left--M_RIF","right":"theme-styles-sections-brand-listing__right--SkQOK","categories-horizontal":"theme-styles-sections-brand-listing__categories-horizontal--JCURm","single-card":"theme-styles-sections-brand-listing__single-card--j87lO","logoWidth":"theme-styles-sections-brand-listing__logoWidth--LHw3P","custom-slick-list":"theme-styles-sections-brand-listing__custom-slick-list--jYJ7u","custom-slick-slide":"theme-styles-sections-brand-listing__custom-slick-slide--RqZRw","slider-container":"theme-styles-sections-brand-listing__slider-container--okk4k","brand-info":"theme-styles-sections-brand-listing__brand-info--u9a51","brand-logo":"theme-styles-sections-brand-listing__brand-logo--ERt_Z","pos-relative":"theme-styles-sections-brand-listing__pos-relative--FPkLB","card-count-3":"theme-styles-sections-brand-listing__card-count-3--dUKFz","card-count-5":"theme-styles-sections-brand-listing__card-count-5--Zr7WD","gap-above-button":"theme-styles-sections-brand-listing__gap-above-button--y8brk","section-button":"theme-styles-sections-brand-listing__section-button--y6AXU","glide--swipeable":"theme-styles-sections-brand-listing__glide--swipeable--JWcux","brand-image":"theme-styles-sections-brand-listing__brand-image--GSOGU","imgRad":"theme-styles-sections-brand-listing__imgRad--LNMaj","brandNameSec":"theme-styles-sections-brand-listing__brandNameSec--cQrhX","defaultBrandBlock":"theme-styles-sections-brand-listing__defaultBrandBlock--yvXuF","hideOnDesktop":"theme-styles-sections-brand-listing__hideOnDesktop--B1HOq","hideOnMobile":"theme-styles-sections-brand-listing__hideOnMobile--o1beu"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-brand-listing__login-auth-container--L366G","n2oQ6":"theme-styles-sections-brand-listing__n2oQ6--c5nkI","uiz1K":"theme-styles-sections-brand-listing__uiz1K--LGQSw","P1CJx":"theme-styles-sections-brand-listing__P1CJx--c0W_y","kkBOU":"theme-styles-sections-brand-listing__kkBOU--vBBSH","react-international-phone-country-selector-button":"theme-styles-sections-brand-listing__react-international-phone-country-selector-button--WCD1u","react-international-phone-input":"theme-styles-sections-brand-listing__react-international-phone-input--IfKAH","forget-password-container":"theme-styles-sections-brand-listing__forget-password-container--qVF5w","profile-navigation-container":"theme-styles-sections-brand-listing__profile-navigation-container--jyRII","ojp_C":"theme-styles-sections-brand-listing__ojp_C--il33o","O32OW":"theme-styles-sections-brand-listing__O32OW--FUZl8","collection-hero-banner":"theme-styles-sections-brand-listing__collection-hero-banner--dT1uC","collection-banner-img":"theme-styles-sections-brand-listing__collection-banner-img--eHLBl","collection-unofficial":"theme-styles-sections-brand-listing__collection-unofficial--AmTiY","collection-dbyd":"theme-styles-sections-brand-listing__collection-dbyd--f4LeD","collection-banner-img-mobile":"theme-styles-sections-brand-listing__collection-banner-img-mobile--FLII2","collection-banner-content":"theme-styles-sections-brand-listing__collection-banner-content--gNhCl","custom-banner-card":"theme-styles-sections-brand-listing__custom-banner-card--um7sz","banner-overlay":"theme-styles-sections-brand-listing__banner-overlay--A0z1W","banner-content":"theme-styles-sections-brand-listing__banner-content--MgmYd","banner-btn":"theme-styles-sections-brand-listing__banner-btn--hEr5J","flexColumn":"theme-styles-sections-brand-listing__flexColumn--uJ_iL","flexAlignCenter":"theme-styles-sections-brand-listing__flexAlignCenter--ff04I","flexCenter":"theme-styles-sections-brand-listing__flexCenter--w5WB9","justifyStart":"theme-styles-sections-brand-listing__justifyStart--AQJr6","justifyBetween":"theme-styles-sections-brand-listing__justifyBetween--AsBvm","slick-dots":"theme-styles-sections-brand-listing__slick-dots--pkeU9","slick-active":"theme-styles-sections-brand-listing__slick-active--NhU_C","section_glamar-sdk-binding":"theme-styles-sections-brand-listing__section_glamar-sdk-binding--toQbU","legal-data-container":"theme-styles-sections-brand-listing__legal-data-container--BVClB","streach":"theme-styles-sections-brand-listing__streach--IcXtv","slick-slide":"theme-styles-sections-brand-listing__slick-slide--jZ_yQ","section-heading":"theme-styles-sections-brand-listing__section-heading--lKQHK","logo-only":"theme-styles-sections-brand-listing__logo-only--xxVB9","section-description":"theme-styles-sections-brand-listing__section-description--cHlDU","categories-block":"theme-styles-sections-brand-listing__categories-block--mBJxg","card-count-4":"theme-styles-sections-brand-listing__card-count-4--MoXSp","left":"theme-styles-sections-brand-listing__left--M_RIF","right":"theme-styles-sections-brand-listing__right--SkQOK","categories-horizontal":"theme-styles-sections-brand-listing__categories-horizontal--JCURm","single-card":"theme-styles-sections-brand-listing__single-card--j87lO","logoWidth":"theme-styles-sections-brand-listing__logoWidth--LHw3P","custom-slick-list":"theme-styles-sections-brand-listing__custom-slick-list--jYJ7u","custom-slick-slide":"theme-styles-sections-brand-listing__custom-slick-slide--RqZRw","slider-container":"theme-styles-sections-brand-listing__slider-container--okk4k","brand-info":"theme-styles-sections-brand-listing__brand-info--u9a51","brand-logo":"theme-styles-sections-brand-listing__brand-logo--ERt_Z","pos-relative":"theme-styles-sections-brand-listing__pos-relative--FPkLB","card-count-3":"theme-styles-sections-brand-listing__card-count-3--dUKFz","card-count-5":"theme-styles-sections-brand-listing__card-count-5--Zr7WD","gap-above-button":"theme-styles-sections-brand-listing__gap-above-button--y8brk","section-button":"theme-styles-sections-brand-listing__section-button--y6AXU","glide--swipeable":"theme-styles-sections-brand-listing__glide--swipeable--JWcux","brand-image":"theme-styles-sections-brand-listing__brand-image--GSOGU","imgRad":"theme-styles-sections-brand-listing__imgRad--LNMaj","brandNameSec":"theme-styles-sections-brand-listing__brandNameSec--cQrhX","defaultBrandBlock":"theme-styles-sections-brand-listing__defaultBrandBlock--yvXuF","hideOnDesktop":"theme-styles-sections-brand-listing__hideOnDesktop--B1HOq","hideOnMobile":"theme-styles-sections-brand-listing__hideOnMobile--o1beu"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-brand-listing__login-auth-container--L366G\",\"n2oQ6\":\"theme-styles-sections-brand-listing__n2oQ6--c5nkI\",\"uiz1K\":\"theme-styles-sections-brand-listing__uiz1K--LGQSw\",\"P1CJx\":\"theme-styles-sections-brand-listing__P1CJx--c0W_y\",\"kkBOU\":\"theme-styles-sections-brand-listing__kkBOU--vBBSH\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-brand-listing__react-international-phone-country-selector-button--WCD1u\",\"react-international-phone-input\":\"theme-styles-sections-brand-listing__react-international-phone-input--IfKAH\",\"forget-password-container\":\"theme-styles-sections-brand-listing__forget-password-container--qVF5w\",\"profile-navigation-container\":\"theme-styles-sections-brand-listing__profile-navigation-container--jyRII\",\"ojp_C\":\"theme-styles-sections-brand-listing__ojp_C--il33o\",\"O32OW\":\"theme-styles-sections-brand-listing__O32OW--FUZl8\",\"collection-hero-banner\":\"theme-styles-sections-brand-listing__collection-hero-banner--dT1uC\",\"collection-banner-img\":\"theme-styles-sections-brand-listing__collection-banner-img--eHLBl\",\"collection-unofficial\":\"theme-styles-sections-brand-listing__collection-unofficial--AmTiY\",\"collection-dbyd\":\"theme-styles-sections-brand-listing__collection-dbyd--f4LeD\",\"collection-banner-img-mobile\":\"theme-styles-sections-brand-listing__collection-banner-img-mobile--FLII2\",\"collection-banner-content\":\"theme-styles-sections-brand-listing__collection-banner-content--gNhCl\",\"custom-banner-card\":\"theme-styles-sections-brand-listing__custom-banner-card--um7sz\",\"banner-overlay\":\"theme-styles-sections-brand-listing__banner-overlay--A0z1W\",\"banner-content\":\"theme-styles-sections-brand-listing__banner-content--MgmYd\",\"banner-btn\":\"theme-styles-sections-brand-listing__banner-btn--hEr5J\",\"flexColumn\":\"theme-styles-sections-brand-listing__flexColumn--uJ_iL\",\"flexAlignCenter\":\"theme-styles-sections-brand-listing__flexAlignCenter--ff04I\",\"flexCenter\":\"theme-styles-sections-brand-listing__flexCenter--w5WB9\",\"justifyStart\":\"theme-styles-sections-brand-listing__justifyStart--AQJr6\",\"justifyBetween\":\"theme-styles-sections-brand-listing__justifyBetween--AsBvm\",\"slick-dots\":\"theme-styles-sections-brand-listing__slick-dots--pkeU9\",\"slick-active\":\"theme-styles-sections-brand-listing__slick-active--NhU_C\",\"legal-data-container\":\"theme-styles-sections-brand-listing__legal-data-container--BVClB\",\"streach\":\"theme-styles-sections-brand-listing__streach--IcXtv\",\"slick-slide\":\"theme-styles-sections-brand-listing__slick-slide--jZ_yQ\",\"section-heading\":\"theme-styles-sections-brand-listing__section-heading--lKQHK\",\"logo-only\":\"theme-styles-sections-brand-listing__logo-only--xxVB9\",\"section-description\":\"theme-styles-sections-brand-listing__section-description--cHlDU\",\"categories-block\":\"theme-styles-sections-brand-listing__categories-block--mBJxg\",\"card-count-4\":\"theme-styles-sections-brand-listing__card-count-4--MoXSp\",\"left\":\"theme-styles-sections-brand-listing__left--M_RIF\",\"right\":\"theme-styles-sections-brand-listing__right--SkQOK\",\"categories-horizontal\":\"theme-styles-sections-brand-listing__categories-horizontal--JCURm\",\"single-card\":\"theme-styles-sections-brand-listing__single-card--j87lO\",\"logoWidth\":\"theme-styles-sections-brand-listing__logoWidth--LHw3P\",\"custom-slick-list\":\"theme-styles-sections-brand-listing__custom-slick-list--jYJ7u\",\"custom-slick-slide\":\"theme-styles-sections-brand-listing__custom-slick-slide--RqZRw\",\"slider-container\":\"theme-styles-sections-brand-listing__slider-container--okk4k\",\"brand-info\":\"theme-styles-sections-brand-listing__brand-info--u9a51\",\"brand-logo\":\"theme-styles-sections-brand-listing__brand-logo--ERt_Z\",\"pos-relative\":\"theme-styles-sections-brand-listing__pos-relative--FPkLB\",\"card-count-3\":\"theme-styles-sections-brand-listing__card-count-3--dUKFz\",\"card-count-5\":\"theme-styles-sections-brand-listing__card-count-5--Zr7WD\",\"gap-above-button\":\"theme-styles-sections-brand-listing__gap-above-button--y8brk\",\"section-button\":\"theme-styles-sections-brand-listing__section-button--y6AXU\",\"glide--swipeable\":\"theme-styles-sections-brand-listing__glide--swipeable--JWcux\",\"brand-image\":\"theme-styles-sections-brand-listing__brand-image--GSOGU\",\"imgRad\":\"theme-styles-sections-brand-listing__imgRad--LNMaj\",\"brandNameSec\":\"theme-styles-sections-brand-listing__brandNameSec--cQrhX\",\"defaultBrandBlock\":\"theme-styles-sections-brand-listing__defaultBrandBlock--yvXuF\",\"hideOnDesktop\":\"theme-styles-sections-brand-listing__hideOnDesktop--B1HOq\",\"hideOnMobile\":\"theme-styles-sections-brand-listing__hideOnMobile--o1beu\"}";
-        // 1771504642894
+        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-brand-listing__login-auth-container--L366G\",\"n2oQ6\":\"theme-styles-sections-brand-listing__n2oQ6--c5nkI\",\"uiz1K\":\"theme-styles-sections-brand-listing__uiz1K--LGQSw\",\"P1CJx\":\"theme-styles-sections-brand-listing__P1CJx--c0W_y\",\"kkBOU\":\"theme-styles-sections-brand-listing__kkBOU--vBBSH\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-brand-listing__react-international-phone-country-selector-button--WCD1u\",\"react-international-phone-input\":\"theme-styles-sections-brand-listing__react-international-phone-input--IfKAH\",\"forget-password-container\":\"theme-styles-sections-brand-listing__forget-password-container--qVF5w\",\"profile-navigation-container\":\"theme-styles-sections-brand-listing__profile-navigation-container--jyRII\",\"ojp_C\":\"theme-styles-sections-brand-listing__ojp_C--il33o\",\"O32OW\":\"theme-styles-sections-brand-listing__O32OW--FUZl8\",\"collection-hero-banner\":\"theme-styles-sections-brand-listing__collection-hero-banner--dT1uC\",\"collection-banner-img\":\"theme-styles-sections-brand-listing__collection-banner-img--eHLBl\",\"collection-unofficial\":\"theme-styles-sections-brand-listing__collection-unofficial--AmTiY\",\"collection-dbyd\":\"theme-styles-sections-brand-listing__collection-dbyd--f4LeD\",\"collection-banner-img-mobile\":\"theme-styles-sections-brand-listing__collection-banner-img-mobile--FLII2\",\"collection-banner-content\":\"theme-styles-sections-brand-listing__collection-banner-content--gNhCl\",\"custom-banner-card\":\"theme-styles-sections-brand-listing__custom-banner-card--um7sz\",\"banner-overlay\":\"theme-styles-sections-brand-listing__banner-overlay--A0z1W\",\"banner-content\":\"theme-styles-sections-brand-listing__banner-content--MgmYd\",\"banner-btn\":\"theme-styles-sections-brand-listing__banner-btn--hEr5J\",\"flexColumn\":\"theme-styles-sections-brand-listing__flexColumn--uJ_iL\",\"flexAlignCenter\":\"theme-styles-sections-brand-listing__flexAlignCenter--ff04I\",\"flexCenter\":\"theme-styles-sections-brand-listing__flexCenter--w5WB9\",\"justifyStart\":\"theme-styles-sections-brand-listing__justifyStart--AQJr6\",\"justifyBetween\":\"theme-styles-sections-brand-listing__justifyBetween--AsBvm\",\"slick-dots\":\"theme-styles-sections-brand-listing__slick-dots--pkeU9\",\"slick-active\":\"theme-styles-sections-brand-listing__slick-active--NhU_C\",\"section_glamar-sdk-binding\":\"theme-styles-sections-brand-listing__section_glamar-sdk-binding--toQbU\",\"legal-data-container\":\"theme-styles-sections-brand-listing__legal-data-container--BVClB\",\"streach\":\"theme-styles-sections-brand-listing__streach--IcXtv\",\"slick-slide\":\"theme-styles-sections-brand-listing__slick-slide--jZ_yQ\",\"section-heading\":\"theme-styles-sections-brand-listing__section-heading--lKQHK\",\"logo-only\":\"theme-styles-sections-brand-listing__logo-only--xxVB9\",\"section-description\":\"theme-styles-sections-brand-listing__section-description--cHlDU\",\"categories-block\":\"theme-styles-sections-brand-listing__categories-block--mBJxg\",\"card-count-4\":\"theme-styles-sections-brand-listing__card-count-4--MoXSp\",\"left\":\"theme-styles-sections-brand-listing__left--M_RIF\",\"right\":\"theme-styles-sections-brand-listing__right--SkQOK\",\"categories-horizontal\":\"theme-styles-sections-brand-listing__categories-horizontal--JCURm\",\"single-card\":\"theme-styles-sections-brand-listing__single-card--j87lO\",\"logoWidth\":\"theme-styles-sections-brand-listing__logoWidth--LHw3P\",\"custom-slick-list\":\"theme-styles-sections-brand-listing__custom-slick-list--jYJ7u\",\"custom-slick-slide\":\"theme-styles-sections-brand-listing__custom-slick-slide--RqZRw\",\"slider-container\":\"theme-styles-sections-brand-listing__slider-container--okk4k\",\"brand-info\":\"theme-styles-sections-brand-listing__brand-info--u9a51\",\"brand-logo\":\"theme-styles-sections-brand-listing__brand-logo--ERt_Z\",\"pos-relative\":\"theme-styles-sections-brand-listing__pos-relative--FPkLB\",\"card-count-3\":\"theme-styles-sections-brand-listing__card-count-3--dUKFz\",\"card-count-5\":\"theme-styles-sections-brand-listing__card-count-5--Zr7WD\",\"gap-above-button\":\"theme-styles-sections-brand-listing__gap-above-button--y8brk\",\"section-button\":\"theme-styles-sections-brand-listing__section-button--y6AXU\",\"glide--swipeable\":\"theme-styles-sections-brand-listing__glide--swipeable--JWcux\",\"brand-image\":\"theme-styles-sections-brand-listing__brand-image--GSOGU\",\"imgRad\":\"theme-styles-sections-brand-listing__imgRad--LNMaj\",\"brandNameSec\":\"theme-styles-sections-brand-listing__brandNameSec--cQrhX\",\"defaultBrandBlock\":\"theme-styles-sections-brand-listing__defaultBrandBlock--yvXuF\",\"hideOnDesktop\":\"theme-styles-sections-brand-listing__hideOnDesktop--B1HOq\",\"hideOnMobile\":\"theme-styles-sections-brand-listing__hideOnMobile--o1beu\"}";
+        // 1773821712112
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -937,6 +927,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/brand-listing.png"
+/*!***********************************************************!*\
+  !*** ./theme/assets/images/placeholder/brand-listing.png ***!
+  \***********************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f99d61036953ebcdc307.png";
+
+/***/ }
 
 }]);

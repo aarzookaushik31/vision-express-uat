@@ -59,8 +59,6 @@ const FilterCategoryTabsSectionChunk = loadable(() => import(/* webpackChunkName
 
 const FindStoreSectionChunk = loadable(() => import(/* webpackChunkName:"FindStoreSectionChunk" */ './find-store.jsx'));
 
-const GlamARDemoSectionChunk = loadable(() => import(/* webpackChunkName:"GlamARDemoSectionChunk" */ './GlamARDemo.jsx'));
-
 const HeroImageSectionChunk = loadable(() => import(/* webpackChunkName:"HeroImageSectionChunk" */ './hero-image.jsx'));
 
 const HeroSliderWithTextSectionChunk = loadable(() => import(/* webpackChunkName:"HeroSliderWithTextSectionChunk" */ './hero-slider-with-text.jsx'));
@@ -192,8 +190,6 @@ const getbundle = (type) => {
             return (props) => <FilterCategoryTabsSectionChunk {...props}/>;
         case 'find-store':
             return (props) => <FindStoreSectionChunk {...props}/>;
-        case 'GlamARDemo':
-            return (props) => <GlamARDemoSectionChunk {...props}/>;
         case 'hero-image':
             return (props) => <HeroImageSectionChunk {...props}/>;
         case 'hero-slider-with-text':
@@ -300,7 +296,6 @@ export default {
         'featured-collection': { ...FeaturedCollectionSectionChunk, Component: getbundle('featured-collection') },
         'filter-category-tabs': { ...FilterCategoryTabsSectionChunk, Component: getbundle('filter-category-tabs') },
         'find-store': { ...FindStoreSectionChunk, Component: getbundle('find-store') },
-        'GlamARDemo': { ...GlamARDemoSectionChunk, Component: getbundle('GlamARDemo') },
         'hero-image': { ...HeroImageSectionChunk, Component: getbundle('hero-image') },
         'hero-slider-with-text': { ...HeroSliderWithTextSectionChunk, Component: getbundle('hero-slider-with-text') },
         'hero-video': { ...HeroVideoSectionChunk, Component: getbundle('hero-video') },

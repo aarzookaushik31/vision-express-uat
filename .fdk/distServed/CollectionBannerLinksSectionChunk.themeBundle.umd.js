@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["CollectionBannerLinksSectionChunk"],{
 
-/***/ "./theme/sections/collection-banner-links.jsx":
+/***/ "./theme/sections/collection-banner-links.jsx"
 /*!****************************************************!*\
   !*** ./theme/sections/collection-banner-links.jsx ***!
   \****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -161,13 +161,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/collection-banner-links.less":
+/***/ "./theme/styles/sections/collection-banner-links.less"
 /*!************************************************************!*\
   !*** ./theme/styles/sections/collection-banner-links.less ***!
   \************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"infoBlocksSection\":\"theme-styles-sections-collection-banner-links__infoBlocksSection--uVkn8\",\"block\":\"theme-styles-sections-collection-banner-links__block--gRBWW\",\"content\":\"theme-styles-sections-collection-banner-links__content--s7V1t\",\"arrow\":\"theme-styles-sections-collection-banner-links__arrow--pIvVa\"}";
-        // 1771504637853
+        // 1773821708350
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -198,6 +198,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

@@ -192,6 +192,30 @@ const ProductCard = ({
   };
 
 
+
+  const getShadeImage = (medias) => {
+  if (!Array.isArray(medias)) return "";
+
+  const image99 = medias.find((media) =>
+    media?.url?.toLowerCase().includes("-99")
+  );
+
+  if (image99) return image99.url;
+
+  const imageList = medias.filter((m) => m.type === "image");
+  const lastImage = imageList[imageList.length - 1];
+
+  return lastImage?.url || "";
+};
+
+
+  const displayTag =
+  product?.attributes?.displaytag &&
+  Array.isArray(product.attributes.displaytag) &&
+  product.attributes.displaytag.length > 0
+    ? product.attributes.displaytag[0]
+    : null;
+
  
 
 
@@ -203,6 +227,17 @@ const ProductCard = ({
         styles[customClass[2]]
       } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
     > 
+
+
+
+
+{displayTag && (
+  <div className={styles.displayTagContainer}>
+    <span>{displayTag}</span>
+  </div>
+)}
+
+
       <div className={styles.imageContainer}>
         {!isMobile && showImageOnHover && hoverImageUrl && (
           <FyImage
@@ -266,41 +301,62 @@ const ProductCard = ({
         <div className={styles.productDesc}>
 
 
-                {shadeVariantsCount !== 0 && (
-            <div className={styles.productVariants}>
-              <div className={`${styles.shade} ${styles.currentShade}`}>
-                <div
-                  className={styles.shadeColor}
-                 style={{
-    backgroundColor: currentShade?.color
-      ? `#${currentShade.color}`
-      : `${currentShade.color_name}`, 
-  }}
-                ></div>
-          
-              </div>
-             
-               
-                  {variants &&
-                    variants.map((variantItem) => (
-                      <div className={`${styles.shade} ${styles.allShades}`}>
-                      <div
-                        key={variantItem.uid}
-                        className={styles.shadeColor}
-                       style={{
-    backgroundColor: variantItem?.color
-      ? `#${variantItem.color}`
-      : `${variantItem.color_name}`, 
-  }}
-                      ></div>
-                      </div>
-                    ))}
-                
 
-            
-            </div>
-          )}
+{shadeVariantsCount !== 0 && (
+  <div className={styles.productVariants}>
 
+    {/* CURRENT SHADE */}
+   <div className={`${styles.shade} ${styles.currentShade}`}>
+  {getShadeImage(currentShade?.medias) ? (
+    <img
+      src={getShadeImage(currentShade?.medias)}
+      alt={currentShade?.name}
+      className={styles.shadeImage}
+    />
+  ) : (
+    <div
+      className={styles.shadeColor}
+      style={{
+        backgroundColor: currentShade?.color
+          ? `#${currentShade.color}`
+          : currentShade?.color_name,
+      }}
+    />
+  )}
+</div>
+
+ 
+
+{variants?.map((variantItem) => (
+  <div
+    key={variantItem.uid}
+    className={`${styles.shade} ${styles.allShades}`}
+  >
+    {getShadeImage(variantItem?.medias) ? (
+      <img
+        src={getShadeImage(variantItem?.medias)}
+        alt={variantItem?.name}
+        className={styles.shadeImage}
+      />
+    ) : (
+      <div
+        className={styles.shadeColor}
+        style={{
+          backgroundColor: variantItem?.color
+            ? `#${variantItem.color}`
+            : variantItem?.color_name,
+        }}
+      />
+    )}
+  </div>
+))}
+
+
+
+  </div>
+)}
+
+       
           
 
 

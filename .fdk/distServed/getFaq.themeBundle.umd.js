@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["getFaq"],{
 
-/***/ "./theme/assets/images/no-faq.svg":
+/***/ "./theme/assets/images/no-faq.svg"
 /*!****************************************!*\
   !*** ./theme/assets/images/no-faq.svg ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -94,13 +94,13 @@ var SvgNoFaq = function SvgNoFaq(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgNoFaq);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/components/empty-state/empty-state.jsx":
+/***/ "./theme/components/empty-state/empty-state.jsx"
 /*!******************************************************!*\
   !*** ./theme/components/empty-state/empty-state.jsx ***!
   \******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -198,50 +198,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/components/empty-state/empty-state.less":
-/*!*******************************************************!*\
-  !*** ./theme/components/empty-state/empty-state.less ***!
-  \*******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-empty-state-empty-state__login-auth-container--QRhAL","n2oQ6":"theme-components-empty-state-empty-state__n2oQ6--YUoF0","uiz1K":"theme-components-empty-state-empty-state__uiz1K--MjQoE","P1CJx":"theme-components-empty-state-empty-state__P1CJx--UztJm","kkBOU":"theme-components-empty-state-empty-state__kkBOU--TSZbD","react-international-phone-country-selector-button":"theme-components-empty-state-empty-state__react-international-phone-country-selector-button--XlsBN","react-international-phone-input":"theme-components-empty-state-empty-state__react-international-phone-input--pXdGc","forget-password-container":"theme-components-empty-state-empty-state__forget-password-container--QtmTB","profile-navigation-container":"theme-components-empty-state-empty-state__profile-navigation-container--snosd","ojp_C":"theme-components-empty-state-empty-state__ojp_C--vXWB7","O32OW":"theme-components-empty-state-empty-state__O32OW--MkFbc","collection-hero-banner":"theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk","collection-banner-img":"theme-components-empty-state-empty-state__collection-banner-img--Z87XN","collection-unofficial":"theme-components-empty-state-empty-state__collection-unofficial--YVhgB","collection-dbyd":"theme-components-empty-state-empty-state__collection-dbyd--OjkVw","collection-banner-img-mobile":"theme-components-empty-state-empty-state__collection-banner-img-mobile--TbSQl","collection-banner-content":"theme-components-empty-state-empty-state__collection-banner-content--VETKH","custom-banner-card":"theme-components-empty-state-empty-state__custom-banner-card--nmOUy","banner-overlay":"theme-components-empty-state-empty-state__banner-overlay--Rh50f","banner-content":"theme-components-empty-state-empty-state__banner-content--jV0Be","banner-btn":"theme-components-empty-state-empty-state__banner-btn--XVLMG","flexColumn":"theme-components-empty-state-empty-state__flexColumn--qwQk1","flexAlignCenter":"theme-components-empty-state-empty-state__flexAlignCenter--1KKSw","flexCenter":"theme-components-empty-state-empty-state__flexCenter--jHJBu","justifyStart":"theme-components-empty-state-empty-state__justifyStart--HXBSt","justifyBetween":"theme-components-empty-state-empty-state__justifyBetween--z740Y","slick-dots":"theme-components-empty-state-empty-state__slick-dots--Cn3ER","slick-active":"theme-components-empty-state-empty-state__slick-active--ZPFI7","legal-data-container":"theme-components-empty-state-empty-state__legal-data-container--yBVVP","error":"theme-components-empty-state-empty-state__error--Epp_c","icon":"theme-components-empty-state-empty-state__icon--mH1f7","heading":"theme-components-empty-state-empty-state__heading--O32OW","description":"theme-components-empty-state-empty-state__description--MCpQL","button":"theme-components-empty-state-empty-state__button--YJFNO"});
-    if(true) {
-      (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-components-empty-state-empty-state__login-auth-container--QRhAL\",\"n2oQ6\":\"theme-components-empty-state-empty-state__n2oQ6--YUoF0\",\"uiz1K\":\"theme-components-empty-state-empty-state__uiz1K--MjQoE\",\"P1CJx\":\"theme-components-empty-state-empty-state__P1CJx--UztJm\",\"kkBOU\":\"theme-components-empty-state-empty-state__kkBOU--TSZbD\",\"react-international-phone-country-selector-button\":\"theme-components-empty-state-empty-state__react-international-phone-country-selector-button--XlsBN\",\"react-international-phone-input\":\"theme-components-empty-state-empty-state__react-international-phone-input--pXdGc\",\"forget-password-container\":\"theme-components-empty-state-empty-state__forget-password-container--QtmTB\",\"profile-navigation-container\":\"theme-components-empty-state-empty-state__profile-navigation-container--snosd\",\"ojp_C\":\"theme-components-empty-state-empty-state__ojp_C--vXWB7\",\"O32OW\":\"theme-components-empty-state-empty-state__O32OW--MkFbc\",\"collection-hero-banner\":\"theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk\",\"collection-banner-img\":\"theme-components-empty-state-empty-state__collection-banner-img--Z87XN\",\"collection-unofficial\":\"theme-components-empty-state-empty-state__collection-unofficial--YVhgB\",\"collection-dbyd\":\"theme-components-empty-state-empty-state__collection-dbyd--OjkVw\",\"collection-banner-img-mobile\":\"theme-components-empty-state-empty-state__collection-banner-img-mobile--TbSQl\",\"collection-banner-content\":\"theme-components-empty-state-empty-state__collection-banner-content--VETKH\",\"custom-banner-card\":\"theme-components-empty-state-empty-state__custom-banner-card--nmOUy\",\"banner-overlay\":\"theme-components-empty-state-empty-state__banner-overlay--Rh50f\",\"banner-content\":\"theme-components-empty-state-empty-state__banner-content--jV0Be\",\"banner-btn\":\"theme-components-empty-state-empty-state__banner-btn--XVLMG\",\"flexColumn\":\"theme-components-empty-state-empty-state__flexColumn--qwQk1\",\"flexAlignCenter\":\"theme-components-empty-state-empty-state__flexAlignCenter--1KKSw\",\"flexCenter\":\"theme-components-empty-state-empty-state__flexCenter--jHJBu\",\"justifyStart\":\"theme-components-empty-state-empty-state__justifyStart--HXBSt\",\"justifyBetween\":\"theme-components-empty-state-empty-state__justifyBetween--z740Y\",\"slick-dots\":\"theme-components-empty-state-empty-state__slick-dots--Cn3ER\",\"slick-active\":\"theme-components-empty-state-empty-state__slick-active--ZPFI7\",\"legal-data-container\":\"theme-components-empty-state-empty-state__legal-data-container--yBVVP\",\"error\":\"theme-components-empty-state-empty-state__error--Epp_c\",\"icon\":\"theme-components-empty-state-empty-state__icon--mH1f7\",\"heading\":\"theme-components-empty-state-empty-state__heading--O32OW\",\"description\":\"theme-components-empty-state-empty-state__description--MCpQL\",\"button\":\"theme-components-empty-state-empty-state__button--YJFNO\"}";
-        // 1771504629811
-        var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./theme/pages/faq.jsx":
+/***/ "./theme/pages/faq.jsx"
 /*!*****************************!*\
   !*** ./theme/pages/faq.jsx ***!
   \*****************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -397,13 +360,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/queries/faqQuery.js":
+/***/ "./theme/queries/faqQuery.js"
 /*!***********************************!*\
   !*** ./theme/queries/faqQuery.js ***!
   \***********************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -475,13 +438,50 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/faq.less":
+/***/ "./theme/components/empty-state/empty-state.less"
+/*!*******************************************************!*\
+  !*** ./theme/components/empty-state/empty-state.less ***!
+  \*******************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-components-empty-state-empty-state__login-auth-container--QRhAL","n2oQ6":"theme-components-empty-state-empty-state__n2oQ6--YUoF0","uiz1K":"theme-components-empty-state-empty-state__uiz1K--MjQoE","P1CJx":"theme-components-empty-state-empty-state__P1CJx--UztJm","kkBOU":"theme-components-empty-state-empty-state__kkBOU--TSZbD","react-international-phone-country-selector-button":"theme-components-empty-state-empty-state__react-international-phone-country-selector-button--XlsBN","react-international-phone-input":"theme-components-empty-state-empty-state__react-international-phone-input--pXdGc","forget-password-container":"theme-components-empty-state-empty-state__forget-password-container--QtmTB","profile-navigation-container":"theme-components-empty-state-empty-state__profile-navigation-container--snosd","ojp_C":"theme-components-empty-state-empty-state__ojp_C--vXWB7","O32OW":"theme-components-empty-state-empty-state__O32OW--MkFbc","collection-hero-banner":"theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk","collection-banner-img":"theme-components-empty-state-empty-state__collection-banner-img--Z87XN","collection-unofficial":"theme-components-empty-state-empty-state__collection-unofficial--YVhgB","collection-dbyd":"theme-components-empty-state-empty-state__collection-dbyd--OjkVw","collection-banner-img-mobile":"theme-components-empty-state-empty-state__collection-banner-img-mobile--TbSQl","collection-banner-content":"theme-components-empty-state-empty-state__collection-banner-content--VETKH","custom-banner-card":"theme-components-empty-state-empty-state__custom-banner-card--nmOUy","banner-overlay":"theme-components-empty-state-empty-state__banner-overlay--Rh50f","banner-content":"theme-components-empty-state-empty-state__banner-content--jV0Be","banner-btn":"theme-components-empty-state-empty-state__banner-btn--XVLMG","flexColumn":"theme-components-empty-state-empty-state__flexColumn--qwQk1","flexAlignCenter":"theme-components-empty-state-empty-state__flexAlignCenter--1KKSw","flexCenter":"theme-components-empty-state-empty-state__flexCenter--jHJBu","justifyStart":"theme-components-empty-state-empty-state__justifyStart--HXBSt","justifyBetween":"theme-components-empty-state-empty-state__justifyBetween--z740Y","slick-dots":"theme-components-empty-state-empty-state__slick-dots--Cn3ER","slick-active":"theme-components-empty-state-empty-state__slick-active--ZPFI7","section_glamar-sdk-binding":"theme-components-empty-state-empty-state__section_glamar-sdk-binding--zc409","legal-data-container":"theme-components-empty-state-empty-state__legal-data-container--yBVVP","error":"theme-components-empty-state-empty-state__error--Epp_c","icon":"theme-components-empty-state-empty-state__icon--mH1f7","heading":"theme-components-empty-state-empty-state__heading--O32OW","description":"theme-components-empty-state-empty-state__description--MCpQL","button":"theme-components-empty-state-empty-state__button--YJFNO"});
+    if(true) {
+      (function() {
+        var localsJsonString = "{\"login-auth-container\":\"theme-components-empty-state-empty-state__login-auth-container--QRhAL\",\"n2oQ6\":\"theme-components-empty-state-empty-state__n2oQ6--YUoF0\",\"uiz1K\":\"theme-components-empty-state-empty-state__uiz1K--MjQoE\",\"P1CJx\":\"theme-components-empty-state-empty-state__P1CJx--UztJm\",\"kkBOU\":\"theme-components-empty-state-empty-state__kkBOU--TSZbD\",\"react-international-phone-country-selector-button\":\"theme-components-empty-state-empty-state__react-international-phone-country-selector-button--XlsBN\",\"react-international-phone-input\":\"theme-components-empty-state-empty-state__react-international-phone-input--pXdGc\",\"forget-password-container\":\"theme-components-empty-state-empty-state__forget-password-container--QtmTB\",\"profile-navigation-container\":\"theme-components-empty-state-empty-state__profile-navigation-container--snosd\",\"ojp_C\":\"theme-components-empty-state-empty-state__ojp_C--vXWB7\",\"O32OW\":\"theme-components-empty-state-empty-state__O32OW--MkFbc\",\"collection-hero-banner\":\"theme-components-empty-state-empty-state__collection-hero-banner--u1Uzk\",\"collection-banner-img\":\"theme-components-empty-state-empty-state__collection-banner-img--Z87XN\",\"collection-unofficial\":\"theme-components-empty-state-empty-state__collection-unofficial--YVhgB\",\"collection-dbyd\":\"theme-components-empty-state-empty-state__collection-dbyd--OjkVw\",\"collection-banner-img-mobile\":\"theme-components-empty-state-empty-state__collection-banner-img-mobile--TbSQl\",\"collection-banner-content\":\"theme-components-empty-state-empty-state__collection-banner-content--VETKH\",\"custom-banner-card\":\"theme-components-empty-state-empty-state__custom-banner-card--nmOUy\",\"banner-overlay\":\"theme-components-empty-state-empty-state__banner-overlay--Rh50f\",\"banner-content\":\"theme-components-empty-state-empty-state__banner-content--jV0Be\",\"banner-btn\":\"theme-components-empty-state-empty-state__banner-btn--XVLMG\",\"flexColumn\":\"theme-components-empty-state-empty-state__flexColumn--qwQk1\",\"flexAlignCenter\":\"theme-components-empty-state-empty-state__flexAlignCenter--1KKSw\",\"flexCenter\":\"theme-components-empty-state-empty-state__flexCenter--jHJBu\",\"justifyStart\":\"theme-components-empty-state-empty-state__justifyStart--HXBSt\",\"justifyBetween\":\"theme-components-empty-state-empty-state__justifyBetween--z740Y\",\"slick-dots\":\"theme-components-empty-state-empty-state__slick-dots--Cn3ER\",\"slick-active\":\"theme-components-empty-state-empty-state__slick-active--ZPFI7\",\"section_glamar-sdk-binding\":\"theme-components-empty-state-empty-state__section_glamar-sdk-binding--zc409\",\"legal-data-container\":\"theme-components-empty-state-empty-state__legal-data-container--yBVVP\",\"error\":\"theme-components-empty-state-empty-state__error--Epp_c\",\"icon\":\"theme-components-empty-state-empty-state__icon--mH1f7\",\"heading\":\"theme-components-empty-state-empty-state__heading--O32OW\",\"description\":\"theme-components-empty-state-empty-state__description--MCpQL\",\"button\":\"theme-components-empty-state-empty-state__button--YJFNO\"}";
+        // 1773821700270
+        var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./theme/styles/faq.less"
 /*!*******************************!*\
   !*** ./theme/styles/faq.less ***!
   \*******************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -492,7 +492,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"faqHeaderWrapper\":\"theme-styles-faq__faqHeaderWrapper--_q0Ou\",\"faqCategories\":\"theme-styles-faq__faqCategories--uOzk6\",\"faqCategoryButton\":\"theme-styles-faq__faqCategoryButton--hYN2W\",\"activeFAQCategory\":\"theme-styles-faq__activeFAQCategory--M11wm\",\"faqList\":\"theme-styles-faq__faqList--jKWFg\",\"loadingfaqtext\":\"theme-styles-faq__loadingfaqtext--MV5ig\",\"faqItem\":\"theme-styles-faq__faqItem--ONkN0\",\"faqQuestion\":\"theme-styles-faq__faqQuestion--dsiAv\",\"activeFAQ\":\"theme-styles-faq__activeFAQ--X4alI\",\"faqAnswer\":\"theme-styles-faq__faqAnswer--TZovZ\"}";
-        // 1771504620472
+        // 1773821689606
         var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -512,6 +512,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

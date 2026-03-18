@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["LensCatalogueSectionChunk"],{
 
-/***/ "./theme/sections/lens-catalogue.jsx":
+/***/ "./theme/sections/lens-catalogue.jsx"
 /*!*******************************************!*\
   !*** ./theme/sections/lens-catalogue.jsx ***!
   \*******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -197,19 +197,19 @@ function LensCatalogueTabs({
       alt: "logo"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, description?.value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRowContainer
-    }, near_filled?.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    }, Number(near_filled?.value) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: `${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].nearFilledContainer} ${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRow}`
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRowText
     }, "Near"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].rowBlocks
-    }, renderFilledSpans(near_filled.value))), intermediate_filled?.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    }, renderFilledSpans(near_filled.value))), Number(intermediate_filled?.value) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: `${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].intermediateFilledContainer} ${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRow}`
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRowText
     }, "Intermediate"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].rowBlocks
-    }, renderFilledSpans(intermediate_filled.value))), far_filled?.value && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    }, renderFilledSpans(intermediate_filled.value))), Number(far_filled?.value) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: `${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].farFilledContainer} ${_styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRow}`
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
       className: _styles_sections_lens_catalogue_less__WEBPACK_IMPORTED_MODULE_1__["default"].visionRowText
@@ -395,13 +395,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/lens-catalogue.less":
+/***/ "./theme/styles/sections/lens-catalogue.less"
 /*!***************************************************!*\
   !*** ./theme/styles/sections/lens-catalogue.less ***!
   \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -412,7 +412,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"banner\":\"theme-styles-sections-lens-catalogue__banner--v308t\",\"heading\":\"theme-styles-sections-lens-catalogue__heading--e7uZd\",\"subheading\":\"theme-styles-sections-lens-catalogue__subheading--wDh9q\",\"tabs\":\"theme-styles-sections-lens-catalogue__tabs--oAMe3\",\"tab\":\"theme-styles-sections-lens-catalogue__tab--hnSq7\",\"tabTitle\":\"theme-styles-sections-lens-catalogue__tabTitle--SecB_\",\"tabDesc\":\"theme-styles-sections-lens-catalogue__tabDesc--SVyYh\",\"active\":\"theme-styles-sections-lens-catalogue__active--FVP9l\",\"blocks\":\"theme-styles-sections-lens-catalogue__blocks--dk7Wq\",\"block\":\"theme-styles-sections-lens-catalogue__block--eQl7D\",\"imageLeft\":\"theme-styles-sections-lens-catalogue__imageLeft--oxZ30\",\"imageRight\":\"theme-styles-sections-lens-catalogue__imageRight--yrfiW\",\"blockImageWrapper\":\"theme-styles-sections-lens-catalogue__blockImageWrapper--gTqfa\",\"blockContent\":\"theme-styles-sections-lens-catalogue__blockContent--dJr4Y\",\"blockContentHeader\":\"theme-styles-sections-lens-catalogue__blockContentHeader--O_yoJ\",\"blockLogo\":\"theme-styles-sections-lens-catalogue__blockLogo--MSbIv\",\"featureLogo\":\"theme-styles-sections-lens-catalogue__featureLogo--Q8cXq\",\"visionRowContainer\":\"theme-styles-sections-lens-catalogue__visionRowContainer--tB6nL\",\"visionRow\":\"theme-styles-sections-lens-catalogue__visionRow--DsHQh\",\"visionRowText\":\"theme-styles-sections-lens-catalogue__visionRowText--QT5Wr\",\"rowBlocks\":\"theme-styles-sections-lens-catalogue__rowBlocks--FQsNc\",\"visionBlock\":\"theme-styles-sections-lens-catalogue__visionBlock--KSfMt\",\"filled\":\"theme-styles-sections-lens-catalogue__filled--PVR7B\"}";
-        // 1771504636305
+        // 1773821706710
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -432,6 +432,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

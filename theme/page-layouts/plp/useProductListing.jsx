@@ -12,7 +12,7 @@ import {
   getProductImgAspectRatio,
   isRunningOnClient,
 } from "../../helper/utils";
-import productPlaceholder from "../../assets/images/placeholder3x4.png";
+import productPlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import useAddToCartModal from "./useAddToCartModal";
 import { useAccounts, useWishlist, useThemeConfig } from "../../helper/hooks";
 import useInternational from "../../components/header/useInternational";
@@ -324,7 +324,7 @@ const useProductListing = ({ fpi, props }) => {
   navigate?.({
     pathname: location?.pathname,
     search: searchParams?.toString(),
-  });
+  } );
 };
 
 
@@ -466,9 +466,11 @@ const useProductListing = ({ fpi, props }) => {
 
   const handleWishlistToggle = (data) => {
     if (!isLoggedIn) {
-      openLogin();
-      return;
-    }
+    localStorage.setItem("pendingWishlistProduct", JSON.stringify(data));
+    openLogin({ redirectUrl: "/wishlist" });
+    return;
+  }
+
     toggleWishlist(data);
   };
 

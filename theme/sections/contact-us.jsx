@@ -32,7 +32,8 @@ function Component({ props = {} }) {
     const isValidEmail = (val) =>
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,6}){1,2}$/.test(val);
 
-    const isValidPhone = (val) => /^\+?[0-9\s]{6,15}$/.test(val);
+  const isValidPhone = (val) =>
+  /^\d{10}$/.test(val) && !/^(\d)\1{9}$/.test(val);
 
     const isValidName = (val) => /^[a-zA-Z0-9\s.'-]{2,50}$/.test(val);
 
@@ -40,7 +41,7 @@ function Component({ props = {} }) {
       typeof val === "string" && val.length <= 500;
 
     const rawName = sanitize(params.get("name"));
-    const rawPhone = sanitize(params.get("phone"));
+   const rawPhone = sanitize(params.get("phone")).replace(/\D/g, "");
     const rawEmail = sanitize(params.get("email"));
     const rawComment = sanitize(params.get("message"));
 
@@ -65,6 +66,20 @@ function Component({ props = {} }) {
 
   const handleSubmitForm = (data) => {
     try {
+
+       const isValidPhone =
+      /^\d{10}$/.test(data?.phone || "") &&
+      !/^(\d)\1{9}$/.test(data?.phone || "");
+
+    if (data?.phone && !isValidPhone) {
+      console.log("form error")
+      showSnackbar("Please enter a valid 10 digit mobile number", "error");
+      window.alert("form error")
+      return;
+    }
+
+
+
       let finalText = "";
       if (data?.name) {
         finalText += `<b>${t("resource.header.shop_logo_alt_text")}: </b>${data?.name}<br>`;

@@ -4043,6 +4043,7 @@ h5,
 .theme-page-layouts-profile-styles-profile-shipment-update-page__login-auth-container--APFUg [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-page-layouts-profile-styles-profile-shipment-update-page__login-auth-container--APFUg [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -4111,9 +4112,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-page-layouts-profile-styles-profile-shipment-update-page__login-auth-container--APFUg .theme-page-layouts-profile-styles-profile-shipment-update-page__react-international-phone-input--JN2io {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -4518,6 +4520,15 @@ html body * {
 }
 .theme-page-layouts-profile-styles-profile-shipment-update-page__slick-dots--bI48z {
   transform: translate(-50%, 100%) !important;
+}
+#theme-page-layouts-profile-styles-profile-shipment-update-page__section_glamar-sdk-binding--mTiKB button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-page-layouts-profile-styles-profile-shipment-update-page__legal-data-container--geZaT {
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -4943,6 +4954,7 @@ html body * {
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -5011,9 +5023,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL .theme-components-empty-state-empty-state__react-international-phone-input--pXdGc {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -5418,6 +5431,15 @@ html body * {
 }
 .theme-components-empty-state-empty-state__slick-dots--Cn3ER {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-empty-state-empty-state__section_glamar-sdk-binding--zc409 button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-empty-state-empty-state__legal-data-container--yBVVP {
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -6048,6 +6070,7 @@ h5,
 .theme-components-orders-styles-add-payment__login-auth-container--D0EsC [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-orders-styles-add-payment__login-auth-container--D0EsC [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -6116,9 +6139,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-orders-styles-add-payment__login-auth-container--D0EsC .theme-components-orders-styles-add-payment__react-international-phone-input--B6TF9 {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -6524,6 +6548,15 @@ html body * {
 .theme-components-orders-styles-add-payment__slick-dots--Ubiku {
   transform: translate(-50%, 100%) !important;
 }
+#theme-components-orders-styles-add-payment__section_glamar-sdk-binding--Ppf0t button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-components-orders-styles-add-payment__legal-data-container--EGUjA {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -6795,6 +6828,7 @@ html body * {
 .theme-components-core-modal-modal__login-auth-container--OiBtY [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-core-modal-modal__login-auth-container--OiBtY [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -6863,9 +6897,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-core-modal-modal__login-auth-container--OiBtY .theme-components-core-modal-modal__react-international-phone-input--XsbCU {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -7271,6 +7306,15 @@ html body * {
 .theme-components-core-modal-modal__slick-dots--VS5Mx {
   transform: translate(-50%, 100%) !important;
 }
+#theme-components-core-modal-modal__section_glamar-sdk-binding--CIhKg button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-components-core-modal-modal__legal-data-container--aNcEI {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -7429,6 +7473,7 @@ html body * {
 .theme-components-orders-styles-payment-list__login-auth-container--vh3tP [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-orders-styles-payment-list__login-auth-container--vh3tP [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -7497,9 +7542,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-orders-styles-payment-list__login-auth-container--vh3tP .theme-components-orders-styles-payment-list__react-international-phone-input--RUlT3 {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -7905,6 +7951,15 @@ html body * {
 .theme-components-orders-styles-payment-list__slick-dots--bbcAF {
   transform: translate(-50%, 100%) !important;
 }
+#theme-components-orders-styles-payment-list__section_glamar-sdk-binding--J8t1y button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-components-orders-styles-payment-list__legal-data-container--PPRdt {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -8039,6 +8094,7 @@ html body * {
 .theme-components-refund-styles-bank-form__login-auth-container--Z5mLh [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-refund-styles-bank-form__login-auth-container--Z5mLh [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -8107,9 +8163,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-refund-styles-bank-form__login-auth-container--Z5mLh .theme-components-refund-styles-bank-form__react-international-phone-input--j7Vdf {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -8514,6 +8571,15 @@ html body * {
 }
 .theme-components-refund-styles-bank-form__slick-dots--jfJjm {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-refund-styles-bank-form__section_glamar-sdk-binding--KMLTT button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-refund-styles-bank-form__legal-data-container--f2710 {
   border: 1px solid rgba(0, 0, 0, 0.08);

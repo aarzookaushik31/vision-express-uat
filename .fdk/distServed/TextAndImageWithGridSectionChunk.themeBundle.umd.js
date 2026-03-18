@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["TextAndImageWithGridSectionChunk"],{
 
-/***/ "./theme/sections/text-and-image-with-grid.jsx":
+/***/ "./theme/sections/text-and-image-with-grid.jsx"
 /*!*****************************************************!*\
   !*** ./theme/sections/text-and-image-with-grid.jsx ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -209,13 +209,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/text-and-image-with-grid.less":
+/***/ "./theme/styles/sections/text-and-image-with-grid.less"
 /*!*************************************************************!*\
   !*** ./theme/styles/sections/text-and-image-with-grid.less ***!
   \*************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -226,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"imageGridSection\":\"theme-styles-sections-text-and-image-with-grid__imageGridSection--V_9nO\",\"container\":\"theme-styles-sections-text-and-image-with-grid__container--o3scl\",\"mobileOnly\":\"theme-styles-sections-text-and-image-with-grid__mobileOnly--Ycb3x\",\"ctaButton\":\"theme-styles-sections-text-and-image-with-grid__ctaButton--b19SD\",\"leftContent\":\"theme-styles-sections-text-and-image-with-grid__leftContent--rdNHO\",\"rightGrid\":\"theme-styles-sections-text-and-image-with-grid__rightGrid--sY2hq\",\"imageCard\":\"theme-styles-sections-text-and-image-with-grid__imageCard--MFfTd\",\"imageWrapper\":\"theme-styles-sections-text-and-image-with-grid__imageWrapper--d6c7e\",\"mobileImg\":\"theme-styles-sections-text-and-image-with-grid__mobileImg--LJDx5\",\"overlay\":\"theme-styles-sections-text-and-image-with-grid__overlay--OXQME\",\"desktopOnly\":\"theme-styles-sections-text-and-image-with-grid__desktopOnly--y6KF9\"}";
-        // 1771504631983
+        // 1773821701241
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -246,6 +246,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

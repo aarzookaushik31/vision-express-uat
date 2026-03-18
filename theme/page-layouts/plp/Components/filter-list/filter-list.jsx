@@ -112,11 +112,18 @@ function FilterList({
 
   const filterClicked = (item) => {
     onFilterUpdate({ filter, item });
-    if (window) {
-      window?.scrollTo({
-        top: 0,
-      });
-    }
+   const grid = document.querySelector(".plpwrappercustomgrid");
+
+  if (grid) {
+        const offset = 110;
+    const elementPosition = grid.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth",
+    });
+
+  }
   };
 
   const handleSliderUpdate = ({ minValue, maxValue, value, filter }) => {

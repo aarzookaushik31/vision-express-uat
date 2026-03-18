@@ -24,6 +24,7 @@ import {
 } from "fdk-core/utils";
 // import { loginUserInFb } from '../../helper/facebook.utils';
 // import { renderButton } from '../../helper/google.utils';
+import { } from "./useWishlist";
 
 export const useAccounts = ({ fpi }) => {
   const { locale } = useParams();
@@ -38,21 +39,23 @@ export const useAccounts = ({ fpi }) => {
   const platformData = useGlobalStore(fpi.getters.PLATFORM_DATA);
   const isLoggedIn = useGlobalStore(fpi.getters.LOGGED_IN);
 
-  const openLogin = ({ redirect = true } = {}) => {
-    const queryParams = isRunningOnClient()
-      ? new URLSearchParams(location.search)
-      : null;
-    if (redirect) {
-      queryParams?.set(
-        "redirectUrl",
-        encodeURIComponent(location.pathname + location.search)
-      );
-    }
-    navigate?.(
-      "/auth/login" +
-        (queryParams?.toString() ? `?${queryParams.toString()}` : "")
+const openLogin = ({ redirect = true, redirectUrl = null } = {}) => {
+  const queryParams = isRunningOnClient()
+    ? new URLSearchParams(location.search)
+    : null;
+
+  if (redirect) {
+    queryParams?.set(
+      "redirectUrl",
+      redirectUrl || (location.pathname + location.search)
     );
-  };
+  }
+  
+  navigate?.(
+    "/auth/login" +
+      (queryParams?.toString() ? `?${queryParams.toString()}` : "")
+  );
+};
 
   const openRegister = ({ redirect = true } = {}) => {
     const queryParams = isRunningOnClient()

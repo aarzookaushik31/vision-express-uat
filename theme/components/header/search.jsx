@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, time } from "framer-motion";
 import {
   isRunningOnClient,
   debounce,
@@ -15,6 +15,7 @@ import { SEARCH_PRODUCT, AUTOCOMPLETE } from "../../queries/headerQuery";
 import { useGlobalTranslation, useNavigate } from "fdk-core/utils";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useGlobalStore } from "fdk-core/utils";
+import MobileSlider from "../../page-layouts/plp/Components/mobile-slider/mobile-slider";
 
 function Search({
   screen,
@@ -128,6 +129,7 @@ function Search({
     []
   );
   const redirectToProduct = (link) => {
+     inputRef.current?.blur(); 
     navigate(link);
     closeSearch();
     setSearchText("");
@@ -206,28 +208,36 @@ function Search({
                 className={`${styles["search__input--text"]} ${isSearchFocused ? styles["search__input--removeSpace"] : ""}`.trim()}
                 type="text"
                 id="searchInput"
+                enterKeyHint="search"
                 autoComplete="off"
                 defaultValue={searchText}
                 placeholder={
-                  isDoubleRowHeader ? "Search 3800+ Products, 100+ Stores" : ""
+                  isDoubleRowHeader ? "Search 3800+ Products in 100+ Stores" : ""
                 }
                 onChange={(e) => setEnterSearchData(e)}
-                onKeyUp={(e) =>
-                  e.key === "Enter" &&
-                  e.target?.value &&
-                  redirectToProduct(`/products/?q=${e.target?.value}`)
-                }
+                onKeyDown={(e) => {
+  if ((e.key === "Enter" || e.keyCode === 13) && e.target.value?.trim()) {
+      e.preventDefault();
+      inputRef.current?.blur();
+      redirectToProduct(`/products/?q=${e.target.value}`);
+    }
+}}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={checkInput}
                 aria-labelledby="search-input-label"
                 aria-label="search-input-label"
               />
-              {!isSearchFocused && (
+              
                 <InputSearchIcon
                   className={styles["search__input--search-icon"]}
-                  onClick={() => getEnterSearchData(searchText)}
+                onClick={() => {
+  if (searchText?.trim()) {
+    redirectToProduct(`/products/?q=${searchText}`);
+  } else{
+     inputRef.current?.focus();
+  }
+}}
                 />
-              )}
               {/* eslint-disable jsx-a11y/label-has-associated-control */}
               <label
                 htmlFor="searchInput"
@@ -301,10 +311,7 @@ function Search({
                     </ul>
                     <ul
                       style={{
-                        display:
-                          searchData?.length === 0 && showSearch
-                            ? "block"
-                            : "none",
+display: searchData?.length === 0 && showSearchSuggestions ? "block" : "none",
                       }}
                     >
                       <button

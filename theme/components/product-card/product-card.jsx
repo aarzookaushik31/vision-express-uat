@@ -11,7 +11,7 @@
  * @param {number} [props.aspectRatio=0.8] - Aspect ratio for the product image.
  * @param {boolean} [props.isBrand=true] - Flag to display the brand name.
  * @param {boolean} [props.isPrice=true] - Flag to display the price.
- * @param {boolean} [props.isSaleBadge=true] - Flag to display a sale badge if applicable.
+ * @param {boolean} [props.isSaleBadge=false] - Flag to display a sale badge if applicable.
  * @param {boolean} [props.isWishlistIcon=true] - Flag to display a wishlist icon.
  * @param {boolean} [props.isImageFill=false] - Flag to determine if the image should fill its container.
  * @param {boolean} [props.showImageOnHover=false] - Flag to show a different image on hover.
@@ -41,7 +41,8 @@ import  styles from "./product-card.less";
 import FyButton from "../core/fy-button/fy-button";
 import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
 import WishlistIcon from "../../assets/images/wishlist";
-
+import imagePlaceholder from "../../assets/images/placeholder/no-product-image.png";
+import GlamARTrigger from "../GlamARTryOn/index.jsx";
 
 const ProductCard = ({
   product,
@@ -62,7 +63,7 @@ const ProductCard = ({
   isImageFill = false,
   showImageOnHover = false,
   imageBackgroundColor = "",
-  imagePlaceholder = "",
+  // imagePlaceholder = "",
   columnCount = { desktop: 4, tablet: 3, mobile: 1 },
   WishlistIconComponent = () => <SvgWrapper svgSrc="wishlist-plp" />,
   isRemoveIcon = false,
@@ -78,6 +79,7 @@ const ProductCard = ({
   showAddToCart = false,
   showBadge = true,
   isSlider = false,
+  hasGlamAR
 }) => {
   const { t } = useGlobalTranslation("translation");
   const fpi = useFPI();
@@ -86,7 +88,6 @@ const ProductCard = ({
   const countryCode = i18nDetails?.countryCode || "IN";
   const isMobile = useMobile();
 
-  
 
   const getListingPrice = (key) => {
     if (!product.price) return "";
@@ -189,10 +190,38 @@ const ProductCard = ({
   };
 
 
- 
+
+const getShadeImage = (medias) => {
+
+
+  if (!Array.isArray(medias)) return "";
+
+  const image99 = medias.find((media) =>
+    media?.url?.toLowerCase().includes("-99")
+  );
+
+  if (image99) return image99.url;
+
+  const imageList = medias.filter((m) => m.type === "image");
+  const lastImage = imageList[imageList.length - 1];
+
+  return lastImage?.url || "";
+};
+
+
+const displayTag =
+  product?.attributes?.displaytag &&
+  Array.isArray(product.attributes.displaytag) &&
+  product.attributes.displaytag.length > 0
+    ? product.attributes.displaytag[0]
+    : null;
+
+
+    
 
 
   return (
+  
     <div
       className={`productcard ${styles.productCard} ${
         !product.sellable ? styles.disableCursor : ""
@@ -200,6 +229,22 @@ const ProductCard = ({
         styles[customClass[2]]
       } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
     > 
+
+{hasGlamAR && (
+    <GlamARTrigger 
+   accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+   sku={product?.item_code}
+/>
+)}
+
+
+{displayTag && (
+  <div className={styles.displayTagContainer}>
+    <span>{displayTag}</span>
+  </div>
+)}
+
+
       <div className={styles.imageContainer}>
         {!isMobile && showImageOnHover && hoverImageUrl && (
           <FyImage
@@ -239,7 +284,7 @@ const ProductCard = ({
             <RemoveIconComponent />
           </button>
         )}
-        {!product.sellable ? (
+        {/* {!product.sellable ? (
           <div className={`${styles.badge} ${styles.outOfStock}`}>
             <span className={`${styles.text} ${styles.captionNormal}`}>
               {t("resource.common.out_of_stock")}
@@ -257,46 +302,64 @@ const ProductCard = ({
               {t("resource.common.sale")}
             </span>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
       <div className={styles.productDescContainer}>
         <div className={styles.productDesc}>
 
+{shadeVariantsCount !== 0 && (
+  <div className={styles.productVariants}>
 
-                {shadeVariantsCount !== 0 && (
-            <div className={styles.productVariants}>
-              <div className={`${styles.shade} ${styles.currentShade}`}>
-                <div
-                  className={styles.shadeColor}
-                 style={{
-    backgroundColor: currentShade?.color
-      ? `#${currentShade.color}`
-      : `${currentShade.color_name}`, 
-  }}
-                ></div>
-          
-              </div>
-             
-               
-                  {variants &&
-                    variants.map((variantItem) => (
-                      <div className={`${styles.shade} ${styles.allShades}`}>
-                      <div
-                        key={variantItem.uid}
-                        className={styles.shadeColor}
-                       style={{
-    backgroundColor: variantItem?.color
-      ? `#${variantItem.color}`
-      : `${variantItem.color_name}`, 
-  }}
-                      ></div>
-                      </div>
-                    ))}
-                
+    {/* CURRENT SHADE */}
+   <div className={`${styles.shade} ${styles.currentShade}`}>
+  {getShadeImage(currentShade?.medias) ? (
+    <img
+      src={getShadeImage(currentShade?.medias)}
+      alt={currentShade?.name}
+      className={styles.shadeImage}
+    />
+  ) : (
+    <div
+      className={styles.shadeColor}
+      style={{
+        backgroundColor: currentShade?.color
+          ? `#${currentShade.color}`
+          : currentShade?.color_name,
+      }}
+    />
+  )}
+</div>
 
-            
-            </div>
-          )}
+ 
+
+{variants?.map((variantItem) => (
+  <div
+    key={variantItem.uid}
+    className={`${styles.shade} ${styles.allShades}`}
+  >
+    {getShadeImage(variantItem?.medias) ? (
+      <img
+        src={getShadeImage(variantItem?.medias)}
+        alt={variantItem?.name}
+        className={styles.shadeImage}
+      />
+    ) : (
+      <div
+        className={styles.shadeColor}
+        style={{
+          backgroundColor: variantItem?.color
+            ? `#${variantItem.color}`
+            : variantItem?.color_name,
+        }}
+      />
+    )}
+  </div>
+))}
+
+
+
+  </div>
+)}
 
           
 
@@ -314,6 +377,15 @@ const ProductCard = ({
             <div
               className={`${styles.productPrice} ${centerAlign ? styles.center : ""}`}
             >
+              <div>
+                {hasDiscount && (
+                <span
+                  className={`${styles["productPrice--regular"]} ${styles.captionNormal}`}
+                >
+                  {getListingPrice("marked")}
+                </span>
+              )}
+
               {product?.price?.effective && (
                 <span
                   className={`${styles["productPrice--sale"]} ${styles.h4}`}
@@ -321,18 +393,13 @@ const ProductCard = ({
                   {getListingPrice("effective")}
                 </span>
               )}
-              {hasDiscount && (
-                <span
-                  className={`${styles["productPrice--regular"]} ${styles.captionNormal}`}
-                >
-                  {getListingPrice("marked")}
-                </span>
-              )}
+              
+              </div>
               {product.discount && (
                 <span
                   className={`${styles["productPrice--discount"]} ${styles.captionNormal} ${centerAlign ? styles["productPrice--textCenter"] : ""}`}
                 >
-                  ({product.discount})
+                  {product.discount}
                 </span>
               )}
             </div>

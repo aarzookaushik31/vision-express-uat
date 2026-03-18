@@ -11398,6 +11398,7 @@ h5,
 .theme-styles-sections-cart-landing__login-auth-container--pKwsr [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-styles-sections-cart-landing__login-auth-container--pKwsr [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -11466,9 +11467,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-styles-sections-cart-landing__login-auth-container--pKwsr .theme-styles-sections-cart-landing__react-international-phone-input--Pnklg {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -11874,6 +11876,15 @@ html body * {
 .theme-styles-sections-cart-landing__slick-dots--p8mOR {
   transform: translate(-50%, 100%) !important;
 }
+#theme-styles-sections-cart-landing__section_glamar-sdk-binding--NPVrO button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-styles-sections-cart-landing__legal-data-container--TRJ2g {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -12169,6 +12180,7 @@ html body * {
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -12237,9 +12249,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-empty-state-empty-state__login-auth-container--QRhAL .theme-components-empty-state-empty-state__react-international-phone-input--pXdGc {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -12645,6 +12658,15 @@ html body * {
 .theme-components-empty-state-empty-state__slick-dots--Cn3ER {
   transform: translate(-50%, 100%) !important;
 }
+#theme-components-empty-state-empty-state__section_glamar-sdk-binding--zc409 button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-components-empty-state-empty-state__legal-data-container--yBVVP {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -12813,6 +12835,7 @@ html body * {
 .theme-components-shimmer-shimmer__login-auth-container--ZNALj [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-shimmer-shimmer__login-auth-container--ZNALj [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -12881,9 +12904,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-shimmer-shimmer__login-auth-container--ZNALj .theme-components-shimmer-shimmer__react-international-phone-input--SH8r9 {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -13288,6 +13312,15 @@ html body * {
 }
 .theme-components-shimmer-shimmer__slick-dots--mmE84 {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-shimmer-shimmer__section_glamar-sdk-binding--UrKcz button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-shimmer-shimmer__legal-data-container--QEiew {
   border: 1px solid rgba(0, 0, 0, 0.08);

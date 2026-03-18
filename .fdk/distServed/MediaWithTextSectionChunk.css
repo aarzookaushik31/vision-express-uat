@@ -32,6 +32,7 @@
 .theme-styles-sections-media-with-text__login-auth-container--wOLx4 [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-styles-sections-media-with-text__login-auth-container--wOLx4 [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -100,9 +101,10 @@
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-styles-sections-media-with-text__login-auth-container--wOLx4 .theme-styles-sections-media-with-text__react-international-phone-input--P_9_4 {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -508,6 +510,15 @@ html body * {
 .theme-styles-sections-media-with-text__slick-dots--sQsM9 {
   transform: translate(-50%, 100%) !important;
 }
+#theme-styles-sections-media-with-text__section_glamar-sdk-binding--D8gop button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
+}
 .theme-styles-sections-media-with-text__legal-data-container--_N_kY {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 32px;
@@ -732,6 +743,7 @@ html body * {
 .theme-components-hotspot-product-hotspot__login-auth-container--Xuvop [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-components-hotspot-product-hotspot__login-auth-container--Xuvop [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -800,9 +812,10 @@ html body * {
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-components-hotspot-product-hotspot__login-auth-container--Xuvop .theme-components-hotspot-product-hotspot__react-international-phone-input--YZlbN {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -1207,6 +1220,15 @@ html body * {
 }
 .theme-components-hotspot-product-hotspot__slick-dots--VxFMV {
   transform: translate(-50%, 100%) !important;
+}
+#theme-components-hotspot-product-hotspot__section_glamar-sdk-binding--v0vkY button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-components-hotspot-product-hotspot__legal-data-container--tZjQF {
   border: 1px solid rgba(0, 0, 0, 0.08);

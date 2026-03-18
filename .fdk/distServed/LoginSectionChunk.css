@@ -2838,6 +2838,7 @@ h5,
 .theme-page-layouts-auth-auth-container-auth-container__login-auth-container--fUZLo [class*="login__loginWrapper"] {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .theme-page-layouts-auth-auth-container-auth-container__login-auth-container--fUZLo [class*="auth-container__loginBannerWrapper"] {
   border: none !important;
@@ -2906,9 +2907,10 @@ h5,
   border-right: none !important;
   border-radius: 12px 0 0 12px !important;
   border-inline: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: bold;
 }
 .theme-page-layouts-auth-auth-container-auth-container__login-auth-container--fUZLo .theme-page-layouts-auth-auth-container-auth-container__react-international-phone-input--Xwtqi {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0 12px 12px 0 !important;
   border-left: none !important;
 }
@@ -3313,6 +3315,15 @@ html body * {
 }
 .theme-page-layouts-auth-auth-container-auth-container__slick-dots--a0yIO {
   transform: translate(-50%, 100%) !important;
+}
+#theme-page-layouts-auth-auth-container-auth-container__section_glamar-sdk-binding--M5maX button {
+  border: 1px solid #9E007E33 !important;
+  background-color: rgba(158, 0, 126, 0.04) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #9e007e !important;
+  text-transform: uppercase !important;
+  padding: 20px !important;
 }
 .theme-page-layouts-auth-auth-container-auth-container__legal-data-container--nskLd {
   border: 1px solid rgba(0, 0, 0, 0.08);

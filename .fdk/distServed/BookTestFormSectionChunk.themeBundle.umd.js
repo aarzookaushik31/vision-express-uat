@@ -46,21 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["BookTestFormSectionChunk"],{
 
-/***/ "./theme/assets/images/form-submit-eye-white.png":
-/*!*******************************************************!*\
-  !*** ./theme/assets/images/form-submit-eye-white.png ***!
-  \*******************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
-
-/***/ }),
-
-/***/ "./theme/queries/bookFormQuery.js":
+/***/ "./theme/queries/bookFormQuery.js"
 /*!****************************************!*\
   !*** ./theme/queries/bookFormQuery.js ***!
   \****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -129,13 +119,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/book-test-form.jsx":
+/***/ "./theme/sections/book-test-form.jsx"
 /*!*******************************************!*\
   !*** ./theme/sections/book-test-form.jsx ***!
   \*******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -189,9 +179,7 @@ function Component({
     image,
     imageTitle
   } = props;
-  const slug = "book-an-eye-test";
-
-  // ✅ Fetch form structure
+  const slug = "book-an-eye-test-store";
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const fetchPageData = async () => {
       try {
@@ -219,8 +207,6 @@ function Component({
     };
     fetchPageData();
   }, [slug]);
-
-  // ✅ Fetch stores via API
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const fetchStores = async () => {
       try {
@@ -229,11 +215,7 @@ function Component({
         if (stores.length) {
           console.log("✅ Stores fetched:", stores);
           setAllStores(stores);
-
-          // Extract unique states
           const states = [...new Set(stores.map(s => s.store_state).filter(Boolean))];
-
-          // Update state dropdown
           setContent(prev => {
             if (!prev?.inputs) return prev;
             const updatedInputs = prev.inputs.map(input => input.key === "state" || input.key === "store-state" ? {
@@ -255,8 +237,6 @@ function Component({
     };
     fetchStores();
   }, []);
-
-  // ✅ Update city dropdown when state changes
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (!allStores.length) return;
     const cities = formData.state ? [...new Set(allStores.filter(s => s.store_state === formData.state).map(s => s.store_city).filter(Boolean))] : [];
@@ -280,8 +260,6 @@ function Component({
       store: ""
     }));
   }, [formData.state, allStores]);
-
-  // ✅ Update store dropdown when city changes
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (!allStores.length) return;
     const storeNames = formData.city ? [...new Set(allStores.filter(s => s.store_city === formData.city).map(s => s.store_name).filter(Boolean))] : [];
@@ -304,15 +282,11 @@ function Component({
       store: ""
     }));
   }, [formData.city, allStores]);
-
-  // ✅ STEP 1: Auto-select store based on storeCode from URL
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get("storeCode");
     if (code) storeCodeRef.current = code.trim();
   }, []);
-
-  // ✅ STEP 2: When all stores load, initialize states + maybe preselect store state
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (!allStores.length) return;
     const states = [...new Set(allStores.map(s => s.store_state).filter(Boolean))];
@@ -399,35 +373,43 @@ function Component({
       };
     });
   }, [allStores, formData.state, formData.city]);
-
-  // ✅ Form validation
   const validateForm = () => {
     let valid = true;
-    const errors = {
-      ...formError
-    };
-    const now = new Date();
+    const errors = {};
     Object.keys(formData).forEach(key => {
-      const value = formData[key];
-      if (key === "full-name" && !/^[A-Za-z\s]+$/.test(value)) {
-        errors[key] = "Only letters and spaces allowed";
+      const rawValue = formData[key];
+      const value = typeof rawValue === "string" ? rawValue.trim() : rawValue;
+      const field = content.inputs.find(i => i.key === key);
+      if (field?.required && (!value || value === "")) {
+        errors[key] = "This field is required";
         valid = false;
-      } else if (key === "contact-number" && (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value))) {
-        errors[key] = "Enter a valid 10 digit mobile number";
-        valid = false;
-      } else if (key === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
-        errors[key] = "Enter a valid email address";
-        valid = false;
-      } else if (key === "date" && new Date(value) < now) {
-        errors[key] = "Date cannot be in the past";
-        valid = false;
+        return;
+      }
+      if (key === "contact-number") {
+        if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
+          errors[key] = "Enter a valid 10 digit mobile number";
+          valid = false;
+        }
+      }
+      if (key === "full-name") {
+        if (value && !/^[A-Za-z\s]+$/.test(value)) {
+          errors[key] = "Only letters and spaces allowed";
+          valid = false;
+        }
+      }
+      if (key === "email") {
+        if (value && !/^\S+@\S+\.\S+$/.test(value)) {
+          errors[key] = "Enter a valid email address";
+          valid = false;
+        }
       }
     });
     setFormError(errors);
-    return valid;
+    return {
+      valid,
+      errors
+    };
   };
-
-  // ✅ Handle change
   const handleChange = e => {
     const {
       name,
@@ -435,28 +417,63 @@ function Component({
       type,
       checked
     } = e.target;
-    setFormData(prev => {
-      const updated = {
+    let newValue = type === "checkbox" ? checked : value;
+    if (name === "contact-number") {
+      newValue = value.replace(/\D/g, "").slice(0, 10);
+      setFormData(prev => ({
         ...prev,
-        [name]: type === "checkbox" ? checked : value
-      };
-      if (name === "state") {
-        updated.city = "";
-        updated.store = "";
-        setIsAutoSelected(false);
-      }
-      if (name === "city") {
-        updated.store = "";
-        setIsAutoSelected(false);
-      }
-      return updated;
-    });
+        [name]: newValue
+      }));
+      setFormError(prev => ({
+        ...prev,
+        [name]: ""
+      }));
+      return;
+    }
+    setFormData(prev => ({
+      ...prev,
+      [name]: newValue
+    }));
+    if (formError[name]) {
+      validateField(name, newValue);
+    }
+    if (name === "state") {
+      setFormData(prev => ({
+        ...prev,
+        city: "",
+        store: ""
+      }));
+      setIsAutoSelected(false);
+    }
+    if (name === "city") {
+      setFormData(prev => ({
+        ...prev,
+        store: ""
+      }));
+      setIsAutoSelected(false);
+    }
   };
 
   // ✅ Handle submit
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!validateForm()) return;
+    const {
+      valid,
+      errors
+    } = validateForm();
+    if (!valid) {
+      const firstErrorKey = Object.keys(errors)[0];
+      const el = document.querySelector(`[name="${firstErrorKey}"]`);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 100);
+      }
+      return;
+    }
     const responsePayload = content.inputs.map(input => {
       const value = formData[input.key];
       if (["state", "city", "store", "store-name", "choose-store"].includes(input.key)) {
@@ -508,7 +525,37 @@ function Component({
   const closeDialog = () => {
     setShowSuccessMessage(false);
   };
-  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Loading...");
+  const validateField = (name, value) => {
+    let error = "";
+    const field = content.inputs.find(i => i.key === name);
+    if (field?.required && (!value || value.trim() === "")) {
+      error = "This field is required";
+    } else if (name === "contact-number") {
+      if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
+        error = "Enter a valid 10 digit mobile number";
+      }
+    } else if (name === "full-name") {
+      if (!/^[A-Za-z\s]+$/.test(value)) {
+        error = "Only letters and spaces allowed";
+      }
+    } else if (name === "email") {
+      if (!/^\S+@\S+\.\S+$/.test(value)) {
+        error = "Enter a valid email address";
+      }
+    }
+    setFormError(prev => ({
+      ...prev,
+      [name]: error
+    }));
+  };
+  const handleBlur = e => {
+    const {
+      name,
+      value
+    } = e.target;
+    validateField(name, value.trim());
+  };
+  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
   if (error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Error: ", String(error));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _styles_sections_book_test_form_less__WEBPACK_IMPORTED_MODULE_1__["default"].booktest_container
@@ -547,7 +594,8 @@ function Component({
   }, "You're All Set for Your Eye Test!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Thank you for booking your in-store eye test with Vision Express. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Our certified optometrists will be ready for you at your scheduled time. Expect a confirmation message with all details shortly."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "/products"
   }, "Explore Products")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    noValidate: true
   }, content.inputs.map(input => {
     const isDynamicSelect = ["state", "city", "store", "store-name", "choose-store"].includes(input.key);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -558,25 +606,35 @@ function Component({
       name: input.key,
       value: formData[input.key],
       onChange: handleChange,
-      min: new Date().toISOString().split("T")[0],
+      onBlur: e => validateField(e.target.name, e.target.value),
+      placeholder: "Choose Date",
+      min: (() => {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow.toISOString().split("T")[0];
+      })(),
       required: input.required
     }) : /* 📍 Dynamic Select (state, city, store) */
     input.type === "dropdown" || isDynamicSelect ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
       name: input.key,
       value: formData[input.key],
       onChange: handleChange,
-      required: input.required
+      required: input.required,
+      onBlur: e => validateField(e.target.name, e.target.value)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-      value: ""
-    }, "Select ", input.display), input.enum?.map((opt, idx) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+      value: "",
+      disabled: true
+    }, input.placeholder || `Choose Your ${input.display}`), input.enum?.map((opt, idx) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
       key: opt.key || idx,
       value: opt.display || opt.key
     }, opt.display || opt.key))) : /* 📍 Text or Email or Number */
     input.type === "text" || input.type === "email" || input.type === "number" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
       type: input.key === "contact-number" ? "tel" : input.type,
+      inputMode: input.key === "contact-number" ? "numeric" : undefined,
       name: input.key,
       value: formData[input.key],
       onChange: handleChange,
+      onBlur: handleBlur,
       placeholder: input.placeholder,
       required: input.required
     }) : /* 📍 Checkbox */
@@ -587,6 +645,7 @@ function Component({
       name: input.key,
       checked: formData[input.key] || false,
       onChange: handleChange,
+      onBlur: e => validateField(e.target.name, e.target.value),
       required: input.required
     }), input.display) : null, formError[input.key] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
       className: _styles_sections_book_test_form_less__WEBPACK_IMPORTED_MODULE_1__["default"].error_message
@@ -650,13 +709,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/book-test-form.less":
+/***/ "./theme/styles/sections/book-test-form.less"
 /*!***************************************************!*\
   !*** ./theme/styles/sections/book-test-form.less ***!
   \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -667,7 +726,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"booktest_container\":\"theme-styles-sections-book-test-form__booktest_container--F1VAf\",\"breadcrumbs\":\"theme-styles-sections-book-test-form__breadcrumbs--mMVst\",\"bookTestTabs\":\"theme-styles-sections-book-test-form__bookTestTabs--Oc7ef\",\"activeTab\":\"theme-styles-sections-book-test-form__activeTab--Pyi5i\",\"form_title\":\"theme-styles-sections-book-test-form__form_title--SJV0W\",\"booktest_content\":\"theme-styles-sections-book-test-form__booktest_content--F2XH1\",\"image_section\":\"theme-styles-sections-book-test-form__image_section--vErR2\",\"textOverImage\":\"theme-styles-sections-book-test-form__textOverImage--y6_4W\",\"form_section\":\"theme-styles-sections-book-test-form__form_section--tLPyc\",\"successBackground\":\"theme-styles-sections-book-test-form__successBackground--ZkMlu\",\"fgroup\":\"theme-styles-sections-book-test-form__fgroup--hhGVR\",\"checkbox_label\":\"theme-styles-sections-book-test-form__checkbox_label--VCl_t\",\"error_message\":\"theme-styles-sections-book-test-form__error_message--MS4jn\",\"sgroup\":\"theme-styles-sections-book-test-form__sgroup--AgRvz\",\"submit_btn\":\"theme-styles-sections-book-test-form__submit_btn--DmIqO\",\"success_wrapper\":\"theme-styles-sections-book-test-form__success_wrapper--OcldW\",\"closeSuccessButton\":\"theme-styles-sections-book-test-form__closeSuccessButton--B5Joa\"}";
-        // 1771504648713
+        // 1773821718270
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -687,6 +746,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/form-submit-eye-white.png"
+/*!*******************************************************!*\
+  !*** ./theme/assets/images/form-submit-eye-white.png ***!
+  \*******************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
+
+/***/ }
 
 }]);

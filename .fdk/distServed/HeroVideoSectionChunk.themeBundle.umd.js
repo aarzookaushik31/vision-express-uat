@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["HeroVideoSectionChunk"],{
 
-/***/ "./theme/assets/images/pause.svg":
+/***/ "./theme/assets/images/pause.svg"
 /*!***************************************!*\
   !*** ./theme/assets/images/pause.svg ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -88,23 +88,13 @@ var SvgPause = function SvgPause(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgPause);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/placeholder/hero-video.png":
-/*!********************************************************!*\
-  !*** ./theme/assets/images/placeholder/hero-video.png ***!
-  \********************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/4ea5951c3955bd48bbbb.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/play.svg":
+/***/ "./theme/assets/images/play.svg"
 /*!**************************************!*\
   !*** ./theme/assets/images/play.svg ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -140,13 +130,13 @@ var SvgPlay = function SvgPlay(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgPlay);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/hero-video.jsx":
+/***/ "./theme/sections/hero-video.jsx"
 /*!***************************************!*\
   !*** ./theme/sections/hero-video.jsx ***!
   \***************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -705,24 +695,24 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/hero-video.less":
+/***/ "./theme/styles/sections/hero-video.less"
 /*!***********************************************!*\
   !*** ./theme/styles/sections/hero-video.less ***!
   \***********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-hero-video__login-auth-container--rVb3y","n2oQ6":"theme-styles-sections-hero-video__n2oQ6--pkpak","uiz1K":"theme-styles-sections-hero-video__uiz1K--Tf_Vq","P1CJx":"theme-styles-sections-hero-video__P1CJx--wOn1c","kkBOU":"theme-styles-sections-hero-video__kkBOU--K_NEP","react-international-phone-country-selector-button":"theme-styles-sections-hero-video__react-international-phone-country-selector-button--cDGGW","react-international-phone-input":"theme-styles-sections-hero-video__react-international-phone-input--aOnDg","forget-password-container":"theme-styles-sections-hero-video__forget-password-container--r1_yV","profile-navigation-container":"theme-styles-sections-hero-video__profile-navigation-container--au4bq","ojp_C":"theme-styles-sections-hero-video__ojp_C--JH56s","O32OW":"theme-styles-sections-hero-video__O32OW--qS6Uq","collection-hero-banner":"theme-styles-sections-hero-video__collection-hero-banner--BBixS","collection-banner-img":"theme-styles-sections-hero-video__collection-banner-img--TB77Q","collection-unofficial":"theme-styles-sections-hero-video__collection-unofficial--wIhLo","collection-dbyd":"theme-styles-sections-hero-video__collection-dbyd--HhZEM","collection-banner-img-mobile":"theme-styles-sections-hero-video__collection-banner-img-mobile--NGdQu","collection-banner-content":"theme-styles-sections-hero-video__collection-banner-content--NRMwY","custom-banner-card":"theme-styles-sections-hero-video__custom-banner-card--tGXHd","banner-overlay":"theme-styles-sections-hero-video__banner-overlay--vx46N","banner-content":"theme-styles-sections-hero-video__banner-content--AVNIa","banner-btn":"theme-styles-sections-hero-video__banner-btn--A1WeA","flexColumn":"theme-styles-sections-hero-video__flexColumn--KTyVu","flexAlignCenter":"theme-styles-sections-hero-video__flexAlignCenter--Mq4hS","flexCenter":"theme-styles-sections-hero-video__flexCenter--bHe_c","justifyStart":"theme-styles-sections-hero-video__justifyStart--rOlsx","justifyBetween":"theme-styles-sections-hero-video__justifyBetween--f2coA","slick-dots":"theme-styles-sections-hero-video__slick-dots--SbELW","slick-active":"theme-styles-sections-hero-video__slick-active--q94h6","legal-data-container":"theme-styles-sections-hero-video__legal-data-container--UAtpd","video_heading":"theme-styles-sections-hero-video__video_heading--rADxD","error_message":"theme-styles-sections-hero-video__error_message--Doekx","video_container":"theme-styles-sections-hero-video__video_container--bslbQ","pauseButton":"theme-styles-sections-hero-video__pauseButton--PmM5a","youtube_wrapper":"theme-styles-sections-hero-video__youtube_wrapper--HeIzR","yt_video":"theme-styles-sections-hero-video__yt_video--v8OLI","center-overlay":"theme-styles-sections-hero-video__center-overlay--qrzKW","overlay-noimage":"theme-styles-sections-hero-video__overlay-noimage--ILacw","youtube-noimage":"theme-styles-sections-hero-video__youtube-noimage--qk0LW","overlay__image":"theme-styles-sections-hero-video__overlay__image--EsXyV","overlay__color":"theme-styles-sections-hero-video__overlay__color--ix70h","overlay__content":"theme-styles-sections-hero-video__overlay__content--x4TSt","overlay__playButton":"theme-styles-sections-hero-video__overlay__playButton--vTRAH","overlay":"theme-styles-sections-hero-video__overlay--OL_Gz","btn":"theme-styles-sections-hero-video__btn--bOyHA","deafult-backround":"theme-styles-sections-hero-video__deafult-backround--zUOQe"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-sections-hero-video__login-auth-container--rVb3y","n2oQ6":"theme-styles-sections-hero-video__n2oQ6--pkpak","uiz1K":"theme-styles-sections-hero-video__uiz1K--Tf_Vq","P1CJx":"theme-styles-sections-hero-video__P1CJx--wOn1c","kkBOU":"theme-styles-sections-hero-video__kkBOU--K_NEP","react-international-phone-country-selector-button":"theme-styles-sections-hero-video__react-international-phone-country-selector-button--cDGGW","react-international-phone-input":"theme-styles-sections-hero-video__react-international-phone-input--aOnDg","forget-password-container":"theme-styles-sections-hero-video__forget-password-container--r1_yV","profile-navigation-container":"theme-styles-sections-hero-video__profile-navigation-container--au4bq","ojp_C":"theme-styles-sections-hero-video__ojp_C--JH56s","O32OW":"theme-styles-sections-hero-video__O32OW--qS6Uq","collection-hero-banner":"theme-styles-sections-hero-video__collection-hero-banner--BBixS","collection-banner-img":"theme-styles-sections-hero-video__collection-banner-img--TB77Q","collection-unofficial":"theme-styles-sections-hero-video__collection-unofficial--wIhLo","collection-dbyd":"theme-styles-sections-hero-video__collection-dbyd--HhZEM","collection-banner-img-mobile":"theme-styles-sections-hero-video__collection-banner-img-mobile--NGdQu","collection-banner-content":"theme-styles-sections-hero-video__collection-banner-content--NRMwY","custom-banner-card":"theme-styles-sections-hero-video__custom-banner-card--tGXHd","banner-overlay":"theme-styles-sections-hero-video__banner-overlay--vx46N","banner-content":"theme-styles-sections-hero-video__banner-content--AVNIa","banner-btn":"theme-styles-sections-hero-video__banner-btn--A1WeA","flexColumn":"theme-styles-sections-hero-video__flexColumn--KTyVu","flexAlignCenter":"theme-styles-sections-hero-video__flexAlignCenter--Mq4hS","flexCenter":"theme-styles-sections-hero-video__flexCenter--bHe_c","justifyStart":"theme-styles-sections-hero-video__justifyStart--rOlsx","justifyBetween":"theme-styles-sections-hero-video__justifyBetween--f2coA","slick-dots":"theme-styles-sections-hero-video__slick-dots--SbELW","slick-active":"theme-styles-sections-hero-video__slick-active--q94h6","section_glamar-sdk-binding":"theme-styles-sections-hero-video__section_glamar-sdk-binding--qdH8_","legal-data-container":"theme-styles-sections-hero-video__legal-data-container--UAtpd","video_heading":"theme-styles-sections-hero-video__video_heading--rADxD","error_message":"theme-styles-sections-hero-video__error_message--Doekx","video_container":"theme-styles-sections-hero-video__video_container--bslbQ","pauseButton":"theme-styles-sections-hero-video__pauseButton--PmM5a","youtube_wrapper":"theme-styles-sections-hero-video__youtube_wrapper--HeIzR","yt_video":"theme-styles-sections-hero-video__yt_video--v8OLI","center-overlay":"theme-styles-sections-hero-video__center-overlay--qrzKW","overlay-noimage":"theme-styles-sections-hero-video__overlay-noimage--ILacw","youtube-noimage":"theme-styles-sections-hero-video__youtube-noimage--qk0LW","overlay__image":"theme-styles-sections-hero-video__overlay__image--EsXyV","overlay__color":"theme-styles-sections-hero-video__overlay__color--ix70h","overlay__content":"theme-styles-sections-hero-video__overlay__content--x4TSt","overlay__playButton":"theme-styles-sections-hero-video__overlay__playButton--vTRAH","overlay":"theme-styles-sections-hero-video__overlay--OL_Gz","btn":"theme-styles-sections-hero-video__btn--bOyHA","deafult-backround":"theme-styles-sections-hero-video__deafult-backround--zUOQe"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-hero-video__login-auth-container--rVb3y\",\"n2oQ6\":\"theme-styles-sections-hero-video__n2oQ6--pkpak\",\"uiz1K\":\"theme-styles-sections-hero-video__uiz1K--Tf_Vq\",\"P1CJx\":\"theme-styles-sections-hero-video__P1CJx--wOn1c\",\"kkBOU\":\"theme-styles-sections-hero-video__kkBOU--K_NEP\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-hero-video__react-international-phone-country-selector-button--cDGGW\",\"react-international-phone-input\":\"theme-styles-sections-hero-video__react-international-phone-input--aOnDg\",\"forget-password-container\":\"theme-styles-sections-hero-video__forget-password-container--r1_yV\",\"profile-navigation-container\":\"theme-styles-sections-hero-video__profile-navigation-container--au4bq\",\"ojp_C\":\"theme-styles-sections-hero-video__ojp_C--JH56s\",\"O32OW\":\"theme-styles-sections-hero-video__O32OW--qS6Uq\",\"collection-hero-banner\":\"theme-styles-sections-hero-video__collection-hero-banner--BBixS\",\"collection-banner-img\":\"theme-styles-sections-hero-video__collection-banner-img--TB77Q\",\"collection-unofficial\":\"theme-styles-sections-hero-video__collection-unofficial--wIhLo\",\"collection-dbyd\":\"theme-styles-sections-hero-video__collection-dbyd--HhZEM\",\"collection-banner-img-mobile\":\"theme-styles-sections-hero-video__collection-banner-img-mobile--NGdQu\",\"collection-banner-content\":\"theme-styles-sections-hero-video__collection-banner-content--NRMwY\",\"custom-banner-card\":\"theme-styles-sections-hero-video__custom-banner-card--tGXHd\",\"banner-overlay\":\"theme-styles-sections-hero-video__banner-overlay--vx46N\",\"banner-content\":\"theme-styles-sections-hero-video__banner-content--AVNIa\",\"banner-btn\":\"theme-styles-sections-hero-video__banner-btn--A1WeA\",\"flexColumn\":\"theme-styles-sections-hero-video__flexColumn--KTyVu\",\"flexAlignCenter\":\"theme-styles-sections-hero-video__flexAlignCenter--Mq4hS\",\"flexCenter\":\"theme-styles-sections-hero-video__flexCenter--bHe_c\",\"justifyStart\":\"theme-styles-sections-hero-video__justifyStart--rOlsx\",\"justifyBetween\":\"theme-styles-sections-hero-video__justifyBetween--f2coA\",\"slick-dots\":\"theme-styles-sections-hero-video__slick-dots--SbELW\",\"slick-active\":\"theme-styles-sections-hero-video__slick-active--q94h6\",\"legal-data-container\":\"theme-styles-sections-hero-video__legal-data-container--UAtpd\",\"video_heading\":\"theme-styles-sections-hero-video__video_heading--rADxD\",\"error_message\":\"theme-styles-sections-hero-video__error_message--Doekx\",\"video_container\":\"theme-styles-sections-hero-video__video_container--bslbQ\",\"pauseButton\":\"theme-styles-sections-hero-video__pauseButton--PmM5a\",\"youtube_wrapper\":\"theme-styles-sections-hero-video__youtube_wrapper--HeIzR\",\"yt_video\":\"theme-styles-sections-hero-video__yt_video--v8OLI\",\"center-overlay\":\"theme-styles-sections-hero-video__center-overlay--qrzKW\",\"overlay-noimage\":\"theme-styles-sections-hero-video__overlay-noimage--ILacw\",\"youtube-noimage\":\"theme-styles-sections-hero-video__youtube-noimage--qk0LW\",\"overlay__image\":\"theme-styles-sections-hero-video__overlay__image--EsXyV\",\"overlay__color\":\"theme-styles-sections-hero-video__overlay__color--ix70h\",\"overlay__content\":\"theme-styles-sections-hero-video__overlay__content--x4TSt\",\"overlay__playButton\":\"theme-styles-sections-hero-video__overlay__playButton--vTRAH\",\"overlay\":\"theme-styles-sections-hero-video__overlay--OL_Gz\",\"btn\":\"theme-styles-sections-hero-video__btn--bOyHA\",\"deafult-backround\":\"theme-styles-sections-hero-video__deafult-backround--zUOQe\"}";
-        // 1771504640184
+        var localsJsonString = "{\"login-auth-container\":\"theme-styles-sections-hero-video__login-auth-container--rVb3y\",\"n2oQ6\":\"theme-styles-sections-hero-video__n2oQ6--pkpak\",\"uiz1K\":\"theme-styles-sections-hero-video__uiz1K--Tf_Vq\",\"P1CJx\":\"theme-styles-sections-hero-video__P1CJx--wOn1c\",\"kkBOU\":\"theme-styles-sections-hero-video__kkBOU--K_NEP\",\"react-international-phone-country-selector-button\":\"theme-styles-sections-hero-video__react-international-phone-country-selector-button--cDGGW\",\"react-international-phone-input\":\"theme-styles-sections-hero-video__react-international-phone-input--aOnDg\",\"forget-password-container\":\"theme-styles-sections-hero-video__forget-password-container--r1_yV\",\"profile-navigation-container\":\"theme-styles-sections-hero-video__profile-navigation-container--au4bq\",\"ojp_C\":\"theme-styles-sections-hero-video__ojp_C--JH56s\",\"O32OW\":\"theme-styles-sections-hero-video__O32OW--qS6Uq\",\"collection-hero-banner\":\"theme-styles-sections-hero-video__collection-hero-banner--BBixS\",\"collection-banner-img\":\"theme-styles-sections-hero-video__collection-banner-img--TB77Q\",\"collection-unofficial\":\"theme-styles-sections-hero-video__collection-unofficial--wIhLo\",\"collection-dbyd\":\"theme-styles-sections-hero-video__collection-dbyd--HhZEM\",\"collection-banner-img-mobile\":\"theme-styles-sections-hero-video__collection-banner-img-mobile--NGdQu\",\"collection-banner-content\":\"theme-styles-sections-hero-video__collection-banner-content--NRMwY\",\"custom-banner-card\":\"theme-styles-sections-hero-video__custom-banner-card--tGXHd\",\"banner-overlay\":\"theme-styles-sections-hero-video__banner-overlay--vx46N\",\"banner-content\":\"theme-styles-sections-hero-video__banner-content--AVNIa\",\"banner-btn\":\"theme-styles-sections-hero-video__banner-btn--A1WeA\",\"flexColumn\":\"theme-styles-sections-hero-video__flexColumn--KTyVu\",\"flexAlignCenter\":\"theme-styles-sections-hero-video__flexAlignCenter--Mq4hS\",\"flexCenter\":\"theme-styles-sections-hero-video__flexCenter--bHe_c\",\"justifyStart\":\"theme-styles-sections-hero-video__justifyStart--rOlsx\",\"justifyBetween\":\"theme-styles-sections-hero-video__justifyBetween--f2coA\",\"slick-dots\":\"theme-styles-sections-hero-video__slick-dots--SbELW\",\"slick-active\":\"theme-styles-sections-hero-video__slick-active--q94h6\",\"section_glamar-sdk-binding\":\"theme-styles-sections-hero-video__section_glamar-sdk-binding--qdH8_\",\"legal-data-container\":\"theme-styles-sections-hero-video__legal-data-container--UAtpd\",\"video_heading\":\"theme-styles-sections-hero-video__video_heading--rADxD\",\"error_message\":\"theme-styles-sections-hero-video__error_message--Doekx\",\"video_container\":\"theme-styles-sections-hero-video__video_container--bslbQ\",\"pauseButton\":\"theme-styles-sections-hero-video__pauseButton--PmM5a\",\"youtube_wrapper\":\"theme-styles-sections-hero-video__youtube_wrapper--HeIzR\",\"yt_video\":\"theme-styles-sections-hero-video__yt_video--v8OLI\",\"center-overlay\":\"theme-styles-sections-hero-video__center-overlay--qrzKW\",\"overlay-noimage\":\"theme-styles-sections-hero-video__overlay-noimage--ILacw\",\"youtube-noimage\":\"theme-styles-sections-hero-video__youtube-noimage--qk0LW\",\"overlay__image\":\"theme-styles-sections-hero-video__overlay__image--EsXyV\",\"overlay__color\":\"theme-styles-sections-hero-video__overlay__color--ix70h\",\"overlay__content\":\"theme-styles-sections-hero-video__overlay__content--x4TSt\",\"overlay__playButton\":\"theme-styles-sections-hero-video__overlay__playButton--vTRAH\",\"overlay\":\"theme-styles-sections-hero-video__overlay--OL_Gz\",\"btn\":\"theme-styles-sections-hero-video__btn--bOyHA\",\"deafult-backround\":\"theme-styles-sections-hero-video__deafult-backround--zUOQe\"}";
+        // 1773821708900
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -742,6 +732,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/hero-video.png"
+/*!********************************************************!*\
+  !*** ./theme/assets/images/placeholder/hero-video.png ***!
+  \********************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/4ea5951c3955bd48bbbb.png";
+
+/***/ }
 
 }]);

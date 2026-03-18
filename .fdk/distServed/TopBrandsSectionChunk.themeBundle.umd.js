@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["TopBrandsSectionChunk"],{
 
-/***/ "./theme/sections/top-brands.jsx":
+/***/ "./theme/sections/top-brands.jsx"
 /*!***************************************!*\
   !*** ./theme/sections/top-brands.jsx ***!
   \***************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -230,13 +230,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/top-brands.less":
+/***/ "./theme/styles/sections/top-brands.less"
 /*!***********************************************!*\
   !*** ./theme/styles/sections/top-brands.less ***!
   \***********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -247,7 +247,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"top-brands-section\":\"theme-styles-sections-top-brands__top-brands-section--zFzyi\",\"top-brands-section-content\":\"theme-styles-sections-top-brands__top-brands-section-content--rgoTz\",\"heading-row\":\"theme-styles-sections-top-brands__heading-row--BXSOZ\",\"brand-section-content\":\"theme-styles-sections-top-brands__brand-section-content--bjYcI\",\"brands-grid\":\"theme-styles-sections-top-brands__brands-grid--C1KCF\",\"brand-block\":\"theme-styles-sections-top-brands__brand-block--mCE1B\",\"view-all-link\":\"theme-styles-sections-top-brands__view-all-link--y4PoP\",\"brand-featured-slider\":\"theme-styles-sections-top-brands__brand-featured-slider--inKVE\",\"featured-slide\":\"theme-styles-sections-top-brands__featured-slide--P1gJr\",\"brand-featured-section-brand-image\":\"theme-styles-sections-top-brands__brand-featured-section-brand-image--xvSfn\",\"brand-button\":\"theme-styles-sections-top-brands__brand-button--ApZNf\"}";
-        // 1771504631412
+        // 1773821701243
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -267,6 +267,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

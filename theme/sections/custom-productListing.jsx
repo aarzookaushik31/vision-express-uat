@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from "react";
+import React , {useState, useEffect, useMemo} from "react";
 import { FDKLink } from "fdk-core/components";
 import styles from "../styles/product-listing.less";
 import InfiniteLoader from "../components/infinite-loader/infinite-loader";
@@ -27,6 +27,12 @@ import OneGridMobIcon from "../assets/images/mob-1col.svg";
 import { useGlobalTranslation, useFPI} from "fdk-core/utils";
 import Question from "../assets/images/question.png";
 import { GET_PRODUCT_DETAILS } from "../queries/pdpQuery";
+
+import { GET_CUSTOM_FIELDS } from "../queries/plpQuery";
+
+
+
+
 
 const ProductListing = ({
   breadcrumb = [],
@@ -100,7 +106,7 @@ const ProductListing = ({
   const fpi = useFPI();
 
 
-
+const [customFieldsData, setCustomFieldsData] = useState(null);
   const [sizeGuide, setSizeGuide] = useState(null);
 
 
@@ -121,13 +127,19 @@ const ProductListing = ({
           }
 
           
-          const guide = product.sizes;
+         const sizeChart = product?.sizes?.size_chart;
 
-          if (guide) {
-            setSizeGuide(guide);
-          } else {
-            console.log(" No size guide found in product details");
-          }
+const isValidSizeGuide =
+  sizeChart &&
+  (Object.keys(sizeChart?.headers || {}).length > 0 ||
+    sizeChart?.image);
+
+if (isValidSizeGuide) {
+  setSizeGuide(product.sizes);
+} else {
+  setSizeGuide(null);
+}
+
         })
         .catch((err) => console.error("Error fetching product details:", err));
     }
@@ -135,13 +147,45 @@ const ProductListing = ({
 
 
 
+useEffect(() => {
+  if (!productList?.length) return;
+
+  const productIds = productList.map((p) => String(p.uid));
+
+
+  fpi.executeGQL(GET_CUSTOM_FIELDS, {
+    resource: "product",
+    resourceIds: productIds,
+    keys: ["glamarmeta"],
+  })
+    .then((res) => {
+      const data = res?.data?.customFieldsByResource;
+      setCustomFieldsData(data);
+    })
+    .catch((err) => {
+      window.alert(JSON.stringify(err, null, 2));
+    });
+
+}, [productList]);
+
+
+
+
+const isSizeGuideAvailable = useMemo(() => {
+  const sizeChartHeader = sizeGuide?.size_chart?.headers || {};
+  return (
+    Object.keys(sizeChartHeader).length > 0 ||
+    sizeGuide?.size_chart?.image
+  );
+}, [sizeGuide]);
+
 
 const handleOpenFindmyFit = () => setIsFindmyFitOpen(true);
 const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
 
 
   return (
-    <div className={styles.plpWrapper}>
+    <div className={`${styles.plpWrapper} plpwrappercustomgrid`}>
       {isRunningOnClient() && isPageLoading ? (
         <div className={styles.loader}></div>
       ) : productList?.length === 0 && !(isPageLoading || isPageLoading) ? (
@@ -152,7 +196,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
               <div className={styles.stickyMobileFilter}>
 
 
-                {title?.toLowerCase() !== "accessories" && (
+                {title?.toLowerCase() !== "accessories" &&
+ !title?.toLowerCase().includes("contact lens") &&   isSizeGuideAvailable && (
                  <button onClick={handleOpenFindmyFit}>
                 <span>Find My Fit</span>
               </button>
@@ -178,6 +223,15 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
        
             </div>
             <div className={styles.headerRight}>
+                {sortList.length > 0 && (
+                <button 
+                className={`${styles.sortBtnMobile} ${styles.tablet}`}
+                  onClick={onSortModalBtnClick}
+                >
+                  <span>Sort By</span>
+                </button>
+              )}
+
               <button
                 className={`${styles.colIconBtn} ${styles.mobile} ${
                   columnCount?.mobile === 1 ? styles.active : ""
@@ -222,6 +276,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
               >
                 <FourGridIcon />
               </button>
+
+             
             </div>
           </div>
          
@@ -266,7 +322,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
                 ))}
                 </div>
 
-                   {title?.toLowerCase() !== "accessories" && (
+                   {title?.toLowerCase() !== "accessories" &&
+ !title?.toLowerCase().includes("contact lens")  &&   isSizeGuideAvailable && (
                 <div className={styles.customFindmyFitContainer}>
                        <h2>find my fit</h2>
                        <p>Love the fit of your old glasses? Give us the numbers from your old glasses we'll do the rest.</p>
@@ -291,7 +348,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
                   <Sort sortList={sortList} onSortUpdate={onSortUpdate} />
 
                       
-                       {title?.toLowerCase() !== "accessories" && (
+                       {title?.toLowerCase() !== "accessories" &&
+ !title?.toLowerCase().includes("contact lens") &&  sizeGuide?.sizes?.length > 0 && (
                   <button 
                     onClick={handleOpenFindmyFit} 
                   className={styles.findMyFitButton}>find my fit <img src={Question} /> 
@@ -399,13 +457,14 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
                         imageBackgroundColor,
                         imagePlaceholder,
                         handleAddToCart,
-                        imgSrcSet,
+                        imgSrcSet,                    
                          bannerRef,
     bgImage,
     banner_title,
     banner_subtitle,
     banner_button_link,
     banner_button_text,
+    customFieldsData,
                       }}
                     />
                   </InfiniteLoader>
@@ -439,6 +498,7 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
     banner_subtitle,
     banner_button_link,
     banner_button_text,
+    customFieldsData,
                     }}
                   />
                 )}
@@ -541,7 +601,13 @@ function ProductGrid({
     banner_subtitle,
     banner_button_link,
     banner_button_text,
+    customFieldsData,
 }) {
+
+
+
+
+  
   return (
     <div
       className={`productGridContainer ${styles.productContainer}`}
@@ -551,9 +617,20 @@ function ProductGrid({
         "--mobile-col": columnCount.mobile,
       }}
     >
-      {productList?.length > 0 &&
-        productList.map((product, index) => (
-           <React.Fragment key={product?.uid || index}>
+    {productList?.length > 0 &&
+  productList.map((product, index) => {
+
+const hasGlamAR = customFieldsData?.groups?.some(
+  (group) => group.resource_id === String(product.uid)
+);
+
+    return (
+        <React.Fragment key={product?.uid || index}>
+                
+
+         
+
+
           <FDKLink
             className={styles["product-wrapper"]}
             action={product?.action}
@@ -564,6 +641,9 @@ function ProductGrid({
               display: "block",
             }}
           >
+
+
+
             <ProductCard
               product={product}
               listingPrice={listingPrice}
@@ -584,6 +664,7 @@ function ProductGrid({
               imageBackgroundColor={imageBackgroundColor}
               imagePlaceholder={imagePlaceholder}
               handleAddToCart={handleAddToCart}
+              hasGlamAR={hasGlamAR}
             />
 
             
@@ -619,7 +700,8 @@ function ProductGrid({
 
 
             </React.Fragment>
-        ))}
+       );
+  })}
     </div>
   );
 }

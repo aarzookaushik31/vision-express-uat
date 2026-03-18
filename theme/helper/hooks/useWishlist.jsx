@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useGlobalStore, useGlobalTranslation } from "fdk-core/utils";
 import {
   ADD_WISHLIST,
@@ -13,6 +13,8 @@ export const useWishlist = ({ fpi }) => {
   const pageSizeRef = useRef(500);
   const followedList = useGlobalStore(fpi.getters.FOLLOWED_LIST);
   const { showSnackbar } = useSnackbar();
+
+
 
   function fetchFollowedProductsId() {
     const payload = {
@@ -34,7 +36,7 @@ export const useWishlist = ({ fpi }) => {
       .executeGQL(ADD_WISHLIST, payload)
       .then((res) => {
         if (res?.data?.followById?.message) {
-          showSnackbar(t("resource.common.wishlist_add_success"), "success");
+          showSnackbar("Product added to wishlist!", "success");
           return fetchFollowedProductsId().then(() => res?.data?.followById);
         }
       })
@@ -52,14 +54,14 @@ export const useWishlist = ({ fpi }) => {
     if (fromWishlist) {
       return fpi.executeGQL(REMOVE_WISHLIST, payload).finally(() => {
         setIsLoading(false);
-        showSnackbar(t("resource.wishlist.product_removed"), "success");
+        showSnackbar("Product removed from wishlist!", "success");
       });
     } else {
       return fpi
         .executeGQL(REMOVE_WISHLIST, payload)
         .then((res) => {
           if (res?.data?.unfollowById?.message) {
-            showSnackbar(t("resource.wishlist.product_removed"), "success");
+            showSnackbar("Product removed from wishlist!", "success");
             return fetchFollowedProductsId().then(
               () => res?.data?.unfollowById
             );

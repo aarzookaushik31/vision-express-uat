@@ -46,21 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["BookTestFormHomeSectionChunk"],{
 
-/***/ "./theme/assets/images/form-submit-eye-white.png":
-/*!*******************************************************!*\
-  !*** ./theme/assets/images/form-submit-eye-white.png ***!
-  \*******************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
-
-/***/ }),
-
-/***/ "./theme/queries/bookFormQuery.js":
+/***/ "./theme/queries/bookFormQuery.js"
 /*!****************************************!*\
   !*** ./theme/queries/bookFormQuery.js ***!
   \****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -129,13 +119,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/book-test-form-home.jsx":
+/***/ "./theme/sections/book-test-form-home.jsx"
 /*!************************************************!*\
   !*** ./theme/sections/book-test-form-home.jsx ***!
   \************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -204,12 +194,17 @@ function Component({
   }, [slug]);
   const validateForm = () => {
     let valid = true;
-    const errors = {
-      ...formError
-    };
+    const errors = {};
     const now = new Date();
     Object.keys(formData).forEach(key => {
-      const value = formData[key];
+      const rawValue = formData[key];
+      const value = typeof rawValue === "string" ? rawValue.trim() : rawValue;
+      const fieldConfig = content.inputs.find(i => i.key === key);
+      if (fieldConfig?.required && (!value || value === "")) {
+        errors[key] = "This field is required";
+        valid = false;
+        return;
+      }
       if (key === "full-name" && !/^[A-Za-z\s]+$/.test(value)) {
         errors[key] = "Only letters and spaces allowed";
         valid = false;
@@ -219,9 +214,15 @@ function Component({
       } else if (key === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
         errors[key] = "Enter a valid email address";
         valid = false;
-      } else if (key === "date" && new Date(value) < now) {
-        errors[key] = "Date cannot be in the past";
-        valid = false;
+      } else if (key === "date") {
+        const selected = new Date(value);
+        const tomorrow = new Date();
+        tomorrow.setHours(0, 0, 0, 0);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        if (selected < tomorrow) {
+          errors[key] = "Date must be from tomorrow onwards";
+          valid = false;
+        }
       }
     });
     setFormError(errors);
@@ -234,14 +235,39 @@ function Component({
       type,
       checked
     } = e.target;
+    let newValue = type === "checkbox" ? checked : value;
+    if (name === "contact-number") {
+      newValue = value.replace(/\D/g, "").slice(0, 10);
+      setFormData(prev => ({
+        ...prev,
+        [name]: newValue
+      }));
+      setFormError(prev => ({
+        ...prev,
+        [name]: ""
+      }));
+      return;
+    }
     setFormData(prev => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value
+      [name]: newValue
     }));
+    validateField(name, newValue);
   };
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!validateForm()) return;
+    const isValid = validateForm();
+    if (!isValid) {
+      setTimeout(() => {
+        const firstErrorKey = Object.keys(formError).find(key => formError[key]);
+        const el = document.querySelector(`[name="${firstErrorKey}"]`);
+        if (el) el.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }, 50);
+      return;
+    }
     const responsePayload = content.inputs.map(input => {
       const value = formData[input.key];
       if (input.type === "checkbox") {
@@ -274,7 +300,38 @@ function Component({
   const closeDialog = () => {
     setShowSuccessMessage(false);
   };
-  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Loading...");
+  const validateField = (name, value) => {
+    let error = "";
+    const fieldConfig = content.inputs.find(i => i.key === name);
+    if (fieldConfig?.required && (!value || value.trim() === "")) {
+      error = "This field is required";
+    } else if (name === "full-name") {
+      if (!/^[A-Za-z\s]+$/.test(value)) {
+        error = "Only letters and spaces allowed";
+      }
+    } else if (name === "contact-number") {
+      if (!/^\d{10}$/.test(value) || /^(\d)\1{9}$/.test(value)) {
+        error = "Enter a valid 10 digit mobile number";
+      }
+    } else if (name === "email") {
+      if (!/^\S+@\S+\.\S+$/.test(value)) {
+        error = "Enter a valid email address";
+      }
+    } else if (name === "date") {
+      const selected = new Date(value);
+      const tomorrow = new Date();
+      tomorrow.setHours(0, 0, 0, 0);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      if (selected < tomorrow) {
+        error = "Date must be from tomorrow onwards";
+      }
+    }
+    setFormError(prev => ({
+      ...prev,
+      [name]: error
+    }));
+  };
+  if (loading) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
   if (error) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Error: ", error);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _styles_sections_book_test_form_less__WEBPACK_IMPORTED_MODULE_1__["default"].booktest_container
@@ -317,7 +374,8 @@ function Component({
   }, "Home Eye Test Appointment Confirmed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Your booking has been received successfully. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "A Vision Express representative will contact you soon to confirm your time slot and address. Our certified optometrists will ensure a safe and thorough eye test, right at your home."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "/products"
   }, "Explore Products")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    noValidate: true
   }, content.inputs.map(input => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _styles_sections_book_test_form_less__WEBPACK_IMPORTED_MODULE_1__["default"].fgroup,
     key: input.key
@@ -326,14 +384,21 @@ function Component({
     name: input.key,
     value: formData[input.key],
     onChange: handleChange,
-    min: new Date().toISOString().split("T")[0],
-    placeholder: "YYYY-MM-DD",
+    onBlur: e => validateField(input.key, e.target.value),
+    min: (() => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      return tomorrow.toISOString().split("T")[0];
+    })(),
+    placeholder: "Choose Date",
     required: input.required
   }) : input.type === "text" || input.type === "email" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: input.key === "contact-number" ? "tel" : input.type,
+    inputMode: input.key === "contact-number" ? "numeric" : undefined,
     name: input.key,
     value: formData[input.key],
     onChange: handleChange,
+    onBlur: e => validateField(input.key, e.target.value),
     placeholder: input.placeholder,
     required: input.required
   }) : input.type === "number" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -342,15 +407,18 @@ function Component({
     value: formData[input.key],
     onChange: handleChange,
     placeholder: input.placeholder,
+    onBlur: e => validateField(input.key, e.target.value),
     required: input.required
   }) : input.type === "dropdown" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
     name: input.key,
     value: formData[input.key],
     onChange: handleChange,
+    onBlur: e => validateField(input.key, e.target.value),
     required: input.required
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: ""
-  }, "Select ", input.display), input.enum?.map((opt, idx) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "",
+    disabled: true
+  }, input.placeholder || `Choose Your ${input.display}`), input.enum?.map((opt, idx) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
     key: opt.key || idx,
     value: opt.key
   }, opt.display || opt.key))) : input.type === "checkbox" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
@@ -360,6 +428,7 @@ function Component({
     name: input.key,
     checked: formData[input.key] || false,
     onChange: handleChange,
+    onBlur: e => validateField(input.key, e.target.value),
     required: input.required
   }), input.display) : null, formError[input.key] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: _styles_sections_book_test_form_less__WEBPACK_IMPORTED_MODULE_1__["default"].error_message
@@ -426,13 +495,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/book-test-form.less":
+/***/ "./theme/styles/sections/book-test-form.less"
 /*!***************************************************!*\
   !*** ./theme/styles/sections/book-test-form.less ***!
   \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -443,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"booktest_container\":\"theme-styles-sections-book-test-form__booktest_container--F1VAf\",\"breadcrumbs\":\"theme-styles-sections-book-test-form__breadcrumbs--mMVst\",\"bookTestTabs\":\"theme-styles-sections-book-test-form__bookTestTabs--Oc7ef\",\"activeTab\":\"theme-styles-sections-book-test-form__activeTab--Pyi5i\",\"form_title\":\"theme-styles-sections-book-test-form__form_title--SJV0W\",\"booktest_content\":\"theme-styles-sections-book-test-form__booktest_content--F2XH1\",\"image_section\":\"theme-styles-sections-book-test-form__image_section--vErR2\",\"textOverImage\":\"theme-styles-sections-book-test-form__textOverImage--y6_4W\",\"form_section\":\"theme-styles-sections-book-test-form__form_section--tLPyc\",\"successBackground\":\"theme-styles-sections-book-test-form__successBackground--ZkMlu\",\"fgroup\":\"theme-styles-sections-book-test-form__fgroup--hhGVR\",\"checkbox_label\":\"theme-styles-sections-book-test-form__checkbox_label--VCl_t\",\"error_message\":\"theme-styles-sections-book-test-form__error_message--MS4jn\",\"sgroup\":\"theme-styles-sections-book-test-form__sgroup--AgRvz\",\"submit_btn\":\"theme-styles-sections-book-test-form__submit_btn--DmIqO\",\"success_wrapper\":\"theme-styles-sections-book-test-form__success_wrapper--OcldW\",\"closeSuccessButton\":\"theme-styles-sections-book-test-form__closeSuccessButton--B5Joa\"}";
-        // 1771504648713
+        // 1773821718270
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -463,6 +532,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/form-submit-eye-white.png"
+/*!*******************************************************!*\
+  !*** ./theme/assets/images/form-submit-eye-white.png ***!
+  \*******************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
+
+/***/ }
 
 }]);

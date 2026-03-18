@@ -46,21 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["VeCarePricingSectionChunk"],{
 
-/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
-
-/***/ }),
-
-/***/ "./theme/sections/ve-care-pricing.jsx":
+/***/ "./theme/sections/ve-care-pricing.jsx"
 /*!********************************************!*\
   !*** ./theme/sections/ve-care-pricing.jsx ***!
   \********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -208,13 +198,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/ve-care-pricing.less":
+/***/ "./theme/styles/sections/ve-care-pricing.less"
 /*!****************************************************!*\
   !*** ./theme/styles/sections/ve-care-pricing.less ***!
   \****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -225,7 +215,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"veCarePricing\":\"theme-styles-sections-ve-care-pricing__veCarePricing--cLWxv\",\"container\":\"theme-styles-sections-ve-care-pricing__container--F_Sqy\",\"left\":\"theme-styles-sections-ve-care-pricing__left--UrKUo\",\"heading\":\"theme-styles-sections-ve-care-pricing__heading--OTT5A\",\"cards\":\"theme-styles-sections-ve-care-pricing__cards--b2BIt\",\"card\":\"theme-styles-sections-ve-care-pricing__card--dTocD\",\"plan\":\"theme-styles-sections-ve-care-pricing__plan--wNqdJ\",\"priceRow\":\"theme-styles-sections-ve-care-pricing__priceRow--_MNHA\",\"price\":\"theme-styles-sections-ve-care-pricing__price--aUR78\",\"suffix\":\"theme-styles-sections-ve-care-pricing__suffix--hyOvw\",\"description\":\"theme-styles-sections-ve-care-pricing__description--lN1qt\",\"right\":\"theme-styles-sections-ve-care-pricing__right--luj2n\"}";
-        // 1771504631082
+        // 1773821701236
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -245,6 +235,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
+
+/***/ }
 
 }]);

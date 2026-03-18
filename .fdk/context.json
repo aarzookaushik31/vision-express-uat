@@ -11,6 +11,16 @@
         "application_token": "NeSiak9xu",
         "theme_type": "react",
         "env": "api.fynd.com"
+      },
+       "vision-express": {
+        "name": "vision-express react",
+        "application_id": "5ea82cc2b496555b51caafa3",
+        "domain": "visionexpress.in",
+        "company_id": 1076,
+        "theme_id": "69a9362247f5d4b50fda921b",
+        "application_token": "Mew72kkNu",
+        "theme_type": "react",
+        "env": "api.fynd.com"
       }
     }
   },

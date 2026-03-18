@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["HeroSliderWithTextSectionChunk"],{
 
-/***/ "./theme/assets/images/glide-arrow-left.svg":
+/***/ "./theme/assets/images/glide-arrow-left.svg"
 /*!**************************************************!*\
   !*** ./theme/assets/images/glide-arrow-left.svg ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ var SvgGlideArrowLeft = function SvgGlideArrowLeft(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowLeft);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/glide-arrow-right.svg":
+/***/ "./theme/assets/images/glide-arrow-right.svg"
 /*!***************************************************!*\
   !*** ./theme/assets/images/glide-arrow-right.svg ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -110,53 +110,13 @@ var SvgGlideArrowRight = function SvgGlideArrowRight(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowRight);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg":
-/*!****************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
-  \****************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-mobile1.jpg":
-/*!***************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-mobile1.jpg ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/75878745cc3881c9cfc8.jpg";
-
-/***/ }),
-
-/***/ "./theme/assets/images/placeholder/slideshow-mobile2.jpg":
-/*!***************************************************************!*\
-  !*** ./theme/assets/images/placeholder/slideshow-mobile2.jpg ***!
-  \***************************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/98b5d3629bb1e844dae5.jpg";
-
-/***/ }),
-
-/***/ "./theme/sections/hero-slider-with-text.jsx":
+/***/ "./theme/sections/hero-slider-with-text.jsx"
 /*!**************************************************!*\
   !*** ./theme/sections/hero-slider-with-text.jsx ***!
   \**************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -624,13 +584,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/hero-slider-with-text.less":
+/***/ "./theme/styles/sections/hero-slider-with-text.less"
 /*!**********************************************************!*\
   !*** ./theme/styles/sections/hero-slider-with-text.less ***!
   \**********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -641,7 +601,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"slideshowSlider\":\"theme-styles-sections-hero-slider-with-text__slideshowSlider--yzf4D\",\"slideWrapper\":\"theme-styles-sections-hero-slider-with-text__slideWrapper--hXPQh\",\"textOverlay\":\"theme-styles-sections-hero-slider-with-text__textOverlay--FxWF5\",\"buttons\":\"theme-styles-sections-hero-slider-with-text__buttons--x6K_9\",\"primaryBtn\":\"theme-styles-sections-hero-slider-with-text__primaryBtn--_joky\",\"secondaryBtn\":\"theme-styles-sections-hero-slider-with-text__secondaryBtn--i103n\",\"extraBlockwrapper\":\"theme-styles-sections-hero-slider-with-text__extraBlockwrapper--z_LGg\",\"tickerWrapper\":\"theme-styles-sections-hero-slider-with-text__tickerWrapper--XLXKt\",\"tickerContainer\":\"theme-styles-sections-hero-slider-with-text__tickerContainer--sn7P4\",\"tickerIconContainer\":\"theme-styles-sections-hero-slider-with-text__tickerIconContainer--Rn0y3\",\"tickerRatingContainer\":\"theme-styles-sections-hero-slider-with-text__tickerRatingContainer--siCjd\",\"extraBlockContainer\":\"theme-styles-sections-hero-slider-with-text__extraBlockContainer--qiJjS\",\"blockImageWrapper\":\"theme-styles-sections-hero-slider-with-text__blockImageWrapper--Hjjo3\",\"blockHeading\":\"theme-styles-sections-hero-slider-with-text__blockHeading--GjVB0\",\"blockSubheading\":\"theme-styles-sections-hero-slider-with-text__blockSubheading--aIqmO\",\"inputGroup\":\"theme-styles-sections-hero-slider-with-text__inputGroup--ulB8x\",\"pincodeInput\":\"theme-styles-sections-hero-slider-with-text__pincodeInput--daEvr\",\"findButton\":\"theme-styles-sections-hero-slider-with-text__findButton--tt79k\",\"slideContent\":\"theme-styles-sections-hero-slider-with-text__slideContent--CB4yh\"}";
-        // 1771504636318
+        // 1773821706720
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -661,6 +621,46 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop1.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop1.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/e820a6577973ac7dbb2c.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-desktop2.jpg"
+/*!****************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-desktop2.jpg ***!
+  \****************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ff223fc1483415d96e68.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-mobile1.jpg"
+/*!***************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-mobile1.jpg ***!
+  \***************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/75878745cc3881c9cfc8.jpg";
+
+/***/ },
+
+/***/ "./theme/assets/images/placeholder/slideshow-mobile2.jpg"
+/*!***************************************************************!*\
+  !*** ./theme/assets/images/placeholder/slideshow-mobile2.jpg ***!
+  \***************************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/98b5d3629bb1e844dae5.jpg";
+
+/***/ }
 
 }]);

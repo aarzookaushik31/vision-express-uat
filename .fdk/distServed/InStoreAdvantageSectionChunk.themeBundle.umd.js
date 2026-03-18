@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["InStoreAdvantageSectionChunk"],{
 
-/***/ "./theme/sections/in-store-advantage.jsx":
+/***/ "./theme/sections/in-store-advantage.jsx"
 /*!***********************************************!*\
   !*** ./theme/sections/in-store-advantage.jsx ***!
   \***********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -186,13 +186,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/in-store-advantage.less":
+/***/ "./theme/styles/sections/in-store-advantage.less"
 /*!*******************************************************!*\
   !*** ./theme/styles/sections/in-store-advantage.less ***!
   \*******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -203,7 +203,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"inStoreAdvantageSection\":\"theme-styles-sections-in-store-advantage__inStoreAdvantageSection--z4jqA\",\"container\":\"theme-styles-sections-in-store-advantage__container--GM3hP\",\"cardsWrapper\":\"theme-styles-sections-in-store-advantage__cardsWrapper--Rxo5H\",\"card\":\"theme-styles-sections-in-store-advantage__card--QRITH\",\"buttonsWrapper\":\"theme-styles-sections-in-store-advantage__buttonsWrapper--xmnNY\",\"button\":\"theme-styles-sections-in-store-advantage__button--Pjlro\",\"primary\":\"theme-styles-sections-in-store-advantage__primary--SrWHx\",\"secondary\":\"theme-styles-sections-in-store-advantage__secondary--anx6e\"}";
-        // 1771504636315
+        // 1773821706706
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -223,6 +223,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

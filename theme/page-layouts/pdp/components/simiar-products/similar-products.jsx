@@ -4,6 +4,9 @@ import useRecommendation from "./useRecommendations";
 import Slider from "react-slick";
 import { FDKLink } from "fdk-core/components";
 import SliderCard from "./product-card.jsx";
+import { useWishlist, useAccounts, useThemeConfig } from "../../../../helper/hooks";
+
+
 
 const RecommendedProducts = ({
   fpi,
@@ -15,6 +18,22 @@ const RecommendedProducts = ({
   customSettings, 
   customClass = "" 
 }) => {
+
+    const { toggleWishlist, followedIdList } = useWishlist({ fpi });
+  const { isLoggedIn, openLogin } = useAccounts({ fpi });
+
+
+const handleWishlistToggle = (data) => {
+  if (!isLoggedIn) {
+    localStorage.setItem("pendingWishlistProduct", JSON.stringify(data));
+    openLogin({ redirectUrl: "/wishlist"});
+    return;
+  }
+
+  toggleWishlist(data);
+};
+
+
   const { product_lists, apiLoading } = useRecommendation(
     fpi,
     slug,
@@ -30,7 +49,7 @@ const RecommendedProducts = ({
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
     cssEase: "linear",
@@ -38,7 +57,7 @@ const RecommendedProducts = ({
       {
         breakpoint: 1050,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           dots: false,
           arrows: false,
           infinite: false,
@@ -68,7 +87,7 @@ const RecommendedProducts = ({
             {product_lists?.items?.length > 0 ? (
               product_lists.items.map((product, index) => (
                 <FDKLink key={index} action={product?.action || ""}>
-                  <SliderCard product={product} />
+                  <SliderCard product={product} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
                 </FDKLink>
               ))
             ) : (

@@ -300,9 +300,11 @@ export function Component({ props, globalConfig }) {
 
   const handleWishlistToggle = (data) => {
     if (!isLoggedIn) {
-      openLogin();
-      return;
-    }
+    openLogin({ redirectUrl: "/wishlist" });
+     localStorage.setItem("pendingWishlistProduct", JSON.stringify(data));
+    return;
+  }
+
     toggleWishlist(data);
   };
 

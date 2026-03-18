@@ -46,75 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["BlogListingSectionChunk"],{
 
-/***/ "./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css ***!
-  \**********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1771504636332
-        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
-
-/***/ }),
-
-/***/ "./theme/assets/images/Calendarblack.png":
-/*!***********************************************!*\
-  !*** ./theme/assets/images/Calendarblack.png ***!
-  \***********************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/60927c79136fd6a32733.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/blog-placeholder.png":
-/*!**************************************************!*\
-  !*** ./theme/assets/images/blog-placeholder.png ***!
-  \**************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/ef4bdeae71080af5b451.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/clockblack.png":
-/*!********************************************!*\
-  !*** ./theme/assets/images/clockblack.png ***!
-  \********************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/c6f667ad3db099405b9b.png";
-
-/***/ }),
-
-/***/ "./theme/page-layouts/blog/useBlog.jsx":
+/***/ "./theme/page-layouts/blog/useBlog.jsx"
 /*!*********************************************!*\
   !*** ./theme/page-layouts/blog/useBlog.jsx ***!
   \*********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -425,13 +361,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/queries/blogQuery.js":
+/***/ "./theme/queries/blogQuery.js"
 /*!************************************!*\
   !*** ./theme/queries/blogQuery.js ***!
   \************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -571,13 +507,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/blog-listing.jsx":
+/***/ "./theme/sections/blog-listing.jsx"
 /*!*****************************************!*\
   !*** ./theme/sections/blog-listing.jsx ***!
   \*****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -711,7 +647,7 @@ function Component({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: _styles_sections_blog_listing_less__WEBPACK_IMPORTED_MODULE_5__["default"].loadMoreBtn,
     onClick: handleLoadMore
-  }, "View More Posts"))));
+  }, "Load More Posts"))));
 }
 _s(Component, "FQHCw9xRAgF3MAvH41oadioIaK4=", false, function () {
   return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_4__.useFPI, _page_layouts_blog_useBlog__WEBPACK_IMPORTED_MODULE_3__["default"]];
@@ -784,13 +720,47 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/blog-listing.less":
+/***/ "./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css"
+/*!**********************************************************************!*\
+  !*** ./node_modules/@gofynd/theme-template/dist/pages/blog/blog.css ***!
+  \**********************************************************************/
+(module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+    if(true) {
+      (function() {
+        var localsJsonString = undefined;
+        // 1773821705729
+        var cssReload = __webpack_require__(/*! ../../../../../mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
+        // only invalidate when locals change
+        if (
+          module.hot.data &&
+          module.hot.data.value &&
+          module.hot.data.value !== localsJsonString
+        ) {
+          module.hot.invalidate();
+        } else {
+          module.hot.accept();
+        }
+        module.hot.dispose(function(data) {
+          data.value = localsJsonString;
+          cssReload();
+        });
+      })();
+    }
+  
+
+/***/ },
+
+/***/ "./theme/styles/sections/blog-listing.less"
 /*!*************************************************!*\
   !*** ./theme/styles/sections/blog-listing.less ***!
   \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -801,7 +771,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"blogListing\":\"theme-styles-sections-blog-listing__blogListing--Tief1\",\"blogListingcards\":\"theme-styles-sections-blog-listing__blogListingcards--eH2dh\",\"blogTitle\":\"theme-styles-sections-blog-listing__blogTitle--kszSP\",\"blogInfoContainer\":\"theme-styles-sections-blog-listing__blogInfoContainer--g5ar_\",\"blogGrid\":\"theme-styles-sections-blog-listing__blogGrid--AqqMk\",\"blogCard\":\"theme-styles-sections-blog-listing__blogCard--G1SH0\",\"blogCardTitle\":\"theme-styles-sections-blog-listing__blogCardTitle--sDqVN\",\"blogImage\":\"theme-styles-sections-blog-listing__blogImage--gpV9V\",\"blogMeta\":\"theme-styles-sections-blog-listing__blogMeta--Wtxtf\",\"blogTags\":\"theme-styles-sections-blog-listing__blogTags--YYdCY\",\"blogTag\":\"theme-styles-sections-blog-listing__blogTag--pNnoH\",\"breadcrumbs\":\"theme-styles-sections-blog-listing__breadcrumbs--NCWoJ\",\"loadMoreWrapper\":\"theme-styles-sections-blog-listing__loadMoreWrapper--SjFWo\",\"loadMoreBtn\":\"theme-styles-sections-blog-listing__loadMoreBtn--Tllyo\"}";
-        // 1771504635234
+        // 1773821705687
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -821,6 +791,36 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/Calendarblack.png"
+/*!***********************************************!*\
+  !*** ./theme/assets/images/Calendarblack.png ***!
+  \***********************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/60927c79136fd6a32733.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/blog-placeholder.png"
+/*!**************************************************!*\
+  !*** ./theme/assets/images/blog-placeholder.png ***!
+  \**************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/ef4bdeae71080af5b451.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/clockblack.png"
+/*!********************************************!*\
+  !*** ./theme/assets/images/clockblack.png ***!
+  \********************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/c6f667ad3db099405b9b.png";
+
+/***/ }
 
 }]);

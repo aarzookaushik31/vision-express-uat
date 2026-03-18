@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["TrustMarkerSectionChunk"],{
 
-/***/ "./theme/assets/images/glide-arrow-left.svg":
+/***/ "./theme/assets/images/glide-arrow-left.svg"
 /*!**************************************************!*\
   !*** ./theme/assets/images/glide-arrow-left.svg ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ var SvgGlideArrowLeft = function SvgGlideArrowLeft(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowLeft);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/assets/images/glide-arrow-right.svg":
+/***/ "./theme/assets/images/glide-arrow-right.svg"
 /*!***************************************************!*\
   !*** ./theme/assets/images/glide-arrow-right.svg ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -110,13 +110,13 @@ var SvgGlideArrowRight = function SvgGlideArrowRight(props) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgGlideArrowRight);
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/trust-marker.jsx":
+/***/ "./theme/sections/trust-marker.jsx"
 /*!*****************************************!*\
   !*** ./theme/sections/trust-marker.jsx ***!
   \*****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -568,24 +568,24 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/trust-marker.less":
+/***/ "./theme/styles/trust-marker.less"
 /*!****************************************!*\
   !*** ./theme/styles/trust-marker.less ***!
   \****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-trust-marker__login-auth-container--x0cPG","n2oQ6":"theme-styles-trust-marker__n2oQ6--Krj_7","uiz1K":"theme-styles-trust-marker__uiz1K--cyB__","P1CJx":"theme-styles-trust-marker__P1CJx--SIejB","kkBOU":"theme-styles-trust-marker__kkBOU--a0nqa","react-international-phone-country-selector-button":"theme-styles-trust-marker__react-international-phone-country-selector-button--gy4yG","react-international-phone-input":"theme-styles-trust-marker__react-international-phone-input--rPS6N","forget-password-container":"theme-styles-trust-marker__forget-password-container--YEkIc","profile-navigation-container":"theme-styles-trust-marker__profile-navigation-container--Jm8FS","ojp_C":"theme-styles-trust-marker__ojp_C--Roxjh","O32OW":"theme-styles-trust-marker__O32OW--s8w7d","collection-hero-banner":"theme-styles-trust-marker__collection-hero-banner--g_417","collection-banner-img":"theme-styles-trust-marker__collection-banner-img--wdeeH","collection-unofficial":"theme-styles-trust-marker__collection-unofficial--evkeU","collection-dbyd":"theme-styles-trust-marker__collection-dbyd--EHT3o","collection-banner-img-mobile":"theme-styles-trust-marker__collection-banner-img-mobile--JUvWP","collection-banner-content":"theme-styles-trust-marker__collection-banner-content--XwjOc","custom-banner-card":"theme-styles-trust-marker__custom-banner-card--SueFP","banner-overlay":"theme-styles-trust-marker__banner-overlay--Gf8Rk","banner-content":"theme-styles-trust-marker__banner-content--C1U5v","banner-btn":"theme-styles-trust-marker__banner-btn--eeq5M","flexColumn":"theme-styles-trust-marker__flexColumn--Ua5_h","flexAlignCenter":"theme-styles-trust-marker__flexAlignCenter--PzCkr","flexCenter":"theme-styles-trust-marker__flexCenter--jSBKe","justifyStart":"theme-styles-trust-marker__justifyStart--rZ5mX","justifyBetween":"theme-styles-trust-marker__justifyBetween--NjwDY","slick-dots":"theme-styles-trust-marker__slick-dots--OxzZr","slick-active":"theme-styles-trust-marker__slick-active--qtiOT","legal-data-container":"theme-styles-trust-marker__legal-data-container--D4fs5","headingContainer":"theme-styles-trust-marker__headingContainer--hTbiM","sectionTitle":"theme-styles-trust-marker__sectionTitle--kBQBM","sectionDescription":"theme-styles-trust-marker__sectionDescription--I3rkK","stackLayout":"theme-styles-trust-marker__stackLayout--JRYs4","horizontalLayout":"theme-styles-trust-marker__horizontalLayout--mjwwI","horizontalItem":"theme-styles-trust-marker__horizontalItem--xTDZX","trustmark":"theme-styles-trust-marker__trustmark--gMJqY","trustmarkImage":"theme-styles-trust-marker__trustmarkImage--NitDl","trustmarkData":"theme-styles-trust-marker__trustmarkData--AXObW","trustmarkHeading":"theme-styles-trust-marker__trustmarkHeading--p18Dp","trustmarkDescription":"theme-styles-trust-marker__trustmarkDescription--MQ1_l","hideOnDesktop":"theme-styles-trust-marker__hideOnDesktop--bRDTP","hideOnTablet":"theme-styles-trust-marker__hideOnTablet--GBEtL","hideOnMobile":"theme-styles-trust-marker__hideOnMobile--Bw27C","showOnMobile":"theme-styles-trust-marker__showOnMobile--Lt7Qe"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"login-auth-container":"theme-styles-trust-marker__login-auth-container--x0cPG","n2oQ6":"theme-styles-trust-marker__n2oQ6--Krj_7","uiz1K":"theme-styles-trust-marker__uiz1K--cyB__","P1CJx":"theme-styles-trust-marker__P1CJx--SIejB","kkBOU":"theme-styles-trust-marker__kkBOU--a0nqa","react-international-phone-country-selector-button":"theme-styles-trust-marker__react-international-phone-country-selector-button--gy4yG","react-international-phone-input":"theme-styles-trust-marker__react-international-phone-input--rPS6N","forget-password-container":"theme-styles-trust-marker__forget-password-container--YEkIc","profile-navigation-container":"theme-styles-trust-marker__profile-navigation-container--Jm8FS","ojp_C":"theme-styles-trust-marker__ojp_C--Roxjh","O32OW":"theme-styles-trust-marker__O32OW--s8w7d","collection-hero-banner":"theme-styles-trust-marker__collection-hero-banner--g_417","collection-banner-img":"theme-styles-trust-marker__collection-banner-img--wdeeH","collection-unofficial":"theme-styles-trust-marker__collection-unofficial--evkeU","collection-dbyd":"theme-styles-trust-marker__collection-dbyd--EHT3o","collection-banner-img-mobile":"theme-styles-trust-marker__collection-banner-img-mobile--JUvWP","collection-banner-content":"theme-styles-trust-marker__collection-banner-content--XwjOc","custom-banner-card":"theme-styles-trust-marker__custom-banner-card--SueFP","banner-overlay":"theme-styles-trust-marker__banner-overlay--Gf8Rk","banner-content":"theme-styles-trust-marker__banner-content--C1U5v","banner-btn":"theme-styles-trust-marker__banner-btn--eeq5M","flexColumn":"theme-styles-trust-marker__flexColumn--Ua5_h","flexAlignCenter":"theme-styles-trust-marker__flexAlignCenter--PzCkr","flexCenter":"theme-styles-trust-marker__flexCenter--jSBKe","justifyStart":"theme-styles-trust-marker__justifyStart--rZ5mX","justifyBetween":"theme-styles-trust-marker__justifyBetween--NjwDY","slick-dots":"theme-styles-trust-marker__slick-dots--OxzZr","slick-active":"theme-styles-trust-marker__slick-active--qtiOT","section_glamar-sdk-binding":"theme-styles-trust-marker__section_glamar-sdk-binding--k1Qof","legal-data-container":"theme-styles-trust-marker__legal-data-container--D4fs5","headingContainer":"theme-styles-trust-marker__headingContainer--hTbiM","sectionTitle":"theme-styles-trust-marker__sectionTitle--kBQBM","sectionDescription":"theme-styles-trust-marker__sectionDescription--I3rkK","stackLayout":"theme-styles-trust-marker__stackLayout--JRYs4","horizontalLayout":"theme-styles-trust-marker__horizontalLayout--mjwwI","horizontalItem":"theme-styles-trust-marker__horizontalItem--xTDZX","trustmark":"theme-styles-trust-marker__trustmark--gMJqY","trustmarkImage":"theme-styles-trust-marker__trustmarkImage--NitDl","trustmarkData":"theme-styles-trust-marker__trustmarkData--AXObW","trustmarkHeading":"theme-styles-trust-marker__trustmarkHeading--p18Dp","trustmarkDescription":"theme-styles-trust-marker__trustmarkDescription--MQ1_l","hideOnDesktop":"theme-styles-trust-marker__hideOnDesktop--bRDTP","hideOnTablet":"theme-styles-trust-marker__hideOnTablet--GBEtL","hideOnMobile":"theme-styles-trust-marker__hideOnMobile--Bw27C","showOnMobile":"theme-styles-trust-marker__showOnMobile--Lt7Qe"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"login-auth-container\":\"theme-styles-trust-marker__login-auth-container--x0cPG\",\"n2oQ6\":\"theme-styles-trust-marker__n2oQ6--Krj_7\",\"uiz1K\":\"theme-styles-trust-marker__uiz1K--cyB__\",\"P1CJx\":\"theme-styles-trust-marker__P1CJx--SIejB\",\"kkBOU\":\"theme-styles-trust-marker__kkBOU--a0nqa\",\"react-international-phone-country-selector-button\":\"theme-styles-trust-marker__react-international-phone-country-selector-button--gy4yG\",\"react-international-phone-input\":\"theme-styles-trust-marker__react-international-phone-input--rPS6N\",\"forget-password-container\":\"theme-styles-trust-marker__forget-password-container--YEkIc\",\"profile-navigation-container\":\"theme-styles-trust-marker__profile-navigation-container--Jm8FS\",\"ojp_C\":\"theme-styles-trust-marker__ojp_C--Roxjh\",\"O32OW\":\"theme-styles-trust-marker__O32OW--s8w7d\",\"collection-hero-banner\":\"theme-styles-trust-marker__collection-hero-banner--g_417\",\"collection-banner-img\":\"theme-styles-trust-marker__collection-banner-img--wdeeH\",\"collection-unofficial\":\"theme-styles-trust-marker__collection-unofficial--evkeU\",\"collection-dbyd\":\"theme-styles-trust-marker__collection-dbyd--EHT3o\",\"collection-banner-img-mobile\":\"theme-styles-trust-marker__collection-banner-img-mobile--JUvWP\",\"collection-banner-content\":\"theme-styles-trust-marker__collection-banner-content--XwjOc\",\"custom-banner-card\":\"theme-styles-trust-marker__custom-banner-card--SueFP\",\"banner-overlay\":\"theme-styles-trust-marker__banner-overlay--Gf8Rk\",\"banner-content\":\"theme-styles-trust-marker__banner-content--C1U5v\",\"banner-btn\":\"theme-styles-trust-marker__banner-btn--eeq5M\",\"flexColumn\":\"theme-styles-trust-marker__flexColumn--Ua5_h\",\"flexAlignCenter\":\"theme-styles-trust-marker__flexAlignCenter--PzCkr\",\"flexCenter\":\"theme-styles-trust-marker__flexCenter--jSBKe\",\"justifyStart\":\"theme-styles-trust-marker__justifyStart--rZ5mX\",\"justifyBetween\":\"theme-styles-trust-marker__justifyBetween--NjwDY\",\"slick-dots\":\"theme-styles-trust-marker__slick-dots--OxzZr\",\"slick-active\":\"theme-styles-trust-marker__slick-active--qtiOT\",\"legal-data-container\":\"theme-styles-trust-marker__legal-data-container--D4fs5\",\"headingContainer\":\"theme-styles-trust-marker__headingContainer--hTbiM\",\"sectionTitle\":\"theme-styles-trust-marker__sectionTitle--kBQBM\",\"sectionDescription\":\"theme-styles-trust-marker__sectionDescription--I3rkK\",\"stackLayout\":\"theme-styles-trust-marker__stackLayout--JRYs4\",\"horizontalLayout\":\"theme-styles-trust-marker__horizontalLayout--mjwwI\",\"horizontalItem\":\"theme-styles-trust-marker__horizontalItem--xTDZX\",\"trustmark\":\"theme-styles-trust-marker__trustmark--gMJqY\",\"trustmarkImage\":\"theme-styles-trust-marker__trustmarkImage--NitDl\",\"trustmarkData\":\"theme-styles-trust-marker__trustmarkData--AXObW\",\"trustmarkHeading\":\"theme-styles-trust-marker__trustmarkHeading--p18Dp\",\"trustmarkDescription\":\"theme-styles-trust-marker__trustmarkDescription--MQ1_l\",\"hideOnDesktop\":\"theme-styles-trust-marker__hideOnDesktop--bRDTP\",\"hideOnTablet\":\"theme-styles-trust-marker__hideOnTablet--GBEtL\",\"hideOnMobile\":\"theme-styles-trust-marker__hideOnMobile--Bw27C\",\"showOnMobile\":\"theme-styles-trust-marker__showOnMobile--Lt7Qe\"}";
-        // 1771504634392
+        var localsJsonString = "{\"login-auth-container\":\"theme-styles-trust-marker__login-auth-container--x0cPG\",\"n2oQ6\":\"theme-styles-trust-marker__n2oQ6--Krj_7\",\"uiz1K\":\"theme-styles-trust-marker__uiz1K--cyB__\",\"P1CJx\":\"theme-styles-trust-marker__P1CJx--SIejB\",\"kkBOU\":\"theme-styles-trust-marker__kkBOU--a0nqa\",\"react-international-phone-country-selector-button\":\"theme-styles-trust-marker__react-international-phone-country-selector-button--gy4yG\",\"react-international-phone-input\":\"theme-styles-trust-marker__react-international-phone-input--rPS6N\",\"forget-password-container\":\"theme-styles-trust-marker__forget-password-container--YEkIc\",\"profile-navigation-container\":\"theme-styles-trust-marker__profile-navigation-container--Jm8FS\",\"ojp_C\":\"theme-styles-trust-marker__ojp_C--Roxjh\",\"O32OW\":\"theme-styles-trust-marker__O32OW--s8w7d\",\"collection-hero-banner\":\"theme-styles-trust-marker__collection-hero-banner--g_417\",\"collection-banner-img\":\"theme-styles-trust-marker__collection-banner-img--wdeeH\",\"collection-unofficial\":\"theme-styles-trust-marker__collection-unofficial--evkeU\",\"collection-dbyd\":\"theme-styles-trust-marker__collection-dbyd--EHT3o\",\"collection-banner-img-mobile\":\"theme-styles-trust-marker__collection-banner-img-mobile--JUvWP\",\"collection-banner-content\":\"theme-styles-trust-marker__collection-banner-content--XwjOc\",\"custom-banner-card\":\"theme-styles-trust-marker__custom-banner-card--SueFP\",\"banner-overlay\":\"theme-styles-trust-marker__banner-overlay--Gf8Rk\",\"banner-content\":\"theme-styles-trust-marker__banner-content--C1U5v\",\"banner-btn\":\"theme-styles-trust-marker__banner-btn--eeq5M\",\"flexColumn\":\"theme-styles-trust-marker__flexColumn--Ua5_h\",\"flexAlignCenter\":\"theme-styles-trust-marker__flexAlignCenter--PzCkr\",\"flexCenter\":\"theme-styles-trust-marker__flexCenter--jSBKe\",\"justifyStart\":\"theme-styles-trust-marker__justifyStart--rZ5mX\",\"justifyBetween\":\"theme-styles-trust-marker__justifyBetween--NjwDY\",\"slick-dots\":\"theme-styles-trust-marker__slick-dots--OxzZr\",\"slick-active\":\"theme-styles-trust-marker__slick-active--qtiOT\",\"section_glamar-sdk-binding\":\"theme-styles-trust-marker__section_glamar-sdk-binding--k1Qof\",\"legal-data-container\":\"theme-styles-trust-marker__legal-data-container--D4fs5\",\"headingContainer\":\"theme-styles-trust-marker__headingContainer--hTbiM\",\"sectionTitle\":\"theme-styles-trust-marker__sectionTitle--kBQBM\",\"sectionDescription\":\"theme-styles-trust-marker__sectionDescription--I3rkK\",\"stackLayout\":\"theme-styles-trust-marker__stackLayout--JRYs4\",\"horizontalLayout\":\"theme-styles-trust-marker__horizontalLayout--mjwwI\",\"horizontalItem\":\"theme-styles-trust-marker__horizontalItem--xTDZX\",\"trustmark\":\"theme-styles-trust-marker__trustmark--gMJqY\",\"trustmarkImage\":\"theme-styles-trust-marker__trustmarkImage--NitDl\",\"trustmarkData\":\"theme-styles-trust-marker__trustmarkData--AXObW\",\"trustmarkHeading\":\"theme-styles-trust-marker__trustmarkHeading--p18Dp\",\"trustmarkDescription\":\"theme-styles-trust-marker__trustmarkDescription--MQ1_l\",\"hideOnDesktop\":\"theme-styles-trust-marker__hideOnDesktop--bRDTP\",\"hideOnTablet\":\"theme-styles-trust-marker__hideOnTablet--GBEtL\",\"hideOnMobile\":\"theme-styles-trust-marker__hideOnMobile--Bw27C\",\"showOnMobile\":\"theme-styles-trust-marker__showOnMobile--Lt7Qe\"}";
+        // 1773821704727
         var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -605,6 +605,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

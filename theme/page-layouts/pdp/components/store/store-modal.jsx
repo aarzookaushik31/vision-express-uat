@@ -22,10 +22,12 @@ function StoreModal({
   const [showSortDropdown, setShowSortDropdown] = useState(false);
   const [isViewMore, setIsViewMore] = useState(true);
   const [selectedCity, setSelectedCity] = useState("All Cities");
-  const [useLocationMode, setUseLocationMode] = useState(false); // persistent flag
+  const [useLocationMode, setUseLocationMode] = useState(false); 
+  const [pincode, setPincode] = useState("");
+const [isPincodeMode, setIsPincodeMode] = useState(false);
+const [showPincodeSearch, setShowPincodeSearch] = useState(false);
   const pageSize = 4;
 
-  // 🧠 When modal opens, automatically fetch based on last mode
   useEffect(() => {
     if (isOpen) {
       if (useLocationMode) {
@@ -36,7 +38,7 @@ function StoreModal({
           },
           (error) => {
             console.error("Geolocation error:", error);
-            getProductSellers(); // fallback
+            getProductSellers(); 
           }
         );
       } else {
@@ -45,7 +47,6 @@ function StoreModal({
     }
   }, [isOpen]);
 
-  // ✅ Extract unique city list
   const cityList = [
     "All Cities",
     ...Array.from(
@@ -53,13 +54,24 @@ function StoreModal({
     ).filter(Boolean),
   ];
 
-  // ✅ Filter stores by city
-  const filteredItems =
-    selectedCity === "All Cities"
-      ? allStoresInfo?.items || []
-      : (allStoresInfo?.items || []).filter(
-          (store) => store.city === selectedCity
-        );
+
+const baseItems = allStoresInfo?.items || [];
+
+let filteredItems = baseItems;
+
+if (isPincodeMode && pincode.length === 6) {
+  filteredItems = baseItems.filter(
+    (store) =>
+      String(store.pincode)?.trim() === pincode.trim() ||
+      String(store.postal_code)?.trim() === pincode.trim()
+  );
+} else if (!showPincodeSearch && selectedCity !== "All Cities") {
+  filteredItems = baseItems.filter(
+    (store) => store.city === selectedCity
+  );
+}
+
+
 
   const getListingItems = isViewMore
     ? filteredItems.slice(0, pageSize)
@@ -129,8 +141,13 @@ function StoreModal({
               <Loader />
             ) : (
               <>
+
+               {!showPincodeSearch && (
+                <>
                 {/* City dropdown */}
                 <div className={`${styles.sortWrapper} ${styles.closeSortDropdown}`}>
+
+                 
                   <button
                     type="button"
                     className={`${styles.sortButton} ${styles.flexAlignCenter} ${styles.justifyBetween} ${styles.fontBody}`}
@@ -164,6 +181,10 @@ function StoreModal({
                   </ul>
                 </div>
 
+
+
+                <div className={styles.locationbtnContainer}>
+
                 {/* Location button */}
                 <button
                   type="button"
@@ -179,6 +200,78 @@ function StoreModal({
                     ? "Show all stores"
                     : "Use my current location"}
                 </button>
+
+
+
+
+                <button
+    type="button"
+    className={styles.usePincodeToggleBtn}
+    onClick={() => {
+      setShowPincodeSearch(true);
+
+        setUseLocationMode(false);
+  getProductSellers(); 
+  
+      setSelectedCity("All Cities");
+      setIsPincodeMode(false);
+      setPincode("");
+    }}
+  >
+    Use Pincode
+  </button>
+  </div>
+                  </>
+              )}
+
+
+
+
+{showPincodeSearch && (
+  <div className={styles.pincodeWrapper}>
+   
+
+    <input
+      type="text"
+      placeholder="Enter pincode"
+      value={pincode}
+      maxLength={6}
+      onChange={(e) => {
+        const value = e.target.value.replace(/\D/g, "");
+        setPincode(value);
+        setIsPincodeMode(false);
+      }}
+      className={styles.pincodeInput}
+    />
+
+    <button
+      type="button"
+      disabled={pincode.length !== 6}
+      onClick={() => {
+        setIsPincodeMode(true);
+        setIsViewMore(true);
+      }}
+      className={styles.pincodeSearchBtn}
+    >
+      Search
+    </button>
+
+
+     <div className={styles.pincodeHeader}>
+      <button
+        type="button"
+        className={styles.backBtn}
+        onClick={() => {
+          setShowPincodeSearch(false);
+          setIsPincodeMode(false);
+          setPincode("");
+        }}
+      >
+        Use City Filter
+      </button>
+    </div>
+  </div>
+)}
 
                 {/* Store count */}
                 <h5 className={styles.storeCounts}>

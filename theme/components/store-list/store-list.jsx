@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./store-list.less";
-import placeholderImage from "../../assets/images/placeholder/store-image-placeholder.png";
+import placeholderImage from "../../assets/images/placeholder/Store-list-placeholder-image.png";
 import phoneIcon from "../../assets/images/phoneicon.png";
 import BookCalender from "../../assets/images/bookcalender.png";
 

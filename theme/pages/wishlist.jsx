@@ -1,5 +1,5 @@
-import React from "react";
-import useWishlist from "../page-layouts/wishlist/useWishlist";
+import React, {useEffect} from "react";
+import useWishlistPage from "../page-layouts/wishlist/useWishlist";
 import styles from "../styles/wishlist.less";
 import { isLoggedIn } from "../helper/auth-guard";
 import Wishlist from "@gofynd/theme-template/pages/wishlist/wishlist";
@@ -8,12 +8,13 @@ import Shimmer from "../components/shimmer/shimmer";
 import { useGlobalStore, useGlobalTranslation } from "fdk-core/utils";
 import { getHelmet } from "../providers/global-provider";
 import { sanitizeHTMLTag } from "../helper/utils";
+import { useWishlist } from "../helper/hooks";
 
 function WishlistPage({ fpi }) {
   const { t } = useGlobalTranslation("translation");
   const page = useGlobalStore(fpi.getters.PAGE) || {};
   const THEME = useGlobalStore(fpi.getters.THEME);
-  const { loading, ...wishlistProps } = useWishlist({ fpi });
+  const { loading, ...wishlistProps } = useWishlistPage({ fpi });
 
   const seoData = page?.seo || {};
   const title = sanitizeHTMLTag(seoData?.title || "Wishlist");
@@ -22,6 +23,26 @@ function WishlistPage({ fpi }) {
   );
 
   const mergedSeo = { ...seoData, title, description };
+
+
+const { toggleWishlist } = useWishlist({ fpi });
+
+useEffect(() => {
+  const pendingProduct = localStorage.getItem("pendingWishlistProduct");
+
+  if (pendingProduct && isLoggedIn) {
+    const product = JSON.parse(pendingProduct);
+
+    localStorage.removeItem("pendingWishlistProduct");
+
+    toggleWishlist(product);
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  }
+}, [isLoggedIn]);
+
 
   if (loading) {
     return <Shimmer />;

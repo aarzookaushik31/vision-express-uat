@@ -46,51 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["CustomContactUsSectionChunk"],{
 
-/***/ "./theme/assets/images/contact-address-icon.png":
-/*!******************************************************!*\
-  !*** ./theme/assets/images/contact-address-icon.png ***!
-  \******************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/caa84a4739cfc9e56c00.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/contact-email-icon.png":
-/*!****************************************************!*\
-  !*** ./theme/assets/images/contact-email-icon.png ***!
-  \****************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/28b814f6bd6592c1a3b6.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/contact-phone-icon.png":
-/*!****************************************************!*\
-  !*** ./theme/assets/images/contact-phone-icon.png ***!
-  \****************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f4750633658996ed77f1.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/form-submit-eye-white.png":
-/*!*******************************************************!*\
-  !*** ./theme/assets/images/form-submit-eye-white.png ***!
-  \*******************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
-
-/***/ }),
-
-/***/ "./theme/queries/supportQuery.js":
+/***/ "./theme/queries/supportQuery.js"
 /*!***************************************!*\
   !*** ./theme/queries/supportQuery.js ***!
   \***************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -176,13 +136,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/custom-contact-us.jsx":
+/***/ "./theme/sections/custom-contact-us.jsx"
 /*!**********************************************!*\
   !*** ./theme/sections/custom-contact-us.jsx ***!
   \**********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -248,6 +208,7 @@ function Component({
   } = (0,_helper_hooks__WEBPACK_IMPORTED_MODULE_3__.useSnackbar)();
   const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useLocation)();
   const [showSuccessMessage, setShowSuccessMessage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [errors, setErrors] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
   const {
     email,
     phone
@@ -274,14 +235,80 @@ function Component({
       }
     };
   };
+  const validateField = (name, value) => {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const phoneRegex = /^\d{10}$/;
+    let error = "";
+    if (!value || value.trim() === "") {
+      return "This field is required";
+    }
+    if (name === "name") {
+      if (!nameRegex.test(value)) {
+        error = "Please enter a valid name (letters only)";
+      }
+    }
+    if (name === "phone") {
+      if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
+        error = "Please enter a valid 10 digit mobile number";
+      }
+    }
+    if (name === "email") {
+      if (!emailRegex.test(value)) {
+        error = "Please enter a valid email address";
+      }
+    }
+    return error;
+  };
+  const handleChange = e => {
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    setErrors(prev => ({
+      ...prev,
+      [name]: ""
+    }));
+  };
+  const handleBlur = e => {
+    const {
+      name,
+      value
+    } = e.target;
+    const error = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
+  };
   const prefillData = getPrefillData(location.search);
-  const handleSubmitForm = data => {
+  const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    name: prefillData.values.name || "",
+    phone: prefillData.values.phone || "",
+    email: prefillData.values.email || "",
+    comment: ""
+  });
+  const handleSubmitForm = () => {
     try {
+      const newErrors = {};
+      Object.keys(formData).forEach(field => {
+        if (field === "comment") return;
+        const error = validateField(field, formData[field]);
+        if (error) newErrors[field] = error;
+      });
+      if (Object.keys(newErrors).length) {
+        setErrors(newErrors);
+        return;
+      }
       let finalText = "";
-      if (data?.name) finalText += `<b>${t("resource.common.name")}: </b>${data?.name}<br>`;
-      if (data?.phone) finalText += `<b>${t("resource.common.phone")}: </b>${data?.phone}<br>`;
-      if (data?.email) finalText += `<b>${t("resource.common.email")}: </b>${data?.email}<br>`;
-      if (data?.comment) finalText += `<b>${t("resource.common.message")}: </b>${data?.comment}<br>`;
+      if (formData.name) finalText += `<b>${t("resource.common.name")}: </b>${formData.name}<br>`;
+      if (formData.phone) finalText += `<b>${t("resource.common.phone")}: </b>${formData.phone}<br>`;
+      if (formData.email) finalText += `<b>${t("resource.common.email")}: </b>${formData.email}<br>`;
+      if (formData.comment) finalText += `<b>${t("resource.common.message")}: </b>${formData.comment}<br>`;
       finalText = `<div>${finalText}</div>`;
       const wordArray = crypto_js_enc_utf8__WEBPACK_IMPORTED_MODULE_5___default().parse(finalText);
       finalText = crypto_js_enc_base64__WEBPACK_IMPORTED_MODULE_4___default().stringify(wordArray);
@@ -289,9 +316,9 @@ function Component({
         addTicketPayloadInput: {
           _custom_json: {
             comms_details: {
-              name: data?.name,
-              email: data?.email,
-              phone: data?.phone
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone
             }
           },
           category: "contact-us",
@@ -309,7 +336,7 @@ function Component({
         showSnackbar(t("resource.common.error_message"), "error");
       });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error(error);
       showSnackbar(t("resource.common.error_occurred_submitting_form"), "error");
     }
   };
@@ -365,41 +392,73 @@ function Component({
     src: getShopLogo()
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].contactForm,
+    noValidate: true,
     onSubmit: e => {
       e.preventDefault();
-      const formData = new FormData(e.target);
-      handleSubmitForm(Object.fromEntries(formData.entries()));
+      handleSubmitForm();
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].inputFlexGroup
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    class: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].inputfieldcontainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "name"
   }, "Full Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     name: "name",
     placeholder: "Enter your Full Name",
-    defaultValue: prefillData.values.name,
+    value: formData.name,
+    onChange: handleChange,
+    onBlur: handleBlur,
     required: true,
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].formInput
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  }), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].errorText
+  }, errors.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    class: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].inputfieldcontainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "phone"
   }, "Contact Number"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "tel",
     name: "phone",
-    placeholder: "+91 XXXXX XXXXX",
-    defaultValue: prefillData.values.phone,
+    placeholder: "Enter 10 digit mobile number",
+    value: formData.phone,
     required: true,
+    onChange: e => {
+      const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+      setFormData(prev => ({
+        ...prev,
+        phone: value
+      }));
+      setErrors(prev => ({
+        ...prev,
+        phone: ""
+      }));
+    },
+    onBlur: handleBlur,
+    maxLength: 10,
+    pattern: "[0-9]{10}",
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].formInput
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  }), errors.phone && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].errorText
+  }, errors.phone))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    class: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].inputfieldcontainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "email"
   }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "email",
     name: "email",
     placeholder: "Enter your Email address",
-    defaultValue: prefillData.values.email,
+    value: formData.email,
     required: true,
+    onChange: handleChange,
+    onBlur: handleBlur,
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].formInput
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  }), errors.email && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].errorText
+  }, errors.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    class: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].inputfieldcontainer
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "comment"
   }, "Message"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
     name: "comment",
@@ -411,7 +470,7 @@ function Component({
     className: _styles_sections_custom_contact_us_less__WEBPACK_IMPORTED_MODULE_9__["default"].submitButton
   }, "Submit")))));
 }
-_s(Component, "GNp123f7+4D2SdR/CY8c0X9PkGs=", false, function () {
+_s(Component, "upi9bzT962vtzKxA4UinyV+yWMs=", false, function () {
   return [fdk_core_utils__WEBPACK_IMPORTED_MODULE_6__.useFPI, _components_header_useHeader__WEBPACK_IMPORTED_MODULE_1__["default"], fdk_core_utils__WEBPACK_IMPORTED_MODULE_6__.useGlobalTranslation, _helper_hooks__WEBPACK_IMPORTED_MODULE_3__.useSnackbar, react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useLocation];
 });
 _c = Component;
@@ -469,24 +528,24 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/custom-contact-us.less":
+/***/ "./theme/styles/sections/custom-contact-us.less"
 /*!******************************************************!*\
   !*** ./theme/styles/sections/custom-contact-us.less ***!
   \******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"contactPageContainer":"theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q","logo":"theme-styles-sections-custom-contact-us__logo--qiV3Q","contactInfo":"theme-styles-sections-custom-contact-us__contactInfo--O4ghd","storeDescription":"theme-styles-sections-custom-contact-us__storeDescription--tCtDM","iconItemContainer":"theme-styles-sections-custom-contact-us__iconItemContainer--UFmDu","contactFormContainer":"theme-styles-sections-custom-contact-us__contactFormContainer--iONDP","successBackground":"theme-styles-sections-custom-contact-us__successBackground--U26r1","contactForm":"theme-styles-sections-custom-contact-us__contactForm--GvibM","submitButton":"theme-styles-sections-custom-contact-us__submitButton--ZjXCP","inputFlexGroup":"theme-styles-sections-custom-contact-us__inputFlexGroup--tXi8f","successWrapper":"theme-styles-sections-custom-contact-us__successWrapper--E13fX","closeSuccessButton":"theme-styles-sections-custom-contact-us__closeSuccessButton--qPynE"});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"contactPageContainer":"theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q","logo":"theme-styles-sections-custom-contact-us__logo--qiV3Q","contactInfo":"theme-styles-sections-custom-contact-us__contactInfo--O4ghd","storeDescription":"theme-styles-sections-custom-contact-us__storeDescription--tCtDM","iconItemContainer":"theme-styles-sections-custom-contact-us__iconItemContainer--UFmDu","contactFormContainer":"theme-styles-sections-custom-contact-us__contactFormContainer--iONDP","successBackground":"theme-styles-sections-custom-contact-us__successBackground--U26r1","contactForm":"theme-styles-sections-custom-contact-us__contactForm--GvibM","errorText":"theme-styles-sections-custom-contact-us__errorText--Qg1rY","inputfieldcontainer":"theme-styles-sections-custom-contact-us__inputfieldcontainer--YCj2P","submitButton":"theme-styles-sections-custom-contact-us__submitButton--ZjXCP","inputFlexGroup":"theme-styles-sections-custom-contact-us__inputFlexGroup--tXi8f","successWrapper":"theme-styles-sections-custom-contact-us__successWrapper--E13fX","closeSuccessButton":"theme-styles-sections-custom-contact-us__closeSuccessButton--qPynE"});
     if(true) {
       (function() {
-        var localsJsonString = "{\"contactPageContainer\":\"theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q\",\"logo\":\"theme-styles-sections-custom-contact-us__logo--qiV3Q\",\"contactInfo\":\"theme-styles-sections-custom-contact-us__contactInfo--O4ghd\",\"storeDescription\":\"theme-styles-sections-custom-contact-us__storeDescription--tCtDM\",\"iconItemContainer\":\"theme-styles-sections-custom-contact-us__iconItemContainer--UFmDu\",\"contactFormContainer\":\"theme-styles-sections-custom-contact-us__contactFormContainer--iONDP\",\"successBackground\":\"theme-styles-sections-custom-contact-us__successBackground--U26r1\",\"contactForm\":\"theme-styles-sections-custom-contact-us__contactForm--GvibM\",\"submitButton\":\"theme-styles-sections-custom-contact-us__submitButton--ZjXCP\",\"inputFlexGroup\":\"theme-styles-sections-custom-contact-us__inputFlexGroup--tXi8f\",\"successWrapper\":\"theme-styles-sections-custom-contact-us__successWrapper--E13fX\",\"closeSuccessButton\":\"theme-styles-sections-custom-contact-us__closeSuccessButton--qPynE\"}";
-        // 1771504637849
+        var localsJsonString = "{\"contactPageContainer\":\"theme-styles-sections-custom-contact-us__contactPageContainer--fYx9Q\",\"logo\":\"theme-styles-sections-custom-contact-us__logo--qiV3Q\",\"contactInfo\":\"theme-styles-sections-custom-contact-us__contactInfo--O4ghd\",\"storeDescription\":\"theme-styles-sections-custom-contact-us__storeDescription--tCtDM\",\"iconItemContainer\":\"theme-styles-sections-custom-contact-us__iconItemContainer--UFmDu\",\"contactFormContainer\":\"theme-styles-sections-custom-contact-us__contactFormContainer--iONDP\",\"successBackground\":\"theme-styles-sections-custom-contact-us__successBackground--U26r1\",\"contactForm\":\"theme-styles-sections-custom-contact-us__contactForm--GvibM\",\"errorText\":\"theme-styles-sections-custom-contact-us__errorText--Qg1rY\",\"inputfieldcontainer\":\"theme-styles-sections-custom-contact-us__inputfieldcontainer--YCj2P\",\"submitButton\":\"theme-styles-sections-custom-contact-us__submitButton--ZjXCP\",\"inputFlexGroup\":\"theme-styles-sections-custom-contact-us__inputFlexGroup--tXi8f\",\"successWrapper\":\"theme-styles-sections-custom-contact-us__successWrapper--E13fX\",\"closeSuccessButton\":\"theme-styles-sections-custom-contact-us__closeSuccessButton--qPynE\"}";
+        // 1773821707765
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -506,6 +565,46 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/contact-address-icon.png"
+/*!******************************************************!*\
+  !*** ./theme/assets/images/contact-address-icon.png ***!
+  \******************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/caa84a4739cfc9e56c00.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/contact-email-icon.png"
+/*!****************************************************!*\
+  !*** ./theme/assets/images/contact-email-icon.png ***!
+  \****************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/28b814f6bd6592c1a3b6.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/contact-phone-icon.png"
+/*!****************************************************!*\
+  !*** ./theme/assets/images/contact-phone-icon.png ***!
+  \****************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f4750633658996ed77f1.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/form-submit-eye-white.png"
+/*!*******************************************************!*\
+  !*** ./theme/assets/images/form-submit-eye-white.png ***!
+  \*******************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/f11bb759c380555f28fa.png";
+
+/***/ }
 
 }]);

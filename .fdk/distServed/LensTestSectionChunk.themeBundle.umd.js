@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["LensTestSectionChunk"],{
 
-/***/ "./theme/sections/lens-test.jsx":
+/***/ "./theme/sections/lens-test.jsx"
 /*!**************************************!*\
   !*** ./theme/sections/lens-test.jsx ***!
   \**************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -918,13 +918,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/lens-test.less":
+/***/ "./theme/styles/sections/lens-test.less"
 /*!**********************************************!*\
   !*** ./theme/styles/sections/lens-test.less ***!
   \**********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -935,7 +935,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"lens-test-section\":\"theme-styles-sections-lens-test__lens-test-section--joE9E\",\"card-wrapper\":\"theme-styles-sections-lens-test__card-wrapper--jT8a4\",\"card\":\"theme-styles-sections-lens-test__card--_i4yI\",\"brand\":\"theme-styles-sections-lens-test__brand--GzOvk\",\"age\":\"theme-styles-sections-lens-test__age--mus3J\",\"brand-image\":\"theme-styles-sections-lens-test__brand-image--Vs4jE\",\"vision\":\"theme-styles-sections-lens-test__vision--FDbdk\",\"lifestyle\":\"theme-styles-sections-lens-test__lifestyle--f5f9D\",\"hero\":\"theme-styles-sections-lens-test__hero--LMmOo\",\"hero-photo\":\"theme-styles-sections-lens-test__hero-photo--l_BfH\",\"content\":\"theme-styles-sections-lens-test__content--uYtsS\",\"heading\":\"theme-styles-sections-lens-test__heading--XG5La\",\"subheading\":\"theme-styles-sections-lens-test__subheading--JzQb6\",\"questionContentWrapper\":\"theme-styles-sections-lens-test__questionContentWrapper--Fop7q\",\"video-wrapper\":\"theme-styles-sections-lens-test__video-wrapper--W1boM\",\"questionVideo\":\"theme-styles-sections-lens-test__questionVideo--OBaqO\",\"question-wrapper\":\"theme-styles-sections-lens-test__question-wrapper--BPKBw\",\"question-subtitle\":\"theme-styles-sections-lens-test__question-subtitle--sLyte\",\"question-title\":\"theme-styles-sections-lens-test__question-title--MA85U\",\"options\":\"theme-styles-sections-lens-test__options--mCHWp\",\"option\":\"theme-styles-sections-lens-test__option--MWSOG\",\"selected\":\"theme-styles-sections-lens-test__selected--eSIRX\",\"button\":\"theme-styles-sections-lens-test__button--XyN6a\",\"button-primary\":\"theme-styles-sections-lens-test__button-primary--vtIZT\",\"buttonIcon\":\"theme-styles-sections-lens-test__buttonIcon--qbSIB\",\"nextQuestionbutton\":\"theme-styles-sections-lens-test__nextQuestionbutton--HypkZ\",\"counter\":\"theme-styles-sections-lens-test__counter--_adQj\",\"lifestyle-options\":\"theme-styles-sections-lens-test__lifestyle-options--PE7cY\",\"lifestyle-option\":\"theme-styles-sections-lens-test__lifestyle-option--Lohdn\",\"lifestyle-icon-wrapper\":\"theme-styles-sections-lens-test__lifestyle-icon-wrapper--PmT42\",\"lifestyle-selected\":\"theme-styles-sections-lens-test__lifestyle-selected--NnGED\",\"lifestyle-icon\":\"theme-styles-sections-lens-test__lifestyle-icon--q8QO_\",\"lifestyle-option-text\":\"theme-styles-sections-lens-test__lifestyle-option-text--Kol7r\",\"lifestyle-glasses-wrapper\":\"theme-styles-sections-lens-test__lifestyle-glasses-wrapper--Dkgkt\",\"lifestyle-video\":\"theme-styles-sections-lens-test__lifestyle-video--KiDNB\",\"lifestyle-video-copy\":\"theme-styles-sections-lens-test__lifestyle-video-copy--eGNDX\",\"zoomfadeIn\":\"theme-styles-sections-lens-test__zoomfadeIn--QROLN\",\"fadeZoomInAnim\":\"theme-styles-sections-lens-test__fadeZoomInAnim--OM4ip\",\"zoomfadeOut\":\"theme-styles-sections-lens-test__zoomfadeOut--MsuwG\",\"fadeZoomOutAnim\":\"theme-styles-sections-lens-test__fadeZoomOutAnim--bkuR4\",\"thankyou-wrapper\":\"theme-styles-sections-lens-test__thankyou-wrapper--u51Go\",\"result-subtitle\":\"theme-styles-sections-lens-test__result-subtitle--Nqcga\",\"result-title\":\"theme-styles-sections-lens-test__result-title--reMCn\",\"result-text\":\"theme-styles-sections-lens-test__result-text--QrlTG\",\"result-lens-logo\":\"theme-styles-sections-lens-test__result-lens-logo--y6xYl\",\"result-glasses\":\"theme-styles-sections-lens-test__result-glasses--afz6O\",\"result-box\":\"theme-styles-sections-lens-test__result-box--q5rjv\",\"result-logo\":\"theme-styles-sections-lens-test__result-logo--vLgjC\",\"result-lens-title\":\"theme-styles-sections-lens-test__result-lens-title--xnkUD\",\"result-lens-description\":\"theme-styles-sections-lens-test__result-lens-description--nfCRY\",\"result-points\":\"theme-styles-sections-lens-test__result-points--uDeX9\",\"learn-more-button\":\"theme-styles-sections-lens-test__learn-more-button--XZq4o\",\"visit-store\":\"theme-styles-sections-lens-test__visit-store--AR1wG\",\"slider-wrapper\":\"theme-styles-sections-lens-test__slider-wrapper--WI0oY\",\"pink-slider\":\"theme-styles-sections-lens-test__pink-slider--TM_D6\",\"progressive-tabs\":\"theme-styles-sections-lens-test__progressive-tabs--Uqpdc\",\"active\":\"theme-styles-sections-lens-test__active--Z7ajB\",\"progressiveGrid\":\"theme-styles-sections-lens-test__progressiveGrid--TK4Qk\",\"gridRow\":\"theme-styles-sections-lens-test__gridRow--q_vdM\",\"gridLabel\":\"theme-styles-sections-lens-test__gridLabel--MYbfM\",\"dotsRow\":\"theme-styles-sections-lens-test__dotsRow--h9rez\",\"dot\":\"theme-styles-sections-lens-test__dot--NnVE9\",\"filledDot\":\"theme-styles-sections-lens-test__filledDot--FLf2z\",\"bgplatformIMage\":\"theme-styles-sections-lens-test__bgplatformIMage--NtXep\",\"slideUpBg\":\"theme-styles-sections-lens-test__slideUpBg--TrJGU\",\"vision-video-wrapper\":\"theme-styles-sections-lens-test__vision-video-wrapper--lJaNv\",\"age-image-wrapper\":\"theme-styles-sections-lens-test__age-image-wrapper--QpGVv\",\"ageImage\":\"theme-styles-sections-lens-test__ageImage--czBuT\",\"ageImageCopy\":\"theme-styles-sections-lens-test__ageImageCopy--Qm3P3\",\"fadeIn\":\"theme-styles-sections-lens-test__fadeIn--bMTic\",\"fadeInAnim\":\"theme-styles-sections-lens-test__fadeInAnim--my4tx\",\"fadeOut\":\"theme-styles-sections-lens-test__fadeOut--IQLOK\",\"fadeOutAnim\":\"theme-styles-sections-lens-test__fadeOutAnim--biy9t\",\"slideFromBottom\":\"theme-styles-sections-lens-test__slideFromBottom--DhMqz\",\"slideUp\":\"theme-styles-sections-lens-test__slideUp--i4hau\",\"animateTop\":\"theme-styles-sections-lens-test__animateTop--F6SuC\",\"slideDown\":\"theme-styles-sections-lens-test__slideDown--WXtRk\",\"animateBottom\":\"theme-styles-sections-lens-test__animateBottom--zVXIG\",\"fadeInVideo\":\"theme-styles-sections-lens-test__fadeInVideo--lXdR4\",\"progressive-video-wrapper\":\"theme-styles-sections-lens-test__progressive-video-wrapper--Rv6Sm\"}";
-        // 1771504648531
+        // 1773821717843
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -955,6 +955,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

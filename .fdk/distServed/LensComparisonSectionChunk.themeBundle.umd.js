@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["LensComparisonSectionChunk"],{
 
-/***/ "./theme/sections/lens-comparison.jsx":
+/***/ "./theme/sections/lens-comparison.jsx"
 /*!********************************************!*\
   !*** ./theme/sections/lens-comparison.jsx ***!
   \********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -215,13 +215,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/lens-comparison.less":
+/***/ "./theme/styles/sections/lens-comparison.less"
 /*!****************************************************!*\
   !*** ./theme/styles/sections/lens-comparison.less ***!
   \****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -232,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"comparisonSection\":\"theme-styles-sections-lens-comparison__comparisonSection--nmZfD\",\"cardsWrapper\":\"theme-styles-sections-lens-comparison__cardsWrapper--I0uYY\",\"card\":\"theme-styles-sections-lens-comparison__card--w04rk\",\"imageWrapper\":\"theme-styles-sections-lens-comparison__imageWrapper--ENeuP\",\"cardFooter\":\"theme-styles-sections-lens-comparison__cardFooter--Eio0S\",\"badge\":\"theme-styles-sections-lens-comparison__badge--tQIJG\",\"heading\":\"theme-styles-sections-lens-comparison__heading--LFN92\"}";
-        // 1771504636300
+        // 1773821706206
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -252,6 +252,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

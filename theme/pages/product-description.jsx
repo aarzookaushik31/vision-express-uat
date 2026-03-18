@@ -25,9 +25,7 @@ function ProductDescription({ fpi }) {
         className={`${styles.productDescWrapper} basePageContainer margin0auto`}
       >
 
-<script src="https://cdn.glamar.io/sdk/wrapper"></script> 
-
-        {page?.value === "product-description" && (
+  {page?.value === "product-description" && (
           <SectionRenderer
             sections={sections}
             fpi={fpi}

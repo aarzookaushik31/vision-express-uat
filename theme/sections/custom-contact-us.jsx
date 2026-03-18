@@ -23,7 +23,7 @@ function Component({ props = {} }) {
   const location = useLocation();
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
+const [errors, setErrors] = useState({});
 
 
   const { email, phone } = supportInfo?.contact ?? {};
@@ -53,21 +53,108 @@ function Component({ props = {} }) {
       },
     };
   };
+
+
+
+
+const validateField = (name, value) => {
+  const nameRegex = /^[A-Za-z\s]+$/;
+  const emailRegex = /^\S+@\S+\.\S+$/;
+  const phoneRegex = /^\d{10}$/;
+
+  let error = "";
+
+  if (!value || value.trim() === "") {
+    return "This field is required";
+  }
+  if (name === "name") {
+    if (!nameRegex.test(value)) {
+      error = "Please enter a valid name (letters only)";
+    }
+  }
+
+  if (name === "phone") {
+    if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
+      error = "Please enter a valid 10 digit mobile number";
+    }
+  }
+
+  if (name === "email") {
+    if (!emailRegex.test(value)) {
+      error = "Please enter a valid email address";
+    }
+  }
+
+  return error;
+};
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: error,
+    }));
+  };
+
+
+
+
+
   const prefillData = getPrefillData(location.search);
 
-  const handleSubmitForm = (data) => {
+
+  const [formData, setFormData] = useState({
+  name: prefillData.values.name || "",
+  phone: prefillData.values.phone || "",
+  email: prefillData.values.email || "",
+  comment: "",
+});
+
+
+  const handleSubmitForm = () => {
     try {
+      const newErrors = {};
+
+  Object.keys(formData).forEach((field) => {
+  if (field === "comment") return;
+
+  const error = validateField(field, formData[field]);
+  if (error) newErrors[field] = error;
+});
+      if (Object.keys(newErrors).length) {
+        setErrors(newErrors);
+        return;
+      }
+
       let finalText = "";
-      if (data?.name)
-        finalText += `<b>${t("resource.common.name")}: </b>${data?.name}<br>`;
-      if (data?.phone)
-        finalText += `<b>${t("resource.common.phone")}: </b>${data?.phone}<br>`;
-      if (data?.email)
-        finalText += `<b>${t("resource.common.email")}: </b>${data?.email}<br>`;
-      if (data?.comment)
-        finalText += `<b>${t("resource.common.message")}: </b>${data?.comment}<br>`;
+
+      if (formData.name)
+        finalText += `<b>${t("resource.common.name")}: </b>${formData.name}<br>`;
+      if (formData.phone)
+        finalText += `<b>${t("resource.common.phone")}: </b>${formData.phone}<br>`;
+      if (formData.email)
+        finalText += `<b>${t("resource.common.email")}: </b>${formData.email}<br>`;
+      if (formData.comment)
+        finalText += `<b>${t("resource.common.message")}: </b>${formData.comment}<br>`;
 
       finalText = `<div>${finalText}</div>`;
+
       const wordArray = Utf8.parse(finalText);
       finalText = Base64.stringify(wordArray);
 
@@ -75,9 +162,9 @@ function Component({ props = {} }) {
         addTicketPayloadInput: {
           _custom_json: {
             comms_details: {
-              name: data?.name,
-              email: data?.email,
-              phone: data?.phone,
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
             },
           },
           category: "contact-us",
@@ -90,23 +177,23 @@ function Component({ props = {} }) {
         },
       };
 
-    fpi
-  .executeGQL(CREATE_TICKET, values)
-  .then(() => {
-    setShowSuccessMessage(true);
-  })
-  .catch(() => {
-    showSnackbar(t("resource.common.error_message"), "error");
-  });
-
+      fpi
+        .executeGQL(CREATE_TICKET, values)
+        .then(() => {
+          setShowSuccessMessage(true);
+        })
+        .catch(() => {
+          showSnackbar(t("resource.common.error_message"), "error");
+        });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error(error);
       showSnackbar(
         t("resource.common.error_occurred_submitting_form"),
         "error"
       );
     }
   };
+
 
   
     const closeDialog = () => {
@@ -199,49 +286,77 @@ function Component({ props = {} }) {
         <img  className={styles.logo} src={getShopLogo()} />
 
       <form
-        className={styles.contactForm}
+        className={styles.contactForm} noValidate
         onSubmit={(e) => {
-          e.preventDefault();
-          const formData = new FormData(e.target);
-          handleSubmitForm(Object.fromEntries(formData.entries()));
-        }}
+    e.preventDefault();
+    handleSubmitForm();
+  }}
       >
         <div className={styles.inputFlexGroup}>
-          <div>
+          <div class={styles.inputfieldcontainer}>
             <label htmlFor="name">Full Name</label>
         <input
           type="text"
           name="name"
           placeholder="Enter your Full Name"
-          defaultValue={prefillData.values.name}
+          value={formData.name}
+           onChange={handleChange}
+           onBlur={handleBlur}
           required
           className={styles.formInput}
         />
+         {errors.name && (
+                    <p className={styles.errorText}>{errors.name}</p>
+                  )}
         </div>
-        <div>
+        <div class={styles.inputfieldcontainer}>
           <label htmlFor="phone">Contact Number</label>
-        <input
-          type="tel"
-          name="phone"
-          placeholder="+91 XXXXX XXXXX"
-          defaultValue={prefillData.values.phone}
-          required
-          className={styles.formInput}
-        />
+       <input
+  type="tel"
+  name="phone"
+  placeholder="Enter 10 digit mobile number"
+ value={formData.phone}
+  required
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+
+    setFormData((prev) => ({
+      ...prev,
+      phone: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      phone: "",
+    }));
+  }}
+           onBlur={handleBlur}
+  maxLength={10}
+  pattern="[0-9]{10}"
+  className={styles.formInput}
+/>
+  {errors.phone && (
+                    <p className={styles.errorText}>{errors.phone}</p>
+                  )}
         </div>
         </div>
-        <div>
+        <div class={styles.inputfieldcontainer}>
           <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
           placeholder="Enter your Email address"
-          defaultValue={prefillData.values.email}
+          value={formData.email}
           required
+           onChange={handleChange}
+           onBlur={handleBlur}
           className={styles.formInput}
         />
+         {errors.email && (
+                  <p className={styles.errorText}>{errors.email}</p>
+                )}
         </div>
-        <div>
+        <div class={styles.inputfieldcontainer}>
           <label htmlFor="comment">Message</label>
         <textarea
           name="comment"

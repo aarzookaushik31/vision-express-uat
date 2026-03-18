@@ -46,11 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["LensHeroBannerSectionChunk"],{
 
-/***/ "./theme/sections/lens-hero-banner.jsx":
+/***/ "./theme/sections/lens-hero-banner.jsx"
 /*!*********************************************!*\
   !*** ./theme/sections/lens-hero-banner.jsx ***!
   \*********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -243,13 +243,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/lens-hero-banner.less":
+/***/ "./theme/styles/sections/lens-hero-banner.less"
 /*!*****************************************************!*\
   !*** ./theme/styles/sections/lens-hero-banner.less ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -260,7 +260,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"heroSection\":\"theme-styles-sections-lens-hero-banner__heroSection--ARbXC\",\"heroContent\":\"theme-styles-sections-lens-hero-banner__heroContent--poz3j\",\"heroContentInner\":\"theme-styles-sections-lens-hero-banner__heroContentInner--ObieQ\",\"left\":\"theme-styles-sections-lens-hero-banner__left--yObgg\",\"center\":\"theme-styles-sections-lens-hero-banner__center--xJek9\",\"right\":\"theme-styles-sections-lens-hero-banner__right--FyEtu\",\"logo\":\"theme-styles-sections-lens-hero-banner__logo--dDJzY\",\"heading\":\"theme-styles-sections-lens-hero-banner__heading--evp2Q\",\"featureImage\":\"theme-styles-sections-lens-hero-banner__featureImage--FGB4r\",\"visionRowContainer\":\"theme-styles-sections-lens-hero-banner__visionRowContainer--_GqEw\",\"visionRow\":\"theme-styles-sections-lens-hero-banner__visionRow--pGVQv\",\"visionRowText\":\"theme-styles-sections-lens-hero-banner__visionRowText--Nu4KS\",\"rowBlocks\":\"theme-styles-sections-lens-hero-banner__rowBlocks--lYfPE\",\"visionBlock\":\"theme-styles-sections-lens-hero-banner__visionBlock--IGTxG\",\"filled\":\"theme-styles-sections-lens-hero-banner__filled--ROdy7\"}";
-        // 1771504635677
+        // 1773821706703
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -280,6 +280,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ }
 
 }]);

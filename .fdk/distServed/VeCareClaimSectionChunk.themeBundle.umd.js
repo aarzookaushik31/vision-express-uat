@@ -46,21 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["VeCareClaimSectionChunk"],{
 
-/***/ "./theme/assets/images/arrow-down-purple.png":
-/*!***************************************************!*\
-  !*** ./theme/assets/images/arrow-down-purple.png ***!
-  \***************************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/cea70ede9213e7c098df.png";
-
-/***/ }),
-
-/***/ "./theme/sections/ve-care-claim.jsx":
+/***/ "./theme/sections/ve-care-claim.jsx"
 /*!******************************************!*\
   !*** ./theme/sections/ve-care-claim.jsx ***!
   \******************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -219,13 +209,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/ve-care-claim.less":
+/***/ "./theme/styles/sections/ve-care-claim.less"
 /*!**************************************************!*\
   !*** ./theme/styles/sections/ve-care-claim.less ***!
   \**************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -236,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"veCareClaim\":\"theme-styles-sections-ve-care-claim__veCareClaim--Fe7oS\",\"container\":\"theme-styles-sections-ve-care-claim__container--o7H7v\",\"heading\":\"theme-styles-sections-ve-care-claim__heading--B_dR_\",\"steps\":\"theme-styles-sections-ve-care-claim__steps--Wniyf\",\"stepCard\":\"theme-styles-sections-ve-care-claim__stepCard--IOWu_\",\"iconWrapper\":\"theme-styles-sections-ve-care-claim__iconWrapper--_Stu9\",\"stepTitle\":\"theme-styles-sections-ve-care-claim__stepTitle--kJjCQ\",\"stepDescription\":\"theme-styles-sections-ve-care-claim__stepDescription--_AGoc\",\"terms\":\"theme-styles-sections-ve-care-claim__terms--f1eLe\",\"termsHeader\":\"theme-styles-sections-ve-care-claim__termsHeader--xogAg\",\"arrow\":\"theme-styles-sections-ve-care-claim__arrow--fiJiK\",\"open\":\"theme-styles-sections-ve-care-claim__open--Cj4Q7\",\"termsContent\":\"theme-styles-sections-ve-care-claim__termsContent--xag6F\"}";
-        // 1771504631086
+        // 1773821701239
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -256,6 +246,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/arrow-down-purple.png"
+/*!***************************************************!*\
+  !*** ./theme/assets/images/arrow-down-purple.png ***!
+  \***************************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/cea70ede9213e7c098df.png";
+
+/***/ }
 
 }]);

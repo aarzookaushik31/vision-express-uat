@@ -48,6 +48,11 @@ import ExchangeIcon from "../assets/images/exchange.png";
 import WarrantyIcon from "../assets/images/warranty.png";
 import WishlistIcon from "../assets/images/wishlist";
 
+import LensWidthImg from "../assets/images/width.png";
+import BridgeWidthImg from "../assets/images/bridge-width.png";
+import TempleLengthImg from "../assets/images/temple-length.png";
+import LensHeightImg from "../assets/images/lens-height.png";
+
 
 export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   const fpi = useFPI();
@@ -256,8 +261,6 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     return false;
   }
 
-  //  console.log("🔎 productDetails:", productDetails);
-  // console.log("🔎 productPriceBySlug:", productPriceBySlug);
 
   const getProductPrice = (key) => {
     if (selectedSize && !isEmptyOrNull(productPriceBySlug.price)) {
@@ -315,11 +318,8 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   };
 
 
+ 
 
-
-
-
-  
 
   useEffect(() => {
     if (
@@ -435,6 +435,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   };
 
   const toggleStoreModal = () => {
+
     setShowStoreModal((modal) => {
       const updatedModal = !modal;
 
@@ -503,6 +504,33 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     return <EmptyState title={t("resource.common.no_product_found")} />;
   }
 
+const attributes = productDetails?.attributes;
+
+const lensWidth = attributes?.lens_width;
+const bridgeWidth = attributes?.bridge_width;
+const templeLength = attributes?.["temple-length"];
+const lensHeight = attributes?.lens_height;
+
+const frameSize = attributes?.frame_size;
+
+
+
+const pdpSizeLabelRaw = attributes?.["pdp-size"] || "Size";
+
+const pdpSizeLabel =
+  typeof pdpSizeLabelRaw === "string"
+    ? pdpSizeLabelRaw.toLowerCase()
+    : "size";
+
+const availableLabel =
+  pdpSizeLabel.includes("power")
+    ? "Available Power options:"
+    : pdpSizeLabel.includes("size")
+    ? "Available Size options:"
+    : `Available ${pdpSizeLabelRaw} options:`;
+
+
+
   return (
     <>
 
@@ -528,6 +556,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                     addToWishList={addToWishList}
                     isCustomOrder={isMto}
                     handleShare={() => handleShare()}
+                    displayTag={productDetails?.attributes?.displaytag[0]}
                   />
                 </div>
               </div>
@@ -581,24 +610,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                             <div className={styles.product__price}>
                               {!isLoading && productMeta?.sellable && (
                                 <>
-                                  {getProductPrice("effective") &&
-                                    getBlockConfigValue(block, "mrp_label") &&
-                                    getProductPrice("effective") ===
-                                      getProductPrice("marked") && (
-                                      <span
-                                        className={`${styles.mrpLabel} ${styles["mrpLabel--effective"]}`}
-                                        style={{ marginLeft: 0 }}
-                                      >
-                                        {t("resource.common.mrp")}:
-                                      </span>
-                                    )}
-                                  <h4
-                                    className={
-                                      styles["product__price--effective"]
-                                    }
-                                  >
-                                    {getProductPrice("effective")}
-                                  </h4>
+                                 
                                   <div className={styles.mrpStrike}>
                                     {getProductPrice("marked") &&
                                       getBlockConfigValue(block, "mrp_label") &&
@@ -621,6 +633,27 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                                       </span>
                                     )}
                                   </div>
+
+                                   {getProductPrice("effective") &&
+                                    getBlockConfigValue(block, "mrp_label") &&
+                                    getProductPrice("effective") ===
+                                      getProductPrice("marked") && (
+                                      <span
+                                        className={`${styles.mrpLabel} ${styles["mrpLabel--effective"]}`}
+                                        style={{ marginLeft: 0 }}
+                                      >
+                                        {t("resource.common.mrp")}:
+                                      </span>
+                                    )}
+                                  <h4
+                                    className={
+                                      styles["product__price--effective"]
+                                    }
+                                  >
+                                    {getProductPrice("effective")}
+                                  </h4>
+                                  
+
                                   {discountLabel && (
                                     <span
                                       className={
@@ -784,6 +817,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                         </>
                       );
 
+
                     case "size_wrapper":
                       return (
                         <>
@@ -804,15 +838,63 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                                         className={`b2 ${styles.sizeSelection__label}`}
                                       >
                                         <span>
-                                          {t("resource.common.size")} :
-                                        </span>
+                                        {attributes?.["pdp-size"] || "Size"}: &nbsp;
+                                        </span> 
+                                         {selectedSize && (
+    <span className={styles.sizeSelection__selected}>
+      {selectedSize}
+    </span>
+  )}
                                       </p>
 
+
+
+                          {frameSize && (
+  <div className={styles.sizeDimensions}>
+    <div className={styles.sizeDimensions__grid}>
+      {lensWidth && (
+        <div>
+          <img src={LensWidthImg} />
+          <p>{lensWidth} mm</p>
+          <span>Lens Width</span>
+        </div>
+      )}
+
+      {bridgeWidth && (
+        <div>
+          <img src={BridgeWidthImg} />
+          <p>{bridgeWidth} mm</p>
+          <span>Bridge Width</span>
+        </div>
+      )}
+
+      {templeLength && (
+        <div>
+          <img src={TempleLengthImg} />
+          <p>{templeLength} mm</p>
+          <span>Temple Length</span>
+        </div>
+      )}
+
+      {lensHeight && (
+        <div>
+          <img src={LensHeightImg} />
+          <p>{lensHeight} mm</p>
+          <span>Lens Height</span>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
+
+              {frameSize && (  <span className={ styles.sizeSelectionavailableHeading } >{availableLabel}</span> )}
+              
                                       <div
                                         className={
                                           styles.sizeSelection__wrapper
                                         }
-                                      >
+                                      >  
                                         {sizes?.sizes?.map((size) => (
                                           <button
                                             type="button"
@@ -1111,8 +1193,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                                 onClick={() => setShowSizeGuide(true)}
                                 className={`${styles["product__size--guide"]} ${styles.buttonFont} ${styles.fontBody}`}
                               >
-                                <span>{t("resource.common.size_guide")}</span>
-                                <ScaleIcon className={styles.scaleIcon} />
+                                Size Guide                  
                               </button>
                             </div>
                           )}
@@ -1190,6 +1271,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                 case "find_in_store":      
                return  (
                 <div>
+                  <div  className={styles.findstorewrapper}>
   <button
     type="button"
     className={styles.findInStoreButton}
@@ -1201,7 +1283,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     />
     FIND IN STORE
   </button>
-
+</div>
    <StoreModal
                             isOpen={showStoreModal}
                             buybox={buybox}
@@ -1298,43 +1380,40 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                               </>
                             )}
 
-                            {getBlockConfigValue(block, "warranty") &&  (
-            <li className={styles.prodMetaItem}>
 
-              <img
-              src={WarrantyIcon}
-              alt=""
-              aria-hidden="true"
-              className={styles.metaIcon}
-            />
-                <span>
-              {`${productDetails?.warranty?.value || ""} ${
-                productDetails?.warranty?.unit || ""
-              } ${t("resource.facets.warranty")}`}
-              </span>
-            </li>
-          )}
+{getBlockConfigValue(block, "warranty") && (
+  <li className={styles.prodMetaItem}>
+    <img
+      src={WarrantyIcon}
+      alt=""
+      aria-hidden="true"
+      className={styles.metaIcon}
+    />
+    <span>
+      {`${productDetails?.attributes?.["product-specs-warranty"] || ""} Warranty`}
+    </span>
+  </li>
+)}
 
-                    {getBlockConfigValue(block, "exchange") && (
-            <li className={styles.prodMetaItem}>
-               <img
-                src={ExchangeIcon}
-                alt=""
-                aria-hidden="true"
-                className={styles.metaIcon}
-              />
-              <span>
-              {`${productPriceBySlug?.exchange_config?.time} ${
-                productPriceBySlug?.exchange_config?.unit
-                  ? productPriceBySlug.exchange_config.unit.replace(
-                      /\b\w/g,
-                      (ch) => ch.toUpperCase()
-                    )
-                  : ""
-              } ${t("resource.facets.exchange")}`}
-              </span>
-            </li>
-          )}
+
+{getBlockConfigValue(block, "exchange") &&
+  productPriceBySlug?.exchange_config?.time && (
+    <li className={styles.prodMetaItem}>
+      <img
+        src={ExchangeIcon}
+        alt=""
+        aria-hidden="true"
+        className={styles.metaIcon}
+      />
+      <span>
+        {productPriceBySlug.exchange_config.time}{" "}
+        {productPriceBySlug.exchange_config.unit
+          ?.replace(/\b\w/g, (ch) => ch.toUpperCase())}{" "}
+        Exchange
+      </span>
+    </li>
+)}
+
                           </ul>
                         </>
                       );
@@ -1387,7 +1466,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
               {/* ---------- Prod Desc ---------- */}
               {variant_position?.value === "accordion" && (
                 <div className={styles.productDescDesktop}>
-                  <ProdDesc product={productDetails} config={props} />
+                  <ProdDesc product={productDetails} config={props} returnConfig={productPriceBySlug?.return_config} />
                 </div>
               )}
             </div>
@@ -1429,7 +1508,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
                 wrapper="similar-products"
                 customValue="similar-products"
                 sectionTitle="Similar Products"
-                slideToShow={3}
+                slideToShow={4}
                 showDiscount={true}
                 showBag={false}
                 globalConfig={globalConfig}

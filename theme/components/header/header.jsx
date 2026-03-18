@@ -219,27 +219,28 @@ const tickerSlides = rawTicker
     appInfo?.logo?.secure_url?.replace("original", "resize-h:165") ||
     fallbackLogo;
 
-  const checkLogin = (type) => {
-    if (type === "cart") {
-      navigate?.("/cart/bag/");
-      return;
-    }
-
-    if (!loggedIn) {
-      openLogin();
-      return;
-    }
-
-    const routes = {
-      profile: "/profile/details",
-      profile_mobile: "/profile/profile-tabs",
-      wishlist: "/wishlist",
-    };
-
-    if (routes[type]) {
-      navigate?.(routes[type]);
-    }
+const checkLogin = (type) => {
+  const routes = {
+    profile: "/profile/details",
+    profile_mobile: "/profile/profile-tabs",
+    wishlist: "/wishlist",
   };
+
+  if (type === "cart") {
+    navigate?.("/cart/bag/");
+    return;
+  }
+
+  if (!loggedIn) {
+    const redirectUrl = routes[type] || window.location.pathname;
+    navigate(`/auth/login?redirectUrl=${encodeURIComponent(redirectUrl)}`);
+    return;
+  }
+
+  if (routes[type]) {
+    navigate?.(routes[type]);
+  }
+};
 
   const {
     isHyperlocal,
@@ -364,6 +365,25 @@ const tickerSlides = rawTicker
 
 
                           
+                                  
+                      
+                                    <button
+                                    type="button"
+                                    className={styles.wishlistIcon}
+                                     onClick={() => {
+                                      checkLogin("wishlist");
+                                    
+                                    }}
+                                  >
+                                    {wishlistCount > 0 && loggedIn && (
+                                                    <span className={styles.count}>{wishlistCount}</span>
+                                                  )}
+                                      <img 
+                                          src={WishlistIcon} 
+                                          alt="WishlistIcon" 
+                                        />
+                                  </button>
+
                                      <button
                                     type="button"
                                     className={styles.wishlistIcon}
@@ -374,21 +394,7 @@ const tickerSlides = rawTicker
                                   >
                                       <img 
                                           src={LocationIcon} 
-                                          alt="WishlistIcon" 
-                                        />
-                                  </button>
-                      
-                                    <button
-                                    type="button"
-                                    className={styles.wishlistIcon}
-                                     onClick={() => {
-                                      checkLogin("wishlist");
-                                    
-                                    }}
-                                  >
-                                      <img 
-                                          src={WishlistIcon} 
-                                          alt="WishlistIcon" 
+                                          alt="Location Icon" 
                                         />
                                   </button>
 

@@ -17,6 +17,8 @@ const useLoginOtp = ({ fpi, isLoginToggle }) => {
   const location = useLocation();
   const resendTimerRef = useRef(null);
 
+  const redirectTo = location?.state?.redirectTo || "/account";
+
   const { sendOtp, signInWithOtp, resendOtp } = useAccounts({ fpi });
   const { countryDetails } = useInternational({ fpi });
 
@@ -70,7 +72,11 @@ const useLoginOtp = ({ fpi, isLoginToggle }) => {
       isRedirection: true,
     };
     signInWithOtp(payload)
-      .then((res) => {})
+      .then((res) => {
+           if (res?.success) {
+        navigate(redirectTo);
+      }
+      })
       .catch((err) => {
         if (err?.details?.meta?.is_deleted) {
           navigate(

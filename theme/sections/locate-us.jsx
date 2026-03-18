@@ -39,8 +39,8 @@ export const getLocateUsStoreAPISearch = async (searchQuery) => {
   }
 };
 
-export function Component(input = {}) {
-  const props = (input && (input.props ?? input)) || {};
+export function Component({props}) {
+
   const {
     backgroundImage,
     mobileBackgroundImage,
@@ -82,6 +82,8 @@ export function Component(input = {}) {
 const [selectedCities, setSelectedCities] = useState([]);
    const [showCityModal, setShowCityModal] = useState(false);
    const [hasSearched, setHasSearched] = useState(false);
+
+   const [locationError, setLocationError] = useState(false);
 
 
   // Get store ID from URL
@@ -283,14 +285,14 @@ useEffect(() => {
 
 
 
-
 const handleUseMyLocation = () => {
   if (!navigator.geolocation) {
-    alert("Geolocation is not supported by your browser.");
+    setLocationError(true);
     return;
   }
 
   setLoading(true);
+  setLocationError(false);
 
   navigator.geolocation.getCurrentPosition(
     (position) => {
@@ -302,6 +304,7 @@ const handleUseMyLocation = () => {
         const lng =
           parseFloat(store.store_longitutde) ||
           parseFloat(store.store_longitude);
+
         const distance = getDistance(userLat, userLng, lat, lng);
         return { ...store, distance };
       });
@@ -313,15 +316,29 @@ const handleUseMyLocation = () => {
       setFilteredStores(sortedStores);
       setError(null);
       setLoading(false);
+
+      setTimeout(() => {
+        const el = document.querySelector(`.${styles.cityFilterWrapper}`);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 200);
     },
+
     (error) => {
-      console.error("Location access denied:", error);
-      alert("Unable to fetch location. Please allow location access.");
+      console.error("Location error:", error);
+
       setLoading(false);
+      setLocationError(true);
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
     }
   );
 };
-
 
 
 
@@ -448,7 +465,7 @@ const cities = [
       );
     return (
       <section className={styles.storeDetailsWrapper}>
-        <p className={styles.loadingText}>Loading store details...</p>
+        <p className={styles.loadingText}></p>
       </section>
     );
   }
@@ -480,16 +497,21 @@ const cities = [
               </button>
             </div>
 
-            <button
-              className={styles.currentLocationButton}
-              onClick={handleUseMyLocation}
-              disabled={loading}
-            >
-              {loading
-                ? "Detecting..."
-                : currentLocationText?.value || "Or Use My Current Location"}{" "}
-              <img src={LocationIcon} alt="location" />
-            </button>
+           <button
+  className={styles.currentLocationButton}
+  onClick={handleUseMyLocation}
+  disabled={loading}
+>
+  {loading
+    ? "Detecting..."
+    : locationError
+    ? "Please allow location to see nearby stores"
+    : currentLocationText?.value || "Or Use My Current Location"}
+
+  <img src={LocationIcon} alt="location" />
+</button>
+
+
           </div>
         </div>
       </div>
@@ -597,5 +619,55 @@ const cities = [
   );
 }
 
-Component.displayName = "StoreLocatorComponent";
+
+
+
+
+
+export const settings = {
+  label: "Store Locator",
+  props: [
+    {
+      id: "heading",
+      type: "text",
+      label: "Heading",
+      default: "Find a Store Near You",
+    },
+    {
+      id: "subheading",
+      type: "text",
+      label: "Sub Heading",
+      default: "Search by city or pincode",
+    },
+    {
+      id: "inputPlaceholder",
+      type: "text",
+      label: "Search Placeholder",
+      default: "Enter Pincode / City",
+    },
+    {
+      id: "buttonText",
+      type: "text",
+      label: "Locate Button Text",
+      default: "Locate Stores",
+    },
+    {
+      id: "currentLocationText",
+      type: "text",
+      label: "Current Location Text",
+      default: "Use My Current Location",
+    },
+    {
+      id: "backgroundImage",
+      type: "image_picker",
+      label: "Desktop Background Image",
+    },
+    {
+      id: "mobileBackgroundImage",
+      type: "image_picker",
+      label: "Mobile Background Image",
+    }
+  ]
+};
+
 export default Component;

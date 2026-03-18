@@ -46,31 +46,11 @@ if (!isRunningOnClient()) {
 "use strict";
 (Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] = Object(typeof self !=="undefined" ? self : this)["webpackChunkthemeBundle"] || []).push([["BlogSliderSectionChunk"],{
 
-/***/ "./theme/assets/images/calenderwhite.png":
-/*!***********************************************!*\
-  !*** ./theme/assets/images/calenderwhite.png ***!
-  \***********************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/cdf9a71bd96272f7f181.png";
-
-/***/ }),
-
-/***/ "./theme/assets/images/clockwhite.png":
-/*!********************************************!*\
-  !*** ./theme/assets/images/clockwhite.png ***!
-  \********************************************/
-/***/ ((module) => {
-
-module.exports = "http://127.0.0.1:5001/assets/images/97eeb14d1967c0a863ff.png";
-
-/***/ }),
-
-/***/ "./theme/queries/blogQuery.js":
+/***/ "./theme/queries/blogQuery.js"
 /*!************************************!*\
   !*** ./theme/queries/blogQuery.js ***!
   \************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -210,13 +190,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/sections/blog-slider.jsx":
+/***/ "./theme/sections/blog-slider.jsx"
 /*!****************************************!*\
   !*** ./theme/sections/blog-slider.jsx ***!
   \****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -422,13 +402,13 @@ if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Pr
 	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./theme/styles/sections/blog-slider.less":
+/***/ "./theme/styles/sections/blog-slider.less"
 /*!************************************************!*\
   !*** ./theme/styles/sections/blog-slider.less ***!
   \************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -439,7 +419,7 @@ __webpack_require__.r(__webpack_exports__);
     if(true) {
       (function() {
         var localsJsonString = "{\"blogSliderSection\":\"theme-styles-sections-blog-slider__blogSliderSection--gLPk7\",\"heading\":\"theme-styles-sections-blog-slider__heading--JMV7e\",\"subHeading\":\"theme-styles-sections-blog-slider__subHeading--sMKgM\",\"sliderWrapper\":\"theme-styles-sections-blog-slider__sliderWrapper--lipM3\",\"blogCard\":\"theme-styles-sections-blog-slider__blogCard--j0vAf\",\"imageWrapper\":\"theme-styles-sections-blog-slider__imageWrapper--OSQ_c\",\"content\":\"theme-styles-sections-blog-slider__content--IbIFW\",\"meta\":\"theme-styles-sections-blog-slider__meta--S2EJz\",\"blogCardContent\":\"theme-styles-sections-blog-slider__blogCardContent--KZMTC\",\"title\":\"theme-styles-sections-blog-slider__title--VLKdg\",\"summary\":\"theme-styles-sections-blog-slider__summary--qEQU1\"}";
-        // 1771504638179
+        // 1773821708910
         var cssReload = __webpack_require__(/*! ../../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
         // only invalidate when locals change
         if (
@@ -459,6 +439,26 @@ __webpack_require__.r(__webpack_exports__);
     }
   
 
-/***/ })
+/***/ },
+
+/***/ "./theme/assets/images/calenderwhite.png"
+/*!***********************************************!*\
+  !*** ./theme/assets/images/calenderwhite.png ***!
+  \***********************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/cdf9a71bd96272f7f181.png";
+
+/***/ },
+
+/***/ "./theme/assets/images/clockwhite.png"
+/*!********************************************!*\
+  !*** ./theme/assets/images/clockwhite.png ***!
+  \********************************************/
+(module) {
+
+module.exports = "http://127.0.0.1:5001/assets/images/97eeb14d1967c0a863ff.png";
+
+/***/ }
 
 }]);
