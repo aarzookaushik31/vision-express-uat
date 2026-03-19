@@ -22,6 +22,7 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
     banner_button_link,
     banner_title,
     banner_subtitle,
+    banner_subtitle_eyeglass,
     banner_button_text,
   } = props;
 
@@ -81,6 +82,7 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   bgImage={bgImage}
   banner_title={banner_title}
   banner_subtitle={banner_subtitle}
+   banner_subtitle_eyeglass={banner_subtitle_eyeglass}
   banner_button_link={banner_button_link}
   banner_button_text={banner_button_text}
 
@@ -398,6 +400,12 @@ export const settings = {
   id: "banner_subtitle",
   label: "Banner Subtitle",
   default: "Fresh Looks for Him & Her at Flat 20% OFF."
+},
+{
+  type: "textarea",
+  id: "banner_subtitle_eyeglass",
+  label: "Banner Subtitle For Eyeglasses",
+  default: "Fresh Looks for Him & Her."
 },
 {
   type: "text",

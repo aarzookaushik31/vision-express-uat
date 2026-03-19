@@ -84,7 +84,7 @@ function ProdDesc({ product, config, customClass, returnConfig }) {
     { label: "Lens Spherical", value: lensPower },
     { label: "Lens Base Curve", value: attributes?.["lens-base-curve"] },
     {
-      label: "Lens Breathing Capacity",
+      label: "Lens Breathing Capacity (Dk/t)",
       value: attributes?.["lens-breathing-capacity"],
     },
   {
@@ -163,9 +163,9 @@ const formattedReturnDuration = `${returnTime} ${returnUnit} ${t("resource.facet
 
 const returnPolicy =
   String(returnTime) === "0"
-    ? "No returns are accepted on discounted or personalised products, except in the case of defective items. For international shipping-related concerns, please contact our customer care at +912269982727."
+    ? "No returns are accepted on discounted or personalised products, except in the case of defective items. For international shipping-related concerns, please contact our customer care at 02269982727."
     : hasReturnTime
-    ? `Easy ${formattedReturnDuration} available. Return policies may vary based on product type and ongoing promotions. For international shipping-related concerns, please contact our customer care at +912269982727.`
+    ? `Easy ${formattedReturnDuration} available. Return policies may vary based on product type and ongoing promotions. For international shipping-related concerns, please contact our customer care at 02269982727.`
     : null;
 
 

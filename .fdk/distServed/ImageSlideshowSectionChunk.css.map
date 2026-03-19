@@ -1,1 +1,0 @@
-{"version":3,"file":"ImageSlideshowSectionChunk.css","mappings":";;;AAAA;EAGM;AADN","sources":["webpack://themeBundle/./theme/styles/sections/image-slideshow.less"],"sourcesContent":[".slideshowSlider {\n  :global {\n    .slick-slide>div {\n      display: flex;\n    }\n  }\n}\n"],"names":[],"sourceRoot":""}

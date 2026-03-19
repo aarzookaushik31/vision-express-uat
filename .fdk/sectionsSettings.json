@@ -1496,6 +1496,12 @@
         "default": "Fresh Looks for Him & Her at Flat 20% OFF."
       },
       {
+        "type": "textarea",
+        "id": "banner_subtitle_eyeglass",
+        "label": "Banner Subtitle For Eyeglasses",
+        "default": "Fresh Looks for Him & Her."
+      },
+      {
         "type": "text",
         "id": "banner_button_text",
         "label": "Banner Button Text",

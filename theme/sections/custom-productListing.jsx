@@ -87,6 +87,7 @@ const ProductListing = ({
     bgImage,
     banner_title,
     banner_subtitle,
+    banner_subtitle_eyeglass,
     banner_button_link,
     banner_button_text,
 }) => {
@@ -182,6 +183,9 @@ const isSizeGuideAvailable = useMemo(() => {
 
 const handleOpenFindmyFit = () => setIsFindmyFitOpen(true);
 const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
+
+
+const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
 
 
   return (
@@ -462,6 +466,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
     bgImage,
     banner_title,
     banner_subtitle,
+    banner_subtitle_eyeglass,
+    isEyeglassCollection,
     banner_button_link,
     banner_button_text,
     customFieldsData,
@@ -496,6 +502,8 @@ const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
     bgImage,
     banner_title,
     banner_subtitle,
+    banner_subtitle_eyeglass,
+    isEyeglassCollection, 
     banner_button_link,
     banner_button_text,
     customFieldsData,
@@ -599,13 +607,17 @@ function ProductGrid({
     bgImage,
     banner_title,
     banner_subtitle,
+    banner_subtitle_eyeglass,
+    isEyeglassCollection,
     banner_button_link,
     banner_button_text,
     customFieldsData,
 }) {
 
 
-
+   const subtitle = isEyeglassCollection
+      ? banner_subtitle_eyeglass?.value
+      : banner_subtitle?.value;
 
   
   return (
@@ -673,7 +685,7 @@ const hasGlamAR = customFieldsData?.groups?.some(
           {index === 11 &&
   (bgImage ||
     banner_title?.value ||
-    banner_subtitle?.value ||
+    subtitle ||
     banner_button_text?.value) && (
     <div
       ref={bannerRef}
@@ -687,7 +699,7 @@ const hasGlamAR = customFieldsData?.groups?.some(
       <div className="banner-overlay">
         <div className="banner-content">
           {banner_title?.value && <h2>{banner_title.value}</h2>}
-          {banner_subtitle?.value && <p>{banner_subtitle.value}</p>}
+                      {subtitle && <p>{subtitle}</p>}
           {banner_button_text?.value && banner_button_link?.value && (
             <a href={banner_button_link.value} className="banner-btn">
               {banner_button_text.value}

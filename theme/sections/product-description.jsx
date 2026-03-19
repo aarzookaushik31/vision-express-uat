@@ -526,7 +526,7 @@ const availableLabel =
   pdpSizeLabel.includes("power")
     ? "Available Power options:"
     : pdpSizeLabel.includes("size")
-    ? "Available Size options:"
+    ? "Available Size:"
     : `Available ${pdpSizeLabelRaw} options:`;
 
 
@@ -834,7 +834,8 @@ const availableLabel =
                                     }`}
                                   >
                                     <div>
-                                      <p
+
+                                      {/* <p
                                         className={`b2 ${styles.sizeSelection__label}`}
                                       >
                                         <span>
@@ -845,50 +846,10 @@ const availableLabel =
       {selectedSize}
     </span>
   )}
-                                      </p>
+                                      </p> */}
 
 
-
-                          {frameSize && (
-  <div className={styles.sizeDimensions}>
-    <div className={styles.sizeDimensions__grid}>
-      {lensWidth && (
-        <div>
-          <img src={LensWidthImg} />
-          <p>{lensWidth} mm</p>
-          <span>Lens Width</span>
-        </div>
-      )}
-
-      {bridgeWidth && (
-        <div>
-          <img src={BridgeWidthImg} />
-          <p>{bridgeWidth} mm</p>
-          <span>Bridge Width</span>
-        </div>
-      )}
-
-      {templeLength && (
-        <div>
-          <img src={TempleLengthImg} />
-          <p>{templeLength} mm</p>
-          <span>Temple Length</span>
-        </div>
-      )}
-
-      {lensHeight && (
-        <div>
-          <img src={LensHeightImg} />
-          <p>{lensHeight} mm</p>
-          <span>Lens Height</span>
-        </div>
-      )}
-    </div>
-  </div>
-)}
-
-
-              {frameSize && (  <span className={ styles.sizeSelectionavailableHeading } >{availableLabel}</span> )}
+               <p className={ styles.sizeSelectionavailableHeading } >{availableLabel}</p> 
               
                                       <div
                                         className={
@@ -941,6 +902,55 @@ const availableLabel =
                                   </div>
                                 )}
                             </div>
+
+
+
+
+
+                          {frameSize && (
+  <div className={styles.sizeDimensions}>
+    <div className={styles.sizeDimensions__grid}>
+      {lensWidth && (
+        <div>
+          <img src={LensWidthImg} />
+          <p>{lensWidth} mm</p>
+          <span>Lens Width</span>
+        </div>
+      )}
+
+      {bridgeWidth && (
+        <div>
+          <img src={BridgeWidthImg} />
+          <p>{bridgeWidth} mm</p>
+          <span>Bridge Width</span>
+        </div>
+      )}
+
+      {templeLength && (
+        <div>
+          <img src={TempleLengthImg} />
+          <p>{templeLength} mm</p>
+          <span>Temple Length</span>
+        </div>
+      )}
+
+      {lensHeight && (
+        <div>
+          <img src={LensHeightImg} />
+          <p>{lensHeight} mm</p>
+          <span>Lens Height</span>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
+
+
+
+
+
+
                             <div className={styles.sizeCartContainer}>
                               {!isSizeSelectionBlock(block) &&
                                 productMeta?.sellable && (
@@ -1020,6 +1030,7 @@ const availableLabel =
                                     </OutsideClickHandler>
                                   </div>
                                 )}
+
 
                               <div
                                 className={`${styles.cartWrapper} ${
@@ -1179,6 +1190,12 @@ const availableLabel =
                                   )}
                                 </div>
                               )}
+
+
+
+
+
+                              
                           </div>
                         </>
                       );
