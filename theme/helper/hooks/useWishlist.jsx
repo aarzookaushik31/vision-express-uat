@@ -6,6 +6,7 @@ import {
   FOLLOWED_PRODUCTS_ID,
 } from "../../queries/wishlistQuery";
 import { useSnackbar } from "./hooks";
+import { fireCustomGtmEvent } from "../utils";
 
 export const useWishlist = ({ fpi }) => {
   const { t } = useGlobalTranslation("translation");
@@ -37,6 +38,7 @@ export const useWishlist = ({ fpi }) => {
       .then((res) => {
         if (res?.data?.followById?.message) {
           showSnackbar("Product added to wishlist!", "success");
+          fireCustomGtmEvent("wishlist.customadd", product);
           return fetchFollowedProductsId().then(() => res?.data?.followById);
         }
       })
@@ -62,6 +64,7 @@ export const useWishlist = ({ fpi }) => {
         .then((res) => {
           if (res?.data?.unfollowById?.message) {
             showSnackbar("Product removed from wishlist!", "success");
+            fireCustomGtmEvent("wishlist.customremove", product);
             return fetchFollowedProductsId().then(
               () => res?.data?.unfollowById
             );

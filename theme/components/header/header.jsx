@@ -13,6 +13,7 @@ import {
   isEmptyOrNull,
   isLocalePresent,
   getDefaultLocale,
+  fireCustomGtmEvent
 } from "../../helper/utils";
 import Search from "./search";
 import HeaderDesktop from "./desktop-header";
@@ -30,7 +31,6 @@ import Tickerimage from "../../assets/images/tabler_eye-bolt.png";
 import Slider from "react-slick";
 import WishlistIcon from "../../assets/images/wishlistIconMobileHeader.png";
 import LocationIcon from "../../assets/images/locationIconMobileHeader.png";
-
 const LocationModal = React.lazy(
   () =>
     import("@gofynd/theme-template/components/location-modal/location-modal")
@@ -61,8 +61,12 @@ function Header({ fpi }) {
   const [languageIscCode, setLanguageIscCode] = useState([]);
   const isDoubleRowHeader = globalConfig?.header_layout === "double";
   const buyNow = searchParams?.get("buy_now") || false;
-
-
+  const onPageLoad = () => {
+    fireCustomGtmEvent("custom.page.onLoad", {});
+  };
+    useEffect(() => {
+    onPageLoad(); 
+  }, []);
 
 const rawTicker = globalConfig?.header_ticker_text || "";
 
