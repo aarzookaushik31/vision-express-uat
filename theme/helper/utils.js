@@ -489,3 +489,10 @@ export function addLocaleToShareCartUrl(url, locale, supportedLocales) {
     return url;
   }
 }
+export const fireCustomGtmEvent = function (eventName = "", eventData = {}) {
+  if (!window?.FPI?.event?.emit) {
+    console.error("Event emitter not available.");
+    return;
+  }
+  window.FPI.event.emit(eventName, eventData);
+};

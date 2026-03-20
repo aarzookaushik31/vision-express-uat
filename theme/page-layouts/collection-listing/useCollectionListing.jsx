@@ -9,6 +9,7 @@ import {
 import {
   getProductImgAspectRatio,
   isRunningOnClient,
+  fireCustomGtmEvent
 } from "../../helper/utils";
 import productPlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import useAddToCartModal from "../plp/useAddToCartModal";
@@ -254,6 +255,10 @@ const useCollectionListing = ({ fpi, slug, props }) => {
           };
           setApiLoading(false);
           fpi.custom.setValue("customCollectionList", productList);
+          fireCustomGtmEvent("custom.product_list.view", {
+                products: productList.items,
+                totalProducts: productList.items?.length || 0,
+              });
           if (append) {
             setProductList((prevState) => {
               return prevState.concat(productList?.items || []);
@@ -278,6 +283,10 @@ const useCollectionListing = ({ fpi, slug, props }) => {
             res?.data?.collectionItems
           );
           fpi.custom.setValue("customCollection", res?.data?.collection);
+           fireCustomGtmEvent("custom.product_list.view", {
+                products: res?.data?.collectionItems.items,
+                totalProducts: res?.data?.collectionItems?.page?.item_total || 0,
+              });
           if (append) {
             setProductList((prevState) => {
               return prevState.concat(res?.data?.collectionItems?.items || []);

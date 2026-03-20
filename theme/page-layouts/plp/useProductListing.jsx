@@ -11,12 +11,12 @@ import { PLP_PRODUCTS } from "../../queries/plpQuery";
 import {
   getProductImgAspectRatio,
   isRunningOnClient,
+  fireCustomGtmEvent
 } from "../../helper/utils";
 import productPlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import useAddToCartModal from "./useAddToCartModal";
 import { useAccounts, useWishlist, useThemeConfig } from "../../helper/hooks";
 import useInternational from "../../components/header/useInternational";
-
 const INFINITE_PAGE_SIZE = 12;
 const PAGES_TO_SHOW = 5;
 const PAGE_OFFSET = 2;
@@ -233,6 +233,10 @@ const useProductListing = ({ fpi, props }) => {
           };
           setApiLoading(false);
           fpi.custom.setValue("customProductList", productList);
+          fireCustomGtmEvent("custom.product_list.view", {
+            products: productList.items,
+            totalProducts: productList.items?.length || 0,
+            });
           if (append) {
             setProductList((prevState) => {
               return prevState.concat(productList?.items || []);
@@ -257,6 +261,10 @@ const useProductListing = ({ fpi, props }) => {
             setProductList(res?.data?.products?.items || []);
           }
           fpi.custom.setValue("customProductList", res?.data?.products);
+          fireCustomGtmEvent("custom.product_list.view", {
+            products: res?.data?.products?.items,
+            totalProducts: res?.data?.products?.page?.item_total || 0,
+          });
           setApiLoading(false);
         })
         .finally(() => {

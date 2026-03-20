@@ -26,6 +26,7 @@ import {
   useNavigate,
   useGlobalTranslation,
 } from "fdk-core/utils";
+import { fireCustomGtmEvent } from "../../../helper/utils";
 
 const useProductDescription = ({ fpi, slug, props }) => {
   const { t } = useGlobalTranslation("translation");
@@ -191,6 +192,7 @@ const useProductDescription = ({ fpi, slug, props }) => {
         fpi.executeGQL(FOLLOWED_PRODUCTS_IDS, null).then((res) => {
           showSnackbar(t("resource.common.wishlist_add_success"), "success");
         });
+       fireCustomGtmEvent("wishlist.customadd", event);
       }
     });
   }
@@ -208,6 +210,7 @@ const useProductDescription = ({ fpi, slug, props }) => {
         fpi.executeGQL(FOLLOWED_PRODUCTS_IDS, null).then((res) => {
           showSnackbar(t("resource.common.wishlist_remove_success"), "success");
         });
+        fireCustomGtmEvent("wishlist.customremove", product_details);
       }
     });
   }
@@ -341,6 +344,11 @@ const getProductSellers = (listingStrategy = "", latitude = null, longitude = nu
             translateDynamicLabel(outRes?.data?.addItemsToCart?.message, t) || t("resource.common.add_to_cart_success"),
             "success"
           );
+          fireCustomGtmEvent("cart.customAdd", {
+          responseData: outRes?.data?.addItemsToCart?.cart,
+          productDetails: product_details,
+          item_size: size?.toString(),
+        });
           if (buyNow) {
             navigate(
               `/cart/checkout/?buy_now=true&id=${outRes?.data?.addItemsToCart?.cart?.id}`

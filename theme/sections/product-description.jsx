@@ -28,6 +28,7 @@ import {
   isRunningOnClient,
   currencyFormat,
   formatLocale,
+  fireCustomGtmEvent
 } from "../helper/utils";
 import { useSnackbar, useViewport } from "../helper/hooks";
 import styles from "../styles/sections/product-description.less";
@@ -529,7 +530,97 @@ const availableLabel =
     ? "Available Size:"
     : `Available ${pdpSizeLabelRaw} options:`;
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (!isRunningOnClient()) {
+        return;
+      }
+      const isPortrait = window.innerHeight > window.innerWidth;
+      const screenOrientation = isPortrait ? "portrait" : "landscape";
 
+      const customEventData = {
+        product: {
+          uid: productDetails?.uid,
+          name: productDetails?.name,
+          item_code: productDetails?.item_code,
+          brand: {
+            uid: productDetails?.brand?.uid,
+            name: productDetails?.brand?.name,
+          },
+          category: {
+            uid: productDetails?.categories?.[0]?.uid,
+            name: productDetails?.categories?.[0]?.name,
+            l1_category: productDetails?.attributes?.["custom-attribute-1"],
+            l2_category: productDetails?.attributes?.["custom-attribute-2"],
+            l3_category: productDetails?.attributes?.["custom-attribute-3"],
+          },
+          price: {
+            min: productDetails?.sizes?.price?.effective?.max,
+            max: productDetails?.sizes?.price?.effective?.min,
+            currency_code:
+              productDetails?.sizes?.price?.effective?.currency_code,
+            currency_symbol:
+              productDetails?.sizes?.price?.effective?.currency_symbol,
+          },
+          sizes:
+            productDetails?.sizes?.size_details?.map((size) => ({
+              quantity: size?.quantity,
+              value: size?.value,
+              is_available: size?.is_available,
+            })) || [],
+          source_url: `/product/${productDetails?.attributes?.slug || ""}`,
+          l1_category: productDetails?.attributes?.["custom-attribute-1"],
+          l3_category: productDetails?.attributes?.["custom-attribute-3"],
+        },
+        event_action: "product.view",
+        screen: screenOrientation,
+        utm_params: {
+          utm_content: "undefined",
+          utm_medium: "",
+          utm_campaign: "",
+          utm_source: "",
+        },
+        screen_view: "product_detail",
+        user: LoggedIn
+          ? {
+            _id: userData?.user_id,
+            username: userData?.username,
+            emails: [
+              {
+                email: userData?.emails[0]?.email,
+                active: userData?.emails[0]?.active,
+                primary: userData?.emails[0]?.primary,
+                verified: userData?.emails[0]?.verified,
+              },
+            ],
+            gender: userData?.gender,
+            active: userData?.active,
+            first_name: userData?.first_name,
+            last_name: userData?.last_name,
+            phone_numbers: [
+              {
+                phone: userData?.phone_numbers[0]?.phone,
+                active: userData?.phone_numbers[0]?.active,
+                primary: userData?.phone_numbers[0]?.primary,
+                verified: userData?.phone_numbers[0]?.verified,
+                country_code: userData?.phone_numbers[0]?.country_code,
+              },
+            ],
+            account_type: userData?.account_type,
+            profile_pic_url: userData?.profile_pic_url,
+            user_id: userData?.user_id,
+            application_id: userData?.application_id,
+            created_at: userData?.created_at,
+            updated_at: userData?.updated_at,
+          }
+          : {},
+      };
+
+      fireCustomGtmEvent("custom.product.view", customEventData);
+    }, 2000); // Runs after 5 seconds
+
+    return () => clearTimeout(timeoutId); // Cleanup timeout on unmount or dependency change
+  }, [productDetails?.slug]);
 
   return (
     <>
