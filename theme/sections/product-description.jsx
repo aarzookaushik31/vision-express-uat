@@ -191,6 +191,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     getProductSellers,
     isSellerLoading,
     buybox,
+    LoggedIn
   } = useProductDescription({ fpi, slug, props });
 
 
