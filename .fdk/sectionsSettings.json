@@ -1824,6 +1824,22 @@
       }
     ]
   },
+  "custom-html": {
+    "label": "Custom HTML",
+    "props": [
+      {
+        "id": "custom_id",
+        "type": "text",
+        "label": "Custom ID (for DY / tracking)"
+      },
+      {
+        "id": "custom_html",
+        "type": "textarea",
+        "default": "<div></div>",
+        "label": "Custom HTML"
+      }
+    ]
+  },
   "custom-media-with-text": {
     "label": "Image + Text Section",
     "props": [

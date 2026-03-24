@@ -32,6 +32,14 @@ export function ThemeProvider({ children }) {
       ""
   );
   const canonicalPath = sanitizeHTMLTag(seoData?.canonical_url);
+
+  const currentUrl =
+  typeof window !== "undefined"
+    ? window.location.origin + location.pathname
+    : "";
+
+const canonicalUrl = canonicalPath || currentUrl;
+
   const { defaultCurrency } = useGlobalStore(fpi.getters.CUSTOM_VALUE);
   const sellerDetails = JSON.parse(
     useGlobalStore(fpi.getters.SELLER_DETAILS) || "{}"
@@ -252,7 +260,7 @@ useEffect(() => {
         <meta name="og:url" content={domainUrl} />
         <meta name="og:type" content="website" />
         <script src="https://cdn.glamar.io/sdk/wrapper"></script>
-        {canonicalPath && <link rel="canonical" href={canonicalPath} />}
+       <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       {children}
     </>

@@ -25,7 +25,7 @@ function WishlistIcon({ isActive = false, ...props }) {
   }
 
   return (
-  <img width="21px" src={Wishlist} />
+  <img width="21px" alt="wishlist" src={Wishlist} />
   );
 }
 

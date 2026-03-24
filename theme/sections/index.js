@@ -39,6 +39,8 @@ const ContactUsSectionChunk = loadable(() => import(/* webpackChunkName:"Contact
 
 const CustomContactUsSectionChunk = loadable(() => import(/* webpackChunkName:"CustomContactUsSectionChunk" */ './custom-contact-us.jsx'));
 
+const CustomHtmlSectionChunk = loadable(() => import(/* webpackChunkName:"CustomHtmlSectionChunk" */ './custom-html.jsx'));
+
 const CustomMediaWithTextSectionChunk = loadable(() => import(/* webpackChunkName:"CustomMediaWithTextSectionChunk" */ './custom-media-with-text.jsx'));
 
 const CustomProductListingSectionChunk = loadable(() => import(/* webpackChunkName:"CustomProductListingSectionChunk" */ './custom-productListing.jsx'));
@@ -170,6 +172,8 @@ const getbundle = (type) => {
             return (props) => <ContactUsSectionChunk {...props}/>;
         case 'custom-contact-us':
             return (props) => <CustomContactUsSectionChunk {...props}/>;
+        case 'custom-html':
+            return (props) => <CustomHtmlSectionChunk {...props}/>;
         case 'custom-media-with-text':
             return (props) => <CustomMediaWithTextSectionChunk {...props}/>;
         case 'custom-productListing':
@@ -286,6 +290,7 @@ export default {
         'collections': { ...CollectionsSectionChunk, Component: getbundle('collections') },
         'contact-us': { ...ContactUsSectionChunk, Component: getbundle('contact-us') },
         'custom-contact-us': { ...CustomContactUsSectionChunk, Component: getbundle('custom-contact-us') },
+        'custom-html': { ...CustomHtmlSectionChunk, Component: getbundle('custom-html') },
         'custom-media-with-text': { ...CustomMediaWithTextSectionChunk, Component: getbundle('custom-media-with-text') },
         'custom-productListing': { ...CustomProductListingSectionChunk, Component: getbundle('custom-productListing') },
         'custom-text': { ...CustomTextSectionChunk, Component: getbundle('custom-text') },

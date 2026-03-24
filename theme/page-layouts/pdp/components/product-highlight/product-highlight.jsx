@@ -101,7 +101,7 @@ const matchedKey = Object.keys(iconMap).find(
           return (
             <div className={styles.highlightItem} key={`${index}-${i}`}>
               <span className={styles.icon}>
-                <img src={icon} className={styles.iconImg} />
+                <img src={icon} className={styles.iconImg} alt={text} />
               </span>
 
               <span className={styles.text}>{text}</span>

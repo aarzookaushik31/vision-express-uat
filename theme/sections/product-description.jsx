@@ -1004,7 +1004,7 @@ const availableLabel =
     <div className={styles.sizeDimensions__grid}>
       {lensWidth && (
         <div>
-          <img src={LensWidthImg} />
+          <img src={LensWidthImg} alt="Lens Width" />
           <p>{lensWidth} mm</p>
           <span>Lens Width</span>
         </div>
@@ -1012,7 +1012,7 @@ const availableLabel =
 
       {bridgeWidth && (
         <div>
-          <img src={BridgeWidthImg} />
+          <img src={BridgeWidthImg} alt="Bridge Width" />
           <p>{bridgeWidth} mm</p>
           <span>Bridge Width</span>
         </div>
@@ -1020,7 +1020,7 @@ const availableLabel =
 
       {templeLength && (
         <div>
-          <img src={TempleLengthImg} />
+          <img src={TempleLengthImg} alt="Temple Length" />
           <p>{templeLength} mm</p>
           <span>Temple Length</span>
         </div>
@@ -1028,7 +1028,7 @@ const availableLabel =
 
       {lensHeight && (
         <div>
-          <img src={LensHeightImg} />
+          <img src={LensHeightImg} alt="Lens Height" />
           <p>{lensHeight} mm</p>
           <span>Lens Height</span>
         </div>
@@ -1452,7 +1452,7 @@ const availableLabel =
                                   <li className={styles.prodMetaItem}>
                                     <img
                   src={ReturnIcon}
-                  alt=""
+                  alt="meta"
                   aria-hidden="true"
                   className={styles.metaIcon}
                 />
@@ -1477,7 +1477,7 @@ const availableLabel =
                                     <li className={styles.prodMetaItem}>
                                     <img
                   src={ReturnIcon}
-                  alt=""
+                  alt="return"
                   aria-hidden="true"
                   className={styles.metaIcon}
                 />
@@ -1494,7 +1494,7 @@ const availableLabel =
   <li className={styles.prodMetaItem}>
     <img
       src={WarrantyIcon}
-      alt=""
+      alt="warranty"
       aria-hidden="true"
       className={styles.metaIcon}
     />
@@ -1510,7 +1510,7 @@ const availableLabel =
     <li className={styles.prodMetaItem}>
       <img
         src={ExchangeIcon}
-        alt=""
+        alt="exchange"
         aria-hidden="true"
         className={styles.metaIcon}
       />
