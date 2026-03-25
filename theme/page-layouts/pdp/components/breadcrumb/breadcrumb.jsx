@@ -1,60 +1,61 @@
 import React from "react";
 import { FDKLink } from "fdk-core/components";
 import styles from "./breadcrumb.less";
-import { useParams } from "react-router-dom";
 import { useGlobalTranslation } from "fdk-core/utils";
 
-function BreadCrumb({ productData, config, customClass }) {
+function BreadCrumb({ productData, customClass }) {
   const { t } = useGlobalTranslation("translation");
-  const { locale } = useParams();
-  const getBrand = () => productData?.brand || {};
 
-  const getCategory = () => {
-    const category = productData?.categories?.[0] || {};
-    const updatedCategory = {};
-    const categorySlug = category?.action?.page?.query?.category?.[0] || "";
-    updatedCategory.name = category.name || "";
-    updatedCategory.url = categorySlug && `/products/?category=${categorySlug}`;
+  const attr1 = productData?.attributes?.["custom-attribute-1"];
+  const attr2 = productData?.attributes?.["custom-attribute-2"];
+  const attr3 = productData?.attributes?.["custom-attribute-3"];
 
-    return updatedCategory;
-  };
+  const breadcrumbs = [];
+
+  // Home
+  breadcrumbs.push({
+    name: t("resource.common.breadcrumb.home"),
+    url: "/",
+  });
+
+  // Attr 1
+  if (attr1) {
+    breadcrumbs.push({
+      name: attr1,
+      url: `/products?custom-attribute-1=${encodeURIComponent(attr1)}`,
+    });
+  }
+
+  // Attr 2
+  if (attr2) {
+    breadcrumbs.push({
+      name: attr2,
+      url: `/products?custom-attribute-1=${encodeURIComponent(
+        attr1
+      )}&custom-attribute-2=${encodeURIComponent(attr2)}`,
+    });
+  }
+
+  // Attr 3
+  if (attr3) {
+    breadcrumbs.push({
+      name: attr3,
+      url: `/products?custom-attribute-1=${encodeURIComponent(
+        attr1
+      )}&custom-attribute-2=${encodeURIComponent(
+        attr2
+      )}&custom-attribute-3=${encodeURIComponent(attr3)}`,
+    });
+  }
 
   return (
-    <div
-      className={`${styles.breadcrumbs} captionNormal ${styles.breadcrumbWrap} ${customClass}`}
-    >
-      <span>
-        <FDKLink to={"/"}>{t("resource.common.breadcrumb.home")}</FDKLink>&nbsp;/&nbsp;
-      </span>
-      {config?.show_products_breadcrumb?.value && (
-        <span>
-          <FDKLink to={"/products"}>
-            {t("resource.common.breadcrumb.products")}
-          </FDKLink>
-          &nbsp;/&nbsp;
+    <div className={`${styles.breadcrumbs} ${styles.breadcrumbWrap} ${customClass}`}>
+      {breadcrumbs.map((item, index) => (
+        <span key={index}>
+          <FDKLink to={item.url}>{item.name}</FDKLink>
+          {index < breadcrumbs.length - 1 && <>&nbsp;/&nbsp;</>}
         </span>
-      )}
-      {config?.show_category_breadcrumb?.value && getCategory().name && (
-        <span>
-          <FDKLink
-            to={getCategory().url}
-          >
-            {getCategory().name}
-          </FDKLink>
-          &nbsp;/&nbsp;
-        </span>
-      )}
-      {config?.show_brand_breadcrumb?.value && getBrand().name && (
-        <span>
-          <FDKLink action={getBrand().action}>
-            {getBrand().name}
-          </FDKLink>
-          &nbsp;/&nbsp;
-        </span>
-      )}
-      {/* {productData?.name && (
-        <span className={styles.active}>{productData?.name}</span>
-      )} */}
+      ))}
     </div>
   );
 }
