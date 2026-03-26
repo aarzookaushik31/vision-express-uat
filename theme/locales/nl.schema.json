@@ -106,15 +106,13 @@
     "settings_schema": {
       "common": {
         "typography": "Typografie",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Algolia-configuratie",
         "footer": "Voettekst",
         "cart_and_button_configuration": "Winkelwagen- en knopconfiguratie",
         "product_card_configuration": "Productkaartconfiguratie",
         "other_page_configuration": "Andere paginaconfiguratie",
         "google_maps": "Google Maps",
-        "mobile_logo_max_height": "Maximale hoogte mobiel logo",
-        "logo_header": "Desktop header logo max hoogte",
-        "mobile_logo_header": "Mobile header logo max hoogte"
+        "mobile_logo_max_height": "Maximale hoogte mobiel logo"
       },
       "typography": {
         "font_header": "Lettertypekoptekst",
@@ -154,12 +152,10 @@
         "date_range_info": "Toon leveringsbelofte in datumbereik",
         "bold": "Vetgedrukt",
         "regular": "Normaal",
-        "semibold": "Halfvet",
-        "transparent_header": "Transparante header",
-        "transparent_header_info": "Pas transparante koptekst toe wanneer de banner van de toepassing of de afbeelding van de afbeelding bovenaan"
+        "semibold": "Halfvet"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
+      "algolia_configuration": {
+        "enable_algolia": "Algolia inschakelen"
       },
       "footer": {
         "logo": "Logo",
@@ -171,9 +167,7 @@
         "social_media_text": "Tekstlabel voor sociale media",
         "social_media_text_info": "Labeltekst weergeven voor sociale media",
         "footer_logo_max_height_mobile": "Voettekstlogo Maximale hoogte (mobiel)",
-        "footer_logo_max_height_desktop": "Maximale hoogte voettekstlogo (bureaublad)",
-        "open_same_tab": "Open sociale links op hetzelfde tabblad",
-        "open_same_tab_info": "Controleer dit om sociale media -links op hetzelfde tabblad te openen in plaats van een nieuwe"
+        "footer_logo_max_height_desktop": "Maximale hoogte voettekstlogo (bureaublad)"
       },
       "cart_and_button_configuration": {
         "cart_options": "Winkelwagenopties",
@@ -305,7 +299,6 @@
         "desktop_content_alignment": "Uitlijning van inhoud op het bureaublad",
         "banner_horizontal_scroll": "Banner met horizontale scroll",
         "banner_with_stack": "Banner met stapel",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Lay-out (mobiel)",
         "content_alignment_mobile": "Uitlijning van inhoud op mobiel",
         "text_alignment": "Tekstuitlijning",

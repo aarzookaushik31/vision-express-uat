@@ -106,15 +106,13 @@
     "settings_schema": {
       "common": {
         "typography": "Tipografi",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Konfigurasi Algolia",
         "footer": "Pengaki",
         "cart_and_button_configuration": "Konfigurasi Troli & Butang",
         "product_card_configuration": "Konfigurasi Kad Produk",
         "other_page_configuration": "Konfigurasi Halaman Lain",
         "google_maps": "Peta Google",
-        "mobile_logo_max_height": "Logo Mudah Alih Max Height",
-        "logo_header": "Logo header desktop ketinggian maksimum",
-        "mobile_logo_header": "Logo header mudah alih ketinggian maksimum"
+        "mobile_logo_max_height": "Logo Mudah Alih Max Height"
       },
       "typography": {
         "font_header": "Pengepala Fon",
@@ -154,12 +152,10 @@
         "date_range_info": "Tunjukkan janji penghantaran dalam julat tarikh",
         "bold": "berani",
         "regular": "Biasa",
-        "semibold": "Semibold",
-        "transparent_header": "Header telus",
-        "transparent_header_info": "Sapukan Header Telus Semasa Banner Permohonan atau Tunjukkan Slaid Imej Di Atas"
+        "semibold": "Semibold"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
+      "algolia_configuration": {
+        "enable_algolia": "Dayakan Algolia"
       },
       "footer": {
         "logo": "Logo",
@@ -171,9 +167,7 @@
         "social_media_text": "Label teks media sosial",
         "social_media_text_info": "Tunjukkan teks Label untuk media sosial",
         "footer_logo_max_height_mobile": "Logo Pengaki Ketinggian Maks (Mudah Alih)",
-        "footer_logo_max_height_desktop": "Logo Pengaki Ketinggian Maks (Desktop)",
-        "open_same_tab": "Buka pautan sosial dalam tab yang sama",
-        "open_same_tab_info": "Periksa ini untuk membuka pautan media sosial dalam tab yang sama dan bukannya yang baru"
+        "footer_logo_max_height_desktop": "Logo Pengaki Ketinggian Maks (Desktop)"
       },
       "cart_and_button_configuration": {
         "cart_options": "Pilihan Troli",
@@ -305,7 +299,6 @@
         "desktop_content_alignment": "Penjajaran kandungan dalam desktop",
         "banner_horizontal_scroll": "Sepanduk dengan tatal mendatar",
         "banner_with_stack": "Sepanduk dengan Tindanan",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Reka letak (Mudah alih)",
         "content_alignment_mobile": "Penjajaran kandungan dalam mudah alih",
         "text_alignment": "Penjajaran Teks",

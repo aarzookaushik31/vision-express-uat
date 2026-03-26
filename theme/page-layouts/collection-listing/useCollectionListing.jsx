@@ -508,6 +508,8 @@ const useCollectionListing = ({ fpi, slug, props }) => {
     ];
   }, [globalConfig?.img_hd, img_resize, img_resize_mobile]);
 
+
+
   return {
     seo,
     assets,

@@ -251,95 +251,7 @@
       "invalid_email": "Email không hợp lệ",
       "email_cannot_exceed_50_characters": "Email không vượt quá 50 ký tự",
       "other": "Khác",
-      "product_is_not_serviceable_at_given_locality": "Sản phẩm không phục vụ tại khu vực này",
-      "no_items_in_cart": "Không có sản phẩm trong giỏ hàng",
-      "street_name": "Tên đường",
-      "building_no__apartment": "Số nhà / Căn hộ",
-      "area": "Khu vực",
-      "landmark": "Địa điểm dễ nhận biết",
-      "sorry_item_is_out_of_stock": "Xin lỗi, mặt hàng đã hết hàng",
-      "added_only_those_products_that_are_in_stock": "Chỉ thêm những sản phẩm có trong kho",
-      "max_50_items_allowed_in_cart": "Tối đa 50 mặt hàng được phép trong xe đẩy",
-      "nothing_updated": "Không có gì được cập nhật",
-      "item_updated": "Mục được cập nhật",
-      "item_not_updated": "Mục không được cập nhật",
-      "invalid_address": "Địa chỉ không hợp lệ",
-      "address_block_no_street_name": "Địa chỉ (khối số, tên đường)",
-      "address_line_1": "Dòng địa chỉ 1",
-      "address_line_2": "Dòng địa chỉ 2",
-      "apartment_building_floor_etc": "Căn hộ, tòa nhà, sàn, v.v.",
-      "apartment_building_house_no_floor_etc": "Căn hộ, tòa nhà, nhà không, sàn, v.v.",
-      "apartment_unit_building_floor_room": "Căn hộ, đơn vị, tòa nhà, sàn, phòng",
-      "apartment_unit_building_floor_room_etc": "Căn hộ, đơn vị, tòa nhà, sàn, phòng, v.v.",
-      "apartment_unit_building_floor_etc": "Căn hộ, đơn vị, tòa nhà, sàn, v.v.",
-      "apartment_building_unit_floor_etc": "Căn hộ, tòa nhà, đơn vị, sàn, v.v.",
-      "apartment_suite_unit_building_floor_etc": "Căn hộ, bộ, đơn vị, tòa nhà, sàn, v.v.",
-      "apartment_suite_unit_floor_etc": "Căn hộ, bộ, đơn vị, sàn, v.v.",
-      "apt_suite_etc": "Apt, bộ, v.v.",
-      "barangay": "Barangay",
-      "block": "Khối",
-      "building_number_unit_number": "Số xây dựng, số đơn vị",
-      "building_apt_rt_rw": "Xây dựng, APT, RT/RW",
-      "city_district": "Thành phố/Quận",
-      "city_town": "Thành phố/Thị trấn",
-      "city_ward_town_village": "Thành phố/phường/thị trấn/làng",
-      "complement": "Bổ sung",
-      "county": "Quận",
-      "district_area": "Quận/Khu vực",
-      "district_county_municipality": "Quận/Quận/Đô thị",
-      "eircode": "Eircode",
-      "flat_apartment_building_name_or": "Căn hộ, căn hộ, tên tòa nhà hoặc #",
-      "flat_stair_door_number_etc": "Phẳng, cầu thang, số cửa, v.v.",
-      "floor_unit_no": "Tầng - Đơn vị không.",
-      "governorate_city": "Chính phủ/Thành phố",
-      "house_number_and_street_name": "Số nhà và tên đường phố",
-      "locality_apartment_building_floor_etc": "Địa phương, căn hộ, tòa nhà, sàn, v.v.",
-      "neighborhood_bairro": "Vùng lân cận/Bairro",
-      "postal_code": "Mã bưu điện",
-      "postcode": "Mã bưu điện",
-      "prefecture": "Tỉnh",
-      "province": "Tỉnh",
-      "province_code": "Mã tỉnh",
-      "province_city_do_si": "Tỉnh/Thành phố (do/SI)",
-      "region": "Vùng đất",
-      "state_code": "Mã nhà nước",
-      "street_address": "Địa chỉ đường phố",
-      "street_address_chome_banchi_go": "Địa chỉ đường phố/Chome, Banchi, đi",
-      "street_name_and_house_no": "Tên đường phố và nhà không",
-      "street_name_and_number": "Tên đường phố và số",
-      "street_name_no": "Tên đường phố/Không",
-      "street_name_no_block": "Tên đường phố/Không, Khối",
-      "street_name_no_house_number": "Tên đường phố/Không, số nhà",
-      "street_number": "Số đường phố",
-      "subdistrict": "Subdistrict",
-      "subdistrict_district": "Subdistrict/Quận",
-      "suburb": "Vùng ngoại ô",
-      "town_city": "Thị trấn/thành phố",
-      "unit___floor_no": "Đơn vị / Tầng không",
-      "wilaya": "Huyện",
-      "zipcode": "ZipCode",
-      "zone_number": "Số khu vực",
-      "sorry_invalid_coupon": "Lấy làm tiếc!Phiếu giảm giá không hợp lệ",
-      "invalid_gstin_number": "Số GSTIN không hợp lệ",
-      "payment_mode_is_not_valid_for_applied_coupon": "Chế độ thanh toán không hợp lệ cho phiếu giảm giá được áp dụng",
-      "ordering_store_is_not_valid_for_the_applied_coupon": "Cửa hàng đặt hàng không có giá trị cho phiếu giảm giá được áp dụng",
-      "coupon_usage_limit_has_been_reached": "Đã đạt được giới hạn sử dụng phiếu giảm giá",
-      "login_required_to_apply_this_coupon": "Đăng nhập cần thiết để áp dụng phiếu giảm giá này",
-      "coupon_not_applicable_for_the_user": "Phiếu giảm giá không áp dụng cho người dùng",
-      "cart_is_empty": "Giỏ hàng trống rỗng",
-      "coupon_expired": "Phiếu giảm giá đã hết hạn",
-      "sorry_invalid_platform_coupon": "Lấy làm tiếc!Phiếu giảm giá nền tảng không hợp lệ",
-      "sorry_coupon_expired": "Lấy làm tiếc!Phiếu giảm giá đã hết hạn",
-      "sorry_coupon_not_applicable": "Lấy làm tiếc!Phiếu giảm giá không áp dụng.",
-      "sorry_coupon_not_applicable_for_these_items": "Lấy làm tiếc!Phiếu giảm giá không áp dụng cho các mặt hàng này.",
-      "sorry_coupon_already_used": "Lấy làm tiếc!Phiếu giảm giá đã được sử dụng.",
-      "coupon_successfully_removed": "Phiếu giảm giá đã được gỡ bỏ thành công",
-      "no_coupon_is_applied": "Không có phiếu giảm giá nào được áp dụng",
-      "coupon_not_applicable_on_this_order": "Phiếu giảm giá không áp dụng cho đơn đặt hàng này",
-      "cod_not_available_on_applied_promocode": "COD không có sẵn trên mã quảng cáo được áp dụng",
-      "coupon_applicable_for_new_users_only": "Phiếu giảm giá chỉ áp dụng cho người dùng mới",
-      "please_login_to_use_this_coupon": "Vui lòng đăng nhập để sử dụng phiếu giảm giá này.",
-      "coupon_code_not_applicable_items_are_already_at_the_best_price": "Mã phiếu giảm giá không áp dụng, các mặt hàng đã ở mức giá tốt nhất"
+      "product_is_not_serviceable_at_given_locality": "Sản phẩm không phục vụ tại khu vực này"
     },
     "auth": {
       "account_deletion_notice": "Theo yêu cầu của bạn, tài khoản của bạn sẽ sớm bị xóa. Nếu bạn muốn khôi phục tài khoản của mình, vui lòng liên hệ theo địa chỉ email hỗ trợ bên dưới",
@@ -486,8 +398,6 @@
         "my_address": "ĐỊA CHỈ CỦA TÔI",
         "add_new_address": "Thêm Địa Chỉ Mới",
         "add_new_address_caps": "THÊM ĐỊA CHỈ MỚI",
-        "default_address": "Địa Chỉ Mặc Định",
-        "other_addresses": "Địa Chỉ Khác",
         "no_address_available": "Không có địa chỉ nào có sẵn",
         "address_not_found": "Không tìm thấy địa chỉ!",
         "return_to_my_address": "TRỞ LẠI ĐỊA CHỈ CỦA TÔI",
@@ -499,6 +409,7 @@
         "pincode_six_digits_required": "Mã PIN phải dài chính xác 6 chữ số",
         "invalid_phone_number": "Số điện thoại không hợp lệ",
         "enter_pincode": "Nhập mã PIN",
+        "default_address": "Địa chỉ mặc định",
         "other_address": "Địa chỉ khác",
         "address_type": "Loại địa chỉ",
         "make_this_my_default_address": "Đặt đây làm địa chỉ mặc định của tôi"
@@ -653,17 +564,7 @@
       "back_to_login_caps": "TRỞ LẠI ĐĂNG NHẬP",
       "sorry_we_couldnt_find_any_results": "Xin lỗi, chúng tôi không tìm thấy kết quả nào",
       "in": "TRONG",
-      "home_seo_description": "Mua sắm trực tuyến dễ dàng và khám phá nhiều sản phẩm chất lượng, hàng mới nhất và ưu đãi độc quyền — tất cả trong một nơi",
-      "maximum_64_characters_allowed": "Vui lòng nhập ký tự nhỏ hơn 64",
-      "maximum_50_characters_allowed": "Vui lòng nhập ký tự dưới 50",
-      "page_titles": {
-        "contact_us": "Liên hệ với chúng tôi",
-        "home": "Trang chủ",
-        "product_listing": "Danh sách sản phẩm",
-        "wishlist": "Danh sách mong muốn",
-        "about_us": "Về chúng tôi",
-        "blog": "Blog"
-      }
+      "home_seo_description": "Mua sắm trực tuyến dễ dàng và khám phá nhiều sản phẩm chất lượng, hàng mới nhất và ưu đãi độc quyền — tất cả trong một nơi"
     },
     "categories": {
       "empty_state": "Không tìm thấy danh mục nào"
@@ -853,8 +754,7 @@
     "wishlist": {
       "product_removed": "Sản phẩm đã xóa khỏi danh sách mong muốn",
       "no_product_in_wishlist": "Bạn không có sản phẩm nào được thêm vào danh sách mong muốn",
-      "add_products_to_wishlist": "Thêm sản phẩm vào danh sách mong muốn",
-      "seo_description": "Lưu các sản phẩm bạn yêu thích và xây dựng danh sách mong muốn của bạn.Dễ dàng xem lại và mua các mặt hàng yêu thích của bạn bất cứ lúc nào chỉ bằng một vài cú nhấp chuột."
+      "add_products_to_wishlist": "Thêm sản phẩm vào danh sách mong muốn"
     },
     "cart": {
       "no_items": "Không có sản phẩm nào trong giỏ hàng",
@@ -1082,8 +982,7 @@
       "slide_alt": "cầu trượt",
       "no_blogs_found": "Không tìm thấy blog nào",
       "showing_results": "Hiển thị {{count}} kết quả của",
-      "no_blog_found": "Không tìm thấy Blog",
-      "seo_description": "Khám phá các bài viết hữu ích, mẹo sản phẩm và hiểu biết chuyên gia để được thông tin và truyền cảm hứng.Blog của chúng tôi bao gồm tất cả mọi thứ, từ xu hướng đến hướng dẫn cách làm."
+      "no_blog_found": "Không tìm thấy Blog"
     },
     "checkout": {
       "payment_retry_message": "Vui lòng thử lại hoặc sử dụng phương thức thanh toán khác để hoàn tất thanh toán",
@@ -1200,9 +1099,7 @@
       "please_enter_a_valid_phone_number": "Vui lòng nhập số điện thoại hợp lệ",
       "please_enter_your_phone_number": "Vui lòng nhập số điện thoại của bạn",
       "please_enter_a_valid_email_address": "Vui lòng nhập địa chỉ email hợp lệ",
-      "please_enter_your_email_address": "Vui lòng nhập địa chỉ email của bạn",
-      "seo_description": "Liên hệ với chúng tôi để có bất kỳ hỗ trợ hoặc câu hỏi.Chúng tôi ở đây để hỗ trợ các đơn đặt hàng, trả lại hoặc yêu cầu sản phẩm của bạn, nhanh chóng và hiệu quả.",
-      "entered_msg_greater_than_500_char": "Tin nhắn đã nhập là hơn 500 ký tự"
+      "please_enter_your_email_address": "Vui lòng nhập địa chỉ email của bạn"
     },
     "faq": {
       "no_frequently_asked_questions_found": "Không tìm thấy câu hỏi thường gặp",
@@ -1246,9 +1143,6 @@
       "otp_sent_to_phone": "Mật khẩu một lần (OTP) đã được gửi thành công đến số điện thoại",
       "verify_caps": "XÁC MINH",
       "enter_bank_details": "Nhập thông tin ngân hàng"
-    },
-    "about_us": {
-      "seo_description": "Chúng tôi dành riêng để cung cấp các sản phẩm chất lượng cao và dịch vụ đặc biệt.Tìm hiểu thêm về hành trình, giá trị của chúng tôi và những gì làm cho chúng tôi trở thành một lựa chọn đáng tin cậy."
     }
   }
 }

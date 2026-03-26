@@ -55,7 +55,7 @@
               },
               "advance_setting": {
                 "overlay_popup": {
-                  "dialog_backgroung": "#FFFFFF",
+                  "dialog_backgroung": "#ffffff",
                   "overlay": "#000000"
                 },
                 "divider_stroke_highlight": {
@@ -108,10 +108,6 @@
             "logo_width": 774,
             "logo_menu_alignment": "layout_3",
             "header_layout": "double",
-            "is_header_map": false,
-            "is_checkout_map": false,
-            "is_store_locator_map": false,
-            "map_api_key": "",
             "font_header": {
               "variants": {
                 "light": {
@@ -166,13 +162,10 @@
             "product_img_width": "300",
             "product_img_height": "1000",
             "image_border_radius": 12,
-            "img_container_bg": "#FFFFFF",
+            "img_container_bg": "#EAEAEA",
             "payments_logo": "",
             "button_options": "none",
-            "sticky_header": true,
-            "show_secondary_header_on_checkout": false,
             "show_price": true,
-            "show_color_variants": false,
             "img_fill": true,
             "disable_cart": true,
             "is_delivery_minutes": false,
@@ -182,26 +175,202 @@
             "footer_image": true,
             "footer_image_desktop": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/company/1076/applications/687f311ed5f36b2821fa25cd/theme/pictures/free/original/theme-image-1754279914288.png",
             "footer_image_mobile": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/company/1076/applications/687f311ed5f36b2821fa25cd/theme/pictures/free/original/theme-image-1754279914288.png",
-            "storefront_copilot_actions": false,
-            "filter_toggle_button": false,
-            "enable_swr_caching": false,
-            "footer_logo_max_height_mobile": 43,
-            "footer_logo_max_height_desktop": 44,
-            "mobile_logo_max_height_header": 30,
-            "always_on_search": true,
-            "header_ticker_text": "<a href=\"/sections/lens-test\">Find Your Lens – Clarity. Comfort. Confidence.</a>, <a href=\"/sections/book-an-eye-test\"> Free Eye Test – Book your free check-up today.</a>",
-            "mobile_sidebar_logo": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/company/1076/applications/687f311ed5f36b2821fa25cd/theme/pictures/free/original/theme-image-1754991595580.png",
-            "header_border": false,
             "header_mega_menu": true,
             "header_mega_menu_fullwidth": true,
-            "nav_weight": "regular",
+            "footer_logo_max_height_mobile": 43,
+            "footer_logo_max_height_desktop": 44,
+            "always_on_search": true,
+            "header_border": false,
+            "transparent_header": false,
             "is_mandatory_pincode": false,
-            "desktop_logo_max_height": 45,
-            "show_sale_badge": false
+            "nav_weight": "regular",
+            "header_ticker_text": "<a href=\"/sections/lens-test\">Find Your Lens – Clarity. Comfort. Confidence.</a>, <a href=\"/sections/book-an-eye-test\"> Free Eye Test – Book your free check-up today.</a>",
+            "mobile_logo_max_height_header": 30,
+            "mobile_sidebar_logo": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/company/1076/applications/687f311ed5f36b2821fa25cd/theme/pictures/free/original/theme-image-1754991595580.png",
+            "algolia_enabled": false
           }
         }
       },
       "page": [
+        {
+          "page": "product-description",
+          "settings": {
+            "props": {
+              "reviews": false,
+              "add_to_compare": true,
+              "product_request": false,
+              "store_selection": true,
+              "compare_products": false,
+              "variants": true,
+              "ratings": false,
+              "similar_products": true,
+              "bulk_prices": false,
+              "badge_url_1": "",
+              "badge_url_2": "",
+              "badge_url_3": "",
+              "badge_url_4": "",
+              "badge_url_5": "",
+              "show_products_breadcrumb": true,
+              "show_category_breadcrumb": true,
+              "show_brand_breadcrumb": true,
+              "mrp_label": true,
+              "tax_label": "Price inclusive of all tax",
+              "item_code": true,
+              "product_details_bullets": true,
+              "enable_buy_now": true,
+              "show_size_guide": true,
+              "show_offers": true,
+              "hide_single_size": false,
+              "badge_logo_1": "",
+              "badge_label_1": "",
+              "badge_label_2": "",
+              "badge_label_3": "",
+              "badge_label_4": "",
+              "badge_label_5": "",
+              "badge_logo_5": "",
+              "badge_logo_3": "",
+              "size_selection_style": "dropdown",
+              "variant_position": "accordion",
+              "mandatory_pincode": true,
+              "preselect_size": true,
+              "badge_logo_4": "",
+              "badge_logo_2": "",
+              "show_seller": true,
+              "return": true,
+              "seller_store_selection": false
+            }
+          }
+        },
+        {
+          "page": "cart-landing",
+          "settings": {
+            "props": {
+              "show_info_message": true,
+              "gst": false,
+              "staff_selection": true,
+              "enable_customer": false,
+              "enable_guest": false
+            }
+          }
+        },
+        {
+          "page": "brands",
+          "settings": {
+            "props": {
+              "title": "",
+              "description": "",
+              "logo_only": false,
+              "infinite_scroll": true,
+              "back_top": true
+            }
+          }
+        },
+        {
+          "page": "product-listing",
+          "settings": {
+            "props": {
+              "hide_brand": false,
+              "infinite_scroll": false,
+              "product_number": true,
+              "loading_options": "pagination",
+              "back_top": true,
+              "in_new_tab": false,
+              "grid_desktop": "4",
+              "grid_tablet": "3",
+              "grid_mob": "2",
+              "description": "",
+              "banner_link": "",
+              "show_add_to_cart": true
+            }
+          }
+        },
+        {
+          "page": "collection-listing",
+          "settings": {
+            "props": {
+              "product_number": true,
+              "loading_options": "pagination",
+              "back_top": true,
+              "in_new_tab": true,
+              "hide_brand": false,
+              "grid_desktop": "4",
+              "grid_tablet": "3",
+              "grid_mob": "2"
+            }
+          }
+        },
+        {
+          "page": "categories",
+          "settings": {
+            "props": {
+              "heading": "",
+              "description": "",
+              "back_top": true
+            }
+          }
+        },
+        {
+          "page": "home",
+          "settings": {
+            "props": {
+              "code": ""
+            }
+          }
+        },
+        {
+          "page": "login",
+          "settings": {
+            "props": {
+              "image_banner": "",
+              "image_layout": "no_banner"
+            }
+          }
+        },
+        {
+          "page": "collections",
+          "settings": {
+            "props": {
+              "title": "",
+              "description": "",
+              "infinite_scroll": true,
+              "back_top": true
+            }
+          }
+        },
+        {
+          "page": "blog",
+          "settings": {
+            "props": {
+              "button_link": "",
+              "show_blog_slide_show": true,
+              "btn_text": "Read More",
+              "show_tags": true,
+              "show_search": true,
+              "show_recent_blog": true,
+              "show_top_blog": true,
+              "show_filters": true,
+              "loading_options": "pagination",
+              "title": "The Unparalleled Shopping Experience",
+              "description": "Everything you need for that ultimate stylish wardrobe, Fynd has got it!",
+              "button_text": "Shop Now"
+            }
+          }
+        },
+        {
+          "page": "contact-us",
+          "settings": {
+            "props": {
+              "align_image": "right",
+              "align_description": "below_header",
+              "show_address": true,
+              "show_phone": true,
+              "show_email": true,
+              "show_icons": true,
+              "show_working_hours": true,
+              "show_description": true
+            }
+          }
+        },
         {
           "page": "lens-test",
           "settings": {
@@ -323,41 +492,9 @@
                 "type": "text",
                 "value": ""
               },
-              "card_cta_text": {
-                "type": "text",
-                "value": "Add to Cart"
-              },
               "img_fill": {
                 "type": "checkbox",
                 "value": true
-              },
-              "show_add_to_cart": {
-                "type": "checkbox",
-                "value": true
-              },
-              "show_wishlist_icon": {
-                "type": "checkbox",
-                "value": true
-              },
-              "show_badge": {
-                "type": "checkbox",
-                "value": true
-              },
-              "show_view_all": {
-                "type": "checkbox",
-                "value": true
-              },
-              "mandatory_pincode": {
-                "type": "checkbox",
-                "value": false
-              },
-              "hide_single_size": {
-                "type": "checkbox",
-                "value": false
-              },
-              "preselect_size": {
-                "type": "checkbox",
-                "value": false
               },
               "desktop_layout": {
                 "type": "select",
@@ -763,11 +900,6 @@
                 "props": {}
               },
               {
-                "type": "bundle_products",
-                "name": "Bundle Product List",
-                "props": {}
-              },
-              {
                 "type": "size_wrapper",
                 "name": "Size Container with Action Buttons",
                 "props": {
@@ -813,11 +945,6 @@
               {
                 "type": "add_to_compare",
                 "name": "Add to Compare",
-                "props": {}
-              },
-              {
-                "type": "product_bundles",
-                "name": "Bundle Availability",
                 "props": {}
               },
               {
@@ -901,144 +1028,6 @@
       {
         "sections": [
           {
-            "blocks": [],
-            "label": "Order Tracking",
-            "name": "order-tracking",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "order-tracking"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Order Tracking Details",
-            "name": "order-tracking-details",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "order-tracking-details"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Blog Details",
-            "name": "blog-detail",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "show_top_blog": {
-                "type": "checkbox",
-                "value": true
-              },
-              "show_recent_blog": {
-                "type": "checkbox",
-                "value": true
-              }
-            }
-          }
-        ],
-        "value": "blog-detail"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "delivery_header",
-                "name": "Delivery Header",
-                "props": {}
-              },
-              {
-                "type": "cart_items",
-                "name": "Cart Items",
-                "props": {
-                  "show_share_bag": {
-                    "type": "checkbox",
-                    "value": true
-                  }
-                }
-              }
-            ],
-            "label": "Cart Items",
-            "name": "cart-items",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "left_panel",
-            "preset": {},
-            "props": {
-              "show_sticky_footer": {
-                "type": "checkbox",
-                "value": false
-              }
-            }
-          },
-          {
             "blocks": [
               {
                 "type": "coupon",
@@ -1048,11 +1037,6 @@
               {
                 "type": "comment",
                 "name": "Comment",
-                "props": {}
-              },
-              {
-                "type": "loyalty_points",
-                "name": "Loyalty Points",
                 "props": {}
               },
               {
@@ -1072,12 +1056,12 @@
               },
               {
                 "type": "share_cart",
-                "name": "Share Cart (Desktop)",
+                "name": "Share Cart",
                 "props": {}
               }
             ],
-            "label": "Cart Items",
-            "name": "cart-items",
+            "label": "Cart Landing",
+            "name": "cart-landing",
             "predicate": {
               "route": {
                 "exact_url": "",
@@ -1094,287 +1078,11 @@
                 "authenticated": true
               }
             },
-            "canvas": "right_panel",
             "preset": {},
-            "props": {
-              "show_sticky_footer": {
-                "type": "checkbox",
-                "value": true
-              }
-            }
+            "props": {}
           }
         ],
         "value": "cart-landing"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "shared-cart-items",
-                "name": "Shared Cart Items",
-                "props": {}
-              }
-            ],
-            "label": "Shared Cart Items",
-            "name": "shared-cart-items",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "left_panel",
-            "preset": {},
-            "props": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "shared-cart-breakup",
-                "name": "Shared Cart Breakup",
-                "props": {}
-              }
-            ],
-            "label": "Shared Cart Breakup",
-            "name": "shared-cart-breakup",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "right_panel",
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "shared-cart"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "stepper",
-                "name": "Stepper",
-                "props": {}
-              },
-              {
-                "type": "delivery_header",
-                "name": "Delivery Header",
-                "props": {}
-              },
-              {
-                "type": "order_summary",
-                "name": "Order Summary",
-                "props": {}
-              },
-              {
-                "type": "payment_method",
-                "name": "Payment Method",
-                "props": {}
-              },
-              {
-                "type": "trust_badges",
-                "name": "Trust Badges",
-                "props": {}
-              }
-            ],
-            "label": "Checkout",
-            "name": "checkout",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "left_panel",
-            "preset": {},
-            "props": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "coupons",
-                "name": "Coupons",
-                "props": {}
-              },
-              {
-                "type": "comment",
-                "name": "Comment",
-                "props": {}
-              },
-              {
-                "type": "price_breakup",
-                "name": "Price Breakup",
-                "props": {}
-              },
-              {
-                "type": "place_order",
-                "name": "Place Order Button",
-                "props": {}
-              }
-            ],
-            "label": "Checkout",
-            "name": "checkout",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "right_panel",
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "single-page-checkout"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "order_header",
-                "name": "Order Header",
-                "props": {}
-              }
-            ],
-            "label": "Order Confirmation Message",
-            "name": "order-status",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "header",
-            "preset": {},
-            "props": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "shipment_list",
-                "name": "Shipment List",
-                "props": {}
-              }
-            ],
-            "label": "Order Confirmation Items list",
-            "name": "order-status",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "left_panel",
-            "preset": {},
-            "props": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "price_breakup",
-                "name": "Price Breakup",
-                "props": {}
-              },
-              {
-                "type": "payment_info",
-                "name": "Payment Information",
-                "props": {}
-              },
-              {
-                "type": "delivery_address",
-                "name": "Delivery Address",
-                "props": {}
-              }
-            ],
-            "label": "Order Confirmation Details",
-            "name": "order-status",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "canvas": "right_panel",
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "order-status"
       },
       {
         "sections": [
@@ -1414,14 +1122,8 @@
                 "type": "shipment_breakup",
                 "name": "Shipment Breakup",
                 "props": {}
-              },
-              {
-                "type": "total_refund",
-                "name": "Total Refund",
-                "props": {}
               }
             ],
-            "canvas": "left_side",
             "label": "Order Details",
             "name": "order-details",
             "predicate": {
@@ -1442,142 +1144,9 @@
             },
             "preset": {},
             "props": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
           }
         ],
         "value": "shipment-details"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "shipment-update"
       },
       {
         "sections": [
@@ -1610,257 +1179,11 @@
               "image_banner": {
                 "value": "",
                 "type": "image_picker"
-              },
-              "enable_password_login": {
-                "value": false,
-                "type": "checkbox"
-              },
-              "enable_otp_login": {
-                "value": true,
-                "type": "checkbox"
-              },
-              "enable_social_login": {
-                "value": false,
-                "type": "checkbox"
-              },
-              "enable_google_login": {
-                "value": false,
-                "type": "checkbox"
-              },
-              "enable_facebook_login": {
-                "value": false,
-                "type": "checkbox"
-              },
-              "enable_apple_login": {
-                "value": false,
-                "type": "checkbox"
               }
             }
           }
         ],
         "value": "login"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Forgot Password",
-            "name": "forgot-password",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "forgot-password"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Set Password",
-            "name": "set-password",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "set-password"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Edit Profile",
-            "name": "edit-profile",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "edit-profile"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Account Locked",
-            "name": "account-locked",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "account-locked"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Verify Email",
-            "name": "verify-email",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "verify-email"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Verify Email Link",
-            "name": "verify-email-link",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "image_layout": {
-                "value": "no_banner",
-                "type": "select"
-              },
-              "image_banner": {
-                "value": "",
-                "type": "image_picker"
-              }
-            }
-          }
-        ],
-        "value": "verify-email-link"
       },
       {
         "sections": [
@@ -2010,7 +1333,7 @@
               },
               "in_new_tab": {
                 "type": "checkbox",
-                "value": false
+                "value": true
               },
               "hide_brand": {
                 "type": "checkbox",
@@ -2119,7 +1442,7 @@
               },
               "in_new_tab": {
                 "type": "checkbox",
-                "value": false
+                "value": true
               },
               "hide_brand": {
                 "type": "checkbox",
@@ -2255,10 +1578,6 @@
                 "type": "checkbox",
                 "value": true
               },
-              "img_fill": {
-                "type": "checkbox",
-                "value": true
-              },
               "title": {
                 "type": "text",
                 "value": ""
@@ -2373,34 +1692,6 @@
         "sections": [
           {
             "blocks": [],
-            "label": "FAQ",
-            "name": "faq",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "faq"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
             "label": "Brands Landing",
             "name": "brands-landing",
             "predicate": {
@@ -2434,7 +1725,7 @@
                 "type": "checkbox"
               },
               "img_fill": {
-                "value": true,
+                "value": false,
                 "type": "checkbox"
               },
               "title": {
@@ -2449,889 +1740,6 @@
           }
         ],
         "value": "brands"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Details Form",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "Profile Details"
-                  }
-                ],
-                "type": "profile-details-form"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Details Form",
-            "name": "profile-details-form",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "profile-details"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Orders",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "My Orders"
-                  },
-                  {
-                    "type": "checkbox",
-                    "id": "show_empty_state",
-                    "value": true
-                  }
-                ],
-                "type": "profile-orders"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Orders",
-            "name": "profile-orders",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "orders-list"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Addresses",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "My Addresses"
-                  }
-                ],
-                "type": "profile-address"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Addresses",
-            "name": "profile-address",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "profile-address"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Phone",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "Phone Number"
-                  }
-                ],
-                "type": "profile-phone"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Phone",
-            "name": "profile-phone",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "profile-phone"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Email",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "Email Address"
-                  }
-                ],
-                "type": "profile-email"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Email",
-            "name": "profile-email",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "profile-email"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "Profile",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "profile"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Profile Wishlist",
-                "props": [
-                  {
-                    "type": "text",
-                    "id": "title",
-                    "value": "My Wishlist"
-                  }
-                ],
-                "type": "profile-wishlist"
-              }
-            ],
-            "canvas": "left_side",
-            "label": "Profile Wishlist",
-            "name": "profile-wishlist",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {}
-          },
-          {
-            "blocks": [
-              {
-                "type": "user-info",
-                "name": "User Info",
-                "props": {}
-              },
-              {
-                "type": "account-heading",
-                "name": "Account Heading",
-                "props": {}
-              },
-              {
-                "type": "profile-menu",
-                "name": "Menu Items",
-                "props": {}
-              },
-              {
-                "type": "sign-out",
-                "name": "Sign Out",
-                "props": {}
-              }
-            ],
-            "canvas": "right_side",
-            "label": "Profile Navigation Menu",
-            "name": "profile-navigation-menu",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": false,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "preset": {
-              "blocks": [
-                {
-                  "type": "user-info",
-                  "props": {}
-                },
-                {
-                  "type": "account-heading",
-                  "props": {}
-                },
-                {
-                  "type": "profile-menu",
-                  "props": {}
-                },
-                {
-                  "type": "sign-out",
-                  "props": {}
-                }
-              ]
-            }
-          }
-        ],
-        "value": "wishlist"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [
-              {
-                "name": "Page Not Found",
-                "props": [],
-                "type": "page-not-found"
-              }
-            ],
-            "label": "Page Not Found",
-            "name": "page-not-found",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "props": {},
-            "value": "page-not-found"
-          }
-        ],
-        "value": "not-found-page"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Store Locator",
-            "name": "store-locator",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {
-              "section_title": {
-                "type": "text",
-                "value": "Find a Store Near You"
-              }
-            }
-          }
-        ],
-        "value": "locate-us"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Privacy Policy",
-            "name": "privacy-policy",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "policy"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Return Policy",
-            "name": "return-policy",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "return-policy"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Shipping Policy",
-            "name": "shipping-policy",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "shipping-policy"
-      },
-      {
-        "sections": [
-          {
-            "blocks": [],
-            "label": "Terms & Conditions",
-            "name": "tnc",
-            "predicate": {
-              "route": {
-                "exact_url": "",
-                "query": null,
-                "selected": "none"
-              },
-              "screen": {
-                "desktop": true,
-                "mobile": true,
-                "tablet": true
-              },
-              "user": {
-                "anonymous": true,
-                "authenticated": true
-              }
-            },
-            "preset": {},
-            "props": {}
-          }
-        ],
-        "value": "tnc"
       }
     ]
   }

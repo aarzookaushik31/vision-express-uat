@@ -648,6 +648,9 @@ const hasGlamAR = customFieldsData?.groups?.some(
             action={product?.action}
             key={product?.uid}
             target={isProductOpenInNewTab ? "_blank" : "_self"}
+            onClick={() => {
+    sessionStorage.setItem("plp-scroll-position", window.scrollY);
+  }}
             style={{
               // "--delay": `${(index % 12) * 150}ms`,
               display: "block",

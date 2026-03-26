@@ -106,15 +106,13 @@
     "settings_schema": {
       "common": {
         "typography": "Typografia",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Konfiguracja Algolia",
         "footer": "Stopka",
         "cart_and_button_configuration": "Konfiguracja koszyka i przycisków",
         "product_card_configuration": "Konfiguracja karty produktu",
         "other_page_configuration": "Inna konfiguracja strony",
         "google_maps": "Mapy Google",
-        "mobile_logo_max_height": "Maksymalna wysokość logo mobilnego",
-        "logo_header": "Logo nagłówka komputerowego Max Wysokość",
-        "mobile_logo_header": "Logo nagłówka mobilnego Max Wysokość"
+        "mobile_logo_max_height": "Maksymalna wysokość logo mobilnego"
       },
       "typography": {
         "font_header": "Nagłówek czcionki",
@@ -154,12 +152,10 @@
         "date_range_info": "Pokaż obietnicę dostawy w zakresie dat",
         "bold": "Pogrubiony",
         "regular": "Regularny",
-        "semibold": "Półgruby",
-        "transparent_header": "Przezroczysty nagłówek",
-        "transparent_header_info": "Zastosuj przejrzystość nagłówka, gdy na górze baner aplikacji lub slajd"
+        "semibold": "Półgruby"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
+      "algolia_configuration": {
+        "enable_algolia": "Włącz Algolia"
       },
       "footer": {
         "logo": "Logo",
@@ -171,9 +167,7 @@
         "social_media_text": "Etykieta tekstowa mediów społecznościowych",
         "social_media_text_info": "Pokaż tekst etykiety dla mediów społecznościowych",
         "footer_logo_max_height_mobile": "Maksymalna wysokość logo stopki (wersja mobilna)",
-        "footer_logo_max_height_desktop": "Maksymalna wysokość logo stopki (komputer stacjonarny)",
-        "open_same_tab": "Otwórz linki społecznościowe w tej samej zakładce",
-        "open_same_tab_info": "Sprawdź to, aby otworzyć linki do mediów społecznościowych w tej samej karcie zamiast nowej"
+        "footer_logo_max_height_desktop": "Maksymalna wysokość logo stopki (komputer stacjonarny)"
       },
       "cart_and_button_configuration": {
         "cart_options": "Opcje koszyka",
@@ -305,7 +299,6 @@
         "desktop_content_alignment": "Wyrównanie zawartości na pulpicie",
         "banner_horizontal_scroll": "Baner z poziomym przewijaniem",
         "banner_with_stack": "Baner ze stosem",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Układ (mobilny)",
         "content_alignment_mobile": "Wyrównanie treści w wersji mobilnej",
         "text_alignment": "Wyrównanie tekstu",

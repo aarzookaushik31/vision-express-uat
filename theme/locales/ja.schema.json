@@ -106,15 +106,13 @@
     "settings_schema": {
       "common": {
         "typography": "タイポグラフィ",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Algoliaの設定",
         "footer": "フッター",
         "cart_and_button_configuration": "カートとボタンの設定",
         "product_card_configuration": "製品カードの構成",
         "other_page_configuration": "その他のページ設定",
         "google_maps": "Googleマップ",
-        "mobile_logo_max_height": "モバイルロゴの最大高さ",
-        "logo_header": "デスクトップヘッダーロゴ最大高さ",
-        "mobile_logo_header": "モバイルヘッダーロゴ最大高さ"
+        "mobile_logo_max_height": "モバイルロゴの最大高さ"
       },
       "typography": {
         "font_header": "フォントヘッダー",
@@ -154,12 +152,10 @@
         "date_range_info": "日付範囲内での配送約束を表示",
         "bold": "大胆な",
         "regular": "通常",
-        "semibold": "セミボールド",
-        "transparent_header": "透明なヘッダー",
-        "transparent_header_info": "アプリケーションバナーまたは画像スライドショーの上に透明ヘッダーを適用する"
+        "semibold": "セミボールド"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
+      "algolia_configuration": {
+        "enable_algolia": "Algoliaを有効にする"
       },
       "footer": {
         "logo": "ロゴ",
@@ -171,9 +167,7 @@
         "social_media_text": "ソーシャルメディアのテキストラベル",
         "social_media_text_info": "ソーシャルメディアのラベルテキストを表示する",
         "footer_logo_max_height_mobile": "フッターロゴの最大高さ（モバイル）",
-        "footer_logo_max_height_desktop": "フッターロゴの最大高さ（デスクトップ）",
-        "open_same_tab": "同じタブでソーシャルリンクを開きます",
-        "open_same_tab_info": "これをチェックして、新しいタブではなく同じタブでソーシャルメディアリンクを開きます"
+        "footer_logo_max_height_desktop": "フッターロゴの最大高さ（デスクトップ）"
       },
       "cart_and_button_configuration": {
         "cart_options": "カートオプション",
@@ -305,7 +299,6 @@
         "desktop_content_alignment": "デスクトップでのコンテンツの配置",
         "banner_horizontal_scroll": "横スクロールバナー",
         "banner_with_stack": "スタック付きバナー",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "レイアウト（モバイル）",
         "content_alignment_mobile": "モバイルでのコンテンツの配置",
         "text_alignment": "テキストの配置",

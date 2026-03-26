@@ -446,3 +446,62 @@ export const FEATURED_COLLECTION = `query Collection($slug: String!, $first:Int,
   }
 }
 `;
+
+
+
+export const  CUSTOM_COLLECTION = `query Collection($slug: String!) {
+  collection(slug: $slug) {
+       type
+      name
+      description
+      is_active
+      published
+      slug
+      allow_facets
+      allow_sort
+      sort_on
+      priority
+      visible_facets_keys
+      _custom_json
+      tag
+      meta
+      cron
+      app_id
+      action {
+          type
+          page {
+              type
+              params {
+                  slug
+              }
+              query
+          }
+      }
+      schedule {
+          start
+          end
+          next_schedule {
+              start
+              end
+          }
+      }
+      badge {
+          text
+          color
+      }
+      logo {
+          type
+          url
+          alt
+          meta {
+              source
+          }
+      }
+      query {
+          attribute
+          op
+          value
+      }
+  }
+}
+`;

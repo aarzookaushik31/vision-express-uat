@@ -251,95 +251,7 @@
       "invalid_email": "유효하지 않은 이메일입니다",
       "email_cannot_exceed_50_characters": "이메일은 50자를 초과할 수 없습니다",
       "other": "기타",
-      "product_is_not_serviceable_at_given_locality": "해당 지역에는 서비스 불가",
-      "no_items_in_cart": "장바구니에 상품이 없습니다",
-      "street_name": "도로명",
-      "building_no__apartment": "건물 번호 / 아파트",
-      "area": "지역",
-      "landmark": "랜드마크",
-      "sorry_item_is_out_of_stock": "죄송합니다. 품목이 재고가 없습니다",
-      "added_only_those_products_that_are_in_stock": "재고가있는 제품 만 추가했습니다",
-      "max_50_items_allowed_in_cart": "카트로 허용되는 최대 50 개 항목",
-      "nothing_updated": "업데이트되지 않았습니다",
-      "item_updated": "항목 업데이트",
-      "item_not_updated": "항목이 업데이트되지 않았습니다",
-      "invalid_address": "잘못된 주소",
-      "address_block_no_street_name": "주소 (블록 번호, 거리 이름)",
-      "address_line_1": "주소 라인 1",
-      "address_line_2": "주소 라인 2",
-      "apartment_building_floor_etc": "아파트, 건물, 바닥 등",
-      "apartment_building_house_no_floor_etc": "아파트, 건물, 집 번호, 바닥 등",
-      "apartment_unit_building_floor_room": "아파트, 유닛, 건물, 바닥, 방",
-      "apartment_unit_building_floor_room_etc": "아파트, 유닛, 건물, 바닥, 방 등",
-      "apartment_unit_building_floor_etc": "아파트, 유닛, 건물, 바닥 등",
-      "apartment_building_unit_floor_etc": "아파트, 건물, 유닛, 바닥 등",
-      "apartment_suite_unit_building_floor_etc": "아파트, 스위트 룸, 유닛, 건물, 바닥 등",
-      "apartment_suite_unit_floor_etc": "아파트, 스위트 룸, 유닛, 바닥 등",
-      "apt_suite_etc": "apt, suite 등",
-      "barangay": "바랑 가이",
-      "block": "차단하다",
-      "building_number_unit_number": "건물 번호, 단위 번호",
-      "building_apt_rt_rw": "건물, apt, rt/rw",
-      "city_district": "도시/지구",
-      "city_town": "도시/마을",
-      "city_ward_town_village": "도시/와드/마을/마을",
-      "complement": "보어",
-      "county": "군",
-      "district_area": "지구/지역",
-      "district_county_municipality": "지구/카운티/지방 자치 단체",
-      "eircode": "eircode",
-      "flat_apartment_building_name_or": "아파트, 아파트, 건물 이름 또는 #",
-      "flat_stair_door_number_etc": "평평한, 계단, 문 번호 등",
-      "floor_unit_no": "바닥 - 단위 번호.",
-      "governorate_city": "주지/도시",
-      "house_number_and_street_name": "집 번호와 거리 이름",
-      "locality_apartment_building_floor_etc": "지역, 아파트, 건물, 바닥 등",
-      "neighborhood_bairro": "이웃/바이로",
-      "postal_code": "우편 번호",
-      "postcode": "우편 번호",
-      "prefecture": "현",
-      "province": "주",
-      "province_code": "지방 코드",
-      "province_city_do_si": "지방/도시 (do/si)",
-      "region": "지역",
-      "state_code": "상태 코드",
-      "street_address": "거리 주소",
-      "street_address_chome_banchi_go": "거리 주소/Chome, Banchi, Go",
-      "street_name_and_house_no": "거리 이름과 집 번호",
-      "street_name_and_number": "거리 이름과 번호",
-      "street_name_no": "거리 이름/아니오",
-      "street_name_no_block": "거리 이름/아니오, 블록",
-      "street_name_no_house_number": "거리 이름/아니오, 집 번호",
-      "street_number": "거리 번호",
-      "subdistrict": "하위 지구",
-      "subdistrict_district": "하위 지구/지구",
-      "suburb": "근교",
-      "town_city": "마을/도시",
-      "unit___floor_no": "단위 / 바닥 번호",
-      "wilaya": "구역",
-      "zipcode": "우편 코드",
-      "zone_number": "영역 번호",
-      "sorry_invalid_coupon": "죄송합니다!잘못된 쿠폰",
-      "invalid_gstin_number": "잘못된 GSTIN 번호",
-      "payment_mode_is_not_valid_for_applied_coupon": "결제 모드는 응용 쿠폰에 유효하지 않습니다",
-      "ordering_store_is_not_valid_for_the_applied_coupon": "주문 상점은 응용 쿠폰에 유효하지 않습니다",
-      "coupon_usage_limit_has_been_reached": "쿠폰 사용 제한에 도달했습니다",
-      "login_required_to_apply_this_coupon": "이 쿠폰을 적용하려면 로그인이 필요합니다",
-      "coupon_not_applicable_for_the_user": "쿠폰은 사용자에게 적용되지 않습니다",
-      "cart_is_empty": "카트가 비어 있습니다",
-      "coupon_expired": "쿠폰 만료",
-      "sorry_invalid_platform_coupon": "죄송합니다!잘못된 플랫폼 쿠폰",
-      "sorry_coupon_expired": "죄송합니다!쿠폰 만료",
-      "sorry_coupon_not_applicable": "죄송합니다!쿠폰이 적용되지 않습니다.",
-      "sorry_coupon_not_applicable_for_these_items": "죄송합니다!이러한 항목에는 쿠폰이 적용되지 않습니다.",
-      "sorry_coupon_already_used": "죄송합니다!이미 사용 된 쿠폰.",
-      "coupon_successfully_removed": "쿠폰이 성공적으로 제거되었습니다",
-      "no_coupon_is_applied": "쿠폰이 적용되지 않습니다",
-      "coupon_not_applicable_on_this_order": "이 주문에는 쿠폰이 적용되지 않습니다",
-      "cod_not_available_on_applied_promocode": "Applied Promocode에서는 대구를 사용할 수 없습니다",
-      "coupon_applicable_for_new_users_only": "새 사용자에게만 적용 가능한 쿠폰",
-      "please_login_to_use_this_coupon": "이 쿠폰을 사용하려면 로그인하십시오.",
-      "coupon_code_not_applicable_items_are_already_at_the_best_price": "쿠폰 코드는 적용 할 수없고, 항목은 이미 최상의 가격입니다."
+      "product_is_not_serviceable_at_given_locality": "해당 지역에는 서비스 불가"
     },
     "auth": {
       "account_deletion_notice": "요청하신 대로 계정이 곧 삭제됩니다. 계정을 복구하려면 아래 지원 이메일 주소로 문의해 주세요.",
@@ -486,8 +398,6 @@
         "my_address": "내 주소",
         "add_new_address": "새 주소 추가",
         "add_new_address_caps": "새 주소 추가",
-        "default_address": "기본 주소",
-        "other_addresses": "기타 주소",
         "no_address_available": "사용 가능한 주소가 없습니다",
         "address_not_found": "주소를 찾을 수 없습니다!",
         "return_to_my_address": "내 주소로 돌아가기",
@@ -499,6 +409,7 @@
         "pincode_six_digits_required": "우편번호는 정확히 6자리 숫자여야 합니다.",
         "invalid_phone_number": "잘못된 전화번호",
         "enter_pincode": "우편번호를 입력하세요",
+        "default_address": "기본 주소",
         "other_address": "기타 주소",
         "address_type": "주소 유형",
         "make_this_my_default_address": "이것을 내 기본 주소로 설정"
@@ -653,17 +564,7 @@
       "back_to_login_caps": "로그인으로 돌아가기",
       "sorry_we_couldnt_find_any_results": "죄송합니다. 결과를 찾을 수 없습니다.",
       "in": "~에",
-      "home_seo_description": "편리한 온라인 쇼핑으로 다양한 고품질 상품, 최신 입고 제품, 독점 혜택을 한곳에서 만나보세요.",
-      "maximum_64_characters_allowed": "64 세 미만의 문자를 입력하십시오",
-      "maximum_50_characters_allowed": "50 미만의 문자를 입력하십시오",
-      "page_titles": {
-        "contact_us": "문의하기",
-        "home": "홈",
-        "product_listing": "제품 목록",
-        "wishlist": "위시리스트",
-        "about_us": "회사 소개",
-        "blog": "블로그"
-      }
+      "home_seo_description": "편리한 온라인 쇼핑으로 다양한 고품질 상품, 최신 입고 제품, 독점 혜택을 한곳에서 만나보세요."
     },
     "categories": {
       "empty_state": "카테고리를 찾을 수 없습니다"
@@ -853,8 +754,7 @@
     "wishlist": {
       "product_removed": "위시리스트에서 제거된 제품",
       "no_product_in_wishlist": "위시리스트에 추가된 상품이 없습니다.",
-      "add_products_to_wishlist": "위시리스트에 제품 추가",
-      "seo_description": "좋아하는 제품을 저장하고 위시리스트를 구축하십시오.몇 번의 클릭만으로 언제든지 좋아하는 항목을 쉽게 다시 방문하고 구입하십시오."
+      "add_products_to_wishlist": "위시리스트에 제품 추가"
     },
     "cart": {
       "no_items": "장바구니에 상품이 없습니다",
@@ -1082,8 +982,7 @@
       "slide_alt": "슬라이드",
       "no_blogs_found": "블로그를 찾을 수 없습니다",
       "showing_results": "{{count}}개의 결과를 표시합니다.",
-      "no_blog_found": "블로그를 찾을 수 없습니다",
-      "seo_description": "유용한 기사, 제품 팁 및 전문가의 통찰력을 발견하여 정보와 영감을 유지하십시오.당사의 블로그는 트렌드에서 사용 방법 가이드에 이르기까지 모든 것을 다룹니다."
+      "no_blog_found": "블로그를 찾을 수 없습니다"
     },
     "checkout": {
       "payment_retry_message": "다시 시도하거나 다른 결제 수단을 사용하여 결제를 완료해 주세요.",
@@ -1200,9 +1099,7 @@
       "please_enter_a_valid_phone_number": "유효한 전화번호를 입력하세요",
       "please_enter_your_phone_number": "전화번호를 입력해주세요",
       "please_enter_a_valid_email_address": "유효한 이메일 주소를 입력하세요",
-      "please_enter_your_email_address": "이메일 주소를 입력해주세요",
-      "seo_description": "지원이나 질문에 대해 저희에게 연락하십시오.우리는 귀하의 주문, 반품 또는 제품 문의를 Quictly에 효율적으로 지원하기 위해 왔습니다.",
-      "entered_msg_greater_than_500_char": "입력 한 메시지는 500 자 이상입니다"
+      "please_enter_your_email_address": "이메일 주소를 입력해주세요"
     },
     "faq": {
       "no_frequently_asked_questions_found": "자주 묻는 질문을 찾을 수 없습니다",
@@ -1246,9 +1143,6 @@
       "otp_sent_to_phone": "전화번호로 일회용 비밀번호(OTP)가 성공적으로 전송되었습니다.",
       "verify_caps": "확인하다",
       "enter_bank_details": "은행 정보 입력"
-    },
-    "about_us": {
-      "seo_description": "우리는 고품질 제품과 뛰어난 서비스를 제공하기 위해 최선을 다하고 있습니다.우리의 여정, 가치 및 우리를 신뢰할 수있는 선택으로 만드는 것에 대해 자세히 알아보십시오."
     }
   }
 }

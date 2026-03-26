@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect} from "react";
 import { useFPI } from "fdk-core/utils";
 import Shimmer from "../components/shimmer/shimmer";
 import ProductListing from "./custom-productListing.jsx";
@@ -10,6 +10,63 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   const fpi = useFPI();
 
   const listingProps = useProductListing({ fpi, props });
+
+
+    const emitCategoryViewedEvent = () => {
+    const getSource = () => {
+      return isRunningOnClient() && window?.__application ? window.__application : "web";
+    };
+
+    const emitEvent = (eventName, eventData) => {
+      if (!eventName) return;
+      const source = getSource();
+      if (isRunningOnClient()) {
+        window?.FPI?.event?.emit(eventName, { source, ...eventData });
+      }
+    };
+    const CUSTOM_EVENTS = { CATEGORY_VIEWED: "custom.category_viewed" };
+
+    let categories = ["other"];
+
+    console.log(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
+    //  window.alert(JSON.stringify({ event: CUSTOM_EVENTS.CATEGORY_VIEWED, categories }))
+    emitEvent(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
+  };
+
+
+
+  useEffect(() => {
+
+    
+  
+       if (
+          isRunningOnClient()
+        ) {
+           setTimeout(() => {
+        emitCategoryViewedEvent();
+      }, 1500);
+        }
+
+  }, []);
+
+
+
+
+
+  useEffect(() => {
+  const savedScroll = sessionStorage.getItem("plp-scroll-position");
+
+  if (savedScroll) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: Number(savedScroll),
+        behavior: "auto",
+      });
+    }, 300);
+
+    sessionStorage.removeItem("plp-scroll-position");
+  }
+}, []);
 
   if (isRunningOnClient() && listingProps?.isPageLoading) {
     return <Shimmer />;

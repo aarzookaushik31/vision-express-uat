@@ -8,6 +8,7 @@ import { getHelmet } from "../providers/global-provider";
 import { isRunningOnClient } from "../helper/utils";
 import placeholderDesktop from "../assets/images/placeholder/collection-banner-placeholder.png";
 import placeholderMobile from "../assets/images/placeholder/collection-banner-placeholder-mobile.png";
+import { CUSTOM_COLLECTION } from "../queries/collectionsQuery";
 
 export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   const fpi = useFPI();
@@ -15,6 +16,7 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   const params = isClient ? useParams() : null;
   const slug = isClient && params?.slug ? params?.slug : props?.collection?.value;
   const listingProps = useCollectionListing({ fpi, slug, props });
+
 
   const {
     banner_between_products,
@@ -27,7 +29,10 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
   } = props;
 
   const bannerRef = useRef(null);
+ 
    const [bgImage, setBgImage] = useState(banner_between_products?.value);
+  const [collections, setCollections] = useState(null);
+
 
   useEffect(() => {
       const updateBg = () => {
@@ -43,6 +48,94 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
 
   }, [!listingProps?.productList?.length]);
 
+
+
+useEffect(() => {
+  const savedScroll = sessionStorage.getItem("plp-scroll-position");
+
+  if (savedScroll) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: Number(savedScroll),
+        behavior: "auto",
+      });
+    }, 300);
+
+    sessionStorage.removeItem("plp-scroll-position");
+  }
+}, []);
+
+
+useEffect(() => {
+  if (!slug) return;
+
+  const payload = { slug };
+
+  fpi
+    .executeGQL(CUSTOM_COLLECTION, payload)
+    .then((res) => {
+      setCollections(res?.data?.collection);
+    })
+    .catch((error) => {
+      console.error("Error fetching custom collection:", error);
+    });
+}, [slug]);
+
+
+ const emitCategoryViewedEvent = (collections) => {
+    const getSource = () => {
+      return isRunningOnClient() && window?.__application
+        ? window.__application
+        : "web";
+    };
+
+    const emitEvent = (eventName, eventData) => {
+      if (!eventName) return;
+      const source = getSource();
+      if (isRunningOnClient()) {
+        window?.FPI?.event?.emit(eventName, { source, ...eventData });
+      }
+    };
+
+    const CATEGORY_ATTRIBUTES = [
+      "custom-attribute-1",
+      "custom-attribute-2",
+      "custom-attribute-3",
+    ];
+    const CUSTOM_EVENTS = { CATEGORY_VIEWED: "custom.category_viewed" };
+
+ const filtered = collections?.query?.filter((q) =>
+  CATEGORY_ATTRIBUTES.includes(q.attribute)
+);
+
+const categories =
+  filtered?.length > 0
+    ? filtered.flatMap((q) => q.value)
+    : ["other"];
+
+    console.log(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
+    // window.alert(JSON.stringify({ event: CUSTOM_EVENTS.CATEGORY_VIEWED, categories }))
+    emitEvent(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
+  };
+
+
+
+
+useEffect(() => {
+  if (
+    isRunningOnClient() &&
+    collections?.query?.length 
+  ) {
+     setTimeout(() => {
+        emitCategoryViewedEvent();
+      }, 1500);
+  }
+}, [collections]);
+
+
+
+
+
   if (listingProps?.isPageLoading && isRunningOnClient()) {
     return <Shimmer />;
   }
@@ -55,6 +148,7 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
     <div
   className={`margin0auto basePageContainer custom-listing-container collection-${slug}`}
 >
+{/* <pre>{JSON.stringify(collections, null, 2)}</pre> */}
 
       <div className="collection-hero-banner ">
   <img

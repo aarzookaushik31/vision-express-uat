@@ -251,95 +251,7 @@
       "invalid_email": "E‑mail non valide",
       "email_cannot_exceed_50_characters": "L’e‑mail ne peut dépasser 50 caractères",
       "other": "Autre",
-      "product_is_not_serviceable_at_given_locality": "Le produit ne peut pas être livré dans la localité indiquée",
-      "no_items_in_cart": "Aucun article dans le panier",
-      "street_name": "Nom de la rue",
-      "building_no__apartment": "N° du bâtiment / Appartement",
-      "area": "Zone",
-      "landmark": "Point de repère",
-      "sorry_item_is_out_of_stock": "Désolé, l'article est en rupture de stock",
-      "added_only_those_products_that_are_in_stock": "Ajoutait uniquement les produits qui sont en stock",
-      "max_50_items_allowed_in_cart": "Articles max 50 autorisés dans le panier",
-      "nothing_updated": "Rien de mis à jour",
-      "item_updated": "Article mis à jour",
-      "item_not_updated": "Article non mis à jour",
-      "invalid_address": "Adresse non valide",
-      "address_block_no_street_name": "Adresse (bloc no, nom de rue)",
-      "address_line_1": "Adresse Ligne 1",
-      "address_line_2": "Ligne d'adresse 2",
-      "apartment_building_floor_etc": "Appartement, bâtiment, plancher, etc.",
-      "apartment_building_house_no_floor_etc": "Appartement, bâtiment, maison non, plancher, etc.",
-      "apartment_unit_building_floor_room": "Appartement, unité, bâtiment, sol, chambre",
-      "apartment_unit_building_floor_room_etc": "Appartement, unité, bâtiment, plancher, chambre, etc.",
-      "apartment_unit_building_floor_etc": "Appartement, unité, bâtiment, plancher, etc.",
-      "apartment_building_unit_floor_etc": "Appartement, bâtiment, unité, plancher, etc.",
-      "apartment_suite_unit_building_floor_etc": "Appartement, suite, unité, bâtiment, sol, etc.",
-      "apartment_suite_unit_floor_etc": "Appartement, suite, unité, sol, etc.",
-      "apt_suite_etc": "Apt, suite, etc.",
-      "barangay": "Barangay",
-      "block": "Bloc",
-      "building_number_unit_number": "Numéro de construction, numéro d'unité",
-      "building_apt_rt_rw": "Bâtiment, apt, RT / RW",
-      "city_district": "Ville / district",
-      "city_town": "Ville / ville",
-      "city_ward_town_village": "Ville / quartier / ville / village",
-      "complement": "Complément",
-      "county": "Comté",
-      "district_area": "District / zone",
-      "district_county_municipality": "District / comté / municipalité",
-      "eircode": "Eircode",
-      "flat_apartment_building_name_or": "Appartement, appartement, nom de bâtiment ou #",
-      "flat_stair_door_number_etc": "Plat, escalier, numéro de porte, etc.",
-      "floor_unit_no": "Floor - Unité no.",
-      "governorate_city": "Gouverneur / ville",
-      "house_number_and_street_name": "Numéro de maison et nom de rue",
-      "locality_apartment_building_floor_etc": "Localité, appartement, bâtiment, plancher, etc.",
-      "neighborhood_bairro": "Quartier / Bairro",
-      "postal_code": "Code Postal",
-      "postcode": "Code postal",
-      "prefecture": "Préfecture",
-      "province": "Province",
-      "province_code": "Code de la province",
-      "province_city_do_si": "Province / ville (do / si)",
-      "region": "Région",
-      "state_code": "Code d'État",
-      "street_address": "Adresse de la rue",
-      "street_address_chome_banchi_go": "Adresse de rue / chome, banchi, allez",
-      "street_name_and_house_no": "Nom de la rue et maison Non",
-      "street_name_and_number": "Nom et numéro de rue",
-      "street_name_no": "Nom de la rue / Non",
-      "street_name_no_block": "Nom de la rue / Non, bloc",
-      "street_name_no_house_number": "Nom de la rue / Non, numéro de maison",
-      "street_number": "Numéro de rue",
-      "subdistrict": "Sous-districter",
-      "subdistrict_district": "Sous-district / district",
-      "suburb": "Banlieue",
-      "town_city": "Ville / ville",
-      "unit___floor_no": "Unité / plancher non",
-      "wilaya": "District",
-      "zipcode": "Code postal",
-      "zone_number": "Numéro de zone",
-      "sorry_invalid_coupon": "Désolé!Coupon non valide",
-      "invalid_gstin_number": "Numéro GSTIN non valide",
-      "payment_mode_is_not_valid_for_applied_coupon": "Le mode de paiement n'est pas valable pour le coupon appliqué",
-      "ordering_store_is_not_valid_for_the_applied_coupon": "La commande de commande n'est pas valable pour le coupon appliqué",
-      "coupon_usage_limit_has_been_reached": "La limite d'utilisation du coupon a été atteinte",
-      "login_required_to_apply_this_coupon": "Connexion requise pour appliquer ce coupon",
-      "coupon_not_applicable_for_the_user": "Coupon non applicable à l'utilisateur",
-      "cart_is_empty": "Le chariot est vide",
-      "coupon_expired": "Coupon expiré",
-      "sorry_invalid_platform_coupon": "Désolé!Coupon de plate-forme non valide",
-      "sorry_coupon_expired": "Désolé!Coupon expiré",
-      "sorry_coupon_not_applicable": "Désolé!Coupon non applicable.",
-      "sorry_coupon_not_applicable_for_these_items": "Désolé!Coupon non applicable pour ces articles.",
-      "sorry_coupon_already_used": "Désolé!Coupon déjà utilisé.",
-      "coupon_successfully_removed": "Coupon avec succès supprimé",
-      "cod_not_available_on_applied_promocode": "Morue non disponible sur le promocode appliqué",
-      "coupon_applicable_for_new_users_only": "Coupon applicable pour les nouveaux utilisateurs uniquement",
-      "please_login_to_use_this_coupon": "Veuillez vous connecter pour utiliser ce coupon.",
-      "coupon_code_not_applicable_items_are_already_at_the_best_price": "Code de coupon non applicable, les articles sont déjà au meilleur prix",
-      "no_coupon_is_applied": "Aucun coupon n'est appliqué",
-      "coupon_not_applicable_on_this_order": "Coupon non applicable sur cette commande"
+      "product_is_not_serviceable_at_given_locality": "Le produit ne peut pas être livré dans la localité indiquée"
     },
     "auth": {
       "account_deletion_notice": "Suite à votre demande, votre compte sera bientôt supprimé. Si vous souhaitez le restaurer, veuillez nous contacter à l'adresse e-mail ci-dessous.",
@@ -486,8 +398,6 @@
         "my_address": "MES ADRESSES",
         "add_new_address": "Ajouter une nouvelle adresse",
         "add_new_address_caps": "AJOUTER UNE NOUVELLE ADRESSE",
-        "default_address": "Adresse par Défaut",
-        "other_addresses": "Autres Adresses",
         "no_address_available": "Aucune adresse disponible",
         "address_not_found": "Adresse non trouvée !",
         "return_to_my_address": "RETOUR À MON ADRESSE",
@@ -499,6 +409,7 @@
         "pincode_six_digits_required": "Le code PIN doit comporter exactement 6 chiffres",
         "invalid_phone_number": "Numéro de téléphone invalide",
         "enter_pincode": "Entrez le code PIN",
+        "default_address": "Adresse par défaut",
         "other_address": "Autre adresse",
         "address_type": "Type d'adresse",
         "make_this_my_default_address": "Faire de ceci mon adresse par défaut"
@@ -653,17 +564,7 @@
       "back_to_login_caps": "RETOUR À LA CONNEXION",
       "sorry_we_couldnt_find_any_results": "Désolé, nous n'avons trouvé aucun résultat",
       "in": "dans",
-      "home_seo_description": "Faites vos achats en ligne en toute simplicité et découvrez une large sélection de produits de qualité, les dernières nouveautés et des offres exclusives — le tout en un seul endroit.",
-      "maximum_64_characters_allowed": "Veuillez saisir les caractères moins de 64",
-      "maximum_50_characters_allowed": "Veuillez entrer des caractères moins de 50",
-      "page_titles": {
-        "contact_us": "Contactez-nous",
-        "home": "Accueil",
-        "product_listing": "Liste des produits",
-        "wishlist": "Liste de souhaits",
-        "about_us": "À propos de nous",
-        "blog": "Blog"
-      }
+      "home_seo_description": "Faites vos achats en ligne en toute simplicité et découvrez une large sélection de produits de qualité, les dernières nouveautés et des offres exclusives — le tout en un seul endroit."
     },
     "categories": {
       "empty_state": "Aucune catégorie trouvée"
@@ -853,8 +754,7 @@
     "wishlist": {
       "product_removed": "Produits supprimés de la liste de souhaits",
       "no_product_in_wishlist": "Vous n'avez aucun produit ajouté à la liste de souhaits",
-      "add_products_to_wishlist": "Ajouter des produits à la liste de souhaits",
-      "seo_description": "Enregistrez les produits que vous aimez et créez votre liste de souhaits.Revisitez facilement et achetez vos articles préférés à tout moment en quelques clics."
+      "add_products_to_wishlist": "Ajouter des produits à la liste de souhaits"
     },
     "cart": {
       "no_items": "Il n'y a aucun article dans le panier",
@@ -1082,8 +982,7 @@
       "slide_alt": "glisser",
       "no_blogs_found": "Aucun blog trouvé",
       "showing_results": "Affichage de {{count}} résultats de",
-      "no_blog_found": "Aucun blog trouvé",
-      "seo_description": "Découvrez des articles utiles, des conseils de produits et des idées d'experts pour rester informés et inspirés.Notre blog couvre tout, des tendances aux guides pratiques."
+      "no_blog_found": "Aucun blog trouvé"
     },
     "checkout": {
       "payment_retry_message": "Veuillez réessayer ou utiliser un autre mode de paiement pour finaliser la transaction.",
@@ -1200,9 +1099,7 @@
       "please_enter_a_valid_phone_number": "Veuillez entrer un numéro de téléphone valide",
       "please_enter_your_phone_number": "Veuillez entrer votre numéro de téléphone",
       "please_enter_a_valid_email_address": "S'il vous plaît, mettez une adresse email valide",
-      "please_enter_your_email_address": "Veuillez entrer votre adresse e-mail",
-      "seo_description": "Contactez-nous pour tout soutien ou questions.Nous sommes ici pour vous aider avec vos commandes, vos rendements ou vos demandes de produits - rapidement et efficacement.",
-      "entered_msg_greater_than_500_char": "Le message entré est plus de 500 caractères"
+      "please_enter_your_email_address": "Veuillez entrer votre adresse e-mail"
     },
     "faq": {
       "no_frequently_asked_questions_found": "Aucune question fréquemment posée trouvée",
@@ -1246,9 +1143,6 @@
       "otp_sent_to_phone": "Mot de passe à usage unique (OTP) envoyé avec succès au numéro de téléphone",
       "verify_caps": "VÉRIFIER",
       "enter_bank_details": "Entrez les coordonnées bancaires"
-    },
-    "about_us": {
-      "seo_description": "Nous sommes consacrés à la fourniture de produits de haute qualité et de services exceptionnels.En savoir plus sur notre parcours, nos valeurs et ce qui fait de nous un choix de confiance."
     }
   }
 }
