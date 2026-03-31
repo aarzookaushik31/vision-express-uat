@@ -48,14 +48,34 @@ function BreadCrumb({ productData, customClass }) {
     });
   }
 
+
+  if (productData?.name) {
+  breadcrumbs.push({
+    name: productData.name,
+    url: "",
+  });
+}
+
   return (
     <div className={`${styles.breadcrumbs} ${styles.breadcrumbWrap} ${customClass}`}>
-      {breadcrumbs.map((item, index) => (
-        <span key={index}>
-          <FDKLink to={item.url}>{item.name}</FDKLink>
-          {index < breadcrumbs.length - 1 && <>&nbsp;/&nbsp;</>}
-        </span>
-      ))}
+
+{/* <pre>{JSON.stringify(productData, null, 2)}</pre> */}
+
+
+    {breadcrumbs.map((item, index) => {
+  const isLast = index === breadcrumbs.length - 1;
+
+  return (
+    <span key={index}>
+      {isLast ? (
+        <span className={styles.productName}>{item.name}</span> 
+      ) : (
+        <FDKLink to={item.url}>{item.name}</FDKLink>
+      )}
+      {!isLast && <>&nbsp;/&nbsp;</>}
+    </span>
+  );
+})}
     </div>
   );
 }

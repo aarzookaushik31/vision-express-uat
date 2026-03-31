@@ -546,6 +546,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   };
 
   const onSellerClick = () => {
+    console.log("store clicked");
     if (isAllowStoreSelection) {
       toggleStoreModal();
     }

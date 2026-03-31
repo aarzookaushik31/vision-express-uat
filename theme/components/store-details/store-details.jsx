@@ -13,7 +13,7 @@ import GoogleRating from "./store-ratings.jsx";
 import phoneIcon from "../../assets/images/phoneicon.png";
 import BookCalender from "../../assets/images/bookcalender.png";
 
-const StoreDetails = ({ store, defaultPhone, nearbyStores = [] }) => {
+const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
  const [googleData, setGoogleData] = useState(null);
 
@@ -106,7 +106,7 @@ useEffect(() => {
         const maps = await new Promise((resolve, reject) => {
           if (window.google?.maps?.places) return resolve(window.google.maps);
           const script = document.createElement("script");
-          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDOoSC7Ny7q7JBAAHmIBE0UTkPCZqaop9E&libraries=places`;
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${map_api_key}&libraries=places`;
           script.async = true;
           script.defer = true;
           script.onload = () =>

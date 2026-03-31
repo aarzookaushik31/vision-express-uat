@@ -72,11 +72,11 @@ const getSelectedVariantLabel = (item) => {
 
   if (!selectedValue) return "";
 
-  const isReadingGlasses =
-    item?.header?.toLowerCase() === "reading glasses";
+  const isPowerOption =
+    item?.header?.toLowerCase() === "reading glasses" ||  item?.header?.toLowerCase() === "lens power";
 
   return {
-    header: isReadingGlasses
+    header: isPowerOption
       ? "SELECTED POWER"
       : item?.header?.toUpperCase(),
     value: selectedValue?.toUpperCase(),
@@ -93,8 +93,8 @@ const getSelectedVariantLabel = (item) => {
           item.display_type === "image" || isAdditionalShades;
 
 
-          const isReadingGlasses =
-  item?.header?.toLowerCase() === "reading glasses";
+          const isPowerOption =
+  item?.header?.toLowerCase() === "reading glasses" ||  item?.header?.toLowerCase() === "lens power";
 
 
         return (
@@ -121,7 +121,7 @@ const getSelectedVariantLabel = (item) => {
 
 
 
- {isReadingGlasses && (
+ {isPowerOption && (
       <select
         className={styles.variantDropdown}
         value={
@@ -157,7 +157,7 @@ const getSelectedVariantLabel = (item) => {
 
 
             {/* ================= IMAGE VARIANTS ================= */}
-            {shouldRenderAsImage && !isReadingGlasses && (
+            {shouldRenderAsImage && !isPowerOption && (
               <div className={styles.variantContainer}>
                 {item?.items?.map((variant, index) => {
                   const imageURL =
@@ -209,7 +209,7 @@ const getSelectedVariantLabel = (item) => {
             )}
 
             {/* ================= COLOR VARIANTS ================= */}
-            {item.display_type === "color" && !shouldRenderAsImage &&  !isReadingGlasses && (
+            {item.display_type === "color" && !shouldRenderAsImage &&  !isPowerOption && (
               <div className={styles.variantContainer}>
                 {item?.items?.map((variant) => (
                   <div
@@ -246,7 +246,7 @@ const getSelectedVariantLabel = (item) => {
             )}
 
             {/* ================= TEXT VARIANTS ================= */}
-            {item.display_type === "text" && !shouldRenderAsImage && !isReadingGlasses && (
+            {item.display_type === "text" && !shouldRenderAsImage && !isPowerOption && (
               <div className={styles.variantContainer}>
                 {item?.items?.map((variant, index) => (
                   <div

@@ -55,7 +55,9 @@ export function Component({props}) {
 
 
   const fpi = useFPI();
-  const { supportInfo } = useHeader(fpi);
+  const { supportInfo , globalConfig } = useHeader(fpi);
+
+  const map_api_key = globalConfig?.map_api_key;
 
   const phoneArray = supportInfo?.contact?.phone?.phone ?? [];
   const defaultPhoneObj =
@@ -155,7 +157,7 @@ useEffect(() => {
 
   // Google Maps Initialization
   useEffect(() => {
-    if (!filteredStores.length) return;
+     if (!filteredStores.length || !map_api_key) return;
 
     const initMap = () => {
       const mapElement = document.getElementById("storesMap");
@@ -213,7 +215,7 @@ useEffect(() => {
     if (!window.google) {
       const script = document.createElement("script");
       script.src =
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyDOoSC7Ny7q7JBAAHmIBE0UTkPCZqaop9E";
+        `https://maps.googleapis.com/maps/api/js?key=${map_api_key}`;
       script.async = true;
       script.defer = true;
       script.onload = initMap;
@@ -221,7 +223,7 @@ useEffect(() => {
     } else {
       initMap();
     }
-  }, [filteredStores]);
+  }, [filteredStores, map_api_key]);
 
 
 
@@ -460,7 +462,7 @@ const cities = [
     if (selectedStore)
       return (
         <section className={styles.storeDetailsWrapper}>
-          <StoreDetails defaultPhone={defaultPhone}   nearbyStores={getNearbyStores(selectedStore, 2)} store={selectedStore} />
+          <StoreDetails defaultPhone={defaultPhone} map_api_key={map_api_key}  nearbyStores={getNearbyStores(selectedStore, 2)} store={selectedStore} />
         </section>
       );
     return (

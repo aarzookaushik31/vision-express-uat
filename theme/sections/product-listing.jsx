@@ -28,7 +28,7 @@ export function Component({ props = {}, blocks = [], globalConfig = {} }) {
 
     let categories = ["other"];
 
-    console.log(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
+    console.log(JSON.stringify({ event: CUSTOM_EVENTS.CATEGORY_VIEWED, categories }));
     //  window.alert(JSON.stringify({ event: CUSTOM_EVENTS.CATEGORY_VIEWED, categories }))
     emitEvent(CUSTOM_EVENTS.CATEGORY_VIEWED, { categories });
   };

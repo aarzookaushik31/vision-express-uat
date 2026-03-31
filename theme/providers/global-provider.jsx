@@ -13,6 +13,28 @@ import useInternational from "../components/header/useInternational";
 import { fetchCartDetails } from "../page-layouts/cart/useCart";
 
 export function ThemeProvider({ children }) {
+
+if (typeof window !== "undefined" && typeof document !== "undefined" && !window.__consoleRestored) {
+  try {
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+    const pristineConsole = iframe.contentWindow.console;
+
+    Object.defineProperty(window, "console", {
+      get: () => pristineConsole,
+      set: () => {},
+      configurable: false,
+    });
+
+    window.__consoleRestored = true; // 🛡️ prevents running again on re-renders
+    window.console.log("console restored once");
+  } catch(e) {
+    // silently fail
+  }
+}
+  
+  
   const fpi = useFPI();
   const location = useLocation();
   const locationDetails = useGlobalStore(fpi.getters.LOCATION_DETAILS);
