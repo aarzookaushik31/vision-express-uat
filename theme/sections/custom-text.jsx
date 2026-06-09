@@ -31,6 +31,15 @@ function ContentSection({ props = {} }) {
   const paddingMobile = getVal(props.padding_mobile, padding);
   const marginMobile = getVal(props.margin_mobile, margin);
 
+  const buttonText = getVal(props.button_text);
+const buttonLink = getVal(props.button_link, "#");
+
+const buttonTextColor = getVal(props.button_text_color, "#ffffff");
+const buttonBgColor = getVal(props.button_bg_color, "#000000");
+const buttonBorderRadius = getVal(props.button_border_radius, "4px");
+const buttonPadding = getVal(props.button_padding, "12px 24px");
+const buttonMargin = getVal(props.button_margin, "20px 0 0 0");
+
   return (
     <section
       className={styles.sectionWrapper}
@@ -71,6 +80,24 @@ function ContentSection({ props = {} }) {
           dangerouslySetInnerHTML={{ __html: content }}
         />
       ) : null}
+
+      {buttonText ? (
+  <a
+    href={buttonLink}
+    className={styles.button}
+    style={{
+      display: "inline-block",
+      color: buttonTextColor,
+      backgroundColor: buttonBgColor,
+      borderRadius: buttonBorderRadius,
+      padding: buttonPadding,
+      margin: buttonMargin,
+      textDecoration: "none",
+    }}
+  >
+    {buttonText}
+  </a>
+) : null}
     </section>
   );
 }
@@ -113,6 +140,47 @@ export const settings = {
     { id: "padding_mobile", type: "text", default: "20px", label: "Padding (Mobile)" },
     { id: "margin", type: "text", default: "20px auto", label: "Margin (Desktop)" },
     { id: "margin_mobile", type: "text", default: "10px auto", label: "Margin (Mobile)" },
+    {
+  id: "button_text",
+  type: "text",
+  default: "",
+  label: "Button Text",
+},
+{
+  id: "button_link",
+  type: "url",
+  label: "Button Link",
+},
+{
+  id: "button_text_color",
+  type: "color",
+  default: "#ffffff",
+  label: "Button Text Color",
+},
+{
+  id: "button_bg_color",
+  type: "color",
+  default: "#000000",
+  label: "Button Background Color",
+},
+{
+  id: "button_border_radius",
+  type: "text",
+  default: "4px",
+  label: "Button Border Radius",
+},
+{
+  id: "button_padding",
+  type: "text",
+  default: "12px 24px",
+  label: "Button Padding",
+},
+{
+  id: "button_margin",
+  type: "text",
+  default: "20px 0 0 0",
+  label: "Button Margin",
+}
   ],
 };
 

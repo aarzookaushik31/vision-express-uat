@@ -452,7 +452,7 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   }, [productPriceBySlug, buybox]);
 
   const isAllowStoreSelection = useMemo(() => {
-    return buybox?.enable_selection && soldBy?.count > 1;
+    return buybox?.enable_selection && soldBy?.count > 0;
   }, [buybox, soldBy]);
 
   const sellerStoreName = useMemo(() => {
@@ -546,7 +546,6 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   };
 
   const onSellerClick = () => {
-    console.log("store clicked");
     if (isAllowStoreSelection) {
       toggleStoreModal();
     }
@@ -999,6 +998,93 @@ const availableLabel =
 
 
 
+                            <div className={styles.sizeCartContainer}>
+
+                                 {!isSizeSelectionBlock(block) && <p className={ styles.sizeSelectionavailableHeading } >{availableLabel}</p> }
+
+
+                              {!isSizeSelectionBlock(block) &&
+                                productMeta?.sellable && (
+                                  <div
+                                    className={`${styles.sizeWrapper} ${
+                                      isSizeCollapsed &&
+                                      styles["sizeWrapper--collapse"]
+                                    }`}
+                                  >
+                                    <OutsideClickHandler
+                                      onOutsideClick={() => {
+                                        setShowSizeDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        className={` ${styles.sizeButton} ${
+                                          styles.flexAlignCenter
+                                        } ${styles.justifyBetween} ${styles.fontBody} ${
+                                          sizes?.sizes?.length &&
+                                          styles.disabledButton
+                                        }`}
+                                        onClick={() =>
+                                          setShowSizeDropdown(!showSizeDropdown)
+                                        }
+                                        disabled={!sizes?.sizes?.length}
+                                      >
+                                        <p
+                                          className={`${styles.buttonFont} ${styles.selectedSize}`}
+                                          title={
+                                            selectedSize
+                                              ? `${t("resource.common.size")} : ${selectedSize}`
+                                              : t(
+                                                  "resource.common.select_size_caps"
+                                                )
+                                          }
+                                        >
+                                          {selectedSize
+                                            ? `${selectedSize}`
+                                            : t(
+                                                "resource.common.select_size_caps"
+                                              )}
+                                        </p>
+                                        <ArrowDownIcon
+                                          className={`${styles.dropdownArrow} ${
+                                            showSizeDropdown &&
+                                            styles.rotateArrow
+                                          }`}
+                                        />
+                                      </div>
+                                      <ul
+                                        className={styles.sizeDropdown}
+                                        style={{
+                                          display: showSizeDropdown
+                                            ? "block"
+                                            : "none",
+                                        }}
+                                      >
+                                        {sizes?.sizes?.map((size) => (
+                                          <li
+                                            onClick={() =>
+                                              onSizeSelection(size)
+                                            }
+                                            key={size?.value}
+                                            className={`${
+                                              selectedSize === size.display &&
+                                              styles.selected_size
+                                            } ${
+                                              size.quantity === 0 && !isMto
+                                                ? styles.disabled_size
+                                                : styles.selectable_size
+                                            }`}
+                                          >
+                                            {size.display}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </OutsideClickHandler>
+                                  </div>
+                                )}
+
+
+
+
 
                           {frameSize && (
   <div className={styles.sizeDimensions}>
@@ -1044,85 +1130,6 @@ const availableLabel =
 
 
 
-                            <div className={styles.sizeCartContainer}>
-                              {!isSizeSelectionBlock(block) &&
-                                productMeta?.sellable && (
-                                  <div
-                                    className={`${styles.sizeWrapper} ${
-                                      isSizeCollapsed &&
-                                      styles["sizeWrapper--collapse"]
-                                    }`}
-                                  >
-                                    <OutsideClickHandler
-                                      onOutsideClick={() => {
-                                        setShowSizeDropdown(false);
-                                      }}
-                                    >
-                                      <div
-                                        className={` ${styles.sizeButton} ${
-                                          styles.flexAlignCenter
-                                        } ${styles.justifyBetween} ${styles.fontBody} ${
-                                          sizes?.sizes?.length &&
-                                          styles.disabledButton
-                                        }`}
-                                        onClick={() =>
-                                          setShowSizeDropdown(!showSizeDropdown)
-                                        }
-                                        disabled={!sizes?.sizes?.length}
-                                      >
-                                        <p
-                                          className={`${styles.buttonFont} ${styles.selectedSize}`}
-                                          title={
-                                            selectedSize
-                                              ? `${t("resource.common.size")} : ${selectedSize}`
-                                              : t(
-                                                  "resource.common.select_size_caps"
-                                                )
-                                          }
-                                        >
-                                          {selectedSize
-                                            ? `${t("resource.common.size")}  : ${selectedSize}`
-                                            : t(
-                                                "resource.common.select_size_caps"
-                                              )}
-                                        </p>
-                                        <ArrowDownIcon
-                                          className={`${styles.dropdownArrow} ${
-                                            showSizeDropdown &&
-                                            styles.rotateArrow
-                                          }`}
-                                        />
-                                      </div>
-                                      <ul
-                                        className={styles.sizeDropdown}
-                                        style={{
-                                          display: showSizeDropdown
-                                            ? "block"
-                                            : "none",
-                                        }}
-                                      >
-                                        {sizes?.sizes?.map((size) => (
-                                          <li
-                                            onClick={() =>
-                                              onSizeSelection(size)
-                                            }
-                                            key={size?.value}
-                                            className={`${
-                                              selectedSize === size.display &&
-                                              styles.selected_size
-                                            } ${
-                                              size.quantity === 0 && !isMto
-                                                ? styles.disabled_size
-                                                : styles.selectable_size
-                                            }`}
-                                          >
-                                            {size.display}
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </OutsideClickHandler>
-                                  </div>
-                                )}
 
 
                               <div

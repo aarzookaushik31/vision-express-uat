@@ -40,6 +40,10 @@ import LeakProofDesign from "../../../../assets/images/highlights/Leak-proof Des
 import HighPower from "../../../../assets/images/highlights/High Power.png";
 
 function PdpHighlights({ highlights }) {
+
+   const normalize = (str) =>
+    str.toLowerCase().replace(/[^a-z0-9]/g, "");
+   
   if (!highlights || highlights.length === 0) return null;
 
 const iconMap = {
@@ -82,33 +86,55 @@ const iconMap = {
   "high power": HighPower,
 };
 
+
+
+const uniqueHighlights = [];
+  const seen = new Set();
+
+  highlights.forEach((item) => {
+    item.split("~").forEach((p) => {
+      const text = p.trim();
+
+      if (!text) return;
+
+      const normalizedText = normalize(text);
+
+      if (!seen.has(normalizedText)) {
+        seen.add(normalizedText);
+
+        uniqueHighlights.push({
+          text,
+          normalizedText,
+        });
+      }
+    });
+  });
+
+
+
   return (
-    <div className={styles.highlightsContainer}>
-      {highlights.map((item, index) =>
-        item.split("~").map((p, i) => {
-          const text = p.trim();
+     <div className={styles.highlightsContainer}>
+      {uniqueHighlights.map(({ text, normalizedText }, index) => {
+        const matchedKey = Object.keys(iconMap).find(
+          (key) => normalize(key) === normalizedText
+        );
 
-          const normalize = (str) =>
-  str.toLowerCase().replace(/[^a-z0-9]/g, "");
-         const normalizedText = normalize(text);
+        const icon = matchedKey ? iconMap[matchedKey] : Common;
 
-const matchedKey = Object.keys(iconMap).find(
-  (key) => normalize(key) === normalizedText
-);
+        return (
+          <div className={styles.highlightItem} key={index}>
+            <span className={styles.icon}>
+              <img
+                src={icon}
+                className={styles.iconImg}
+                alt={text}
+              />
+            </span>
 
-          const icon = matchedKey ? iconMap[matchedKey] : Common;
-
-          return (
-            <div className={styles.highlightItem} key={`${index}-${i}`}>
-              <span className={styles.icon}>
-                <img src={icon} className={styles.iconImg} alt={text} />
-              </span>
-
-              <span className={styles.text}>{text}</span>
-            </div>
-          );
-        })
-      )}
+            <span className={styles.text}>{text}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

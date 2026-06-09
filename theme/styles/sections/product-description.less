@@ -535,8 +535,8 @@ path:nth-of-type(1) {
 }
 
 .sizeCartContainer {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   .actionBuyNow {
     flex: 1;
 
@@ -574,27 +574,36 @@ path:nth-of-type(1) {
     }
 
     .sizeButton {
-      padding: 11px 16px;
-      border: 0.8px solid @DividerStokes;
-      border-radius: @ButtonRadius;
-      background-color: @ThemeAccentL4;
-      width: 100%;
-      height: 100%;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 16px;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: @TextHeading;
+      // padding: 11px 16px;
+      // border: 0.8px solid @DividerStokes;
+      // border-radius: @ButtonRadius;
+      // background-color: @ThemeAccentL4;
+      // width: 100%;
+      // height: 100%;
+      // font-weight: 500;
+      // font-size: 14px;
+      // line-height: 16px;
+      // letter-spacing: -0.02em;
+      // text-transform: uppercase;
+      // color: @TextHeading;
 
-      @media @tablet {
-        font-size: 12px;
-        line-height: 14px;
-      }
 
-      @media @desktop {
-        padding: 16px 16px;
-      }
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    min-width: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    font-size: 12px;
+    max-width: 150px;
+    cursor: pointer;
+    background-color: rgba(158, 0, 126, 0.2);
+      color: rgba(26, 26, 26, 1);
+      font-weight: 700;
+
+
 
       .selectedSize {
         text-align: start;
@@ -620,7 +629,8 @@ path:nth-of-type(1) {
       position: absolute;
       background-color: @DialogBackground;
       top: calc(100% + 4px);
-      min-width: 100%;
+      width: 150px;
+      font-size: 12px;
       white-space: nowrap;
       border: 1px solid #d4d1d1;
       box-shadow:
@@ -629,6 +639,24 @@ path:nth-of-type(1) {
       border-radius: min(@ButtonRadius, 8px);
       padding: 0.5rem;
       z-index: 1;
+      max-height: 200px;
+      overflow: auto;
+     scrollbar-width: thin;
+
+
+       &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(158, 0, 126, 0.2);
+    border-radius: 4px;
+  }
+
 
       li {
         padding: 8px 12px;
@@ -636,7 +664,7 @@ path:nth-of-type(1) {
       }
 
       .selected_size {
-        background-color: @ThemeAccentL3;
+        background-color: rgba(158, 0, 126, 0.2);
       }
 
       .disabled_size {
@@ -653,6 +681,7 @@ path:nth-of-type(1) {
       }
     }
   }
+
 
   .cartWrapper {
     flex: 2;
@@ -1064,6 +1093,19 @@ path:nth-of-type(1) {
   }
 }
 
+
+  .sizeSelectionavailableHeading{
+     margin: 12px 0;
+    margin-top: 15px;
+    color: rgba(46, 43, 44, 0.5);
+    font-size: 12px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 15px;
+  }
+
+
 .bottom-spacing {
   margin-bottom: 24px;
 
@@ -1112,16 +1154,6 @@ path:nth-of-type(1) {
 
   }
 
-  .sizeSelectionavailableHeading{
-     margin: 12px 0;
-    margin-top: 15px;
-    color: rgba(46, 43, 44, 0.5);
-    font-size: 12px;
-    letter-spacing: 0px;
-    text-transform: uppercase;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 15px;
-  }
 
   &__wrapper {
     display: flex;

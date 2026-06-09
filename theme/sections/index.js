@@ -17,6 +17,8 @@ const BookTestFormHomeSectionChunk = loadable(() => import(/* webpackChunkName:"
 
 const BookTestFormSectionChunk = loadable(() => import(/* webpackChunkName:"BookTestFormSectionChunk" */ './book-test-form.jsx'));
 
+const BrandFeaturedCollectionSectionChunk = loadable(() => import(/* webpackChunkName:"BrandFeaturedCollectionSectionChunk" */ './brand-featured-collection.jsx'));
+
 const BrandListingSectionChunk = loadable(() => import(/* webpackChunkName:"BrandListingSectionChunk" */ './brand-listing.jsx'));
 
 const BrandsLandingSectionChunk = loadable(() => import(/* webpackChunkName:"BrandsLandingSectionChunk" */ './brands-landing.jsx'));
@@ -150,6 +152,8 @@ const getbundle = (type) => {
             return (props) => <BookTestFormHomeSectionChunk {...props}/>;
         case 'book-test-form':
             return (props) => <BookTestFormSectionChunk {...props}/>;
+        case 'brand-featured-collection':
+            return (props) => <BrandFeaturedCollectionSectionChunk {...props}/>;
         case 'brand-listing':
             return (props) => <BrandListingSectionChunk {...props}/>;
         case 'brands-landing':
@@ -279,6 +283,7 @@ export default {
         'blog': { ...BlogSectionChunk, Component: getbundle('blog') },
         'book-test-form-home': { ...BookTestFormHomeSectionChunk, Component: getbundle('book-test-form-home') },
         'book-test-form': { ...BookTestFormSectionChunk, Component: getbundle('book-test-form') },
+        'brand-featured-collection': { ...BrandFeaturedCollectionSectionChunk, Component: getbundle('brand-featured-collection') },
         'brand-listing': { ...BrandListingSectionChunk, Component: getbundle('brand-listing') },
         'brands-landing': { ...BrandsLandingSectionChunk, Component: getbundle('brands-landing') },
         'cart-landing': { ...CartLandingSectionChunk, Component: getbundle('cart-landing') },

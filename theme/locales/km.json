@@ -251,7 +251,95 @@
       "invalid_email": "អ៊ី​ម៉ែលមិនត្រឹមត្រូវ",
       "email_cannot_exceed_50_characters": "អ៊ី​ម៉ែលមិនអាចលើសពី ៥០ តួអក្សរបាន",
       "other": "ផ្សេងទៀត",
-      "product_is_not_serviceable_at_given_locality": "ផលិតផលមិនអាចប្រើប្រាស់បាននៅតំបន់នេះ"
+      "product_is_not_serviceable_at_given_locality": "ផលិតផលមិនអាចប្រើប្រាស់បាននៅតំបន់នេះ",
+      "no_items_in_cart": "មិនមានទំនិញនៅក្នុងកន្ត្រកទិញទំនិញទេ",
+      "street_name": "ឈ្មោះផ្លូវ",
+      "building_no__apartment": "អគារលេខ / អាផាតមិន",
+      "area": "តំបន់",
+      "landmark": "សញ្ញាសម្គាល់ទីតាំង",
+      "sorry_item_is_out_of_stock": "សូមអភ័យទោសធាតុអស់ពីស្តុកហើយ",
+      "added_only_those_products_that_are_in_stock": "បានបន្ថែមតែផលិតផលទាំងនោះដែលមាននៅក្នុងស្តុក",
+      "max_50_items_allowed_in_cart": "ធាតុអតិបរមា 50 ត្រូវបានអនុញ្ញាតក្នុងរទេះ",
+      "nothing_updated": "មិនមានអ្វីដែលបានធ្វើបច្ចុប្បន្នភាពទេ",
+      "item_updated": "ធ្វើឱ្យទាន់សម័យធាតុ",
+      "item_not_updated": "ធាតុមិនបានធ្វើបច្ចុប្បន្នភាពទេ",
+      "invalid_address": "អាសយដ្ឋានមិនត្រឹមត្រូវ",
+      "address_block_no_street_name": "អាសយដ្ឋាន (រារាំងឈ្មោះផ្លូវផ្លូវ)",
+      "address_line_1": "បន្ទាត់អាសយដ្ឋាន 1",
+      "address_line_2": "ខ្សែអាសយដ្ឋាន 2",
+      "apartment_building_floor_etc": "អាផាតមិនអាគារជាន់ក្រោម។ ល",
+      "apartment_building_house_no_floor_etc": "អាផាតមិនអាគារផ្ទះគ្មានជាន់ល",
+      "apartment_unit_building_floor_room": "ផ្ទះល្វែងឯកតាអគារជាន់ជាន់ជាន់បន្ទប់",
+      "apartment_unit_building_floor_room_etc": "ផ្ទះល្វែងឯកតាអគារជាន់ជាន់ជាន់បន្ទប់។ ល។",
+      "apartment_unit_building_floor_etc": "ផ្ទះល្វែងឯកតាអគារជាន់ជាន់ក្រោម។ ល។",
+      "apartment_building_unit_floor_etc": "អាផាតមិនអាគារអង្គភាពជាន់ជាន់ក្រោម។ ល",
+      "apartment_suite_unit_building_floor_etc": "ផ្ទះល្វែងឈុតឈុត, អង្គភាព, អគារ, ជាន់, ល។ ល។",
+      "apartment_suite_unit_floor_etc": "ផ្ទះល្វែងឈុតឈុតជាន់ជាន់ជាន់ក្រោម។ ល",
+      "apt_suite_etc": "apt, suite ។ ល។",
+      "barangay": "បារហាំងណា",
+      "block": "រារាមង",
+      "building_number_unit_number": "លេខអាគារលេខឯកតា",
+      "building_apt_rt_rw": "អាគារ, apt, rt / rw",
+      "city_district": "ស៊ីធី / ស្រុក",
+      "city_town": "ទីក្រុង / ក្រុង",
+      "city_ward_town_village": "ទីក្រុង / វួដ / ក្រុង / ភូមិ",
+      "complement": "ផាបសមបលិ្ឈនេរ",
+      "county": "ខោល្ផូន",
+      "district_area": "ស្រុក / តំបន់",
+      "district_county_municipality": "ស្រុក / ស្រុក / ក្រុង",
+      "eircode": "អយស្ទ័យ",
+      "flat_apartment_building_name_or": "ផ្ទះល្វែងផ្ទះល្វែងឈ្មោះអគារឬ #",
+      "flat_stair_door_number_etc": "ផ្ទះល្វែង stair, លេខទ្វារ, ល",
+      "floor_unit_no": "ជាន់ - ឯកតាទេ។",
+      "governorate_city": "អភិបាល / ក្រុង",
+      "house_number_and_street_name": "លេខផ្ទះនិងឈ្មោះផ្លូវ",
+      "locality_apartment_building_floor_etc": "តំបន់, ផ្ទះល្វែង, អគារជាន់, ល។ ល។",
+      "neighborhood_bairro": "សង្កាត់ / Baaul",
+      "postal_code": "លេខកូដប្រៃសណីយ៍",
+      "postcode": "បេញធីស",
+      "prefecture": "ខេត្តអាណាត្រូប",
+      "province": "ខេត្ដ",
+      "province_code": "ក្រមខេត្ត",
+      "province_city_do_si": "ខេត្ត / ក្រុង (ធ្វើ / ស៊ី)",
+      "region": "តមបន់",
+      "state_code": "លេខកូដរដ្ឋ",
+      "street_address": "អាស័យដ្ឋានផ្លូវ",
+      "street_address_chome_banchi_go": "អាសយដ្ឋានផ្លូវ / Chome, Banchi, ទៅ",
+      "street_name_and_house_no": "ឈ្មោះផ្លូវនិងផ្ទះទេ",
+      "street_name_and_number": "ឈ្មោះផ្លូវនិងលេខ",
+      "street_name_no": "ឈ្មោះផ្លូវ / ទេ",
+      "street_name_no_block": "ឈ្មោះផ្លូវ / ទេ, ប្លុក",
+      "street_name_no_house_number": "ឈ្មោះផ្លូវ / ទេលេខផ្ទះ",
+      "street_number": "លេខផ្លូវ",
+      "subdistrict": "ការបក",
+      "subdistrict_district": "ជនរង / ខណ្ឌ",
+      "suburb": "ចាយរកុង",
+      "town_city": "ទីក្រុង / ទីក្រុង",
+      "unit___floor_no": "ឯកតា / ជាន់គ្មាន",
+      "wilaya": "មន្ឌល",
+      "zipcode": "ZIPCode",
+      "zone_number": "លេខតំបន់",
+      "sorry_invalid_coupon": "សុំទោស!គូប៉ុងមិនត្រឹមត្រូវ",
+      "invalid_gstin_number": "លេខ GSTIN មិនត្រឹមត្រូវ",
+      "payment_mode_is_not_valid_for_applied_coupon": "របៀបបង់ប្រាក់មិនមានសុពលភាពសម្រាប់ប័ណ្ណដែលបានអនុវត្ត",
+      "ordering_store_is_not_valid_for_the_applied_coupon": "ហាងបញ្ជាទិញមិនមានសុពលភាពសម្រាប់ប័ណ្ណដែលបានអនុវត្តទេ",
+      "coupon_usage_limit_has_been_reached": "ដែនកំណត់នៃការប្រើប្រាស់គូប៉ុងត្រូវបានឈានដល់",
+      "login_required_to_apply_this_coupon": "ចូលតម្រូវឱ្យអនុវត្តប័ណ្ណនេះ",
+      "coupon_not_applicable_for_the_user": "គូប៉ុងមិនអាចអនុវត្តបានសម្រាប់អ្នកប្រើប្រាស់ទេ",
+      "cart_is_empty": "រទេះគឺទទេ",
+      "coupon_expired": "ប័ណ្ណផុតកំណត់",
+      "sorry_invalid_platform_coupon": "សុំទោស!ប័ណ្ណវេទិកាមិនត្រឹមត្រូវ",
+      "sorry_coupon_expired": "សុំទោស!ប័ណ្ណផុតកំណត់",
+      "sorry_coupon_not_applicable": "សុំទោស!គូប៉ុងមិនអាចអនុវត្តបានទេ។",
+      "sorry_coupon_not_applicable_for_these_items": "សុំទោស!គូប៉ុងមិនអាចអនុវត្តបានសម្រាប់របស់ទាំងនេះទេ។",
+      "sorry_coupon_already_used": "សុំទោស!គូប៉ុងប្រើរួចហើយ។",
+      "coupon_successfully_removed": "គូប៉ុងដកចេញដោយជោគជ័យ",
+      "no_coupon_is_applied": "មិនមានគូប៉ុងត្រូវបានអនុវត្តទេ",
+      "coupon_not_applicable_on_this_order": "គូប៉ុងមិនអនុវត្តតាមលំដាប់នេះទេ",
+      "cod_not_available_on_applied_promocode": "លេខមិនមាននៅលើការផ្សព្វផ្សាយដែលបានអនុវត្ត",
+      "coupon_applicable_for_new_users_only": "គូប៉ុងដែលអាចអនុវត្តបានសម្រាប់តែអ្នកប្រើប្រាស់ថ្មីប៉ុណ្ណោះ",
+      "please_login_to_use_this_coupon": "សូមចូលដើម្បីប្រើប័ណ្ណនេះ។",
+      "coupon_code_not_applicable_items_are_already_at_the_best_price": "លេខកូដគូប៉ុងមិនអាចអនុវត្តបានទេធាតុដែលមានតំលៃល្អបំផុត"
     },
     "auth": {
       "account_deletion_notice": "តាមសំណើរបស់អ្នក គណនីរបស់អ្នកនឹងត្រូវបានលុបក្នុងពេលឆាប់ៗនេះ។ ប្រសិនបើអ្នកចង់ស្តារគណនីរបស់អ្នកឡើងវិញ សូមទាក់ទងលេខសម្គាល់អ៊ីមែលជំនួយខាងក្រោម",
@@ -398,6 +486,8 @@
         "my_address": "អាសយដ្ឋានរបស់ខ្ញុំ",
         "add_new_address": "បន្ថែមអាសយដ្ឋានថ្មី។",
         "add_new_address_caps": "បន្ថែមអាសយដ្ឋានថ្មី។",
+        "default_address": "អាសយដ្ឋានលំនាំដើម",
+        "other_addresses": "អាសយដ្ឋានផ្សេងទៀត",
         "no_address_available": "មិនមានអាសយដ្ឋានទេ។",
         "address_not_found": "រកមិនឃើញអាសយដ្ឋាន!",
         "return_to_my_address": "ត្រឡប់ទៅអាសយដ្ឋានរបស់ខ្ញុំ",
@@ -409,7 +499,6 @@
         "pincode_six_digits_required": "កូដ PIN ត្រូវតែមាន 6 ខ្ទង់យ៉ាងពិតប្រាកដ",
         "invalid_phone_number": "លេខទូរស័ព្ទមិនត្រឹមត្រូវ",
         "enter_pincode": "បញ្ចូលកូដ PIN",
-        "default_address": "អាសយដ្ឋានលំនាំដើម",
         "other_address": "អាស័យដ្ឋានផ្សេងទៀត។",
         "address_type": "ប្រភេទអាសយដ្ឋាន",
         "make_this_my_default_address": "ធ្វើឱ្យនេះជាអាសយដ្ឋានលំនាំដើមរបស់ខ្ញុំ"
@@ -564,7 +653,17 @@
       "back_to_login_caps": "ត្រលប់ទៅការចូល",
       "sorry_we_couldnt_find_any_results": "សូមអភ័យទោស យើងមិនអាចរកឃើញលទ្ធផលណាមួយទេ។",
       "in": "ក្នុង",
-      "home_seo_description": "ជម្រុញការជាវតាមអ៊ីនធឺណិតដោយងាយស្រួល និងស្វែងរកផលិតផលដែលមានគុណភាព ការមកដល់ថ្មី និងការផ្តល់ជូនពិសេសៗ—all នៅកន្លែងតែមួយ។"
+      "home_seo_description": "ជម្រុញការជាវតាមអ៊ីនធឺណិតដោយងាយស្រួល និងស្វែងរកផលិតផលដែលមានគុណភាព ការមកដល់ថ្មី និងការផ្តល់ជូនពិសេសៗ—all នៅកន្លែងតែមួយ។",
+      "maximum_64_characters_allowed": "សូមបញ្ចូលតួអក្សរតិចជាង 64",
+      "maximum_50_characters_allowed": "សូមបញ្ចូលតួអក្សរតិចជាង 50",
+      "page_titles": {
+        "contact_us": "ទាក់ទងមកយើង",
+        "home": "ដើម",
+        "product_listing": "បញ្ជីផលិតផល",
+        "wishlist": "បញ្ជីបំណង",
+        "about_us": "អំពីយើង",
+        "blog": "ប្លុក"
+      }
     },
     "categories": {
       "empty_state": "រកមិនឃើញប្រភេទទេ។"
@@ -754,7 +853,8 @@
     "wishlist": {
       "product_removed": "ផលិតផលត្រូវបានដកចេញពីបញ្ជីចង់បាន",
       "no_product_in_wishlist": "អ្នកមិនមានផលិតផលណាមួយត្រូវបានបន្ថែមទៅក្នុងបញ្ជីចង់បានទេ។",
-      "add_products_to_wishlist": "បន្ថែមផលិតផលទៅក្នុងបញ្ជីប្រាថ្នា"
+      "add_products_to_wishlist": "បន្ថែមផលិតផលទៅក្នុងបញ្ជីប្រាថ្នា",
+      "seo_description": "រក្សាទុកផលិតផលដែលអ្នកស្រឡាញ់និងកសាងបញ្ជីចង់បានរបស់អ្នក។ពិនិត្យឡើងវិញយ៉ាងងាយហើយទិញរបស់ដែលអ្នកចូលចិត្តគ្រប់ពេលដោយគ្រាន់តែចុចពីរបីដង។"
     },
     "cart": {
       "no_items": "មិនមានទំនិញនៅក្នុងរទេះទេ។",
@@ -982,7 +1082,8 @@
       "slide_alt": "ស្លាយ",
       "no_blogs_found": "រកមិនឃើញប្លុកទេ។",
       "showing_results": "បង្ហាញលទ្ធផល {{count}} នៃ",
-      "no_blog_found": "រកមិនឃើញប្លុកទេ។"
+      "no_blog_found": "រកមិនឃើញប្លុកទេ។",
+      "seo_description": "ស្វែងរកអត្ថបទមានប្រយោជន៍គន្លឹះផលិតផលនិងការយល់ដឹងពីអ្នកជំនាញដើម្បីទទួលបានព័ត៌មាននិងបំផុសគំនិត។ប្លក់របស់យើងគ្របដណ្តប់អ្វីៗទាំងអស់ពីនិន្នាការទៅនឹងការណែនាំ។"
     },
     "checkout": {
       "payment_retry_message": "សូមព្យាយាមម្តងទៀត ឬប្រើវិធីសាស្រ្តទូទាត់ផ្សេងទៀត ដើម្បីបញ្ចប់ការទូទាត់។",
@@ -1099,7 +1200,9 @@
       "please_enter_a_valid_phone_number": "សូមបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ។",
       "please_enter_your_phone_number": "សូមបញ្ចូលលេខទូរស័ព្ទរបស់អ្នក។",
       "please_enter_a_valid_email_address": "សូមបញ្ចូលអាសយដ្ឋានអ៊ីមែលត្រឹមត្រូវ។",
-      "please_enter_your_email_address": "សូមបញ្ចូលអាសយដ្ឋានអ៊ីមែលរបស់អ្នក។"
+      "please_enter_your_email_address": "សូមបញ្ចូលអាសយដ្ឋានអ៊ីមែលរបស់អ្នក។",
+      "seo_description": "ឈោងចាប់យើងសម្រាប់ការគាំទ្រឬសំណួរណាមួយ។យើងនៅទីនេះដើម្បីជួយដល់ការបញ្ជាទិញត្រឡប់មកវិញរបស់អ្នកត្រឡប់មកវិញឬការសាកសួរផលិតផល - យ៉ាងឆាប់រហ័សនិងមានប្រសិទ្ធិភាព។",
+      "entered_msg_greater_than_500_char": "សារដែលបានបញ្ចូលគឺច្រើនជាង 500 តួអក្សរ"
     },
     "faq": {
       "no_frequently_asked_questions_found": "រកមិនឃើញសំណួរដែលគេសួរញឹកញាប់ទេ។",
@@ -1143,6 +1246,9 @@
       "otp_sent_to_phone": "One Time Password (OTP) បានផ្ញើដោយជោគជ័យទៅកាន់លេខទូរស័ព្ទ",
       "verify_caps": "ផ្ទៀងផ្ទាត់",
       "enter_bank_details": "បញ្ចូលព័ត៌មានលម្អិតអំពីធនាគារ"
+    },
+    "about_us": {
+      "seo_description": "យើងបានប្តេជ្ញាចិត្តក្នុងការផ្តល់ផលិតផលដែលមានគុណភាពខ្ពស់និងសេវាកម្មពិសេស។ស្វែងយល់បន្ថែមអំពីដំណើររបស់យើងតម្លៃនិងអ្វីដែលធ្វើឱ្យយើងក្លាយជាជម្រើសដែលគួរឱ្យទុកចិត្ត។"
     }
   }
 }

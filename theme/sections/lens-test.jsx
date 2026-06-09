@@ -1,5 +1,6 @@
 import React, { useState, useEffect , useRef} from "react";
 import styles from "../styles/sections/lens-test.less";
+import ArrowTop from "../assets/images/back.svg"
 
 const questions = [
   {
@@ -186,8 +187,8 @@ const progressiveDotsMap = {
 const visionTimings = {
   default: 2,
   near: 4,
-  far: 6,
-  both: 8,
+  far: 5,
+  both: 7,
 };
 
 
@@ -207,6 +208,7 @@ export function Component({ props = {} }) {
 const [prevImage, setPrevImage] = useState(null);
 const [imageSwapId, setImageSwapId] = useState(0);
 
+const [history, setHistory] = useState([]);
 
 const [prevLifestyleVideo, setPrevLifestyleVideo] = useState(null);
 const [currentLifestyleVideo, setCurrentLifestyleVideo] = useState(null);
@@ -336,6 +338,7 @@ if (currentStep === "progressive") {
 
 
   const handleStart = () => {
+    setHistory(prev => [...prev, { step: currentStep }]);
     setCurrentStep("questions");
     setCurrentQuestion(0);
   };
@@ -584,11 +587,43 @@ const handleTabClick = (type) => {
     };
 
 
+const handleBack = () => {
+  if (history.length === 0) return;
 
+  const last = history[history.length - 1];
+
+  setHistory(prev => prev.slice(0, -1));
+
+  setCurrentStep(last.step || "start");
+
+  if (last.step === "questions") {
+    setCurrentQuestion(last.question ?? 0);
+    setAnswers(last.answers || {});
+    setSelectedOption(last.selectedOption || null);
+  }
+
+  if (last.step === "progressive") {
+    setCurrentStep("progressive");
+  }
+
+  if (last.step === "start") {
+    setCurrentStep("start");
+  }
+};
 
 
 
   const handleNext = () => {
+  setHistory(prev => [
+    ...prev,
+    {
+      step: currentStep,
+      question: currentQuestion,
+      answers,
+      selectedOption
+    }
+  ]);
+    
     const newAnswers = { ...answers, [questions[currentQuestion].id]: selectedOption };
     setAnswers(newAnswers);
 
@@ -655,6 +690,10 @@ const handleTabClick = (type) => {
 
     return (
       <div className={styles["lens-test-section"]}>
+      <button onClick={handleBack} className={styles.backButton}>
+  <ArrowTop />
+  </button>
+
         <div className={styles["card-wrapper"]}>
           <div className={`${styles.card} ${styles[q.id]}`}>
             <div key={currentQuestion} className={styles["question-wrapper"]}>
@@ -663,8 +702,35 @@ const handleTabClick = (type) => {
               <div className={`${styles.brand} ${styles.animateTop}`}>
                 <h1 className={styles["brand-image"]}>
                   <img src={logo_image?.value} />
+
+
+             {Object.entries(answers).filter(
+      ([key]) => key !== questions[currentQuestion].id
+    ).length > 0 && (
+      <div className={styles.previousSelectedAnswers}>
+        {Object.entries(answers)
+          .filter(([key]) => key !== questions[currentQuestion].id)
+          .map(([key, value], index, arr) => (
+            <span key={key} className={styles.answerPill}>
+              {value}
+              {index < arr.length - 1 && (
+                <span className={styles.separator}> | </span>
+              )}
+            </span>
+          ))}
+      </div>
+    )}
+
                 </h1>
               </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -835,6 +901,10 @@ const handleTabClick = (type) => {
 
     return (
       <div className={styles["lens-test-section"]}>
+      <button onClick={handleBack} className={styles.backButton}>
+    <ArrowTop />
+  </button>
+
         <div className={styles["card-wrapper"]}>
           <div className={styles.card}>
             <div className={styles["question-wrapper"]}>
@@ -842,6 +912,10 @@ const handleTabClick = (type) => {
               <div className={`${styles.brand} ${styles.animateTop}`}>
                 <h1 className={styles["brand-image"]}>
                   <img src={logo_image?.value} />
+
+                   <div className={styles.previousSelectedAnswers}>
+                    <span>40+</span>
+                   </div>
                 </h1>
               </div>
 
@@ -925,6 +999,11 @@ const handleTabClick = (type) => {
   if (currentStep === "result" && resultData) {
     return (
       <div className={styles["lens-test-section"]}>
+
+      <button onClick={handleBack} className={styles.backButton}>
+    <ArrowTop />
+  </button>
+
         <div className={styles["card-wrapper"]}>
           <div className={styles.card}>
             <div className={styles["thankyou-wrapper"]}>

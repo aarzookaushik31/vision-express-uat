@@ -4,6 +4,48 @@
   background: radial-gradient(180.6% 78.33% at 50% 50%, #ffffff 0%, #fff1fd 58.65%, #ffe6fb 100%);
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  color:rgba(158, 0, 126, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.04);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 100;
+
+  path{
+    fill: rgba(158, 0, 126, 1) !important;
+  }
+
+
+  @media(max-width: 768px){
+    top: 30px;
+  left: 20px;
+  }
+}
+
+
+.previousSelectedAnswers{
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(158, 0, 126, 1);
+  height: auto;
+    width: fit-content;
+    margin: auto;
+    line-height: 120%;
 }
 
 .card-wrapper {
@@ -30,6 +72,9 @@
 
 
 .age, .vision, .lifestyle{
+  .brand{
+       margin-bottom: 50px !important;
+  }
   .brand-image{
     position: absolute;
     top:0;
