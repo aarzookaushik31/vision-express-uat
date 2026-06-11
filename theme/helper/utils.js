@@ -500,11 +500,29 @@ export const fireCustomGtmEvent = function (eventName = "", eventData = {}) {
 const SMS_WEBHOOK_URL =
   "https://asia-south1.workflow.boltic.app/60999591-a7cf-4def-8758-fabd165ea14c";
 
+const formatSmsDate = (date) => {
+  if (!date) return date;
+  const [year, month, day] = date.split("-");
+  return `${day}/${month}/${year}`;
+};
+
+const formatSmsTime = (time) => {
+  if (!time) return time;
+  const match = time.match(/^(\d{2})(\d{2})-(am|pm)-to-(\d{2})(\d{2})-(am|pm)$/i);
+  if (match) {
+    return `${match[1]}.${match[2]} ${match[3].toLowerCase()} to ${match[4]}.${match[5]} ${match[6].toLowerCase()}`;
+  }
+  return time;
+};
+
 export const sendSmsNotification = (phone, date, time) => {
   if (!phone) return;
+  const formattedDate = formatSmsDate(date);
+  const formattedTime = formatSmsTime(time);
+  const body = JSON.stringify({ payload: { phone_no: phone, date: formattedDate, time: formattedTime } });
   fetch(SMS_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ payload: { phone_no: phone, date, time } }),
+    body,
   }).catch(() => {});
 };
