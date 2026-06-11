@@ -496,3 +496,15 @@ export const fireCustomGtmEvent = function (eventName = "", eventData = {}) {
   }
   window.FPI.event.emit(eventName, eventData);
 };
+
+const SMS_WEBHOOK_URL =
+  "https://asia-south1.workflow.boltic.app/60999591-a7cf-4def-8758-fabd165ea14c";
+
+export const sendSmsNotification = (phone, date, time) => {
+  if (!phone) return;
+  fetch(SMS_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ payload: { phone_no: phone, date, time } }),
+  }).catch(() => {});
+};

@@ -1,3 +1,6 @@
 package-lock.json
 azure-pipelines.yml
 node_modules
+
+# FDK
+.fdk

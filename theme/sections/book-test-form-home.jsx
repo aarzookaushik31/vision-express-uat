@@ -3,6 +3,7 @@ import styles from "../styles/sections/book-test-form.less";
 import FormSubmitEye from "../assets/images/form-submit-eye-white.png";
 import CloseIcon from "../assets/images/close.svg";
 import { GET_CUSTOM_FORM, POST_CUSTOM_FORM } from "../queries/bookFormQuery";
+import { sendSmsNotification } from "../helper/utils";
 
 export function Component({ props = {} }) {
   const [content, setContent] = useState({});
@@ -22,11 +23,11 @@ export function Component({ props = {} }) {
         const payload = { slug };
         const res = await fpi.executeGQL(GET_CUSTOM_FORM, payload);
         if (res?.data?.support) {
-          setContent(res?.data?.support?.custom_form);
+          setContent(res?.data?.support?.custom_form || {});
 
           const initialData = {};
           const initialError = {};
-          res.data.support.custom_form.inputs.forEach((input) => {
+          (res.data.support.custom_form?.inputs || []).forEach((input) => {
             initialData[input.key] = input.type === "checkbox" ? false : "";
             initialError[input.key] = "";
           });
@@ -55,7 +56,7 @@ const validateForm = () => {
     const value =
       typeof rawValue === "string" ? rawValue.trim() : rawValue;
 
-    const fieldConfig = content.inputs.find((i) => i.key === key);
+    const fieldConfig = content?.inputs?.find((i) => i.key === key);
 
     if (fieldConfig?.required && (!value || value === "")) {
       errors[key] = "This field is required";
@@ -145,7 +146,7 @@ if (!isValid) {
   return;
 }
 
-   const responsePayload = content.inputs.map((input) => {
+   const responsePayload = (content?.inputs || []).map((input) => {
     const value = formData[input.key];
 
     if (input.type === "checkbox") {
@@ -163,6 +164,8 @@ const requestBody = {
 
     try {
       await fpi.executeGQL(POST_CUSTOM_FORM, requestBody);
+
+      sendSmsNotification(formData["contact-number"], formData["date"], formData["time"]);
       setShowSuccessMessage(true);
      
 
@@ -187,7 +190,7 @@ const requestBody = {
 const validateField = (name, value) => {
   let error = "";
 
-  const fieldConfig = content.inputs.find((i) => i.key === name);
+  const fieldConfig = content?.inputs?.find((i) => i.key === name);
 
   if (fieldConfig?.required && (!value || value.trim() === "")) {
     error = "This field is required";
@@ -293,7 +296,7 @@ A Vision Express representative will contact you soon to confirm your time slot 
     </div>
   ) : (
           <form onSubmit={handleSubmit} noValidate>
-            {content.inputs.map((input) => (
+            {(content?.inputs || []).map((input) => (
               <div className={styles.fgroup} key={input.key}>
                 {input.type !== "checkbox" && <label>{input.display}</label>}
 

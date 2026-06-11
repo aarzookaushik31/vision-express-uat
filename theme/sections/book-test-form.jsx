@@ -3,6 +3,7 @@ import styles from "../styles/sections/book-test-form.less";
 import FormSubmitEye from "../assets/images/form-submit-eye-white.png"
 import CloseIcon from "../assets/images/close.svg";
 import { GET_CUSTOM_FORM, POST_CUSTOM_FORM } from "../queries/bookFormQuery";
+import { sendSmsNotification } from "../helper/utils";
 
 const BASE_URL = `${window.location.origin}`;
 
@@ -41,12 +42,12 @@ export function Component({ props = {} }) {
         const payload = { slug };
         const res = await fpi.executeGQL(GET_CUSTOM_FORM, payload);
         if (res?.data?.support) {
-          const form = res.data.support.custom_form;
+          const form = res.data.support.custom_form || {};
           setContent(form);
 
           const initData = {};
           const initErr = {};
-          form.inputs.forEach((i) => {
+          (form.inputs || []).forEach((i) => {
             initData[i.key] = i.type === "checkbox" ? false : "";
             initErr[i.key] = "";
           });
@@ -256,7 +257,7 @@ const validateForm = () => {
     const rawValue = formData[key];
     const value = typeof rawValue === "string" ? rawValue.trim() : rawValue;
 
-    const field = content.inputs.find((i) => i.key === key);
+    const field = content?.inputs?.find((i) => i.key === key);
 
     if (field?.required && (!value || value === "")) {
       errors[key] = "This field is required";
@@ -358,7 +359,7 @@ const handleSubmit = async (e) => {
   }
 
 
-const responsePayload = content.inputs.map((input) => {
+const responsePayload = (content?.inputs || []).map((input) => {
   const value = formData[input.key];
 
   if (["state", "city", "store", "store-name", "choose-store"].includes(input.key)) {
@@ -390,6 +391,8 @@ const responsePayload = content.inputs.map((input) => {
 
   try {
     await fpi.executeGQL(POST_CUSTOM_FORM, requestBody);
+
+    sendSmsNotification(formData["contact-number"], formData["date"], formData["time"]);
 
 
 
@@ -440,7 +443,7 @@ console.log(selectedStore)
 const validateField = (name, value) => {
   let error = "";
 
-  const field = content.inputs.find((i) => i.key === name);
+  const field = content?.inputs?.find((i) => i.key === name);
 
   if (field?.required && (!value || value.trim() === "")) {
     error = "This field is required";
@@ -531,7 +534,7 @@ const handleBlur = (e) => {
         ) : (
 
          <form onSubmit={handleSubmit} noValidate>
-  {content.inputs.map((input) => {
+  {(content?.inputs || []).map((input) => {
     const isDynamicSelect = ["state", "city", "store", "store-name", "choose-store"].includes(input.key);
 
     return (
