@@ -32,7 +32,7 @@ const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) =
     store_latitude,
     store_longitude,
     store_longitutde,
-    store_phone,
+    phone_number,
     store_timings,
   } = store;
 
@@ -68,12 +68,17 @@ const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) =
   const mapSrc = `https://www.google.com/maps?q=${latitude},${longitude}&hl=en&z=15&output=embed`;
 
   // ---- Phone ----
-  let contactNumber = "";
-  if (store_phone && store_phone.trim() !== "") {
-    contactNumber = store_phone;
-  } else if (defaultPhone) {
-    contactNumber = defaultPhone;
-  }
+let contactNumber = "";
+
+if (typeof phone_number === "object" && phone_number !== null) {
+  contactNumber = `${phone_number.code ? `+${phone_number.code}-` : ""}${phone_number.number}`;
+} else if (typeof phone_number === "string" && phone_number.trim() !== "") {
+  contactNumber = phone_number;
+} else if (typeof phone_number === "number") {
+  contactNumber = String(phone_number);
+} else if (defaultPhone) {
+  contactNumber = defaultPhone;
+}
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const description = `${store_name} - located at ${formattedAddress}. Visit us today for eye check-ups, eyewear, and more!`;
@@ -367,7 +372,9 @@ if (Array.isArray(store_timings)) {
                 contactNumber = `${s.phone_number.code ? `+${s.phone_number.code}-` : ""}${s.phone_number.number}`;
               } else if (typeof s.phone_number === "string" && s.phone_number.trim() !== "") {
                 contactNumber = s.phone_number;
-              } else if (defaultPhone) {
+              } else if (typeof s.phone_number === "number") {
+               contactNumber = String(s.phone_number);
+          } else if (defaultPhone) {
                 contactNumber = defaultPhone;
               }
 

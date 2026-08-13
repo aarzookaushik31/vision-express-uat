@@ -1,86 +1,153 @@
 .veCareCoverage {
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 0 auto;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 48px;
+.heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 50px;
 }
 
-.logoBlock {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  img {
-    max-width: 235px;
-  }
+.headingHighlight {
+  color: #E42312;
 }
-
-.bar {
-  width: 4px;
-  height: 96px;
-  background: rgba(158, 0, 126, 1);
-}
-
-.description {
-  font-size: 14px;
-  line-height: 150%;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.description span{
-    color:rgba(158, 0, 126, 1);
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .card {
-  background: rgba(252, 246, 252, 1);
+  position: relative;
+  background: #fff;
+  border: none;
   border-radius: 14px;
-  padding: 30px 50px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  padding: 24px;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
-.cardLabel {
-  font-size: 14px;
+.cardSelected {
+  background: #E42312;
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 24px;
+  margin-bottom: 20px;
+}
+
+.radioCircle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #AEADAD;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cardSelected & {
+    border-color: #fff;
+    background: #fff;
+  }
+}
+
+.checkIcon {
+  color: #E42313;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 150%;
-  letter-spacing: 0px;
-  color: rgba(158, 0, 126, 1);
-  display: block;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.coveredLabel {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cardBody {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 85px;
+}
+
+.cardTextBlock {
+  flex: 1;
 }
 
 .cardTitle {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
   line-height: 120%;
-  margin-bottom: 16px;
+
+  .cardSelected & {
+    color: #fff;
+  }
 }
 
-.cardMeta {
-  font-size: 16px;
-  line-height: 120%;
-  color: rgba(0, 0, 0, 0.5);
+.cardImageWrap {
+  flex-shrink: 0;
+  width: 180px;
+  transition: 0.4s;
+
+  img {
+    margin-left: auto;
+    width: 150px;
+    height: auto;
+    display: block;
+  }
+
+}
+
+.helperText {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 28px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 22px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+}
+
+
+/* Slider dots */
+.sliderDots {
+  display: none;
 }
 
 /* Mobile */
@@ -88,34 +155,85 @@
   .veCareCoverage {
     padding: 50px 20px;
   }
-  .header {
-    gap: 30px;
-    flex-direction: column;
-   align-items: flex-start;
+
+  .heading {
+    font-size: 20px;
+    margin-bottom: 30px;
   }
-.bar{
-  height: 65px;
-}
-  
-.logoBlock {
-  img{
-    max-width: 170px;
+
+  .coveredLabel{
+    font-size: 14px;
   }
-}
 
   .cards {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none;
   }
 
   .card {
-padding: 30px;
+    flex: 0 0 100%;
+    width: 100%;
+
+    padding: 20px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
-  .cardTitle{
-    font-size: 20px;
+ 
+
+  .sliderDots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
   }
-  .cardMeta {
-    font-size: 14px;
+
+  .sliderDot {
+    width: 6px;
+    height: 6px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #FFFFFF66;
+
+    cursor: pointer;
+
+  }
+
+  .sliderDotActive {
+    width: 32px;
+    border-radius: 20px;
+    background: #fff;
+  }
+
+  .cardBody {
+    flex-direction: column;
+  }
+
+  .cardTextBlock{
+    width: 100%;
   }
 }

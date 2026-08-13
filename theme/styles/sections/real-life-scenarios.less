@@ -1,0 +1,178 @@
+.realLifeScenarios {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.cardDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFFFFFCC;
+  line-height: 120%;
+  margin-bottom: 14px;
+}
+
+.cardBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.badgeIcon {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sliderDots {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .realLifeScenarios {
+    padding: 50px 20px;
+  }
+
+  .heading {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .cardGrid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cardGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .sliderDots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .sliderDot {
+   width: 6px;
+    height: 6px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #FFFFFF66;
+
+    cursor: pointer;
+  }
+
+  .sliderDotActive {
+    width: 32px;
+    border-radius: 20px;
+    background: #fff;
+  }
+}

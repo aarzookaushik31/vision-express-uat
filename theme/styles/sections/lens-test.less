@@ -1,4 +1,5 @@
 .lens-test-section {
+  overflow: hidden;
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(180.6% 78.33% at 50% 50%, #ffffff 0%, #fff1fd 58.65%, #ffe6fb 100%);
@@ -7,45 +8,106 @@
   position: relative;
 }
 
-.backButton {
+/* ================================
+   NAV ARROWS (back / next)
+   FIX: previously only one top-left back button existed. The design shows
+   a back arrow (bottom-left) and a next arrow (bottom-right) on every step.
+================================= */
+.navArrow {
   position: absolute;
-  top: 40px;
-  left: 50px;
-  width: 36px;
-  height: 36px;
-  background: white;
-  color:rgba(158, 0, 126, 1);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.04);
+  bottom: 40px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 50%;
-  font-size: 20px;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 100;
 
-  path{
+  path {
     fill: rgba(158, 0, 126, 1) !important;
   }
 
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 
-  @media(max-width: 768px){
-    top: 30px;
-  left: 20px;
+  @media (max-width: 768px) {
+    bottom: 24px;
   }
 }
 
+.navArrowLeft {
+  left: 28%;
 
-.previousSelectedAnswers{
-  background-color: #fff;
+  @media (max-width: 768px) {
+    left: 80px;
+  }
+}
+
+.navArrowRight {
+  right: 28%;
+  transform: rotate(180deg);
+
+  @media (max-width: 768px) {
+    right: 80px;
+  }
+}
+
+/* ================================
+   SELECTIONS ("Your Selections" pills)
+   FIX: added the "YOUR SELECTIONS" label, checkmarks, and "Label: Value"
+   formatting to match the design instead of raw values joined by "|".
+================================= */
+.selectionsWrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.selectionsLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+
+.previousSelectedAnswers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.answerPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF1A;
+  border-radius: 1px solid #fff;
   border-radius: 50px;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
+  color: rgba(56, 56, 56, 1);
+  line-height: 120%;
+  white-space: nowrap;
+
+  strong {
+    color: #fff;
+  }
+}
+
+.checkIcon {
   color: rgba(158, 0, 126, 1);
-  height: auto;
-    width: fit-content;
-    margin: auto;
-    line-height: 120%;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .card-wrapper {
@@ -62,37 +124,69 @@
 
 .brand {
   text-align: center;
-  margin-bottom: 40px;
-
-  img {
-    width: 180px;
-    height: auto;
-  }
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 5;
 }
 
+.brandLogo {
+  width: 180px;
+  height: auto;
+  display: block;
+    margin: auto;
+}
 
-.age, .vision, .lifestyle{
-  .brand{
-       margin-bottom: 50px !important;
+/*
+  FIX: this is the logo+selections block used on the question and
+  progressive screens, which sit on top of a full-bleed photo/video. It
+  must be position:absolute so it overlays the media instead of sitting in
+  normal document flow and pushing the photo down (which created the
+  white/pink header strip bug).
+*/
+.questionBrand {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    top: 20px;
+    left: 10px;
+    right: 10px;
   }
-  .brand-image{
+
+
+   &::before {
+    content: "";
     position: absolute;
-    top:0;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 280px;
+    pointer-events: none;
+    z-index: -1;
 
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(229, 118, 214, 0.45) 0%,
+        rgba(229, 118, 214, 0.25) 35%,
+        rgba(229, 118, 214, 0.1) 60%,
+        rgba(229, 118, 214, 0) 100%
+      );
+
+    filter: blur(40px);
   }
 }
-
-
-
-
-
 
 // NEW Full-width hero image like screenshot
 .hero {
   position: relative;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -103,11 +197,9 @@
     object-fit: cover;
     flex: 1;
   }
-
-  
 }
 
-  // Content section
+// Content section
 .content {
   padding: 32px 16px;
   text-align: center;
@@ -117,45 +209,36 @@
   width: calc(100% - 30px);
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 23px 78.3px rgba(161, 90, 149, 0.12) inset;
-  backdrop-filter: blur(16.4px);  
+  backdrop-filter: blur(16.4px);
   border-radius: 24px;
   transform: translateX(-50%);
   max-width: 360px;
-}
 
-
-.content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  padding: 1px; 
-  background: linear-gradient(180deg, #FFFFFF -121.08%, rgba(255, 255, 255, 0) 100%);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor; 
-          mask-composite: exclude;
-  z-index: -1;
-}
-
-  // Brand/Logo
-  .brand {
-   max-width: 208px;
-   margin: auto;
-   position: relative;
-   z-index: 4;
-
-    img{
- width: 100%;
-    }
-  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(180deg, #FFFFFF -121.08%, rgba(255, 255, 255, 0) 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
   }
 
+  // Brand/Logo (start screen only)
+  .brand {
+    max-width: 208px;
+    margin: 0 auto 20px;
 
+    .brandLogo {
+      width: 100%;
+    }
+  }
 
-
-  
   // Headings
   .heading {
     font-size: 28px;
@@ -173,23 +256,27 @@
     line-height: 120%;
     letter-spacing: 0px;
   }
+}
 
-
-
-video{
+video {
   max-width: 100%;
 }
 
-
-
-.questionContentWrapper{
+.questionContentWrapper {
   position: absolute;
   bottom: 20px;
-  left: 20px;
-  width: calc(100% - 40px);
-z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  z-index: 5;
 }
 
+// FIX: 5 lifestyle icons need more horizontal room than the default 420px
+// card to avoid wrapping to a second row.
+.lifestyle .questionContentWrapper {
+  max-width: 480px;
+}
 
 .video-wrapper {
   width: 100%;
@@ -204,9 +291,7 @@ z-index: 5;
 
 .question-wrapper {
   width: 100%;
-  max-width: 420px;
   padding: 20px 0px;
-  margin: 0 auto;
   text-align: center;
   position: relative;
   height: 100%;
@@ -217,14 +302,14 @@ z-index: 5;
   font-size: 12px;
   line-height: 120%;
   letter-spacing: 0px;
-  color: rgba(46, 43, 44, 0.6);
+  color: #9E007E;
   text-transform: uppercase;
   margin-bottom: 15px;
 }
 
 .question-title {
   font-size: 24px;
-  color: rgba(56, 56, 56, 1);
+  color: #fff;
   font-weight: 700;
   margin-bottom: 30px;
   letter-spacing: 0px;
@@ -239,21 +324,22 @@ z-index: 5;
 }
 
 .option {
-  padding:15px;
+  padding: 15px;
   border-radius: 50px;
   font-size: 16px;
   font-weight: 700;
-  color:rgba(56, 56, 56, 1);
-  border: 1px solid rgba(158, 0, 126, 0.04);
-background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255, 255, 255, 0.04) 155.24%);
+  color: #fff;
+  border: 1px solid #fff;
+  background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255, 255, 255, 0.04) 155.24%);
   cursor: pointer;
   transition: all 0.25s ease;
   flex: 1;
   height: 64px;
 }
 
-.selected {
+.option.selected {
   background: #ffffff;
+  color:rgba(56, 56, 56, 1);
   border: 1px solid rgba(158, 0, 126, 1);
 }
 
@@ -262,7 +348,7 @@ background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255,
   border-radius: 500px;
   font-size: 16px;
   font-weight: 700;
-  padding:  8px 8px 8px 40px;
+  padding: 8px 8px 8px 40px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -275,55 +361,67 @@ background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255,
   color: #ffffff;
 }
 
-.buttonIcon { 
-  border-radius: 50%; 
-  width: 48px; 
+.buttonIcon {
+  position: relative;
+  border-radius: 50%;
+  width: 48px;
   height: 48px;
-   background-color: rgba(255, 255, 255, 0.1); 
-   box-shadow: 0px 23px 78.3px rgba(161, 90, 149, 0.12) inset; 
-   backdrop-filter: blur(16.4px); 
-   display: flex; 
-   align-items: center; 
-   justify-content: center; 
-   
-   span { width: 8px; 
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 23px 78.3px rgba(161, 90, 149, 0.12) inset;
+  backdrop-filter: blur(16.4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    width: 8px;
     height: 8px;
-     border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-       transform: rotate(-45deg); 
-       display: block; } }
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+    display: block;
+  }
 
-
-.buttonIcon::before { content: ""; position: absolute; inset: 0; border-radius: 50%; padding: 1px; background: linear-gradient(180deg, #FFFFFF -121.08%, rgba(255, 255, 255, 0) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1; }
-
-
-
-
-
-
-.nextQuestionbutton{
-  border-radius: 50%; 
-  width: 64px; 
-  height: 64px;
-   background-color: rgba(158, 0, 126, 1); 
-   display: flex; 
-   align-items: center; 
-   justify-content: center; 
-   margin: auto;
-
-
-     span { width: 12px; 
-    height: 12px;
-     border-right: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-       transform: translateX(-3px) rotate(-45deg); 
-       display: block; } 
-
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(180deg, #FFFFFF -121.08%, rgba(255, 255, 255, 0) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
 }
 
+.nextQuestionbutton {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(158, 0, 126, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border: none;
+  cursor: pointer;
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
-
+  span {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: translateX(-3px) rotate(-45deg);
+    display: block;
+  }
+}
 
 .counter {
   margin-top: 25px;
@@ -331,18 +429,18 @@ background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255,
   color: #8c8c8c;
 }
 
-
-
-
 // Lifestyle options grid layout
+// FIX: 5 icons at 80px + 30px gaps (520px total) didn't fit inside the
+// fixed 420px content card, so they wrapped to a second row and overlapped
+// the photo below. Switched to nowrap + flexible sizing so all 5 always
+// fit on one line, and widened the card specifically for this question.
 .lifestyle-options {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-column-gap: 30px;
-row-gap: 0;   
-  max-width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -350,20 +448,34 @@ row-gap: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
-  max-width: 80px;
+  flex: 1 1 0;
+  min-width: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .lifestyle-icon-wrapper {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
 }
 
-.lifestyle-selected .lifestyle-icon-wrapper{
-  border: 1px solid rgba(158, 0, 126, 1);
+.lifestyle-selected .lifestyle-icon-wrapper {
+  border: 2px solid rgba(158, 0, 126, 1);
+  box-shadow: 0px 4px 14px 0px rgba(158, 0, 126, 0.2);
+  background: #fff;
+}
+.lifestyle-video {
+  transition: transform 0.12s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .lifestyle-icon {
@@ -372,32 +484,50 @@ row-gap: 0;
   object-fit: cover;
 }
 
-.lifestyle-option-text{
-color:rgba(56, 56, 56, 1);
-font-size: 12px;
-font-weight: 700;
-line-height: 120%;
-letter-spacing: 0px;
+.lifestyle-option-text {
+  color: rgba(56, 56, 56, 1);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-align: center;
+  word-break: break-word;
 }
 
-.lifestyle-glasses-wrapper{
-  position: relative;
-}
-
-.lifestyle-video{
-   width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 3;
-}
-
-.lifestyle-video-copy{
- position: absolute;
+/*
+  FIX: this wrapper previously had no absolute positioning/height, so it
+  sized itself to the natural aspect ratio of the <img> inside instead of
+  covering the full screen like the age-question photo does. That's what
+  caused the content card to float mid-image instead of anchoring to the
+  bottom of a full-bleed background.
+*/
+.lifestyle-glasses-wrapper {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.lifestyle-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.lifestyle-video-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 2;
 }
 
@@ -410,14 +540,15 @@ letter-spacing: 0px;
 }
 
 @keyframes fadeZoomInAnim {
-  from { opacity: 0;  transform: scale(0.9);}
-  to { opacity: 1; transform: scale(1);}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeZoomOutAnim {
-  from { opacity: 1;  transform: scale(1.1);}
-  to { opacity: 0; transform: scale(1);}
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
+
 
 
 /* ================================
@@ -432,13 +563,58 @@ letter-spacing: 0px;
   padding: 20px 15px;
 }
 
+.resultheader{
+  position: relative;
+  z-index: 3;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 280px;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(118, 155, 229, 0.45) 0%,
+        rgba(229, 118, 214, 0.25) 35%,
+        rgba(229, 118, 214, 0.1) 60%,
+        rgba(229, 118, 214, 0) 100%
+      );
+
+    filter: blur(40px);
+  }
+}
+
+.result-glasses {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
 .result-subtitle {
   font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 0px;
+  line-height: 120%;
+  letter-spacing: 0px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(46, 43, 44, 0.6);
+  color:#fff;
   margin-bottom: 10px;
 }
 
@@ -446,16 +622,16 @@ letter-spacing: 0px;
   font-size: 32px;
   font-weight: 700;
   line-height: 120%;
-  color: rgba(158, 0, 126, 1);
+  color: #fff;
   margin-bottom: 12px;
   text-transform: uppercase;
 }
 
 .result-text {
   font-size: 14px;
-  color: rgba(56, 56, 56, 0.8);
+  color: #fff;
   max-width: 300px;
- margin: auto;
+  margin: auto;
   line-height: 120%;
 }
 
@@ -466,25 +642,24 @@ letter-spacing: 0px;
   display: block;
 }
 
-
 /* Glasses Image container */
-.result-glasses {
-  margin-bottom: 10px;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
 
 /* White card under glasses */
 .result-box {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 24px;
-  padding: 32px 16px;
- box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
-backdrop-filter: blur(8px);
+  background: #FFFFFF1A;
+  border-radius: 47px;
+  padding: 16px;
+  box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
+  backdrop-filter: blur(8px);
   text-align: center;
+  position: absolute;
+  bottom: 10px;
+  border: 1px solid #fff;
+  width: calc(100% - 30px);
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Logo inside result box */
@@ -497,7 +672,7 @@ backdrop-filter: blur(8px);
 .result-lens-title {
   font-size: 20px;
   line-height: 120%;
-  color: rgba(56, 56, 56, 1);
+  color: #fff;
   font-weight: 700;
   margin-bottom: 8px;
   letter-spacing: 0px;
@@ -507,16 +682,15 @@ backdrop-filter: blur(8px);
 .result-lens-description {
   font-size: 12px;
   line-height: 120%;
-  color: rgba(56, 56, 56, 0.5);
+  color: #fff;
   margin-bottom: 18px;
   letter-spacing: 0px;
 }
 
-
 /* Bullet points */
 .result-points {
   text-align: left;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   max-width: 300px;
   padding: 0;
   list-style: none;
@@ -524,9 +698,9 @@ backdrop-filter: blur(8px);
   li {
     position: relative;
     padding-left: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     letter-spacing: 0px;
-    color: rgba(56, 56, 56, 1);
+    color: #fff;
     font-size: 12px;
 
     &::before {
@@ -544,11 +718,11 @@ backdrop-filter: blur(8px);
 
 /* CTA Button */
 .learn-more-button {
- border: none;
+  border: none;
   border-radius: 500px;
   font-size: 16px;
   font-weight: 700;
-  padding:  8px 8px 8px 40px;
+  padding: 8px 8px 8px 40px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -558,47 +732,38 @@ backdrop-filter: blur(8px);
   width: 100%;
   margin-bottom: 10px;
 
-
-  div{
+  div {
     flex: 1;
     text-align: center;
   }
 
   .buttonIcon {
-background-color: rgba(56, 56, 56, 0.1);
-box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
-
-backdrop-filter: blur(16.399999618530273px);
+    background-color: rgba(56, 56, 56, 0.1);
+    box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
+    backdrop-filter: blur(16.399999618530273px);
   }
 }
 
 /* Visit Store Link */
 .visit-store {
   font-size: 13px;
-  color: rgba(46, 43, 44, 0.6);
+  color: #fff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+// FIX: 0.04 alpha backgrounds are invisible against a busy photo/video
+// backdrop (they were designed for a plain page background). Bumped these
+// progressive-only panels to solid, legible cards matching the mockup.
 .slider-wrapper {
   width: 100%;
   padding: 25px;
-  background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255, 255, 255, 0.04) 155.24%);
-border: 1px solid rgba(158, 0, 126, 0.05);
-border-radius: 500px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(158, 0, 126, 0.08);
+  border-radius: 500px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
 
-input{
-  transition: all 0.4s ease;
-}
+  input {
+    transition: all 0.4s ease;
+  }
 }
 
 .pink-slider {
@@ -607,7 +772,6 @@ input{
   height: 10px;
   border-radius: 20px;
   background: linear-gradient(269.72deg, #9E007E -58.52%, rgba(158, 0, 126, 0) 99.76%);
-
   outline: none;
   position: relative;
   transition: all 0.4s ease;
@@ -618,20 +782,17 @@ input{
   height: 40px;
   width: 58px;
   border-radius: 40px;
-background:
-  url("../../assets/images/tripplearrow.png")  center no-repeat,
-  radial-gradient(259.91% 546.47% at -20.26% 61.87%, #9E007E 0%, #E36BD3 100%);
-  background-size:
-    13px 9px, 
-    cover; 
-    box-shadow: 0px 4px 14px rgba(214, 74, 232, 0.4);
- background-repeat: no-repeat;
+  background:
+    url("../../assets/images/tripplearrow.png") center no-repeat,
+    radial-gradient(259.91% 546.47% at -20.26% 61.87%, #9E007E 0%, #E36BD3 100%);
+  background-size: 13px 9px, cover;
+  box-shadow: 0px 4px 14px rgba(214, 74, 232, 0.4);
+  background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   box-shadow: 0px 9px 8px 0px rgba(158, 0, 126, 0.32);
   transition: all 0.4s ease;
 }
-
 
 .progressive-tabs {
   display: flex;
@@ -639,27 +800,31 @@ background:
   margin-top: 10px;
   font-size: 14px;
   font-weight: 700;
-  padding: 0 10px;
 }
 
-.progressive-tabs span {
+.progressive-tabs .tab {
+  flex: 1;
+  text-align: center;
   padding: 12px;
-  border-radius: 12px 12px 0 0;
+  border-radius: 10px 10px 0 0;
   cursor: pointer;
-  color: rgba(0, 0, 0, 1);
+  color: #FFFFFF99;
 }
 
 .progressive-tabs .active {
   color: rgba(158, 0, 126, 1);
-  border: 1px solid rgba(158, 0, 126, 0.04);
- background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255, 255, 255, 0.04) 155.24%);
+  border: 1px solid #fff;
+  background: #FFFFFF1A;
+  color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .progressiveGrid {
- box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
+  box-shadow: 0px 23px 78.3px 0px rgba(161, 90, 149, 0.12) inset;
   backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 20px;
+  background: #FFFFFF1A;
+   border: 1px solid #fff;
+  padding: 10px;
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -673,8 +838,7 @@ background:
 .gridLabel {
   width: 140px;
   font-size: 14px;
-
-  color:rgba(0, 0, 0, 1);
+  color: #fff;
   text-align: left;
   font-weight: 700;
 }
@@ -688,7 +852,7 @@ background:
   width: 13px;
   height: 13px;
   background: linear-gradient(160.2deg, rgba(158, 0, 126, 0.04) -35.31%, rgba(255, 255, 255, 0.04) 155.24%);
-border: 1px solid rgba(158, 0, 126, 1);
+  border: 1px solid rgba(158, 0, 126, 1);
   border-radius: 50%;
   display: inline-block;
 }
@@ -697,18 +861,16 @@ border: 1px solid rgba(158, 0, 126, 1);
   background: rgba(158, 0, 126, 1);
 }
 
-
-.bgplatformIMage{
+.bgplatformIMage {
   position: absolute;
   width: 100%;
-  bottom:0px;
-  left:0px;
+  bottom: 0px;
+  left: 0px;
   z-index: 0;
   animation: slideUpBg 0.6s ease-out forwards;
   transform: translateY(-100px);
   opacity: 0;
 }
-
 
 @keyframes slideUpBg {
   to {
@@ -717,38 +879,61 @@ border: 1px solid rgba(158, 0, 126, 1);
   }
 }
 
-
-
-.vision-video-wrapper{
+.vision-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.vision-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+@media(max-width: 768px){
+  .vision-video {
+  object-position: center;
+}
 
 }
 
-
 .age-image-wrapper {
-  position: relative;
   width: 100%;
-  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
 }
 
 .ageImage {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
   display: block;
   position: relative;
   z-index: 3;
 }
 
-
-.ageImageCopy{
-   position: absolute;
+.ageImageCopy {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  object-position: bottom;
+  height: 100%;
+  object-fit: cover;
   z-index: 2;
 }
-
 
 .fadeIn {
   animation: fadeInAnim 1s ease forwards;
@@ -768,20 +953,24 @@ border: 1px solid rgba(158, 0, 126, 1);
   to { opacity: 0; }
 }
 
+/*
+  FIX: this used to reuse the shared `slideUp` keyframe name, which was
+  declared twice in this file. The second declaration silently won,
+  stripping out the translateX(-50%) horizontal-centering step and breaking
+  the entrance animation. Renamed to its own keyframe so it can't collide.
+*/
 .slideFromBottom {
   opacity: 0;
-  transform: translate(-50%, 120%); 
-  animation: slideUp 0.8s forwards;
+  transform: translateY(120%);
+  animation: slideFromBottomAnim 0.8s forwards;
 }
 
-@keyframes slideUp {
+@keyframes slideFromBottomAnim {
   to {
     opacity: 1;
-    transform: translate(-50%, 0); 
+    transform: translateY(0);
   }
 }
-
-
 
 /* === Smooth slide & fade animations === */
 
@@ -815,13 +1004,6 @@ border: 1px solid rgba(158, 0, 126, 1);
   }
 }
 
-
-
-
-
-
-
-
 /* Fade-in animation */
 .fadeInVideo {
   animation: fadeInVideo 0.6s ease-in-out both;
@@ -838,16 +1020,210 @@ border: 1px solid rgba(158, 0, 126, 1);
   }
 }
 
-
-
 video {
-  transform: scale(1.03) !important; 
+  transform: scale(1.03) !important;
   transform-origin: center;
 }
 
-.video-wrapper,
-.vision-video-wrapper,
-.lifestyle-glasses-wrapper,
+.video-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+/*
+  FIX: this relied on a percentage-height chain through several ancestors
+  (card-wrapper → card → question-wrapper) to reach 100% of the viewport.
+  That chain is fragile — any padding/overflow quirk anywhere in it shows
+  up as a visible gap of page background above/below the video. Pinning
+  directly to the viewport with `fixed` removes that dependency entirely.
+*/
 .progressive-video-wrapper {
- overflow: hidden;
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.progressive-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/*
+  FIX: the lifestyle photo is dark/moody by design (matching the target
+  mockup's white text), but with no scrim behind the text, busy areas of
+  the photo (like a laptop screen) can clash badly with it. Scoped to the
+  lifestyle screen only — the age/vision reference photos are already light
+  and use dark text, so darkening them would break that look instead.
+*/
+.lifestyle-glasses-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+// FIX: lifestyle question text was dark-on-dark against this photo. Match
+// the target mockup's white text for this screen specifically.
+.lifestyle {
+  .question-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .question-subtitle.lifestyle-subtitle {
+  color: #fff;
+}
+
+  .question-title {
+    color: #ffffff;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .lifestyle-option-text {
+    color: #ffffff;
+    text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   FIGMA MATCH FIXES — apply these changes to lens-test.less
+   ============================================================ */
+
+/* -----------------------------------------------------------
+   1) "YOUR SELECTIONS" needs its own card background.
+   Currently .selectionsWrapper has no background/padding at all,
+   so only the individual pills float on the photo. Figma shows
+   a soft rounded glass card wrapping the whole label + pills.
+
+   REPLACE the existing .selectionsWrapper block with:
+------------------------------------------------------------ */
+.selectionsWrapper {
+  display: inline-block;
+  text-align: center;
+  margin-top: 14px;
+  padding: 14px 22px;
+  background-color: rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  box-shadow: 0px 12px 40px rgba(161, 90, 149, 0.12) inset;
+  backdrop-filter: blur(16px);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(180deg, #FFFFFF -60%, rgba(255, 255, 255, 0) 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* -----------------------------------------------------------
+   2) The bottom question card (title + options) needs the same
+   glass-card treatment that .content already has on the start
+   screen. Right now .questionContentWrapper is positioning-only,
+   which is why it renders as bare text/buttons directly on the
+   photo instead of the soft card seen in Figma.
+
+   REPLACE the existing .questionContentWrapper block with:
+------------------------------------------------------------ */
+.questionContentWrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  z-index: 5;
+  padding: 28px 20px 24px;
+  background-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0px 23px 78.3px rgba(161, 90, 149, 0.12) inset;
+  backdrop-filter: blur(16.4px);
+  border-radius: 47px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 47px;
+    padding: 1px;
+    background: linear-gradient(180deg, #FFFFFF -121.08%, rgba(255, 255, 255, 0) 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+.questionContentWrapperprogressive {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  border-radius: 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+@media(max-width: 768px){
+  .questionContentWrapper{
+    bottom: 80px;
+  }
+}
+
+/* this rule already exists below the block above — keep it as-is,
+   it still applies correctly with the new padding/background */
+.lifestyle .questionContentWrapper {
+  max-width: 480px;
+}
+
+/* -----------------------------------------------------------
+   3) Because .questionContentWrapper is now a solid-ish card,
+   the lifestyle screen's white/shadowed text (added for contrast
+   against the dark photo) is no longer necessary inside the card
+   area and can look heavy. Soften it back toward the default
+   dark text now that there's a card behind it:
+------------------------------------------------------------ */
+.lifestyle {
+  .question-subtitle {
+    color: #9E007E;
+  }
+
+  .question-title {
+    color: #fff;
+    text-shadow: none;
+  }
+
+  .lifestyle-option-text {
+    color: #fff;
+    text-shadow: none;
+      white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+  text-align: center;
+  }
 }

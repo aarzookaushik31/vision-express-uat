@@ -356,6 +356,15 @@
               "footer": true
             }
           }
+        },
+        {
+          "page": "unofficial",
+          "settings": {
+            "props": {
+              "header": true,
+              "footer": true
+            }
+          }
         }
       ]
     }

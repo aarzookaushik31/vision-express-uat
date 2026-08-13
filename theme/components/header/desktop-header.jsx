@@ -16,8 +16,11 @@ import CartIcon from "../../assets/images/single-row-cart.svg";
 import LocationIcon from "../../assets/images/locationicon.png";
 import EyeTestingIcon from "../../assets/images/eyetestingicon.png";
 import { FDKLink } from "fdk-core/components";
-import Tickerimage from "../../assets/images/tabler_eye-bolt.png";
 import Slider from "react-slick";
+
+import DefaultTickerImage from "../../assets/images/tabler_eye-bolt.png";
+import FindYourLensImage from "../../assets/images/glass-lens.png";
+
 
 function HeaderDesktop({
   checkLogin,
@@ -100,15 +103,29 @@ const tickerSlides = rawTicker
 {tickerSlides.length > 0 && (
   <div className={styles.homepageTicker}>
     <Slider {...sliderConfig} className={styles.tickerSlider}>
-      {tickerSlides.map((slide, index) => (
-        <div key={index} className={styles.tickerSlide}>
-          <img src={Tickerimage} alt="Ticker" className={styles.tickerImage} />
-          <p
-            className={styles.tickerText}
-            dangerouslySetInnerHTML={{ __html: slide }}
-          />
-        </div>
-      ))}
+      {tickerSlides.map((slide, index) => {
+       const plainText = slide.replace(/<[^>]*>/g, "");
+
+const tickerImage = plainText
+  .toLowerCase()
+  .includes("find your lens")
+  ? FindYourLensImage
+  : DefaultTickerImage;
+
+        return (
+          <div key={index} className={styles.tickerSlide}>
+            <img
+              src={tickerImage}
+              alt="Ticker"
+              className={styles.tickerImage}
+            />
+            <p
+              className={styles.tickerText}
+              dangerouslySetInnerHTML={{ __html: slide }}
+            />
+          </div>
+        );
+      })}
     </Slider>
   </div>
 )}

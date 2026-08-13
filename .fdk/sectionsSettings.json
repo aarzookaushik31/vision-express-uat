@@ -2971,6 +2971,58 @@
       }
     ]
   },
+  "filter-category-tabs-copy": {
+    "label": "Filtered Category with Tabs New",
+    "props": [
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Explore Our Collections",
+        "label": "Section Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list_item",
+        "name": "List Item",
+        "props": [
+          {
+            "type": "text",
+            "id": "groupTitle",
+            "label": "Category Group (e.g. Eyeglasses)",
+            "default": "Eyeglasses",
+            "info": "Blocks with the same value here are grouped together. Add all items for one category consecutively before starting the next."
+          },
+          {
+            "type": "url",
+            "id": "groupLink",
+            "label": "Category Group Link"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Item Title (e.g. Men)",
+            "default": "Sample Item"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Item Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "hoverImage",
+            "label": "Hover Image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Item Link"
+          }
+        ]
+      }
+    ]
+  },
   "filter-category-tabs": {
     "label": "Filtered Category with Tabs",
     "props": [
@@ -4953,6 +5005,276 @@
           }
         ],
         "default": "0"
+      }
+    ]
+  },
+  "lens-test-new": {
+    "label": "Lens Test New",
+    "props": [
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Logo Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_1",
+        "label": "Image: Age < 20"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_2",
+        "label": "Image: Age 20-40"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_image_3",
+        "label": "Image: Age 40+"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_mobile_image_1",
+        "label": "Mobile Image: Age < 20"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_mobile_image_2",
+        "label": "Mobile Image: Age 20-40"
+      },
+      {
+        "type": "image_picker",
+        "id": "age_mobile_image_3",
+        "label": "Mobile Image: Age 40+"
+      },
+      {
+        "type": "video",
+        "id": "vision_video",
+        "label": "Vision Question Video"
+      },
+      {
+        "type": "video",
+        "id": "vision_video_mobile",
+        "label": "Vision Question Video (Mobile)"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_image_1",
+        "label": "Image: Study & Screens"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_image_2",
+        "label": "Image: Home & Family"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_image_3",
+        "label": "Image: Work & Commute"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_image_4",
+        "label": "Image: Business Leaders"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_image_5",
+        "label": "Image: Specialist Work"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_mobile_image_1",
+        "label": "Mobile Image: Study & Screens"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_mobile_image_2",
+        "label": "Mobile Image: Home & Family"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_mobile_image_3",
+        "label": "Mobile Image: Work & Commute"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_mobile_image_4",
+        "label": "Mobile Image: Business Leaders"
+      },
+      {
+        "type": "image_picker",
+        "id": "lifestyle_mobile_image_5",
+        "label": "Mobile Image: Specialist Work"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_1",
+        "label": "Icon: Study & Screens"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_2",
+        "label": "Icon: Home & Family"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_3",
+        "label": "Icon: Work & Commute"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_4",
+        "label": "Icon: Business Leaders"
+      },
+      {
+        "type": "image_picker",
+        "id": "life_image_5",
+        "label": "Icon: Specialist Work"
+      },
+      {
+        "type": "image_picker",
+        "id": "studyscreens_image",
+        "label": "Study and Screens result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "homefamily_image",
+        "label": "Home and Family result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "workcommute_image",
+        "label": "Work and Commute result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "businessleaders_image",
+        "label": "Business Leaders result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "specialistwork_image",
+        "label": "Specialist Work result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "studyscreens_mobile_image",
+        "label": "Study & Screens Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "homefamily_mobile_image",
+        "label": "Home & Family Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "workcommute_mobile_image",
+        "label": "Work & Commute Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "businessleaders_mobile_image",
+        "label": "Business Leaders Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "specialistwork_mobile_image",
+        "label": "Specialist Work Mobile Result Image"
+      },
+      {
+        "type": "video",
+        "id": "progressive_normal_video",
+        "label": "Progressive Lens Video"
+      },
+      {
+        "type": "video",
+        "id": "progressive_normal_video_mobile",
+        "label": "Progressive Lens Video (Mobile)"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_normal_image",
+        "label": "Progressive Normal Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_wide_image",
+        "label": "Progressive Wide Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_digital_image",
+        "label": "Progressive Digital Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_customized_image",
+        "label": "Progressive Customized Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_normal_mobile_image",
+        "label": "Progressive Normal Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_wide_mobile_image",
+        "label": "Progressive Wide Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_digital_mobile_image",
+        "label": "Progressive Digital Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "progressive_customized_mobile_image",
+        "label": "Progressive Customized Mobile Result Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "gadget_pro_logo",
+        "label": "Gadget Pro Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "drive_sure_logo",
+        "label": "Drive Sure Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "clear_vision_logo",
+        "label": "Clear Vision Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "tru_vision_logo",
+        "label": "Tru Vision Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "regular_lens_logo",
+        "label": "Regular Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "comfort_lens_logo",
+        "label": "Comfort Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "supreme_lens_logo",
+        "label": "Supreme Lens Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "lumino_lens_logo",
+        "label": "Lumino Lens Logo"
       }
     ]
   },
@@ -7421,6 +7743,140 @@
       ]
     }
   },
+  "ve-care-calculator": {
+    "label": "Ve-Care Cost Calculator",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "What Could One"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Accident Cost?"
+      },
+      {
+        "id": "frameLabel",
+        "type": "text",
+        "label": "Frame Row Label",
+        "default": "Frame"
+      },
+      {
+        "id": "frameDescription",
+        "type": "text",
+        "label": "Frame Row Description",
+        "default": "Adjust the cost of frame"
+      },
+      {
+        "id": "frameMin",
+        "type": "number",
+        "label": "Frame Min",
+        "default": 0
+      },
+      {
+        "id": "frameMax",
+        "type": "number",
+        "label": "Frame Max",
+        "default": 10000
+      },
+      {
+        "id": "frameStep",
+        "type": "number",
+        "label": "Frame Step",
+        "default": 100
+      },
+      {
+        "id": "frameDefault",
+        "type": "number",
+        "label": "Frame Default Value",
+        "default": 4000
+      },
+      {
+        "id": "lensLabel",
+        "type": "text",
+        "label": "Lens Row Label",
+        "default": "Lens"
+      },
+      {
+        "id": "lensDescription",
+        "type": "text",
+        "label": "Lens Row Description",
+        "default": "Adjust the cost of lens"
+      },
+      {
+        "id": "lensMin",
+        "type": "number",
+        "label": "Lens Min",
+        "default": 0
+      },
+      {
+        "id": "lensMax",
+        "type": "number",
+        "label": "Lens Max",
+        "default": 10000
+      },
+      {
+        "id": "lensStep",
+        "type": "number",
+        "label": "Lens Step",
+        "default": 100
+      },
+      {
+        "id": "lensDefault",
+        "type": "number",
+        "label": "Lens Default Value",
+        "default": 5000
+      },
+      {
+        "id": "replacementCostLabel",
+        "type": "text",
+        "label": "Replacement Cost Label",
+        "default": "Replacement Cost"
+      },
+      {
+        "id": "veCareLabel",
+        "type": "text",
+        "label": "VE Care Label",
+        "default": "VE Care"
+      },
+      {
+        "id": "youSaveLabel",
+        "type": "text",
+        "label": "You Save Label",
+        "default": "You Save"
+      },
+      {
+        "id": "disclaimerText",
+        "type": "text",
+        "label": "Disclaimer Text",
+        "default": "Prices are indicative. Final replacement cost may vary."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "plan_tab",
+        "name": "Plan Tab",
+        "props": [
+          {
+            "id": "planLabel",
+            "type": "text",
+            "label": "Plan Label",
+            "default": "Single Vision ₹299"
+          },
+          {
+            "id": "planPrice",
+            "type": "number",
+            "label": "Plan Price (numeric, used in calculation)",
+            "default": 299
+          }
+        ]
+      }
+    ],
+    "blockLimit": 4
+  },
   "ve-care-claim": {
     "label": "How To Claim Section",
     "props": [
@@ -7475,99 +7931,466 @@
       }
     ]
   },
+  "ve-care-comparison": {
+    "label": "How Ve-Care Works Section",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "How VeCare"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Works?"
+      },
+      {
+        "id": "withoutLogoImage",
+        "type": "image_picker",
+        "label": "Left Card Logo (Without Ve-Care)"
+      },
+      {
+        "id": "withLogoImage",
+        "type": "image_picker",
+        "label": "Right Card Logo (With Ve-Care)"
+      },
+      {
+        "id": "withoutTitle",
+        "type": "text",
+        "label": "Left Card Prefix Text",
+        "default": "Without"
+      },
+      {
+        "id": "withTitle",
+        "type": "text",
+        "label": "Right Card Prefix Text",
+        "default": "With"
+      },
+      {
+        "id": "withoutBackgroundColor",
+        "type": "color",
+        "label": "Left Card Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "id": "withBackgroundColor",
+        "type": "color",
+        "label": "Right Card Background Color",
+        "default": "#E42312"
+      },
+      {
+        "id": "withoutWatermarkImage",
+        "type": "image_picker",
+        "label": "Left Card Watermark Background Image"
+      },
+      {
+        "id": "withWatermarkImage",
+        "type": "image_picker",
+        "label": "Right Card Watermark Background Image"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Section Background Color",
+        "default": "#0a0a0a"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "comparison_item",
+        "name": "Comparison Item",
+        "props": [
+          {
+            "id": "column",
+            "type": "select",
+            "label": "Column",
+            "default": "without",
+            "options": [
+              {
+                "value": "without",
+                "label": "Without Ve-Care"
+              },
+              {
+                "value": "with",
+                "label": "With Ve-Care"
+              }
+            ]
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Item Text",
+            "default": "Pay full replacement cost"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 10
+  },
+  "ve-care-contact": {
+    "label": "Ve-Care Contact CTA",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Still Have A Question?"
+      },
+      {
+        "id": "subheading",
+        "type": "text",
+        "label": "Subheading",
+        "default": "We're Here To Help"
+      },
+      {
+        "id": "description",
+        "type": "text",
+        "label": "Description",
+        "default": "Visit Your Nearest Vision Express Store."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "contact_action",
+        "name": "Action Card",
+        "props": [
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Find A Store"
+          },
+          {
+            "id": "actionDescription",
+            "type": "text",
+            "label": "Description",
+            "default": "Locate your nearest Vision Express store."
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Link URL"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 4
+  },
   "ve-care-coverage": {
     "label": "Ve-Care Coverage Section",
     "props": [
       {
-        "id": "logo",
-        "type": "image_picker",
-        "label": "Logo Image"
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "Has This"
       },
       {
-        "id": "description",
-        "type": "textarea",
-        "label": "Description",
-        "default": "VE-CARE PROTECT is our premium eyewear protection plan designed to give you complete peace of mind long after your purchase."
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Ever Happened?"
+      },
+      {
+        "id": "coveredLabel",
+        "type": "text",
+        "label": "Selected State Label",
+        "default": "You're covered!"
+      },
+      {
+        "id": "helperText",
+        "type": "text",
+        "label": "Helper Text Below Cards",
+        "default": "Select the options above to check if you're covered or not."
       },
       {
         "id": "backgroundColor",
         "type": "color",
         "label": "Background Color",
-        "default": "#ffffff"
+        "default": "#0a0a0a"
       }
     ],
     "blocks": [
       {
         "type": "coverage_card",
-        "name": "Coverage Card",
+        "name": "Coverage Scenario Card",
         "props": [
-          {
-            "id": "label",
-            "type": "text",
-            "label": "Card Label",
-            "default": "1ST YEAR COVERAGE"
-          },
           {
             "id": "title",
             "type": "text",
-            "label": "Card Title",
-            "default": "1 Free Replacement"
+            "label": "Scenario Text",
+            "default": "My glasses slipped from my hands"
           },
           {
-            "id": "meta",
-            "type": "text",
-            "label": "Card Meta Text",
-            "default": "Lens | Frame | Complete pair"
+            "id": "defaultImage",
+            "type": "image_picker",
+            "label": "Default Image (unselected)"
+          },
+          {
+            "id": "coveredImage",
+            "type": "image_picker",
+            "label": "Covered Image (selected / red state)"
           }
         ]
       }
-    ]
+    ],
+    "blockLimit": 6
+  },
+  "ve-care-faq": {
+    "label": "Ve-Care FAQ",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "Frequently Asked"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Questions"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq_category",
+        "name": "FAQ Category Tab",
+        "props": [
+          {
+            "id": "categoryKey",
+            "type": "text",
+            "label": "Category Key (must match FAQ items' category field exactly)",
+            "default": "coverage"
+          },
+          {
+            "id": "label",
+            "type": "text",
+            "label": "Tab Label",
+            "default": "Coverage"
+          },
+          {
+            "id": "icon",
+            "type": "select",
+            "label": "Icon",
+            "options": [
+              {
+                "value": "shield",
+                "label": "Shield (Coverage)"
+              },
+              {
+                "value": "claims",
+                "label": "Document (Claims)"
+              },
+              {
+                "value": "eligibility",
+                "label": "Person (Eligibility)"
+              },
+              {
+                "value": "policy",
+                "label": "Info (Policy & Others)"
+              }
+            ],
+            "default": "shield"
+          }
+        ]
+      },
+      {
+        "type": "faq_item",
+        "name": "FAQ Item",
+        "props": [
+          {
+            "id": "category",
+            "type": "text",
+            "label": "Category Key (must match a tab's Category Key exactly)",
+            "default": "coverage"
+          },
+          {
+            "id": "question",
+            "type": "text",
+            "label": "Question",
+            "default": "Is accidental damage covered?"
+          },
+          {
+            "id": "answer",
+            "type": "text",
+            "label": "Answer",
+            "default": "Yes. VeCare Protect covers accidental damage to eligible prescription spectacles, prescription sunglasses, frames, and lenses purchased from Vision Express stores in India. Loss or theft is not covered."
+          }
+        ]
+      }
+    ],
+    "blockLimit": 40
   },
   "ve-care-hero-banner": {
     "label": "Ve-Care Protection Section",
     "props": [
       {
-        "id": "eyebrowText",
-        "type": "text",
-        "label": "Top Small Text",
-        "default": "SCRATCHES, CRACKS, DAMAGE?"
-      },
-      {
-        "id": "heading",
-        "type": "textarea",
-        "label": "Heading",
-        "default": "YOU'RE PROTECTED WITH"
-      },
-      {
-        "id": "highlightText",
-        "type": "text",
-        "label": "Highlighted Brand Text",
-        "default": "Ve-Care Protect"
-      },
-      {
         "id": "logoImage",
         "type": "image_picker",
-        "label": "Brand Logo (optional - overrides text)"
+        "label": "Ve-Care Logo"
+      },
+      {
+        "id": "logoSubtext",
+        "type": "text",
+        "label": "Logo Subtext",
+        "default": "Protect"
+      },
+      {
+        "id": "headingLine1",
+        "type": "text",
+        "label": "Heading Line 1",
+        "default": "Life Happens."
+      },
+      {
+        "id": "headingLine2",
+        "type": "text",
+        "label": "Heading Line 2 (bold)",
+        "default": "Your Glasses Stay Protected."
       },
       {
         "id": "description",
         "type": "textarea",
         "label": "Description",
-        "default": "From accidental drops to daily wear & tear - Ve-Care keeps your eyewear protected for 3 years."
+        "default": "Protection against accidental damage and everyday wear for up to 3 years."
+      },
+      {
+        "id": "ctaText",
+        "type": "text",
+        "label": "CTA Button Text",
+        "default": "Watch Demo"
+      },
+      {
+        "id": "ctaLink",
+        "type": "url",
+        "label": "CTA Link (video URL)"
+      },
+      {
+        "id": "backgroundGraphic",
+        "type": "image_picker",
+        "label": "Background Glow / Shield Graphic (Desktop)"
+      },
+      {
+        "id": "backgroundGraphicMobile",
+        "type": "image_picker",
+        "label": "Background Glow / Shield Graphic (Mobile — optional, falls back to the desktop graphic if left empty)"
       },
       {
         "id": "productImage",
         "type": "image_picker",
-        "label": "Right Side Product Image"
+        "label": "Product Image"
+      },
+      {
+        "id": "overlapAmount",
+        "type": "range",
+        "label": "Image Overlap Below Section (px)",
+        "default": 120,
+        "min": 0,
+        "max": 250,
+        "step": 10
+      },
+      {
+        "id": "showPriceTag",
+        "type": "checkbox",
+        "label": "Show Price Tag",
+        "default": true
+      },
+      {
+        "id": "priceLabel",
+        "type": "text",
+        "label": "Price Tag Label",
+        "default": "Starting at just"
+      },
+      {
+        "id": "priceValue",
+        "type": "text",
+        "label": "Price Value",
+        "default": "₹299"
+      },
+      {
+        "id": "priceUnit",
+        "type": "text",
+        "label": "Price Unit",
+        "default": "/pair"
       },
       {
         "id": "backgroundColor",
         "type": "color",
         "label": "Background Color",
-        "default": "#f8f5f7"
+        "default": "#2a0505"
       }
     ],
-    "blocks": []
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Feature Item",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Transparent Coverage"
+          },
+          {
+            "id": "description",
+            "type": "text",
+            "label": "Description",
+            "default": "Know exactly what's covered and what's not"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 4
+  },
+  "ve-care-journey": {
+    "label": "Ve-Care Protection Journey Section",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Your Protection Journey"
+      },
+      {
+        "id": "circleColor",
+        "type": "color",
+        "label": "Step Circle Color",
+        "default": "#6b0f0f"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#e02020"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "journey_step",
+        "name": "Journey Step",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Step Icon"
+          },
+          {
+            "id": "label",
+            "type": "text",
+            "label": "Step Label",
+            "default": "Purchase Glasses"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 8
   },
   "ve-care-pricing": {
     "label": "Ve-Care Pricing Section",
@@ -7622,5 +8445,232 @@
         ]
       }
     ]
+  },
+  "ve-care-real-life-scenes": {
+    "label": "Real-Life Scenarios",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Real-Life Scenarios"
+      },
+      {
+        "id": "coveredLabel",
+        "type": "text",
+        "label": "Badge Label",
+        "default": "Covered!"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#E42313"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "scenario_card",
+        "name": "Scenario Card",
+        "props": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "For Parents"
+          },
+          {
+            "id": "description",
+            "type": "text",
+            "label": "Description",
+            "default": "My kids accidently broke my glasses?"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 6
+  },
+  "ve-care-testimonials": {
+    "label": "Ve-Care Testimonials",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "Trusted By Thousands of"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Happy Customers"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#000000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial_card",
+        "name": "Testimonial",
+        "props": [
+          {
+            "id": "testimonialText",
+            "type": "text",
+            "label": "Testimonial",
+            "default": "The claim process was incredibly smooth. I saved a lot on my replacement and highly recommend adding Ve-Care when purchasing glasses."
+          },
+          {
+            "id": "customerName",
+            "type": "text",
+            "label": "Customer Name",
+            "default": "Sam Williams"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 6
+  },
+  "ve-care-timeline": {
+    "label": "Ve-Care Yearly Protection Timeline",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "Your Protection"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "Year After Year"
+      },
+      {
+        "id": "lineColor",
+        "type": "color",
+        "label": "Active Line/Year Color",
+        "default": "#e02020"
+      },
+      {
+        "id": "lineTrackColor",
+        "type": "color",
+        "label": "Inactive Line Color",
+        "default": "rgba(255,255,255,0.25)"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#0a0a0a"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "timeline_year",
+        "name": "Year Step",
+        "props": [
+          {
+            "id": "yearNumber",
+            "type": "text",
+            "label": "Year Number",
+            "default": "01"
+          },
+          {
+            "id": "yearLabel",
+            "type": "text",
+            "label": "Year Sub-label",
+            "default": "YEAR"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "highlightText",
+            "type": "text",
+            "label": "Highlighted Word(s)",
+            "default": "One FREE"
+          },
+          {
+            "id": "description",
+            "type": "text",
+            "label": "Remaining Text",
+            "default": "replacement"
+          }
+        ]
+      }
+    ],
+    "blockLimit": 6
+  },
+  "ve-care-whats-covered": {
+    "label": "What's Covered Flip Cards",
+    "props": [
+      {
+        "id": "headingPrefix",
+        "type": "text",
+        "label": "Heading (normal text)",
+        "default": "What's"
+      },
+      {
+        "id": "headingHighlight",
+        "type": "text",
+        "label": "Heading (highlighted text)",
+        "default": "covered?"
+      },
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#0a0a0a"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "coverage_flip_card",
+        "name": "Coverage Card",
+        "props": [
+          {
+            "id": "frontImage",
+            "type": "image_picker",
+            "label": "Front Image"
+          },
+          {
+            "id": "frontTitle",
+            "type": "text",
+            "label": "Front Title",
+            "default": "Scratched Lenses"
+          },
+          {
+            "id": "backEyebrow",
+            "type": "text",
+            "label": "Back Eyebrow Text",
+            "default": "Dropped your glasses?"
+          },
+          {
+            "id": "backHeading",
+            "type": "text",
+            "label": "Back Heading (highlighted)",
+            "default": "You're covered."
+          },
+          {
+            "id": "backDescription",
+            "type": "text",
+            "label": "Back Description",
+            "default": "Protection against life's unexpected moments."
+          }
+        ]
+      }
+    ],
+    "blockLimit": 6
   }
 }

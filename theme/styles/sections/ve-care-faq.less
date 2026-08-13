@@ -1,0 +1,188 @@
+.faqSection {
+  background: #000;
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1064px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.headingHighlight {
+  color: #e42313;
+}
+
+/* ---- Category tabs ---- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 200px;
+  justify-content: center;
+  height: 40px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: #242424;
+  }
+}
+
+.tabActive {
+  background: #e42313;
+  color: #fff;
+  font-weight: 700;
+
+  &:hover {
+    background: #e42313;
+  }
+}
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+
+/* ---- Accordion card ---- */
+.accordionCard {
+  background: #FFFFFF0D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordionItem {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordionItemOpen {
+  background: #FFFFFF0D;
+  backdrop-filter: blur(40px);
+}
+
+.accordionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+    background: #FFFFFF1A;
+  backdrop-filter: blur(40px);
+}
+
+.accordionQuestion {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.chevron {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.25s ease;
+
+  .accordionItemOpen & {
+    transform: rotate(180deg);
+  }
+}
+
+// Grid-rows trick for smooth height animation without measuring content
+.accordionPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.accordionPanelInner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.accordionAnswer {
+  font-size: 12px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.8);
+  padding:  18px 18px;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+  .faqSection {
+    padding: 50px 16px;
+  }
+
+  .heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 8px;
+    margin: 0 -16px 20px;
+    padding: 0 16px 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .tab {
+    flex-shrink: 0;
+    padding: 10px 14px;
+    font-size: 12px;
+    min-width: auto;
+  }
+
+  .accordionQuestion {
+    font-size: 13.5px;
+  }
+
+  .accordionTrigger {
+    padding: 14px 14px;
+  }
+
+  .accordionAnswer {
+    font-size: 12.5px;
+  }
+}

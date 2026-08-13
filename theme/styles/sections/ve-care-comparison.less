@@ -1,0 +1,187 @@
+.veCareComparison {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.headingHighlight {
+  color: #E42313;
+}
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+  gap: 25px;
+}
+
+.vsDivider{
+  color:#FFFFFF40;
+  font-size: 36px;
+  font-weight: 700;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  padding: 50px 40px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
+}
+
+.cardTitleBlock {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  .cardWithout & {
+    color: #E42312;
+  }
+
+  .cardWith & {
+    color: #fff;
+  }
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: flex-start;
+
+  .cardWithout & {
+    color: #E42312;
+  }
+
+  .cardWith & {
+    color: #fff;
+  }
+
+  img {
+    height: 40px;
+    width: auto;
+  }
+}
+
+.brandSubtext {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: flex-end;
+  margin-bottom: 3px;
+
+  .cardWithout & {
+    color: #E42312;
+  }
+
+  .cardWith & {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.itemList {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 500;
+
+
+  .cardWithout & {
+    color: #1a1a1a;
+  }
+
+  .cardWith & {
+    color: #fff;
+  }
+}
+
+.iconCircle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.iconCross {
+  background: #fff;
+  color: #E42312;
+  border: 1.5px solid #E42312;
+}
+
+.iconCheck {
+  background: #fff;
+  color: #E42312;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .veCareComparison {
+  padding: 50px 20px;
+}
+  .heading {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .cardsRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 26px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .item {
+    font-size: 14px;
+  }
+}

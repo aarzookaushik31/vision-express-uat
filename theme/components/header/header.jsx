@@ -27,10 +27,14 @@ import CartIcon from "../../assets/images/single-row-cart.svg";
 import AngleDownIcon from "../../assets/images/header-angle-down.svg";
 import "@gofynd/theme-template/components/location-modal/location-modal.css";
 import I18Dropdown from "./i18n-dropdown";
-import Tickerimage from "../../assets/images/tabler_eye-bolt.png";
 import Slider from "react-slick";
 import WishlistIcon from "../../assets/images/wishlistIconMobileHeader.png";
 import LocationIcon from "../../assets/images/locationIconMobileHeader.png";
+
+import DefaultTickerImage from "../../assets/images/tabler_eye-bolt.png";
+import FindYourLensImage from "../../assets/images/glass-lens.png";
+
+
 const LocationModal = React.lazy(
   () =>
     import("@gofynd/theme-template/components/location-modal/location-modal")
@@ -294,23 +298,37 @@ const checkLogin = (type) => {
               </div>
               <div className={styles.mobile}>
 
-             
-  {tickerSlides.length > 0 && (
+
+
+{tickerSlides.length > 0 && (
   <div className={styles.homepageTicker}>
     <Slider {...sliderConfig} className={styles.tickerSlider}>
-      {tickerSlides.map((slide, index) => (
-        <div key={index} className={styles.tickerSlide}>
-          <img src={Tickerimage} alt="Ticker" className={styles.tickerImage} />
-          <p
-            className={styles.tickerText}
-            dangerouslySetInnerHTML={{ __html: slide }}
-          />
-        </div>
-      ))}
+      {tickerSlides.map((slide, index) => {
+       const plainText = slide.replace(/<[^>]*>/g, "");
+
+const tickerImage = plainText
+  .toLowerCase()
+  .includes("find your lens")
+  ? FindYourLensImage
+  : DefaultTickerImage;
+
+        return (
+          <div key={index} className={styles.tickerSlide}>
+            <img
+              src={tickerImage}
+              alt="Ticker"
+              className={styles.tickerImage}
+            />
+            <p
+              className={styles.tickerText}
+              dangerouslySetInnerHTML={{ __html: slide }}
+            />
+          </div>
+        );
+      })}
     </Slider>
   </div>
 )}
-
 
 
                 <div

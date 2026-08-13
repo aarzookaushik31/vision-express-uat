@@ -59,6 +59,8 @@ const FeatureIconsSectionChunk = loadable(() => import(/* webpackChunkName:"Feat
 
 const FeaturedCollectionSectionChunk = loadable(() => import(/* webpackChunkName:"FeaturedCollectionSectionChunk" */ './featured-collection.jsx'));
 
+const FilterCategoryTabsCopySectionChunk = loadable(() => import(/* webpackChunkName:"FilterCategoryTabsCopySectionChunk" */ './filter-category-tabs-copy.jsx'));
+
 const FilterCategoryTabsSectionChunk = loadable(() => import(/* webpackChunkName:"FilterCategoryTabsSectionChunk" */ './filter-category-tabs.jsx'));
 
 const FindStoreSectionChunk = loadable(() => import(/* webpackChunkName:"FindStoreSectionChunk" */ './find-store.jsx'));
@@ -84,6 +86,8 @@ const LensCatalogueSectionChunk = loadable(() => import(/* webpackChunkName:"Len
 const LensComparisonSectionChunk = loadable(() => import(/* webpackChunkName:"LensComparisonSectionChunk" */ './lens-comparison.jsx'));
 
 const LensHeroBannerSectionChunk = loadable(() => import(/* webpackChunkName:"LensHeroBannerSectionChunk" */ './lens-hero-banner.jsx'));
+
+const LensTestNewSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestNewSectionChunk" */ './lens-test-new.jsx'));
 
 const LensTestSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestSectionChunk" */ './lens-test.jsx'));
 
@@ -125,13 +129,31 @@ const TrendingOffersSectionChunk = loadable(() => import(/* webpackChunkName:"Tr
 
 const TrustMarkerSectionChunk = loadable(() => import(/* webpackChunkName:"TrustMarkerSectionChunk" */ './trust-marker.jsx'));
 
+const VeCareCalculatorSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareCalculatorSectionChunk" */ './ve-care-calculator.jsx'));
+
 const VeCareClaimSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareClaimSectionChunk" */ './ve-care-claim.jsx'));
+
+const VeCareComparisonSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareComparisonSectionChunk" */ './ve-care-comparison.jsx'));
+
+const VeCareContactSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareContactSectionChunk" */ './ve-care-contact.jsx'));
 
 const VeCareCoverageSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareCoverageSectionChunk" */ './ve-care-coverage.jsx'));
 
+const VeCareFaqSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareFaqSectionChunk" */ './ve-care-faq.jsx'));
+
 const VeCareHeroBannerSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareHeroBannerSectionChunk" */ './ve-care-hero-banner.jsx'));
 
+const VeCareJourneySectionChunk = loadable(() => import(/* webpackChunkName:"VeCareJourneySectionChunk" */ './ve-care-journey.jsx'));
+
 const VeCarePricingSectionChunk = loadable(() => import(/* webpackChunkName:"VeCarePricingSectionChunk" */ './ve-care-pricing.jsx'));
+
+const VeCareRealLifeScenesSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareRealLifeScenesSectionChunk" */ './ve-care-real-life-scenes.jsx'));
+
+const VeCareTestimonialsSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareTestimonialsSectionChunk" */ './ve-care-testimonials.jsx'));
+
+const VeCareTimelineSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareTimelineSectionChunk" */ './ve-care-timeline.jsx'));
+
+const VeCareWhatsCoveredSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareWhatsCoveredSectionChunk" */ './ve-care-whats-covered.jsx'));
 
 
 const getbundle = (type) => {
@@ -194,6 +216,8 @@ const getbundle = (type) => {
             return (props) => <FeatureIconsSectionChunk {...props}/>;
         case 'featured-collection':
             return (props) => <FeaturedCollectionSectionChunk {...props}/>;
+        case 'filter-category-tabs-copy':
+            return (props) => <FilterCategoryTabsCopySectionChunk {...props}/>;
         case 'filter-category-tabs':
             return (props) => <FilterCategoryTabsSectionChunk {...props}/>;
         case 'find-store':
@@ -220,6 +244,8 @@ const getbundle = (type) => {
             return (props) => <LensComparisonSectionChunk {...props}/>;
         case 'lens-hero-banner':
             return (props) => <LensHeroBannerSectionChunk {...props}/>;
+        case 'lens-test-new':
+            return (props) => <LensTestNewSectionChunk {...props}/>;
         case 'lens-test':
             return (props) => <LensTestSectionChunk {...props}/>;
         case 'lens-type-find':
@@ -260,14 +286,32 @@ const getbundle = (type) => {
             return (props) => <TrendingOffersSectionChunk {...props}/>;
         case 'trust-marker':
             return (props) => <TrustMarkerSectionChunk {...props}/>;
+        case 've-care-calculator':
+            return (props) => <VeCareCalculatorSectionChunk {...props}/>;
         case 've-care-claim':
             return (props) => <VeCareClaimSectionChunk {...props}/>;
+        case 've-care-comparison':
+            return (props) => <VeCareComparisonSectionChunk {...props}/>;
+        case 've-care-contact':
+            return (props) => <VeCareContactSectionChunk {...props}/>;
         case 've-care-coverage':
             return (props) => <VeCareCoverageSectionChunk {...props}/>;
+        case 've-care-faq':
+            return (props) => <VeCareFaqSectionChunk {...props}/>;
         case 've-care-hero-banner':
             return (props) => <VeCareHeroBannerSectionChunk {...props}/>;
+        case 've-care-journey':
+            return (props) => <VeCareJourneySectionChunk {...props}/>;
         case 've-care-pricing':
             return (props) => <VeCarePricingSectionChunk {...props}/>;
+        case 've-care-real-life-scenes':
+            return (props) => <VeCareRealLifeScenesSectionChunk {...props}/>;
+        case 've-care-testimonials':
+            return (props) => <VeCareTestimonialsSectionChunk {...props}/>;
+        case 've-care-timeline':
+            return (props) => <VeCareTimelineSectionChunk {...props}/>;
+        case 've-care-whats-covered':
+            return (props) => <VeCareWhatsCoveredSectionChunk {...props}/>;
             default:
                 return null;
         }
@@ -304,6 +348,7 @@ export default {
         'feature-blog': { ...FeatureBlogSectionChunk, Component: getbundle('feature-blog') },
         'feature-icons': { ...FeatureIconsSectionChunk, Component: getbundle('feature-icons') },
         'featured-collection': { ...FeaturedCollectionSectionChunk, Component: getbundle('featured-collection') },
+        'filter-category-tabs-copy': { ...FilterCategoryTabsCopySectionChunk, Component: getbundle('filter-category-tabs-copy') },
         'filter-category-tabs': { ...FilterCategoryTabsSectionChunk, Component: getbundle('filter-category-tabs') },
         'find-store': { ...FindStoreSectionChunk, Component: getbundle('find-store') },
         'hero-image': { ...HeroImageSectionChunk, Component: getbundle('hero-image') },
@@ -317,6 +362,7 @@ export default {
         'lens-catalogue': { ...LensCatalogueSectionChunk, Component: getbundle('lens-catalogue') },
         'lens-comparison': { ...LensComparisonSectionChunk, Component: getbundle('lens-comparison') },
         'lens-hero-banner': { ...LensHeroBannerSectionChunk, Component: getbundle('lens-hero-banner') },
+        'lens-test-new': { ...LensTestNewSectionChunk, Component: getbundle('lens-test-new') },
         'lens-test': { ...LensTestSectionChunk, Component: getbundle('lens-test') },
         'lens-type-find': { ...LensTypeFindSectionChunk, Component: getbundle('lens-type-find') },
         'link': { ...LinkSectionChunk, Component: getbundle('link') },
@@ -337,8 +383,17 @@ export default {
         'top-brands': { ...TopBrandsSectionChunk, Component: getbundle('top-brands') },
         'trending-offers': { ...TrendingOffersSectionChunk, Component: getbundle('trending-offers') },
         'trust-marker': { ...TrustMarkerSectionChunk, Component: getbundle('trust-marker') },
+        've-care-calculator': { ...VeCareCalculatorSectionChunk, Component: getbundle('ve-care-calculator') },
         've-care-claim': { ...VeCareClaimSectionChunk, Component: getbundle('ve-care-claim') },
+        've-care-comparison': { ...VeCareComparisonSectionChunk, Component: getbundle('ve-care-comparison') },
+        've-care-contact': { ...VeCareContactSectionChunk, Component: getbundle('ve-care-contact') },
         've-care-coverage': { ...VeCareCoverageSectionChunk, Component: getbundle('ve-care-coverage') },
+        've-care-faq': { ...VeCareFaqSectionChunk, Component: getbundle('ve-care-faq') },
         've-care-hero-banner': { ...VeCareHeroBannerSectionChunk, Component: getbundle('ve-care-hero-banner') },
+        've-care-journey': { ...VeCareJourneySectionChunk, Component: getbundle('ve-care-journey') },
         've-care-pricing': { ...VeCarePricingSectionChunk, Component: getbundle('ve-care-pricing') },
+        've-care-real-life-scenes': { ...VeCareRealLifeScenesSectionChunk, Component: getbundle('ve-care-real-life-scenes') },
+        've-care-testimonials': { ...VeCareTestimonialsSectionChunk, Component: getbundle('ve-care-testimonials') },
+        've-care-timeline': { ...VeCareTimelineSectionChunk, Component: getbundle('ve-care-timeline') },
+        've-care-whats-covered': { ...VeCareWhatsCoveredSectionChunk, Component: getbundle('ve-care-whats-covered') },
         };

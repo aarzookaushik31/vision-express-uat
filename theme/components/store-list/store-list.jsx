@@ -54,6 +54,8 @@ const formattedAddress = toTitleCase(cleanAddress);
             contactNumber = `${store.phone_number.code ? `+${store.phone_number.code}-` : ""}${store.phone_number.number}`;
           } else if (typeof store.phone_number === "string" && store.phone_number.trim() !== "") {
             contactNumber = store.phone_number;
+          }  else if (typeof store.phone_number === "number") {
+  contactNumber = String(store.phone_number);
           } else if (defaultPhone) {
             contactNumber = defaultPhone;
           }

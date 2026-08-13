@@ -1,6 +1,6 @@
 {
   "theme": {
-    "active_context": "vision-express-uat",
+    "active_context": "vision-express",
     "contexts": {
       "vision-express-uat": {
         "name": "vision-express-uat",

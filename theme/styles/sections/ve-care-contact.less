@@ -1,0 +1,154 @@
+.contactSection {
+background: linear-gradient(0, #E42312 -90.94%, #000000 95.46%);
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+
+/* ---- Text column ---- */
+.textCol {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 26px;
+}
+
+.subheading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- Actions column ---- */
+.actionsCol {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #FFFFFF1A;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-2px);
+  }
+}
+
+.actionIcon {
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  background: #FFFFFF40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.actionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.actionDescription {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+  line-height: 140%;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 50px 20px;
+  }
+
+  .card {
+    flex-direction: column;
+    padding: 28px 22px;
+    gap: 28px;
+  }
+
+  .textCol {
+    text-align: center;
+    align-items: center;
+  }
+
+  .heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .actionsCol {
+    gap: 14px;
+  }
+
+  .actionCard {
+    padding: 14px 16px;
+  }
+
+  .actionIcon {
+    width: 57px;
+    height: 57px;
+
+    svg{
+        width: 27px;
+    }
+  }
+
+  .actionTitle {
+    font-size: 16px;
+  }
+}
