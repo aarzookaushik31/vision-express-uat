@@ -87,6 +87,8 @@ const LensComparisonSectionChunk = loadable(() => import(/* webpackChunkName:"Le
 
 const LensHeroBannerSectionChunk = loadable(() => import(/* webpackChunkName:"LensHeroBannerSectionChunk" */ './lens-hero-banner.jsx'));
 
+const LensTestLatestSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestLatestSectionChunk" */ './lens-test-latest.jsx'));
+
 const LensTestNewSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestNewSectionChunk" */ './lens-test-new.jsx'));
 
 const LensTestSectionChunk = loadable(() => import(/* webpackChunkName:"LensTestSectionChunk" */ './lens-test.jsx'));
@@ -244,6 +246,8 @@ const getbundle = (type) => {
             return (props) => <LensComparisonSectionChunk {...props}/>;
         case 'lens-hero-banner':
             return (props) => <LensHeroBannerSectionChunk {...props}/>;
+        case 'lens-test-latest':
+            return (props) => <LensTestLatestSectionChunk {...props}/>;
         case 'lens-test-new':
             return (props) => <LensTestNewSectionChunk {...props}/>;
         case 'lens-test':
@@ -362,6 +366,7 @@ export default {
         'lens-catalogue': { ...LensCatalogueSectionChunk, Component: getbundle('lens-catalogue') },
         'lens-comparison': { ...LensComparisonSectionChunk, Component: getbundle('lens-comparison') },
         'lens-hero-banner': { ...LensHeroBannerSectionChunk, Component: getbundle('lens-hero-banner') },
+        'lens-test-latest': { ...LensTestLatestSectionChunk, Component: getbundle('lens-test-latest') },
         'lens-test-new': { ...LensTestNewSectionChunk, Component: getbundle('lens-test-new') },
         'lens-test': { ...LensTestSectionChunk, Component: getbundle('lens-test') },
         'lens-type-find': { ...LensTypeFindSectionChunk, Component: getbundle('lens-type-find') },

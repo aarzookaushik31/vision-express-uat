@@ -5008,6 +5008,514 @@
       }
     ]
   },
+  "lens-test-latest": {
+    "label": "Lens Test Latest",
+    "props": [
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Logo Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_intro",
+        "label": "Show an intro screen before question 1",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "intro_background_image",
+        "label": "Intro Background Image"
+      },
+      {
+        "type": "text",
+        "id": "intro_heading",
+        "label": "Intro Heading",
+        "default": "Find Your Perfect Lens Match"
+      },
+      {
+        "type": "text",
+        "id": "intro_subheading",
+        "label": "Intro Subheading",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "intro_button_text",
+        "label": "Intro Button Text",
+        "default": "Start The Lens Test"
+      },
+      {
+        "type": "text",
+        "id": "review_heading",
+        "label": "Review Screen Heading",
+        "default": "Review Answers"
+      },
+      {
+        "type": "text",
+        "id": "review_subheading",
+        "label": "Review Screen Subheading",
+        "default": "Review or edit your previous responses"
+      },
+      {
+        "type": "text",
+        "id": "loading_heading",
+        "label": "Loading Heading",
+        "default": "Matching your lens"
+      },
+      {
+        "type": "text",
+        "id": "loading_description",
+        "label": "Loading Description",
+        "default": ""
+      },
+      {
+        "type": "image_picker",
+        "id": "loading_image_1",
+        "label": "Loading Filmstrip — Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "loading_image_2",
+        "label": "Loading Filmstrip — Image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "loading_image_3",
+        "label": "Loading Filmstrip — Image 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "loading_image_4",
+        "label": "Loading Filmstrip — Image 4 (optional)",
+        "info": "Add more images to make the filmstrip slide through a longer sequence."
+      },
+      {
+        "type": "image_picker",
+        "id": "loading_image_5",
+        "label": "Loading Filmstrip — Image 5 (optional)"
+      },
+      {
+        "type": "text",
+        "id": "loading_step_1",
+        "label": "Loading Checklist Step 1",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "loading_step_2",
+        "label": "Loading Checklist Step 2",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "loading_step_3",
+        "label": "Loading Checklist Step 3",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "store_link",
+        "label": "Visit Store Link",
+        "default": "/locate-us"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Question",
+        "props": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question Title",
+            "default": ""
+          },
+          {
+            "type": "checkbox",
+            "id": "multi_select",
+            "label": "Allow selecting more than one option?",
+            "default": false
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Question Image (Desktop)",
+            "info": "Full-width background image for this question. Used on desktop, and on mobile too if no mobile image is set below."
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Question Image (Mobile, optional)",
+            "info": "Optional. If set, this image is used instead of the desktop image on mobile screens. Leave empty to reuse the desktop image on mobile."
+          },
+          {
+            "type": "text",
+            "id": "option_1_label",
+            "label": "Option 1 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_1_icon",
+            "label": "Option 1 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_1_tags",
+            "label": "Option 1 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_2_label",
+            "label": "Option 2 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_2_icon",
+            "label": "Option 2 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_2_tags",
+            "label": "Option 2 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_3_label",
+            "label": "Option 3 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_3_icon",
+            "label": "Option 3 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_3_tags",
+            "label": "Option 3 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_4_label",
+            "label": "Option 4 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_4_icon",
+            "label": "Option 4 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_4_tags",
+            "label": "Option 4 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_5_label",
+            "label": "Option 5 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_5_icon",
+            "label": "Option 5 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_5_tags",
+            "label": "Option 5 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_6_label",
+            "label": "Option 6 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_6_icon",
+            "label": "Option 6 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_6_tags",
+            "label": "Option 6 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_7_label",
+            "label": "Option 7 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_7_icon",
+            "label": "Option 7 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_7_tags",
+            "label": "Option 7 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_8_label",
+            "label": "Option 8 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_8_icon",
+            "label": "Option 8 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_8_tags",
+            "label": "Option 8 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          },
+          {
+            "type": "text",
+            "id": "option_9_label",
+            "label": "Option 9 — Label",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "option_9_icon",
+            "label": "Option 9 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "option_9_tags",
+            "label": "Option 9 — Result Tags (comma-separated)",
+            "default": "",
+            "info": "Tags used to match this answer to a result, e.g. 'digital, screens'"
+          }
+        ]
+      },
+      {
+        "type": "fact",
+        "name": "Fact Screen",
+        "props": [
+          {
+            "type": "text",
+            "id": "after_question",
+            "label": "Insert after question number",
+            "default": "",
+            "info": "e.g. 2 places this fact screen right after the 2nd question block"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Photo (optional)",
+            "info": "Full-screen background photo behind the fact card, like the question screens"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_image",
+            "label": "Icon / Graphic (optional)",
+            "info": "Small graphic shown above the label, e.g. an eye icon. Falls back to a dotted icon if left empty."
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Small Label",
+            "default": "Did You Know?"
+          },
+          {
+            "type": "text",
+            "id": "stat",
+            "label": "Big Stat Text",
+            "default": "",
+            "info": "e.g. 7"
+          },
+          {
+            "type": "text",
+            "id": "stat_suffix",
+            "label": "Stat Suffix Text (optional)",
+            "default": "",
+            "info": "Small text shown right next to the big stat, e.g. 'signs' to read as '7 signs'"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Continue"
+          }
+        ]
+      },
+      {
+        "type": "result",
+        "name": "Result / Lens Recommendation",
+        "props": [
+          {
+            "type": "text",
+            "id": "match_tags",
+            "label": "Matching Tags (comma-separated)",
+            "default": "",
+            "info": "This result wins when the user's answers add up to the most matches on these tags"
+          },
+          {
+            "type": "text",
+            "id": "lens_name",
+            "label": "Lens Name",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "lens_tagline",
+            "label": "Lens Tagline",
+            "default": ""
+          },
+          {
+            "type": "video",
+            "id": "hero_video",
+            "label": "Hero Background Video (Desktop)",
+            "info": "Upload a video that plays as an animated background on the result screen. Used on desktop, and on mobile too if no mobile video is set below. If the lens graphic is part of the video, leave 'Hero Lens Graphic' below empty. Video is muted and loops automatically."
+          },
+          {
+            "type": "video",
+            "id": "hero_video_mobile",
+            "label": "Hero Background Video (Mobile, optional)",
+            "info": "Optional. If set, this video plays instead of the desktop video on mobile screens. Leave empty to reuse the desktop video on mobile."
+          },
+          {
+            "type": "image_picker",
+            "id": "hero_video_poster",
+            "label": "Hero Video Poster Image (optional)",
+            "info": "Shown while the video loads, or as a fallback if the video can't play. Only used when a Hero Background Video is set."
+          },
+          {
+            "type": "image_picker",
+            "id": "hero_image",
+            "label": "Hero Lens Graphic",
+            "info": "Static lens graphic shown above the result. Only used when no Hero Background Video is set above."
+          },
+          {
+            "type": "text",
+            "id": "learn_more_link",
+            "label": "Learn More Link",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "feature_1_icon",
+            "label": "Feature 1 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "feature_1_title",
+            "label": "Feature 1 — Title",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "feature_1_description",
+            "label": "Feature 1 — Description",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "feature_2_icon",
+            "label": "Feature 2 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "feature_2_title",
+            "label": "Feature 2 — Title",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "feature_2_description",
+            "label": "Feature 2 — Description",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "feature_3_icon",
+            "label": "Feature 3 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "feature_3_title",
+            "label": "Feature 3 — Title",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "feature_3_description",
+            "label": "Feature 3 — Description",
+            "default": ""
+          },
+          {
+            "type": "image_picker",
+            "id": "feature_4_icon",
+            "label": "Feature 4 — Icon"
+          },
+          {
+            "type": "text",
+            "id": "feature_4_title",
+            "label": "Feature 4 — Title",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "feature_4_description",
+            "label": "Feature 4 — Description",
+            "default": ""
+          },
+          {
+            "type": "text",
+            "id": "stat_percent",
+            "label": "Stat Percentage",
+            "default": "",
+            "info": "e.g. 90%"
+          },
+          {
+            "type": "text",
+            "id": "stat_description",
+            "label": "Stat Description",
+            "default": "",
+            "info": "e.g. Of customers with similar lifestyles choose this lens."
+          },
+          {
+            "type": "text",
+            "id": "rating",
+            "label": "Rating",
+            "default": "",
+            "info": "e.g. 4.8/5"
+          }
+        ]
+      }
+    ]
+  },
   "lens-test-new": {
     "label": "Lens Test New",
     "props": [
@@ -7868,7 +8376,7 @@
           },
           {
             "id": "planPrice",
-            "type": "number",
+            "type": "text",
             "label": "Plan Price (numeric, used in calculation)",
             "default": 299
           }

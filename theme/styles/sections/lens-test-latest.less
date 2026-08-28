@@ -1,0 +1,1114 @@
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+   :global(html),
+:global(body) {
+  background: linear-gradient(176.49deg, #230445 22.86%, #4c167c 140.17%);
+  overscroll-behavior-y: none;
+}
+
+.lens-test-section {
+  width: 100%;
+  min-height: 100dvh;
+   overscroll-behavior-y: contain;
+  background: linear-gradient(176.49deg, #230445 22.86%, #4c167c 140.17%);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.lens-test-section--question {
+  overflow: hidden;
+}
+
+.card-wrapper {
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ==========================================================================
+   HEADER / LOGO — shown on every screen
+   ========================================================================== */
+
+.brand {
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 20;
+  padding-top: 20px;
+}
+
+.brand-image {
+  img {
+    height: 40px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   QUESTION SCREEN
+   ========================================================================== */
+
+.question-wrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.questionTop {
+  position: relative;
+  z-index: 10;
+}
+
+/* --- Full-bleed image style (photo fills the entire screen). Every
+   question now uses this full-bleed layout. Desktop/mobile image
+   swapping is handled in JS (based on the section's own rendered width,
+   not the CSS viewport — see useContainerIsMobile in the component),
+   so only the active image is ever rendered here. --- */
+.full-bleed-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.full-bleed-image , .fact-full-bleed-image{
+  width: 100%;
+  height: 100%;
+  object-position: top center;
+  object-fit: cover;
+  display: block;
+}
+
+ .fact-full-bleed-image{
+  opacity: 0.2;
+ }
+
+// .full-bleed-overlay {
+//   position: absolute;
+//   inset: 0;
+//   background: linear-gradient(
+//     180deg,
+//     rgba(35, 4, 69, 0.15) 0%,
+//     rgba(35, 4, 69, 0.25) 55%,
+//     rgba(35, 4, 69, 0.85) 100%
+//   );
+//   z-index: 2;
+// }
+
+.has-full-bleed-image {
+  min-height: 100dvh;
+}
+
+/* --- The card that holds the title + options, floats above everything --- */
+.questionContentWrapper {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 520px;
+  margin: auto auto 0;
+  padding:20px 32px;
+  background: linear-gradient(180deg, #1E0640 0%, #4C167C 100%);
+ border-radius: 32px 32px 0 0;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.questionContentWrapper--overlay {
+  background: linear-gradient(180deg, #1E0640 0%, #4C167C 100%);
+  border-radius: 32px 32px 0 0;
+  margin-top: auto;
+}
+
+.question-title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0px;
+  line-height: 120%;
+  text-align: center;
+}
+
+/* ==========================================================================
+   OPTIONS (single-select radio and multi-select checkbox share the same
+   pill layout, only .optionIndicator differs)
+   ========================================================================== */
+
+   .optionsWrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-height: 280px;
+  padding-right: 12px;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-height: 700px) {
+    max-height: 220px;
+  }
+}
+
+
+
+.fakeScrollTrack {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fakeScrollThumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #9E007E;
+  border-radius: 10px;
+  transition: top 0.1s linear;
+}
+
+
+.scrollHint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4px;
+  pointer-events: none;
+  background: transparent;
+  animation: scrollHintBounce 1.4s ease-in-out infinite;
+}
+
+@keyframes scrollHintBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(4px); opacity: 0.5; }
+}
+
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 8px;
+  border-radius: 8px;
+  border: 1px solid #FFFFFF33;
+  background:  #FFFFFF0A;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.option.selected {
+  background: #9E007E;
+  border-color: transparent;
+}
+
+.optionIconWrapper {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.optionIcon {
+  width: 24px;
+}
+
+.optionLabel {
+  flex: 1;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+
+.optionIndicator {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 1);
+  flex-shrink: 0;
+}
+
+.optionIndicatorRadio {
+  border-radius: 50%;
+}
+
+.optionIndicatorCheckbox {
+  border-radius: 4px;
+}
+
+.optionIndicatorSelected.optionIndicatorCheckbox {
+  border-color: #fff;
+  background: #fff;
+}
+
+.optionIndicatorRadio.optionIndicatorSelected {
+  &::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+
+.checkmark {
+  color: #9E007E;
+  display: block;
+  animation: checkPop 0.2s ease-out both;
+}
+
+@keyframes checkPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   BOTTOM NAV BAR (back / review answers / next)
+   ========================================================================== */
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.navArrow {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: #0000000D;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  svg{
+    width: 10px;
+  }
+  svg path {
+    fill: #fff !important;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.navArrowRight {
+  background: #9E007E;
+  border-color: transparent;
+  transform: rotate(180deg);
+}
+
+.reviewLink {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+/* ==========================================================================
+   FACT ("Did You Know?") SCREEN
+   Supports an optional full-screen background photo (like the question
+   screens) with a purple tint overlay, plus an optional icon/graphic
+   (e.g. an eye mark) shown above the "DID YOU KNOW?" label. When no
+   background photo is set, the screen falls back to the plain gradient
+   background from .lens-test-section. When no icon image is set, it
+   falls back to the dotted placeholder mark.
+   ========================================================================== */
+
+.fact-overlay {
+  position: absolute;
+  inset: 0;
+ background: linear-gradient(176.49deg, #230445 22.86%, #4C167C 140.17%);
+opacity: 12%;
+  z-index: 2;
+}
+
+.fact-wrapper {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+
+  
+  @media (max-width: 768px) {
+     justify-content: space-between;
+  }
+}
+
+.factCard {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 36px 28px;
+  margin-bottom: 20px;
+}
+
+.factIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.factIconImage {
+  height: 60px;
+  width: auto;
+}
+
+.factDots {
+  height: 70px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.5px, transparent 1.5px);
+  background-size: 7px 7px;
+  opacity: 0.85;
+}
+
+.factLabel {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 16px;
+
+   @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.factStat {
+  font-size: 75px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+
+      @media (max-width: 768px) {
+    font-size: 60px;
+  }
+}
+
+.factStatSuffix {
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+
+    @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.factDescription {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 180%;
+  margin-bottom: 32px;
+  font-weight: 400;
+
+    
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.factProgressBar {
+  width: 100%;
+  max-width: 200px;
+  height: 3px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.factProgressBarFill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 4px;
+  animation: factProgressFill 3.5s linear forwards;
+}
+
+@keyframes factProgressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   REVIEW ANSWERS SCREEN
+   ========================================================================== */
+
+.review-wrapper {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 40px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.reviewHeader {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.review-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 120%;
+}
+
+.reviewSubheading {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 140%;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  overflow-y: auto;
+}
+
+.reviewItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.reviewItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.reviewItemIconWrapper {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.reviewItemIcon {
+  width: 28px;
+  height: auto;
+}
+
+.reviewItemIconDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.reviewItemText {
+  flex: 1;
+  min-width: 0;
+}
+
+.reviewItemQuestion {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reviewItemAnswer {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reviewChevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   LOADING / MATCHING SCREEN
+   ========================================================================== */
+
+.loading-wrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.filmstrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  margin-top: 80px;
+}
+
+.filmstripSide {
+  width: 90px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+
+.filmstripMain {
+  width: 290px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+box-shadow: 0px 4px 140px 11px #4C167C;
+}
+
+/* Sliding/crossfade effect for the filmstrip's center image — the
+   component swaps the img's `key` every cycle which remounts it and
+   replays this animation, giving the impression of a slider. */
+.filmstripSlide {
+  animation: filmstripFade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes filmstripFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.loadingDescription {
+  font-size: 14px;
+  color: #FFFFFFCC;
+  max-width: 320px;
+  margin: 0 auto 24px;
+  line-height: 150%;
+}
+
+.checklist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 8px;
+  padding:12px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  text-align: left;
+  transition: opacity 0.3s ease;
+    color: #fff;
+}
+
+.checklistItem:not(:last-child) {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #FFFFFF1A;
+}
+.checklistItemPending {
+  opacity: 0.2;
+}
+
+.checklistItemDone {
+  opacity: 1;
+}
+
+.checklistTick {
+width: 21px;
+}
+
+/* ==========================================================================
+   RESULT — HERO SCREEN
+   ========================================================================== */
+
+/* --- Optional full-bleed background video. The lens graphic can be part
+   of the video itself, in which case the static "Hero Lens Graphic" image
+   is skipped in favour of a spacer that keeps the layout's rhythm. --- */
+.result-hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.result-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+
+
+    @media (max-width: 768px) {
+   object-position: center;
+  }
+}
+
+.result-hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 4, 69, 0.4) 0%,
+    rgba(35, 4, 69, 0.1) 30%,
+    rgba(35, 4, 69, 0.45) 70%,
+    rgba(35, 4, 69, 0.92) 100%
+  );
+  z-index: 2;
+}
+
+.result-hero-video-spacer {
+  width: 100%;
+  height: 320px;
+  margin: 16px 0 36px;
+
+  @media (max-width: 768px) {
+    height: 260px;
+    margin: 12px 0 28px;
+  }
+}
+
+.result-hero-wrapper {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.result-hero-wrapper--video {
+  padding-top: 0px;
+}
+
+.resultEyebrow {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 140%;
+  margin-bottom: 8px;
+  margin-top: 40px;
+}
+
+.resultSubheading {
+  font-size: 14px;
+  color: #FFFFFF99;
+  margin-bottom: 24px;
+}
+
+.resultLensGraphic {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 24px;
+
+  img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 20px 50px rgba(158, 0, 126, 0.5));
+  }
+}
+
+.productPill {
+  display: inline-block;
+  padding: 12px 24px;
+  line-height: 120%;
+  border-radius: 8px;
+  background: #FFFFFF29;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 40px auto 20px;
+}
+
+.productTagline {
+  font-size: 14px;
+  color: #FFFFFF99;
+  margin-bottom: 24px;
+}
+
+.resultButtons {
+margin-top: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   RESULT — DETAIL SCREEN
+   ========================================================================== */
+
+.result-detail-wrapper {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 10px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.featureCard {
+  background: #FFFFFF0A;
+border: 1px solid #FFFFFF33;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.featureIconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+.featureIcon {
+  width: 28px;
+}
+
+.featureTitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 120%;
+
+    @media (max-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+.featureDescription {
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFFFFF99;
+  line-height: 140%;
+
+    @media (max-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+.statsBar {
+  width: 100%;
+  background: #FFFFFF0A;
+ border: 1px solid #FFFFFF33;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statsPercent {
+  font-size: 14px;
+  color: #fff;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #FFFFFF33;
+
+  strong {
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+.statsRating {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.stars {
+  color: #ffb800;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SHARED BUTTONS
+   ========================================================================== */
+
+.button {
+  border: none;
+  border-radius: 500px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button-primary {
+  background: linear-gradient(90deg, #b7008f 0%, #9e007e 100%);
+  color: #ffffff;
+}
+
+.button-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.button-full {
+  position: relative;
+  padding: 14px 0;
+}
+
+.button-outline {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 500px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}
+
+.buttonIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   INTRO / START SCREEN
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(35, 4, 69, 0) 40%, rgba(35, 4, 69, 0.9) 100%);
+}
+
+.content {
+  padding: 32px 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  margin: auto auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 16px 0 10px;
+  line-height: 120%;
+}
+
+.subheading {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 26px;
+  line-height: 140%;
+}
+
+/* ==========================================================================
+   SHARED ANIMATIONS
+   ========================================================================== */
+
+.animateTop {
+  animation: slideDown 0.5s ease-out both;
+}
+
+.animateBottom {
+  animation: slideUp 0.5s ease-out both;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

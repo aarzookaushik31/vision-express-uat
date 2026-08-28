@@ -382,7 +382,7 @@ export const settings = {
         },
         {
           id: "planPrice",
-          type: "number",
+          type: "text",
           label: "Plan Price (numeric, used in calculation)",
           default: 299
         }

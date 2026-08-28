@@ -251,95 +251,7 @@
       "invalid_email": "無効なメールです",
       "email_cannot_exceed_50_characters": "メールは50文字以内で入力してください",
       "other": "その他",
-      "product_is_not_serviceable_at_given_locality": "指定された地域ではサービス対象外です",
-      "no_items_in_cart": "カートに商品がありません",
-      "street_name": "通りの名前",
-      "building_no__apartment": "建物番号 / アパート",
-      "area": "地域",
-      "landmark": "目印",
-      "sorry_item_is_out_of_stock": "申し訳ありませんが、アイテムは在庫がありません",
-      "added_only_those_products_that_are_in_stock": "在庫のある製品のみを追加しました",
-      "max_50_items_allowed_in_cart": "カートで許可されている最大50アイテム",
-      "nothing_updated": "更新されません",
-      "item_updated": "更新されたアイテム",
-      "item_not_updated": "更新されていないアイテム",
-      "invalid_address": "無効なアドレス",
-      "address_block_no_street_name": "アドレス（ブロック番号、ストリート名）",
-      "address_line_1": "住所1",
-      "address_line_2": "アドレス2行2",
-      "apartment_building_floor_etc": "アパート、建物、床など",
-      "apartment_building_house_no_floor_etc": "アパート、建物、家、床など",
-      "apartment_unit_building_floor_room": "アパート、ユニット、建物、床、部屋",
-      "apartment_unit_building_floor_room_etc": "アパート、ユニット、建物、床、部屋など。",
-      "apartment_unit_building_floor_etc": "アパート、ユニット、建物、床など。",
-      "apartment_building_unit_floor_etc": "アパート、建物、ユニット、床など",
-      "apartment_suite_unit_building_floor_etc": "アパート、スイート、ユニット、建物、床など。",
-      "apartment_suite_unit_floor_etc": "アパート、スイート、ユニット、フロアなど",
-      "apt_suite_etc": "apt、スイートなど",
-      "barangay": "バランガイ",
-      "block": "ブロック",
-      "building_number_unit_number": "建物番号、ユニット番号",
-      "building_apt_rt_rw": "建物、apt、rt/rw",
-      "city_district": "市/地区",
-      "city_town": "市/町",
-      "city_ward_town_village": "市/区/町/村",
-      "complement": "補体",
-      "county": "郡",
-      "district_area": "地区/エリア",
-      "district_county_municipality": "地区/郡/自治体",
-      "eircode": "Eircode",
-      "flat_apartment_building_name_or": "フラット、アパート、建物名または＃",
-      "flat_stair_door_number_etc": "フラット、階段、ドア番号など",
-      "floor_unit_no": "フロア - ユニット番号",
-      "governorate_city": "知事/市",
-      "house_number_and_street_name": "家番号と通りの名前",
-      "locality_apartment_building_floor_etc": "地域、アパート、建物、床など",
-      "neighborhood_bairro": "近所/バイロ",
-      "postal_code": "郵便番号",
-      "postcode": "郵便番号",
-      "prefecture": "県",
-      "province": "州",
-      "province_code": "州コード",
-      "province_city_do_si": "州/市（do/si）",
-      "region": "地域",
-      "state_code": "状態コード",
-      "street_address": "住所",
-      "street_address_chome_banchi_go": "通りの住所/チョメ、バンチ、ゴー",
-      "street_name_and_house_no": "ストリート名と家番号",
-      "street_name_and_number": "ストリート名と番号",
-      "street_name_no": "ストリート名/いいえ",
-      "street_name_no_block": "ストリート名/いいえ、ブロック",
-      "street_name_no_house_number": "ストリート名/いいえ、家番号",
-      "street_number": "ストリート番号",
-      "subdistrict": "地区",
-      "subdistrict_district": "地区/地区",
-      "suburb": "郊外",
-      "town_city": "町/都市",
-      "unit___floor_no": "ユニット /フロア番号",
-      "wilaya": "地区",
-      "zipcode": "郵便番号",
-      "zone_number": "ゾーン番号",
-      "sorry_invalid_coupon": "ごめん！無効なクーポン",
-      "invalid_gstin_number": "無効なGSTIN番号",
-      "payment_mode_is_not_valid_for_applied_coupon": "支払いモードは、適用クーポンには無効です",
-      "ordering_store_is_not_valid_for_the_applied_coupon": "注文ストアは、応用クーポンには無効です",
-      "coupon_usage_limit_has_been_reached": "クーポンの使用制限に達しました",
-      "login_required_to_apply_this_coupon": "このクーポンを適用するために必要なログイン",
-      "coupon_not_applicable_for_the_user": "ユーザーに適用できないクーポン",
-      "cart_is_empty": "カートは空です",
-      "coupon_expired": "クーポンの有効期限が切れました",
-      "sorry_invalid_platform_coupon": "ごめん！無効なプラットフォームクーポン",
-      "sorry_coupon_expired": "ごめん！クーポンの有効期限が切れました",
-      "sorry_coupon_not_applicable": "ごめん！クーポンは該当しません。",
-      "sorry_coupon_not_applicable_for_these_items": "ごめん！これらのアイテムには適用されないクーポン。",
-      "sorry_coupon_already_used": "ごめん！すでに使用されているクーポン。",
-      "coupon_successfully_removed": "クーポンは正常に削除されました",
-      "no_coupon_is_applied": "クーポンは適用されません",
-      "coupon_not_applicable_on_this_order": "この注文にはクーポンが適用されません",
-      "cod_not_available_on_applied_promocode": "Applied Promocodeでは利用できません",
-      "coupon_applicable_for_new_users_only": "新規ユーザーのみに適用されるクーポン",
-      "please_login_to_use_this_coupon": "このクーポンを使用するには、ログインしてください。",
-      "coupon_code_not_applicable_items_are_already_at_the_best_price": "クーポンコードは該当しません、アイテムはすでに最高の価格です"
+      "product_is_not_serviceable_at_given_locality": "指定された地域ではサービス対象外です"
     },
     "auth": {
       "account_deletion_notice": "ご要望に応じて、アカウントはまもなく削除されます。アカウントの復元をご希望の場合は、下記のサポートメールアドレスまでご連絡ください。",
@@ -486,8 +398,6 @@
         "my_address": "私の住所",
         "add_new_address": "新しい住所を追加",
         "add_new_address_caps": "新しい住所を追加",
-        "default_address": "デフォルトアドレス",
-        "other_addresses": "その他のアドレス",
         "no_address_available": "住所が利用できません",
         "address_not_found": "アドレスが見つかりません!",
         "return_to_my_address": "私の住所に戻る",
@@ -499,6 +409,7 @@
         "pincode_six_digits_required": "PINコードは6桁でなければなりません",
         "invalid_phone_number": "無効な電話番号",
         "enter_pincode": "PINコードを入力",
+        "default_address": "デフォルトアドレス",
         "other_address": "その他の住所",
         "address_type": "住所タイプ",
         "make_this_my_default_address": "これをデフォルトのアドレスにする"
@@ -653,17 +564,7 @@
       "back_to_login_caps": "ログインに戻る",
       "sorry_we_couldnt_find_any_results": "申し訳ございませんが、結果が見つかりませんでした",
       "in": "で",
-      "home_seo_description": "簡単にオンラインショッピングを楽しみ、豊富な高品質商品、新着アイテム、限定セールを一か所でチェックしましょう。",
-      "maximum_64_characters_allowed": "64未満の文字を入力してください",
-      "maximum_50_characters_allowed": "50未満の文字を入力してください",
-      "page_titles": {
-        "contact_us": "お問い合わせ",
-        "home": "ホーム",
-        "product_listing": "商品一覧",
-        "wishlist": "ウィッシュリスト",
-        "about_us": "私たちについて",
-        "blog": "ブログ"
-      }
+      "home_seo_description": "簡単にオンラインショッピングを楽しみ、豊富な高品質商品、新着アイテム、限定セールを一か所でチェックしましょう。"
     },
     "categories": {
       "empty_state": "カテゴリが見つかりません"
@@ -853,8 +754,7 @@
     "wishlist": {
       "product_removed": "ウィッシュリストから削除された商品",
       "no_product_in_wishlist": "ウィッシュリストに商品が追加されていません",
-      "add_products_to_wishlist": "商品をウィッシュリストに追加する",
-      "seo_description": "愛する製品を保存し、ウィッシュリストを構築します。数回クリックして、いつでもお気に入りのアイテムを簡単に再訪して購入できます。"
+      "add_products_to_wishlist": "商品をウィッシュリストに追加する"
     },
     "cart": {
       "no_items": "カートに商品がありません",
@@ -1082,8 +982,7 @@
       "slide_alt": "スライド",
       "no_blogs_found": "ブログが見つかりません",
       "showing_results": "{{count}}件の結果を表示しています",
-      "no_blog_found": "ブログが見つかりません",
-      "seo_description": "役立つ記事、製品のヒント、専門家の洞察を発見して、情報に基づいてインスピレーションを受け続けてください。私たちのブログは、トレンドからハウツーガイドまで、すべてをカバーしています。"
+      "no_blog_found": "ブログが見つかりません"
     },
     "checkout": {
       "payment_retry_message": "もう一度お試しいただくか、別の支払い方法を使用して決済を完了してください。",
@@ -1200,9 +1099,7 @@
       "please_enter_a_valid_phone_number": "有効な電話番号を入力してください",
       "please_enter_your_phone_number": "電話番号を入力してください",
       "please_enter_a_valid_email_address": "有効なメールアドレスを入力してください",
-      "please_enter_your_email_address": "メールアドレスを入力してください",
-      "seo_description": "サポートや質問については、私たちに連絡してください。私たちはあなたの注文、返品、または製品の問い合わせを支援するためにここにいます。",
-      "entered_msg_greater_than_500_char": "入力されたメッセージは500文字以上です"
+      "please_enter_your_email_address": "メールアドレスを入力してください"
     },
     "faq": {
       "no_frequently_asked_questions_found": "よくある質問が見つかりません",
@@ -1246,9 +1143,6 @@
       "otp_sent_to_phone": "ワンタイムパスワード（OTP）が電話番号に正常に送信されました",
       "verify_caps": "確認する",
       "enter_bank_details": "銀行口座の詳細を入力してください"
-    },
-    "about_us": {
-      "seo_description": "私たちは、高品質の製品と例外的なサービスを提供することに専念しています。私たちの旅、価値、そして私たちを信頼できる選択にするものについてもっと学びましょう。"
     }
   }
 }

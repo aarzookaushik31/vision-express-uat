@@ -6,17 +6,6 @@
       "hotspot_hover_image": "Hotspot Hover Image",
       "height": "Height",
       "width": "width",
-      "height_mode": "Height Mode",
-      "auto": "Auto",
-      "fixed_height": "Fixed Height",
-      "aspect_ratio": "Aspect Ratio",
-      "desktop_height": "Desktop Height (px)",
-      "desktop_height_info": "Leave empty to auto-fit. Set to reserve a fixed desktop height for media.",
-      "mobile_height": "Mobile Height (px)",
-      "mobile_height_info": "Leave empty to auto-fit. Set to reserve a fixed mobile height for media.",
-      "desktop_aspect_ratio": "Desktop Aspect Ratio",
-      "mobile_aspect_ratio": "Mobile Aspect Ratio",
-      "aspect_ratio_help_text": "Enter ratios like 16:9, 3:1 or 100/37. Leave empty for default.",
       "show_clickable_area": "Show Clickable Area",
       "pointer": "Pointer",
       "box": "Box",
@@ -44,7 +33,6 @@
       "desktop_layout": "Desktop Layout",
       "horizontal": "Horizontal",
       "not_applicable_for_mobile": "It'll not work for mobile layout",
-      "not_applicable_for_desktop": "It'll not work for desktop layout",
       "start": "Start",
       "end": "End",
       "show_add_to_cart": "Show Add to Cart",
@@ -74,7 +62,6 @@
       "hotspot_mobile": "Hotspot Mobile",
       "navigation": "Navigation",
       "mandatory_delivery_check": "Mandatory Delivery check",
-      "show_hide_mandatory_delivery_check": "Show/Hide Mandatory Delivery Check",
       "preselect_size": "Preselect size",
       "applicable_for_multiple_size_products": "Applicable only for multiple-size products",
       "custom_button": "Custom Button",
@@ -114,33 +101,20 @@
       "infinite_scroll": "Infinite Scroll",
       "register": "Register",
       "login": "Login",
-      "hide_single_size_info": "Hide single size",
-      "default": "default",
-      "default_menu": "Default Menu",
-      "is_limited_stock": "Display limited stock label",
-      "limited_stock_label": "Limited Stock label",
-      "limited_stock_info": "Use {{qty}} in your message to automatically show the remaining quantity. Example: Hurry! Only {{qty}} left",
-      "show_filter_toggle_button": "Show Filter Toggle Button",
-      "show_filter_toggle_button_info": "Enable to show a button that allows users to toggle the visibility of filters on the product listing page"
+      "hide_single_size_info": "Hide single size"
     },
     "settings_schema": {
       "common": {
         "typography": "Typography",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Algolia Configuration",
         "footer": "Footer",
         "cart_and_button_configuration": "Cart & Button Configuration",
         "product_card_configuration": "Product Card Configuration",
-        "product_details_modal_settings": "Product Details Modal Settings",
         "other_page_configuration": "Other Page Configuration",
-        "performance_and_caching": "Performance & Caching",
         "google_maps": "Google Maps",
-        "copilot_configuration": "Kaily Configuration",
         "mobile_logo_max_height": "Mobile Navigation Logo Max Height",
-        "mobile_logo_max_height_info": "Adjust the maximum height of the logo inside the mobile sidebar menu",
         "logo_header": "Desktop Header Logo Max Height",
-        "mobile_logo_header": "Mobile Header Logo Max Height",
-        "mobile_logo_header_info": "Adjust the maximum height of the logo in the top mobile header",
-        "home_page": "Home Page"
+        "mobile_logo_header": "Mobile Header Logo Max Height"
       },
       "typography": {
         "font_header": "Font Header",
@@ -182,26 +156,10 @@
         "regular": "Regular",
         "semibold": "Semibold",
         "transparent_header": "Transparent Header",
-        "transparent_header_info": "Only works with a top Application banner, image slideshow and hero image.",
-        "sticky_header": "Sticky Header",
-        "sticky_header_info": "Enable/Disable Sticky Header",
-        "show_secondary_header_on_checkout": "Simplify Header on Cart/Checkout",
-        "show_secondary_header_on_checkout_info": "Hide Navigation and make header simple and user friendly. It Hides Navigation search, account icon etc",
-        "show_icon_text_in_header": "Show Icon Text in Header",
-        "show_icon_text_in_header_info": "Enable to show text labels alongside the icons in the header (e.g., Cart, Wishlist, Profile)",
-        "profile_icon_text_label": "Profile Text",
-        "wishlist_icon_text_label": "Wishlist Text",
-        "cart_icon_text_label": "Cart Text",
-        "profile_icon_text_info": "Enter the text to display beside the profile icon",
-        "wishlist_icon_text_info": "Enter the text to display beside the wishlist icon",
-        "cart_icon_text_info": "Enter the text to display beside the cart icon"
+        "transparent_header_info": "Apply transparent header when application banner or image slide show on top"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
-      },
-      "copilot_configuration": {
-        "storefront_copilot_actions": "Enable AI Action Mode.",
-        "storefront_copilot_actions_info": "Enable UI-based Kaily Actions. When disabled, Kaily will give system based results instead."
+      "algolia_configuration": {
+        "enable_algolia": "Enable Algolia"
       },
       "footer": {
         "logo": "Logo",
@@ -210,8 +168,6 @@
         "desktop": "Desktop",
         "mobile_tablet": "Mobile/Tablet",
         "show_footer_contact_details_background": "Show Footer Contact Details Background",
-        "show_collapsible_footer_menu": "Show Collapsible Footer Menu (Mobile)",
-        "collapsible_footer_menu_info": "Check to enable collapsible footer menu on mobile devices",
         "social_media_text": "Social media text label",
         "social_media_text_info": "Show Label text for social media",
         "open_same_tab": "Open social links in same tab",
@@ -245,20 +201,12 @@
         "height_in_px": "Height (in px)",
         "display_sale_badge": "Display Sale Badge",
         "hide_sale_badge": "Uncheck to hide sale badge",
-        "display_custom_badge": "Display Custom Badge",
-        "hide_custom_badge": "Uncheck to hide custom badge",
         "image_border_radius": "Image Border Radius",
         "border_radius_for_image": "Border radius for Image",
         "show_image_on_hover": "Show image on hover",
         "hover_image_display": "This option controls whether an additional image is displayed when hovering over the product card",
         "badge_border_radius": "Badge Border Radius",
-        "badge_border_radius_info": "Border radius for Badge",
-        "limited_stock_quantity": "Limited stock quantity",
-        "limited_stock_quantity_info": "Quantity below which limited stock label is displayed"
-      },
-      "product_details_modal_settings": {
-        "hide_brand_name": "Hide Brand Name",
-        "hide_brand_name_info": "Brand name will not be shown in the product details modal"
+        "badge_border_radius_info": "Border radius for Badge"
       },
       "other_page_configuration": {
         "improve_image_quality": "Improve Image Quality",
@@ -272,19 +220,10 @@
         "border_radius_for_button": "Border radius for Button",
         "use_original_images": "Use Original Images"
       },
-      "performance_and_caching": {
-        "performance_and_caching": "Performance & Caching",
-        "enable_caching": "Enable caching",
-        "enable_caching_info": "Enable SWR (stale-while-revalidate) caching for improved performance and reduced API calls"
-      },
       "google_maps": {
         "enable_google_maps": "Enable Google Maps",
         "google_maps_api_key": "Google Maps API Key",
         "google_maps_api_key_info": "This API key helps connect your site to Google Maps so you can display interactive maps and location details"
-      },
-      "home_page": {
-        "initial_sections_count_label": "Initial Sections to Load",
-        "initial_sections_count_load_info": "Number of sections to load initially before user scrolls. Remaining sections load on scroll."
       }
     },
     "sections": {
@@ -315,17 +254,7 @@
         "price_breakup": "Price Breakup",
         "behalf_of_customer": "Behalf of customer",
         "login_checkout_buttons": "Log-In/Checkout Buttons",
-        "share_cart": "Share Cart",
-        "loyalty_points": "Loyalty Points",
-        "loyalty_points_check": "Enable Loyalty Points"
-      },
-      "order_status": {
-        "order_status": "Order Status",
-        "order_header": "Order Header",
-        "shipment_list": "Shipment List",
-        "price_breakup": "Price Breakup",
-        "payment_information": "Payment Information",
-        "delivery_address": "Delivery Address"
+        "share_cart": "Share Cart"
       },
       "categories_listing": {
         "categories_listing": "Categories Listing",
@@ -351,7 +280,6 @@
         "layout_mobile": "Layout(Mobile)",
         "layout_desktop": "Layout(Desktop)",
         "collections_per_row_desktop": "Display collections per row (desktop)",
-        "collections_per_row_mobile": "Display collections per row (mobile)",
         "collection_item": "Collection Item",
         "select_collection": "Select Collection",
         "collection_1": "Collection 1",
@@ -377,7 +305,6 @@
         "desktop_content_alignment": "Alignment of content in desktop",
         "banner_horizontal_scroll": "Banner with horizontal scroll",
         "banner_with_stack": "Banner with Stack",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Layout (Mobile)",
         "content_alignment_mobile": "Alignment of content in mobile",
         "text_alignment": "Text Alignment",
@@ -428,8 +355,6 @@
         "hero_video": "Hero Video",
         "primary_video": "Primary Video",
         "video_url": "Video URL",
-        "mobile_video_url": "Mobile Video URL",
-        "mobile_primary_video": "Mobile Primary Video",
         "video_support_mp4_youtube": "Supports MP4 Video & Youtube Video URL",
         "autoplay": "Autoplay",
         "enable_autoplay_muted": "Check to enable autoplay (Video will be muted if autoplay is active)",
@@ -493,8 +418,7 @@
         "view_all_requires_heading": "\"View All\" will be visible only if a \"Heading\" is provided",
         "icon_or_navigation_name_mandatory": "Icon or Navigation Name is mandatory",
         "navigation_name": "Navigation Name",
-        "button_link": "Button Link",
-        "description_info": "Description of muli collection"
+        "button_link": "Button Link"
       },
       "order_details": {
         "order_details": "Order Details",
@@ -504,15 +428,12 @@
         "shipment_address": "Shipment Address",
         "payment_details_card": "Payment Details Card",
         "shipment_breakup": "Shipment Breakup",
-        "shipment_medias": "Shipment Medias",
-        "total_refund": "Total Refund"
+        "shipment_medias": "Shipment Medias"
       },
       "product_description": {
         "product_description": "Product Description",
         "enable_buy_now": "Enable Buy now",
         "enable_buy_now_feature": "Enable buy now feature",
-        "show_sale_tag": "Show Sale Tag",
-        "show_sale_tag_info": "Display sale badge on product images when items are discounted",
         "zoom_in": "Zoom product image",
         "zoom_in_info": "Zoom product image on cursor hover",
         "show_bullets_in_product_details": "Show Bullets in Product Details",
@@ -559,9 +480,7 @@
         "badge_url_4": "Badge URL 4",
         "badge_logo_5": "Badge logo 5",
         "badge_label_5": "Badge label 5",
-        "badge_url_5": "Badge URL 5",
-        "enable_scrollable_product_data": "Enable scrollable product data",
-        "keep_product_image_visible_msg": "Keep product images visible while scrolling product details."
+        "badge_url_5": "Badge URL 5"
       },
       "raw_html": {
         "custom_html": "Custom HTML",
@@ -654,7 +573,6 @@
         "custom_html": "Custom HTML"
       },
       "brand_landing": {
-        "brands": "Brands",
         "brands_landing": "Brands Landing",
         "back_to_top_info": "Enable a 'Back to Top' button to help users quickly return to the top of the page.",
         "only_logo_info": "Display only brand logos",
@@ -686,7 +604,6 @@
       "wishlist": {
         "show_add_to_cart": "Show Add to Cart button",
         "mandatory_delivery_check_info": "Mandatory delivery check in Add to Cart popup. Not applicable for international websites",
-        "show_hide_mandatory_delivery_check_info": "Enabe/Disable Mandatory Check",
         "preselect_size_info": "Preselect size in Add to Cart popup. Applicable only for multi-sized products. Not applicable for international websites",
         "hide_single_size_info": "Hide single size in Add to Cart popup. Not applicable for international websites"
       }
@@ -719,8 +636,7 @@
       "trust_maker_title": "Title",
       "add_description": "Add description",
       "free_delivery": "Free Delivery",
-      "marker_description": "Don`t love it? Don`t worry. Return delivery is free",
-      "limited_stock_label": "Hurry! Only {{qty}} Left"
+      "marker_description": "Don`t love it? Don`t worry. Return delivery is free"
     }
   }
 }

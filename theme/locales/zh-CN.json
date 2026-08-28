@@ -251,95 +251,7 @@
       "invalid_email": "无效邮箱",
       "email_cannot_exceed_50_characters": "邮箱不可超过 50 个字符",
       "other": "其他",
-      "product_is_not_serviceable_at_given_locality": "该商品在所选地区无法服务",
-      "no_items_in_cart": "购物车中没有商品",
-      "street_name": "街道名称",
-      "building_no__apartment": "楼号 / 公寓",
-      "area": "地区",
-      "landmark": "地标",
-      "sorry_item_is_out_of_stock": "抱歉，物品没货",
-      "added_only_those_products_that_are_in_stock": "仅添加那些库存的产品",
-      "max_50_items_allowed_in_cart": "最大50个物品在购物车中",
-      "nothing_updated": "什么都没有更新",
-      "item_updated": "项目更新",
-      "item_not_updated": "项目未更新",
-      "invalid_address": "无效的地址",
-      "address_block_no_street_name": "地址（街道号，街道名称）",
-      "address_line_1": "地址第一行",
-      "address_line_2": "地址第2行",
-      "apartment_building_floor_etc": "公寓，建筑物，地板等",
-      "apartment_building_house_no_floor_etc": "公寓，建筑物，房屋，地板等",
-      "apartment_unit_building_floor_room": "公寓，单位，建筑物，地板，房间",
-      "apartment_unit_building_floor_room_etc": "公寓，单位，建筑物，地板，房间等",
-      "apartment_unit_building_floor_etc": "公寓，单位，建筑物，地板等。",
-      "apartment_building_unit_floor_etc": "公寓，建筑物，单位，地板等",
-      "apartment_suite_unit_building_floor_etc": "公寓，套房，单位，建筑物，地板等。",
-      "apartment_suite_unit_floor_etc": "公寓，套房，单位，地板等",
-      "apt_suite_etc": "apt，套房等。",
-      "barangay": "barangay",
-      "block": "堵塞",
-      "building_number_unit_number": "建筑物编号，单位编号",
-      "building_apt_rt_rw": "建筑物，公寓，RT/RW",
-      "city_district": "城市/地区",
-      "city_town": "城市/城镇",
-      "city_ward_town_village": "城市/病房/城镇/村庄",
-      "complement": "补充",
-      "county": "县",
-      "district_area": "地区/区域",
-      "district_county_municipality": "地区/县/市",
-      "eircode": "eircode",
-      "flat_apartment_building_name_or": "公寓，公寓，建筑物名称或＃",
-      "flat_stair_door_number_etc": "平坦，楼梯，门号等",
-      "floor_unit_no": "地板 - 单位号。",
-      "governorate_city": "省/城市",
-      "house_number_and_street_name": "房屋号码和街道名称",
-      "locality_apartment_building_floor_etc": "地方，公寓，建筑物，地板等。",
-      "neighborhood_bairro": "邻里/拜罗",
-      "postal_code": "邮政编码",
-      "postcode": "邮政编码",
-      "prefecture": "州",
-      "province": "省",
-      "province_code": "省代码",
-      "province_city_do_si": "省/城市（DO/SI）",
-      "region": "地区",
-      "state_code": "状态代码",
-      "street_address": "街道地址",
-      "street_address_chome_banchi_go": "街道地址/Chome，Banchi，Go",
-      "street_name_and_house_no": "街道名称和房屋没有",
-      "street_name_and_number": "街道名称和号码",
-      "street_name_no": "街道名称/不",
-      "street_name_no_block": "街道名称/不，街区",
-      "street_name_no_house_number": "街道名称/不，房屋号码",
-      "street_number": "街道号码",
-      "subdistrict": "分区",
-      "subdistrict_district": "分区/地区",
-      "suburb": "市郊",
-      "town_city": "城镇/城市",
-      "unit___floor_no": "单位 /地板没有",
-      "wilaya": "区",
-      "zipcode": "邮政编码",
-      "zone_number": "区域号",
-      "sorry_invalid_coupon": "对不起！无效的优惠券",
-      "invalid_gstin_number": "无效的GSTIN编号",
-      "payment_mode_is_not_valid_for_applied_coupon": "付款模式对应用优惠券无效",
-      "ordering_store_is_not_valid_for_the_applied_coupon": "订购商店对应用优惠券无效",
-      "coupon_usage_limit_has_been_reached": "优惠券的使用限额已达到",
-      "login_required_to_apply_this_coupon": "应用此优惠券需要登录",
-      "coupon_not_applicable_for_the_user": "优惠券不适用于用户",
-      "cart_is_empty": "购物车是空的",
-      "coupon_expired": "优惠券过期",
-      "sorry_invalid_platform_coupon": "对不起！无效的平台优惠券",
-      "sorry_coupon_expired": "对不起！优惠券过期",
-      "sorry_coupon_not_applicable": "对不起！优惠券不适用。",
-      "sorry_coupon_not_applicable_for_these_items": "对不起！优惠券不适用于这些项目。",
-      "sorry_coupon_already_used": "对不起！优惠券已经使用了。",
-      "coupon_successfully_removed": "优惠券成功删除",
-      "no_coupon_is_applied": "没有优惠券",
-      "coupon_not_applicable_on_this_order": "优惠券不适用此订单",
-      "cod_not_available_on_applied_promocode": "鳕鱼在应用的杂货交易中不可用",
-      "coupon_applicable_for_new_users_only": "仅适用于新用户的优惠券",
-      "please_login_to_use_this_coupon": "请登录使用此优惠券。",
-      "coupon_code_not_applicable_items_are_already_at_the_best_price": "优惠券代码不适用，项目已经以最优惠的价格"
+      "product_is_not_serviceable_at_given_locality": "该商品在所选地区无法服务"
     },
     "auth": {
       "account_deletion_notice": "根据您的请求，您的帐户即将被删除。如果您希望恢复帐户，请通过以下支持邮箱联系",
@@ -486,8 +398,6 @@
         "my_address": "我的地址",
         "add_new_address": "添加新地址",
         "add_new_address_caps": "添加新地址",
-        "default_address": "默认地址",
-        "other_addresses": "其他地址",
         "no_address_available": "没有可用的地址",
         "address_not_found": "未找到地址！",
         "return_to_my_address": "返回我的地址",
@@ -499,6 +409,7 @@
         "pincode_six_digits_required": "邮政编码必须正好为 6 位数字",
         "invalid_phone_number": "无效的电话号码",
         "enter_pincode": "输入邮政编码",
+        "default_address": "默认地址",
         "other_address": "其他地址",
         "address_type": "地址类型",
         "make_this_my_default_address": "将此设为我的默认地址"
@@ -653,17 +564,7 @@
       "back_to_login_caps": "返回登录",
       "sorry_we_couldnt_find_any_results": "抱歉，我们找不到任何结果",
       "in": "在",
-      "home_seo_description": "轻松在线购物，尽享各种优质商品、最新上架和独家优惠——一站式体验",
-      "maximum_64_characters_allowed": "请输入不到64的角色",
-      "maximum_50_characters_allowed": "请输入不到50的角色",
-      "page_titles": {
-        "contact_us": "联系我们",
-        "home": "主页",
-        "product_listing": "产品列表",
-        "wishlist": "心愿单",
-        "about_us": "关于我们",
-        "blog": "博客"
-      }
+      "home_seo_description": "轻松在线购物，尽享各种优质商品、最新上架和独家优惠——一站式体验"
     },
     "categories": {
       "empty_state": "未找到类别"
@@ -853,8 +754,7 @@
     "wishlist": {
       "product_removed": "从愿望清单中删除的产品",
       "no_product_in_wishlist": "您尚未将任何产品添加到愿望清单",
-      "add_products_to_wishlist": "将产品添加到愿望清单",
-      "seo_description": "保存您喜欢的产品并建立您的愿望清单。只需单击几下即可随时轻松重新访问并购买您喜欢的物品。"
+      "add_products_to_wishlist": "将产品添加到愿望清单"
     },
     "cart": {
       "no_items": "购物车中没有商品",
@@ -1082,8 +982,7 @@
       "slide_alt": "滑动",
       "no_blogs_found": "未找到博客",
       "showing_results": "显示 {{count}} 个结果",
-      "no_blog_found": "未找到博客",
-      "seo_description": "发现有用的文章，产品提示和专家见解，以保持知情和启发。我们的博客涵盖了从趋势到操作指南的所有内容。"
+      "no_blog_found": "未找到博客"
     },
     "checkout": {
       "complete_payment": "完成付款",
@@ -1189,8 +1088,7 @@
       "save_this_card_rbi_guidelines": "根据印度储备银行指南保存此卡",
       "improve_your_card_security": "提高您的卡安全性",
       "card_consent_request_1": "如果您同意，您的银行/卡网络将通过标记化安全地保存您的卡信息。",
-      "card_consent_request_2": "如果您选择不进行标记，则每次付款时都必须输入卡详细信息。",
-      "payment_retry_message": "请重试或使用其他付款方式完成付款"
+      "card_consent_request_2": "如果您选择不进行标记，则每次付款时都必须输入卡详细信息。"
     },
     "contact_us": {
       "please_enter_your_name": "请输入您的姓名",
@@ -1201,9 +1099,7 @@
       "please_enter_a_valid_phone_number": "请输入有效的电话号码",
       "please_enter_your_phone_number": "请输入您的电话号码",
       "please_enter_a_valid_email_address": "请输入有效的电子邮件地址",
-      "please_enter_your_email_address": "请输入您的电子邮件地址",
-      "seo_description": "与我们联系以寻求任何支持或问题。我们在这里为您的订单，退货或产品查询提供协助，质量高效。",
-      "entered_msg_greater_than_500_char": "输入的消息超过500个字符"
+      "please_enter_your_email_address": "请输入您的电子邮件地址"
     },
     "faq": {
       "no_frequently_asked_questions_found": "未找到常见问题解答",
@@ -1247,9 +1143,6 @@
       "otp_sent_to_phone": "一次性密码 (OTP) 已成功发送至电话号码",
       "verify_caps": "核实",
       "enter_bank_details": "输入银行详细信息"
-    },
-    "about_us": {
-      "seo_description": "我们致力于提供高质量的产品和出色的服务。了解有关我们的旅程，价值观以及使我们成为值得信赖的选择的更多信息。"
     }
   }
 }
