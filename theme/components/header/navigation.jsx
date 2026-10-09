@@ -19,6 +19,7 @@ import I18Dropdown from "./i18n-dropdown";
 import MegaMenuLarge from "./mega-menu-large";
 import Search from "./search";
 import ArrowTabNav from "../../assets/images/arrownavtab.png";
+import VecareLogo from "../../assets/images/vecarelogomobile.png";
 
 function Navigation({
   fallbackLogo,
@@ -42,16 +43,46 @@ function Navigation({
   const [sidebarl4Nav, setSidebarl4Nav] = useState({});
   const [activeItem, setActiveItem] = useState(null);
   const [hoveredL2Index, setHoveredL2Index] = useState(null);
+  const [expandedL2Index, setExpandedL2Index] = useState(0);
   const [isClient, setIsClient] = useState(false);
 
+  // Tracks which L3 (that has L4 children) is expanded in the accordion.
+  // Key format: `${l2Index}_${l3Index}`
+  const [expandedL3Key, setExpandedL3Key] = useState(null);
 
-useEffect(() => {
-  if (sidebarl2Nav?.state && sidebarl2Nav?.navigation?.length > 0) {
-    setHoveredL2Index(0);
-  }
-}, [sidebarl2Nav]);
+  useEffect(() => {
+    if (sidebarl2Nav?.state && sidebarl2Nav?.navigation?.length > 0) {
+      setHoveredL2Index(0);
+      setExpandedL2Index(0);
+    }
+  }, [sidebarl2Nav]);
 
+  // Split the L2 items of the current sidebar panel into:
+  // - l2ColumnItems: items WITHOUT an image -> rendered as an accordion (header + collapsible L3 list)
+  // - l2BannerItems: items WITH an image -> rendered as banner cards
+  // This mirrors the desktop mega-menu-large column/banner split.
+  const { l2ColumnItems, l2BannerItems } = useMemo(() => {
+    const columns = [];
+    const banners = [];
+    (sidebarl2Nav?.navigation || []).forEach((l2) => {
+      if (l2?.image) {
+        banners.push(l2);
+      } else {
+        columns.push(l2);
+      }
+    });
+    return { l2ColumnItems: columns, l2BannerItems: banners };
+  }, [sidebarl2Nav?.navigation]);
 
+  const toggleL2Accordion = (index) => {
+    setExpandedL2Index((prev) => (prev === index ? null : index));
+    // Collapse any open L3 dropdown when switching L2 sections
+    setExpandedL3Key(null);
+  };
+
+  const toggleL3Accordion = (key) => {
+    setExpandedL3Key((prev) => (prev === key ? null : key));
+  };
 
   const handleMouseEnter = (index) => {
     setActiveItem(index);
@@ -82,6 +113,7 @@ useEffect(() => {
     setShowSidebarNav(true);
     setSidebarl2Nav({ state: false });
     setSidebarl3Nav({ state: false });
+    setExpandedL3Key(null);
   };
 
   useEffect(() => {
@@ -105,16 +137,13 @@ useEffect(() => {
   }, [showSidebar]);
 
   const isHorizontalNav = navigationList?.length > 0 && !isSidebarNav;
-  const isMegaMenu =
-    isHorizontalNav &&
-    globalConfig?.header_mega_menu &&
-    globalConfig?.header_layout === "double";
+  const isMegaMenu = isHorizontalNav && globalConfig?.header_mega_menu;
   const isFullWidthMegamenu =
     globalConfig?.header_mega_menu_fullwidth && isMegaMenu;
   const getNavigation = navigationList?.slice(0, maxMenuLength);
 
   const getShopLogoMobile = () =>
-     globalConfig?.mobile_sidebar_logo ||
+    globalConfig?.mobile_sidebar_logo ||
     appInfo?.mobile_logo?.secure_url ||
     appInfo?.logo?.secure_url ||
     fallbackLogo;
@@ -146,7 +175,7 @@ useEffect(() => {
           state: true,
           title: menu.display,
           navigation: menu.sub_navigation,
-          parentTags: menu.tags  ? menu.tags : [],
+          parentTags: menu.tags ? menu.tags : [],
         });
       }
       if (level === "l3") {
@@ -157,35 +186,35 @@ useEffect(() => {
           navigation: menu.sub_navigation,
         });
       }
-       if (level === "l4") {
-      setSidebarl3Nav({ state: false });
-      setSidebarl4Nav({
-        state: true,
-        title: menu.display,
-        navigation: menu.sub_navigation,
-      });
-    }
+      if (level === "l4") {
+        setSidebarl3Nav({ state: false });
+        setSidebarl4Nav({
+          state: true,
+          title: menu.display,
+          navigation: menu.sub_navigation,
+        });
+      }
     }
   };
 
-const goBack = (level) => {
-  if (level === "l2") {
-    setSidebarl2Nav({ state: true });
-    setSidebarl3Nav({ state: false });
-    setSidebarl4Nav({ state: false });
-  }
-  if (level === "l1") {
-    setSidebarl2Nav({ state: false });
-    setSidebarl3Nav({ state: false });
-    setSidebarl4Nav({ state: false });
-    setShowSidebarNav(true);
-  }
-  if (level === "l3") {
-    setSidebarl3Nav({ state: true });
-    setSidebarl4Nav({ state: false });
-  }
-};
-
+  const goBack = (level) => {
+    if (level === "l2") {
+      setSidebarl2Nav({ state: true });
+      setSidebarl3Nav({ state: false });
+      setSidebarl4Nav({ state: false });
+    }
+    if (level === "l1") {
+      setSidebarl2Nav({ state: false });
+      setSidebarl3Nav({ state: false });
+      setSidebarl4Nav({ state: false });
+      setShowSidebarNav(true);
+      setExpandedL3Key(null);
+    }
+    if (level === "l3") {
+      setSidebarl3Nav({ state: true });
+      setSidebarl4Nav({ state: false });
+    }
+  };
 
   return (
     <div className={customClass}>
@@ -226,6 +255,7 @@ const goBack = (level) => {
                       <span
                         className={`${styles.menuTitle} ${styles.flexAlignCenter}`}
                       >
+                        <NavLogo nav={l1nav} />
                         <span>{l1nav.display}</span>
                         {l1nav.sub_navigation?.length > 0 && (
                           <ArrowDownIcon
@@ -239,6 +269,7 @@ const goBack = (level) => {
                       <span
                         className={`${styles.menuTitle} ${styles.flexAlignCenter}`}
                       >
+                        <NavLogo nav={l1nav} />
                         <span>{l1nav.display}</span>
                         {l1nav.sub_navigation?.length > 0 && (
                           <ArrowDownIcon
@@ -379,56 +410,57 @@ const goBack = (level) => {
                 className={styles.logo}
                 src={getShopLogoMobile()}
                 loading="lazy"
+                width={150}
+                height={40}
                 alt={t("resource.header.shop_logo_mobile_alt_text")}
               />
             </FDKLink>
 
             <div className={styles.sidebarHeaderIconContainer}>
-              
-               <button
-              type="button"
-              className={styles.wishlistIcon}
-               onClick={() => {
-                window.location.href = "/locate-us";
-                setShowSidebar(false);
-              }}
-            >
-                <img 
-                    src={LocationIcon} 
-                    alt="WishlistIcon" 
-                    className={`${styles.menuIcon} ${styles.sidebarIcon}`}
-                  />
-            </button>
+              <button
+                type="button"
+                className={styles.wishlistIcon}
+                onClick={() => {
+                  window.location.href = "/locate-us";
+                  setShowSidebar(false);
+                }}
+              >
+                <img
+                  src={LocationIcon}
+                  alt="WishlistIcon"
+                  className={`${styles.menuIcon} ${styles.sidebarIcon}`}
+                />
+              </button>
 
               <button
-              type="button"
-              className={styles.wishlistIcon}
-               onClick={() => {
-                checkLogin("wishlist");
-                setShowSidebar(false);
-              }}
-            >
-                <img 
-                    src={WishlistIcon} 
-                    alt="WishlistIcon" 
-                    className={`${styles.menuIcon} ${styles.sidebarIcon}`}
-                  />
-            </button>
-          
-            <button
-              type="button"
-              className={styles.closeIcon}
-              onClick={closeSidebarNav}
-              aria-label={t("resource.facets.close_alt")}
-            >
-              <CloseIcon
-                className={`${styles.menuIcon} ${styles.crossIcon} ${styles.sidebarIcon}`}
-              />
-            </button>
-              </div>
+                type="button"
+                className={styles.wishlistIcon}
+                onClick={() => {
+                  checkLogin("wishlist");
+                  setShowSidebar(false);
+                }}
+              >
+                <img
+                  src={WishlistIcon}
+                  alt="WishlistIcon"
+                  className={`${styles.menuIcon} ${styles.sidebarIcon}`}
+                />
+              </button>
+
+              <button
+                type="button"
+                className={styles.closeIcon}
+                onClick={closeSidebarNav}
+                aria-label={t("resource.facets.close_alt")}
+              >
+                <CloseIcon
+                  className={`${styles.menuIcon} ${styles.crossIcon} ${styles.sidebarIcon}`}
+                />
+              </button>
+            </div>
           </div>
 
-              <div className={styles.alwaysOnSearch}>
+          {/* <div className={styles.alwaysOnSearch}>
               <Search
                 customSearchClass={styles.customSearchClass}
                 customSearchWrapperClass={styles.customSearchWrapperClass}
@@ -437,22 +469,7 @@ const goBack = (level) => {
                 globalConfig={globalConfig}
                 fpi={fpi}
               />
-            </div>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </div> */}
 
           <nav className={styles.sidebar__navigation}>
             <ul
@@ -469,27 +486,30 @@ const goBack = (level) => {
                       href={nav?.action?.page?.query?.url[0]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.navLink}
+                      className={`${styles.navLink} ${styles.l1ItemLogoText}`}
                       onClick={() => {
                         setShowSidebar(false);
                         closeSidebarNav();
                       }}
                     >
-                      {nav.display}
+                      <NavLogo nav={nav} />
+                      <L1Label nav={nav} />
                     </a>
                   ) : convertActionToUrl(nav?.action) ? (
                     <FDKLink
-                      className={styles.navLink}
+                      className={`${styles.navLink} ${styles.l1ItemLogoText}`}
                       action={nav?.action}
                       onClick={() => {
                         setShowSidebar(false);
                         closeSidebarNav();
                       }}
                     >
-                      {nav.display}
+                      <NavLogo nav={nav} />
+                       <L1Label nav={nav} />
                     </FDKLink>
                   ) : (
                     <span
+                      className={styles.l1ItemLogoText}
                       onClick={() => {
                         if (nav.sub_navigation?.length > 0) {
                           redirectToMenu(nav, "l2");
@@ -499,7 +519,8 @@ const goBack = (level) => {
                         }
                       }}
                     >
-                      {nav.display}
+                      <NavLogo nav={nav} />
+                       <L1Label nav={nav} />
                     </span>
                   )}
                   {nav?.sub_navigation?.length > 0 && (
@@ -515,259 +536,335 @@ const goBack = (level) => {
                 </li>
               ))}
             </ul>
-    
 
-               
-{sidebarl2Nav.state && !sidebarl4Nav.state && (
-  <>
-    {sidebarl2Nav?.parentTags?.includes("hasTabs") ? (
-      // 🟣 If parent has "hasTabs" → show tab layout
-      <div key="l2_Nav" className={styles.l2WithTabs}>
-        {/* Back to L1 */}
-        <div
-          onClick={() => goBack("l1")}
-          className={`${styles["sidebar__navigation--item"]} ${styles.title}
+            {sidebarl2Nav.state && !sidebarl4Nav.state && (
+              <>
+                {sidebarl2Nav?.parentTags?.includes("hasTabs") ? (
+                  // 🟣 If parent has "hasTabs" → show tab layout
+                  <div key="l2_Nav" className={styles.l2WithTabs}>
+                    {/* Back to L1 */}
+                    <div
+                      onClick={() => goBack("l1")}
+                      className={`${styles["sidebar__navigation--item"]} ${styles.title}
             ${styles.flexAlignCenter} ${styles.justifyStart} ${styles.fontBody} b1`}
-          style={{ display: sidebarl2Nav.title ? "flex" : "none" }}
-        >
-          <ArrowDownIcon
-            className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-          />
-          <span>{sidebarl2Nav.title}</span>
-        </div>
-
-        {/* Tabs */}
-        <ul className={styles.l2Tabs}>
-          {sidebarl2Nav.navigation.map((l2nav, index) => (
-            <li
-              key={index}
-              className={`${styles.l2Tab} ${
-                hoveredL2Index === index ? styles.activeTab : ""
-              }`}
-              onClick={() => setHoveredL2Index(index)}
-            >
-              <img
-                className={styles.arrowtabimg}
-                src={ArrowTabNav}
-                alt="arrow"
-                loading="lazy"
-                fetchpriority="low"
-              />
-              <NavLogo nav={l2nav} />
-              <span>{l2nav.display}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* L3 Content */}
-        {hoveredL2Index !== null && !sidebarl4Nav.state && (
-          <ul className={styles.l3NavigationList}>
-            {sidebarl2Nav.navigation[hoveredL2Index]?.sub_navigation?.map(
-              (l3nav, l3Index) => (
-                <li
-                  key={l3Index}
-                  className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2`}
-                >
-                  {convertActionToUrl(l3nav?.action) ? (
-                    <FDKLink
-                      className={styles.navLink}
-                      action={l3nav?.action}
-                      onClick={() => {
-                        goBack("l1");
-                        closeSidebarNav();
-                      }}
+                      style={{ display: sidebarl2Nav.title ? "flex" : "none" }}
                     >
-                      {l3nav.display}
-                    </FDKLink>
-                  ) : (
-                    <span
-                      className={styles.spanL4}
-                      onClick={() => {
-                        if (l3nav.sub_navigation?.length > 0) {
-                          redirectToMenu(l3nav, "l4");
-                        }
-                      }}
-                    >
-                      {l3nav.display}
-                      {l3nav?.sub_navigation?.length > 0 && (
-                        <ArrowDownIcon
-                          className={`${styles.arrowRightIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-                        />
-                      )}
-                    </span>
-                  )}
-                </li>
-              )
-            )}
-          </ul>
-        )}
-      </div>
-    ) : (
-      // 🟢 If parent does NOT have "hasTabs" → show normal L2 layout
-      <div key="l2_Nav" className={styles.l2Normal}>
-        <div
-          onClick={() => goBack("l1")}
-          className={`${styles["sidebar__navigation--item"]} ${styles.title}
+                      <ArrowDownIcon
+                        className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
+                      />
+                      <span>{sidebarl2Nav.title}</span>
+                    </div>
+
+                    {/* Tabs */}
+                    <ul className={styles.l2Tabs}>
+                      {sidebarl2Nav.navigation.map((l2nav, index) => (
+                        <li
+                          key={index}
+                          className={`${styles.l2Tab} ${
+                            hoveredL2Index === index ? styles.activeTab : ""
+                          }`}
+                          onClick={() => setHoveredL2Index(index)}
+                        >
+                          <img
+                            className={styles.arrowtabimg}
+                            src={ArrowTabNav}
+                            alt="arrow"
+                            loading="lazy"
+                            fetchpriority="low"
+                          />
+                          <NavLogo nav={l2nav} />
+                          <span>{l2nav.display}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* L3 Content */}
+                    {hoveredL2Index !== null && !sidebarl4Nav.state && (
+                      <ul className={styles.l3NavigationList}>
+                        {sidebarl2Nav.navigation[
+                          hoveredL2Index
+                        ]?.sub_navigation?.map((l3nav, l3Index) => (
+                          <li
+                            key={l3Index}
+                            className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2`}
+                          >
+                            {convertActionToUrl(l3nav?.action) ? (
+                              <FDKLink
+                                className={styles.navLink}
+                                action={l3nav?.action}
+                                onClick={() => {
+                                  goBack("l1");
+                                  closeSidebarNav();
+                                }}
+                              >
+                                {l3nav.display}
+                              </FDKLink>
+                            ) : (
+                              <span
+                                className={styles.spanL4}
+                                onClick={() => {
+                                  if (l3nav.sub_navigation?.length > 0) {
+                                    redirectToMenu(l3nav, "l4");
+                                  }
+                                }}
+                              >
+                                {l3nav.display}
+                                {l3nav?.sub_navigation?.length > 0 && (
+                                  <ArrowDownIcon
+                                    className={`${styles.arrowRightIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
+                                  />
+                                )}
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  // 🟢 If parent does NOT have "hasTabs" → show accordion L2 layout
+                  // (matches the desktop mega menu's column/banner split, but
+                  // collapsible since mobile can't show every column at once)
+                  <div key="l2_Nav" className={styles.l2Normal}>
+                    <div
+                      onClick={() => goBack("l1")}
+                      className={`${styles["sidebar__navigation--item"]} ${styles.title}
             ${styles.flexAlignCenter} ${styles.justifyStart} ${styles.fontBody} b1`}
-          style={{ display: sidebarl2Nav.title ? "flex" : "none" }}
-        >
-          <ArrowDownIcon
-            className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-          />
-          <span>{sidebarl2Nav.title}</span>
-        </div>
+                      style={{ display: sidebarl2Nav.title ? "flex" : "none" }}
+                    >
+                      <ArrowDownIcon
+                        className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
+                      />
+                      <span>{sidebarl2Nav.title}</span>
+                    </div>
 
-        <ul>
-          {sidebarl2Nav.navigation.map((l2nav, l2Index) => (
-            <li
-              key={l2Index}
-              className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2`}
-            >
-              {convertActionToUrl(l2nav?.action) ? (
+                    <div className={styles.l2AccordionWrapper}>
+                      {l2ColumnItems.map((l2nav, l2Index) => {
+                        const hasChildren = l2nav?.sub_navigation?.length > 0;
+                        const isExpanded = expandedL2Index === l2Index;
+                        const hasDirectLink = convertActionToUrl(l2nav?.action);
 
-                <>
-                <FDKLink
-                  className={styles.navLink}
-                  action={l2nav?.action}
-                  onClick={() => {
-                    goBack("l1");
-                    closeSidebarNav();
-                  }}
-                >
-                  {l2nav.display}
-                </FDKLink>
-
-                 {!!l2nav?.sub_navigation?.length && (
-                            <div className={styles.l3NavigationBlock}>
-                              {l2nav?.sub_navigation.map((l3nav, l3index) => (
+                        return (
+                          <div
+                            key={`${l2nav.display}_${l2Index}`}
+                            className={styles.l2AccordionItem}
+                          >
+                            <div
+                              className={`${styles.l2AccordionHeader} ${styles.flexAlignCenter} ${styles.justifyBetween}`}
+                              onClick={() => {
+                                if (hasChildren) {
+                                  toggleL2Accordion(l2Index);
+                                }
+                              }}
+                            >
+                              {hasChildren ? (
+                                <span className={styles.l2AccordionTitle}>
+                                  {l2nav.display}
+                                </span>
+                              ) : hasDirectLink ? (
                                 <FDKLink
-                                  key={`${l3nav.display}_${l3index}`}
-                                  action={l3nav?.action}
-                                  className={styles.l3NavigationItem}
+                                  action={l2nav?.action}
+                                  className={styles.l2AccordionTitle}
+                                  onClick={() => {
+                                    goBack("l1");
+                                    closeSidebarNav();
+                                  }}
                                 >
-                                  <NavLogo nav={l3nav} />
-                                  <div>{l3nav.display}</div>
+                                  {l2nav.display}
                                 </FDKLink>
-                              ))}
+                              ) : (
+                                <span className={styles.l2AccordionTitle}>
+                                  {l2nav.display}
+                                </span>
+                              )}
+
+                              {hasChildren && (
+                                <ArrowDownIcon
+                                  className={`${styles.menuIcon} ${styles.accordionChevron} ${
+                                    isExpanded ? styles.expanded : ""
+                                  }`}
+                                />
+                              )}
                             </div>
-                          )}
 
+                            {hasChildren && isExpanded && (
+                              <ul className={styles.l3AccordionList}>
+                                {l2nav.sub_navigation.map((l3nav, l3Index) => {
+                                  const hasL4 =
+                                    l3nav?.sub_navigation?.length > 0;
+                                  const l3Key = `${l2Index}_${l3Index}`;
+                                  const isL3Expanded = expandedL3Key === l3Key;
+
+                                  // No L4: normal link, same as before
+                                  if (!hasL4) {
+                                    return (
+                                      <li
+                                        key={`${l3nav.display}_${l3Index}`}
+                                        className={styles.l3AccordionItem}
+                                      >
+                                        <FDKLink
+                                          action={l3nav?.action}
+                                          className={styles.navLink}
+                                          onClick={() => {
+                                            goBack("l1");
+                                            closeSidebarNav();
+                                          }}
+                                        >
+                                          {l3nav.display}
+                                        </FDKLink>
+                                      </li>
+                                    );
+                                  }
+
+                                  // Has L4: no link, the whole row toggles the dropdown
+                                  return (
+                                    <li
+                                      key={`${l3nav.display}_${l3Index}`}
+                                      className={styles.l3AccordionItem}
+                                    >
+                                      <button
+                                        type="button"
+                                        className={styles.l3AccordionToggle}
+                                        aria-expanded={isL3Expanded}
+                                        onClick={() =>
+                                          toggleL3Accordion(l3Key)
+                                        }
+                                      >
+                                        <span>{l3nav.display}</span>
+                                        <ArrowDownIcon
+                                          className={`${styles.menuIcon} ${styles.accordionChevron} ${styles.l3Chevron} ${
+                                            isL3Expanded ? styles.expanded : ""
+                                          }`}
+                                        />
+                                      </button>
+
+                                      {isL3Expanded && (
+                                        <ul className={styles.l4AccordionList}>
+                                          {l3nav.sub_navigation.map(
+                                            (l4nav, l4Index) => (
+                                              <li
+                                                key={`${l4nav.display}_${l4Index}`}
+                                                className={
+                                                  styles.l4AccordionItem
+                                                }
+                                              >
+                                                <FDKLink
+                                                  action={l4nav?.action}
+                                                  className={styles.navLink}
+                                                  onClick={() => {
+                                                    goBack("l1");
+                                                    closeSidebarNav();
+                                                  }}
+                                                >
+                                                  {l4nav.display}
+                                                </FDKLink>
+                                              </li>
+                                            )
+                                          )}
+                                        </ul>
+                                      )}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {!!l2BannerItems.length && (
+                      <div className={styles.l2BannerGroup}>
+                        {l2BannerItems.map((banner, bIndex) => (
+                          <FDKLink
+                            key={`${banner.display}_${bIndex}`}
+                            action={banner?.action}
+                            className={styles.l2Banner}
+                            onClick={() => {
+                              goBack("l1");
+                              closeSidebarNav();
+                            }}
+                          >
+                            <img
+                              className={styles.l2BannerImage}
+                              src={banner.image}
+                              alt={banner?.display}
+                              loading="lazy"
+                            />
+                            {banner?.display && (
+                              <span className={styles.l2BannerLabel}>
+                                {banner.display}
+                                <ArrowDownIcon
+                                  className={`${styles.menuIcon} ${styles.bannerArrow}`}
+                                />
+                              </span>
+                            )}
+                          </FDKLink>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </>
+            )}
 
-              ) : (
-                <span
-                  onClick={() => {
-                    if (l2nav.sub_navigation?.length > 0) {
-                      redirectToMenu(l2nav, "l3");
-                    }
-                  }}
-                >
-                  {l2nav.display}
-                  {l2nav?.sub_navigation?.length > 0 && (
-                    <ArrowDownIcon
-                      className={`${styles.arrowRightIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-                    />
-                  )}
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-  </>
-)}
-
-
-
-{sidebarl4Nav.state && (
-  <div key="l4_Nav" className={styles.l4Panel}>
-    <div
-      onClick={() => goBack("l3")}
-      className={`${styles["sidebar__navigation--item"]} ${styles.title}
+            {sidebarl4Nav.state && (
+              <div key="l4_Nav" className={styles.l4Panel}>
+                <div
+                  onClick={() => goBack("l3")}
+                  className={`${styles["sidebar__navigation--item"]} ${styles.title}
         ${styles.flexAlignCenter} ${styles.justifyStart} ${styles.fontBody} b1`}
-    >
-      <ArrowDownIcon
-        className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-      />
-      <span>{sidebarl4Nav.title}</span>
-    </div>
+                >
+                  <ArrowDownIcon
+                    className={`${styles.arrowLeftIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
+                  />
+                  <span>{sidebarl4Nav.title}</span>
+                </div>
 
-    <ul className={styles.l4NavigationList}>
-      {sidebarl4Nav.navigation.map((l4nav, l4Index) => (
-        <li
-          key={l4Index}
-          className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2 ${
-                  l4nav?.image ? styles.hasImage : ""
-                }`}
-        >
-          {convertActionToUrl(l4nav?.action) ? (
-            <FDKLink
-              action={l4nav?.action}
-              onClick={() => {
-                goBack("l1");
-                closeSidebarNav();
-              }}
-
-               className={`${styles.navLink}`}
-            >
-              <NavLogo nav={l4nav} />
-              {l4nav.display}
-            </FDKLink>
-          ) : (
-            <span
-              onClick={() => {
-                if (l4nav.sub_navigation?.length > 0) {
-                  redirectToMenu(l4nav, "l4");
-                }
-              }}
-            >
-              {l4nav.display}
-              {l4nav?.sub_navigation?.length > 0 && (
-                <ArrowDownIcon
-                  className={`${styles.arrowRightIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
-                />
-              )}
-            </span>
-          )}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-
-
-
-
+                <ul className={styles.l4NavigationList}>
+                  {sidebarl4Nav.navigation.map((l4nav, l4Index) => (
+                    <li
+                      key={l4Index}
+                      className={`${styles["sidebar__navigation--item"]} ${styles.fontBody} b2 ${
+                        l4nav?.image ? styles.hasImage : ""
+                      }`}
+                    >
+                      {convertActionToUrl(l4nav?.action) ? (
+                        <FDKLink
+                          action={l4nav?.action}
+                          onClick={() => {
+                            goBack("l1");
+                            closeSidebarNav();
+                          }}
+                          className={`${styles.navLink}`}
+                        >
+                          <NavLogo nav={l4nav} />
+                          {l4nav.display}
+                        </FDKLink>
+                      ) : (
+                        <span
+                          onClick={() => {
+                            if (l4nav.sub_navigation?.length > 0) {
+                              redirectToMenu(l4nav, "l4");
+                            }
+                          }}
+                        >
+                          {l4nav.display}
+                          {l4nav?.sub_navigation?.length > 0 && (
+                            <ArrowDownIcon
+                              className={`${styles.arrowRightIcon} ${styles.sidebarIcon} ${styles.menuIcon}`}
+                            />
+                          )}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </nav>
 
-
-
-
-
-
-
-
-
           <div className={styles.sidebar__footer}>
-             <button
-              type="button"
-              className={`${styles["sidebar__footer--item"]}  ${styles.flexAlignCenter} ${styles.fontBody} h5`}
-              onClick={() => {
-               window.location.href = "/sections/book-an-eye-test";
-                setShowSidebar(false);
-              }}
-            >
-               <div className={styles.svgiconContainer}>
-                <img 
-                    src={EyeTestIcon} 
-                    alt="Eye Testing Icon" 
-                    className={`${styles.menuIcon}  ${styles.sidebarIcon}${styles.wishlist}`}
-                  />
-              </div>
-              <span>Eye Testing</span>
-            </button>
-
             <button
               type="button"
               className={`${styles["sidebar__footer--item"]} ${styles.account} ${styles.flexAlignCenter} ${styles.fontBody} h5`}
@@ -778,9 +875,9 @@ const goBack = (level) => {
               }}
             >
               <div className={styles.svgiconContainer}>
-              <UserIcon
-                className={`${styles.user} ${styles["sidebar-icon"]} ${styles.menuIcon}`}
-              />
+                <UserIcon
+                  className={`${styles.user} ${styles["sidebar-icon"]} ${styles.menuIcon}`}
+                />
               </div>
               <span>{t("resource.header.account_text")}</span>
             </button>
@@ -789,20 +886,25 @@ const goBack = (level) => {
               type="button"
               className={`${styles["sidebar__footer--item"]}  ${styles.flexAlignCenter} ${styles.fontBody} h5`}
               onClick={() => {
-               window.location.href = "/contact-us";
+                window.location.href = "tel:22 6998 2727";
                 setShowSidebar(false);
               }}
             >
-               <div className={styles.svgiconContainer}>
-              <ContactSidebar
-                className={`${styles.menuIcon}  ${styles.sidebarIcon}${styles.wishlist}`}
-              />
+              <div className={styles.svgiconContainer}>
+                <ContactSidebar
+                  className={`${styles.menuIcon}  ${styles.sidebarIcon}${styles.wishlist}`}
+                />
               </div>
-              <span>Contact Us</span>
+              <span>+91 22 6998 2727</span>
             </button>
-            
-            <div className={`${styles.mobile} ${styles.i18Wrapper} ${styles.languageWrapper}`} >
-              <I18Dropdown fpi={fpi} languageIscCode={languageIscCode}></I18Dropdown>
+
+            <div
+              className={`${styles.mobile} ${styles.i18Wrapper} ${styles.languageWrapper}`}
+            >
+              <I18Dropdown
+                fpi={fpi}
+                languageIscCode={languageIscCode}
+              ></I18Dropdown>
             </div>
           </div>
         </motion.div>
@@ -817,6 +919,25 @@ const goBack = (level) => {
 }
 
 
+const VECARE_LABEL = "ve care protect";
+
+const isVecareProtect = (text) =>
+  typeof text === "string" &&
+  text.trim().replace(/\s+/g, " ").toLowerCase() === VECARE_LABEL;
+
+const L1Label = ({ nav }) => {
+  if (isVecareProtect(nav?.display)) {
+    return (
+      <img
+        className={styles.l1Logo}
+        src={VecareLogo?.src || VecareLogo}
+        alt={nav.display}
+      />
+    );
+  }
+  return <span>{nav?.display}</span>;
+};
+
 const NavLogo = ({ nav }) => {
   const logo = nav?.image;
 
@@ -830,10 +951,11 @@ const NavLogo = ({ nav }) => {
       src={logo}
       alt={nav.display}
       loading="lazy"
+      width={150}
+      height={40}
       fetchpriority="low"
     />
   );
 };
-
 
 export default Navigation;

@@ -1,0 +1,186 @@
+// Same values as the reference site's AOS "fade-up"
+@anim-distance: 100px; // data-aos="fade-up"
+@anim-duration: 0.8s; // data-aos-duration="800"
+@anim-ease: ease; // data-aos-easing="ease"
+@stagger: 100ms; // delay between one item and the next
+
+.trustSection {
+  max-width: 1225px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
+}
+
+.trustCard {
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 24px 16px;
+
+  @media (max-width: 768px) {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 24px 20px 0px 20px;
+  }
+}
+
+// ---- Desktop: single row with dividers ----
+.trustGrid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+  }
+}
+
+.trustItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 12px;
+
+  // before the section is in view (AOS: opacity 0 + translateY(100px))
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+  transition-delay: ~"calc(var(--i, 0) * @{stagger})";
+
+  @media (max-width: 768px) {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    height: 100%;
+  }
+}
+
+.iconCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #9e007e1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 480px) {
+    width: 48px;
+    height: 48px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.itemLabel {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 140%;
+  color: #000000;
+  margin: 0;
+  max-width: 110px;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+// ---- Divider (desktop only) ----
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background: #9e007e1a;
+  margin: 15px 0;
+
+  // simple fade, timed with its item
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+  transition-delay: ~"calc(var(--i, 0) * @{stagger})";
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// ---- Visible state: added when the section scrolls into view ----
+.inView {
+  .trustItem {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); // AOS ends on translateZ(0)
+  }
+
+  .divider {
+    opacity: 1;
+  }
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .trustItem,
+  .divider {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+.trustSlider {
+  // make every slide the same height
+  :global(.slick-track) {
+    display: flex;
+  }
+
+  :global(.slick-slide) {
+    height: auto;
+
+    > div {
+      height: 100%;
+    }
+  }
+
+  :global(.slick-dots) {
+    bottom: 0px;
+
+    li {
+      margin: 0 3px;
+
+      button:before {
+        font-size: 8px;
+        color: #9e007e;
+      }
+    }
+  }
+}
+
+.trustSlide {
+  height: 100%;
+  padding: 0 8px; 
+  box-sizing: border-box;
+}

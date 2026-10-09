@@ -8,7 +8,7 @@
 .search {
   position: absolute;
   .inset(0);
-  background-color: transparent;
+
   &.backgroundNone {
     background-color: unset !important;
   }
@@ -40,12 +40,14 @@
   &__input {
     position: relative;
     flex-grow: 1;
+    min-width: 250px;
+
     &--text {
       background: rgba(77, 77, 77, 1);
       width: 100%;
       padding: 7px 25px;
       font-size: 12px;
-      color:rgba(255, 255, 255, 1);
+      color:#000000CC;
       line-height: 20px;
       border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -60,7 +62,7 @@
       }
 
       &::placeholder {
-        color: #fff;
+        color: #000000CC;
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
@@ -115,7 +117,7 @@
       padding: 8px;
       background-color: @DialogBackground;
       border: 1px solid @DividerStokes;
-      border-radius: 4px;
+      border-radius: 20px;
       box-shadow:
         0px 4px 4px 0px rgba(78, 63, 9, 0.08),
         0px 8px 24px -4px rgba(78, 63, 9, 0.08);
@@ -161,6 +163,10 @@
         flex: 0 0 56px;
         border-radius: 4px;
         margin-inline-end: 12px;
+
+        img{
+          max-width: 100% !important;
+        }
       }
 
       .productTitle {
@@ -197,12 +203,13 @@
   }
 }
 .searchIcon g > path {
-  fill: @HeaderIcon;
+  fill: #fff;
 }
 .single-row-search {
   .search {
     padding: 0;
     &--closeIcon {
+      width: 25px;
       margin-inline-start: 16px;
       @media @desktop {
         width: 32px !important;
@@ -216,19 +223,17 @@
         padding: 8px 24px;
       }
       @media @desktop {
-        padding: 11px 0 0;
-        width: 884px;
+        padding: 0;
       }
     }
     &__input {
       padding: 4px 16px;
       height: 42px;
-      border: 1px solid @TextLabel;
-      border-radius: 4px;
+      border-radius: 500px;
       background: @ThemeAccentL5;
       @media @desktop {
         padding: 6px 16px;
-        height: 48px;
+        height: 40px;
       }
       &--text {
         background: transparent;
@@ -247,6 +252,8 @@
         inset-inline-start: 16px;
         transform: translateY(-50%);
         color: @TextDisabled;
+        white-space: nowrap;
+        font-size: 12px;
         transition: 300ms all cubic-bezier(0, 0, 0.2, 1);
         &.active {
           font-size: 10px;
@@ -258,10 +265,27 @@
           color: @TextBody;
         }
       }
+      // Rotating word container (e.g. "eyeglasses" / "sunglasses")
+      &--rotator {
+        position: relative;
+        display: inline-block;
+        height: 1.4em;
+        min-width: 24ch;
+        line-height: 1.4;
+        vertical-align: bottom;
+        // clips top/bottom for the slide effect, but not horizontally
+        clip-path: inset(0 -200px 0 0);
+      }
+      &--rotatorWord {
+        position: absolute;
+        top: 0;
+        inset-inline-start: 0;
+        white-space: nowrap;
+      }
       &--search-icon {
         inset-inline-start: unset;
         inset-inline-end: 10px;
-        fill: @TextHeading;
+        fill: #9E007E;
         z-index: 3;
       }
     }
@@ -270,7 +294,7 @@
         padding: 20px 8px;
         margin: 0;
         @media @desktop {
-          width: calc(100% - 64px);
+          width: 100%;
         }
       }
       &--item {

@@ -1,151 +1,196 @@
+// Same values as the other animated sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
 .blogListingcards {
-  padding:0 20px 50px 20px;
+  padding: 50px 20px 50px 20px;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  // ---- Visible state: added when the section scrolls into view ----
+  // (`transform: none` instead of translate3d(0,0,0) so the section doesn't
+  // keep a transform that could affect the slider or fixed children)
+  &.inView {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .blogTitle {
-  font-size: 32px;
+  width: 100%;
+  font-size: 36px;
   font-weight: 700;
   line-height: 120%;
-  color:rgba(26, 26, 26, 1);
-  text-transform: uppercase;
+  color: #000000;
   text-align: center;
-  margin-bottom: 10px;
 }
 
-.blogPara{
-        font-size: 12px;
-      color: rgba(46, 43, 44, 0.6);
-      margin: 0;
-text-align: center;
-  margin-bottom: 40px;
-
+.highlight {
+  color: #9E007E;
 }
 
-.blogInfoContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
-  gap: 8px;
+.blogPara {
+  width: 100%;
+  font-size: 12px;
+  color: rgba(46, 43, 44, 0.6);
+  margin: 0px;
+  margin-top: 10px;
+  text-align: center;
 }
 
+// ---- Slider wrapper ----
+.blogListingcards .blogSlider {
+  margin-top: 48px;
 
-.blogGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  :global(.slick-list) {
+    margin: 0 -12px;
+    overflow: hidden;
+  }
+
+  :global(.slick-track) {
+    display: flex;
+  }
+
+  :global(.slick-slider) {
+    position: relative;
+  }
 }
 
+.blogSlide {
+  padding: 0 12px;
+}
+
+// ---- Card ----
 .blogCard {
-  border: 1px solid rgba(158, 0, 126, 0.2);
-  border-radius: 10px;
+  position: relative;
+  display: block;
   background: #fff;
-  overflow: hidden;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  padding: 20px;
+  border-radius: 20px;
+  box-sizing: border-box;
   transition: box-shadow 0.3s;
-}
-
-.blogCard:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.blogCardTitle {
-  font-size: 18px;
-  line-height: 120%;
-  font-weight: 700;
-  color: rgba(26, 26, 26, 1);
-   display: -webkit-box;
-  -webkit-line-clamp: 2;   
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;  
-  line-height: 1.4;   
-  max-height: calc(1.4em * 2);
+  box-shadow: 0px 0px 16px 0px #0000001F;
 }
 
 .blogImage {
+  position: relative;
   width: 100%;
-  height: 190px;
+  height: 320px;
+  border-radius: 10px;
   overflow: hidden;
-  border-radius: 8px;
 }
 
 .blogImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.blogMeta {
-  font-size: 12px;
-  color: rgba(46, 43, 44, 1);
-  text-transform: uppercase;
-  line-height: 135%;
-  display: flex;
-  gap: 8px;
-  letter-spacing: 0px;
-
-  span{
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-
-    img{
-        width: 17px;
-    }
-  }
-}
-
+// Tag: floating badge, top-right of image
 .blogTags {
-  margin-top: auto;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: calc(100% - 24px);
 }
 
 .blogTag {
   display: inline-block;
-  background: rgba(158, 0, 126, 0.05);
-  color: rgba(158, 0, 126, 1);
+  background: #00000029;
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  color: #fff;
   font-size: 12px;
-  font-weight: 400;
-  border-radius: 10px;
-  padding: 5px 10px;
-  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 5px 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
 }
 
-.viewAllWrapper{
-  text-align: center;
-  margin-top: 20px;
+// Title: bottom overlay on the image, own gradient scrim
+.blogOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 32px 16px 16px 16px;
+  background: linear-gradient(
+    to bottom,
+    rgba(158, 0, 126, 0) 0%,
+    rgba(158, 0, 126, 0.85) 100%
+  );
 }
 
-.viewAllBtn{
-border: 1px solid rgba(158, 0, 126, 1);
-padding: 14px 44px;
-border-radius: 40px;
-font-size: 14px;
-font-weight: 400;
-color:rgba(158, 0, 126, 1);
-text-transform: uppercase;
-display: inline-block;
-}
-
-@media(max-width: 768px){
-    .blogGrid {
-  grid-template-columns: repeat(1, 1fr);
-  gap: 15px;
-}
-.blogTitle {
-    font-size: 22px;
-}
-.breadcrumbs{
-    margin-bottom: 20px;
-}
 .blogCardTitle {
-    font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 140%;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
 }
+
+.viewAllWrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.viewAllBtn {
+  border: 1px solid rgba(158, 0, 126, 1);
+  padding: 14px 44px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(158, 0, 126, 1);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .blogTitle {
+    font-size: 20px;
+  }
+
+  .blogListingcards .blogSlider {
+    margin-top: 30px;
+
+    :global(.slick-dots) {
+      width: 100% !important;
+      justify-content: center !important;
+    }
+  }
+
+  .blogImage {
+    height: 260px;
+  }
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .blogListingcards {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

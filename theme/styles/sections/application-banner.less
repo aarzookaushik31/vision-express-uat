@@ -1,3 +1,8 @@
+// Same values as the trust badges / category list sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
 .imageWrapper {
   img {
     transition: 300ms all cubic-bezier(0, 0, 0.2, 1);
@@ -14,6 +19,13 @@
 
 .applicationBannerContainer {
   position: relative;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
 
   .box-wrapper {
     width: var(--box_width);
@@ -32,5 +44,22 @@
   .box-wrapper-visible {
     background: red;
     opacity: 0.5;
+  }
+}
+
+// ---- Visible state: added when the banner scrolls into view ----
+// (`transform: none` instead of translate3d(0,0,0) so the banner doesn't
+// keep a transform that could affect hotspot popups / fixed children)
+.applicationBannerContainer.inView {
+  opacity: 1;
+  transform: none;
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .applicationBannerContainer {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -13,7 +13,7 @@ import AngleDownIcon from "../../assets/images/header-angle-down.svg";
 import WishlistIcon from "../../assets/images/wishlistHeader.svg";
 import UserIcon from "../../assets/images/accountHeader.svg";
 import CartIcon from "../../assets/images/single-row-cart.svg";
-import LocationIcon from "../../assets/images/locationicon.png";
+import LocationIcon from "../../assets/images/locationicon.svg";
 import EyeTestingIcon from "../../assets/images/eyetestingicon.png";
 import { FDKLink } from "fdk-core/components";
 import Slider from "react-slick";
@@ -38,7 +38,10 @@ function HeaderDesktop({
   deliveryMessage = "",
   onDeliveryClick = () => {},
   languageIscCode,
+   themeKey = "",
 }) {
+
+
 
 
 
@@ -55,7 +58,7 @@ const tickerSlides = rawTicker
 
   const sliderConfig = {
     dots: false,
-    arrows: false,
+    arrows: false,              
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -100,41 +103,62 @@ const tickerSlides = rawTicker
     >
 
 
-{tickerSlides.length > 0 && (
-  <div className={styles.homepageTicker}>
-    <Slider {...sliderConfig} className={styles.tickerSlider}>
-      {tickerSlides.map((slide, index) => {
-       const plainText = slide.replace(/<[^>]*>/g, "");
+      {tickerSlides.length > 0 && (
+        <div className={styles.homepageTicker}>
+          <div className={styles.tickerInline}>
+            <Slider {...sliderConfig} className={styles.tickerSlider}>
+              {tickerSlides.map((slide, index) => {
+                const plainText = slide.replace(/<[^>]*>/g, "");
+                const tickerImage = plainText
+                  .toLowerCase()
+                  .includes("find your lens")
+                  ? FindYourLensImage
+                  : DefaultTickerImage;
 
-const tickerImage = plainText
-  .toLowerCase()
-  .includes("find your lens")
-  ? FindYourLensImage
-  : DefaultTickerImage;
-
-        return (
-          <div key={index} className={styles.tickerSlide}>
-            <img
-              src={tickerImage}
-              alt="Ticker"
-              className={styles.tickerImage}
-            />
-            <p
-              className={styles.tickerText}
-              dangerouslySetInnerHTML={{ __html: slide }}
-            />
+                return (
+                  <div key={index} className={styles.tickerSlide}>
+                    <img
+                      src={tickerImage}
+                      alt="Ticker"
+                      className={styles.tickerImage}
+                    />
+                    <p
+                      className={styles.tickerText}
+                      dangerouslySetInnerHTML={{ __html: slide }}
+                    />
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
-        );
-      })}
-    </Slider>
-  </div>
-)}
+
+            <a
+              href={`tel:22 6998 2727`}
+              className={styles.tickerPhone}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.25 1.01l-2.2 2.21z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>+91 22 6998 2727</span>
+            </a>
+        </div>
+      )}
 
 
 
 
 
-      <div className={styles.firstRowContainer}>
+
+      <div  className={`${styles.firstRowContainer} ${
+    themeKey ? styles[themeKey] : ""
+  }`}>
       <div className={styles.firstRow}>
        
         <div className={`${styles.left} ${(isDoubleRowHeader && globalConfig?.logo_menu_alignment === "layout_3") ? styles.leftLayout3DoubleHeader : ""}`}>
@@ -174,6 +198,8 @@ const tickerImage = plainText
           <FDKLink to="/">
             <img
               className={styles.logo}
+              width={200}
+              height={35}
               style={{
                 maxHeight: `${globalConfig?.desktop_logo_max_height || 65}px`,
               }}
@@ -244,7 +270,24 @@ const tickerImage = plainText
                 )}
               </button>
             )}
-          {(!isDoubleRowHeader || !globalConfig?.always_on_search) && (
+      
+
+        {(!isDoubleRowHeader && globalConfig?.always_on_search) && (
+            <div className={styles.alwaysOnSearch}>
+              <Search
+                customSearchClass={styles.customSearchClass}
+                customSearchWrapperClass={styles.customSearchWrapperClass}
+                showCloseButton={false}
+                alwaysOnSearch={true}
+                screen="desktop"
+                globalConfig={globalConfig}
+                fpi={fpi}
+              />
+            </div>
+          )}
+
+
+  {(!isDoubleRowHeader && !globalConfig?.always_on_search) && (
             <div className={`${styles.icon} ${styles["right__icons--search"]}`}>
               <Search
                 customClass={`${styles[globalConfig?.header_layout]}-row-search`}
@@ -255,35 +298,25 @@ const tickerImage = plainText
             </div>
           )}
 
-           <button
+
+
+
+   <button
                 type="button"
-                className={`${styles.icon}`}
-                aria-label={`Eye testing`}
+                className={`${styles.icon} ${styles.findStoreicon}`}
+                aria-label={`Find store`}
                  onClick={() => {
-               window.location.href = "/sections/book-an-eye-test";
+               window.location.href = "/locate-us";
               }}
               >
                 <div>
-                 <img 
-      src={EyeTestingIcon} 
-      alt="Eye Testing Icon" 
+                  <LocationIcon 
       className={styles.singleRowIcon} 
     />
                 </div>
-              Eye Testing
               </button>
 
-          <button
-            type="button"
-            className={`${styles.icon} ${styles["right__icons--profile"]}`}
-            aria-label={t("resource.profile.profile")}
-            onClick={() => checkLogin("profile")}
-          >
-            <UserIcon
-              className={`${styles.user} ${styles.headerIcon} ${styles.singleRowIcon}`}
-            />
-            My Account
-          </button>
+
           <button
             type="button"
             className={` ${styles["right__icons--wishlist"]}`}
@@ -297,58 +330,22 @@ const tickerImage = plainText
               {wishlistCount > 0 && LoggedIn && (
                 <span className={styles.count}>{wishlistCount}</span>
               )}
-              Wishlist
             </div>
           </button>
-          {!globalConfig?.disable_cart &&
-            globalConfig?.button_options !== "none" && (
-              <button
-                type="button"
-                className={`${styles.icon} ${styles["right__icons--bag"]}`}
-                aria-label={`${cartItemCount ?? 0} item in cart`}
-                onClick={() => checkLogin("cart")}
-              >
-                <div>
-                  <CartIcon
-                    className={`${styles.cart} ${styles.singleRowIcon}`}
-                  />
-                  {cartItemCount > 0 && (
-                    <span className={styles.count}>{cartItemCount}</span>
-                  )}
-                </div>
-                Cart
-              </button>
-            )}
 
-           
-              <button
-                type="button"
-                className={`${styles.icon} ${styles.findStoreicon}`}
-                aria-label={`Find store`}
-                 onClick={() => {
-               window.location.href = "/locate-us";
-              }}
-              >
-                <div>
-                  <img 
-      src={LocationIcon} 
-      alt="Location Icon" 
-      className={styles.singleRowIcon} 
-    />
-                </div>
-               Find Store
-              </button>
 
-               <button
-                type="button"
-                className={`${styles.icon}`}
-                aria-label={`Contact Us`}
-                onClick={() => {
-               window.location.href = "/contact-us";
-              }}
-              >
-              Contact Us
-              </button>
+              <button
+            type="button"
+            className={`${styles.icon} ${styles["right__icons--profile"]}`}
+            aria-label={t("resource.profile.profile")}
+            onClick={() => checkLogin("profile")}
+          >
+            <UserIcon
+              className={`${styles.user} ${styles.headerIcon} ${styles.singleRowIcon}`}
+            />
+          </button>
+
+      
             
         </div>
         </div>

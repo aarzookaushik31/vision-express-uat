@@ -1,0 +1,471 @@
+/**
+ * ProductCard Component
+ *
+ * This React component renders a product card with various customizable options such as displaying brand, price, sale badges, wishlist icons, and more. It supports responsive design with different layouts for mobile, tablet, and desktop views.
+ *
+ * @param {Object} props - The properties object.
+ * @param {Object} props.product - The product data to be displayed.
+ * @param {Array} [props.customClass=[]] - Custom CSS classes to apply to the card.
+ * @param {string} [props.listingPrice="range"] - Determines the price display format ("min", "max", or "range").
+ * @param {boolean} [props.isHdimgUsed=false] - Flag to determine if high-definition images should be used.
+ * @param {number} [props.aspectRatio=0.8] - Aspect ratio for the product image.
+ * @param {boolean} [props.isBrand=true] - Flag to display the brand name.
+ * @param {boolean} [props.isPrice=true] - Flag to display the price.
+ * @param {boolean} [props.isSaleBadge=false] - Flag to display a sale badge if applicable.
+ * @param {boolean} [props.isWishlistIcon=true] - Flag to display a wishlist icon.
+ * @param {boolean} [props.isImageFill=false] - Flag to determine if the image should fill its container.
+ * @param {boolean} [props.showImageOnHover=false] - Flag to show a different image on hover.
+ * @param {string} [props.imageBackgroundColor=""] - Background color for the image.
+ * @param {string} [props.imagePlaceholder=""] - Placeholder image URL.
+ * @param {Object} [props.columnCount={ desktop: 4, tablet: 3, mobile: 1 }] - Number of columns for different viewports.
+ * @param {Function} [props.WishlistIconComponent=() => <SvgWrapper svgSrc="wishlist-plp" />] - Custom component for the wishlist icon.
+ * @param {boolean} [props.isRemoveIcon=false] - Flag to display a remove icon.
+ * @param {Function} [props.RemoveIconComponent=() => <SvgWrapper svgSrc="item-close" />] - Custom component for the remove icon.
+ * @param {Array} [props.followedIdList=[]] - List of followed product IDs.
+ * @param {Function} [props.onWishlistClick=() => {}] - Callback function for wishlist icon click.
+ * @param {Function} [props.handleAddToCart=() => {}] - Callback function for add to cart action.
+ * @param {Function} [props.onRemoveClick=() => {}] - Callback function for remove icon click.
+ * @param {boolean} [props.centerAlign=true] - Flag to center align text.
+ * @param {boolean} [props.showAddToCart=false] - Flag to display the add to cart button.
+ * @param {"classic"|"overlay"} [props.cardVariant="classic"] - "classic" keeps the existing card (image on top, details below).
+ *        "overlay" renders the image-bleed card with a gradient + badge + title/price on top of the image (Figma "Best Seller" design).
+ *
+ * @returns {JSX.Element} The rendered product card component.
+ *
+ */
+
+import React, { useMemo } from "react";
+import { currencyFormat, formatLocale } from "../../helper/utils.js";
+import { useMobile } from "../../helper/hooks/index.jsx";
+import FyImage from "../core/fy-image/fy-image.jsx";
+import SvgWrapper from "../core/svgWrapper/SvgWrapper.jsx";
+import  styles from "./product-card.less";
+import FyButton from "../core/fy-button/fy-button.jsx";
+import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
+import WishlistIcon from "../../assets/images/wishlist.jsx";
+import imagePlaceholder from "../../assets/images/placeholder/no-product-image.png";
+import GlamARTrigger from "../GlamARTryOn/index.jsx";
+
+const ProductCard = ({
+  product,
+  customClass = [],
+  listingPrice = "range",
+  imgSrcSet = [
+    { breakpoint: { min: 1024 }, width: 600 },
+    { breakpoint: { min: 768 }, width: 300 },
+    { breakpoint: { min: 481 }, width: 300 },
+    { breakpoint: { max: 390 }, width: 300 },
+    { breakpoint: { max: 480 }, width: 300 },
+  ],
+  aspectRatio = 0.8,
+  isBrand = true,
+  isPrice = true,
+  isSaleBadge = true,
+  isWishlistIcon = true,
+  isImageFill = false,
+  showImageOnHover = false,
+  imageBackgroundColor = "",
+  // imagePlaceholder = "",
+  columnCount = { desktop: 4, tablet: 3, mobile: 1 },
+  WishlistIconComponent = () => <SvgWrapper svgSrc="wishlist-plp" />,
+  isRemoveIcon = false,
+  RemoveIconComponent = () => (
+    <SvgWrapper svgSrc="item-close" className={styles.removeIcon} />
+  ),
+  actionButtonText,
+  followedIdList = [],
+  onWishlistClick = () => {},
+  handleAddToCart = () => {},
+  onRemoveClick = () => {},
+  centerAlign = true,
+  showAddToCart = false,
+  showBadge = true,
+  isSlider = false,
+  hasGlamAR,
+  cardVariant = "classic",
+}) => {
+  const { t } = useGlobalTranslation("translation");
+  const fpi = useFPI();
+  const i18nDetails = useGlobalStore(fpi?.getters?.i18N_DETAILS) || {};
+  const locale = i18nDetails?.language?.locale || "en";
+  const countryCode = i18nDetails?.countryCode || "IN";
+  const isMobile = useMobile();
+  const isOverlay = cardVariant === "overlay";
+
+  const getListingPrice = (key) => {
+    if (!product.price) return "";
+
+    let price = "";
+    const priceDetails = product.price[key];
+
+    switch (listingPrice) {
+      case "min":
+        price = currencyFormat(
+          priceDetails.min,
+          priceDetails.currency_symbol,
+          formatLocale(locale, countryCode, true)
+        );
+        break;
+      case "max":
+        price = currencyFormat(
+          priceDetails.max,
+          priceDetails.currency_symbol,
+          formatLocale(locale, countryCode, true)
+        );
+        break;
+      case "range":
+        price =
+          priceDetails.min !== priceDetails.max
+            ? `${currencyFormat(
+                priceDetails.min,
+                priceDetails.currency_symbol,
+                formatLocale(locale, countryCode, true)
+              )} - ${currencyFormat(
+                priceDetails.max,
+                priceDetails.currency_symbol,
+                formatLocale(locale, countryCode, true)
+              )}`
+            : currencyFormat(
+                priceDetails.min,
+                priceDetails.currency_symbol,
+                formatLocale(locale, countryCode, true)
+              );
+        break;
+      default:
+        break;
+    }
+    return price;
+  };
+
+  const getProductImages = () => {
+    return product?.media?.filter((media) => media.type === "image");
+  };
+
+  const productImages = getProductImages();
+  // Prefer the 6th image (index 5) per design; fall back to the first
+  // image for products that don't have that many photos.
+  const imageUrl = productImages?.[5]?.url || productImages?.[0]?.url || "";
+  const imageAlt =
+    productImages?.[5]?.alt ||
+    productImages?.[0]?.alt ||
+    `${product?.brand?.name} | ${product?.name}`;
+  const hoverImageUrl = getProductImages()?.[1]?.url || "";
+  const hoverImageAlt =
+    getProductImages()?.[1]?.alt ||
+    `${product?.brand?.name} | ${product?.name}`;
+
+  const shadeVariants = product.variants?.find(
+    (variant) => variant.display_type === "color"
+  );
+  const shadeVariantsCount = shadeVariants?.items?.length - 1 || 0;
+  const currentShade = shadeVariants?.items?.find(
+    (variant) => product?.slug === variant?.slug
+  );
+  const variants = shadeVariants?.items
+    ?.filter((variant) => variant.slug !== currentShade?.slug)
+    .slice(0, 3);
+
+  const hasDiscount =
+    getListingPrice("effective") !== getListingPrice("marked");
+
+  const isFollowed = useMemo(() => {
+    return !!followedIdList?.includes(product?.uid);
+  }, [followedIdList, product]);
+
+  const handleWishlistClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    onWishlistClick({ product, isFollowed });
+  };
+
+  const handleRemoveClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    onRemoveClick({ product, isFollowed });
+  };
+
+  const gridClass = useMemo(
+    () =>
+      `${columnCount?.mobile === 2 ? styles["mob-grid-2-card"] : styles["mob-grid-1-card"]} ${columnCount?.tablet === 2 ? styles["tablet-grid-2-card"] : styles["tablet-grid-3-card"]} ${columnCount?.desktop === 2 ? styles["desktop-grid-2-card"] : styles["desktop-grid-4-card"]}`,
+    [columnCount?.desktop, columnCount?.tablet, columnCount?.mobile]
+  );
+
+  const handleAddToCartClick = (event) => {
+    event?.preventDefault();
+    event?.stopPropagation();
+    handleAddToCart(product?.slug);
+  };
+
+  const getShadeImage = (medias) => {
+    if (!Array.isArray(medias)) return "";
+
+    const image99 = medias.find((media) =>
+      media?.url?.toLowerCase().includes("-99")
+    );
+
+    if (image99) return image99.url;
+
+    const imageList = medias.filter((m) => m.type === "image");
+    const lastImage = imageList[imageList.length - 1];
+
+    return lastImage?.url || "";
+  };
+
+  const displayTag =
+    product?.attributes?.displaytag &&
+    Array.isArray(product.attributes.displaytag) &&
+    product.attributes.displaytag.length > 0
+      ? product.attributes.displaytag[0]
+      : null;
+
+  const badgeText = product?.teaser_tag || (isOverlay ? "" : null);
+
+  const renderSwatches = () =>
+    shadeVariantsCount !== 0 && (
+      <div className={styles.productVariants}>
+        {/* CURRENT SHADE */}
+        <div className={`${styles.shade} ${styles.currentShade}`}>
+          {getShadeImage(currentShade?.medias) ? (
+            <img
+              src={getShadeImage(currentShade?.medias)}
+              alt={currentShade?.name}
+              className={styles.shadeImage}
+            />
+          ) : (
+            <div
+              className={styles.shadeColor}
+              style={{
+                backgroundColor: currentShade?.color
+                  ? `#${currentShade.color}`
+                  : currentShade?.color_name,
+              }}
+            />
+          )}
+        </div>
+
+        {variants?.map((variantItem) => (
+          <div
+            key={variantItem.uid}
+            className={`${styles.shade} ${styles.allShades}`}
+          >
+            {getShadeImage(variantItem?.medias) ? (
+              <img
+                src={getShadeImage(variantItem?.medias)}
+                alt={variantItem?.name}
+                className={styles.shadeImage}
+              />
+            ) : (
+              <div
+                className={styles.shadeColor}
+                style={{
+                  backgroundColor: variantItem?.color
+                    ? `#${variantItem.color}`
+                    : variantItem?.color_name,
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    );
+
+  const renderWishlistButton = () =>
+    isWishlistIcon && (
+      <button
+        className={`${styles.wishlistBtn} ${isFollowed ? styles.active : ""}`}
+        onClick={handleWishlistClick}
+        title={t("resource.product.wishlist_icon")}
+      >
+        <WishlistIcon isActive={isFollowed} />
+      </button>
+    );
+
+  const renderRemoveButton = () =>
+    isRemoveIcon && (
+      <button
+        className={`${styles.wishlistBtn} ${isFollowed ? styles.active : ""}`}
+        onClick={handleRemoveClick}
+        title={t("resource.product.wishlist_icon")}
+      >
+        <RemoveIconComponent />
+      </button>
+    );
+
+  const renderPrice = (textCenterOverride) => (
+    <div
+      className={`${styles.productPrice} ${centerAlign || textCenterOverride ? styles.center : ""}`}
+    >
+      <div>
+        {hasDiscount && (
+          <span
+            className={`${styles["productPrice--regular"]} ${styles.captionNormal}`}
+          >
+            {getListingPrice("marked")}
+          </span>
+        )}
+
+        {product?.price?.effective && (
+          <span className={`${styles["productPrice--sale"]} ${styles.h4}`}>
+            {getListingPrice("effective")}
+          </span>
+        )}
+      </div>
+      {product.discount && (
+        <span
+          className={`${styles["productPrice--discount"]} ${styles.captionNormal} ${centerAlign || textCenterOverride ? styles["productPrice--textCenter"] : ""}`}
+        >
+          {product.discount}
+        </span>
+      )}
+    </div>
+  );
+
+  if (isOverlay) {
+    return (
+      <div
+        className={`productcard ${styles.productCard} ${styles.overlayCard} ${
+          !product.sellable ? styles.disableCursor : ""
+        } ${styles[customClass[0]]} ${styles[customClass[1]]} ${
+          styles[customClass[2]]
+        } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
+      >
+        {hasGlamAR && (
+          <GlamARTrigger
+            accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+            sku={product?.item_code}
+          />
+        )}
+
+        <div className={styles.imageContainer}>
+          <FyImage
+            src={imageUrl || imagePlaceholder}
+            alt={imageAlt}
+            backgroundColor={imageBackgroundColor}
+            isFixedAspectRatio={false}
+            customClass={`${styles.productImage} ${styles.mainImage}`}
+            sources={imgSrcSet}
+            defer={false}
+          />
+
+          {renderSwatches()}
+          {renderWishlistButton()}
+          {renderRemoveButton()}
+
+          {displayTag && (
+            <div className={styles.displayTagContainer}>
+              <span>{displayTag}</span>
+            </div>
+          )}
+
+          <div className={styles.cardOverlay}>
+            {showBadge && badgeText && (
+              <div className={styles.overlayBadge}>
+                <span>{badgeText}</span>
+              </div>
+            )}
+            <div className={styles.overlayContent}>
+              {isBrand && product.brand && (
+                <h3 className={styles.productBrand}>{product.brand.name}</h3>
+              )}
+              <h5
+                className={`${styles.productName} ${styles.b2} ${styles.centerAlign}`}
+                title={product.name}
+              >
+                {product.name}
+              </h5>
+              {isPrice && renderPrice(true)}
+            </div>
+          </div>
+        </div>
+
+        {showAddToCart && (
+          <div className={styles.overlayAddToCartWrap}>
+            <FyButton
+              variant="outlined"
+              className={styles.addToCart}
+              onClick={handleAddToCartClick}
+            >
+              {actionButtonText ?? t("resource.common.add_to_cart")}
+            </FyButton>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`productcard ${styles.productCard} ${
+        !product.sellable ? styles.disableCursor : ""
+      } ${styles[customClass[0]]} ${styles[customClass[1]]} ${
+        styles[customClass[2]]
+      } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
+    >
+      {hasGlamAR && (
+        <GlamARTrigger
+          accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+          sku={product?.item_code}
+        />
+      )}
+
+      {displayTag && (
+        <div className={styles.displayTagContainer}>
+          <span>{displayTag}</span>
+        </div>
+      )}
+
+      <div className={styles.imageContainer}>
+        {!isMobile && showImageOnHover && hoverImageUrl && (
+          <FyImage
+            src={hoverImageUrl}
+            alt={hoverImageAlt}
+            backgroundColor={imageBackgroundColor}
+            isFixedAspectRatio={false}
+            customClass={` ${styles.productImage} ${styles.hoverImage}`}
+            sources={imgSrcSet}
+            defer={true}
+          />
+        )}
+        <FyImage
+          src={imageUrl || imagePlaceholder}
+          alt={imageAlt}
+          backgroundColor={imageBackgroundColor}
+          isFixedAspectRatio={false}
+          customClass={`${styles.productImage} ${styles.mainImage}`}
+          sources={imgSrcSet}
+          defer={false}
+        />
+        {renderWishlistButton()}
+        {renderRemoveButton()}
+      </div>
+      <div className={styles.productDescContainer}>
+        <div className={styles.productDesc}>
+          {renderSwatches()}
+
+          {isBrand && product.brand && (
+            <h3 className={styles.productBrand}>{product.brand.name}</h3>
+          )}
+          <h5
+            className={`${styles.productName} ${styles.b2} ${centerAlign ? styles.centerAlign : ""}`}
+            title={product.name}
+          >
+            {product.name}
+          </h5>
+          {isPrice && renderPrice(false)}
+        </div>
+
+        {showAddToCart && (
+          <FyButton
+            variant="outlined"
+            className={styles.addToCart}
+            onClick={handleAddToCartClick}
+          >
+            {actionButtonText ?? t("resource.common.add_to_cart")}
+          </FyButton>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;

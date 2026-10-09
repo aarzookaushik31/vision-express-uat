@@ -27,11 +27,18 @@ function AboutUsPage({ fpi }) {
     page?.value === "about-us" && (
       <>
         {getHelmet({ seo: mergedSeo })}
-        <SectionRenderer
-          sections={sections}
-          fpi={fpi}
-          globalConfig={globalConfig}
-        />
+        <div
+  style={{
+    background:
+      "linear-gradient(180deg, rgba(158, 0, 126, 0.08) 0.63%, rgba(228, 35, 18, 0.08) 100%), #FFF",
+  }}
+>
+  <SectionRenderer
+    sections={sections}
+    fpi={fpi}
+    globalConfig={globalConfig}
+  />
+</div>
       </>
     )
   );

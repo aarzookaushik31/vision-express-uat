@@ -2,7 +2,7 @@
 
 @lg-min: 1024px;
 .footer {
-  background-color: rgba(26, 26, 26, 1);
+  background-color: #000;
   background-image: var(--background-desktop);
 
   @media @tablet {
@@ -41,6 +41,8 @@
       .logo {
         margin-bottom: 8px;
         & > img {
+          height: 44px;
+          width: auto;
           max-height: 100%;
         }
       }
@@ -69,7 +71,7 @@
         }
         .menuTitle {
            letter-spacing: 0px;
-          color: rgba(161, 90, 149, 1);
+          color: #fff;
           font-size: 16px;
           font-weight: 700;
           margin-bottom: 15px;
@@ -350,7 +352,7 @@ ul {
   font-weight: 400;
   line-height: 100%;
   text-align: center;
-  background-color: rgba(26, 26, 26, 1);
+  background-color: #000;
   max-width: 1200px;
   margin: auto;
   padding: 0 20px;
@@ -371,6 +373,24 @@ ul {
   }
 }
 
+
+@media @desktop {
+
+.footer__bottom{
+  .footerContainer{
+   .footerbottomWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FFFFFF0D;
+    padding: 12px 20px;
+   }
+  }
+}
+}
+
 @media(max-width: 768px){
 
   .socialContainer {
@@ -380,5 +400,27 @@ ul {
 display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
+  }
+}
+
+
+  @media @desktop {
+.socialMobileOnly {
+    display: none !important;
+  }
+}
+
+.socialDesktopOnly {
+  display: none;
+
+  @media @desktop {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  a {
+    width: 28px;
+    height: 28px;
   }
 }

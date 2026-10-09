@@ -29,6 +29,8 @@ const CategoriesListingSectionChunk = loadable(() => import(/* webpackChunkName:
 
 const CategoriesSectionChunk = loadable(() => import(/* webpackChunkName:"CategoriesSectionChunk" */ './categories.jsx'));
 
+const CategoryListSectionChunk = loadable(() => import(/* webpackChunkName:"CategoryListSectionChunk" */ './category-list.jsx'));
+
 const CollectionBannerLinksSectionChunk = loadable(() => import(/* webpackChunkName:"CollectionBannerLinksSectionChunk" */ './collection-banner-links.jsx'));
 
 const CollectionListingSectionChunk = loadable(() => import(/* webpackChunkName:"CollectionListingSectionChunk" */ './collection-listing.jsx'));
@@ -57,6 +59,8 @@ const FeatureBlogSectionChunk = loadable(() => import(/* webpackChunkName:"Featu
 
 const FeatureIconsSectionChunk = loadable(() => import(/* webpackChunkName:"FeatureIconsSectionChunk" */ './feature-icons.jsx'));
 
+const FeaturedCollectionTabsSectionChunk = loadable(() => import(/* webpackChunkName:"FeaturedCollectionTabsSectionChunk" */ './featured-collection-tabs.jsx'));
+
 const FeaturedCollectionSectionChunk = loadable(() => import(/* webpackChunkName:"FeaturedCollectionSectionChunk" */ './featured-collection.jsx'));
 
 const FilterCategoryTabsCopySectionChunk = loadable(() => import(/* webpackChunkName:"FilterCategoryTabsCopySectionChunk" */ './filter-category-tabs-copy.jsx'));
@@ -64,6 +68,8 @@ const FilterCategoryTabsCopySectionChunk = loadable(() => import(/* webpackChunk
 const FilterCategoryTabsSectionChunk = loadable(() => import(/* webpackChunkName:"FilterCategoryTabsSectionChunk" */ './filter-category-tabs.jsx'));
 
 const FindStoreSectionChunk = loadable(() => import(/* webpackChunkName:"FindStoreSectionChunk" */ './find-store.jsx'));
+
+const HeroIconTextListSectionChunk = loadable(() => import(/* webpackChunkName:"HeroIconTextListSectionChunk" */ './hero-icon-text-list.jsx'));
 
 const HeroImageSectionChunk = loadable(() => import(/* webpackChunkName:"HeroImageSectionChunk" */ './hero-image.jsx'));
 
@@ -99,6 +105,8 @@ const LinkSectionChunk = loadable(() => import(/* webpackChunkName:"LinkSectionC
 
 const LocateUsSectionChunk = loadable(() => import(/* webpackChunkName:"LocateUsSectionChunk" */ './locate-us.jsx'));
 
+const LocationAccessPopupSectionChunk = loadable(() => import(/* webpackChunkName:"LocationAccessPopupSectionChunk" */ './location-access-popup.jsx'));
+
 const LoginSectionChunk = loadable(() => import(/* webpackChunkName:"LoginSectionChunk" */ './login.jsx'));
 
 const MediaWithTextSectionChunk = loadable(() => import(/* webpackChunkName:"MediaWithTextSectionChunk" */ './media-with-text.jsx'));
@@ -117,7 +125,13 @@ const RawHtmlSectionChunk = loadable(() => import(/* webpackChunkName:"RawHtmlSe
 
 const RegisterSectionChunk = loadable(() => import(/* webpackChunkName:"RegisterSectionChunk" */ './register.jsx'));
 
+const ServiceHighlightsSectionChunk = loadable(() => import(/* webpackChunkName:"ServiceHighlightsSectionChunk" */ './service-highlights.jsx'));
+
 const ShopByCategoryGridSectionChunk = loadable(() => import(/* webpackChunkName:"ShopByCategoryGridSectionChunk" */ './shop-by-category-grid.jsx'));
+
+const ShopByCategorySliderSectionChunk = loadable(() => import(/* webpackChunkName:"ShopByCategorySliderSectionChunk" */ './shop-by-category-slider.jsx'));
+
+const ShopByLifestyleSectionChunk = loadable(() => import(/* webpackChunkName:"ShopByLifestyleSectionChunk" */ './shop-by-lifestyle.jsx'));
 
 const SoloImageSectionChunk = loadable(() => import(/* webpackChunkName:"SoloImageSectionChunk" */ './solo-image.jsx'));
 
@@ -157,6 +171,8 @@ const VeCareTimelineSectionChunk = loadable(() => import(/* webpackChunkName:"Ve
 
 const VeCareWhatsCoveredSectionChunk = loadable(() => import(/* webpackChunkName:"VeCareWhatsCoveredSectionChunk" */ './ve-care-whats-covered.jsx'));
 
+const VxLensFeatureSectionChunk = loadable(() => import(/* webpackChunkName:"VxLensFeatureSectionChunk" */ './vx-lens-feature.jsx'));
+
 
 const getbundle = (type) => {
         switch(type) {
@@ -188,6 +204,8 @@ const getbundle = (type) => {
             return (props) => <CategoriesListingSectionChunk {...props}/>;
         case 'categories':
             return (props) => <CategoriesSectionChunk {...props}/>;
+        case 'category-list':
+            return (props) => <CategoryListSectionChunk {...props}/>;
         case 'collection-banner-links':
             return (props) => <CollectionBannerLinksSectionChunk {...props}/>;
         case 'collection-listing':
@@ -216,6 +234,8 @@ const getbundle = (type) => {
             return (props) => <FeatureBlogSectionChunk {...props}/>;
         case 'feature-icons':
             return (props) => <FeatureIconsSectionChunk {...props}/>;
+        case 'featured-collection-tabs':
+            return (props) => <FeaturedCollectionTabsSectionChunk {...props}/>;
         case 'featured-collection':
             return (props) => <FeaturedCollectionSectionChunk {...props}/>;
         case 'filter-category-tabs-copy':
@@ -224,6 +244,8 @@ const getbundle = (type) => {
             return (props) => <FilterCategoryTabsSectionChunk {...props}/>;
         case 'find-store':
             return (props) => <FindStoreSectionChunk {...props}/>;
+        case 'hero-icon-text-list':
+            return (props) => <HeroIconTextListSectionChunk {...props}/>;
         case 'hero-image':
             return (props) => <HeroImageSectionChunk {...props}/>;
         case 'hero-slider-with-text':
@@ -258,6 +280,8 @@ const getbundle = (type) => {
             return (props) => <LinkSectionChunk {...props}/>;
         case 'locate-us':
             return (props) => <LocateUsSectionChunk {...props}/>;
+        case 'location-access-popup':
+            return (props) => <LocationAccessPopupSectionChunk {...props}/>;
         case 'login':
             return (props) => <LoginSectionChunk {...props}/>;
         case 'media-with-text':
@@ -276,8 +300,14 @@ const getbundle = (type) => {
             return (props) => <RawHtmlSectionChunk {...props}/>;
         case 'register':
             return (props) => <RegisterSectionChunk {...props}/>;
+        case 'service-highlights':
+            return (props) => <ServiceHighlightsSectionChunk {...props}/>;
         case 'shop-by-category-grid':
             return (props) => <ShopByCategoryGridSectionChunk {...props}/>;
+        case 'shop-by-category-slider':
+            return (props) => <ShopByCategorySliderSectionChunk {...props}/>;
+        case 'shop-by-lifestyle':
+            return (props) => <ShopByLifestyleSectionChunk {...props}/>;
         case 'solo-image':
             return (props) => <SoloImageSectionChunk {...props}/>;
         case 'testimonials':
@@ -316,6 +346,8 @@ const getbundle = (type) => {
             return (props) => <VeCareTimelineSectionChunk {...props}/>;
         case 've-care-whats-covered':
             return (props) => <VeCareWhatsCoveredSectionChunk {...props}/>;
+        case 'vx-lens-feature':
+            return (props) => <VxLensFeatureSectionChunk {...props}/>;
             default:
                 return null;
         }
@@ -337,6 +369,7 @@ export default {
         'cart-landing': { ...CartLandingSectionChunk, Component: getbundle('cart-landing') },
         'categories-listing': { ...CategoriesListingSectionChunk, Component: getbundle('categories-listing') },
         'categories': { ...CategoriesSectionChunk, Component: getbundle('categories') },
+        'category-list': { ...CategoryListSectionChunk, Component: getbundle('category-list') },
         'collection-banner-links': { ...CollectionBannerLinksSectionChunk, Component: getbundle('collection-banner-links') },
         'collection-listing': { ...CollectionListingSectionChunk, Component: getbundle('collection-listing') },
         'collections-listing': { ...CollectionsListingSectionChunk, Component: getbundle('collections-listing') },
@@ -351,10 +384,12 @@ export default {
         'eye-check-cities': { ...EyeCheckCitiesSectionChunk, Component: getbundle('eye-check-cities') },
         'feature-blog': { ...FeatureBlogSectionChunk, Component: getbundle('feature-blog') },
         'feature-icons': { ...FeatureIconsSectionChunk, Component: getbundle('feature-icons') },
+        'featured-collection-tabs': { ...FeaturedCollectionTabsSectionChunk, Component: getbundle('featured-collection-tabs') },
         'featured-collection': { ...FeaturedCollectionSectionChunk, Component: getbundle('featured-collection') },
         'filter-category-tabs-copy': { ...FilterCategoryTabsCopySectionChunk, Component: getbundle('filter-category-tabs-copy') },
         'filter-category-tabs': { ...FilterCategoryTabsSectionChunk, Component: getbundle('filter-category-tabs') },
         'find-store': { ...FindStoreSectionChunk, Component: getbundle('find-store') },
+        'hero-icon-text-list': { ...HeroIconTextListSectionChunk, Component: getbundle('hero-icon-text-list') },
         'hero-image': { ...HeroImageSectionChunk, Component: getbundle('hero-image') },
         'hero-slider-with-text': { ...HeroSliderWithTextSectionChunk, Component: getbundle('hero-slider-with-text') },
         'hero-video': { ...HeroVideoSectionChunk, Component: getbundle('hero-video') },
@@ -372,6 +407,7 @@ export default {
         'lens-type-find': { ...LensTypeFindSectionChunk, Component: getbundle('lens-type-find') },
         'link': { ...LinkSectionChunk, Component: getbundle('link') },
         'locate-us': { ...LocateUsSectionChunk, Component: getbundle('locate-us') },
+        'location-access-popup': { ...LocationAccessPopupSectionChunk, Component: getbundle('location-access-popup') },
         'login': { ...LoginSectionChunk, Component: getbundle('login') },
         'media-with-text': { ...MediaWithTextSectionChunk, Component: getbundle('media-with-text') },
         'might-like-blog-list': { ...MightLikeBlogListSectionChunk, Component: getbundle('might-like-blog-list') },
@@ -381,7 +417,10 @@ export default {
         'product-listing': { ...ProductListingSectionChunk, Component: getbundle('product-listing') },
         'raw-html': { ...RawHtmlSectionChunk, Component: getbundle('raw-html') },
         'register': { ...RegisterSectionChunk, Component: getbundle('register') },
+        'service-highlights': { ...ServiceHighlightsSectionChunk, Component: getbundle('service-highlights') },
         'shop-by-category-grid': { ...ShopByCategoryGridSectionChunk, Component: getbundle('shop-by-category-grid') },
+        'shop-by-category-slider': { ...ShopByCategorySliderSectionChunk, Component: getbundle('shop-by-category-slider') },
+        'shop-by-lifestyle': { ...ShopByLifestyleSectionChunk, Component: getbundle('shop-by-lifestyle') },
         'solo-image': { ...SoloImageSectionChunk, Component: getbundle('solo-image') },
         'testimonials': { ...TestimonialsSectionChunk, Component: getbundle('testimonials') },
         'text-and-image-with-grid': { ...TextAndImageWithGridSectionChunk, Component: getbundle('text-and-image-with-grid') },
@@ -401,4 +440,5 @@ export default {
         've-care-testimonials': { ...VeCareTestimonialsSectionChunk, Component: getbundle('ve-care-testimonials') },
         've-care-timeline': { ...VeCareTimelineSectionChunk, Component: getbundle('ve-care-timeline') },
         've-care-whats-covered': { ...VeCareWhatsCoveredSectionChunk, Component: getbundle('ve-care-whats-covered') },
+        'vx-lens-feature': { ...VxLensFeatureSectionChunk, Component: getbundle('vx-lens-feature') },
         };

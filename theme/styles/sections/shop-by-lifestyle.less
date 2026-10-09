@@ -1,0 +1,446 @@
+// Same values as the application banner / hero video sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
+// ---- Slider sizes ----
+// Each slick slide is a fixed-width "slot"; neighbouring people sit one slot
+// apart. Tune these if you want the side people closer to / further from
+// the centre person.
+@slot-desktop: 340px;
+@slot-tablet: 330px;
+@slot-mobile: 150px;
+
+.lifestyleSection {
+  max-width: 1225px;
+  margin: 0 auto;
+  padding: 60px 20px;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
+}
+
+.lifestyleSection.inView {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lifestyleSection {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .personImage {
+    transition: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.leftPanel {
+  flex: 0 0 360px;
+  width: 360px;
+
+  @media (max-width: 992px) {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 24px 0;
+
+  @media (max-width: 992px) {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}
+
+.highlight {
+  color: rgba(158, 0, 126, 1);
+}
+
+.tabList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border-radius: 20px;
+  
+  padding:10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  @media (min-width: 992px) {
+    max-width: 265px;
+  }
+
+  @media (max-width: 992px) {
+    flex-direction: row;
+    overflow-x: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.tabItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  padding: 12px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s ease, color 0.25s ease;
+  color: #000;
+  font-family: inherit;
+
+  @media (max-width: 992px) {
+    background: #fff;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 5px 8px;
+    border-radius: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.tabIcon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #F6E6F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 992px) {
+    width: 20px;
+    height: 20px;
+  }
+
+  img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+  }
+}
+
+.tabLabel {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 400;
+
+  @media (max-width: 992px) {
+    flex: none;
+    font-size: 12px;
+  }
+}
+
+.tabArrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+.tabItemActive {
+  background: rgba(158, 0, 126, 1);
+  color: #fff;
+
+  .tabIcon {
+    background: rgba(255, 255, 255, 1);
+  }
+
+  @media (max-width: 992px) {
+    background: rgba(158, 0, 126, 1);
+    color: #fff;
+  }
+}
+
+// ---- Prev / progress / next row ----
+.navRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+.navBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(158, 0, 126, 1);
+  background: transparent;
+  color: rgba(158, 0, 126, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background: rgba(158, 0, 126, 1);
+    color: #fff;
+  }
+}
+
+.progressTrack {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(158, 0, 126, 0.15);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: rgba(158, 0, 126, 1);
+  border-radius: 4px;
+  transition: width 0.35s ease;
+}
+
+// ---- Right stage: static arch + pedestal, people slide over it ----
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0; // lets the stage shrink instead of being stretched by slick's wide track
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+
+  @media (max-width: 992px) {
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 360px;
+  }
+}
+
+// Static layer, centered behind the sliding people
+.archWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 390px;
+  height: 580px;
+  z-index: 0;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 400px;
+  }
+}
+
+.stageBackgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+// Static white arch — never changes on navigation
+.arch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 340px;
+  background: #fff;
+  border-radius: 130px 130px 0 0;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 280px;
+    border-radius: 100px 100px 0 0;
+  }
+}
+
+// Static purple pedestal — never changes on navigation
+.pedestal {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(190, 20, 150, 1) 0%,
+    rgba(120, 0, 95, 1) 100%
+  );
+  box-shadow: 0 10px 20px rgba(120, 0, 95, 0.35);
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    width: 220px;
+    height: 34px;
+    bottom: 14px;
+  }
+}
+
+// Size of the highlighted (center) person
+.centerPersonSize() {
+  height: 520px;
+  filter: none;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    height: 360px;
+  }
+}
+
+// ---- Carousel (react-slick, centerMode + variableWidth) ----
+.carousel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+
+  :global(.slick-slide) {
+    flex: 0 0 auto;
+  }
+
+  // The person in the middle grows to full size and loses the blur.
+  // Height / blur / opacity animate together with the sliding movement.
+  :global(.slick-center) .personImage {
+    .centerPersonSize();
+  }
+
+  // Only the centered person is clickable
+  :global(.slick-center) .stageLink {
+    pointer-events: auto;
+  }
+}
+
+// One slot per slide; the person is centered inside it. Slot height equals
+// the arch wrapper so the people line up with the arch / pedestal.
+.slide {
+  width: @slot-desktop;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Slots overlap the center person's overflow, so let clicks pass through
+  pointer-events: none;
+
+  @media (max-width: 992px) {
+    width: @slot-tablet;
+  }
+
+  @media (max-width: 768px) {
+    width: @slot-mobile;
+    height: 400px;
+  }
+}
+
+.stageLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  pointer-events: none; // switched on for the centered slide only
+}
+
+.personImage {
+  position: relative;
+  flex: 0 0 auto;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+
+  // side (neighbour) people: smaller, blurred, dimmed
+  height: 400px;
+  filter: blur(2px);
+  opacity: 0.55;
+
+  transition-property: height, filter, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+
+  @media (max-width: 992px) {
+    height: 280px;
+  }
+}
+
+// Only one block: no slider, just the center person
+.singleSlide {
+  display: flex;
+  justify-content: center;
+
+  .stageLink {
+    pointer-events: auto;
+  }
+
+  .personImage {
+    .centerPersonSize();
+  }
+}

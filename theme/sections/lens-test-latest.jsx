@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/sections/lens-test-latest.less";
+import eyeLoaderGif from "../assets/images/eye-loader.gif";
 
 /* ==========================================================================
    HELPERS
@@ -50,16 +51,6 @@ const getResultFeatures = (block, maxFeatures = 4) => {
     });
   }
   return features;
-};
-
-// Pull up to 5 loading filmstrip images off the section props into a clean array.
-const getLoadingImages = (props, maxImages = 5) => {
-  const images = [];
-  for (let i = 1; i <= maxImages; i++) {
-    const img = val(props, `loading_image_${i}`);
-    if (img) images.push(img);
-  }
-  return images;
 };
 
 // Build the linear list of screens the user walks through: every question
@@ -165,9 +156,6 @@ const computeResult = (answers, questionBlocks, resultBlocks) => {
   return match || resultBlocks[0] || null;
 };
 
-
-
-
 // Detects "mobile" from the actual rendered width of the section itself
 // (via ResizeObserver) rather than the global window viewport. Many theme
 // editors simulate a mobile preview by narrowing a container inside the
@@ -220,10 +208,8 @@ export function Component({ props = {}, blocks = [] }) {
   const [reviewReturnIndex, setReviewReturnIndex] = useState(0);
   const [finalResult, setFinalResult] = useState(null);
   const [checkedSteps, setCheckedSteps] = useState(0);
-  const [filmstripIndex, setFilmstripIndex] = useState(0);
 
   const loadingTimersRef = useRef([]);
-  const filmstripTimerRef = useRef(null);
   const currentFlowItem = flow[flowIndex];
 
   /* ---------------- Navigation ---------------- */
@@ -259,7 +245,6 @@ export function Component({ props = {}, blocks = [] }) {
   const goToLoading = () => {
     setFinalResult(computeResult(answers, questionBlocks, resultBlocks));
     setCheckedSteps(0);
-    setFilmstripIndex(0);
     setCurrentStep("loading");
   };
 
@@ -277,87 +262,83 @@ export function Component({ props = {}, blocks = [] }) {
   };
 
   /* ---------------- Answer handling ---------------- */
-const handleSelectOption = (blockKey, block, option) => {
-  const multi = !!val(block.props, "multi_select");
-  const existing = answers[blockKey] || [];
+  const handleSelectOption = (blockKey, block, option) => {
+    const multi = !!val(block.props, "multi_select");
+    const existing = answers[blockKey] || [];
 
-  let updatedSelection;
-  if (!multi) {
-    updatedSelection = [option.index];
-  } else {
-    const alreadySelected = existing.includes(option.index);
-    updatedSelection = alreadySelected
-      ? existing.filter((i) => i !== option.index)
-      : [...existing, option.index];
-  }
+    let updatedSelection;
+    if (!multi) {
+      updatedSelection = [option.index];
+    } else {
+      const alreadySelected = existing.includes(option.index);
+      updatedSelection = alreadySelected
+        ? existing.filter((i) => i !== option.index)
+        : [...existing, option.index];
+    }
 
-  const updatedAnswers = { ...answers, [blockKey]: updatedSelection };
-  setAnswers(updatedAnswers);
+    const updatedAnswers = { ...answers, [blockKey]: updatedSelection };
+    setAnswers(updatedAnswers);
 
-  if (!multi) {
-    setTimeout(() => {
-      const isLast = flowIndex === flow.length - 1;
-      if (isLast) {
-        setFinalResult(computeResult(updatedAnswers, questionBlocks, resultBlocks));
-        setCheckedSteps(0);
-        setFilmstripIndex(0);
-        setCurrentStep("loading");
-      } else {
-        setFlowIndex((i) => i + 1);
-      }
-    }, 350);
-  }
-};
+    if (!multi) {
+      setTimeout(() => {
+        const isLast = flowIndex === flow.length - 1;
+        if (isLast) {
+          setFinalResult(computeResult(updatedAnswers, questionBlocks, resultBlocks));
+          setCheckedSteps(0);
+          setCurrentStep("loading");
+        } else {
+          setFlowIndex((i) => i + 1);
+        }
+      }, 350);
+    }
+  };
 
   const isOptionSelected = (blockKey, option) =>
     (answers[blockKey] || []).includes(option.index);
 
   const hasAnswer = (blockKey) => (answers[blockKey] || []).length > 0;
 
+  const optionsRef = useRef(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+  const [isScrollable, setIsScrollable] = useState(false);
+  const [thumbStyle, setThumbStyle] = useState({ height: "0%", top: "0%" });
 
+  useEffect(() => {
+    const el = optionsRef.current;
+    if (!el) return undefined;
 
+    const checkScrollable = () => {
+      const scrollable = el.scrollHeight - el.clientHeight > 4;
+      const nearBottom = el.scrollHeight - el.clientHeight - el.scrollTop < 4;
 
-const optionsRef = useRef(null);
-const [showScrollHint, setShowScrollHint] = useState(false);
-const [isScrollable, setIsScrollable] = useState(false);
-const [thumbStyle, setThumbStyle] = useState({ height: "0%", top: "0%" });
+      setIsScrollable(scrollable);
+      setShowScrollHint(scrollable && !nearBottom);
 
-useEffect(() => {
-  const el = optionsRef.current;
-  if (!el) return undefined;
+      if (scrollable) {
+        const thumbHeightPct = (el.clientHeight / el.scrollHeight) * 100;
+        const thumbTopPct = (el.scrollTop / el.scrollHeight) * 100;
+        setThumbStyle({ height: `${thumbHeightPct}%`, top: `${thumbTopPct}%` });
+      } else {
+        setThumbStyle({ height: "0%", top: "0%" });
+      }
+    };
 
-  const checkScrollable = () => {
-    const scrollable = el.scrollHeight - el.clientHeight > 4;
-    const nearBottom = el.scrollHeight - el.clientHeight - el.scrollTop < 4;
+    checkScrollable();
+    el.addEventListener("scroll", checkScrollable, { passive: true });
+    window.addEventListener("resize", checkScrollable);
 
-    setIsScrollable(scrollable);
-    setShowScrollHint(scrollable && !nearBottom);
-
-    if (scrollable) {
-      const thumbHeightPct = (el.clientHeight / el.scrollHeight) * 100;
-      const thumbTopPct = (el.scrollTop / el.scrollHeight) * 100;
-      setThumbStyle({ height: `${thumbHeightPct}%`, top: `${thumbTopPct}%` });
-    } else {
-      setThumbStyle({ height: "0%", top: "0%" });
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(checkScrollable);
+      ro.observe(el);
     }
-  };
 
-  checkScrollable();
-  el.addEventListener("scroll", checkScrollable, { passive: true });
-  window.addEventListener("resize", checkScrollable);
-
-  let ro;
-  if (typeof ResizeObserver !== "undefined") {
-    ro = new ResizeObserver(checkScrollable);
-    ro.observe(el);
-  }
-
-  return () => {
-    el.removeEventListener("scroll", checkScrollable);
-    window.removeEventListener("resize", checkScrollable);
-    ro?.disconnect();
-  };
-}, [currentFlowItem?.key]);
+    return () => {
+      el.removeEventListener("scroll", checkScrollable);
+      window.removeEventListener("resize", checkScrollable);
+      ro?.disconnect();
+    };
+  }, [currentFlowItem?.key]);
 
   /* ---------------- Loading screen animation ---------------- */
 
@@ -386,42 +367,21 @@ useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStep]);
 
-  /* ---------------- Loading filmstrip slider ---------------- */
+  /* ---------------- Fact screen auto-advance ---------------- */
 
   useEffect(() => {
-    clearInterval(filmstripTimerRef.current);
-    if (currentStep !== "loading") return;
+    const isFactScreen =
+      currentStep === "flow" && currentFlowItem?.type === "fact";
 
-    const images = getLoadingImages(props);
-    if (images.length <= 1) return;
+    if (!isFactScreen) return undefined;
 
-    filmstripTimerRef.current = setInterval(() => {
-      setFilmstripIndex((i) => (i + 1) % images.length);
-    }, 1100);
+    const timer = setTimeout(() => {
+      handleFactContinue();
+    }, 3000);
 
-    return () => clearInterval(filmstripTimerRef.current);
+    return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStep]);
-
-
-/* ---------------- Fact screen auto-advance ---------------- */
-
-useEffect(() => {
-  const isFactScreen =
-    currentStep === "flow" && currentFlowItem?.type === "fact";
-
-  if (!isFactScreen) return undefined;
-
-  const timer = setTimeout(() => {
-    handleFactContinue();
-  }, 3500); 
-
-  return () => clearTimeout(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [currentStep, flowIndex]);
-
-
-
+  }, [currentStep, flowIndex]);
 
   /* ---------------- Shared header ---------------- */
 
@@ -433,6 +393,21 @@ useEffect(() => {
     </div>
   );
 
+  // Lens logo if provided, otherwise falls back to the lens name text.
+  const renderLensLogo = (r, animationClass) => (
+    <div className={`${styles.productPill} ${animationClass}`}>
+      {val(r, "lens_logo") ? (
+        <img
+          src={val(r, "lens_logo")}
+          alt={val(r, "lens_name") || ""}
+          className={styles.productPillLogo}
+        />
+      ) : (
+        val(r, "lens_name")
+      )}
+    </div>
+  );
+
   const renderNavBar = ({ backDisabled = false, forwardDisabled = false } = {}) => (
     <div className={styles.navBar}>
       <button
@@ -441,10 +416,9 @@ useEffect(() => {
         className={`${styles.navArrow} ${styles.navArrowLeft}`}
         aria-label="Back"
       >
-       <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.311798 11.428L9.9053 21.0183C10.3263 21.4382 11.0083 21.4382 11.4303 21.0183C11.8513 20.5984 11.8513 19.9164 11.4303 19.4965L2.59774 10.6672L11.4292 1.83779C11.8502 1.41789 11.8502 0.735877 11.4292 0.31492C11.0083 -0.104973 10.3252 -0.104973 9.90424 0.31492L0.310735 9.90514C-0.103755 10.3207 -0.103755 11.0134 0.311798 11.428Z" fill="white"/>
-</svg>
-
+        <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.311798 11.428L9.9053 21.0183C10.3263 21.4382 11.0083 21.4382 11.4303 21.0183C11.8513 20.5984 11.8513 19.9164 11.4303 19.4965L2.59774 10.6672L11.4292 1.83779C11.8502 1.41789 11.8502 0.735877 11.4292 0.31492C11.0083 -0.104973 10.3252 -0.104973 9.90424 0.31492L0.310735 9.90514C-0.103755 10.3207 -0.103755 11.0134 0.311798 11.428Z" fill="white"/>
+        </svg>
       </button>
       <button onClick={handleReviewOpen} className={styles.reviewLink}>
         Review Answers
@@ -455,10 +429,9 @@ useEffect(() => {
         className={`${styles.navArrow} ${styles.navArrowRight}`}
         aria-label="Next"
       >
-       <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.311798 11.428L9.9053 21.0183C10.3263 21.4382 11.0083 21.4382 11.4303 21.0183C11.8513 20.5984 11.8513 19.9164 11.4303 19.4965L2.59774 10.6672L11.4292 1.83779C11.8502 1.41789 11.8502 0.735877 11.4292 0.31492C11.0083 -0.104973 10.3252 -0.104973 9.90424 0.31492L0.310735 9.90514C-0.103755 10.3207 -0.103755 11.0134 0.311798 11.428Z" fill="white"/>
-</svg>
-
+        <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.311798 11.428L9.9053 21.0183C10.3263 21.4382 11.0083 21.4382 11.4303 21.0183C11.8513 20.5984 11.8513 19.9164 11.4303 19.4965L2.59774 10.6672L11.4292 1.83779C11.8502 1.41789 11.8502 0.735877 11.4292 0.31492C11.0083 -0.104973 10.3252 -0.104973 9.90424 0.31492L0.310735 9.90514C-0.103755 10.3207 -0.103755 11.0134 0.311798 11.428Z" fill="white"/>
+        </svg>
       </button>
     </div>
   );
@@ -497,9 +470,8 @@ useEffect(() => {
                 {val(props, "intro_button_text") || "Start The Lens Test"}
                 <span className={styles.buttonIcon}>
                   <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
-</svg>
-
+                    <path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
+                  </svg>
                 </span>
               </button>
             </div>
@@ -509,26 +481,23 @@ useEffect(() => {
     );
   }
 
-
-
   if (currentStep === "flow" && !currentFlowItem) {
-  return (
-    <div className={styles["lens-test-section"]}>
-      <div className={styles["card-wrapper"]}>
-        <div className={styles.card}>
-          <div className={styles.content}>
-            {renderHeader()}
-            <h2 className={styles.heading}>No questions configured yet</h2>
-            <p className={styles.subheading}>
-              Add at least one "Question" block to this section in the editor.
-            </p>
+    return (
+      <div className={styles["lens-test-section"]}>
+        <div className={styles["card-wrapper"]}>
+          <div className={styles.card}>
+            <div className={styles.content}>
+              {renderHeader()}
+              <h2 className={styles.heading}>No questions configured yet</h2>
+              <p className={styles.subheading}>
+                Add at least one "Question" block to this section in the editor.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
+    );
+  }
 
   /* ==========================================================================
      QUESTION / FACT FLOW
@@ -538,12 +507,11 @@ useEffect(() => {
     if (currentFlowItem.type === "fact") {
       const factProps = currentFlowItem.block.props || {};
       const factBgImage = val(factProps, "background_image");
-      const factIconImage = val(factProps, "icon_image");
       const factStat = val(factProps, "stat");
       const factStatSuffix = val(factProps, "stat_suffix");
 
       return (
-        <div className={`${styles["lens-test-section"]} ${styles["lens-test-section--question"]}`} >
+        <div className={`${styles["lens-test-section"]} ${styles["lens-test-section--question"]}`}>
           <div className={styles["card-wrapper"]}>
             <div
               className={`${styles.card} ${factBgImage ? styles["has-full-bleed-image"] : ""}`}
@@ -561,48 +529,31 @@ useEffect(() => {
               >
                 {renderHeader()}
                 <div className={`${styles.factIcon} ${styles.animateBottom}`}>
-                  {factIconImage ? (
-                    <img src={factIconImage} alt="" className={styles.factIconImage} />
-                  ) : (
-                    <span className={styles.factDots}></span>
-                  )}
+                  <img src={eyeLoaderGif} alt="" className={styles.factIconImage} />
                 </div>
 
                 <div>
-                <p className={`${styles.factLabel} ${styles.animateBottom}`}>
-                  {val(factProps, "label") || "DID YOU KNOW?"}
-                </p>
-                {factStat && (
-                  <p className={`${styles.factStat} ${styles.animateBottom}`}>
-                    {factStat}
-                    {factStatSuffix && (
-                      <span className={styles.factStatSuffix}>{factStatSuffix}</span>
-                    )}
+                  <p className={`${styles.factLabel} ${styles.animateBottom}`}>
+                    {val(factProps, "label") || "DID YOU KNOW?"}
                   </p>
-                )}
-                <p className={`${styles.factDescription} ${styles.animateBottom}`}>
-                  {val(factProps, "description")}
-                </p>
+                  {factStat && (
+                    <p className={`${styles.factStat} ${styles.animateBottom}`}>
+                      {factStat}
+                      {factStatSuffix && (
+                        <span className={styles.factStatSuffix}>{factStatSuffix}</span>
+                      )}
+                    </p>
+                  )}
+                  <p className={`${styles.factDescription} ${styles.animateBottom}`}>
+                    {val(factProps, "description")}
+                  </p>
                 </div>
-                {/* <button
-                  onClick={handleFactContinue}
-                  className={`${styles.button} ${styles["button-primary"]} ${styles["button-full"]} ${styles.animateBottom}`}
-                >
-                  {val(factProps, "button_text") || "Continue"}
-                  <span className={styles.buttonIcon}>
-                   <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
-</svg>
 
-                  </span>
-                </button> */}
-
-                                <div className={`${styles.factProgressBar} ${styles.animateBottom}`}>
-                  <div
-                    key={flowIndex}
-                    className={styles.factProgressBarFill}
-                  ></div>
-                </div>
+                <div
+                  className={`${styles.factProgressBar} ${styles.animateBottom}`}
+                  style={{ visibility: "hidden" }}
+                  aria-hidden="true"
+                ></div>
               </div>
             </div>
           </div>
@@ -622,7 +573,10 @@ useEffect(() => {
     const hasImage = !!imageUrl;
 
     return (
-      <div  className={`${styles["lens-test-section"]} ${styles["lens-test-section--question"]}`} ref={sectionRef}>
+      <div
+        className={`${styles["lens-test-section"]} ${styles["lens-test-section--question"]}`}
+        ref={sectionRef}
+      >
         <div className={styles["card-wrapper"]}>
           <div className={`${styles.card} ${hasImage ? styles["has-full-bleed-image"] : ""}`}>
             <div key={blockKey} className={styles["question-wrapper"]}>
@@ -637,9 +591,7 @@ useEffect(() => {
                 </div>
               )}
 
-              <div className={styles.questionTop}>
-                {renderHeader()}
-              </div>
+              <div className={styles.questionTop}>{renderHeader()}</div>
 
               <div
                 className={`${styles.questionContentWrapper} ${
@@ -651,66 +603,67 @@ useEffect(() => {
                 </h2>
 
                 <div className={styles.optionsWrapper}>
-
-                <div     ref={optionsRef}
- className={`${styles.options} ${styles.animateBottom}`}>
-                  {options.map((option) => {
-                    const selected = isOptionSelected(blockKey, option);
-                    return (
-                      <button
-                        key={option.index}
-                        onClick={() => handleSelectOption(blockKey, block, option)}
-                        className={`${styles.option} ${selected ? styles.selected : ""}`}
-                      >
-                        {option.icon && (
-                          <span className={styles.optionIconWrapper}>
-                            <img src={option.icon} alt="" className={styles.optionIcon} />
-                          </span>
-                        )}
-                        <span className={styles.optionLabel}>{option.label}</span>
-                        <span
-                          className={`${styles.optionIndicator} ${
-                            multi ? styles.optionIndicatorCheckbox : styles.optionIndicatorRadio
-                          } ${selected ? styles.optionIndicatorSelected : ""}`}
+                  <div
+                    ref={optionsRef}
+                    className={`${styles.options} ${styles.animateBottom}`}
+                  >
+                    {options.map((option) => {
+                      const selected = isOptionSelected(blockKey, option);
+                      return (
+                        <button
+                          key={option.index}
+                          onClick={() => handleSelectOption(blockKey, block, option)}
+                          className={`${styles.option} ${selected ? styles.selected : ""}`}
                         >
-                          {multi && selected && (
-                            <svg
-                              className={styles.checkmark}
-                              width="10"
-                              height="8"
-                              viewBox="0 0 10 8"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M1 4.2L3.6 6.8L9 1"
-                                stroke="currentColor"
-                                strokeWidth="1.6"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
+                          {option.icon && (
+                            <span className={styles.optionIconWrapper}>
+                              <img src={option.icon} alt="" className={styles.optionIcon} />
+                            </span>
                           )}
-                        </span>
-                      </button>
-                    );
-                  })}
+                          <span className={styles.optionLabel}>{option.label}</span>
+                          <span
+                            className={`${styles.optionIndicator} ${
+                              multi ? styles.optionIndicatorCheckbox : styles.optionIndicatorRadio
+                            } ${selected ? styles.optionIndicatorSelected : ""}`}
+                          >
+                            {multi && selected && (
+                              <svg
+                                className={styles.checkmark}
+                                width="10"
+                                height="8"
+                                viewBox="0 0 10 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1 4.2L3.6 6.8L9 1"
+                                  stroke="currentColor"
+                                  strokeWidth="1.6"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            )}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {isScrollable && (
+                    <div className={styles.fakeScrollTrack}>
+                      <div className={styles.fakeScrollThumb} style={thumbStyle}></div>
+                    </div>
+                  )}
+
+                  {showScrollHint && (
+                    <div className={styles.scrollHint} aria-hidden="true">
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="white" strokeOpacity="0.8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                  )}
                 </div>
-
-     {isScrollable && (
-  <div className={styles.fakeScrollTrack}>
-    <div className={styles.fakeScrollThumb} style={thumbStyle}></div>
-  </div>
-)}
-
-{showScrollHint && (
-  <div className={styles.scrollHint} aria-hidden="true">
-    <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1L7 7L13 1" stroke="white" strokeOpacity="0.8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  </div>
-)}
-</div>
 
                 {renderNavBar({
                   backDisabled: flowIndex === 0 && !val(props, "show_intro"),
@@ -728,8 +681,7 @@ useEffect(() => {
      REVIEW ANSWERS SCREEN
      ========================================================================== */
   if (currentStep === "review") {
-    // Only show questions the user has actually answered, most-recent-first
-    // order is preserved (matches the flow order).
+    // Only show questions the user has actually answered; flow order is preserved.
     const answeredItems = flow
       .map((item, idx) => ({ item, idx }))
       .filter(({ item }) => item.type === "question" && hasAnswer(item.key));
@@ -794,9 +746,9 @@ useEffect(() => {
               >
                 Continue
                 <span className={styles.buttonIcon}>
-                 <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
-</svg>
+                  <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
+                  </svg>
                 </span>
               </button>
             </div>
@@ -816,11 +768,8 @@ useEffect(() => {
       val(props, "loading_step_3"),
     ].filter(Boolean);
 
-    const filmstripImages = getLoadingImages(props);
-    const filmstripLen = filmstripImages.length;
-    const prevImage = filmstripLen ? filmstripImages[(filmstripIndex - 1 + filmstripLen) % filmstripLen] : null;
-    const mainImage = filmstripLen ? filmstripImages[filmstripIndex] : null;
-    const nextImage = filmstripLen ? filmstripImages[(filmstripIndex + 1) % filmstripLen] : null;
+    // Single loading image (falls back to the default eye loader GIF)
+    const loadingImage = val(props, "loading_image") || eyeLoaderGif;
 
     return (
       <div className={styles["lens-test-section"]}>
@@ -828,22 +777,10 @@ useEffect(() => {
           <div className={styles.card}>
             <div className={styles["loading-wrapper"]}>
               {renderHeader()}
-              {filmstripLen > 0 && (
-                <div className={`${styles.filmstrip} ${styles.animateBottom}`}>
-                  {filmstripLen > 1 && (
-                    <img src={prevImage} className={styles.filmstripSide} alt="" />
-                  )}
-                  <img
-                    key={filmstripIndex}
-                    src={mainImage}
-                    className={`${styles.filmstripMain} ${styles.filmstripSlide}`}
-                    alt=""
-                  />
-                  {filmstripLen > 1 && (
-                    <img src={nextImage} className={styles.filmstripSide} alt="" />
-                  )}
-                </div>
-              )}
+
+              <div className={`${styles.loadingImageWrapper} ${styles.animateBottom}`}>
+                <img src={loadingImage} alt="" className={styles.loadingImage} />
+              </div>
 
               <h2 className={`${styles["question-title"]} ${styles.animateBottom}`}>
                 {val(props, "loading_heading") || "Matching your lens"}
@@ -861,9 +798,8 @@ useEffect(() => {
                     }`}
                   >
                     <svg className={styles.checklistTick} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5001 0C16.2981 0 21.0001 4.70206 21.0001 10.5001C21.0001 16.2981 16.2981 21.0001 10.5001 21.0001C4.70206 21.0001 0 16.2981 0 10.5001C0 4.70206 4.70206 0 10.5001 0ZM8.31959 13.9106L5.74892 11.3378C5.31097 10.8995 5.31088 10.1849 5.74892 9.74682C6.18706 9.30878 6.90484 9.31152 7.33978 9.74682L9.15209 11.5606L13.6605 7.05214C14.0986 6.614 14.8133 6.614 15.2514 7.05214C15.6895 7.49018 15.6889 8.20548 15.2514 8.643L9.94624 13.9481C9.50873 14.3856 8.79342 14.3863 8.35538 13.9481C8.34307 13.9358 8.33119 13.9233 8.31959 13.9106Z" fill="white"/>
-</svg>
-
+                      <path fillRule="evenodd" clipRule="evenodd" d="M10.5001 0C16.2981 0 21.0001 4.70206 21.0001 10.5001C21.0001 16.2981 16.2981 21.0001 10.5001 21.0001C4.70206 21.0001 0 16.2981 0 10.5001C0 4.70206 4.70206 0 10.5001 0ZM8.31959 13.9106L5.74892 11.3378C5.31097 10.8995 5.31088 10.1849 5.74892 9.74682C6.18706 9.30878 6.90484 9.31152 7.33978 9.74682L9.15209 11.5606L13.6605 7.05214C14.0986 6.614 14.8133 6.614 15.2514 7.05214C15.6895 7.49018 15.6889 8.20548 15.2514 8.643L9.94624 13.9481C9.50873 14.3856 8.79342 14.3863 8.35538 13.9481C8.34307 13.9358 8.33119 13.9233 8.31959 13.9106Z" fill="white"/>
+                    </svg>
                     <span>{step}</span>
                   </div>
                 ))}
@@ -877,6 +813,7 @@ useEffect(() => {
 
   /* ==========================================================================
      RESULT — HERO SCREEN
+     (lens logo instead of name; tagline stays)
      ========================================================================== */
   if (currentStep === "result-hero" && finalResult) {
     const r = finalResult.props || {};
@@ -917,6 +854,8 @@ useEffect(() => {
                 Based on your lifestyle &amp; visual needs, we recommend
               </p>
 
+              {renderLensLogo(r, styles.animateBottom)}
+
               {heroVideo ? (
                 <div className={styles["result-hero-video-spacer"]}></div>
               ) : (
@@ -927,9 +866,6 @@ useEffect(() => {
                 )
               )}
 
-              <div className={`${styles.productPill} ${styles.animateBottom}`}>
-                {val(r, "lens_name")}
-              </div>
               <p className={`${styles.productTagline} ${styles.animateBottom}`}>
                 {val(r, "lens_tagline")}
               </p>
@@ -944,10 +880,9 @@ useEffect(() => {
                 >
                   Learn More
                   <span className={styles.buttonIcon}>
-                   <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
-</svg>
-
+                    <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
+                    </svg>
                   </span>
                 </button>
               </div>
@@ -960,6 +895,7 @@ useEffect(() => {
 
   /* ==========================================================================
      RESULT — DETAIL SCREEN
+     (lens logo instead of name; no tagline; no stats / rating)
      ========================================================================== */
   if (currentStep === "result-detail" && finalResult) {
     const r = finalResult.props || {};
@@ -971,12 +907,7 @@ useEffect(() => {
           <div className={styles.card}>
             <div className={styles["result-detail-wrapper"]}>
               {renderHeader()}
-              <div className={`${styles.productPill} ${styles.animateTop}`}>
-                {val(r, "lens_name")}
-              </div>
-              <p className={`${styles.productTagline} ${styles.animateTop}`}>
-                {val(r, "lens_tagline")}
-              </p>
+              {renderLensLogo(r, styles.animateTop)}
 
               <h2 className={`${styles["question-title"]} ${styles.animateBottom}`}>
                 Why This Lens Is Right For You
@@ -996,22 +927,6 @@ useEffect(() => {
                 ))}
               </div>
 
-              {(val(r, "stat_percent") || val(r, "rating")) && (
-                <div className={`${styles.statsBar} ${styles.animateBottom}`}>
-                  {val(r, "stat_percent") && (
-                    <p className={styles.statsPercent}>
-                      <strong>{val(r, "stat_percent")}</strong> {val(r, "stat_description")}
-                    </p>
-                  )}
-                  {val(r, "rating") && (
-                    <p className={styles.statsRating}>
-                      <span className={styles.stars}>★★★★★</span> {val(r, "rating")} Customer
-                      Rating
-                    </p>
-                  )}
-                </div>
-              )}
-
               <a
                 href={val(r, "learn_more_link") || val(props, "store_link") || "/locate-us"}
                 className={`${styles.button} ${styles["button-primary"]} ${styles["button-full"]} ${styles.animateBottom}`}
@@ -1019,9 +934,8 @@ useEffect(() => {
                 Continue
                 <span className={styles.buttonIcon}>
                   <svg width="19" height="11" viewBox="0 0 19 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
-</svg>
-
+                    <path d="M18.7823 4.87207C18.7821 4.8718 18.7819 4.87149 18.7816 4.87123L14.9036 0.25832C14.613 -0.0872489 14.1431 -0.0859629 13.8539 0.261336C13.5648 0.60859 13.5659 1.17026 13.8564 1.51587L16.4602 4.6129H0.742187C0.332277 4.6129 0 5.01006 0 5.5C0 5.98994 0.332277 6.3871 0.742187 6.3871H16.4601L13.8564 9.48413C13.5659 9.82974 13.5648 10.3914 13.854 10.7387C14.1432 11.086 14.6131 11.0872 14.9036 10.7417L18.7817 6.12877C18.7819 6.12851 18.7821 6.1282 18.7823 6.12793C19.073 5.78117 19.0721 5.21768 18.7823 4.87207Z" fill="white"/>
+                  </svg>
                 </span>
               </a>
             </div>
@@ -1059,11 +973,7 @@ export const settings = {
 
     { type: "text", id: "loading_heading", label: "Loading Heading", default: "Matching your lens" },
     { type: "text", id: "loading_description", label: "Loading Description", default: "" },
-    { type: "image_picker", id: "loading_image_1", label: "Loading Filmstrip — Image 1" },
-    { type: "image_picker", id: "loading_image_2", label: "Loading Filmstrip — Image 2" },
-    { type: "image_picker", id: "loading_image_3", label: "Loading Filmstrip — Image 3" },
-    { type: "image_picker", id: "loading_image_4", label: "Loading Filmstrip — Image 4 (optional)", info: "Add more images to make the filmstrip slide through a longer sequence." },
-    { type: "image_picker", id: "loading_image_5", label: "Loading Filmstrip — Image 5 (optional)" },
+    { type: "image_picker", id: "loading_image", label: "Loading Image", info: "Image/GIF shown above the loading text. Falls back to the default eye loader if empty." },
     { type: "text", id: "loading_step_1", label: "Loading Checklist Step 1", default: "" },
     { type: "text", id: "loading_step_2", label: "Loading Checklist Step 2", default: "" },
     { type: "text", id: "loading_step_3", label: "Loading Checklist Step 3", default: "" },
@@ -1135,7 +1045,6 @@ export const settings = {
           info: "e.g. 2 places this fact screen right after the 2nd question block",
         },
         { type: "image_picker", id: "background_image", label: "Background Photo (optional)", info: "Full-screen background photo behind the fact card, like the question screens" },
-        { type: "image_picker", id: "icon_image", label: "Icon / Graphic (optional)", info: "Small graphic shown above the label, e.g. an eye icon. Falls back to a dotted icon if left empty." },
         { type: "text", id: "label", label: "Small Label", default: "Did You Know?" },
         { type: "text", id: "stat", label: "Big Stat Text", default: "", info: "e.g. 7" },
         { type: "text", id: "stat_suffix", label: "Stat Suffix Text (optional)", default: "", info: "Small text shown right next to the big stat, e.g. 'signs' to read as '7 signs'" },
@@ -1154,8 +1063,9 @@ export const settings = {
           default: "",
           info: "This result wins when the user's answers add up to the most matches on these tags",
         },
-        { type: "text", id: "lens_name", label: "Lens Name", default: "" },
-        { type: "text", id: "lens_tagline", label: "Lens Tagline", default: "" },
+        { type: "text", id: "lens_name", label: "Lens Name", default: "", info: "Used as the image alt text, and shown as text if no Lens Logo is set." },
+        { type: "image_picker", id: "lens_logo", label: "Lens Logo", info: "Shown instead of the lens name on both result screens. Falls back to the name if empty." },
+        { type: "text", id: "lens_tagline", label: "Lens Tagline", default: "", info: "Shown on the first result screen only." },
         { type: "video", id: "hero_video", label: "Hero Background Video (Desktop)", info: "Upload a video that plays as an animated background on the result screen. Used on desktop, and on mobile too if no mobile video is set below. If the lens graphic is part of the video, leave 'Hero Lens Graphic' below empty. Video is muted and loops automatically." },
         { type: "video", id: "hero_video_mobile", label: "Hero Background Video (Mobile, optional)", info: "Optional. If set, this video plays instead of the desktop video on mobile screens. Leave empty to reuse the desktop video on mobile." },
         { type: "image_picker", id: "hero_video_poster", label: "Hero Video Poster Image (optional)", info: "Shown while the video loads, or as a fallback if the video can't play. Only used when a Hero Background Video is set." },
@@ -1177,16 +1087,6 @@ export const settings = {
         { type: "image_picker", id: "feature_4_icon", label: "Feature 4 — Icon" },
         { type: "text", id: "feature_4_title", label: "Feature 4 — Title", default: "" },
         { type: "text", id: "feature_4_description", label: "Feature 4 — Description", default: "" },
-
-        { type: "text", id: "stat_percent", label: "Stat Percentage", default: "", info: "e.g. 90%" },
-        {
-          type: "text",
-          id: "stat_description",
-          label: "Stat Description",
-          default: "",
-          info: "e.g. Of customers with similar lifestyles choose this lens.",
-        },
-        { type: "text", id: "rating", label: "Rating", default: "", info: "e.g. 4.8/5" },
       ],
     },
   ],

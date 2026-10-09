@@ -1,5 +1,5 @@
-import React, { useState, useRef, useCallback } from "react";
-import { motion, time } from "framer-motion";
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   isRunningOnClient,
   debounce,
@@ -17,6 +17,14 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { useGlobalStore } from "fdk-core/utils";
 import MobileSlider from "../../page-layouts/plp/Components/mobile-slider/mobile-slider";
 
+const ROTATING_WORDS = [
+  "sunglasses with power",
+  "VeCare",
+  "Vibe+",
+  "tinted eyeglasses",
+]; // add more anytime
+const ROTATE_INTERVAL_MS = 2500;
+
 function Search({
   screen,
   globalConfig,
@@ -33,11 +41,22 @@ function Search({
   const [showSearchSuggestions, setShowSearchSuggestions] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
   const navigate = useNavigate();
   const inputRef = useRef(null);
   const isDoubleRowHeader = globalConfig?.header_layout === "double";
   const isAlgoliaEnabled = globalConfig?.algolia_enabled;
   const { sections } = useGlobalStore(fpi.getters.PAGE);
+
+  // Rotate the word only while the label is in its resting (unfocused) state
+  useEffect(() => {
+    if (isDoubleRowHeader || isSearchFocused) return undefined;
+    const id = setInterval(() => {
+      setWordIndex((i) => (i + 1) % ROTATING_WORDS.length);
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [isDoubleRowHeader, isSearchFocused]);
+
   const openSearch = () => {
     setShowSearch(!showSearch);
 
@@ -128,8 +147,9 @@ function Search({
     }, 400),
     []
   );
+
   const redirectToProduct = (link) => {
-     inputRef.current?.blur(); 
+    inputRef.current?.blur();
     navigate(link);
     closeSearch();
     setSearchText("");
@@ -216,28 +236,31 @@ function Search({
                 }
                 onChange={(e) => setEnterSearchData(e)}
                 onKeyDown={(e) => {
-  if ((e.key === "Enter" || e.keyCode === 13) && e.target.value?.trim()) {
-      e.preventDefault();
-      inputRef.current?.blur();
-      redirectToProduct(`/products/?q=${e.target.value}`);
-    }
-}}
+                  if (
+                    (e.key === "Enter" || e.keyCode === 13) &&
+                    e.target.value?.trim()
+                  ) {
+                    e.preventDefault();
+                    inputRef.current?.blur();
+                    redirectToProduct(`/products/?q=${e.target.value}`);
+                  }
+                }}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={checkInput}
                 aria-labelledby="search-input-label"
                 aria-label="search-input-label"
               />
-              
-                <InputSearchIcon
-                  className={styles["search__input--search-icon"]}
+
+              <InputSearchIcon
+                className={styles["search__input--search-icon"]}
                 onClick={() => {
-  if (searchText?.trim()) {
-    redirectToProduct(`/products/?q=${searchText}`);
-  } else{
-     inputRef.current?.focus();
-  }
-}}
-                />
+                  if (searchText?.trim()) {
+                    redirectToProduct(`/products/?q=${searchText}`);
+                  } else {
+                    inputRef.current?.focus();
+                  }
+                }}
+              />
               {/* eslint-disable jsx-a11y/label-has-associated-control */}
               <label
                 htmlFor="searchInput"
@@ -248,6 +271,28 @@ function Search({
                 style={{ display: !isDoubleRowHeader ? "block" : "none" }}
               >
                 {t("resource.facets.search")}
+                {!isSearchFocused && (
+                  <>
+                    {" "}for{" "}
+                    <span
+                      className={styles["search__input--rotator"]}
+                      aria-hidden="true"
+                    >
+                      <AnimatePresence initial={false}>
+                        <motion.span
+                          key={wordIndex}
+                          className={styles["search__input--rotatorWord"]}
+                          initial={{ y: "100%", opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{ y: "-100%", opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                        >
+                          {`"${ROTATING_WORDS[wordIndex]}"`}
+                        </motion.span>
+                      </AnimatePresence>
+                    </span>
+                  </>
+                )}
               </label>
             </div>
             {showCloseButton && (
@@ -311,7 +356,10 @@ function Search({
                     </ul>
                     <ul
                       style={{
-display: searchData?.length === 0 && showSearchSuggestions ? "block" : "none",
+                        display:
+                          searchData?.length === 0 && showSearchSuggestions
+                            ? "block"
+                            : "none",
                       }}
                     >
                       <button

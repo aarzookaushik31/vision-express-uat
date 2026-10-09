@@ -1,31 +1,78 @@
-.city-highlight-section {
-max-width: 1225px;
-margin: 60px auto;
+// Same values as the application banner / trust badges / category list sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
 
-.city-highlight-section-container{
-    padding: 60px;
-     background-size: cover;
-  background-position: center;
-  color: #fff;
-  border-radius: 20px 20px 0 0;
+// Marquee: moves exactly one full set, then loops
+@keyframes city-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
+
+.city-highlight-section {
+  margin: 0px;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  // ---- Visible state: added when the section scrolls into view ----
+  // (`transform: none` instead of translate3d(0,0,0) so the section doesn't
+  // keep a transform that could affect fixed children)
+  &.inView {
+    opacity: 1;
+    transform: none;
+  }
+
+  .city-highlight-section-container {
+    width: 100%;
+    padding: 80px 0;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+
+  .content-wrapper-outer {
+    max-width: 1225px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
   .content-wrapper {
-    max-width: 635px;
+    max-width: 500px;
+  }
+
+  .brand-logo {
+    height: 26px;
+    margin-bottom: 20px;
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
   }
 
   .heading {
-    font-size: 32px;
+    font-size: 40px;
+    line-height: 140%;
     font-weight: 700;
-    color:rgba(26, 26, 26, 1);
+    color: #fff;
     margin-bottom: 15px;
-    text-transform: uppercase;
   }
 
   .subheading {
     font-size: 14px;
     margin-bottom: 15px;
     font-weight: 400;
-    color:rgba(46, 43, 44, 1);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 150%;
   }
 
@@ -35,84 +82,114 @@ margin: 60px auto;
 
     .btn-primary,
     .btn-secondary {
-      padding: 14px 40px;
+      padding: 12px 40px;
       font-size: 14px;
       font-weight: 700;
       border-radius: 40px;
       text-decoration: none;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       transition: 0.3s ease;
     }
 
     .btn-primary {
-      background-color: rgba(158, 0, 126, 1);
-      color: rgba(255, 255, 255, 1);
+      background-color: #9E007E;
+      color: #fff;
+    }
+
+    .btn-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
     }
 
     .btn-secondary {
-      background-color: transparent;
-      color: rgba(158, 0, 126, 1);
-      border: 1px solid rgba(158, 0, 126, 1);
+      background-color: #9E007E;
+      color: #fff;
     }
 
     .btn-primary:hover,
     .btn-secondary:hover {
-      opacity: 0.8;
+      opacity: 0.85;
     }
   }
 
+  .city-highlight-bottom-row-outer {
+    max-width: 1225px;
+    margin: 0 auto;
+  }
 
-  .city-highlight-bottom-row{
-        padding-top:6px;
-     display: flex;
+  .city-highlight-bottom-row {
+    padding-top: 40px;
+    display: flex;
     align-items: stretch;
     gap: 6px;
     overflow: hidden;
 
-    .city-item-title{
+    .city-item-title {
       display: flex;
       align-items: center;
-    background-color: rgba(158, 0, 126, 0.1);
-    border-radius: 0 8px 0 8px;
-    padding: 10px 16px;
+      flex-shrink: 0; // title stays fixed while the cities scroll
+      background-color: rgba(158, 0, 126, 0.1);
+      border-radius: 0 8px 0 8px;
+      padding: 10px 16px;
 
-       .city-list-title{
-        color:rgba(158, 0, 126, 1);
+      .city-list-title {
+        color: rgba(158, 0, 126, 1);
         font-size: 14px;
         font-weight: 700;
-      white-space: nowrap;
+        white-space: nowrap;
+      }
     }
-
-    }
-
-   
   }
 
+  // ---- Marquee (all screens) ----
   .cities-list {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .cities-track {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    width: 100%;
-    overflow: scroll;
+    align-items: stretch;
+    width: max-content;
+    animation: city-marquee var(--marquee-duration, 20s) linear infinite;
+
+    // hold still on hover (desktop) / while touching (mobile)
+    &:hover,
+    &:active {
+      animation-play-state: paused;
+    }
+  }
+
+  // Title copy used inside the mobile marquee (hidden on desktop, where the
+  // fixed title is used). Hidden in both sets, so each half of the track is
+  // the same width and the loop stays seamless.
+  .marquee-title {
+    display: none;
   }
 
   .city-item {
     display: flex;
-     gap: 8px;
+    gap: 8px;
     align-items: center;
     justify-content: flex-start;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-right: 6px; // margin instead of gap, so -50% loops with no jump
     background-color: rgba(158, 0, 126, 0.1);
     border-radius: 8px;
     padding: 10px 16px;
 
-
-    picture{
+    picture {
       width: 30px;
-        height: 30px;
-         aspect-ratio: auto;
-        background: transparent !important;
+      height: 30px;
+      aspect-ratio: auto;
+      background: transparent !important;
     }
- 
+
     .city-name {
       font-size: 14px;
       color: rgba(158, 0, 126, 1);
@@ -121,87 +198,122 @@ margin: 60px auto;
   }
 }
 
-
-
 @media (max-width: 1025px) {
-
-
   .city-highlight-section {
-
-  .content-wrapper {
-    max-width: 500px;
+    .content-wrapper {
+      max-width: 500px;
+    }
   }
-}
-}
-
-
-@media (max-width: 800px) and  (min-width: 768px) {
-  .city-highlight-section{
-  .city-highlight-section-container{
- background-position: center -100px;
-  }
-}
-
 }
 
 @media (max-width: 768px) {
-.city-highlight-section{
-  padding: 0 20px;
-  margin: 50px 0;
+  .city-highlight-section {
+    .city-highlight-section-container {
+      padding: 40px 20px 300px 20px;
+      background-position: center;
+    }
 
-  .city-highlight-section-container{
-    padding: 20px;
-    padding-top: 150px;
-    border-radius: 24px;
-    margin-bottom: 10px;
-   
-
-     .button-group {
-      flex-direction: column;
-      text-align: center;
-      gap: 10px;
-     }
-  }
-
-
-  .city-highlight-bottom-row{
-    flex-direction: column;
-
-    .city-item-title{
-      border-radius: 8px;
-      text-align: center;
+    .content-wrapper-outer {
+      padding: 0;
+      display: flex;
       justify-content: center;
     }
 
-    
-  .cities-list {
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+    .content-wrapper {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-    .city-item {
+    .brand-logo {
+      height: 26px;
+      margin-bottom: 16px;
+    }
 
-      picture{
-   width: 24px;
-          height: 24px;
+    .heading {
+      font-size: 20px;
+      line-height: 130%;
+      margin-bottom: 20px;
+    }
 
-        img{
-          width: 24px;
-          height: 24px;
+    .subheading {
+      display: none;
+    }
+
+    .button-group {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 8px 20px;
+        font-size: 12px;
+        flex: 0 1 auto;
+      }
+    }
+
+    .city-highlight-bottom-row-outer {
+      padding: 0 20px;
+
+      .city-highlight-bottom-row {
+        padding-top: 10px;
+
+        .city-item-title {
+          display: none; // on mobile the title lives inside the marquee track
+        }
+
+        .city-item {
+          picture {
+            width: 24px;
+            height: 24px;
+
+            img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+
+        .city-name {
+          font-size: 10px;
         }
       }
     }
 
-
-    .city-name  {
-      font-size: 10px;
+    // Mobile only: the title scrolls together with the cities
+    .marquee-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 6px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background-color: rgba(158, 0, 126, 0.1);
     }
-    
+
+    .marquee-title-text {
+      color: rgba(158, 0, 126, 1);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
   }
-
-
 }
 
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .city-highlight-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-
+  .city-highlight-section .cities-track {
+    animation: none;
+  }
 }

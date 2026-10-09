@@ -1,37 +1,42 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
+import React, { useEffect, useMemo, useState } from "react";
 import { useFPI, useGlobalStore } from "fdk-core/utils";
 import { FDKLink } from "fdk-core/components";
 import styles from "./styles/mega-menu-large.less";
 import FyImage from "@gofynd/theme-template/components/core/fy-image/fy-image";
 import "@gofynd/theme-template/components/core/fy-image/fy-image.css";
 import ArrowDownIcon from "../../assets/images/arrow-down.svg";
-import ArrowTabNav from "../../assets/images/arrownavtab.png";
+import VecareLogo from "../../assets/images/vecarelogo.png";
+
+const VECARE_LABEL = "ve care protect";
+
+const isVecareProtect = (text) =>
+  typeof text === "string" &&
+  text.trim().replace(/\s+/g, " ").toLowerCase() === VECARE_LABEL;
 
 function MegaMenuLarge({ headerNavigation, l1MenuClassName = "" }) {
-   const location = useLocation();
+  useEffect(() => {
+    const navItems = document.querySelectorAll(`.${styles.navigationItem} a`);
 
-useEffect(() => {
-  const navItems = document.querySelectorAll(`.${styles.navigationItem} a`);
+    const handleClick = () => {
+      const hoveredMenus = document.querySelectorAll(
+        `.${styles.navigationItem}:hover`
+      );
+      hoveredMenus.forEach((item) => {
+        item.style.pointerEvents = "none";
+        setTimeout(() => {
+          item.style.pointerEvents = "auto";
+        }, 200);
+      });
+    };
 
-  const handleClick = () => {
-    const hoveredMenus = document.querySelectorAll(`.${styles.navigationItem}:hover`);
-    hoveredMenus.forEach(item => {
-      item.style.pointerEvents = "none";
-      setTimeout(() => {
-        item.style.pointerEvents = "auto";
-      }, 200); 
-    });
-  };
+    navItems.forEach((link) => link.addEventListener("click", handleClick));
 
-  navItems.forEach(link => link.addEventListener("click", handleClick));
-
-  return () => {
-    navItems.forEach(link => link.removeEventListener("click", handleClick));
-  };
-}, []);
-
+    return () => {
+      navItems.forEach((link) =>
+        link.removeEventListener("click", handleClick)
+      );
+    };
+  }, []);
 
   return (
     <div className={`${styles.headerNavigation}`}>
@@ -44,9 +49,19 @@ useEffect(() => {
           <div
             className={`${styles.l1Category} ${l1MenuClassName} menu-item-custom`}
           >
-            <h5 className={`${styles.l1CategoryHeading}`}>
-              <FDKLink action={menu?.action}>{menu.display}</FDKLink>
-            </h5>
+         <h5 className={`${styles.l1CategoryHeading}`}>
+  <FDKLink action={menu?.action}>
+    {isVecareProtect(menu.display) ? (
+      <img
+        className={styles.l1Logo}
+        src={VecareLogo}
+        alt={menu.display}
+      />
+    ) : (
+      menu.display
+    )}
+  </FDKLink>
+</h5>
             {!!menu?.sub_navigation?.length && (
               <ArrowDownIcon
                 className={`${styles.menuIcon} ${styles.dropdownIcon}`}
@@ -62,20 +77,23 @@ useEffect(() => {
 
 const Megamenu = ({ navigation }) => {
   const fpi = useFPI();
-  const { themeHeaderHeight = 0 } = useGlobalStore(fpi.getters.CUSTOM_VALUE);
-  const [activeL2, setActiveL2] = useState(0); 
+  const { themeHeaderHeight = 105 } = useGlobalStore(fpi.getters.CUSTOM_VALUE);
 
-  const groupedNav = useMemo(() => {
-    const column = !!navigation?.image ? 4 : 5;
-    const result = Array.from({ length: column }, () => []);
-
-    navigation?.sub_navigation?.forEach((item, index) => {
-      const groupIndex = index % column;
-      result[groupIndex].push(item);
+  // L2 items WITHOUT an image render as text columns.
+  // L2 items WITH an image render as banner cards on the right
+  // (label is baked into the image itself, so no text overlay).
+  const { columnItems, bannerItems } = useMemo(() => {
+    const columns = [];
+    const banners = [];
+    navigation?.sub_navigation?.forEach((l2Menu) => {
+      if (l2Menu?.image) {
+        banners.push(l2Menu);
+      } else {
+        columns.push(l2Menu);
+      }
     });
-
-    return result;
-  }, [navigation?.sub_navigation, navigation?.image]);
+    return { columnItems: columns, bannerItems: banners };
+  }, [navigation?.sub_navigation]);
 
   if (!navigation?.sub_navigation?.length) {
     return null;
@@ -85,180 +103,116 @@ const Megamenu = ({ navigation }) => {
     "--theme-header-height": `${themeHeaderHeight}px`,
   };
 
-
-   const hasTabs =
-    navigation?.tags?.includes("hasTabs") || navigation?.tag === "hasTabs";
-
   return (
-    <div className={`${styles.megamenuWrapper} ${  !hasTabs ? styles.simpleDropdown : ""}`} style={dynamicStyles}>
+    <div
+      className={`${styles.megamenuWrapper} ${styles.simpleDropdown}`}
+      style={dynamicStyles}
+    >
       <div className={styles.megamenuContainer}>
-
-
-        { hasTabs ? (
-        <h2 className={styles.megamenuheading}>{navigation.display}</h2>
-        ) : ""}
-
-
-        {hasTabs ? (
-
-        <div className={styles.megamenuContent}>
-
-          <div className={styles.l2Tabs}>
-            {navigation?.sub_navigation.map((l2Menu, l2index) => (
-              <button
-                key={`tab_${l2index}`}
-                className={`${styles.l2Tab} ${
-                  activeL2 === l2index ? styles.activeTab : ""
-                }`}
-                onClick={() => setActiveL2(l2index)}
-              >
-
-
-                 <img
-      className={styles.arrowtabimg}
-      src={ArrowTabNav}
-      alt="arrow"
-      loading="lazy"
-      fetchpriority="low"
-    />
-
-
-                <NavLogo nav={l2Menu} />
-                <span>{l2Menu.display}</span>
-                
-              </button>
-            ))}
-          </div>
-
-<div className={styles.customSubmenuContainer}>
-<div className={styles.l3Content}>
-  {navigation?.sub_navigation[activeL2]?.sub_navigation?.map(
-    (l3Menu, l3index) => (
-      <div key={`${l3Menu.display}_${l3index}`} className={styles.l3Block}>
-        <FDKLink
-          action={l3Menu?.action}
-          className={styles.l3NavigationItem}
-        >
-          <NavLogo nav={l3Menu} />
-          <div className={styles.l3NavigationText}>
-            {l3Menu.display}
-          </div>
-        </FDKLink>
-
-        {!!l3Menu?.sub_navigation?.length && (
-          <div className={styles.l4NavigationBlock}>
-            {l3Menu?.sub_navigation.map((l4Menu, l4index) => (
-              <FDKLink
-                key={`${l4Menu.display}_${l4index}`}
-                action={l4Menu?.action}
-                 className={`${styles.l4NavigationItem} ${
-    l4Menu?.image ? styles.hasImage : ""
-  }`}
-              >
-                <NavLogo nav={l4Menu} />
-                <div className={styles.l4NavigationText}>
-                  {l4Menu.display}
-                </div>
-              </FDKLink>
-            ))}
+        {navigation?.display && (
+          <div className={styles.megamenuHeading}>
+            <NavLogo nav={navigation} />
+            <h2>{navigation.display}</h2>
           </div>
         )}
-      </div>
-    )
-  )}
-</div>
 
+        <div className={styles.megamenuContent}>
+          {!!columnItems.length && (
+            <div className={styles.l2Content}>
+              {columnItems.map((l2Menu, l2index) => (
+                <div
+                  key={`${l2Menu.display}_${l2index}`}
+                  className={styles.l2Block}
+                >
+                  <FDKLink
+                    action={l2Menu?.action}
+                    className={styles.l2NavigationItem}
+                  >
+                    <div className={styles.l2NavigationText}>
+                      {l2Menu.display}
+                    </div>
+                  </FDKLink>
 
-
-          {!!navigation?.image && (
-            <div className={styles.navigationImage}>
-              <FDKLink action={navigation?.action}>
-                <FyImage
-                  src={navigation.image}
-                  sources={[
-                    { breakpoint: { min: 1728 }, width: 725 },
-                    { breakpoint: { min: 1512 }, width: 634 },
-                    { breakpoint: { min: 1296 }, width: 542 },
-                    { breakpoint: { min: 1080 }, width: 447 },
-                    { breakpoint: { min: 900 }, width: 370 },
-                    { breakpoint: { min: 720 }, width: 294 },
-                    { breakpoint: { min: 540 }, width: 50 },
-                    { breakpoint: { min: 360 }, width: 50 },
-                    { breakpoint: { min: 180 }, width: 50 },
-                  ]}
-                  defer={true}
-                  alt={navigation?.display}
-                  isFixedAspectRatio={false}
-                />
-              </FDKLink>
+                 {!!l2Menu?.sub_navigation?.length && (
+  <div className={styles.l3NavigationBlock}>
+    {l2Menu.sub_navigation.map((l3Menu, l3index) => (
+      <L3Item key={`${l3Menu.display}_${l3index}`} l3Menu={l3Menu} />
+    ))}
+  </div>
+)}
+                </div>
+              ))}
             </div>
           )}
-          </div>
-        </div>
 
-
-
-) : (
-  <div className={styles.megamenuContent}>
-    <div className={styles.l2Content}>
-      {navigation?.sub_navigation?.map((l2Menu, l2index) => (
-        <div key={`${l2Menu.display}_${l2index}`} className={styles.l2Block}>
-          <FDKLink action={l2Menu?.action} className={styles.l2NavigationItem}>
-            <NavLogo nav={l2Menu} />
-            <div className={styles.l2NavigationText}>{l2Menu.display}</div>
-          </FDKLink>
-
-          {!!l2Menu?.sub_navigation?.length && (
-            <div className={styles.l3NavigationBlock}>
-              {l2Menu?.sub_navigation.map((l3Menu, l3index) => (
-                <FDKLink
-                  key={`${l3Menu.display}_${l3index}`}
-                  action={l3Menu?.action}
-                  className={styles.l3NavigationItem}
+          {!!bannerItems.length && (
+            <div className={styles.navigationImageGroup}>
+              {bannerItems.map((banner, bIndex) => (
+                <div
+                  key={`banner_${bIndex}`}
+                  className={styles.navigationImage}
                 >
-                  <NavLogo nav={l3Menu} />
-                  <div className={styles.l3NavigationTextnotabs}>{l3Menu.display}</div>
-                </FDKLink>
+                  <FDKLink action={banner?.action}>
+                    <img
+                      src={banner.image}
+                      defer={true}
+                      alt={banner?.display}
+                    />
+                  </FDKLink>
+                </div>
               ))}
             </div>
           )}
         </div>
-      ))}
-    </div>
-
-    {!!navigation?.image && (
-      <div className={styles.navigationImage}>
-        <FDKLink action={navigation?.action}>
-          <FyImage
-            src={navigation.image}
-            sources={[
-              { breakpoint: { min: 1728 }, width: 725 },
-              { breakpoint: { min: 1512 }, width: 634 },
-              { breakpoint: { min: 1296 }, width: 542 },
-              { breakpoint: { min: 1080 }, width: 447 },
-              { breakpoint: { min: 900 }, width: 370 },
-              { breakpoint: { min: 720 }, width: 294 },
-              { breakpoint: { min: 540 }, width: 50 },
-              { breakpoint: { min: 360 }, width: 50 },
-              { breakpoint: { min: 180 }, width: 50 },
-            ]}
-            defer={true}
-            alt={navigation?.display}
-            isFixedAspectRatio={false}
-          />
-        </FDKLink>
-      </div>
-    )}
-  </div>
-)}
-
-
-
-
       </div>
     </div>
   );
 };
+
+
+const L3Item = ({ l3Menu }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasL4 = !!l3Menu?.sub_navigation?.length;
+
+  // No L4 children: normal link, same as before
+  if (!hasL4) {
+    return (
+      <FDKLink action={l3Menu?.action} className={styles.l3NavigationItem}>
+        <div className={styles.l3NavigationTextnotabs}>{l3Menu.display}</div>
+      </FDKLink>
+    );
+  }
+
+  // Has L4 children: no link, the whole row toggles the dropdown
+  return (
+    <div className={`${styles.l3Block} ${isOpen ? styles.l3Open : ""}`}>
+      <button
+        type="button"
+        className={styles.l3Row}
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        <span className={styles.l3NavigationTextnotabs}>{l3Menu.display}</span>
+        <ArrowDownIcon className={styles.l3Icon} />
+      </button>
+
+      <div className={styles.l4NavigationBlock}>
+        {l3Menu.sub_navigation.map((l4Menu, l4index) => (
+          <FDKLink
+            key={`${l4Menu.display}_${l4index}`}
+            action={l4Menu?.action}
+            className={styles.l4NavigationItem}
+          >
+            <div className={styles.l4NavigationText}>{l4Menu.display}</div>
+          </FDKLink>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+
 
 const NavLogo = ({ nav }) => {
   const logo = nav?.image;

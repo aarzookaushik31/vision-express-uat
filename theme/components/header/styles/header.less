@@ -18,7 +18,7 @@
 
 
     .tickerSlide{
-    background-color: #9E007E;
+   background-color: #000000;
     padding: 10px;
     display: flex !important;
     align-items: center;
@@ -68,6 +68,7 @@
   position: relative;
   background-color: @HeaderBackground;
   z-index: unset !important;
+  // overflow: hidden;
   &.transparentBackground {
     background-color: unset !important;
   }
@@ -99,8 +100,11 @@
     }
   }
 
+
+
+
   .mobile {
-    background-color: rgba(51, 51, 51, 1);
+    background-color: #9E007E;
 
 
 
@@ -240,5 +244,25 @@
   .mobileIcon {
     width: 24px;
     height: 24px;
+  }
+}
+
+
+.header {
+  &.themeLensPurple {
+    .mobile{
+  background: #564470;
+    }
+  }
+
+  &.themeRed {
+   .mobile{
+        background: linear-gradient(
+  90deg,
+  #3b1919 0%,
+  #b0201f 50%,
+  #3b1919 100%
+);
+   }
   }
 }

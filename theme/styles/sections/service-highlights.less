@@ -1,0 +1,206 @@
+// Same values as the other animated sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
+// Items slide up + fade in
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, @anim-distance, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// Dividers only fade in
+@keyframes dividerEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.highlightsSection {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 1200px;
+    margin: 0 20px;
+    border-radius: 12px;
+    padding: 0;
+    width: auto;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.highlightsWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 32px;
+    column-gap: 12px;
+    border-radius: 16px;
+    padding: 32px 15px;
+  }
+}
+
+.highlightItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+
+  // animation start state (hidden until the section is in view)
+  opacity: 0;
+
+  &:hover {
+    transform: translateY(-4px);
+    opacity: 0.92;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 6px;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.3);
+  margin-top: 8px;
+
+  // animation start state
+  opacity: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// ---- Visible state: added when the section scrolls into view ----
+// `backwards` fill mode: the item is held hidden during its delay, and once
+// the animation ends it falls back to its normal styles, so the hover effect
+// keeps working (a `forwards`/`both` fill would lock the transform).
+.highlightsSection.inView {
+  .highlightItem {
+    opacity: 1;
+    animation: itemEnter @anim-duration @anim-ease var(--delay, 0ms) backwards;
+
+    &:hover {
+      opacity: 0.92;
+    }
+  }
+
+  .divider {
+    opacity: 1;
+    animation: dividerEnter @anim-duration @anim-ease var(--delay, 0ms) backwards;
+  }
+}
+
+.iconCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+
+    img {
+      width: 27px;
+      height: 27px;
+    }
+  }
+}
+
+.itemTitle {
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+}
+
+.itemDescription {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 160%;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  max-width: 220px;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    max-width: 100%;
+  }
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .highlightItem,
+  .divider {
+    opacity: 1;
+  }
+
+  .highlightsSection.inView {
+    .highlightItem,
+    .divider {
+      animation: none;
+    }
+  }
+}

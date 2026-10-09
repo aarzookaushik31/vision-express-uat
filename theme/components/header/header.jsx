@@ -40,6 +40,38 @@ const LocationModal = React.lazy(
     import("@gofynd/theme-template/components/location-modal/location-modal")
 );
 
+
+
+
+
+// Order matters: first match wins, so tru-vision-lens (red) is checked before the purple list.
+const HEADER_THEMES = [
+  {
+    key: "themeRed",
+    paths: ["/sections/ve-care"],
+  },
+  {
+    key: "themeLensPurple",
+    paths: [
+      "/sections/gadget-pro-lens",
+      "/sections/drive-sure-lens",
+      "/sections/clear-vision-lens",
+      "/sections/essential-plus",
+      "/sections/tru-vision-lens",
+      "/sections/progressive-basic-lens",
+      "/sections/progressive-lumino-lens",
+      "/sections/progressive-comfort-lens",
+      "/sections/progressive-regular-lens",
+      "/sections/progressive-supreme-lens",
+      "/sections/progressive-supreme-plus-lens",
+    ],
+  },
+];
+
+
+
+
+
 function Header({ fpi }) {
   const { t } = useGlobalTranslation("translation");
   const headerRef = useRef(null);
@@ -104,6 +136,17 @@ const tickerSlides = rawTicker
     const regex = /^\/refund\/order\/([^/]+)\/shipment\/([^/]+)$/;
     return regex.test(location?.pathname);
   }, [location?.pathname]);
+
+
+  const headerThemeKey = useMemo(() => {
+    const path =
+      (location?.pathname || "/").toLowerCase().replace(/\/+$/, "") || "/";
+    const hit = HEADER_THEMES.find((t) => t.paths.includes(path));
+    return hit ? hit.key : "";
+  }, [location?.pathname]);
+
+  const headerThemeClass = headerThemeKey ? styles[headerThemeKey] : "";
+
 
   useEffect(() => {
     if (supportedLanguages?.items?.length > 0) {
@@ -271,9 +314,9 @@ const checkLogin = (type) => {
           className={`${styles.ctHeaderWrapper} fontBody ${isListingPage ? styles.listing : ""} ${globalConfig?.transparent_header && (sections[0]?.name === "application-banner" || sections[0]?.name === "image-slideshow") ? styles.unsetBoxShadow : ""}`}
           ref={headerRef}
         >
-          <header
-            className={`${styles.header} ${globalConfig?.header_border ? styles.seperator : ""} ${globalConfig?.transparent_header && (sections[0]?.name === "application-banner" || sections[0]?.name === "image-slideshow") ? styles.transparentBackground : ""}`}
-          >
+    <header
+  className={`${styles.header} ${headerThemeClass} ${globalConfig?.header_border ? styles.seperator : ""} ${globalConfig?.transparent_header && (sections[0]?.name === "application-banner" || sections[0]?.name === "image-slideshow") ? styles.transparentBackground : ""}`}
+>
             <div
               className={`${styles.headerContainer} basePageContainer margin0auto `}
             >
@@ -294,6 +337,7 @@ const checkLogin = (type) => {
                   deliveryMessage={deliveryMessage}
                   onDeliveryClick={handleLocationModalOpen}
                   languageIscCode={languageIscCode}
+                   themeKey={headerThemeKey}
                 />
               </div>
               <div className={styles.mobile}>
@@ -346,6 +390,8 @@ const tickerImage = plainText
                       maxHeight: `${globalConfig?.mobile_logo_max_height_header || 38}px`,
                     }}
                       className={styles.logo}
+                          width={150}
+                             height={40}
                       src={getShopLogoMobile()}
                       alt={t("resource.refund_order.name_alt_text")}
                     />
@@ -353,14 +399,7 @@ const tickerImage = plainText
                   <div className={styles.right}>
 
 
-                    { !(isDoubleRowHeader && globalConfig?.logo_menu_alignment === "layout_3") && (
-                    <div
-                      className={`${styles.icon} ${styles["right__icons--search"]}`}
-                    >
-                      <Search globalConfig={globalConfig} fpi={fpi} />
-                    </div>
-                       )}
-                      
+        
 
 
                     {!globalConfig?.disable_cart &&
@@ -388,7 +427,7 @@ const tickerImage = plainText
 
                           
                                   
-                      
+{/*                       
                                     <button
                                     type="button"
                                     className={styles.wishlistIcon}
@@ -404,7 +443,20 @@ const tickerImage = plainText
                                           src={WishlistIcon} 
                                           alt="WishlistIcon" 
                                         />
-                                  </button>
+                                  </button> */}
+
+
+  
+            {/* <div>
+              <Search
+                customSearchClass={styles.customSearchClass}
+                customSearchWrapperClass={styles.customSearchWrapperClass}
+                globalConfig={globalConfig}
+                fpi={fpi}
+              />
+            </div> */}
+        
+
 
                                      <button
                                     type="button"
@@ -416,6 +468,8 @@ const tickerImage = plainText
                                   >
                                       <img 
                                           src={LocationIcon} 
+                                              width={24}
+                                           height={24}
                                           alt="Location Icon" 
                                         />
                                   </button>
@@ -442,7 +496,7 @@ const tickerImage = plainText
 
                     
 
-                      {isDoubleRowHeader &&  globalConfig?.logo_menu_alignment === "layout_3" && (
+                    
             <div className={styles.alwaysOnSearch}>
               <Search
                 customSearchClass={styles.customSearchClass}
@@ -453,7 +507,7 @@ const tickerImage = plainText
                 fpi={fpi}
               />
             </div>
-          )}
+          
 
 
                 {isHyperlocal && (

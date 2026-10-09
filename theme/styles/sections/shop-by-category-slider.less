@@ -1,0 +1,276 @@
+// Same values as the application banner / eye check cities / trust badges sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
+// ---- Card sizes (same numbers as before) ----
+// Desktop:  side 260x260, center 520x300, gap 24
+// Tablet:   side 160x200, center 420x280, gap 24
+// Mobile:   only the center card is visible (full width, 340 high)
+//
+// Each slick slide is a fixed-width "slot". Neighbouring cards sit one slot
+// apart, so slot = side/2 + gap + center/2:
+//   desktop: 130 + 24 + 260 = 414
+//   tablet:   80 + 24 + 210 = 314
+@slot-desktop: 414px;
+@slot-tablet: 314px;
+@slot-mobile: ~"calc(100vw - 40px)"; // full section width (20px padding each side)
+
+.findFitSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 50px 20px;
+  text-align: center;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  // ---- Visible state: added when the section scrolls into view ----
+  // (`transform: none` instead of translate3d(0,0,0) so the section doesn't
+  // keep a transform that could affect fixed children)
+  &.inView {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 40px 0;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+.highlight {
+  color: #9E007E;
+}
+
+// Shared styling so <a> cards look/behave exactly like the <div> cards
+// (kept ABOVE .card so .card's width/height win)
+.cardLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+// Size of the highlighted (center) card
+.centerCardSize() {
+  width: 520px;
+  height: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 992px) {
+    width: 420px;
+    height: 280px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 340px;
+  }
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+
+  :global(.slick-list) {
+    padding: 12px 0 32px;
+    margin: -12px 0 -32px;
+
+    @media (max-width: 768px) {
+      padding: 8px 0 12px;
+      margin: -8px 0 -12px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :global(.slick-track) {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+
+    :global(.slick-slide) {
+      float: none;
+      flex: 0 0 auto;
+      height: auto;
+    }
+  }
+
+  :global(.slick-center) .card {
+    .centerCardSize();
+  }
+}
+
+// One slot per slide; the cards are centered inside it (the center card is
+// wider than the slot and simply overflows on both sides equally).
+.slide {
+  width: @slot-desktop;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // The slot is wider than the side cards, and slots overlap the center
+  // card's overflow, so let clicks pass through to the cards themselves.
+  pointer-events: none;
+
+  @media (max-width: 992px) {
+    width: @slot-tablet;
+    height: 280px;
+  }
+
+  @media (max-width: 768px) {
+    width: @slot-mobile;
+    height: 340px;
+  }
+}
+
+.card {
+  flex: 0 0 auto;
+  display: block;
+  pointer-events: auto;
+  // side card size
+  width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition-property: width, height, box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 992px) {
+    width: 160px;
+    height: 200px;
+  }
+
+  // On mobile the neighbours are off-screen, so every card is full size
+  // (no shrinking while a card slides out)
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 340px;
+  }
+}
+
+// Only one block: no slider, just the center card
+.singleSlide {
+  display: flex;
+  justify-content: center;
+
+  .card {
+    .centerCardSize();
+  }
+}
+
+// ---- Controls (prev / label / next) ----
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding-top: 28px;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    margin-top: 20px;
+  }
+}
+
+.navBtn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(158, 0, 126, 1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background: rgba(158, 0, 126, 0.85);
+  }
+}
+
+.controlsText {
+  min-width: 180px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    min-width: 140px;
+  }
+}
+
+.controlsTextLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover .category {
+    color: rgba(158, 0, 126, 0.85);
+  }
+}
+
+.category {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(158, 0, 126, 1);
+  margin: 0 0 4px 0;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.tagline {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(46, 43, 44, 0.7);
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .findFitSection {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card {
+    transition: none;
+  }
+}

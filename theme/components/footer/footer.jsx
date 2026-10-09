@@ -10,6 +10,7 @@ import fallbackFooterLogo from "../../assets/images/logo-footer.png";
 import { useThemeConfig } from "../../helper/hooks";
 import FooterContactLogo from "../../assets/images/footer-contact-logo.svg";
 import FooterEmailLogo from "../../assets/images/footer-email-logo.svg";
+import BottomNavBar from "../mobile-bottom-bar/mobile-bottom-bar";
 
 function Footer({ fpi }) {
   const { t } = useGlobalTranslation("translation");
@@ -113,6 +114,8 @@ function Footer({ fpi }) {
                     <div className={`fx-footer-logo ${styles.logo}`}>
                       <img
                         src={getLogo}
+                        width={250}
+                        height={45}
                         loading="lazy"
                         alt={t("resource.footer.footer_logo_alt_text")}
                         fetchpriority="low"
@@ -128,27 +131,27 @@ function Footer({ fpi }) {
                     {globalConfig?.footer_description}
                   </p>
 
-                 <div className={`social-list ${styles.list} ${styles.listSocial} `}>
-                    {isSocialLinks && (
-                      <>
-                        <div className={`${styles.socialContainer}`}>
-                          {globalConfig?.footer_social_text && (
-                            <h5
-                              className={`${styles.title} ${styles.socialTitle} ${styles.contacts} ${styles.fontBody}`}
-                            >
-                              {globalConfig?.footer_social_text}
-                            </h5>
-                          )}
-                          <span>
-                            <SocialLinks
-                              fpi={fpi}
-                              social_links={contactInfo?.social_links}
-                            />
-                          </span>
-                        </div>
-                      </>
-                    )}
-                  </div>
+                <div className={`social-list ${styles.list} ${styles.listSocial} ${styles.socialMobileOnly}`}>
+  {isSocialLinks && (
+    <>
+      <div className={`${styles.socialContainer}`}>
+        {globalConfig?.footer_social_text && (
+          <h5
+            className={`${styles.title} ${styles.socialTitle} ${styles.contacts} ${styles.fontBody}`}
+          >
+            {globalConfig?.footer_social_text}
+          </h5>
+        )}
+        <span>
+          <SocialLinks
+            fpi={fpi}
+            social_links={contactInfo?.social_links}
+          />
+        </span>
+      </div>
+    </>
+  )}
+</div>
 
                 </div>
                 <div className={`${styles["footer__top--menu"]}`}>
@@ -305,16 +308,32 @@ function Footer({ fpi }) {
             </div>
           </div>
         
-            <div className={styles.footer__bottom}>
-              <div className={styles.footerContainer}>
-                <div className={`${styles.copyright} b1 ${styles.fontBody}`}>
-       {contactInfo.copyright_text ? contactInfo.copyright_text : "© Vision Express 2026. All Right Reserved"}
-                </div>
-               
-              </div>
-            </div>
+          <div className={styles.footer__bottom}>
+  <div className={styles.footerContainer}>
+    <div className={styles.footerbottomWrapper}>
+    <div className={`${styles.copyright} b1 ${styles.fontBody}`}>
+      {contactInfo.copyright_text ? contactInfo.copyright_text : "© Vision Express 2026. All Right Reserved"}
+    </div>
+
+    {isSocialLinks && (
+      <div className={`${styles.socialContainer} ${styles.socialDesktopOnly}`}>
+        <span>
+          <SocialLinks
+            fpi={fpi}
+            social_links={contactInfo?.social_links}
+          />
+        </span>
+      </div>
+    )}
+    </div>
+  </div>
+</div>
+
+   {!isPDP && <BottomNavBar />}
          
         </>
+
+        
       </footer>
     )
   );

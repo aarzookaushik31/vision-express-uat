@@ -1,273 +1,345 @@
-.contactPageContainer{
+.contactPageContainer {
   display: flex;
-  align-items: center;
-  max-width: 1300px;
-  background-color: rgba(158, 0, 126, 0.04);
-  border-radius: 32px;
-  margin: 30px auto;
-  padding: 50px;
-  gap: 120px;
+  width: 100%;
+  min-height: 574px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #9e007e 0%, #5a0047 60%, #2a0022 100%);
+  backdrop-filter: blur(63.6px);
 
-.logo{
-    max-width: 230px;
-    margin: auto;
-    margin-bottom: 30px;
-    display: block;
-}
-
-  .contactInfo {
-    flex:1;
-
-    h1{
-        color:rgba(26, 26, 26, 1);
-        font-size: 40px;
-        font-weight: 700;
-        line-height: 120%;
-        letter-spacing: 0px;
-        text-transform: uppercase;
-        margin:0;
-        margin-bottom: 25px;
-    }
-
-    .storeDescription{
-        color:rgba(26, 26, 26, 0.8);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: -0.5px;
-        margin:0;
-        margin-bottom: 50px;
-    }
-
-    .iconItemContainer{
-        display: flex;
-        gap: 8px;
-        margin-top: 24px;
-        align-items: start;
-
-        img{
-            width: 48px;
-            border-radius: 50%;
-            min-width: 48px;
-        }
-
-        h2{
-            color:rgba(26, 26, 26, 1);
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 150%;
-            letter-spacing: -0.5px;
-        }
-
-        p{
-              color:rgba(26, 26, 26, 0.8);
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: -0.5px;
-        }
-    }
-     
-
+  /* Soft dot pattern, visible only on the right side */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.07) 0 22px,
+      transparent 23px
+    );
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 70%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 70%, #000 100%);
+    pointer-events: none;
   }
 
-
-  .contactFormContainer{
+  /* ---------- LEFT : image + info card ---------- */
+  .contactInfo {
     position: relative;
-    flex:1;
-    padding: 48px;
-    border-radius: 32px;
-    background-color: rgba(255, 255, 255, 1);
+    flex: 1;
+    min-width: 0;
 
-      &.successBackground{
+    /* image fades out to the right so the purple background shows through */
+    .heroImage {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 106%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      -webkit-mask-image: linear-gradient(90deg, #000 70%, transparent 100%);
+      mask-image: linear-gradient(90deg, #000 70%, transparent 100%);
+    }
+
+    .infoCard {
+      position: absolute;
+      right: 50px;
+      bottom: 48px;
+      z-index: 2;
+      width: calc(100% - 80px);
+      max-width: 480px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      box-sizing: border-box;
+    }
+
+    .contactPhones{
+      margin-top: 18px;
+    }
+
+    .iconItemContainer {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 18px;
+      text-decoration: none;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      img {
+        width: 37px;
+        min-width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h2 {
+        margin: 0;
+        color: #000;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 150%;
+      }
+
+      p {
+        margin: 2px 0 0;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  /* ---------- RIGHT : form ---------- */
+  .contactFormContainer {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    z-index: 1;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    color: #fff;
+    background: transparent; 
+    line-height: 1;
+
+    &.successBackground {
+      background: transparent;
+    }
+  }
+
+  .formInner {
+    max-width: 540px;
+  }
+
+  .formTitle {
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .storeDescription {
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .contactForm {
+    .inputFlexGroup {
+      display: flex;
+      gap: 11px;
+
+      .inputfieldcontainer {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    .inputfieldcontainer {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      background: #fff;
+      color: rgba(46, 43, 44, 0.9);
+      font-size: 12px;
+      font-weight: 400;
+      font-family: inherit;
+      padding: 12px 16px;
+      height: 34px;
+      border-radius: 120px;
+
+      &::placeholder {
+        color: rgba(46, 43, 44, 0.5);
+      }
+    }
+
+    textarea {
+      height: 100px;
+      border-radius: 10px;
+      padding: 12px 14px;
+      resize: none;
+    }
+
+    .errorText {
+      margin: 4px 0 0 8px;
+      font-size: 12px;
+      color: #ffb4c8;
+    }
+
+    .submitButton {
+      display: block;
+      width: 100%;
+      margin-top: 26px;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 500px;
+      cursor: pointer;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
       background-color: rgba(158, 0, 126, 1);
     }
   }
-
-  .contactForm{
-
-    .errorText{
- font-size: 12px;
-          color: #d32f2f;
-          margin-top: 4px;
-    }
-
-    .inputfieldcontainer{
-       margin-bottom: 15px;
-    }
-    
-    label{
-        font-size: 14px;
-        font-weight: 700;
-        color:rgba(46, 43, 44, 1);
-        margin-bottom: 10px;
-        display: inline-block;
-    }
-
-    input, textarea{
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 12px;
-        color:rgba(46, 43, 44, 0.8);
-        font-size: 12px;
-        font-weight: 400;
-        padding: 20px;
-        width: 100%;
-        letter-spacing: -0.5px;
-       
-    }
-
-
-    .submitButton{
-        border-radius: 500px;
-        font-size: 16px;
-        font-weight: 700;
-        color: #fff;
-        text-transform: uppercase;
-        width: 100%;
-        text-align: center;
-        padding: 18px 36px;
-        margin-top: 20px;
-        background-color: rgba(158, 0, 126, 1);
-    }
-      .inputFlexGroup{
-    display: flex;
-    gap: 15px;
-  }
-
-
-  }
-
-
 }
 
-
+/* ---------- Success state ---------- */
 .successWrapper {
-    text-align: center;
+  text-align: center;
+  padding: 20px 0 20px 40px;
 
-    .closeSuccessButton{
-                     position: absolute;
-                     top: 50px;
-                     right: 50px;
-                     cursor: pointer;
-            svg{
- width: 30px;
- fill: #fff;
-            }
-           
-          }
-    
-      img{
-        width: 180px;
-      }
-      h2{
-        font-size: 40px;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 1);
-        letter-spacing: 0px;
-        line-height: 120%;
-        text-transform: uppercase;
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
-      p{
-        color:rgba(255, 255, 255, 0.8);
-        font-size: 16px;
-        line-height: 150%;
-        font-weight: 400;
-        letter-spacing: -0.3px;
-        margin-bottom: 30px;
-      }
+  .closeSuccessButton {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+
+    svg {
+      width: 26px;
+      fill: #fff;
     }
+  }
 
+  img {
+    width: 160px;
+  }
 
-@media(max-width: 1025px){
-     .contactPageContainer{
-        flex-direction: column;
-        gap: 50px;
-     }
+  h2 {
+    margin: 30px 0;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  p {
+    margin: 0 0 30px;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+  }
 }
 
-
-
-
-@media(max-width: 768px){
-    .contactPageContainer{
-        flex-direction: column;
-        margin:0;
-        border-radius: 0;
-        padding: 50px 20px;
-        gap: 50px;
-
-        .logo{
-            max-width: 180px;
-        }
-
-         .contactInfo{
-            h1{
-                font-size: 32px;
-                margin-bottom: 15px;
-            }
-
-            .storeDescription{
-             font-size: 14px;
-             margin-bottom: 20px;
-            }
-
-              .iconItemContainer{
-
-                img{
-                    min-width: 40px;
-                    width: 40px;
-                }
-
-                h2{
-                    font-size: 15px;
-                }
-
-                p{
-                    font-size: 14px;
-                }
-             }
-         }
-
-
-          .contactFormContainer{
-            border-radius: 16px;
-            padding: 40px 20px;
-            width: 100%;
-          }
-
-
-           .contactForm{
-            .inputFlexGroup{
-                flex-direction: column;
-                gap: 0px;
-            }
-
-            .submitButton{
-                padding: 12px 24px;
-                font-size: 14px;
-                margin-top: 15px;
-            }
-           }
-
-           
-           
+@media (max-width: 1025px) {
+  .contactPageContainer {
+    .contactInfo .infoCard {
+      right: 20px;
+      width: calc(100% - 80px);
     }
 
-      .successWrapper{
-        .closeSuccessButton{
-          top: 20px;
-          right: 20px;
-        }
-            img{
-              width: 100px;
-            }
-            h2{
-              font-size: 28px;
-            }
-            p{
-              font-size: 15px;
-            }
-        }
+    .contactFormContainer {
+      padding: 48px 30px 48px 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contactPageContainer {
+    flex-direction: column;
+    min-height: 0;
+
+    &::before {
+      -webkit-mask-image: linear-gradient(180deg, transparent 20%, #000 100%);
+      mask-image: linear-gradient(180deg, transparent 20%, #000 100%);
+      opacity: 0.6;
+    }
+
+    .contactInfo {
+      flex: none;
+      padding: 220px 20px 0;
+
+      .heroImage {
+        width: 100%;
+        height: 300px;
+        bottom: auto;
+        -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+      }
+
+      .infoCard {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        padding: 16px;
+      }
+    }
+
+    .contactFormContainer {
+      padding: 32px 20px 40px;
+    }
+
+    .formInner {
+      max-width: none;
+    }
+
+    .formTitle {
+      font-size: 26px;
+    }
+
+    .contactForm {
+      .inputFlexGroup {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .submitButton {
+        padding: 12px 24px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .successWrapper {
+    padding: 20px 0;
+
+    .closeSuccessButton {
+      top: 20px;
+      right: 20px;
+    }
+
+    img {
+      width: 100px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
 }

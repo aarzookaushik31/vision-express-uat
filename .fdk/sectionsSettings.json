@@ -284,6 +284,12 @@
         "label": "Section Heading"
       },
       {
+        "id": "highlightedText",
+        "type": "text",
+        "label": "Highlighted Heading Text",
+        "default": "Perfect Fit"
+      },
+      {
         "id": "description",
         "type": "text",
         "value": "Our exclusive and trending collections offer unique content",
@@ -498,18 +504,65 @@
       {
         "type": "image_picker",
         "id": "image",
-        "label": "Right Side Image"
+        "label": "Left Side Image"
       },
       {
         "type": "text",
         "id": "imageTitle",
-        "label": "Title on Image",
-        "default": "HOME EYE TEST APPOINTMENT"
+        "label": "Form Title",
+        "default": "Book An Eye Test"
       },
       {
         "type": "text",
         "id": "imageText",
-        "label": "Text on Image"
+        "label": "Text under Title (optional)"
+      },
+      {
+        "type": "text",
+        "id": "popupHeading",
+        "label": "Location Popup Heading",
+        "default": "Enable your location"
+      },
+      {
+        "type": "textarea",
+        "id": "popupDescription",
+        "label": "Location Popup Description",
+        "default": "Allow location access and we'll select your city for your home eye test."
+      },
+      {
+        "type": "text",
+        "id": "popupAllowText",
+        "label": "Location Popup Allow Button Text",
+        "default": "Allow Location"
+      },
+      {
+        "type": "text",
+        "id": "popupDenyText",
+        "label": "Location Popup Deny Button Text",
+        "default": "Not now"
+      },
+      {
+        "type": "image_picker",
+        "id": "popupIcon",
+        "label": "Popup Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "naHeading",
+        "label": "Not Available Popup Heading",
+        "default": "We Haven’t Reached Your Location Yet."
+      },
+      {
+        "type": "textarea",
+        "id": "naDescription",
+        "label": "Not Available Popup Description",
+        "default": "We’re currently not available in this area. We’ll notify you when we’re near you."
+      },
+      {
+        "type": "text",
+        "id": "naButtonText",
+        "label": "Not Available Popup Button Text",
+        "default": "BACK"
       }
     ]
   },
@@ -519,13 +572,42 @@
       {
         "type": "image_picker",
         "id": "image",
-        "label": "Right Side Image"
+        "label": "Left Side Image"
       },
       {
         "type": "text",
         "id": "imageTitle",
-        "label": "Title on Image",
-        "default": "Book an Eye Test"
+        "label": "Form Title",
+        "default": "Book An Eye Test"
+      },
+      {
+        "type": "text",
+        "id": "popupHeading",
+        "label": "Location Popup Heading",
+        "default": "Enable your location"
+      },
+      {
+        "type": "textarea",
+        "id": "popupDescription",
+        "label": "Location Popup Description",
+        "default": "Allow location access and we'll pick the store nearest to you for your eye test."
+      },
+      {
+        "type": "text",
+        "id": "popupAllowText",
+        "label": "Location Popup Allow Button Text",
+        "default": "Allow Location"
+      },
+      {
+        "type": "text",
+        "id": "popupDenyText",
+        "label": "Location Popup Deny Button Text",
+        "default": "Not now"
+      },
+      {
+        "type": "image_picker",
+        "id": "popupIcon",
+        "label": "Location Popup Icon (optional)"
       }
     ]
   },
@@ -1272,6 +1354,145 @@
       }
     ]
   },
+  "category-list": {
+    "label": "Category List Section",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Shop By"
+      },
+      {
+        "id": "highlightedText",
+        "type": "text",
+        "label": "Highlighted Heading Text",
+        "default": "Category"
+      },
+      {
+        "id": "price_label",
+        "type": "text",
+        "label": "Price Label",
+        "default": "Starting at"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "category_item",
+        "name": "Category Item",
+        "props": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Category Name",
+            "default": "Eyeglasses"
+          },
+          {
+            "id": "price",
+            "type": "text",
+            "label": "Price",
+            "default": "₹499/-"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Category Link"
+          },
+          {
+            "id": "wide",
+            "type": "checkbox",
+            "label": "Wide Image (overlaps into next card)",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "blocks_default": [
+      {
+        "type": "category_item",
+        "name": "Eyeglasses",
+        "props": {
+          "title": {
+            "value": "Eyeglasses"
+          },
+          "price": {
+            "value": "₹499/-"
+          },
+          "wide": {
+            "value": true
+          }
+        }
+      },
+      {
+        "type": "category_item",
+        "name": "Sunglasses",
+        "props": {
+          "title": {
+            "value": "Sunglasses"
+          },
+          "price": {
+            "value": "₹1,499/-"
+          }
+        }
+      },
+      {
+        "type": "category_item",
+        "name": "Computer Glasses",
+        "props": {
+          "title": {
+            "value": "Computer Glasses"
+          },
+          "price": {
+            "value": "₹1,999/-"
+          }
+        }
+      },
+      {
+        "type": "category_item",
+        "name": "Contact Lenses",
+        "props": {
+          "title": {
+            "value": "Contact Lenses"
+          },
+          "price": {
+            "value": "₹1,099/-"
+          }
+        }
+      },
+      {
+        "type": "category_item",
+        "name": "Powered Glasses",
+        "props": {
+          "title": {
+            "value": "Powered Glasses"
+          },
+          "price": {
+            "value": "₹1,499/-"
+          },
+          "wide": {
+            "value": true
+          }
+        }
+      },
+      {
+        "type": "category_item",
+        "name": "Reading Glasses",
+        "props": {
+          "title": {
+            "value": "Reading Glasses"
+          },
+          "price": {
+            "value": "₹599/-"
+          }
+        }
+      }
+    ]
+  },
   "collection-banner-links": {
     "label": "Collection Banner Links",
     "blocks": [
@@ -1923,6 +2144,11 @@
     "label": "Custom Contact Us",
     "props": [
       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Left Side Image"
+      },
+      {
         "type": "checkbox",
         "id": "show_address",
         "default": true,
@@ -2447,16 +2673,21 @@
     "label": "City Highlight Section",
     "props": [
       {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (shown above heading)"
+      },
+      {
         "type": "text",
         "id": "heading",
         "label": "Heading",
-        "default": "Discover Your City"
+        "default": "Clear Vision Looks Good on You"
       },
       {
         "type": "text",
         "id": "subheading",
         "label": "Subheading",
-        "default": "Find services available in your area"
+        "default": ""
       },
       {
         "type": "image_picker",
@@ -2472,7 +2703,7 @@
         "type": "text",
         "id": "primary_button_label",
         "label": "Primary Button Label",
-        "default": "Explore Now"
+        "default": "Find Stores"
       },
       {
         "type": "url",
@@ -2480,10 +2711,15 @@
         "label": "Primary Button Link"
       },
       {
+        "type": "image_picker",
+        "id": "primary_button_icon",
+        "label": "Find Stores Button Icon"
+      },
+      {
         "type": "text",
         "id": "secondary_button_label",
         "label": "Secondary Button Label",
-        "default": "View All Cities"
+        "default": "Book A Home Test"
       },
       {
         "type": "url",
@@ -2494,7 +2730,7 @@
         "type": "text",
         "id": "city_list_text",
         "label": "City List Heading",
-        "default": "Walk In. We're in 30+ Cities :"
+        "default": "Walk-in, We're in 20+ Cities"
       }
     ],
     "blocks": [
@@ -2659,6 +2895,355 @@
         }
       ]
     }
+  },
+  "featured-collection-tabs": {
+    "label": "Featured Collection with Tabs",
+    "props": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "t:resource.sections.featured_collection.collection",
+        "info": "Used only when no tabs are added below. Add tabs to show a pill navigation with multiple collections."
+      },
+      {
+        "id": "card_style",
+        "type": "select",
+        "options": [
+          {
+            "value": "overlay",
+            "text": "Image Overlay (badge & price on the image)"
+          },
+          {
+            "value": "classic",
+            "text": "Classic (details below the image)"
+          }
+        ],
+        "default": "overlay",
+        "label": "Card style",
+        "info": "Overlay matches the Figma 'Best Seller' design."
+      },
+      {
+        "id": "desktop_layout",
+        "type": "select",
+        "options": [
+          {
+            "value": "horizontal",
+            "text": "t:resource.common.horizontal_scroll"
+          },
+          {
+            "value": "grid",
+            "text": "t:resource.common.stack"
+          },
+          {
+            "value": "banner_horizontal_scroll",
+            "text": "t:resource.sections.featured_collection.banner_horizontal_carousel"
+          }
+        ],
+        "default": "grid",
+        "label": "t:resource.sections.featured_collection.layout_desktop",
+        "info": "t:resource.sections.featured_collection.desktop_content_alignment"
+      },
+      {
+        "id": "mobile_layout",
+        "type": "select",
+        "options": [
+          {
+            "value": "horizontal",
+            "text": "t:resource.common.horizontal_scroll"
+          },
+          {
+            "value": "grid",
+            "text": "t:resource.common.stack"
+          },
+          {
+            "value": "banner_horizontal_scroll",
+            "text": "t:resource.sections.featured_collection.banner_horizontal_scroll"
+          },
+          {
+            "value": "banner_stacked",
+            "text": "t:resource.sections.featured_collection.banner_with_stack"
+          }
+        ],
+        "default": "grid",
+        "label": "t:resource.sections.featured_collection.layout_mobile",
+        "info": "t:resource.sections.featured_collection.content_alignment_mobile"
+      },
+      {
+        "id": "img_resize",
+        "label": "t:resource.sections.products_listing.image_size_for_tablet_desktop",
+        "type": "select",
+        "options": [
+          {
+            "value": "300",
+            "text": "300px"
+          },
+          {
+            "value": "500",
+            "text": "500px"
+          },
+          {
+            "value": "700",
+            "text": "700px"
+          },
+          {
+            "value": "900",
+            "text": "900px"
+          },
+          {
+            "value": "1100",
+            "text": "1100px"
+          },
+          {
+            "value": "1300",
+            "text": "1300px"
+          }
+        ],
+        "default": "300"
+      },
+      {
+        "id": "img_resize_mobile",
+        "label": "t:resource.sections.products_listing.image_size_for_mobile",
+        "type": "select",
+        "options": [
+          {
+            "value": "300",
+            "text": "300px"
+          },
+          {
+            "value": "500",
+            "text": "500px"
+          },
+          {
+            "value": "700",
+            "text": "700px"
+          },
+          {
+            "value": "900",
+            "text": "900px"
+          }
+        ],
+        "default": "500"
+      },
+      {
+        "type": "color",
+        "id": "img_container_bg",
+        "category": "t:resource.common.image_container",
+        "default": "#00000000",
+        "label": "t:resource.common.container_background_color",
+        "info": "t:resource.common.image_container_bg_color"
+      },
+      {
+        "type": "checkbox",
+        "id": "img_fill",
+        "category": "t:resource.common.image_container",
+        "default": true,
+        "label": "t:resource.common.fit_image_to_container",
+        "info": "t:resource.common.clip_image_to_fit_container"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Best Seller",
+        "label": "t:resource.common.heading",
+        "info": "t:resource.common.section_heading_text"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "default": "t:resource.default_values.featured_collection_description",
+        "label": "t:resource.common.description",
+        "info": "t:resource.common.section_description_text"
+      },
+      {
+        "id": "text_alignment",
+        "type": "select",
+        "options": [
+          {
+            "value": "left",
+            "text": "t:resource.common.start"
+          },
+          {
+            "value": "right",
+            "text": "t:resource.common.end"
+          },
+          {
+            "value": "center",
+            "text": "t:resource.common.center"
+          }
+        ],
+        "default": "left",
+        "label": "t:resource.sections.featured_collection.text_alignment",
+        "info": "t:resource.sections.featured_collection.alignment_of_text_content"
+      },
+      {
+        "id": "product_text_alignment",
+        "type": "select",
+        "options": [
+          {
+            "value": "left",
+            "text": "t:resource.common.left"
+          },
+          {
+            "value": "center",
+            "text": "t:resource.common.center"
+          }
+        ],
+        "default": "center",
+        "label": "t:resource.sections.featured_collection.product_text_alignment",
+        "info": "t:resource.sections.featured_collection.product_text_alignment_info"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "t:resource.default_values.view_all",
+        "label": "t:resource.common.button_text"
+      },
+      {
+        "id": "button_position",
+        "type": "select",
+        "options": [
+          {
+            "value": "below_description",
+            "text": "t:resource.sections.blog.below_description"
+          },
+          {
+            "value": "below_products",
+            "text": "t:resource.sections.blog.below_products"
+          }
+        ],
+        "default": "below_description",
+        "label": "t:resource.sections.blog.button_position",
+        "info": "t:resource.sections.blog.button_position_info"
+      },
+      {
+        "type": "range",
+        "id": "item_count",
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "unit": "",
+        "label": "t:resource.sections.featured_collection.products_per_row_desktop",
+        "default": 4,
+        "info": "t:resource.sections.featured_collection.max_items_per_row_horizontal_scroll"
+      },
+      {
+        "type": "range",
+        "id": "item_count_mobile",
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "unit": "",
+        "label": "t:resource.sections.featured_collection.products_per_row_mobile",
+        "default": 1,
+        "info": "t:resource.sections.featured_collection.max_items_per_row_horizontal_scroll"
+      },
+      {
+        "type": "range",
+        "id": "max_count",
+        "min": 1,
+        "max": 25,
+        "step": 1,
+        "unit": "",
+        "label": "t:resource.sections.featured_collection.maximum_products_to_show",
+        "default": 10,
+        "info": "t:resource.sections.featured_collection.max_products_horizontal_scroll"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_add_to_cart",
+        "label": "t:resource.common.show_add_to_cart",
+        "info": "t:resource.common.not_applicable_international_websites",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "card_cta_text",
+        "label": "t:resource.common.button_text",
+        "default": "t:resource.settings_schema.cart_and_button_configuration.add_to_cart"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_wishlist_icon",
+        "label": "t:resource.common.show_wish_list_icon",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_badge",
+        "label": "t:resource.sections.featured_collection.show_badge",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "t:resource.sections.featured_collection.show_view_all_button",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "mandatory_pincode",
+        "label": "t:resource.common.mandatory_delivery_check",
+        "info": "t:resource.pages.wishlist.mandatory_delivery_check_info",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_single_size",
+        "label": "t:resource.common.hide_single_size_info",
+        "info": "t:resource.pages.wishlist.hide_single_size_info",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "preselect_size",
+        "label": "t:resource.common.preselect_size",
+        "info": "t:resource.pages.wishlist.preselect_size_info",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:resource.sections.categories.top_padding",
+        "default": 16,
+        "info": "t:resource.sections.categories.top_padding_for_section"
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:resource.sections.categories.bottom_padding",
+        "default": 16,
+        "info": "t:resource.sections.categories.bottom_padding_for_section"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": "Tab",
+        "props": [
+          {
+            "type": "text",
+            "id": "tab_title",
+            "label": "Tab title",
+            "default": "Tab",
+            "info": "e.g. Eyeglasses, Sunglasses, New Arrivals"
+          },
+          {
+            "type": "collection",
+            "id": "tab_collection",
+            "label": "Collection",
+            "info": "Products shown when this tab is active"
+          }
+        ]
+      }
+    ]
   },
   "featured-collection": {
     "label": "t:resource.sections.featured_collection.featured_collection",
@@ -3099,9 +3684,100 @@
         "type": "text",
         "label": "Button Text",
         "default": "Find Stores"
+      },
+      {
+        "id": "enableBlackBackground",
+        "type": "checkbox",
+        "label": "Use Black Background (instead of image)",
+        "default": false
       }
     ],
     "blocks": []
+  },
+  "hero-icon-text-list": {
+    "label": "Trust Badges Section",
+    "props": [
+      {
+        "id": "backgroundImage",
+        "type": "image_picker",
+        "label": "Background Image (optional, desktop card)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "trust_item",
+        "name": "Trust Item",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          },
+          {
+            "id": "label",
+            "type": "text",
+            "label": "Label",
+            "default": "Global Eye Test"
+          }
+        ]
+      }
+    ],
+    "blocks_default": [
+      {
+        "type": "trust_item",
+        "name": "Global Eye Test",
+        "props": {
+          "label": {
+            "value": "Global Eye Test"
+          }
+        }
+      },
+      {
+        "type": "trust_item",
+        "name": "Certified Optometrists",
+        "props": {
+          "label": {
+            "value": "Certified Optometrists"
+          }
+        }
+      },
+      {
+        "type": "trust_item",
+        "name": "200+ Stores",
+        "props": {
+          "label": {
+            "value": "200+ Stores"
+          }
+        }
+      },
+      {
+        "type": "trust_item",
+        "name": "10 Lakh+ Customers",
+        "props": {
+          "label": {
+            "value": "10 Lakh+ Customers"
+          }
+        }
+      },
+      {
+        "type": "trust_item",
+        "name": "Genuine Products",
+        "props": {
+          "label": {
+            "value": "Genuine Products"
+          }
+        }
+      },
+      {
+        "type": "trust_item",
+        "name": "Loyalty Program",
+        "props": {
+          "label": {
+            "value": "Loyalty Program"
+          }
+        }
+      }
+    ]
   },
   "hero-image": {
     "label": "t:resource.sections.hero_image.hero_image",
@@ -3616,6 +4292,12 @@
             }
           },
           {
+            "type": "url",
+            "id": "image_link",
+            "label": "Desktop Image URL (use this if uploading a GIF — image picker doesn't preserve animation)",
+            "default": ""
+          },
+          {
             "type": "image_picker",
             "id": "mobile_image",
             "label": "t:resource.common.mobile_image",
@@ -3623,6 +4305,25 @@
             "options": {
               "aspect_ratio": "3:4"
             }
+          },
+          {
+            "type": "url",
+            "id": "mobile_image_link",
+            "label": "Mobile Image URL (use this if uploading a GIF — image picker doesn't preserve animation)",
+            "default": ""
+          },
+          {
+            "type": "video",
+            "id": "video_link",
+            "label": "Desktop Video — overrides desktop image when uploaded",
+            "default": "",
+            "info": "Video autoplays muted and loops. Poster image falls back to the Desktop Image field while the video loads."
+          },
+          {
+            "type": "video",
+            "id": "mobile_video_link",
+            "label": "Mobile Video — overrides mobile image when uploaded",
+            "default": ""
           },
           {
             "type": "url",
@@ -3819,6 +4520,20 @@
         "info": "t:resource.sections.hero_video.video_support_mp4_youtube"
       },
       {
+        "type": "video",
+        "id": "videoFileMobile",
+        "default": false,
+        "label": "t:resource.sections.hero_video.mobile_video",
+        "info": "t:resource.sections.hero_video.mobile_video_info"
+      },
+      {
+        "id": "videoUrlMobile",
+        "type": "text",
+        "label": "t:resource.sections.hero_video.mobile_video_url",
+        "default": "",
+        "info": "t:resource.sections.hero_video.mobile_video_support_mp4_youtube"
+      },
+      {
         "type": "checkbox",
         "id": "autoplay",
         "default": true,
@@ -3860,6 +4575,29 @@
         "options": {
           "aspect_ratio": "16:9"
         }
+      },
+      {
+        "id": "video_link",
+        "type": "text",
+        "label": "t:resource.sections.hero_video.video_link",
+        "default": "",
+        "info": "t:resource.sections.hero_video.video_link_info"
+      },
+      {
+        "type": "select",
+        "id": "link_target",
+        "options": [
+          {
+            "value": "_self",
+            "text": "t:resource.common.same_tab"
+          },
+          {
+            "value": "_blank",
+            "text": "t:resource.common.new_tab"
+          }
+        ],
+        "default": "_self",
+        "label": "t:resource.sections.hero_video.link_target"
       },
       {
         "type": "range",
@@ -5071,29 +5809,9 @@
       },
       {
         "type": "image_picker",
-        "id": "loading_image_1",
-        "label": "Loading Filmstrip — Image 1"
-      },
-      {
-        "type": "image_picker",
-        "id": "loading_image_2",
-        "label": "Loading Filmstrip — Image 2"
-      },
-      {
-        "type": "image_picker",
-        "id": "loading_image_3",
-        "label": "Loading Filmstrip — Image 3"
-      },
-      {
-        "type": "image_picker",
-        "id": "loading_image_4",
-        "label": "Loading Filmstrip — Image 4 (optional)",
-        "info": "Add more images to make the filmstrip slide through a longer sequence."
-      },
-      {
-        "type": "image_picker",
-        "id": "loading_image_5",
-        "label": "Loading Filmstrip — Image 5 (optional)"
+        "id": "loading_image",
+        "label": "Loading Image",
+        "info": "Image/GIF shown above the loading text. Falls back to the default eye loader if empty."
       },
       {
         "type": "text",
@@ -5331,12 +6049,6 @@
             "info": "Full-screen background photo behind the fact card, like the question screens"
           },
           {
-            "type": "image_picker",
-            "id": "icon_image",
-            "label": "Icon / Graphic (optional)",
-            "info": "Small graphic shown above the label, e.g. an eye icon. Falls back to a dotted icon if left empty."
-          },
-          {
             "type": "text",
             "id": "label",
             "label": "Small Label",
@@ -5385,13 +6097,21 @@
             "type": "text",
             "id": "lens_name",
             "label": "Lens Name",
-            "default": ""
+            "default": "",
+            "info": "Used as the image alt text, and shown as text if no Lens Logo is set."
+          },
+          {
+            "type": "image_picker",
+            "id": "lens_logo",
+            "label": "Lens Logo",
+            "info": "Shown instead of the lens name on both result screens. Falls back to the name if empty."
           },
           {
             "type": "text",
             "id": "lens_tagline",
             "label": "Lens Tagline",
-            "default": ""
+            "default": "",
+            "info": "Shown on the first result screen only."
           },
           {
             "type": "video",
@@ -5490,27 +6210,6 @@
             "id": "feature_4_description",
             "label": "Feature 4 — Description",
             "default": ""
-          },
-          {
-            "type": "text",
-            "id": "stat_percent",
-            "label": "Stat Percentage",
-            "default": "",
-            "info": "e.g. 90%"
-          },
-          {
-            "type": "text",
-            "id": "stat_description",
-            "label": "Stat Description",
-            "default": "",
-            "info": "e.g. Of customers with similar lifestyles choose this lens."
-          },
-          {
-            "type": "text",
-            "id": "rating",
-            "label": "Rating",
-            "default": "",
-            "info": "e.g. 4.8/5"
           }
         ]
       }
@@ -6117,6 +6816,47 @@
         "label": "Mobile Background Image"
       }
     ]
+  },
+  "location-access-popup": {
+    "label": "Location Access Popup",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Enable your location"
+      },
+      {
+        "id": "description",
+        "type": "textarea",
+        "label": "Description",
+        "default": "Allow location access to see store availability, delivery estimates, and offers near you."
+      },
+      {
+        "id": "allow_button_text",
+        "type": "text",
+        "label": "Allow Button Text",
+        "default": "Allow Location"
+      },
+      {
+        "id": "deny_button_text",
+        "type": "text",
+        "label": "Deny Button Text",
+        "default": "Not now"
+      },
+      {
+        "id": "show_delay_seconds",
+        "type": "number",
+        "label": "Show Delay (seconds)",
+        "default": 3
+      },
+      {
+        "id": "icon",
+        "type": "image_picker",
+        "label": "Icon (optional)"
+      }
+    ],
+    "blocks": []
   },
   "media-with-text": {
     "label": "t:resource.sections.media_with_text.media_with_text",
@@ -7488,6 +8228,107 @@
       }
     ]
   },
+  "service-highlights": {
+    "label": "Service Highlights Section",
+    "props": [
+      {
+        "id": "backgroundColor",
+        "type": "color",
+        "label": "Background Color",
+        "default": "#9E007E"
+      },
+      {
+        "id": "backgroundImage",
+        "type": "image_picker",
+        "label": "Background Image (optional)"
+      },
+      {
+        "id": "mobileBackgroundImage",
+        "type": "image_picker",
+        "label": "Mobile Background Image (optional)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "highlight_item",
+        "name": "Highlight Item",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "Find A Store"
+          },
+          {
+            "id": "description",
+            "type": "textarea",
+            "label": "Description",
+            "default": "Find your nearest Vision Express store."
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Link (optional)"
+          }
+        ]
+      }
+    ],
+    "blocks_default": [
+      {
+        "type": "highlight_item",
+        "name": "Find A Store",
+        "props": {
+          "title": {
+            "value": "Find A Store"
+          },
+          "description": {
+            "value": "Find your nearest Vision Express store."
+          }
+        }
+      },
+      {
+        "type": "highlight_item",
+        "name": "Book An Eye Test",
+        "props": {
+          "title": {
+            "value": "Book An Eye Test"
+          },
+          "description": {
+            "value": "Book an eye test with our certified optometrists."
+          }
+        }
+      },
+      {
+        "type": "highlight_item",
+        "name": "Contact Us",
+        "props": {
+          "title": {
+            "value": "Contact Us"
+          },
+          "description": {
+            "value": "Have a question? We'd love to hear from you."
+          }
+        }
+      },
+      {
+        "type": "highlight_item",
+        "name": "Customer Support",
+        "props": {
+          "title": {
+            "value": "Customer Support"
+          },
+          "description": {
+            "value": "Need help? Our team is here for you."
+          }
+        }
+      }
+    ]
+  },
   "shop-by-category-grid": {
     "label": "Shop by Category Grid",
     "props": [
@@ -7524,6 +8365,107 @@
             "type": "url",
             "id": "link",
             "label": "Link URL"
+          }
+        ]
+      }
+    ]
+  },
+  "shop-by-category-slider": {
+    "label": "Shop by Category Slider",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Find Your"
+      },
+      {
+        "id": "highlightedText",
+        "type": "text",
+        "label": "Highlighted Heading Text",
+        "default": "Perfect Fit"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "fit_slide",
+        "name": "Fit Slide",
+        "props": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "category",
+            "type": "text",
+            "label": "Category Label",
+            "default": "For Her"
+          },
+          {
+            "id": "tagline",
+            "type": "text",
+            "label": "Tagline",
+            "default": "Modern. Light. Iconic."
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Link",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  },
+  "shop-by-lifestyle": {
+    "label": "Shop By Lifestyle Section",
+    "props": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Shop By"
+      },
+      {
+        "id": "highlightedText",
+        "type": "text",
+        "label": "Highlighted Heading Text",
+        "default": "Lifestyle"
+      },
+      {
+        "id": "stage_background_image",
+        "type": "image_picker",
+        "label": "Stage Background Image (arch + platform combined)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "lifestyle_item",
+        "name": "Lifestyle Item",
+        "props": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Tab Icon"
+          },
+          {
+            "id": "label",
+            "type": "text",
+            "label": "Label",
+            "default": "Kids"
+          },
+          {
+            "id": "person_image",
+            "type": "image_picker",
+            "label": "Person Cutout Image (transparent background)"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Slide Link",
+            "info": "Where this slide should navigate to when clicked",
+            "default": ""
           }
         ]
       }
@@ -9180,5 +10122,108 @@
       }
     ],
     "blockLimit": 6
+  },
+  "vx-lens-feature": {
+    "label": "VX Lens Feature",
+    "props": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Brand Logo (optional, overrides heading text)"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Brand Name",
+        "default": "VX Lumino"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Vision At Every Distance."
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Affordable progressive varifocal lenses engineered with continuous optical zones and integrated scratch-resistant coating."
+      },
+      {
+        "type": "text",
+        "id": "learnMoreText",
+        "label": "Learn More Button Text",
+        "default": "Learn More"
+      },
+      {
+        "type": "text",
+        "id": "compareButtonText",
+        "label": "Compare Button Text",
+        "default": "Compare Vision"
+      },
+      {
+        "type": "image_picker",
+        "id": "heroImage",
+        "label": "Hero Image (right side)"
+      },
+      {
+        "type": "image_picker",
+        "id": "featuresModalLogo",
+        "label": "Features Popup Logo (optional)"
+      },
+      {
+        "type": "text",
+        "id": "compareTitle",
+        "label": "Compare Popup Title",
+        "default": "Compare Vision"
+      },
+      {
+        "type": "textarea",
+        "id": "compareDescription",
+        "label": "Compare Popup Description",
+        "default": "For those who seek best vision at every distance, these lenses are tailored for optimal visual performance"
+      },
+      {
+        "type": "image_picker",
+        "id": "standardLensImage",
+        "label": "Standard Lens Comparison Image"
+      },
+      {
+        "type": "text",
+        "id": "standardLensLabel",
+        "label": "Standard Lens Label",
+        "default": "Standard PAL"
+      },
+      {
+        "type": "image_picker",
+        "id": "brandLensImage",
+        "label": "VX Lumino Comparison Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "brandLensLogo",
+        "label": "VX Lumino Small Logo (label under image, optional)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Feature",
+        "props": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon (upload with its pink circle background baked in — shown as-is, no extra styling applied)"
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Feature Name"
+          }
+        ]
+      }
+    ],
+    "blocks_limit": 30
   }
 }

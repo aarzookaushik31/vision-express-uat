@@ -1,5 +1,36 @@
 @import "../main.less";
 
+// Same values as the application banner / category list sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
+.heroVideoSection {
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+}
+
+// ---- Visible state: added when the section scrolls into view ----
+// (`transform: none` instead of translate3d(0,0,0) so the section doesn't
+// keep a transform that could affect fixed children)
+.heroVideoSection.inView {
+  opacity: 1;
+  transform: none;
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .heroVideoSection {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .video_heading {
   text-align: center;
   margin-top: 16px;
@@ -11,7 +42,12 @@
   align-items: center;
   justify-content: center;
 }
-
+.video_link_overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: block;
+}
 .video_container {
   background-color: @LightGray;
   position: relative;

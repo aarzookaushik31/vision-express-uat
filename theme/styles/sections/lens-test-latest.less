@@ -432,7 +432,7 @@ opacity: 12%;
 }
 
 .factIconImage {
-  height: 60px;
+  height: 80px;
   width: auto;
 }
 
@@ -761,12 +761,12 @@ width: 21px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: bottom;
+  object-position: center;
   display: block;
 
 
     @media (max-width: 768px) {
-   object-position: center;
+   object-position: bottom;
   }
 }
 
@@ -785,11 +785,13 @@ width: 21px;
 
 .result-hero-video-spacer {
   width: 100%;
-  height: 320px;
+  height: 380px;
   margin: 16px 0 36px;
 
   @media (max-width: 768px) {
     height: 260px;
+    min-height: 260px;
+    flex:1;
     margin: 12px 0 28px;
   }
 }
@@ -827,7 +829,7 @@ width: 21px;
 .resultSubheading {
   font-size: 14px;
   color: #FFFFFF99;
-  margin-bottom: 24px;
+  margin-bottom: 0px;
 }
 
 .resultLensGraphic {
@@ -847,11 +849,12 @@ width: 21px;
   padding: 12px 24px;
   line-height: 120%;
   border-radius: 8px;
-  background: #FFFFFF29;
+  background: linear-gradient(90deg, #9E007E 0%, #340C5C 86.91%);
   color: #fff;
   font-size: 16px;
   font-weight: 700;
-  margin: 40px auto 20px;
+  margin: 30px auto;
+  border: 2px solid #FFFFFF;
 }
 
 .productTagline {
@@ -872,6 +875,14 @@ margin-top: 0px;
 /* ==========================================================================
    RESULT — DETAIL SCREEN
    ========================================================================== */
+
+.productPillLogo{
+  height: 42px;
+
+      @media (max-width: 768px) {
+    height: 28px;
+  }
+}
 
 .result-detail-wrapper {
   width: 100%;

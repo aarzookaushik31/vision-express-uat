@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import useHeader from "../components/header/useHeader";
 import { CREATE_TICKET } from "../queries/supportQuery";
 import { useSnackbar } from "../helper/hooks";
@@ -11,7 +11,7 @@ import styles from "../styles/sections/custom-contact-us.less";
 import ContactEmailIcon from "../assets/images/contact-email-icon.png";
 import ContactPhoneIcon from "../assets/images/contact-phone-icon.png";
 import ContactAddressIcon from "../assets/images/contact-address-icon.png";
-import FormSubmitEye from "../assets/images/form-submit-eye-white.png"
+import FormSubmitEye from "../assets/images/form-submit-eye-white.png";
 import CloseIcon from "../assets/images/close.svg";
 
 function Component({ props = {} }) {
@@ -22,9 +22,11 @@ function Component({ props = {} }) {
   const { showSnackbar } = useSnackbar();
   const location = useLocation();
 
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-const [errors, setErrors] = useState({});
+  // Left-side image chosen from the editor
+  const { image } = props;
 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const { email, phone } = supportInfo?.contact ?? {};
   const { active: emailActive = false, email: emailArray = [] } = email ?? {};
@@ -32,9 +34,6 @@ const [errors, setErrors] = useState({});
 
   const storeAddress = contactInfo?.address;
   const storeDescription = contactInfo?.description || appInfo?.description;
-
-   const getShopLogo = () =>
-    appInfo?.logo?.secure_url;
 
   const getPrefillData = (search) => {
     const params = new URLSearchParams(search);
@@ -54,39 +53,36 @@ const [errors, setErrors] = useState({});
     };
   };
 
+  const validateField = (name, value) => {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const phoneRegex = /^\d{10}$/;
 
+    let error = "";
 
-
-const validateField = (name, value) => {
-  const nameRegex = /^[A-Za-z\s]+$/;
-  const emailRegex = /^\S+@\S+\.\S+$/;
-  const phoneRegex = /^\d{10}$/;
-
-  let error = "";
-
-  if (!value || value.trim() === "") {
-    return "This field is required";
-  }
-  if (name === "name") {
-    if (!nameRegex.test(value)) {
-      error = "Please enter a valid name (letters only)";
+    if (!value || value.trim() === "") {
+      return "This field is required";
     }
-  }
-
-  if (name === "phone") {
-    if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
-      error = "Please enter a valid 10 digit mobile number";
+    if (name === "name") {
+      if (!nameRegex.test(value)) {
+        error = "Please enter a valid name (letters only)";
+      }
     }
-  }
 
-  if (name === "email") {
-    if (!emailRegex.test(value)) {
-      error = "Please enter a valid email address";
+    if (name === "phone") {
+      if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
+        error = "Please enter a valid 10 digit mobile number";
+      }
     }
-  }
 
-  return error;
-};
+    if (name === "email") {
+      if (!emailRegex.test(value)) {
+        error = "Please enter a valid email address";
+      }
+    }
+
+    return error;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -112,31 +108,25 @@ const validateField = (name, value) => {
     }));
   };
 
-
-
-
-
   const prefillData = getPrefillData(location.search);
 
-
   const [formData, setFormData] = useState({
-  name: prefillData.values.name || "",
-  phone: prefillData.values.phone || "",
-  email: prefillData.values.email || "",
-  comment: "",
-});
-
+    name: prefillData.values.name || "",
+    phone: prefillData.values.phone || "",
+    email: prefillData.values.email || "",
+    comment: "",
+  });
 
   const handleSubmitForm = () => {
     try {
       const newErrors = {};
 
-  Object.keys(formData).forEach((field) => {
-  if (field === "comment") return;
+      Object.keys(formData).forEach((field) => {
+        if (field === "comment") return;
 
-  const error = validateField(field, formData[field]);
-  if (error) newErrors[field] = error;
-});
+        const error = validateField(field, formData[field]);
+        if (error) newErrors[field] = error;
+      });
       if (Object.keys(newErrors).length) {
         setErrors(newErrors);
         return;
@@ -194,187 +184,202 @@ const validateField = (name, value) => {
     }
   };
 
-
-  
-    const closeDialog = () => {
-    setShowSuccessMessage(false)
+  const closeDialog = () => {
+    setShowSuccessMessage(false);
   };
 
   return (
     <div className={styles.contactPageContainer}>
+      {/* LEFT: photo + contact details card */}
       <div className={styles.contactInfo}>
-        <h1>Get In <br/> Touch With Us</h1>
-
-        {storeDescription && (   
-          <p className={styles.storeDescription}>{storeDescription}</p>  
+        {image?.value && (
+          <img
+            className={styles.heroImage}
+            src={image.value}
+            alt="Customer support"
+          />
         )}
 
-        {emailActive && emailArray?.length > 0 && (
-          <div className={styles.contactEmails}>
-            {emailArray.map((item, idx) => (
-              <a href={`mailto:${item?.value}`} className={styles.iconItemContainer} key={`email-${idx}`}>
-               <img alt="email icon" src={ContactEmailIcon} />
+        <div className={styles.infoCard}>
+          {emailActive && emailArray?.length > 0 && (
+            <div className={styles.contactEmails}>
+              {emailArray.map((item, idx) => (
+                <a
+                  href={`mailto:${item?.value}`}
+                  className={styles.iconItemContainer}
+                  key={`email-${idx}`}
+                >
+                  <img alt="email icon" src={ContactEmailIcon} />
+                  <div>
+                    <h2>{item?.key}</h2>
+                    <p>{item?.value}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {phoneActive && phoneArray?.length > 0 && (
+            <div className={styles.contactPhones}>
+              {phoneArray.map((item, idx) => (
+                <a
+                  href={`tel:${item?.number}`}
+                  className={styles.iconItemContainer}
+                  key={`phone-${idx}`}
+                >
+                  <img alt="phone icon" src={ContactPhoneIcon} />
+                  <div>
+                    <h2>{item?.key}</h2>
+                    <p>
+                      {`${item?.code ? `+${item.code}-` : ""}${item?.number}`}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+
+          {storeAddress && (
+            <div className={styles.iconItemContainer}>
+              <img alt="Address icon" src={ContactAddressIcon} />
               <div>
-              <h2>{item?.key}</h2>
-              <p>{item?.value}</p>
-                </div>
-          </a>
-            ))}
-          </div>
-        )}
-
-        {phoneActive && phoneArray?.length > 0 && (
-          <div className={styles.contactPhones}>
-            {phoneArray.map((item, idx) => (
-              <a href={`tel:${item?.number}`} className={styles.iconItemContainer} key={`phone-${idx}`} >
-                <img alt="phone icon" src={ContactPhoneIcon} />
-                <div>
-                  <h2>{item?.key}</h2>
-                  <p > {`${item?.code ? `+${item.code}-` : ""}${item?.number}`}</p>
-                </div>      
-              </a>
-            ))}
-          </div>
-        )}
-
-        {storeAddress && (
-          <div className={styles.iconItemContainer}>
-             <img alt="Address icon" src={ContactAddressIcon} />
-            <div>
-            <h2>Reliance Vision Express Private Limited</h2>
-          <p className={styles.storeAddress}>
-            {storeAddress?.address_line?.join(", ")}, 
-            {storeAddress?.city}, {storeAddress?.pincode}, 
-            {storeAddress?.country}
-          </p>
-          </div>
-          </div>
-        )}
-
-
+                <h2>Reliance Vision Express Private Limited</h2>
+                <p className={styles.storeAddress}>
+                  {storeAddress?.address_line?.join(", ")},
+                  {storeAddress?.city}, {storeAddress?.pincode},
+                  {storeAddress?.country}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
-
-
-
-      <div className={`${styles.contactFormContainer} ${
+      {/* RIGHT: heading, description, form */}
+      <div
+        className={`${styles.contactFormContainer} ${
           showSuccessMessage ? styles.successBackground : ""
-        }`}>
-
-
-{showSuccessMessage ? (
-  <div className={styles.successWrapper}>
-
-  <span className={styles.closeSuccessButton} onClick={closeDialog}>
-                              <CloseIcon className={styles.closeIcon} />
-                            </span>
-
-     <img src={FormSubmitEye} />
-         
-               <h2 className={styles.success_message}>
-                Thanks for Getting in Touch!
-               </h2>
-               <p>We've received your message and one of our team members will connect with you soon.
-  <br/><br/>
-     We appreciate your patience and look forward to assisting you.</p>
-         
-        
-  </div>
-) : (
-        <div>
-
-        <img  className={styles.logo} src={getShopLogo()} />
-
-      <form
-        className={styles.contactForm} noValidate
-        onSubmit={(e) => {
-    e.preventDefault();
-    handleSubmitForm();
-  }}
+        }`}
       >
-        <div className={styles.inputFlexGroup}>
-          <div class={styles.inputfieldcontainer}>
-            <label htmlFor="name">Full Name</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your Full Name"
-          value={formData.name}
-           onChange={handleChange}
-           onBlur={handleBlur}
-          required
-          className={styles.formInput}
-        />
-         {errors.name && (
+        {showSuccessMessage ? (
+          <div className={styles.successWrapper}>
+            <span className={styles.closeSuccessButton} onClick={closeDialog}>
+              <CloseIcon className={styles.closeIcon} />
+            </span>
+
+            <img src={FormSubmitEye} />
+
+            <h2 className={styles.success_message}>
+              Thanks for Getting in Touch!
+            </h2>
+            <p>
+              We've received your message and one of our team members will
+              connect with you soon.
+              <br />
+              <br />
+              We appreciate your patience and look forward to assisting you.
+            </p>
+          </div>
+        ) : (
+          <div className={styles.formInner}>
+            <h1 className={styles.formTitle}>Get In Touch With Us</h1>
+
+            {storeDescription && (
+              <p className={styles.storeDescription}>{storeDescription}</p>
+            )}
+
+            <form
+              className={styles.contactForm}
+              noValidate
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmitForm();
+              }}
+            >
+              <div className={styles.inputFlexGroup}>
+                <div className={styles.inputfieldcontainer}>
+                  <label htmlFor="name">Full Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your Full Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required
+                    className={styles.formInput}
+                  />
+                  {errors.name && (
                     <p className={styles.errorText}>{errors.name}</p>
                   )}
-        </div>
-        <div class={styles.inputfieldcontainer}>
-          <label htmlFor="phone">Contact Number</label>
-       <input
-  type="tel"
-  name="phone"
-  placeholder="Enter 10 digit mobile number"
- value={formData.phone}
-  required
-  onChange={(e) => {
-    const value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                </div>
+                <div className={styles.inputfieldcontainer}>
+                  <label htmlFor="phone">Contact Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter 10 digit mobile number"
+                    value={formData.phone}
+                    required
+                    onChange={(e) => {
+                      const value = e.target.value
+                        .replace(/\D/g, "")
+                        .slice(0, 10);
 
-    setFormData((prev) => ({
-      ...prev,
-      phone: value,
-    }));
+                      setFormData((prev) => ({
+                        ...prev,
+                        phone: value,
+                      }));
 
-    setErrors((prev) => ({
-      ...prev,
-      phone: "",
-    }));
-  }}
-           onBlur={handleBlur}
-  maxLength={10}
-  pattern="[0-9]{10}"
-  className={styles.formInput}
-/>
-  {errors.phone && (
+                      setErrors((prev) => ({
+                        ...prev,
+                        phone: "",
+                      }));
+                    }}
+                    onBlur={handleBlur}
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    className={styles.formInput}
+                  />
+                  {errors.phone && (
                     <p className={styles.errorText}>{errors.phone}</p>
                   )}
-        </div>
-        </div>
-        <div class={styles.inputfieldcontainer}>
-          <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your Email address"
-          value={formData.email}
-          required
-           onChange={handleChange}
-           onBlur={handleBlur}
-          className={styles.formInput}
-        />
-         {errors.email && (
+                </div>
+              </div>
+              <div className={styles.inputfieldcontainer}>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email address"
+                  value={formData.email}
+                  required
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={styles.formInput}
+                />
+                {errors.email && (
                   <p className={styles.errorText}>{errors.email}</p>
                 )}
-        </div>
-        <div class={styles.inputfieldcontainer}>
-          <label htmlFor="comment">Message</label>
-        <textarea
-          name="comment"
-          placeholder="Leave a message"
-          rows={5}
-          className={styles.formTextarea}
-        />
-        </div>
-        <button type="submit" className={styles.submitButton}>
-          Submit
-        </button>
-      </form>
-
+              </div>
+              <div className={styles.inputfieldcontainer}>
+                <label htmlFor="comment">Message</label>
+                <textarea
+                  name="comment"
+                  placeholder="Leave a message"
+                  rows={5}
+                  value={formData.comment}
+                  onChange={handleChange}
+                  className={styles.formTextarea}
+                />
+              </div>
+              <button type="submit" className={styles.submitButton}>
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
       </div>
-)}
-      </div>
-
-
     </div>
   );
 }
@@ -382,6 +387,7 @@ const validateField = (name, value) => {
 export const settings = {
   label: "Custom Contact Us",
   props: [
+    { type: "image_picker", id: "image", label: "Left Side Image" },
     {
       type: "checkbox",
       id: "show_address",

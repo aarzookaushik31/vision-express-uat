@@ -10,7 +10,7 @@ import SocailMedia from "../components/socail-media/socail-media";
 import "@gofynd/theme-template/pages/contact-us/contact-us.css";
 import { getConfigFromProps } from "../helper/utils";
 import { useLocation } from "react-router-dom";
-
+ 
 function Component({ props = {} }) {
   const fpi = useFPI();
   const { contactInfo, supportInfo, appInfo } = useHeader(fpi);

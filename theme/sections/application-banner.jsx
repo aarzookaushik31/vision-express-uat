@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FyImage from "@gofynd/theme-template/components/core/fy-image/fy-image";
 import "@gofynd/theme-template/components/core/fy-image/fy-image.css";
 import placeholderDesktop from "../assets/images/placeholder.png";
@@ -8,6 +8,53 @@ import styles from "../styles/sections/application-banner.less";
 import Hotspot from "../components/hotspot/product-hotspot";
 import { useViewport } from "../helper/hooks";
 import { useGlobalStore } from "fdk-core/utils";
+
+// Tracks whether ONE element is on screen, so the entrance animation
+// plays only when the banner is actually visible.
+function useInView(ref) {
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Older browsers: just show everything
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Element has entered the (slightly shrunk) viewport -> play
+        if (entry.isIntersecting) {
+          setInView(true);
+          return;
+        }
+
+        const viewportBottom = entry.rootBounds
+          ? entry.rootBounds.bottom
+          : window.innerHeight;
+
+        // Reset ONLY when the element is below the screen (user scrolled
+        // up past it) so it replays on the next scroll down. If it left
+        // through the top, keep it shown.
+        if (entry.boundingClientRect.top > viewportBottom) {
+          setInView(false);
+        }
+      },
+      {
+        threshold: 0.15, // at least 15% of the banner must be visible
+        rootMargin: "0px 0px -8% 0px", // and slightly inside the bottom edge
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return inView;
+}
 
 export function Component({ props, blocks, globalConfig }) {
   const isMobile = useViewport(0, 540);
@@ -21,6 +68,10 @@ export function Component({ props, blocks, globalConfig }) {
   } = props;
   const { themeHeaderHeight = 0 } = useGlobalStore(fpi.getters.CUSTOM_VALUE);
   const { sections } = useGlobalStore(fpi.getters.PAGE);
+
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef);
+
   const dynamicBoxStyle = (block) => {
     return {
       "--x_position": `${block.props?.x_position?.value || 0}%`,
@@ -74,7 +125,10 @@ export function Component({ props, blocks, globalConfig }) {
 
   return (
     <section
-      className={styles.applicationBannerContainer}
+      ref={sectionRef}
+      className={`${styles.applicationBannerContainer} ${
+        inView ? styles.inView : ""
+      }`}
       style={dynamicStyles}
     >
       {banner_link?.value?.length > 0 ? (

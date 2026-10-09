@@ -1,0 +1,259 @@
+// Same values as the trust badges section
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+@stagger: 100ms;
+
+.categorySection {
+  max-width: 1225px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background: #FBEAEF;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 60px 0;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+.highlight {
+  color: rgba(158, 0, 126, 1);
+}
+
+// ---- Grid: plain equal columns, no spanning ----
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 90px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 70px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 15px;
+  }
+}
+
+// ---- Card ----
+.categoryCard {
+  position: relative;
+  display: block;
+  z-index: 1;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+  transition-delay: ~"calc(var(--col, 0) * @{stagger})";
+}
+
+// Stagger only across the columns of a row (each card animates when IT
+// enters the screen, so a global index would make lower rows wait).
+@media (min-width: 993px) {
+  .categoryCard:nth-child(3n + 2) {
+    --col: 1;
+  }
+  .categoryCard:nth-child(3n + 3) {
+    --col: 2;
+  }
+}
+
+@media (max-width: 992px) {
+  .categoryCard:nth-child(2n) {
+    --col: 1;
+  }
+}
+
+// Wide item: image visually overflows into the next card's space, card itself stays 1 column wide
+.categoryCardWide {
+  z-index: 3;
+
+  .imageWrap {
+    width: 205%;
+    justify-content: center;
+  }
+
+  .categoryImage {
+    max-width: 96%;
+  }
+
+  @media (max-width: 600px) {
+    .imageWrap {
+      width: calc(200% + 15px);
+      justify-content: center;
+    }
+
+    .categoryImage {
+      max-width: 92%;
+    }
+  }
+}
+
+.imageWrap {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.35s ease;
+  margin-bottom: -125px;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    margin-bottom: -50px;
+    height: 100px;
+  }
+}
+
+.categoryImage {
+  max-width: 92%;
+  max-height: 250px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.12));
+  transition: transform 0.5s ease;
+   transform-origin: center bottom;
+
+  @media (max-width: 768px) {
+    max-height: 130px;
+  }
+}
+
+.cardBodyLink {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cardBody {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 130px 16px 24px 16px;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 60px 5px 5px 5px;
+  }
+}
+
+.categoryTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(158, 0, 126, 1);
+  margin: 0;
+  transition: color 0.25s ease;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.priceRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #9E007E0D;
+  border-radius: 8px;
+  padding: 8px 14px;
+
+  @media (max-width: 768px) {
+    padding: 8px;
+    width: 100%;
+  }
+}
+
+.priceLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(46, 43, 44, 0.6);
+  white-space: nowrap;
+}
+
+.priceDivider {
+  width: 1px;
+  height: 14px;
+  background: rgba(46, 43, 44, 0.2);
+}
+
+.priceValue {
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  white-space: nowrap;
+}
+
+// ---- Hover animation ----
+.categoryCard:hover {
+  .cardBody {
+    box-shadow: 0 12px 28px rgba(158, 0, 126, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .categoryTitle {
+    color: rgba(120, 0, 95, 1);
+  }
+
+    .categoryImage {
+    transform: scale(1.12);
+  }
+}
+
+.categoryCard:active {
+  .cardBody {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(158, 0, 126, 0.12);
+  }
+}
+
+// ---- Visible state: added when that element scrolls into view ----
+// (.inView is added to each heading/card individually)
+.heading.inView,
+.categoryCard.inView {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .heading,
+  .categoryCard {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

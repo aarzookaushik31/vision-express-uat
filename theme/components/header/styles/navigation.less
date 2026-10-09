@@ -14,11 +14,11 @@
   svg {
     width: 24px;
     height: 24px;
-    fill: @HeaderIcon;
+    fill: #fff;
   }
   cursor: pointer;
   g > path {
-    fill: @HeaderIcon;
+    fill: #fff;
   }
   @media @tablet {
     g > path {
@@ -26,6 +26,34 @@
     }
   }
 }
+// Default size for NavLogo when used inline next to nav text (L1 items).
+// .l2Tabs .l2Tab overrides this further down for the tab-banner treatment.
+.navLogo {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.l1ItemLogoText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  overflow: hidden;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.l1Logo{
+  height: 40px;
+}
+
 .arrowRightIcon {
   transform: rotate(-90deg);
   [dir="rtl"] & {
@@ -50,15 +78,16 @@
       &__item {
         position: relative;
         padding: 12px 0;
-        color: @HeaderNav;
+        color: #fff;
         .menuTitle {
           white-space: nowrap;
+          gap: 8px;
         }
         .menuTitle,
         .menuTitle > .dropdownIcon {
           svg {
             g > path {
-              fill: @HeaderNav !important;
+              fill: #fff !important;
             }
           }
           transition: all 0.25s ease;
@@ -197,7 +226,6 @@
 
   input{
     color:rgba(46, 43, 44, 1) !important;
-    background-color: rgba(46, 43, 44, 0.06) !important;
 
       &::placeholder {
         color:rgba(46, 43, 44, 1) !important;
@@ -228,7 +256,7 @@
   flex-wrap: wrap;
   gap:10px;
   margin-top: 10px;
-}
+}  
 
   
   &__header {
@@ -236,7 +264,7 @@
     padding-top: 20px;
 
     .logo {
-      max-height: 24px;
+      max-height: 40px;
     }
     .cross-icon {
       width: 28px;
@@ -575,3 +603,158 @@
    
 
   }
+
+/* ==========================================================================
+   L2 accordion panel (mobile) — mirrors the desktop mega-menu column/banner
+   split, but each column is collapsible since mobile has one at a time.
+   ========================================================================== */
+
+.l2AccordionWrapper {
+  padding-top: 4px;
+}
+
+.l2AccordionItem {
+  border-bottom: 1px solid #0000000A;
+
+  &:last-child {
+    border-color: transparent;
+  }
+}
+
+.l2AccordionHeader {
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.l2AccordionTitle {
+  display: block;
+  color: @TextHeading;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+  line-height: 120%;
+}
+
+.accordionChevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  transform: rotate(0deg);
+
+  &.expanded {
+    transform: rotate(180deg);
+  }
+}
+
+.l3AccordionList {
+  padding-bottom: 12px;
+
+  .l3AccordionItem {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 120%;
+    color: @TextBody;
+
+    .navLink {
+      display: block;
+      width: 100%;
+      color: @TextBody;
+    }
+  }
+
+  // NEW: L3 row that toggles an L4 dropdown (button reset + layout)
+  .l3AccordionToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    color: @TextBody;
+    text-align: left;
+    cursor: pointer;
+
+    .l3Chevron {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+    }
+  }
+
+  // NEW: L4 list under an expanded L3
+  .l4AccordionList {
+    padding: 10px 0 0 16px;
+    margin-top: 10px;
+    border-left: 1px solid rgba(46, 43, 44, 0.1);
+  }
+
+  .l4AccordionItem {
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 120%;
+
+    .navLink {
+      display: block;
+      width: 100%;
+      color: @TextBody;
+      opacity: 0.8;
+    }
+  }
+}
+
+.l2BannerGroup {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.l2Banner {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.l2BannerImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.l2BannerLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+
+  .bannerArrow {
+    width: 16px;
+    height: 16px;
+    transform: rotate(-90deg);
+    fill: #fff;
+
+    path {
+      fill: #fff;
+    }
+  }
+}

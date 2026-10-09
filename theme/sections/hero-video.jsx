@@ -6,16 +6,69 @@ import { useGlobalTranslation } from "fdk-core/utils";
 import PlayIcon from "../assets/images/play.svg";
 import PauseIcon from "../assets/images/pause.svg";
 
+const MOBILE_BREAKPOINT = 768;
+
+// Tracks whether ONE element is on screen, so the entrance animation
+// plays only when the section is actually visible.
+function useInView(ref) {
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Older browsers: just show everything
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Element has entered the (slightly shrunk) viewport -> play
+        if (entry.isIntersecting) {
+          setInView(true);
+          return;
+        }
+
+        const viewportBottom = entry.rootBounds
+          ? entry.rootBounds.bottom
+          : window.innerHeight;
+
+        // Reset ONLY when the element is below the screen (user scrolled
+        // up past it) so it replays on the next scroll down. If it left
+        // through the top, keep it shown.
+        if (entry.boundingClientRect.top > viewportBottom) {
+          setInView(false);
+        }
+      },
+      {
+        threshold: 0.15, // at least 15% of the section must be visible
+        rootMargin: "0px 0px -8% 0px", // and slightly inside the bottom edge
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return inView;
+}
+
 export function Component({ props, globalConfig }) {
   const {
     videoFile,
     videoUrl,
+    videoFileMobile,
+    videoUrlMobile,
     autoplay,
     hidecontrols,
     showloop,
     is_pause_button,
     title,
     coverUrl,
+    video_link,
+    link_target,
     padding_top,
     padding_bottom,
   } = props;
@@ -24,8 +77,38 @@ export function Component({ props, globalConfig }) {
   const [ytOverlay, setYtOverlay] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isValidUrl, setIsValidUrl] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
   const ytVideoRef = useRef(null);
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef);
+
+  // ---- Mobile detection ----
+  useEffect(() => {
+    if (!isRunningOnClient()) return undefined;
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // ---- Resolve which source to use (mobile overrides desktop when present) ----
+  function getActiveVideoFile() {
+    if (isMobile && videoFileMobile?.value) {
+      return videoFileMobile.value;
+    }
+    return videoFile?.value;
+  }
+
+  function getActiveVideoUrlValue() {
+    if (isMobile && videoUrlMobile?.value) {
+      return videoUrlMobile.value;
+    }
+    return videoUrl?.value;
+  }
 
   function isValidURL(url) {
     try {
@@ -36,14 +119,16 @@ export function Component({ props, globalConfig }) {
   }
 
   function isGdrive() {
-    if (!isValidURL(videoUrl?.value)) return false;
-    const urlObj = new URL(videoUrl?.value);
+    const activeUrl = getActiveVideoUrlValue();
+    if (!isValidURL(activeUrl)) return false;
+    const urlObj = new URL(activeUrl);
     return urlObj.host.includes("drive.google.com");
   }
 
   function getGdriveVideoUrl() {
-    if (videoUrl && isValidURL(videoUrl?.value)) {
-      const urlObj = new URL(videoUrl?.value);
+    const activeUrl = getActiveVideoUrlValue();
+    if (activeUrl && isValidURL(activeUrl)) {
+      const urlObj = new URL(activeUrl);
       const v = urlObj.pathname.split("/");
       const fileId = v[v.indexOf("d") + 1];
       return `https://drive.google.com/uc?export=download&id=${fileId}`;
@@ -53,13 +138,14 @@ export function Component({ props, globalConfig }) {
   }
 
   function getVideoSource() {
-    if (videoFile?.value) {
-      return videoFile?.value;
+    const activeFile = getActiveVideoFile();
+    if (activeFile) {
+      return activeFile;
     }
     if (isGdrive()) {
       return getGdriveVideoUrl();
     }
-    return videoUrl?.value;
+    return getActiveVideoUrlValue();
   }
 
   function playMp4() {
@@ -77,8 +163,9 @@ export function Component({ props, globalConfig }) {
   }
 
   function getYTVideoID() {
-    if (!isValidURL(videoUrl?.value)) return null;
-    const urlObj = new URL(videoUrl?.value);
+    const activeUrl = getActiveVideoUrlValue();
+    if (!isValidURL(activeUrl)) return null;
+    const urlObj = new URL(activeUrl);
     const { hostname, pathname, searchParams } = urlObj;
 
     if (hostname.includes("youtu.be")) {
@@ -97,26 +184,16 @@ export function Component({ props, globalConfig }) {
     return null;
   }
 
-  // function getYTVideoID() {
-  //   if (!isValidURL(videoUrl?.value)) return null;
-  //   const urlObj = new URL(videoUrl?.value);
-  //   const { searchParams } = urlObj;
-  //   let v = searchParams.get("v");
-  //   if (urlObj.host.includes("youtu.be")) {
-  //     v = urlObj.pathname.split("/").pop();
-  //   }
-  //   return v;
-  // }
-
   useEffect(() => {
-    setIsValidUrl(isValidURL(videoUrl?.value));
-  }, [videoUrl]);
+    setIsValidUrl(isValidURL(getActiveVideoUrlValue()));
+  }, [videoUrl, videoUrlMobile, isMobile]);
 
   function isYoutube() {
-    if (!videoUrl?.value || !isValidURL(videoUrl?.value)) {
+    const activeUrl = getActiveVideoUrlValue();
+    if (!activeUrl || !isValidURL(activeUrl)) {
       return false;
     }
-    const urlObj = new URL(videoUrl?.value);
+    const urlObj = new URL(activeUrl);
     if (isRunningOnClient()) {
       return (
         urlObj.host.includes("youtu.be") || urlObj.host.includes("youtube.com")
@@ -154,7 +231,6 @@ export function Component({ props, globalConfig }) {
 
   const removeYTScript = () => {
     const { players } = window;
-    // Destroy any existing YouTube player instances
     if (players) {
       Object.keys(players).forEach((item) => {
         if (players[item].inst) {
@@ -164,10 +240,8 @@ export function Component({ props, globalConfig }) {
       window.players = null;
     }
 
-    // Find all elements with the "data-ytscript" attribute
     const nodes = document.querySelectorAll("[data-ytscript]");
 
-    // Safely remove each element, but ensure it is still part of the DOM
     nodes.forEach((element) => {
       if (element && element?.parentNode) {
         try {
@@ -183,7 +257,6 @@ export function Component({ props, globalConfig }) {
       }
     });
 
-    // Unset window.YT if it exists
     if (typeof window.YT !== "undefined") {
       window.YT = undefined;
     }
@@ -249,10 +322,10 @@ export function Component({ props, globalConfig }) {
         }
         if (event.data === window.YT.PlayerState.ENDED) {
           if (qloop === 1) {
-            p[videoID].inst.playVideo(); // Loop the video if qloop is 1
+            p[videoID].inst.playVideo();
             p[videoID].inst.seekTo(0);
           } else {
-            setShowOverlay(true); // End the video without looping
+            setShowOverlay(true);
           }
         }
       };
@@ -297,7 +370,7 @@ export function Component({ props, globalConfig }) {
   };
 
   const closeVideo = () => {
-    if (videoFile?.value || isGdrive()) {
+    if (getActiveVideoFile() || isGdrive()) {
       stopMp4();
     } else {
       stopYT();
@@ -305,7 +378,7 @@ export function Component({ props, globalConfig }) {
   };
 
   const playVideo = () => {
-    if (videoFile?.value || isGdrive()) {
+    if (getActiveVideoFile() || isGdrive()) {
       playMp4();
     } else {
       playYT();
@@ -313,29 +386,38 @@ export function Component({ props, globalConfig }) {
   };
 
   useEffect(() => {
-    if (!videoUrl?.value && !videoFile?.value) {
+    const activeFile = getActiveVideoFile();
+    const activeUrl = getActiveVideoUrlValue();
+
+    if (!activeUrl && !activeFile) {
       setShowOverlay(true);
     }
-    if (
-      (videoUrl?.value && videoFile?.value) ||
-      (!videoUrl?.value && videoFile?.value)
-    ) {
+    if ((activeUrl && activeFile) || (!activeUrl && activeFile)) {
       setYtOverlay(true);
     }
-    if (!videoFile?.value && videoUrl?.value) {
+    if (!activeFile && activeUrl) {
       setYtOverlay(false);
     }
-    if (isYoutube(videoUrl?.value) && !videoFile?.value) {
+    if (isYoutube() && !activeFile) {
       setShowOverlay(false);
       removeYTScript();
     }
 
     setTimeout(() => {
-      if (isYoutube(videoUrl?.value)) {
+      if (isYoutube()) {
         loadYTScript();
       }
     }, 0);
-  }, [videoUrl, videoFile, autoplay, hidecontrols, showloop]);
+  }, [
+    videoUrl,
+    videoFile,
+    videoUrlMobile,
+    videoFileMobile,
+    autoplay,
+    hidecontrols,
+    showloop,
+    isMobile,
+  ]);
 
   const handleVideoClick = (event) => {
     event.stopPropagation();
@@ -355,8 +437,17 @@ export function Component({ props, globalConfig }) {
     paddingBottom: `${padding_bottom?.value ?? 16}px`,
   };
 
+  const activeVideoFile = getActiveVideoFile();
+  const activeVideoUrl = getActiveVideoUrlValue();
+  const hasLink = Boolean(video_link?.value);
+  const linkTarget = link_target?.value === "_blank" ? "_blank" : "_self";
+
   return (
-    <section style={dynamicStyles}>
+    <section
+      ref={sectionRef}
+      className={`${styles.heroVideoSection} ${inView ? styles.inView : ""}`}
+      style={dynamicStyles}
+    >
       {title?.value && (
         <h2 className={`fx-title ${styles.video_heading} fontHeader`}>
           {title?.value}
@@ -364,7 +455,7 @@ export function Component({ props, globalConfig }) {
       )}
 
       <div className={`${styles.video_container} `}>
-        {videoFile?.value ? (
+        {activeVideoFile ? (
           <video
             ref={videoRef}
             onClick={handleVideoClick}
@@ -392,8 +483,8 @@ export function Component({ props, globalConfig }) {
               <div
                 className={styles.yt_video}
                 ref={ytVideoRef}
-                id={`yt-video-${getYTVideoID(videoUrl?.value)}`}
-                data-videoid={getYTVideoID(videoUrl?.value)}
+                id={`yt-video-${getYTVideoID(activeVideoUrl)}`}
+                data-videoid={getYTVideoID(activeVideoUrl)}
                 data-videometa={JSON.stringify(props)}
                 allowFullScreen
               ></div>
@@ -415,11 +506,7 @@ export function Component({ props, globalConfig }) {
               ></div>
             )}
             <div className={styles.overlay__content}>
-              <div
-                id="play"
-                // onClick={playVideo}
-                className={styles.overlay__playButton}
-              >
+              <div id="play" className={styles.overlay__playButton}>
                 <PlayIcon />
               </div>
             </div>
@@ -430,13 +517,23 @@ export function Component({ props, globalConfig }) {
             <PauseIcon />
           </div>
         )}
-        {!videoFile?.value && !videoUrl?.value && (
+        {!activeVideoFile && !activeVideoUrl && (
           <img
             src={coverUrl?.value || placeholderImage}
             alt={t("resource.common.placeholder")}
             style={{ width: "100%" }}
             srcSet={getImgSrcSet()}
           />
+        )}
+
+        {hasLink && (
+          <a
+            href={video_link.value}
+            target={linkTarget}
+            rel={linkTarget === "_blank" ? "noopener noreferrer" : undefined}
+            className={styles.video_link_overlay}
+            aria-label={t("resource.common.video_link") || "Video link"}
+          ></a>
         )}
       </div>
     </section>
@@ -458,6 +555,20 @@ export const settings = {
       label: "t:resource.sections.hero_video.video_url",
       default: "",
       info: "t:resource.sections.hero_video.video_support_mp4_youtube",
+    },
+    {
+      type: "video",
+      id: "videoFileMobile",
+      default: false,
+      label: "t:resource.sections.hero_video.mobile_video",
+      info: "t:resource.sections.hero_video.mobile_video_info",
+    },
+    {
+      id: "videoUrlMobile",
+      type: "text",
+      label: "t:resource.sections.hero_video.mobile_video_url",
+      default: "",
+      info: "t:resource.sections.hero_video.mobile_video_support_mp4_youtube",
     },
     {
       type: "checkbox",
@@ -501,6 +612,23 @@ export const settings = {
       options: {
         aspect_ratio: "16:9",
       },
+    },
+    {
+      id: "video_link",
+      type: "text",
+      label: "t:resource.sections.hero_video.video_link",
+      default: "",
+      info: "t:resource.sections.hero_video.video_link_info",
+    },
+    {
+      type: "select",
+      id: "link_target",
+      options: [
+        { value: "_self", text: "t:resource.common.same_tab" },
+        { value: "_blank", text: "t:resource.common.new_tab" },
+      ],
+      default: "_self",
+      label: "t:resource.sections.hero_video.link_target",
     },
     {
       type: "range",

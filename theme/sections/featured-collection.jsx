@@ -132,7 +132,7 @@ export function Component({ props, globalConfig }) {
       infinite: itemLength > itemCount,
       speed: 300,
       slidesToShow: itemCount,
-      slidesToScroll: itemCount,
+      slidesToScroll: 1,
       swipeToSlide: true,
       autoplay: false,
       cssEase: "linear",

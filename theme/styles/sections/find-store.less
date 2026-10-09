@@ -1,3 +1,14 @@
+// Same values as the other animated sections
+@anim-distance: 100px;
+@anim-duration: 0.8s;
+@anim-ease: ease;
+
+// Clips the card while it slides up from below, so it never
+// overlaps the next section during the entrance
+.findStoreWrapper {
+  overflow: hidden;
+}
+
 .findStoreSection {
   background-size: cover;
   background-position: top center;
@@ -6,14 +17,41 @@
   padding: 100px 20px;
   display: flex;
   align-items: center;
+
+  // animation start state
+  opacity: 0;
+  transform: translate3d(0, @anim-distance, 0);
+  transition-property: opacity, transform;
+  transition-duration: @anim-duration;
+  transition-timing-function: @anim-ease;
+
+  // ---- Visible state: added when the wrapper scrolls into view ----
+  // (`transform: none` instead of translate3d(0,0,0) so the section doesn't
+  // keep a transform that could affect fixed children)
+  &.inView {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .blackBgFindStore {
+    padding: 60px 0px;
+    background-color: black;
+  }
+  .blackBgFindStore .findStoreSection {
+    max-width: 1200px;
+    border-radius: 16px;
+    margin: 0px auto;
+  }
 }
 
 .overlay {
   width: 100%;
 }
 
-.homepageFindStore .contentWrapper h2{
-   max-width:400px;
+.homepageFindStore .contentWrapper h2 {
+  max-width: 400px;
 }
 
 .contentWrapper {
@@ -31,7 +69,7 @@
   p {
     font-size: 20px;
     font-weight: 400;
-    color:rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 30px;
   }
 
@@ -42,7 +80,6 @@
     border-radius: 16px;
     border: 2px solid #fff;
     width: fit-content;
-    
 
     .pincodeInput {
       width: 200px;
@@ -64,52 +101,53 @@
       border: none;
       cursor: pointer;
       font-weight: bold;
-        display: flex;
+      display: flex;
       align-items: center;
-       gap: 8px;
+      gap: 8px;
 
-      img{
+      img {
         width: 24px;
-       
       }
     }
   }
 }
 
+@media (max-width: 768px) {
+  .findStoreSection {
+    padding: 30px 20px;
+    padding-top: 300px;
+  }
 
-
-@media(max-width: 768px){
-    .findStoreSection{
-        padding: 30px 20px;
-        padding-top: 300px;     
+  .contentWrapper {
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
-    .contentWrapper {
-
-
-          h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-          }
-
-          p{
-            font-size: 12px;
-            margin-bottom: 20px;
-          }
-
-
-            .inputGroup {
-
-                 .pincodeInput{
-                    width: 60%;
-                 }
-
-                  .findButton {
-                    padding: 8px 16px;
-                    font-size: 14px;
-                    white-space: nowrap;
-                  }
-
-            }
+    p {
+      font-size: 12px;
+      margin-bottom: 20px;
     }
+
+    .inputGroup {
+      .pincodeInput {
+        width: 60%;
+      }
+
+      .findButton {
+        padding: 8px 16px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// Respect "reduce motion" system settings
+@media (prefers-reduced-motion: reduce) {
+  .findStoreSection {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
