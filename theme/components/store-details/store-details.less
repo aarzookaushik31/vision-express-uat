@@ -1,610 +1,1100 @@
+@pink: #9e007e;
+@ink: #2e2b2c;
 .storeDetailsSection {
-  padding: 80px 20px;
-   max-width: 1200px;
-   margin: auto;
-}
-
-.breadcrumb {
-  font-size: 12px;
-  color: rgba(46, 43, 44, 0.6);
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  a { color: #888; text-decoration: none; }
-}
-
-.shareContainer{
-  position: relative;
-
-  .shareIcon{
-    cursor: pointer;
-    width: 42px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(158, 0, 126, 0.04);
-    border-radius: 10px;
-  }
-}
-
-
-  .loadingtext{
-    margin-bottom: 10px;
-  }
-
-.ratingContainer{
-  display: flex;
-  align-items: center;
-  color:rgba(0, 0, 0, 1);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 120%;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.topSection {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
-
-  .imageCarousel {
-    flex: 1;
-    img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-  }
-
-  .infoBlock {
-    flex: 1;
-
-    .storeName {
-      font-size: 30px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0px;
-      line-height: 120%;
-      color:rgba(46, 43, 44, 1);
-      margin-bottom: 10px;
-    }
-
-    .ratingRow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      margin-bottom: 10px;
-
-      img { width: 20px; }
-      .reviewCount { color: #777; font-size: 14px; }
-    }
-
-    .address {
-      margin-bottom: 10px;
-      color: rgba(46, 43, 44, 0.8);
-      font-size: 12px;
-      line-height: 150%;
-      font-weight: 400;
-      letter-spacing: -0.25px;
-      max-width: 320px;
-    }
-
-    .phoneRow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-      a { 
-        font-size: 12px;
-        line-height: 120%;
-
-        color: rgba(46, 43, 44, 0.8);
-         text-decoration: none; 
-        }
-      img { 
-        width: 20px; 
-      }
-    }
-
-    .actionButtons {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-
-      .primaryBtn {
-        background: rgba(158, 0, 126, 1);
-        color: #fff;
-        padding: 14px 28px;
-        border-radius: 10px;
-        font-weight: 700;
-       font-size: 12px;
-       line-height: 120%;
-       text-transform: uppercase;
-
-      }
-      .outlineBtn {
-        border: 1px solid rgba(158, 0, 126, 1);
-        background: none;
-        color: rgba(158, 0, 126, 1);
-          padding: 14px 28px;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 12px;
-       line-height: 120%;
-       text-transform: uppercase;
-      }
-    }
-
-    .servicesOffered {
-      margin-bottom: 15px;
-
-      h3 { 
-        font-size: 14px; 
-        font-weight: 700;
-        color:rgba(46, 43, 44, 1);
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px; 
-      }
-
-      .servicesGrid {
-        display: flex;
-        gap: 15px;
-      }
-      
-      .serviceCard {
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 16px;
-        border: 1px solid rgba(158, 0, 126, 0.1);
-        padding: 30px 15px;
-        text-align: center;
-        width: 120px;
-
-        .iconCircle {
-          width: 45px; 
-          border-radius: 50%;
-          margin: 0 auto 10px;
-
-          img{
-            width: 100%;
-          }
-        }
-        p { 
-          font-size: 12px; 
-          font-weight: 700;
-           color: rgba(158, 0, 126, 1); 
-          }
-      }
-    }
-  }
-}
-
-.locationSection {
-  margin-bottom: 20px;
-  h3 {
-     font-size: 14px; 
-        font-weight: 700;
-        color:rgba(46, 43, 44, 1);
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px;
-       }
-  .timings { 
-    font-size: 12px;
-     color: rgba(46, 43, 44, 1); 
-     margin-bottom: 15px; 
-    }
-}
-
-.reviewsSection {
-  h3 { 
-      font-size: 14px; 
-        font-weight: 700;
-        color:rgba(46, 43, 44, 1);
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px; 
-   }
-
-  .reviewSummary {
-    background-color: rgba(158, 0, 126, 0.04);
-    border-radius: 14px;
-    padding: 18px 36px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 30px;
-
-    .avgRating {
-      text-align: center;
-      h2 { 
-        font-size: 55px; 
-        color: rgba(158, 0, 126, 1);
-          margin: 0;
-        
-          span{
-            font-size: 14px;
-            color:rgba(161, 90, 149, 1);
-          }
-        }
-      span.totalReviews { 
-        font-size: 12px; 
-        color: rgba(46, 43, 44, 0.8);
-        font-weight: 700;
-        background-color: rgba(158, 0, 126, 0.04);
-        border-radius: 30px;
-        padding: 6px 12px;
-            }
-    }
-    .ratingBars {
-      flex: 1;
-      .ratingBarRow {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 14px;
-        margin-bottom: 3px;
-        .bar {
-          flex: 1;
-          height: 6px;
-          background: #eee;
-          border-radius: 3px;
-          .fill {
-            height: 6px;
-            background: rgba(238, 171, 67, 1);
-            border-radius: 3px;
-          }
-        }
-      }
-    }
-  }
-
-  .reviewList{
-    max-width: 600px;
-    width: 100%;
-  }
-
-  .reviewCard {
-    background-color: rgba(180, 180, 180, 0.1);
-    padding: 20px 30px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-
-    .userRow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-
-      h4{
-        color:rgba(26, 26, 26, 1);
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 120%;
-        margin-bottom: 5px;
-      }
-
-      .userAvatar {
-        width: 32px;
-         height: 32px;
-        border-radius: 50%;
-        background: #f2e5f5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-      }
-    }
-    .reviewText { 
-       font-size: 12px;
-       color: rgba(26, 26, 26, 0.5);
-        line-height: 120%;
-        letter-spacing: 0px;
-      }
-  }
-}
-
-
-
-@media(max-width: 1025px){
-    .storeDetailsSection{
-  padding: 50px 20px;
-
-  .topSection{
-     flex-direction: column;
-    gap: 30px;
-
-  }
-}
-}
-
-
-@media(max-width: 768px){
-
-  .storeDetailsSection{
-  padding: 50px 20px;
-
-  .topSection{
-    flex-direction: column;
-    gap: 30px;
-
-    .storeName {
-      font-size: 22px;
-    }
-
-     .reviewSummary{
-      .avgRating{
-        h2{
-          font-size: 35px;
-        }
-      }
-     }
-
-
-
-  .actionButtons{
-        .primaryBtn {
-          font-size: 10px;
-          padding: 10px 15px;
-        }
-         .outlineBtn{
-            font-size: 10px;
-           padding: 10px 15px;
-         }
-  }
-
-
-    .reviewList{
-    max-width: calc(100vw - 40px);
-  }
-
-
-
-      .servicesOffered{
-          .servicesGrid{
-    gap: 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    .serviceCard{
-      width: auto;
-      padding: 20px 8px;
-    }
-
-  }
-  }
-  }
-
-  }
- 
-}
-
-
-
-
-:global {
-  .slick-dots {
-   bottom: 0px !important;
-   transform: translate(-50%, 0%);
-  }
-   .slick-dots li{
-    width: auto !important;
-   }
-
-    .slick-dots li button::before{
-  display: none;
-    }
- .slick-dots li.slick-active button {
-    background-color: #A15A95;
-    width: 60px;
-    height: 10px;
-}
-.slick-dots li:not(.slick-active) button {
-    filter: blur(2px);
-    border-radius: 100%;
-    background-color: #A15A9580;
-    width: 10px;
-    height: 10px;
-}
-
- .slick-next {
-    top: 50%;
-    right: 10px;
-    transform: unset;
-}
-
-.slick-prev {
-    top: 50%;
-    transform: unset;
-    left: 10px;
-    z-index: 10
-}
- .slick-prev path, .slick-next path {
-    stroke: #A15A95;
-}
-
-}
-
-
-
-
-
-
-
-
-// near by stores css 
-
-.nearbyStoresSection{
-  margin-top: 60px;
-
-  h3{
-     font-size: 20px; 
-        font-weight: 700;
-        color:rgba(46, 43, 44, 1);
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 8px; 
-  }
-
-  .nearbyStoreList{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
-.nearbyStoreCard {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: row;
-  background: rgba(161, 90, 149, 0.1);
-  border-radius: 10px;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.imageWrapper {
-width: 160px;
-  overflow: hidden;
-}
-
-.storeImage {
-  border-radius: 10px;
+  padding: 50px 0 0;
   width: 100%;
-  height: 100%;
-  max-height: 175px;
-  object-fit: cover;
+  margin: auto;
+  font-family: Verdana, sans-serif;
+  color: @ink;
 }
-
-.storeContent {
-  flex: 1;
+.topSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 771fr) minmax(0, 469fr);
+  gap: 40px;
+  padding-bottom: 80px;
+}
+.imageCarousel {
+  min-width: 0;
+  img {
+    width: 100%;
+    aspect-ratio: 771 / 488;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+  }
+}
+.infoBlock {
+  position: relative;
+  min-width: 0;
+}
+.shareContainer {
+  position: absolute;
+  right: 0;
+  top: -6px;
+  z-index: 2;
+}
+.shareIcon {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(158, 0, 126, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+.ratingContainer {
+  display: inline-flex;
+  background: #faf2f9;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  max-width: calc(100% - 60px);
 }
 .storeName {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 24px;
 }
-
-.storeAddress,
-.storeLocation {
-  font-size: 12px;
-  color: rgba(46, 43, 44, 0.8);
-  margin-bottom: 6px;
-}
-
-.phonebookContainer{
+.address,
+.timings,
+.phoneRow {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin: 10px 0;
-
-  p{
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: fade(@ink, 70%);
+  margin: 0 0 18px;
+  img {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    object-fit: contain;
+    padding: 10px;
+    background: #faf2f9;
+    border-radius: 50%;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+.servicesOffered {
+  margin: 24px 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(158, 0, 126, 0.1);
+}
+.servicesGrid {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #faf2f9;
+  border-radius: 8px;
+}
+.serviceCard {
   display: flex;
   align-items: center;
   gap: 8px;
-  color:rgba(46, 43, 44, 0.8);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 120%;
+  p {
+    font-size: 12px;
+    color: @pink;
+    margin: 0;
   }
-
-  img{
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-  border-radius: 50%;
 }
-
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
-
-
-.storePhone a {
-  color: rgba(46, 43, 44, 0.8);
-  text-decoration: none;
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  a {
+    flex: 1;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    border-radius: 80px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+  }
 }
-
-.buttonGroup {
+.primaryBtn {
+  background: @pink;
+  color: white;
+}
+.outlineBtn {
+  background: #faf2f9;
+  color: @pink;
+}
+.locationSection {
+  margin-bottom: 32px;
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 20px;
+  }
+  iframe {
+    width: 100%;
+    height: 280px;
+    display: block;
+  }
+}
+.reviewsSection {
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px;
+    font-size: 16px;
+    line-height: 1.4;
+    a {
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: underline;
+      color: @pink;
+    }
+  }
+}
+.reviewSummary {
+  display: grid;
+  grid-template-columns: 155px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.avgRating {
+  background: @pink;
+  color: white;
+  border-radius: 12px;
+  padding: 24px 12px;
+  text-align: center;
+  h2 {
+    color: white;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    span {
+      font-size: 14px;
+    }
+  }
+}
+.totalReviews {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.reviewList {
+  min-width: 0;
+  padding-bottom: 24px;
+}
+.reviewCard {
+  background: #faf2f9;
+  border-radius: 12px;
+  padding: 20px;
+}
+.userRow {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  h4 {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 4px;
+  }
 }
-
-.directionBtn,
-.detailsBtn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: 0.3s;
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ead5e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
-
+.reviewText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: fade(@ink, 70%);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+.reviewsSection :global {
+  .slick-dots {
+    bottom: -24px;
+    left: 0 !important;
+    transform: none !important;
+    li {
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      button {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        background: #dec6d9;
+        border-radius: 50%;
+        &::before {
+          display: none;
+        }
+      }
+      &.slick-active button {
+        background: @pink;
+      }
+    }
+  }
+}
+.nearbyStoresSection {
+  background: @pink;
+  padding: 50px max(64px, calc((100% - 1400px) / 2)) 60px;
+  h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: white;
+    margin: 0 0 32px;
+  }
+}
+.nearbyStoreList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nearbyStoreCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.imageWrapper {
+  flex: 0 0 160px;
+}
+.storeImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.storeContent {
+  min-width: 0;
+  flex: 1;
+  .storeName {
+    font-size: 16px;
+    color: @pink;
+    margin-bottom: 12px;
+  }
+}
+.storeAddress {
+  font-size: 14px;
+  line-height: 1.6;
+  color: fade(@ink, 70%);
+  margin: 0 0 12px;
+}
+.phonebookContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+  }
+  img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+  a {
+    color: fade(@ink, 70%);
+  }
+}
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  a {
+    flex: 1;
+    padding: 12px 8px;
+    border-radius: 80px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+}
 .directionBtn {
-  background: rgba(158, 0, 126, 1);
-  color: #fff;
+  background: @pink;
+  color: white;
 }
-
 .detailsBtn {
-  border: 1px solid rgba(158, 0, 126, 1);
-  color: rgba(26, 26, 26, 1);
+  background: #faf2f9;
+  color: @pink;
 }
-
-.detailsBtn:hover,
-.directionBtn:hover {
-  opacity: 0.9;
-}
-
-
-}
-
-
-
-
-@media(max-width: 1000px){
-  .nearbyStoresSection{
-
-
-   .nearbyStoreCard {
-  position: relative;
-     padding-bottom: 50px;
-    align-items: flex-start;
-
-      .buttonGroup{
-    position: absolute;
-    bottom: 10px;
-    left:10px;
-    width: calc(100% - 20px);
+@media (max-width: 1350px) {
+  .topSection {
+    margin: 0 24px;
   }
-
-  
-  .imageWrapper{
-    width: 100px;
+}
+@media (max-width: 1024px) {
+  .topSection {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
   }
-  .phonebookContainer{
+  .servicesGrid {
+    padding: 12px 8px;
+    gap: 8px;
+  }
+  .serviceCard {
     flex-direction: column;
+  }
+  .nearbyStoreCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .imageWrapper {
+    flex-basis: auto;
+  }
+}
+@media (max-width: 768px) {
+  .storeDetailsSection {
+    padding-top: 24px;
+  }
+  .topSection {
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0 20px;
+    padding-bottom: 40px;
+  }
+  .storeName {
+    font-size: 24px;
+  }
+  .servicesGrid {
+    justify-content: space-around;
+  }
+  .serviceCard {
+    flex-direction: row;
+  }
+  .reviewSummary {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .reviewCard {
+    padding: 16px;
+  }
+  .avgRating {
+    padding: 24px 8px;
+    h2 {
+      font-size: 32px;
+    }
+  }
+  .nearbyStoresSection {
+    padding: 32px 20px;
+    h3 {
+      font-size: 24px;
+    }
+  }
+  .nearbyStoreList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// Keep the desktop information layout while allowing the share control to overlay the mobile photo.
+.topSection {
+  position: relative;
+}
+.shareContainer {
+  right: 0;
+}
+.ratingContainer {
+  color: @pink;
+  line-height: 1.4;
+}
+.reviewCount {
+  display: none;
+}
+.userAvatar {
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.nearbyStoreList {
+  display: block;
+  margin: 0 -12px;
+  :global(.slick-slide) > div {
+    padding: 0 12px;
+  }
+}
+.nearbyStoresSection :global {
+  .slick-dots {
+    bottom: -24px;
+    left: 0 !important;
+    transform: none !important;
+    li {
+      width: 14px;
+      height: 4px;
+      margin: 0 2px;
+      button {
+        padding: 0;
+        width: 14px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        &::before {
+          display: none;
+        }
+      }
+      &.slick-active {
+        width: 28px;
+        button {
+          width: 28px;
+          background: white;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .storeDetailsSection {
+    padding-top: 16px;
+  }
+  .topSection {
+    gap: 32px;
+    padding-bottom: 56px;
+  }
+  .imageCarousel {
+    margin: 0 -4px;
+    img {
+      aspect-ratio: 358 / 550;
+      border-radius: 12px;
+    }
+  }
+  .infoBlock {
+    position: static;
+  }
+  .shareContainer {
+    top: 9px;
+    right: 6px;
+  }
+  .shareIcon {
+    background: white;
+    border-radius: 21px;
+  }
+  .ratingContainer {
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+  .storeName {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  .address,
+  .timings {
+    align-items: flex-start;
+    overflow-wrap: anywhere;
+  }
+  .servicesOffered {
+    margin: 20px 0 32px;
+    padding-top: 24px;
+  }
+  .servicesGrid {
+    padding: 10px 12px;
+    gap: 8px;
+    min-height: 50px;
+    justify-content: space-between;
+  }
+  .serviceCard {
+    gap: 8px;
+    p {
+      font-weight: 700;
+      color: @ink;
+      white-space: nowrap;
+    }
+    &:nth-child(2) {
+      order: 3;
+    }
+  }
+  .iconCircle {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .actionButtons {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 48px;
+    a {
+      min-height: 48px;
+      font-size: 16px;
+    }
+  }
+  .locationSection {
+    margin-bottom: 48px;
+    h3 {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+    iframe {
+      height: auto;
+      aspect-ratio: 469 / 286;
+    }
+  }
+  .reviewsSection {
+    h3 {
+      font-size: 16px;
+      gap: 8px;
+      a {
+        flex-shrink: 0;
+      }
+    }
+  }
+  .reviewCount {
+    display: inline;
+    font-size: 12px;
+    font-weight: 400;
+    color: #646164;
+  }
+  .reviewSummary {
+    display: block;
+  }
+  .avgRating {
+    display: none;
+  }
+  .reviewCard {
+    padding: 20px;
+    min-height: 181px;
+    display: flex !important;
+    flex-direction: column;
+  }
+  .reviewText {
+    order: -1;
+    font-size: 14px;
+    margin-bottom: 16px;
+    -webkit-line-clamp: 3;
+  }
+  .userRow {
+    margin-bottom: 0;
+  }
+  .userAvatar {
+    width: 37px;
+    height: 37px;
+  }
+  .reviewsSection :global(.slick-dots) {
+    li {
+      width: 14px;
+      height: 4px;
+      margin: 0 2px;
+      button {
+        width: 14px;
+        height: 4px;
+        border-radius: 20px;
+      }
+      &.slick-active {
+        width: 28px;
+        button {
+          width: 28px;
+        }
+      }
+    }
+  }
+  .nearbyStoresSection {
+    padding: 40px 20px 56px;
+    h3 {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 28px;
+    }
+  }
+  .nearbyStoreCard {
+    padding: 12px;
+    gap: 12px;
+    border: 6px solid rgba(158, 0, 126, 0.08);
+  }
+  .storeImage {
+    height: 159px;
+    border-radius: 6px;
+  }
+  .storeContent .storeName {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .storeAddress {
+    font-size: 14px;
+  }
+  .phonebookContainer {
+    p {
+      font-size: 14px;
+    }
+    p:last-child {
+      display: none;
+    }
+  }
+  .buttonGroup {
+    a {
+      font-size: 12px;
+      min-height: 40px;
+    }
+  }
+}
+@media (max-width: 360px) {
+  .servicesGrid {
+    padding: 10px 8px;
+  }
+  .serviceCard {
+    gap: 4px;
+    p {
+      font-size: 11px;
+    }
+  }
+  .reviewsSection h3 {
     align-items: flex-start;
   }
-  .directionBtn,
-.detailsBtn {
-  text-align: center;
-  flex:1;
-  font-size: 10px;
-}
-   }
-
-
+  .reviewCount {
+    display: block;
   }
-  
 }
 
+// Nearby cards share the booking action and compact directions control across sizes.
+.nearbyStoresSection {
+  .imageWrapper {
+    position: relative;
+  }
+  .ratingRow {
+    position: absolute;
+    top: 4px;
+    left: 4px !important;
+    padding: 6px 8px;
+    border: 0.5px solid white;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .storeAddress {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    img {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      padding: 5px;
+      background: #faf2f9;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+  .phonebookContainer p:last-child {
+    display: flex;
+  }
+  .phonebookContainer img {
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    background: #faf2f9;
+    border-radius: 50%;
+  }
+  .buttonGroup {
+    align-items: center;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .directionBtn {
+      flex: 0 1 221px;
+      max-width: 221px;
+      min-width: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 24px;
+      padding: 8px 12px;
+    }
+    .detailsBtn {
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      min-height: 32px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+  :global(.slick-dots) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: -20px;
+    li {
+      padding: 0;
+      button {
+        filter: none;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .nearbyStoresSection {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .nearbyStoreCard {
+    border: 0;
+    padding: 12px;
+    border-radius: 12px;
+    gap: 12px;
+  }
+  .nearbyStoreList {
+    margin: 0;
+    :global(.slick-slide) > div {
+      padding: 0;
+    }
+  }
+  .nearbyStoresSection {
+    .storeImage {
+      height: auto;
+      aspect-ratio: 326 / 159;
+    }
+    .storeContent .storeName {
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .storeAddress {
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .phonebookContainer {
+      margin: 0;
+      p {
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    .buttonGroup {
+      margin-top: 16px;
+      gap: 8px;
+      .directionBtn {
+        flex-basis: 286px;
+        max-width: 286px;
+        font-size: 12px;
+        min-height: 40px;
+      }
+    }
+  }
+}
 
-@media(max-width: 768px){
-    .nearbyStoresSection{
- .nearbyStoreList{
-    grid-template-columns: 1fr;
-   }
+// Desktop navigation uses arrows; mobile navigation uses centered pagination.
+.nearbyStoresSection {
+  :global(.slick-dots) {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  :global(.slick-prev),
+  :global(.slick-next) {
+    position: absolute;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    z-index: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    &::before {
+      color: @pink;
+      font-size: 24px;
+      line-height: 1;
+      opacity: 1;
+    }
+    &:hover,
+    &:focus {
+      background: #faf2f9;
+    }
+    &:global(.slick-disabled) {
+      opacity: 0.45;
+    }
+  }
+  :global(.slick-prev) {
+    left: -48px !important;
+  }
+  :global(.slick-next) {
+    right: -48px;
+  }
+}
+@media (min-width: 769px) {
+  .nearbyStoreList {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .nearbyStoresSection :global(.slick-dots) {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .nearbyStoresSection {
+    :global(.slick-prev),
+    :global(.slick-next) {
+      display: none !important;
+    }
+    :global(.slick-dots) {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
+}
+
+.nearbyStoresSection {
+  :global(.slick-prev),
+  :global(.slick-next) {
+    color: @pink;
+    font-size: 30px;
+    line-height: 1;
+    opacity: 1;
+    visibility: visible;
+    &::before {
+      display: none;
+    }
+    span {
+      display: block;
+      color: @pink;
+      font-size: 30px;
+      line-height: 1;
+    }
+  }
+}
+
+.serviceCard p {
+  font-weight: 700;
+  line-height: normal;
+}
+.storeContent .storeName {
+  font-weight: 700;
+  line-height: 1.6;
+}
+.reviewsSection .avgRating h2,
+.reviewsSection .avgRating h2 span {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.userRow .timeLabel {
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: fade(@ink, 70%);
+}
+
+// Stretch every slide to the tallest card and anchor actions at the bottom.
+.nearbyStoreList {
+  :global(.slick-track) {
+    display: flex;
+    align-items: stretch;
+  }
+  :global(.slick-slide) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  :global(.slick-slide) > div {
+    display: flex;
+    flex: 1;
+  }
+  :global(.slick-slide) > div > div {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+  .nearbyStoreCard {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .storeContent {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .buttonGroup {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+}
+
+// Override shared carousel rules only inside the nearby-store slider.
+.nearbyStoresSection .nearbyStoreList {
+  :global(.slick-dots) {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -20px !important;
+    :global(li.slick-active) button {
+      background: #fff !important;
+      opacity: 1 !important;
+      filter: none !important;
+      width: 28px !important;
+      height: 4px !important;
+      border-radius: 20px !important;
+    }
+    li:not(:global(.slick-active)) button {
+      background: rgba(255, 255, 255, 0.2) !important;
+      width: 14px !important;
+      height: 4px !important;
+      filter: none !important;
+    }
+  }
+}
+@media (min-width: 769px) {
+  .nearbyStoreList {
+    :global(.slick-track) {
+      display: flex !important;
+      align-items: stretch !important;
+    }
+    :global(.slick-slide) {
+      display: flex !important;
+      height: auto !important;
+    }
+    :global(.slick-slide) > div,
+    :global(.slick-slide) > div > div {
+      display: flex !important;
+      flex: 1;
+      height: auto !important;
+      align-items: stretch;
+    }
+    .nearbyStoreCard {
+      height: auto !important;
+      flex: 1;
+      align-items: stretch;
+    }
+    .storeContent {
+      flex: 1;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .nearbyStoresSection {
+    padding-bottom: 40px;
+  }
+  .nearbyStoreList {
+    :global(.slick-track) {
+      align-items: flex-start !important;
+    }
+    :global(.slick-slide),
+    :global(.slick-slide) > div,
+    :global(.slick-slide) > div > div {
+      display: block !important;
+      height: auto !important;
+      flex: none;
+    }
+    .nearbyStoreCard {
+      height: auto !important;
+    }
+    .storeContent {
+      display: block;
+    }
+    .buttonGroup {
+      margin-top: 16px;
+      padding-top: 0;
+    }
+  }
+}
+
+.servicesGrid .iconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: @pink;
+  border-radius: 50%;
+}
+.address,
+.timings,
+.phoneRow {
+  > .iconCircle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #faf2f9;
+    border-radius: 50%;
+  }
+}
+.nearbyStoresSection {
+  .storeAddress,
+  .phonebookContainer p {
+    > .iconCircle {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #faf2f9;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nearbyStoreList {
+    margin-left: -5px;
+    margin-right: -5px;
+    :global(.slick-slide) > div { padding-left: 5px; padding-right: 5px; }
   }
 }

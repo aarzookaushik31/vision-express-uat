@@ -61,7 +61,8 @@ const GoogleRating = ({ preFetchedData, fetchReviews = false }) => {
 
   const settings = {
     dots: true,
-    arrows: true,
+    arrows: false,
+    adaptiveHeight: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -71,9 +72,6 @@ const GoogleRating = ({ preFetchedData, fetchReviews = false }) => {
   if (!fetchReviews) {
     return (
       <div className={styles.ratingContainer}>
-        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-          {renderStars(ratingData.rating)}
-        </div>
         <span>
           {ratingData.rating.toFixed(1)}/5{" "}
           <span style={{ color: "rgba(56, 56, 56, 0.2)" }}>|</span>{" "}
@@ -86,7 +84,19 @@ const GoogleRating = ({ preFetchedData, fetchReviews = false }) => {
   // --- Full Reviews Layout ---
   return (
     <div className={styles.reviewsSection}>
-      <h3>Store Reviews</h3>
+      <h3>
+        <span>
+          Store Review{" "}
+          <span className={styles.reviewCount}>
+            ({ratingData.rating.toFixed(1)}/5 Ratings)
+          </span>
+        </span>{" "}
+        {preFetchedData.url && (
+          <a href={preFetchedData.url} target="_blank" rel="noreferrer">
+            View All
+          </a>
+        )}
+      </h3>
 
       <div className={styles.reviewSummary}>
         <div className={styles.avgRating}>
@@ -99,60 +109,35 @@ const GoogleRating = ({ preFetchedData, fetchReviews = false }) => {
           </span>
         </div>
 
-        <div className={styles.ratingBars}>
-          {[5, 4, 3, 2, 1].map((r) => {
-            const totalCount = reviews?.length || 0;
-            const countForRating = reviews?.filter(
-              (rev) => Math.round(rev.rating) === r
-            ).length;
-            const percentage = totalCount
-              ? (countForRating / totalCount) * 100
-              : 0;
-
-            return (
-              <div key={r} className={styles.ratingBarRow}>
-                <span className={styles.ratingLabel}>
-                  {r} <span className={styles.star}>⭐</span>
-                </span>
-
-                <div className={styles.bar}>
-                  <div
-                    className={styles.fill}
-                    style={{ width: `${percentage}%` }}
-                  ></div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className={styles.reviewList}>
-        {reviews?.length ? (
-          <Slider {...settings}>
-            {reviews.map((rev, i) => (
-              <div key={i} className={styles.reviewCard}>
-                <div className={styles.userRow}>
-                  <div className={styles.userAvatar}>
-                    {rev.author_name?.[0] || "U"}
-                  </div>
-                  <div>
-                    <h4>{rev.author_name}</h4>
-                    <div
-                      style={{ display: "flex", alignItems: "center", gap: "4px" }}
-                    >
-                      {renderStars(rev.rating)}
+        <div className={styles.reviewList}>
+          {reviews?.length ? (
+            <Slider {...settings}>
+              {reviews.map((rev, i) => (
+                <div key={i} className={styles.reviewCard}>
+                  <div className={styles.userRow}>
+                    <div className={styles.userAvatar}>
+                      {rev.profile_photo_url ? (
+                        <img src={rev.profile_photo_url} alt="" />
+                      ) : (
+                        rev.author_name?.[0] || "U"
+                      )}
                     </div>
-                    {/* <span className={styles.timeLabel}>{rev.relative_time_description}</span> */}
+                    <div>
+                      <h4>{rev.author_name}</h4>
+                      <span className={styles.timeLabel}>
+                        {Number(rev.rating).toFixed(1)}/5
+                      </span>
+                      {/* <span className={styles.timeLabel}>{rev.relative_time_description}</span> */}
+                    </div>
                   </div>
+                  <p className={styles.reviewText}>{rev.text}</p>
                 </div>
-                <p className={styles.reviewText}>{rev.text}</p>
-              </div>
-            ))}
-          </Slider>
-        ) : (
-          <p className={styles.noReviews}>No reviews available.</p>
-        )}
+              ))}
+            </Slider>
+          ) : (
+            <p className={styles.noReviews}>No reviews available.</p>
+          )}
+        </div>
       </div>
     </div>
   );

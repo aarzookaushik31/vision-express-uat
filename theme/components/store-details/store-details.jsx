@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import styles from "./store-details.less";
 import placeholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
 import CardplaceholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
-import PhoneIcon from "../../assets/images/phone.png";
-import Purchase from "../../assets/images/purchase.png";
-import Eye from "../../assets/images/eyeicon.png";
+import PhoneIcon from "../../assets/images/store-phone.svg";
+import Purchase from "../../assets/images/store-purchase.svg";
+import Eye from "../../assets/images/store-eye-test.svg";
 import Repair from "../../assets/images/repairIcon.png";
-import Replacement from "../../assets/images/replacementIcon.png";
+import AddressIcon from "../../assets/images/store-location.svg";
+import ClockIcon from "../../assets/images/store-clock.svg";
 import ShareDesktopIcon from "../../assets/images/share-04.svg";
 import ShareItem from "../../components/share-item/share-item";
 import GoogleRating from "./store-ratings.jsx";
-import phoneIcon from "../../assets/images/phoneicon.png";
-import BookCalender from "../../assets/images/bookcalender.png";
 
-const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) => {
+const NearbyStoreArrow = ({ className, style, onClick, previous = false }) => (
+  <button
+    type="button"
+    className={className}
+    style={style}
+    onClick={onClick}
+    aria-label={previous ? "Previous nearby stores" : "Next nearby stores"}
+    disabled={!onClick}
+  >
+    <span aria-hidden="true">{previous ? "‹" : "›"}</span>
+  </button>
+);
+
+const StoreDetails = ({
+  store,
+  map_api_key,
+  defaultPhone,
+  nearbyStores = [],
+}) => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
- const [googleData, setGoogleData] = useState(null);
+  const [googleData, setGoogleData] = useState(null);
 
   if (!store) {
     return <div className={styles.error}>Store details not available.</div>;
@@ -68,17 +86,17 @@ const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) =
   const mapSrc = `https://www.google.com/maps?q=${latitude},${longitude}&hl=en&z=15&output=embed`;
 
   // ---- Phone ----
-let contactNumber = "";
+  let contactNumber = "";
 
-if (typeof phone_number === "object" && phone_number !== null) {
-  contactNumber = `${phone_number.code ? `+${phone_number.code}-` : ""}${phone_number.number}`;
-} else if (typeof phone_number === "string" && phone_number.trim() !== "") {
-  contactNumber = phone_number;
-} else if (typeof phone_number === "number") {
-  contactNumber = String(phone_number);
-} else if (defaultPhone) {
-  contactNumber = defaultPhone;
-}
+  if (typeof phone_number === "object" && phone_number !== null) {
+    contactNumber = `${phone_number.code ? `+${phone_number.code}-` : ""}${phone_number.number}`;
+  } else if (typeof phone_number === "string" && phone_number.trim() !== "") {
+    contactNumber = phone_number;
+  } else if (typeof phone_number === "number") {
+    contactNumber = String(phone_number);
+  } else if (defaultPhone) {
+    contactNumber = defaultPhone;
+  }
 
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const description = `${store_name} - located at ${formattedAddress}. Visit us today for eye check-ups, eyewear, and more!`;
@@ -99,13 +117,7 @@ if (typeof phone_number === "object" && phone_number !== null) {
     }
   };
 
-
-
-
-
-
-
-useEffect(() => {
+  useEffect(() => {
     const fetchRatingsOnce = async () => {
       try {
         const maps = await new Promise((resolve, reject) => {
@@ -122,7 +134,9 @@ useEffect(() => {
           document.body.appendChild(script);
         });
 
-        const service = new maps.places.PlacesService(document.createElement("div"));
+        const service = new maps.places.PlacesService(
+          document.createElement("div"),
+        );
         const request = {
           query: `Vision Express ${formattedAddress}`,
           fields: ["place_id", "name", "formatted_address"],
@@ -133,32 +147,39 @@ useEffect(() => {
             const place = results[0];
             const detailsRequest = {
               placeId: place.place_id,
-              fields: ["name", "rating", "user_ratings_total", "reviews", "photos"],
+              fields: [
+                "name",
+                "rating",
+                "user_ratings_total",
+                "reviews",
+                "photos",
+                "url",
+              ],
             };
 
-          service.getDetails(detailsRequest, (details, status2) => {
-  if (status2 === maps.places.PlacesServiceStatus.OK && details) {
+            service.getDetails(detailsRequest, (details, status2) => {
+              if (status2 === maps.places.PlacesServiceStatus.OK && details) {
+                let googlePhoto = null;
 
-    let googlePhoto = null;
+                if (details.photos && details.photos.length > 0) {
+                  googlePhoto = details.photos[0].getUrl({
+                    maxWidth: 800,
+                    maxHeight: 600,
+                  });
+                }
 
-    if (details.photos && details.photos.length > 0) {
-      googlePhoto = details.photos[0].getUrl({
-        maxWidth: 800,
-        maxHeight: 600,
-      });
-    }
-
-    setGoogleData({
-      ratingData: {
-        name: details.name,
-        rating: details.rating || 0,
-        total: details.user_ratings_total || 0,
-      },
-      reviews: details.reviews || [],
-      photo: googlePhoto,
-    });
-  }
-});
+                setGoogleData({
+                  url: details.url,
+                  ratingData: {
+                    name: details.name,
+                    rating: details.rating || 0,
+                    total: details.user_ratings_total || 0,
+                  },
+                  reviews: details.reviews || [],
+                  photo: googlePhoto,
+                });
+              }
+            });
           }
         });
       } catch (e) {
@@ -166,122 +187,113 @@ useEffect(() => {
       }
     };
 
-    fetchRatingsOnce();
-  }, [formattedAddress]);
+    if (map_api_key) fetchRatingsOnce();
+  }, [formattedAddress, map_api_key]);
 
+  let weekdayTiming = "";
+  let weekendTiming = "";
 
-let weekdayTiming = "";
-let weekendTiming = "";
+  if (Array.isArray(store_timings)) {
+    const weekday = store_timings.find((d) => d.weekday === "monday");
+    const weekend = store_timings.find((d) => d.weekday === "sunday");
 
-if (Array.isArray(store_timings)) {
-  const weekday = store_timings.find((d) => d.weekday === "monday");
-  const weekend = store_timings.find((d) => d.weekday === "sunday");
+    if (weekday?.slots?.length) {
+      const slot = weekday.slots[0];
+      weekdayTiming = `${slot.opening.hour}:${slot.opening.minute
+        .toString()
+        .padStart(2, "0")} - ${slot.closing.hour}:${slot.closing.minute
+        .toString()
+        .padStart(2, "0")}`;
+    }
 
-  if (weekday?.slots?.length) {
-    const slot = weekday.slots[0];
-    weekdayTiming = `${slot.opening.hour}:${
-      slot.opening.minute.toString().padStart(2, "0")
-    } - ${slot.closing.hour}:${slot.closing.minute
-      .toString()
-      .padStart(2, "0")}`;
+    if (weekend?.slots?.length) {
+      const slot = weekend.slots[0];
+      weekendTiming = `${slot.opening.hour}:${slot.opening.minute
+        .toString()
+        .padStart(2, "0")} - ${slot.closing.hour}:${slot.closing.minute
+        .toString()
+        .padStart(2, "0")}`;
+    }
   }
-
-  if (weekend?.slots?.length) {
-    const slot = weekend.slots[0];
-    weekendTiming = `${slot.opening.hour}:${
-      slot.opening.minute.toString().padStart(2, "0")
-    } - ${slot.closing.hour}:${slot.closing.minute
-      .toString()
-      .padStart(2, "0")}`;
-  }
-}
-
-
-
-
-
 
   return (
     <section className={styles.storeDetailsSection}>
-      {/* Breadcrumb */}
-      <div className={styles.breadcrumb}>
-        <p>
-          <a href="/">Home</a> / <a href="/locate-us">Stores</a> /{" "}
-          <span>{store_city}</span> / <strong>{store_name}</strong>
-        </p>
-      </div>
-
       {/* Top Section */}
       <div className={styles.topSection}>
+        <div className={styles.shareContainer}>
+          <button
+            type="button"
+            aria-label="Share store"
+            className={styles.shareIcon}
+            onClick={handleShare}
+          >
+            <ShareDesktopIcon />
+          </button>
+          {showSocialLinks && (
+            <ShareItem
+              setShowSocialLinks={setShowSocialLinks}
+              handleShare={handleShare}
+              description={description}
+            />
+          )}
+        </div>
+
         <div className={styles.imageCarousel}>
-          <img src={store_image[0] || googleData?.photo || placeholderImage} alt={store_name} />
+          <img
+            src={store_image[0] || googleData?.photo || placeholderImage}
+            alt={store_name}
+          />
         </div>
 
         <div className={styles.infoBlock}>
+          {googleData && (
+            <GoogleRating preFetchedData={googleData} fetchReviews={false} />
+          )}
+
           <h1 className={styles.storeName}>{store_name}</h1>
-
-        {googleData && (
-  <GoogleRating preFetchedData={googleData} fetchReviews={false} />
-)}
-
-          <p className={styles.address}>{formattedAddress}</p>
+          <p className={styles.address}>
+            <span className={styles.iconCircle} aria-hidden="true">
+              <AddressIcon />
+            </span>
+            {formattedAddress}
+          </p>
+          {(weekdayTiming || weekendTiming) && (
+            <p className={styles.timings}>
+              <span className={styles.iconCircle} aria-hidden="true">
+                <ClockIcon />
+              </span>
+              <span>
+                {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
+                {weekdayTiming && weekendTiming && " | "}
+                {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
+              </span>
+            </p>
+          )}
 
           {contactNumber && (
             <div className={styles.phoneRow}>
-              <img src={PhoneIcon} alt="phone" />
+              <span className={styles.iconCircle} aria-hidden="true">
+                <PhoneIcon />
+              </span>
               <a href={`tel:${contactNumber}`}>{contactNumber}</a>
             </div>
           )}
 
-          <div className={styles.actionButtons}>
-            <a
-             href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              "Vision Express, " + formattedAddress
-             )}`}
-
-              target="_blank"
-              rel="noreferrer"
-              className={styles.primaryBtn}
-            >
-              Get Directions
-            </a>
-            <a  href={`/sections/book-an-eye-test?storeCode=${store.store_code}`} className={styles.outlineBtn}>
-              Book Appointment
-            </a>
-
-            <div className={styles.shareContainer}>
-              <span
-                className={styles.shareIcon}
-                onClick={() => setShowSocialLinks(true)}
-              >
-                <ShareDesktopIcon />
-              </span>
-              {showSocialLinks && (
-                <ShareItem
-                  setShowSocialLinks={setShowSocialLinks}
-                  handleShare={() => handleShare()}
-                  description={description}
-                />
-              )}
-            </div>
-          </div>
-
           {/* Services */}
           <div className={styles.servicesOffered}>
-            <h3>Services Offered</h3>
             <div className={styles.servicesGrid}>
               <div className={styles.serviceCard}>
                 <div className={styles.iconCircle}>
-                  <img src={Purchase} alt="Purchase" />
+                  <Purchase aria-hidden="true" />
                 </div>
                 <p>Purchase</p>
               </div>
 
               <div className={styles.serviceCard}>
                 <div className={styles.iconCircle}>
-                  <img src={Eye} alt="Eye" />
+                  <Eye aria-hidden="true" />
                 </div>
-                <p>Eye</p>
+                <p>Eye Test</p>
               </div>
 
               <div className={styles.serviceCard}>
@@ -290,37 +302,36 @@ if (Array.isArray(store_timings)) {
                 </div>
                 <p>Repair</p>
               </div>
-
-              <div className={styles.serviceCard}>
-                <div className={styles.iconCircle}>
-                  <img src={Replacement} alt="Replacement" />
-                </div>
-                <p>Replacement</p>
-              </div>
             </div>
+          </div>
+
+          <div className={styles.actionButtons}>
+            <a
+              href={`/sections/book-an-eye-test?storeCode=${store.store_code}`}
+              className={styles.primaryBtn}
+            >
+              Book Appointment
+            </a>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Vision Express, " + formattedAddress)}`}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.outlineBtn}
+            >
+              Get Direction
+            </a>
           </div>
 
           {/* Map Section */}
           <div className={styles.locationSection}>
             <h3>Location</h3>
 
-           
-           
-          {(weekdayTiming || weekendTiming) && (
-  <p className={styles.timings}>
-    {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
-    {weekdayTiming && weekendTiming && " | "}
-    {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
-  </p>
-)}
-
-
-
             {latitude && longitude && (
               <iframe
                 src={mapSrc}
                 width="100%"
-                height="350"
+                height="280"
+                title={`Location of ${store_name}`}
                 style={{ border: 0, borderRadius: "8px" }}
                 allowFullScreen
                 loading="lazy"
@@ -330,8 +341,8 @@ if (Array.isArray(store_timings)) {
 
           {/* Reviews Section */}
           {googleData && (
-  <GoogleRating preFetchedData={googleData} fetchReviews={true} />
-)}
+            <GoogleRating preFetchedData={googleData} fetchReviews={true} />
+          )}
         </div>
       </div>
 
@@ -339,10 +350,30 @@ if (Array.isArray(store_timings)) {
       {nearbyStores.length > 0 && (
         <div className={styles.nearbyStoresSection}>
           <h3>More Stores Near You</h3>
-          <ul className={styles.nearbyStoreList}>
-            {nearbyStores.slice(0, 2).map((s, idx) => {
-              const imageUrl = (s.store_image && s.store_image[0]) || CardplaceholderImage;
-     
+          <Slider
+            className={styles.nearbyStoreList}
+            slidesToShow={2}
+            slidesToScroll={1}
+            arrows={true}
+            prevArrow={<NearbyStoreArrow previous />}
+            nextArrow={<NearbyStoreArrow />}
+            dots={false}
+            infinite={nearbyStores.length > 1}
+            responsive={[
+              {
+                breakpoint: 769,
+                settings: {
+                  slidesToShow: 1,
+                  adaptiveHeight: true,
+                  arrows: false,
+                  dots: nearbyStores.length > 1,
+                },
+              },
+            ]}
+          >
+            {nearbyStores.map((s, idx) => {
+              const imageUrl =
+                (s.store_image && s.store_image[0]) || CardplaceholderImage;
 
               const addressParts = [
                 s.store_address_line_1,
@@ -362,71 +393,93 @@ if (Array.isArray(store_timings)) {
 
               const formattedAddr = toTitleCase(cleanAddr);
 
-                      const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  "Vision Express, " + formattedAddr
-)}`;
-
+              const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                "Vision Express, " + formattedAddr,
+              )}`;
 
               let contactNumber = "";
-              if (typeof s.phone_number === "object" && s.phone_number !== null) {
+              if (
+                typeof s.phone_number === "object" &&
+                s.phone_number !== null
+              ) {
                 contactNumber = `${s.phone_number.code ? `+${s.phone_number.code}-` : ""}${s.phone_number.number}`;
-              } else if (typeof s.phone_number === "string" && s.phone_number.trim() !== "") {
+              } else if (
+                typeof s.phone_number === "string" &&
+                s.phone_number.trim() !== ""
+              ) {
                 contactNumber = s.phone_number;
               } else if (typeof s.phone_number === "number") {
-               contactNumber = String(s.phone_number);
-          } else if (defaultPhone) {
+                contactNumber = String(s.phone_number);
+              } else if (defaultPhone) {
                 contactNumber = defaultPhone;
               }
 
               return (
-                <li key={s._id || idx} className={styles.nearbyStoreCard}>
-                  <div className={styles.imageWrapper}>
-                    <img
-                      src={imageUrl}
-                      alt={s.store_name}
-                      className={styles.storeImage}
-                    />
-                  </div>
-
-                  <div className={styles.storeContent}>
-                    <h4 className={styles.storeName}>{s.store_name}</h4>
-                    <p className={styles.storeAddress}>{formattedAddr}</p>
-
-                    <div className={styles.phonebookContainer}>
-                      {contactNumber && (
-                        <p>
-                          <img src={phoneIcon} alt="Phone Icon" />
-                          <a href={`tel:${contactNumber}`}>{contactNumber}</a>
-                        </p>
+                <div key={s._id || idx}>
+                  <div className={styles.nearbyStoreCard}>
+                    <div className={styles.imageWrapper}>
+                      <img
+                        src={imageUrl}
+                        alt={s.store_name}
+                        className={styles.storeImage}
+                      />
+                      {Number(s.rating || s.store_rating || s.google_rating) >
+                        0 && (
+                        <span className={styles.ratingRow}>
+                          {Number(
+                            s.rating || s.store_rating || s.google_rating,
+                          ).toFixed(1)}{" "}
+                          Ratings
+                        </span>
                       )}
-
-                      <p>
-                        <img src={BookCalender} alt="Book Appointment" />
-                        <a href={`/sections/book-an-eye-test?storeCode=${s.store_code}`}>Book Appointment</a>
-                      </p>
                     </div>
 
-                    <div className={styles.buttonGroup}>
-                      <a
-                        href={mapLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.directionBtn}
-                      >
-                        Get Direction
-                      </a>
-                      <a
-                        href={`/locate-us?storeCode=${s.store_code}`}
-                        className={styles.detailsBtn}
-                      >
-                        Store Details
-                      </a>
+                    <div className={styles.storeContent}>
+                      <h4 className={styles.storeName}>{s.store_name}</h4>
+                      <p className={styles.storeAddress}>
+                        <span className={styles.iconCircle} aria-hidden="true">
+                          <AddressIcon />
+                        </span>
+                        {formattedAddr}
+                      </p>
+
+                      <div className={styles.phonebookContainer}>
+                        {contactNumber && (
+                          <p>
+                            <span
+                              className={styles.iconCircle}
+                              aria-hidden="true"
+                            >
+                              <PhoneIcon />
+                            </span>
+                            <a href={`tel:${contactNumber}`}>{contactNumber}</a>
+                          </p>
+                        )}
+                      </div>
+
+                      <div className={styles.buttonGroup}>
+                        <a
+                          href={`/sections/book-an-eye-test?storeCode=${s.store_code}`}
+                          className={styles.directionBtn}
+                        >
+                          Book Appointment
+                        </a>
+                        <a
+                          href={mapLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={styles.detailsBtn}
+                          aria-label={`Get directions to ${s.store_name}`}
+                        >
+                          <span aria-hidden="true">→</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </li>
+                </div>
               );
             })}
-          </ul>
+          </Slider>
         </div>
       )}
     </section>

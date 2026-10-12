@@ -462,7 +462,7 @@ const cities = [
     if (selectedStore)
       return (
         <section className={styles.storeDetailsWrapper}>
-          <StoreDetails defaultPhone={defaultPhone} map_api_key={map_api_key}  nearbyStores={getNearbyStores(selectedStore, 2)} store={selectedStore} />
+          <StoreDetails defaultPhone={defaultPhone} map_api_key={map_api_key}  nearbyStores={getNearbyStores(selectedStore, 6)} store={selectedStore} />
         </section>
       );
     return (

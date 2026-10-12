@@ -2326,10 +2326,32 @@
         "label": "Heading Font Size (Mobile)"
       },
       {
+        "id": "heading_margin_bottom",
+        "type": "text",
+        "default": "10px",
+        "label": "Heading Margin Bottom"
+      },
+      {
         "id": "subheading",
         "type": "text",
         "default": "Your Subheading",
         "label": "Subheading"
+      },
+      {
+        "id": "subheading_weight",
+        "type": "select",
+        "default": "normal",
+        "label": "Subheading Weight",
+        "options": [
+          {
+            "value": "normal",
+            "text": "Normal"
+          },
+          {
+            "value": "bold",
+            "text": "Bold"
+          }
+        ]
       },
       {
         "id": "subheading_color",

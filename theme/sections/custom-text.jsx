@@ -6,9 +6,10 @@ function ContentSection({ props = {} }) {
     prop && typeof prop === "object" && "value" in prop ? prop.value : prop || fallback;
 
   const heading = getVal(props.heading);
+  const headingMarginBottom = getVal(props.heading_margin_bottom, "10px");
   const subheading = getVal(props.subheading);
   const content = getVal(props.content);
-
+  const subheadingWeight = getVal(props.subheading_weight, "normal");
   const headingColor = getVal(props.heading_color, "#000000");
   const subheadingColor = getVal(props.subheading_color, "#333333");
   const contentColor = getVal(props.content_color, "#555555");
@@ -62,13 +63,13 @@ const buttonMargin = getVal(props.button_margin, "20px 0 0 0");
       }}
     >
       {heading ? (
-        <h2 className={styles.heading} style={{ color: headingColor }}>
+        <h2 className={styles.heading} style={{ color: headingColor, marginBottom: headingMarginBottom }}>
           {heading}
         </h2>
       ) : null}
 
       {subheading ? (
-        <h3 className={styles.subheading} style={{ color: subheadingColor }}>
+        <h3 className={styles.subheading} style={{ color: subheadingColor, fontWeight: subheadingWeight }}>
           {subheading}
         </h3>
       ) : null}
@@ -109,8 +110,13 @@ export const settings = {
     { id: "heading_color", type: "color", default: "#000000", label: "Heading Color" },
     { id: "heading_size", type: "text", default: "28px", label: "Heading Font Size (Desktop)" },
     { id: "heading_size_mobile", type: "text", default: "22px", label: "Heading Font Size (Mobile)" },
+    { id: "heading_margin_bottom", type: "text", default: "10px", label: "Heading Margin Bottom" },
 
     { id: "subheading", type: "text", default: "Your Subheading", label: "Subheading" },
+    { id: "subheading_weight", type: "select", default: "normal", label: "Subheading Weight", options: [
+      { value: "normal", text: "Normal" },
+      { value: "bold", text: "Bold" }
+    ] },
     { id: "subheading_color", type: "color", default: "#333333", label: "Subheading Color" },
     { id: "subheading_size", type: "text", default: "20px", label: "Subheading Font Size (Desktop)" },
     { id: "subheading_size_mobile", type: "text", default: "18px", label: "Subheading Font Size (Mobile)" },

@@ -318,7 +318,7 @@ function Component({ props = {} }) {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Enter 10 digit mobile number"
+                    placeholder="XXXXX XXXXX"
                     value={formData.phone}
                     required
                     onChange={(e) => {
