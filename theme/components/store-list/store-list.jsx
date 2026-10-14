@@ -10,6 +10,16 @@ const toTitleCase = (str) =>
     .replace(/\s+/g, " ")
     .trim();
 
+
+const getTagNumber = (store) => {
+  const raw = store.store_tag ?? store.tags ?? store.tag;
+  const list = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  const match = list
+    .map((t) => String(t).trim())
+    .find((t) => /^\+?\d[\d\s-]{8,}$/.test(t));
+  return match || "";
+};
+
 const StoreList = ({
   stores = [],
   loading = false,
@@ -20,12 +30,15 @@ const StoreList = ({
   if (error) return <p className={styles.error}>{error}</p>;
   if (!stores.length) return <p className={styles.message}>No stores found.</p>;
 
+
+
+
   return (
     <div className={styles.storeListContainer}>
-      <h2 className={styles.storeCount}>Showing {stores.length} Stores</h2>
+<h2 className={styles.storeCount}>Showing {stores.length} Stores</h2>
 
-      <ul className={styles.storeList}>
-        {stores.map((store, idx) => {
+<ul className={styles.storeList}>
+  {stores.map((store, idx) => {
           const imageUrl =
             (store.store_image && store.store_image[0]) || placeholderImage;
 
@@ -48,25 +61,13 @@ const StoreList = ({
 
           const formattedAddress = toTitleCase(cleanAddress);
 
-          // --- Phone Logic ---
-          let contactNumber = "";
-          if (
-            typeof store.phone_number === "object" &&
-            store.phone_number !== null
-          ) {
-            contactNumber = `${
-              store.phone_number.code ? `+${store.phone_number.code}-` : ""
-            }${store.phone_number.number}`;
-          } else if (
-            typeof store.phone_number === "string" &&
-            store.phone_number.trim() !== ""
-          ) {
-            contactNumber = store.phone_number;
-          } else if (typeof store.phone_number === "number") {
-            contactNumber = String(store.phone_number);
-          } else if (defaultPhone) {
-            contactNumber = defaultPhone;
-          }
+      // --- Phone Logic (number comes from Store Tag) ---
+let contactNumber = getTagNumber(store);
+
+// Fallback if a store has no number in its tag
+if (!contactNumber && defaultPhone) {
+  contactNumber = defaultPhone;
+}
 
           const directionUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
             "Vision Express, " + formattedAddress
@@ -116,7 +117,7 @@ const StoreList = ({
   </defs>
 </svg>
                     </span>
-                    <a href={`tel:${contactNumber}`}>{contactNumber}</a>
+                   <a href={`tel:${contactNumber.replace(/\s/g, "")}`}>{contactNumber}</a>
                   </p>
                 )}
 
