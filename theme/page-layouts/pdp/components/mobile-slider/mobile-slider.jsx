@@ -1,8 +1,11 @@
-import React, { useState, createRef } from "react";
+// Previous hooks: import React, { useState, createRef } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import Slider from "react-slick";
 import FyImage from "@gofynd/theme-template/components/core/fy-image/fy-image";
 import "@gofynd/theme-template/components/core/fy-image/fy-image.css";
 import { getProductImgAspectRatio } from "../../../../helper/utils";
+// import { useMobile } from "../../../../helper/hooks/useMobile";
+import { useViewport } from "../../../../helper/hooks";
 import Viewer3D from "../viewer-3d/viewer-3d";
 import styles from "./mobile-slider.less";
 import { useGlobalTranslation } from "fdk-core/utils";
@@ -31,15 +34,32 @@ function MobileSlider({
   displayTag,
   tryOnButton = null,
   shareButton = null,
+  mobileAutoplay = true,
+  mobileAutoplaySpeed = 3000,
 }) {
   const { t } = useGlobalTranslation("translation");
   const [mainSlider, setMainSlider] = useState(null);
   const [thumbSlider, setThumbSlider] = useState(null);
+  // const isMobile = useMobile(768);
+  const isMobile = useViewport(0, 768);
 
   const [showReplayButton, setShowReplayButton] = useState(false);
   const [isMute, setIsMute] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState([]);
   const videoRef = createRef();
+  const autoplayInterval = Number(mobileAutoplaySpeed);
+  const resolvedAutoplaySpeed = Number.isFinite(autoplayInterval) && autoplayInterval > 0
+    ? autoplayInterval
+    : 3000;
+  useEffect(() => {
+    if (!mainSlider?.innerSlider) return;
+    // Slick retains its paused state when responsive autoplay changes from false to true.
+    if (isMobile && mobileAutoplay && images?.length > 1) {
+      mainSlider.slickPlay();
+    } else {
+      mainSlider.slickPause();
+    }
+  }, [mainSlider, isMobile, mobileAutoplay, images?.length, resolvedAutoplaySpeed]);
 
 const mainSettings = {
   dots: false,
@@ -49,6 +69,15 @@ const mainSettings = {
   arrows: false,
   swipe: true,
   speed: 400,
+  // The mobile gallery stays mounted behind its desktop CSS, so autoplay is viewport scoped.
+  autoplay: false,
+  autoplaySpeed: resolvedAutoplaySpeed,
+  pauseOnHover: true,
+  pauseOnFocus: true,
+  responsive: [{
+    breakpoint: 768,
+    settings: { autoplay: Boolean(mobileAutoplay) && images?.length > 1 },
+  }],
   asNavFor: thumbSlider,
   beforeChange: (current, next) => {
     if (typeof setCurrentImageIndex === "function") {

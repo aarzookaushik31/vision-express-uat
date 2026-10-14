@@ -327,6 +327,16 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     offsetY: 0,
   });
   const isMobile = useViewport(0, 768);
+  const mobileSliderAutoplay = props.mobile_slider_autoplay?.value ?? true;
+  const configuredMobileInterval = Number(props.mobile_slider_interval?.value ?? 3);
+  const mobileSliderAutoplaySpeed = Number.isFinite(configuredMobileInterval) && configuredMobileInterval > 0
+    ? configuredMobileInterval * 1000
+    : 3000;
+  const similarImageAutoplay = props.similar_image_autoplay?.value ?? true;
+  const configuredSimilarImageInterval = Number(props.similar_image_interval?.value ?? 3);
+  const similarImageAutoplaySpeed = Number.isFinite(configuredSimilarImageInterval) && configuredSimilarImageInterval > 0
+    ? configuredSimilarImageInterval * 1000
+    : 3000;
   const hasFindInStoreBlock = blocks.some((block) => block.type === "find_in_store");
 
   useEffect(() => {
@@ -727,6 +737,9 @@ frameSize && (
                     images={media}
                     desktopLayout="slider"
                     shareButton={galleryShareButton}
+                    showDesktopShare={false}
+                    mobileAutoplay={mobileSliderAutoplay}
+                    mobileAutoplaySpeed={mobileSliderAutoplaySpeed}
                     tryOnButton={
                       <GlamARTrigger accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71" sku={productDetails?.item_code} buttonClassName={styles.galleryTryOn}>
                         <span className={styles.galleryTryOnIcon} style={{ maskImage: `url(${tryOnMask})`, WebkitMaskImage: `url(${tryOnMask})` }}><TryOnIcon /></span>
@@ -863,6 +876,8 @@ frameSize && (
                       
 
                            <div className={styles.shareWishlistContainer}>
+                             {/* Reuse the original share control beside the desktop price only. */}
+                             <span className={styles.desktopPriceShare}>{galleryShareButton}</span>
                              {/* Keep wishlist beside the price when there is no Find in Store block. */}
                              {!blocks?.some((item) => item.type === "find_in_store") && (
                              <button
@@ -1734,6 +1749,10 @@ frameSize && (
                 customValue="similar-products"
                 sectionTitle="Similar Products"
                 slideToShow={4}
+                mobileAutoplay={mobileSliderAutoplay}
+                mobileAutoplaySpeed={mobileSliderAutoplaySpeed}
+                imageCarouselAutoplay={similarImageAutoplay}
+                imageCarouselAutoplaySpeed={similarImageAutoplaySpeed}
                 showDiscount={true}
                 showBag={false}
                 globalConfig={globalConfig}
@@ -1829,6 +1848,38 @@ export const settings = {
       label: "t:resource.sections.product_description.zoom_in",
       info: "t:resource.sections.product_description.zoom_in_info",
       default: false,
+    },
+    {
+      type: "checkbox",
+      id: "mobile_slider_autoplay",
+      label: "Autoplay mobile gallery and similar products",
+      default: true,
+    },
+    {
+      type: "range",
+      id: "mobile_slider_interval",
+      label: "Mobile slider interval",
+      min: 1,
+      max: 10,
+      step: 1,
+      unit: "s",
+      default: 3,
+    },
+    {
+      type: "checkbox",
+      id: "similar_image_autoplay",
+      label: "Autoplay Similar Products images",
+      default: true,
+    },
+    {
+      type: "range",
+      id: "similar_image_interval",
+      label: "Similar Products image interval",
+      min: 1,
+      max: 10,
+      step: 1,
+      unit: "s",
+      default: 3,
     },
     {
       type: "checkbox",

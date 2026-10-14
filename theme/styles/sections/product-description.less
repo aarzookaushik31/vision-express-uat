@@ -1665,3 +1665,26 @@ path:nth-of-type(1) {
   // Previous corner treatment: .findInStoreButton { border-radius: 16px; }
   .findInStoreButton { border-radius: 50px; }
 }
+
+// The mobile share control remains in the gallery; desktop uses the price row.
+.desktopPriceShare { display: none; }
+@media @desktop {
+  .mainContainer .productDescContainer .right .product .priceShareContainer {
+    position: relative;
+    padding-inline-end: 60px;
+    .desktopPriceShare {
+      position: absolute;
+      top: 0;
+      inset-inline-end: 0;
+      display: flex;
+      width: 48px;
+      height: 48px;
+      .shareIcon {
+        width: 48px;
+        height: 48px;
+        border-radius: 21px;
+        background: rgba(158, 0, 126, 0.04);
+      }
+    }
+  }
+}

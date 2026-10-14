@@ -34,7 +34,8 @@
  *
  */
 
-import React, { useMemo } from "react";
+// import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { currencyFormat, formatLocale } from "../../../../helper/utils";
 import { useMobile } from "../../../../helper/hooks";
 import FyImage from "../../../../components/core/fy-image/fy-image";
@@ -43,6 +44,114 @@ import  styles from "./product-card.less";
 import FyButton from "../../../../components/core/fy-button/fy-button";
 import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
 import WishlistIcon from "../../../../assets/images/wishlist";
+import PreviousArrow from "../../../../assets/images/pdp-gallery/previous.svg";
+import NextArrow from "../../../../assets/images/pdp-gallery/next.svg";
+
+const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColor, autoplay, autoplaySpeed }) => {
+  const [activeImage, setActiveImage] = useState(0);
+  // Initial combined pause state: const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const isPaused = isHovered || isFocused;
+  const pointerStart = useRef(null);
+  const suppressImageClick = useRef(false);
+  const imageKey = images.map((image) => image.url).join("|");
+  const interval = Number(autoplaySpeed);
+  const resolvedInterval = Number.isFinite(interval) && interval > 0 ? interval : 3000;
+
+  useEffect(() => { setActiveImage(0); }, [imageKey]);
+  useEffect(() => {
+    if (!autoplay || isPaused || images.length < 2) return undefined;
+    const timer = setInterval(() => {
+      setActiveImage((current) => (current + 1) % images.length);
+    }, resolvedInterval);
+    return () => clearInterval(timer);
+  }, [autoplay, isPaused, images.length, resolvedInterval]);
+
+  const selectImage = (event, index) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setActiveImage((index + images.length) % images.length);
+  };
+
+  return (
+    <div
+      className={styles.cardImageCarousel}
+      role="group"
+      aria-roledescription="carousel"
+      aria-label={`${productName} images`}
+      // Initial pause handlers: onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} onFocusCapture={() => setIsPaused(true)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocusCapture={() => setIsFocused(true)}
+      onBlurCapture={(event) => {
+        // Initial combined pause reset: if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsFocused(false);
+      }}
+    >
+      <div
+        className={styles.cardImageTrack}
+        style={{ transform: `translateX(-${activeImage * 100}%)` }}
+        onMouseDown={(event) => { if (images.length > 1) event.stopPropagation(); }}
+        onTouchStart={(event) => { if (images.length > 1) event.stopPropagation(); }}
+        onTouchMove={(event) => { if (images.length > 1) event.stopPropagation(); }}
+        onTouchEnd={(event) => { if (images.length > 1) event.stopPropagation(); }}
+        onPointerDown={(event) => {
+          if (images.length > 1) event.stopPropagation();
+          pointerStart.current = { x: event.clientX, y: event.clientY };
+          suppressImageClick.current = false;
+        }}
+        onPointerUp={(event) => {
+          const start = pointerStart.current;
+          pointerStart.current = null;
+          if (!start || images.length < 2) return;
+          const distance = event.clientX - start.x;
+          if (Math.abs(distance) > 40 && Math.abs(distance) > Math.abs(event.clientY - start.y)) {
+            suppressImageClick.current = true;
+            selectImage(event, activeImage + (distance < 0 ? 1 : -1));
+          }
+        }}
+        onPointerCancel={() => { pointerStart.current = null; }}
+        onClickCapture={(event) => {
+          if (suppressImageClick.current) {
+            event.preventDefault();
+            event.stopPropagation();
+            suppressImageClick.current = false;
+          }
+        }}
+      >
+        {images.map((image, index) => (
+          <div className={styles.cardImageSlide} key={image.url} aria-hidden={index !== activeImage}>
+            <FyImage
+              src={image.url}
+              alt={image.alt || productName}
+              backgroundColor={imageBackgroundColor}
+              isFixedAspectRatio={false}
+              customClass={styles.productImage}
+              sources={imgSrcSet}
+              defer={false}
+            />
+          </div>
+        ))}
+      </div>
+      {images.length > 1 && (
+        <>
+          <button type="button" className={`${styles.cardImageArrow} ${styles.cardImagePrevious}`} aria-label={`Previous image of ${productName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, activeImage - 1)}>
+            <PreviousArrow viewBox="0 0 40 40" aria-hidden="true" />
+          </button>
+          <button type="button" className={`${styles.cardImageArrow} ${styles.cardImageNext}`} aria-label={`Next image of ${productName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, activeImage + 1)}>
+            <NextArrow viewBox="0 0 40 40" aria-hidden="true" />
+          </button>
+          <div className={styles.cardImageDots}>
+            {images.map((image, index) => (
+              <button type="button" key={image.url} className={index === activeImage ? styles.cardImageDotActive : ""} aria-label={`View image ${index + 1} of ${productName}`} aria-pressed={index === activeImage} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, index)} />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const ProductCard = ({
   product,
@@ -64,6 +173,9 @@ const ProductCard = ({
   showImageOnHover = false,
   imageIndex = 0,
   useSelectedImageOnHover = false,
+  imageCarouselIndices = [],
+  imageCarouselAutoplay = false,
+  imageCarouselAutoplaySpeed = 3000,
   imageBackgroundColor = "",
   imagePlaceholder = "",
   columnCount = { desktop: 4, tablet: 3, mobile: 1 },
@@ -157,6 +269,12 @@ const ProductCard = ({
   const hoverImageUrl = hoverImage?.url || "";
   const imageAlt = selectedImage?.alt || `${product?.brand?.name} | ${product?.name}`;
   const hoverImageAlt = hoverImage?.alt || imageAlt;
+  const carouselImages = imageCarouselIndices
+    .map((index) => images[index])
+    .filter((image, index, list) => image?.url && list.findIndex((item) => item?.url === image.url) === index);
+  if (imageCarouselIndices.length > 0 && !carouselImages.length && selectedImage?.url) {
+    carouselImages.push(selectedImage);
+  }
 
     
   const shadeVariants = product.variants?.find(
@@ -249,13 +367,15 @@ const ProductCard = ({
 
 {displayTag && (
   <div className={styles.displayTagContainer}>
-    <span>{displayTag}</span>
+    {/* Original label retained: <span>{displayTag}</span> */}
+    <span>{useColorDots && /^best\s*seller$/i.test(String(displayTag).trim()) ? "Best Seller" : displayTag}</span>
   </div>
 )}
 
 
       <div className={styles.imageContainer}>
-        {!isMobile && showImageOnHover && hoverImageUrl && (
+        {/* Original condition: !isMobile && showImageOnHover && hoverImageUrl */}
+        {!carouselImages.length && !isMobile && showImageOnHover && hoverImageUrl && (
           <FyImage
             src={hoverImageUrl}
             alt={hoverImageAlt}
@@ -266,7 +386,10 @@ const ProductCard = ({
             defer={true}
           />
         )}
-        <FyImage
+        {/* Original static image remains the fallback when the image carousel is not configured. */}
+        {carouselImages.length ? (
+          <CardImageCarousel images={carouselImages} productName={product.name} imgSrcSet={imgSrcSet} imageBackgroundColor={imageBackgroundColor} autoplay={imageCarouselAutoplay} autoplaySpeed={imageCarouselAutoplaySpeed} />
+        ) : <FyImage
           src={imageUrl || imagePlaceholder}
           alt={imageAlt}
           backgroundColor={imageBackgroundColor}
@@ -274,7 +397,7 @@ const ProductCard = ({
           customClass={`${styles.productImage} ${styles.mainImage}`}
           sources={imgSrcSet}
           defer={false}
-        />
+        />}
         {isWishlistIcon && (
           <button
             className={`${styles.wishlistBtn} ${isFollowed ? styles.active : ""}`}

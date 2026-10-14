@@ -20,12 +20,15 @@ function PdpImageGallery({
   addToWishList,
   handleShare,
   showShareIcon = true,
+  showDesktopShare = true,
   slideTabCentreNone = true,
   imgSources = [],
   displayTag,
   desktopLayout = "grid",
   tryOnButton = null,
   shareButton = null,
+  mobileAutoplay = true,
+  mobileAutoplaySpeed = 3000,
 }) {
   const [zoomData, setZoomData] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -106,7 +109,8 @@ function PdpImageGallery({
       {/* <div className={styles.desktop}><div className={styles.galleryGrid}> */}
       <div className={`${styles.desktop} ${isDesktopSlider ? styles.desktopSlider : ""}`}>
         <div className={isDesktopSlider ? styles.sliderPanel : styles.galleryGrid}>
-          {shareButton && showShareIcon && <div className={styles.desktopGalleryShare}>{shareButton}</div>}
+          {/* Previous placement condition: {shareButton && showShareIcon && <div className={styles.desktopGalleryShare}>{shareButton}</div>} */}
+          {shareButton && showShareIcon && showDesktopShare && <div className={styles.desktopGalleryShare}>{shareButton}</div>}
           <DesktopGallery {...desktopGalleryProps}>
           {filteredImages.map((item, index) => (
             <div
@@ -195,6 +199,8 @@ function PdpImageGallery({
           displayTag={displayTag}
           tryOnButton={tryOnButton}
           shareButton={shareButton}
+          mobileAutoplay={mobileAutoplay}
+          mobileAutoplaySpeed={mobileAutoplaySpeed}
         />
       </div>
 

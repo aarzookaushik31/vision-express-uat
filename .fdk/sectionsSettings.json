@@ -4659,6 +4659,22 @@
         "id": "use_figma_icons",
         "label": "Use Figma benefit icons on product pages",
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_slider_autoplay",
+        "label": "Autoplay product-page benefits on mobile",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "mobile_slider_interval",
+        "label": "Change mobile benefit slides every",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "sec",
+        "default": 3
       }
     ],
     "blocks": [
@@ -7460,6 +7476,38 @@
         "label": "t:resource.sections.product_description.zoom_in",
         "info": "t:resource.sections.product_description.zoom_in_info",
         "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_slider_autoplay",
+        "label": "Autoplay mobile gallery and similar products",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "mobile_slider_interval",
+        "label": "Mobile slider interval",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "s",
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "similar_image_autoplay",
+        "label": "Autoplay Similar Products images",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "similar_image_interval",
+        "label": "Similar Products image interval",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "s",
+        "default": 3
       },
       {
         "type": "checkbox",

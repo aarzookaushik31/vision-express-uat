@@ -576,3 +576,60 @@ picture{
     }
   }
 }
+
+// Image navigation is scoped to the PDP recommendation cards.
+.productCard.figmaSimilarCard {
+  .cardImageCarousel { position: absolute; inset: 0; overflow: hidden; }
+  .cardImageTrack { display: flex; width: 100%; height: 100%; transition: transform 400ms ease-in-out; touch-action: pan-y; }
+  .cardImageSlide { flex: 0 0 100%; min-width: 0; height: 100%; }
+  .cardImageSlide img { user-select: none; -webkit-user-drag: none; }
+  .cardImageArrow {
+    position: absolute;
+    top: 38%;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    // Initial icon padding: padding: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #9e007e;
+    color: #fff;
+    cursor: pointer;
+    svg { width: 100%; height: 100%; }
+    &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  }
+  .cardImagePrevious { left: 10px; svg { transform: rotate(180deg); } }
+  .cardImageNext { right: 10px; }
+  .cardImageDots {
+    position: absolute;
+    z-index: 4;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    button {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .65);
+      box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+      cursor: pointer;
+      transition: width 200ms ease;
+      &.cardImageDotActive { width: 20px; background: #9e007e; }
+      &:focus-visible { outline: 2px solid #9e007e; outline-offset: 3px; }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cardImageTrack, .cardImageDots button { transition: none; }
+  }
+}
+
+// Retain the arrow code; Similar Products uses automatic image rotation and dots.
+.productCard.figmaSimilarCard .cardImageArrow { display: none; }
