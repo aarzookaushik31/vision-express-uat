@@ -1,9 +1,9 @@
-import React , {useState, useEffect, useMemo} from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { FDKLink } from "fdk-core/components";
 import styles from "../styles/product-listing.less";
 import InfiniteLoader from "../components/infinite-loader/infinite-loader";
 import Breadcrumb from "../components/breadcrumb/breadcrumb";
-import ProductCard from "../components/product-card/product-card";
+import ProductCard from "../components/product-card-new/product-card";
 import Sort from "../page-layouts/plp/Components/sort/sort";
 import FilterItem from "../page-layouts/plp/Components/filter-item/filter-item";
 import StickyColumn from "../page-layouts/plp/Components/sticky-column/sticky-column";
@@ -24,15 +24,10 @@ import TwoGridIcon from "../assets/images/desktop-2col.svg";
 import FourGridIcon from "../assets/images/grid-four.svg";
 import TwoGridMobIcon from "../assets/images/twogrid.svg";
 import OneGridMobIcon from "../assets/images/mob-1col.svg";
-import { useGlobalTranslation, useFPI} from "fdk-core/utils";
+import { useGlobalTranslation, useFPI } from "fdk-core/utils";
 import Question from "../assets/images/question.png";
 import { GET_PRODUCT_DETAILS } from "../queries/pdpQuery";
-
 import { GET_CUSTOM_FIELDS } from "../queries/plpQuery";
-
-
-
-
 
 const ProductListing = ({
   breadcrumb = [],
@@ -72,6 +67,8 @@ const ProductListing = ({
   banner = {},
   showAddToCart = false,
   actionButtonText,
+  cardVariant = "overlay", // NEW: "overlay" | "classic"
+  showBadge = true, // NEW: show teaser_tag badge on the card
   stickyFilterTopOffset = 0,
   onColumnCountUpdate = () => {},
   onResetFiltersClick = () => {},
@@ -84,12 +81,12 @@ const ProductListing = ({
   onLoadMoreProducts = () => {},
   EmptyStateComponent,
   bannerRef,
-    bgImage,
-    banner_title,
-    banner_subtitle,
-    banner_subtitle_eyeglass,
-    banner_button_link,
-    banner_button_text,
+  bgImage,
+  banner_title,
+  banner_subtitle,
+  banner_subtitle_eyeglass,
+  banner_button_link,
+  banner_button_text,
 }) => {
   const { t } = useGlobalTranslation("translation");
   const isTablet = useViewport(0, 768);
@@ -101,15 +98,12 @@ const ProductListing = ({
     ...restAddToModalProps
   } = addToCartModalProps;
 
-
   const [isFindmyFitOpen, setIsFindmyFitOpen] = useState(false);
 
   const fpi = useFPI();
 
-
-const [customFieldsData, setCustomFieldsData] = useState(null);
+  const [customFieldsData, setCustomFieldsData] = useState(null);
   const [sizeGuide, setSizeGuide] = useState(null);
-
 
   useEffect(() => {
     if (!isProductLoading && productList?.length > 0) {
@@ -127,109 +121,133 @@ const [customFieldsData, setCustomFieldsData] = useState(null);
             return;
           }
 
-          
-         const sizeChart = product?.sizes?.size_chart;
+          const sizeChart = product?.sizes?.size_chart;
 
-const isValidSizeGuide =
-  sizeChart &&
-  (Object.keys(sizeChart?.headers || {}).length > 0 ||
-    sizeChart?.image);
+          const isValidSizeGuide =
+            sizeChart &&
+            (Object.keys(sizeChart?.headers || {}).length > 0 ||
+              sizeChart?.image);
 
-if (isValidSizeGuide) {
-  setSizeGuide(product.sizes);
-} else {
-  setSizeGuide(null);
-}
-
+          if (isValidSizeGuide) {
+            setSizeGuide(product.sizes);
+          } else {
+            setSizeGuide(null);
+          }
         })
         .catch((err) => console.error("Error fetching product details:", err));
     }
   }, [fpi, productList, isProductLoading]);
 
+  useEffect(() => {
+    if (!productList?.length) return;
 
+    const productIds = productList.map((p) => String(p.uid));
 
-useEffect(() => {
-  if (!productList?.length) return;
+    fpi
+      .executeGQL(GET_CUSTOM_FIELDS, {
+        resource: "product",
+        resourceIds: productIds,
+        keys: ["glamarmeta"],
+      })
+      .then((res) => {
+        const data = res?.data?.customFieldsByResource;
+        setCustomFieldsData(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching custom fields:", err);
+      });
+  }, [productList]);
 
-  const productIds = productList.map((p) => String(p.uid));
+  const isSizeGuideAvailable = useMemo(() => {
+    const sizeChartHeader = sizeGuide?.size_chart?.headers || {};
+    return (
+      Object.keys(sizeChartHeader).length > 0 || sizeGuide?.size_chart?.image
+    );
+  }, [sizeGuide]);
 
+  const handleOpenFindmyFit = () => setIsFindmyFitOpen(true);
+  const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
 
-  fpi.executeGQL(GET_CUSTOM_FIELDS, {
-    resource: "product",
-    resourceIds: productIds,
-    keys: ["glamarmeta"],
-  })
-    .then((res) => {
-      const data = res?.data?.customFieldsByResource;
-      setCustomFieldsData(data);
-    })
-    .catch((err) => {
-      window.alert(JSON.stringify(err, null, 2));
-    });
+  const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
 
-}, [productList]);
-
-
-
-
-const isSizeGuideAvailable = useMemo(() => {
-  const sizeChartHeader = sizeGuide?.size_chart?.headers || {};
-  return (
-    Object.keys(sizeChartHeader).length > 0 ||
-    sizeGuide?.size_chart?.image
-  );
-}, [sizeGuide]);
-
-
-const handleOpenFindmyFit = () => setIsFindmyFitOpen(true);
-const handleCloseFindmyFit = () => setIsFindmyFitOpen(false);
-
-
-const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
-
+  // Props shared by both ProductGrid usages (infinite + pagination/view_more)
+  const gridProps = {
+    isProductOpenInNewTab,
+    productList,
+    columnCount,
+    isBrand,
+    isSaleBadge,
+    isPrice,
+    aspectRatio,
+    isWishlistIcon,
+    WishlistIconComponent,
+    followedIdList,
+    listingPrice,
+    showAddToCart,
+    actionButtonText: actionButtonText ?? t("resource.common.add_to_cart"),
+    onWishlistClick,
+    isImageFill,
+    showImageOnHover,
+    imageBackgroundColor,
+    imagePlaceholder,
+    handleAddToCart,
+    imgSrcSet,
+    bannerRef,
+    bgImage,
+    banner_title,
+    banner_subtitle,
+    banner_subtitle_eyeglass,
+    isEyeglassCollection,
+    banner_button_link,
+    banner_button_text,
+    customFieldsData,
+    cardVariant, // NEW
+    showBadge, // NEW
+  };
 
   return (
     <div className={`${styles.plpWrapper} plpwrappercustomgrid`}>
       {isRunningOnClient() && isPageLoading ? (
         <div className={styles.loader}></div>
-      ) : productList?.length === 0 && !(isPageLoading || isPageLoading) ? (
-        <div>{EmptyStateComponent ? EmptyStateComponent : <EmptyState title={t('resource.common.sorry_we_couldnt_find_any_results')} />}</div>
+      ) : productList?.length === 0 && !isPageLoading ? (
+        <div>
+          {EmptyStateComponent ? (
+            EmptyStateComponent
+          ) : (
+            <EmptyState
+              title={t("resource.common.sorry_we_couldnt_find_any_results")}
+            />
+          )}
+        </div>
       ) : (
         <>
-
-              <div className={styles.stickyMobileFilter}>
-
-
-                {title?.toLowerCase() !== "accessories" &&
- !title?.toLowerCase().includes("contact lens") &&   isSizeGuideAvailable && (
-                 <button onClick={handleOpenFindmyFit}>
-                <span>Find My Fit</span>
-              </button>
-                )}
- 
-                 {filterList.length > 0 && (
-                <button
-                  className={styles.filterBtn}
-                  onClick={onFilterModalBtnClick}
-                >
-                  <span>Filters</span>
+          <div className={styles.stickyMobileFilter}>
+            {title?.toLowerCase() !== "accessories" &&
+              !title?.toLowerCase().includes("contact lens") &&
+              isSizeGuideAvailable && (
+                <button onClick={handleOpenFindmyFit}>
+                  <span>Find My Fit</span>
                 </button>
               )}
-             
-              </div>
 
-
+            {filterList.length > 0 && (
+              <button
+                className={styles.filterBtn}
+                onClick={onFilterModalBtnClick}
+              >
+                <span>Filters</span>
+              </button>
+            )}
+          </div>
 
           <div className={styles.mobileHeader}>
             <div className={styles.headerLeft}>
-
-                <Breadcrumb breadcrumb={breadcrumb} />
-       
+              <Breadcrumb breadcrumb={breadcrumb} />
             </div>
             <div className={styles.headerRight}>
-                {sortList.length > 0 && (
-                <button 
-                className={`${styles.sortBtnMobile} ${styles.tablet}`}
+              {sortList.length > 0 && (
+                <button
+                  className={`${styles.sortBtnMobile} ${styles.tablet}`}
                   onClick={onSortModalBtnClick}
                 >
                   <span>Sort By</span>
@@ -280,62 +298,63 @@ const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
               >
                 <FourGridIcon />
               </button>
-
-             
             </div>
           </div>
-         
+
           <div className={styles.contentWrapper}>
             {filterList?.length !== 0 && (
               <StickyColumn
                 className={styles.left}
                 topOffset={stickyFilterTopOffset}
               >
+                <div className={styles.breadcrumbWrapper}>
+                  <Breadcrumb breadcrumb={breadcrumb} />
+                </div>
 
-                 <div className={styles.breadcrumbWrapper}>
-            <Breadcrumb breadcrumb={breadcrumb} />
-          </div>
-
-
-               <div className={styles.filterContainerCustom}>
-
-                <div className={styles.filterHeaderContainer}>
-                  <div className={styles.filterHeader}>
-                    <h4 className={styles.title}>{t("resource.product.filters_caps")}</h4>
-                    {!isResetFilterDisable && (
-                      <button
-                        className={styles.resetBtn}
-                        onClick={onResetFiltersClick}
-                      >
-                        Clear all
-                      </button>
-                    )}
+                <div className={styles.filterContainerCustom}>
+                  <div className={styles.filterHeaderContainer}>
+                    <div className={styles.filterHeader}>
+                      <h4 className={styles.title}>
+                        {t("resource.product.filters_caps")}
+                      </h4>
+                      {!isResetFilterDisable && (
+                        <button
+                          className={styles.resetBtn}
+                          onClick={onResetFiltersClick}
+                        >
+                          Clear all
+                        </button>
+                      )}
+                    </div>
+                    <FilterTags
+                      selectedFilters={selectedFilters}
+                      onFilterUpdate={onFilterUpdate}
+                    />
                   </div>
-                  <FilterTags
-                    selectedFilters={selectedFilters}
-                    onFilterUpdate={onFilterUpdate}
-                  />
-                </div>
-                {filterList?.map((filter, idx) => (
-                  <FilterItem
-                    isMobileView={false}
-                    key={idx + "-desktop" + filter.key.display}
-                    filter={filter}
-                    onFilterUpdate={onFilterUpdate}
-                  />
-                ))}
+                  {filterList?.map((filter, idx) => (
+                    <FilterItem
+                      isMobileView={false}
+                      key={idx + "-desktop" + filter.key.display}
+                      filter={filter}
+                      onFilterUpdate={onFilterUpdate}
+                    />
+                  ))}
                 </div>
 
-                   {title?.toLowerCase() !== "accessories" &&
- !title?.toLowerCase().includes("contact lens")  &&   isSizeGuideAvailable && (
-                <div className={styles.customFindmyFitContainer}>
-                       <h2>find my fit</h2>
-                       <p>Love the fit of your old glasses? Give us the numbers from your old glasses we'll do the rest.</p>
-                      <button  onClick={handleOpenFindmyFit} >Need Help with Frame Size?</button>
-                </div>
-                   )}
-
-
+                {/* {title?.toLowerCase() !== "accessories" &&
+                  !title?.toLowerCase().includes("contact lens") &&
+                  isSizeGuideAvailable && (
+                    <div className={styles.customFindmyFitContainer}>
+                      <h2>find my fit</h2>
+                      <p>
+                        Love the fit of your old glasses? Give us the numbers
+                        from your old glasses we'll do the rest.
+                      </p>
+                      <button onClick={handleOpenFindmyFit}>
+                        Need Help with Frame Size?
+                      </button>
+                    </div>
+                  )} */}
               </StickyColumn>
             )}
             <div className={styles.right}>
@@ -344,24 +363,25 @@ const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
                   {/* {title && <h1 className={styles.title}>{title}</h1>} */}
                   {isProductCountDisplayed && (
                     <span className={styles.productCount}>
-                    Showing  {`${productCount} ${productCount > 1 ? "products" : "product"}`}
+                      Showing{" "}
+                      {`${productCount} ${productCount > 1 ? "products" : "product"}`}
                     </span>
                   )}
                 </div>
                 <div className={styles.headerRight}>
                   <Sort sortList={sortList} onSortUpdate={onSortUpdate} />
 
-                      
-                       {title?.toLowerCase() !== "accessories" &&
- !title?.toLowerCase().includes("contact lens") &&  sizeGuide?.sizes?.length > 0 && (
-                  <button 
-                    onClick={handleOpenFindmyFit} 
-                  className={styles.findMyFitButton}>find my fit <img src={Question} /> 
-                  </button>
-                       )}
-                   
+                  {title?.toLowerCase() !== "accessories" &&
+                    !title?.toLowerCase().includes("contact lens") &&
+                    sizeGuide?.sizes?.length > 0 && (
+                      <button
+                        onClick={handleOpenFindmyFit}
+                        className={styles.findMyFitButton}
+                      >
+                        find my fit <img src={Question} />
+                      </button>
+                    )}
 
-                  
                   <button
                     className={`${styles.colIconBtn} ${
                       columnCount?.desktop === 2 ? styles.active : ""
@@ -440,75 +460,10 @@ const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
                     isLoading={isProductLoading}
                     loadMore={onLoadMoreProducts}
                   >
-                    <ProductGrid
-                      {...{
-                        isProductOpenInNewTab,
-                        productList,
-                        columnCount,
-                        isBrand,
-                        isSaleBadge,
-                        isPrice,
-                        aspectRatio,
-                        isWishlistIcon,
-                        WishlistIconComponent,
-                        followedIdList,
-                        listingPrice,
-                        showAddToCart,
-                        actionButtonText: actionButtonText ?? t('resource.common.add_to_cart'),
-                        onWishlistClick,
-                        isImageFill,
-                        showImageOnHover,
-                        imageBackgroundColor,
-                        imagePlaceholder,
-                        handleAddToCart,
-                        imgSrcSet,                    
-                         bannerRef,
-    bgImage,
-    banner_title,
-    banner_subtitle,
-    banner_subtitle_eyeglass,
-    isEyeglassCollection,
-    banner_button_link,
-    banner_button_text,
-    customFieldsData,
-                      }}
-                    />
+                    <ProductGrid {...gridProps} />
                   </InfiniteLoader>
                 ) : (
-                  <ProductGrid
-                    {...{
-                      isProductOpenInNewTab,
-                      productList,
-                      columnCount,
-                      isBrand,
-                      isSaleBadge,
-                      isPrice,
-                      aspectRatio,
-                      isWishlistIcon,
-                      WishlistIconComponent,
-                      followedIdList,
-                      listingPrice,
-                      showAddToCart,
-                      actionButtonText: actionButtonText ?? t('resource.common.add_to_cart'),
-                      onWishlistClick,
-                      isImageFill,
-                      showImageOnHover,
-                      imageBackgroundColor,
-                      isProductLoading,
-                      imagePlaceholder,
-                      handleAddToCart,
-                      imgSrcSet,
-                       bannerRef,
-    bgImage,
-    banner_title,
-    banner_subtitle,
-    banner_subtitle_eyeglass,
-    isEyeglassCollection, 
-    banner_button_link,
-    banner_button_text,
-    customFieldsData,
-                    }}
-                  />
+                  <ProductGrid {...gridProps} isProductLoading={isProductLoading} />
                 )}
                 {loadingOption === "pagination" && (
                   <div className={styles.paginationWrapper}>
@@ -535,42 +490,41 @@ const isEyeglassCollection = title?.toLowerCase().includes("eyeglass");
             </div>
           </div>
 
-            <SizeGuide
-               isOpen={isFindmyFitOpen}
-  onCloseDialog={handleCloseFindmyFit}
-  productMeta={sizeGuide}
-              />
-
+          <SizeGuide
+            isOpen={isFindmyFitOpen}
+            onCloseDialog={handleCloseFindmyFit}
+            productMeta={sizeGuide}
+          />
 
           <SortModal {...sortModalProps} />
           <FilterModal {...{ isResetFilterDisable, ...filterModalProps }} />
           {isScrollTop && <ScrollTop />}
           {showAddToCart && (
             <>
-           { isAddToCartOpen &&
-              <Modal
-                isOpen={isAddToCartOpen}
-                hideHeader={!isTablet}
-                containerClassName={styles.addToCartContainer}
-                bodyClassName={styles.addToCartBody}
-                titleClassName={styles.addToCartTitle}
-                title={
-                  isTablet
-                    ? restAddToModalProps?.productData?.product?.name
-                    : ""
-                }
-                closeDialog={restAddToModalProps?.handleClose}
-              >
-                <AddToCart
-                  {...restAddToModalProps}
-                  globalConfig={globalConfig}
-                />
-              </Modal>
-            }
+              {isAddToCartOpen && (
+                <Modal
+                  isOpen={isAddToCartOpen}
+                  hideHeader={!isTablet}
+                  containerClassName={styles.addToCartContainer}
+                  bodyClassName={styles.addToCartBody}
+                  titleClassName={styles.addToCartTitle}
+                  title={
+                    isTablet
+                      ? restAddToModalProps?.productData?.product?.name
+                      : ""
+                  }
+                  closeDialog={restAddToModalProps?.handleClose}
+                >
+                  <AddToCart
+                    {...restAddToModalProps}
+                    globalConfig={globalConfig}
+                  />
+                </Modal>
+              )}
               <SizeGuide
-               isOpen={isSizeGuideOpen}
-  onCloseDialog={handleCloseSizeGuide}
-  productMeta={restAddToModalProps?.productData?.product?.sizes}
+                isOpen={showSizeGuide} // FIXED: was undefined `isSizeGuideOpen`
+                onCloseDialog={handleCloseSizeGuide}
+                productMeta={restAddToModalProps?.productData?.product?.sizes}
               />
             </>
           )}
@@ -598,28 +552,27 @@ function ProductGrid({
   isImageFill = false,
   showImageOnHover = false,
   showAddToCart = false,
-  actionButtonText,
+  actionButtonText, // already defaulted by the parent
   imageBackgroundColor = "",
   imagePlaceholder = "",
   onWishlistClick = () => {},
   handleAddToCart = () => {},
-   bannerRef,
-    bgImage,
-    banner_title,
-    banner_subtitle,
-    banner_subtitle_eyeglass,
-    isEyeglassCollection,
-    banner_button_link,
-    banner_button_text,
-    customFieldsData,
+  bannerRef,
+  bgImage,
+  banner_title,
+  banner_subtitle,
+  banner_subtitle_eyeglass,
+  isEyeglassCollection,
+  banner_button_link,
+  banner_button_text,
+  customFieldsData,
+  cardVariant = "overlay", // NEW
+  showBadge = true, // NEW
 }) {
+  const subtitle = isEyeglassCollection
+    ? banner_subtitle_eyeglass?.value
+    : banner_subtitle?.value;
 
-
-   const subtitle = isEyeglassCollection
-      ? banner_subtitle_eyeglass?.value
-      : banner_subtitle?.value;
-
-  
   return (
     <div
       className={`productGridContainer ${styles.productContainer}`}
@@ -629,94 +582,86 @@ function ProductGrid({
         "--mobile-col": columnCount.mobile,
       }}
     >
-    {productList?.length > 0 &&
-  productList.map((product, index) => {
+      {productList?.length > 0 &&
+        productList.map((product, index) => {
+          const hasGlamAR = customFieldsData?.groups?.some(
+            (group) => group.resource_id === String(product.uid)
+          );
 
-const hasGlamAR = customFieldsData?.groups?.some(
-  (group) => group.resource_id === String(product.uid)
-);
+          return (
+            <React.Fragment key={product?.uid || index}>
+              <FDKLink
+                className={styles["product-wrapper"]}
+                action={product?.action}
+                key={product?.uid}
+                target={isProductOpenInNewTab ? "_blank" : "_self"}
+                onClick={() => {
+                  sessionStorage.setItem("plp-scroll-position", window.scrollY);
+                }}
+                style={{
+                  display: "block",
+                }}
+              >
+                <ProductCard
+                  product={product}
+                  listingPrice={listingPrice}
+                  columnCount={columnCount}
+                  aspectRatio={aspectRatio}
+                  isBrand={isBrand}
+                  isPrice={isPrice}
+                  isSaleBadge={isSaleBadge}
+                  imgSrcSet={imgSrcSet}
+                  isWishlistIcon={isWishlistIcon}
+                  WishlistIconComponent={WishlistIconComponent}
+                  followedIdList={followedIdList}
+                  showAddToCart={showAddToCart}
+                  actionButtonText={actionButtonText}
+                  onWishlistClick={onWishlistClick}
+                  isImageFill={isImageFill}
+                  showImageOnHover={showImageOnHover}
+                  imageBackgroundColor={imageBackgroundColor}
+                  imagePlaceholder={imagePlaceholder}
+                  handleAddToCart={handleAddToCart}
+                  hasGlamAR={hasGlamAR}
+                  cardVariant={cardVariant} // NEW
+                  showBadge={showBadge} // NEW
+                />
+              </FDKLink>
 
-    return (
-        <React.Fragment key={product?.uid || index}>
-                
-
-         
-
-
-          <FDKLink
-            className={styles["product-wrapper"]}
-            action={product?.action}
-            key={product?.uid}
-            target={isProductOpenInNewTab ? "_blank" : "_self"}
-            onClick={() => {
-    sessionStorage.setItem("plp-scroll-position", window.scrollY);
-  }}
-            style={{
-              // "--delay": `${(index % 12) * 150}ms`,
-              display: "block",
-            }}
-          >
-
-
-
-            <ProductCard
-              product={product}
-              listingPrice={listingPrice}
-              columnCount={columnCount}
-              aspectRatio={aspectRatio}
-              isBrand={isBrand}
-              isPrice={isPrice}
-              isSaleBadge={isSaleBadge}
-              imgSrcSet={imgSrcSet}
-              isWishlistIcon={isWishlistIcon}
-              WishlistIconComponent={WishlistIconComponent}
-              followedIdList={followedIdList}
-              showAddToCart={showAddToCart}
-              actionButtonText={actionButtonText ?? t('resource.common.add_to_cart')}
-              onWishlistClick={onWishlistClick}
-              isImageFill={isImageFill}
-              showImageOnHover={showImageOnHover}
-              imageBackgroundColor={imageBackgroundColor}
-              imagePlaceholder={imagePlaceholder}
-              handleAddToCart={handleAddToCart}
-              hasGlamAR={hasGlamAR}
-            />
-
-            
-          </FDKLink>
-
-          {index === 11 &&
-  (bgImage ||
-    banner_title?.value ||
-    subtitle ||
-    banner_button_text?.value) && (
-    <div
-      ref={bannerRef}
-      className="custom-banner-card"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="banner-overlay">
-        <div className="banner-content">
-          {banner_title?.value && <h2>{banner_title.value}</h2>}
-                      {subtitle && <p>{subtitle}</p>}
-          {banner_button_text?.value && banner_button_link?.value && (
-            <a href={banner_button_link.value} className="banner-btn">
-              {banner_button_text.value}
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  )}
-
-
+              {index === 11 &&
+                (bgImage ||
+                  banner_title?.value ||
+                  subtitle ||
+                  banner_button_text?.value) && (
+                  <div
+                    ref={bannerRef}
+                    className="custom-banner-card"
+                    style={{
+                      backgroundImage: `url(${bgImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    <div className="banner-overlay">
+                      <div className="banner-content">
+                        {banner_title?.value && <h2>{banner_title.value}</h2>}
+                        {subtitle && <p>{subtitle}</p>}
+                        {banner_button_text?.value &&
+                          banner_button_link?.value && (
+                            <a
+                              href={banner_button_link.value}
+                              className="banner-btn"
+                            >
+                              {banner_button_text.value}
+                            </a>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+                )}
             </React.Fragment>
-       );
-  })}
+          );
+        })}
     </div>
   );
 }
