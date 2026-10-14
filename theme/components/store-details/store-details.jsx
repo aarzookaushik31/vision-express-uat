@@ -30,6 +30,18 @@ const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [], rev
     return <div className={styles.error}>Store details not available.</div>;
   }
 
+
+
+  const getTagNumber = (store) => {
+  const raw = store.store_tag ?? store.tags ?? store.tag;
+  const list = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  const match = list
+    .map((t) => String(t).trim())
+    .find((t) => /^\+?\d[\d\s-]{8,}$/.test(t));
+  return match || "";
+};
+
+
   const {
     store_name,
     store_image = [],
@@ -77,15 +89,10 @@ const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [], rev
   const mapSrc = `https://www.google.com/maps?q=${latitude},${longitude}&hl=en&z=15&output=embed`;
 
   // ---- Phone ----
-let contactNumber = "";
+      // --- Phone Logic (number comes from Store Tag) ---
+let contactNumber = getTagNumber(store);
 
-if (typeof phone_number === "object" && phone_number !== null) {
-  contactNumber = `${phone_number.code ? `+${phone_number.code}-` : ""}${phone_number.number}`;
-} else if (typeof phone_number === "string" && phone_number.trim() !== "") {
-  contactNumber = phone_number;
-} else if (typeof phone_number === "number") {
-  contactNumber = String(phone_number);
-} else if (defaultPhone) {
+if (!contactNumber && defaultPhone) {
   contactNumber = defaultPhone;
 }
 
@@ -476,17 +483,22 @@ if (Array.isArray(store_timings)) {
   "Vision Express, " + formattedAddr
 )}`;
 
+const getTagNumber = (store) => {
+  const raw = store.store_tag ?? store.tags ?? store.tag;
+  const list = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  const match = list
+    .map((t) => String(t).trim())
+    .find((t) => /^\+?\d[\d\s-]{8,}$/.test(t));
+  return match || "";
+};
 
-              let contactNumber = "";
-              if (typeof s.phone_number === "object" && s.phone_number !== null) {
-                contactNumber = `${s.phone_number.code ? `+${s.phone_number.code}-` : ""}${s.phone_number.number}`;
-              } else if (typeof s.phone_number === "string" && s.phone_number.trim() !== "") {
-                contactNumber = s.phone_number;
-              } else if (typeof s.phone_number === "number") {
-               contactNumber = String(s.phone_number);
-          } else if (defaultPhone) {
-                contactNumber = defaultPhone;
-              }
+
+         let contactNumber = getTagNumber(store);
+
+// Fallback if a store has no number in its tag
+if (!contactNumber && defaultPhone) {
+  contactNumber = defaultPhone;
+}
 
               return (
                 // Original card element: <li key={s._id || idx} className={styles.nearbyStoreCard}>
