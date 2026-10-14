@@ -435,6 +435,59 @@
   }
 }
 
+/* Earlier placement retained; the active override follows the legacy breakpoint rules below.
+// Nearby-store photos stay beside the details at every breakpoint.
+.nearbyStoresSection .nearbyStoreCard { display: flex !important; flex-direction: row; }
+.nearbyStoresSection {
+  .imageWrapper { width: 190px; flex: 0 0 190px; }
+  .storeImage { height: 159px; aspect-ratio: auto; object-fit: cover; }
+  .storeAddressText {
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .storeAddress > .iconCircle svg,
+  .phonebookContainer .iconCircle svg { transform: scale(.57); }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .nearbyStoresSection {
+    .imageWrapper { width: 130px; flex-basis: 130px; }
+    .buttonGroup .directionBtn {
+      font-size: 10px;
+      letter-spacing: 0;
+      padding: 4px 6px;
+      white-space: nowrap;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .nearbyStoresSection {
+    .imageWrapper { width: 110px; flex-basis: 110px; }
+    .storeImage { height: 159px; }
+    .storeContent .storeName { font-size: 14px; line-height: 1.6; }
+    .storeAddress { font-size: 12px; }
+    .phonebookContainer p { font-size: 12px; }
+    .buttonGroup .directionBtn {
+      font-size: 10px;
+      line-height: 1.4;
+      padding: 6px;
+      letter-spacing: 0;
+      min-height: 32px;
+    }
+  }
+}
+
+// Review pagination is centered beneath the summary and the review slider together.
+.reviewsSection {
+  .reviewBody { position: relative; padding-bottom: 16px; }
+  .reviewList { padding-bottom: 0; }
+  .reviewList :global(.slick-slider) { position: static; }
+  :global(.slick-dots) { bottom: 0 !important; }
+}
+
+*/
 // Keep the desktop information layout while allowing the share control to overlay the mobile photo.
 .topSection {
   position: relative;
@@ -1316,4 +1369,256 @@
   .nearbyStoreList { display: grid; grid-template-columns: minmax(0,1fr); gap: 10px; margin: 0; }
   .storeContent .buttonGroup { margin-top: 16px; padding-top: 0; }
   .reviewsSection { display: block; h3 { margin-bottom: 16px; } > .reviewSummary { display: none; } }
+}
+
+// Store-detail layout from Figma; original styles above remain available.
+.storeDetailsSection > .breadcrumb { display: none; }
+.infoBlock {
+  margin-top: -6px;
+  > .ratingContainer { margin-bottom: 18px; }
+  > .storeName { margin-bottom: 20px; }
+  > .timings { order: 3; }
+  > .phoneRow { order: 4; }
+  > .servicesOffered { order: 5; }
+  > .actionButtons { order: 6; }
+  > .locationSection { order: 7; }
+  > .reviewsSection { order: 8; }
+}
+.ratingContainer > div:first-child { display: none !important; }
+.servicesOffered {
+  margin: 24px 0 30px;
+  padding-top: 16px;
+  > h3 { display: none; }
+}
+.servicesGrid {
+  flex-wrap: nowrap;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  gap: 20px;
+}
+.serviceCard {
+  flex: 1;
+  min-width: 0;
+  flex-direction: row;
+  .iconCircle { width: 30px; height: 30px; flex: 0 0 30px; }
+  p { color: @ink; font-size: 12px; white-space: nowrap; }
+  &:nth-child(4) { display: none; }
+}
+.locationSection {
+  h3 { margin-bottom: 18px; }
+  iframe { height: auto; aspect-ratio: 792 / 484; }
+}
+.nearbyStoresSection {
+  padding: 56px max(80px, calc((100% - 1280px) / 2)) 56px;
+  h3 { line-height: 42px; margin-bottom: 32px; }
+  .nearbyStoreList {
+    display: block;
+    max-width: 1280px;
+    margin: 0 -12px;
+    :global(.slick-slide) > div { padding: 0 12px; }
+  }
+  .nearbyStoreCard {
+    min-height: 183px;
+    padding: 12px;
+    gap: 12px;
+    border: 0;
+    box-shadow: inset 0 0 0 6px rgba(158, 0, 126, .08);
+    align-items: stretch;
+  }
+  .imageWrapper { flex: 0 0 190px; }
+  .storeImage { height: 159px; border-radius: 6px; }
+  .storeContent .storeName {
+    font-size: 16px;
+    margin-bottom: 8px;
+    a { color: inherit; text-decoration: none; }
+  }
+  .storeAddress { margin-bottom: 8px; font-size: 14px; line-height: 1.6; }
+  .phonebookContainer p { font-size: 14px; line-height: 1.6; }
+  .phonebookContainer a { text-decoration: none; }
+  .buttonGroup {
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 16px;
+    .directionBtn {
+      flex: 0 1 221px;
+      width: 221px;
+      max-width: 221px;
+      min-height: 32px;
+      padding: 4px 12px;
+      line-height: 24px;
+      font-size: 12px;
+    }
+    .detailsBtn {
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      min-height: 32px;
+      max-width: 32px;
+      padding: 0;
+      line-height: 0;
+      background: transparent;
+    }
+  }
+  :global(.slick-prev) { left: -44px !important; }
+  :global(.slick-next) { right: -44px !important; }
+  .nearbyArrow {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: white;
+    &::before { display: none; }
+    &:global(.slick-prev) svg { transform: rotate(180deg); }
+  }
+}
+.reviewsSection {
+  display: block;
+  h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; line-height: normal; }
+  .viewAll { color: @pink; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .previewLabel { font-size: 10px; font-weight: 400; color: @pink; }
+  .reviewBody {
+    display: grid;
+    grid-template-columns: minmax(0, 154fr) minmax(0, 303fr);
+    gap: 12px;
+    > .reviewSummary { display: block; }
+  }
+  .avgRating {
+    position: relative;
+    overflow: hidden;
+    height: 181px;
+    padding: 12px 12px 10px;
+    h2, .totalReviews, .summaryStars { position: relative; z-index: 1; }
+    h2 { margin: 0; font-size: 12px; line-height: 1.4; }
+    h2 span { font-size: 12px; }
+  }
+  .summaryLogo {
+    position: absolute;
+    top: -32px;
+    left: 67px;
+    width: 140px;
+    height: 81px;
+    transform: rotate(36.2deg);
+    opacity: .1;
+    pointer-events: none;
+  }
+  .summaryStars { display: flex; gap: 3px; margin-bottom: 8px; }
+  .reviewStar {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    display: inline-flex;
+    > svg { filter: grayscale(1); opacity: .35; }
+    .reviewStarFilled { position: absolute; top: 0; bottom: 0; left: 0; overflow: hidden; }
+  }
+  .reviewList { min-width: 0; padding-bottom: 20px; }
+  .reviewCard {
+    height: 181px;
+    padding: 20px 20px 16px;
+    &::before { display: none; }
+    .reviewQuote { flex: 0 0 auto; order: -2; margin-bottom: 12px; }
+    .reviewText { order: -1; margin-bottom: 14px; }
+    > .userRow { margin-top: auto; }
+    .authorStars { display: none !important; }
+  }
+}
+.nearbyStoresSection .nearbyStoreCard {
+  // Slick adds display: inline-block to slide children; retain the horizontal card layout.
+  display: flex !important;
+  flex-direction: row;
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .nearbyStoresSection {
+    .imageWrapper { flex-basis: 130px; }
+    .storeContent .storeName { font-size: 14px; }
+    .storeAddress, .phonebookContainer p { font-size: 12px; }
+  }
+}
+@media (max-width: 768px) {
+  .infoBlock { margin-top: 0; }
+  .servicesGrid { gap: 8px; }
+  .serviceCard:nth-child(2) { order: 0; }
+  .reviewsSection {
+    .reviewBody { display: block; }
+    .reviewBody > .reviewSummary { display: none; }
+  }
+  .nearbyStoresSection {
+    padding: 40px 16px;
+    h3 { font-size: 20px; line-height: 1.4; margin-bottom: 28px; }
+    .nearbyStoreList {
+      margin: 0 -5px;
+      :global(.slick-slide) > div { padding: 0 5px; }
+    }
+    .nearbyStoreCard { flex-direction: column; }
+    .imageWrapper { flex-basis: auto; }
+    .storeImage { height: auto; aspect-ratio: 326 / 159; }
+    .buttonGroup {
+      margin-top: 16px;
+      padding-top: 0;
+      .directionBtn { flex: 1; width: auto; max-width: none; min-height: 40px; }
+    }
+  }
+}
+
+// Nearby-store photos stay beside the details at every breakpoint.
+
+
+// Review pagination is centered beneath the summary and the review slider together.
+.reviewsSection {
+  .reviewBody { position: relative; padding-bottom: 16px; }
+  .reviewList { padding-bottom: 0; }
+  .reviewList :global(.slick-slider) { position: static; }
+  :global(.slick-dots) { bottom: 0 !important; }
+  .singleReviewPagination {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 4px;
+    border-radius: 20px;
+    background: @pink;
+  }
+}
+
+.nearbyStoresSection {
+  .imageWrapper { width: 190px; flex: 0 0 190px; }
+  .storeImage { height: 159px; aspect-ratio: auto; object-fit: cover; }
+  .storeAddressText {
+    min-width: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .storeAddress > .iconCircle svg,
+  .phonebookContainer .iconCircle svg { transform: scale(.57); }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .nearbyStoresSection {
+    .imageWrapper { width: 130px; flex-basis: 130px; }
+    .buttonGroup .directionBtn {
+      font-size: 10px;
+      letter-spacing: 0;
+      padding: 4px 6px;
+      white-space: nowrap;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .nearbyStoresSection {
+    .imageWrapper { width: 100%; flex-basis: 110px; }
+    .storeImage { height: 159px; }
+    .storeContent .storeName { font-size: 14px; line-height: 1.6; }
+    .storeAddress { font-size: 12px; }
+    .phonebookContainer p { font-size: 12px; }
+    .buttonGroup .directionBtn {
+      font-size: 10px;
+      line-height: 1.4;
+      padding: 6px;
+      letter-spacing: 0;
+      min-height: 32px;
+    }
+  }
 }

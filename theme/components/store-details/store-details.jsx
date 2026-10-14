@@ -5,7 +5,8 @@ import CardplaceholderImage from "../../assets/images/placeholder/Store-detail-p
 import PhoneIcon from "../../assets/images/store-phone.svg";
 import Purchase from "../../assets/images/store-purchase.svg";
 import Eye from "../../assets/images/store-eye-test.svg";
-import Repair from "../../assets/images/repairIcon.png";
+// Original repair asset: import Repair from "../../assets/images/repairIcon.png";
+import Repair from "../../assets/images/store-details/repair.webp";
 import Replacement from "../../assets/images/replacementIcon.png";
 import ShareDesktopIcon from "../../assets/images/share-04.svg";
 import ShareItem from "../../components/share-item/share-item";
@@ -13,10 +14,17 @@ import GoogleRating from "./store-ratings.jsx";
 import AddressIcon from "../../assets/images/store-location.svg";
 import ClockIcon from "../../assets/images/store-clock.svg";
 import BookCalender from "../../assets/images/bookcalender.png";
+import Slider from "react-slick";
+import NearbyPrevious from "../../assets/images/store-details/nearby-previous.svg";
+import NearbyNext from "../../assets/images/store-details/nearby-next.svg";
+import DirectionsArrow from "../../assets/images/store-details/directions.svg";
+import ReviewPreviewAvatar from "../../assets/images/store-details/review-preview-avatar.webp";
 
-const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) => {
+// Original props: const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) => {
+const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [], reviewPreview = false }) => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
  const [googleData, setGoogleData] = useState(null);
+  const [reviewsLoading, setReviewsLoading] = useState(true);
 
   if (!store) {
     return <div className={styles.error}>Store details not available.</div>;
@@ -107,6 +115,8 @@ if (typeof phone_number === "object" && phone_number !== null) {
 
 
 useEffect(() => {
+    setReviewsLoading(true);
+    const previewTimeout = setTimeout(() => setReviewsLoading(false), 10000);
     const fetchRatingsOnce = async () => {
       const debug = (stage, data = {}) => console.info("[StoreReviews] " + stage, data);
       debug("fetch started", {
@@ -118,6 +128,11 @@ useEffect(() => {
         placesAvailable: Boolean(window.google?.maps?.places),
         existingMapScripts: document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]').length,
       });
+      if (!map_api_key) {
+        debug("waiting for configured Maps key");
+        setReviewsLoading(false);
+        return;
+      }
       try {
         const maps = await new Promise((resolve, reject) => {
           if (window.google?.maps?.places) {
@@ -150,15 +165,18 @@ useEffect(() => {
         service.findPlaceFromQuery(request, (results, status) => {
           debug("store lookup completed", { status, resultCount: results?.length || 0 });
           if (status !== maps.places.PlacesServiceStatus.OK || !results?.length) console.warn("[StoreReviews] Store lookup failed or returned no matches", { status });
+          if (status !== maps.places.PlacesServiceStatus.OK || !results?.length) setReviewsLoading(false);
           if (status === maps.places.PlacesServiceStatus.OK && results.length) {
             const place = results[0];
             const detailsRequest = {
               placeId: place.place_id,
-              fields: ["name", "rating", "user_ratings_total", "reviews", "photos"],
+              // Original fields: ["name", "rating", "user_ratings_total", "reviews", "photos"],
+              fields: ["name", "rating", "user_ratings_total", "reviews", "photos", "url"],
             };
 
           debug("place details requested", { placeId: place.place_id });
           service.getDetails(detailsRequest, (details, status2) => {
+            setReviewsLoading(false);
             debug("place details completed", { status: status2, detailsPresent: Boolean(details), rating: details?.rating, totalReviews: details?.user_ratings_total, returnedReviewCount: details?.reviews?.length || 0 });
             if (status2 !== maps.places.PlacesServiceStatus.OK || !details) console.warn("[StoreReviews] Place details failed", { status: status2 });
   if (status2 === maps.places.PlacesServiceStatus.OK && details) {
@@ -181,18 +199,22 @@ useEffect(() => {
       },
       reviews: details.reviews || [],
       photo: googlePhoto,
+      url: details.url,
     });
   }
 });
           }
         });
       } catch (e) {
+        setReviewsLoading(false);
         console.error("Error preloading Google data:", e);
       }
     };
 
     fetchRatingsOnce();
-  }, [formattedAddress]);
+    return () => clearTimeout(previewTimeout);
+    // Original dependency: }, [formattedAddress]);
+  }, [formattedAddress, map_api_key]);
 
 
 useEffect(() => {
@@ -229,6 +251,43 @@ if (Array.isArray(store_timings)) {
   }
 }
 
+  // A sample is available for local design previews or an explicit ?reviewPreview=1 URL.
+  // It never overwrites the live Google data or appears as a real customer review.
+  const allowReviewPreview = reviewPreview || (typeof window !== "undefined" && (
+    ["localhost", "127.0.0.1"].includes(window.location.hostname) ||
+    new URLSearchParams(window.location.search).get("reviewPreview") === "1"
+  ));
+  const previewReviewData = {
+    isPreview: true,
+    ratingData: { name: store_name, rating: 4.5, total: 1 },
+    reviews: [{
+      author_name: "Design preview",
+      profile_photo_url: ReviewPreviewAvatar,
+      rating: 4.5,
+      text: "Sample review for design testing only. This card previews how customer feedback will appear when live reviews are available.",
+    }],
+  };
+  const displayedReviewData = !reviewsLoading && !googleData?.reviews?.length && allowReviewPreview
+    ? previewReviewData
+    : googleData;
+  const badgeData = googleData || displayedReviewData;
+  const NearbyArrow = ({ className, style, onClick, previous = false }) => (
+    <button type="button" className={`${className} ${styles.nearbyArrow}`} style={style} onClick={onClick} aria-label={previous ? "Previous nearby stores" : "Next nearby stores"}>
+      {previous ? <NearbyPrevious viewBox="0 0 40 40" aria-hidden="true" /> : <NearbyNext viewBox="0 0 40 40" aria-hidden="true" />}
+    </button>
+  );
+  const nearbySettings = {
+    slidesToShow: Math.min(2, nearbyStores.length),
+    slidesToScroll: 1,
+    speed: 400,
+    infinite: nearbyStores.length > 2,
+    arrows: true,
+    dots: false,
+    prevArrow: <NearbyArrow previous />,
+    nextArrow: <NearbyArrow />,
+    responsive: [{ breakpoint: 768, settings: { slidesToShow: 1, arrows: false, dots: nearbyStores.length > 1, infinite: nearbyStores.length > 1 } }],
+  };
+
 
 
 
@@ -253,11 +312,22 @@ if (Array.isArray(store_timings)) {
         <div className={styles.infoBlock}>
           <h1 className={styles.storeName}>{store_name}</h1>
 
-        {googleData && (
-  <GoogleRating preFetchedData={googleData} fetchReviews={false} />
+        {/* Original badge condition: googleData && <GoogleRating preFetchedData={googleData} fetchReviews={false} /> */}
+        {badgeData && (
+  <GoogleRating preFetchedData={badgeData} fetchReviews={false} />
 )}
 
           <p className={styles.address}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span>{formattedAddress}</p>
+
+          {(weekdayTiming || weekendTiming) && (
+            <p className={styles.timings}><span className={styles.iconCircle} aria-hidden="true"><ClockIcon /></span>
+              <span>
+                {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
+                {weekdayTiming && weekendTiming && " | "}
+                {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
+              </span>
+            </p>
+          )}
 
           {contactNumber && (
             <div className={styles.phoneRow}>
@@ -314,7 +384,8 @@ if (Array.isArray(store_timings)) {
                 <div className={styles.iconCircle}>
                   <Eye aria-hidden="true" />
                 </div>
-                <p>Eye</p>
+                {/* Original label: <p>Eye</p> */}
+                <p>Eye Test</p>
               </div>
 
               <div className={styles.serviceCard}>
@@ -339,6 +410,7 @@ if (Array.isArray(store_timings)) {
 
            
            
+          {/* Original timings position retained; the same data is displayed above the phone row.
           {(weekdayTiming || weekendTiming) && (
   <p className={styles.timings}><span className={styles.iconCircle} aria-hidden="true"><ClockIcon /></span>
     {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
@@ -346,6 +418,7 @@ if (Array.isArray(store_timings)) {
     {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
   </p>
 )}
+          */}
 
 
 
@@ -362,8 +435,9 @@ if (Array.isArray(store_timings)) {
           </div>
 
           {/* Reviews Section */}
-          {googleData && (
-  <GoogleRating preFetchedData={googleData} fetchReviews={true} />
+          {/* Original reviews condition: googleData && <GoogleRating preFetchedData={googleData} fetchReviews={true} /> */}
+          {displayedReviewData && (
+  <GoogleRating preFetchedData={displayedReviewData} fetchReviews={true} />
 )}
         </div>
       </div>
@@ -372,8 +446,11 @@ if (Array.isArray(store_timings)) {
       {nearbyStores.length > 0 && (
         <div className={styles.nearbyStoresSection}>
           <h3>More Stores Near You</h3>
-          <ul className={styles.nearbyStoreList}>
-            {nearbyStores.slice(0, 2).map((s, idx) => {
+          {/* Original list: <ul className={styles.nearbyStoreList}> */}
+          <div className={styles.nearbyStoreList}>
+          <Slider {...nearbySettings}>
+            {/* Original two-card presentation: nearbyStores.slice(0, 2).map((s, idx) => { */}
+            {nearbyStores.map((s, idx) => {
               const imageUrl = (s.store_image && s.store_image[0]) || CardplaceholderImage;
      
 
@@ -412,7 +489,8 @@ if (Array.isArray(store_timings)) {
               }
 
               return (
-                <li key={s._id || idx} className={styles.nearbyStoreCard}>
+                // Original card element: <li key={s._id || idx} className={styles.nearbyStoreCard}>
+                <article key={s._id || idx} className={styles.nearbyStoreCard}>
                   <div className={styles.imageWrapper}>
                     <img
                       src={imageUrl}
@@ -422,8 +500,10 @@ if (Array.isArray(store_timings)) {
                   </div>
 
                   <div className={styles.storeContent}>
-                    <h4 className={styles.storeName}>{s.store_name}</h4>
-                    <p className={styles.storeAddress}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span>{formattedAddr}</p>
+                    {/* Original name: <h4 className={styles.storeName}>{s.store_name}</h4> */}
+                    <h4 className={styles.storeName}><a href={`/locate-us?storeCode=${s.store_code}`}>{s.store_name}</a></h4>
+                    {/* Original address markup: <p className={styles.storeAddress}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span>{formattedAddr}</p> */}
+                    <p className={styles.storeAddress}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span><span className={styles.storeAddressText} title={formattedAddr}>{formattedAddr}</span></p>
 
                     <div className={styles.phonebookContainer}>
                       {contactNumber && (
@@ -433,13 +513,16 @@ if (Array.isArray(store_timings)) {
                         </p>
                       )}
 
+                      {/* Original booking link retained here; its active position is the card action below.
                       <p>
                         <img src={BookCalender} alt="Book Appointment" />
                         <a href={`/sections/book-an-eye-test?storeCode=${s.store_code}`}>Book Appointment</a>
                       </p>
+                      */}
                     </div>
 
                     <div className={styles.buttonGroup}>
+                      {/* Original direction and details controls retained:
                       <a
                         href={mapLink}
                         target="_blank"
@@ -454,12 +537,20 @@ if (Array.isArray(store_timings)) {
                       >
                         Store Details
                       </a>
+                      */}
+                      <a href={`/sections/book-an-eye-test?storeCode=${s.store_code}`} className={styles.directionBtn}>Book Appointment</a>
+                      <a href={mapLink} target="_blank" rel="noreferrer" className={styles.detailsBtn} aria-label={`Get directions to ${s.store_name}`}>
+                        <DirectionsArrow viewBox="0 0 32 32" aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
-                </li>
+                </article>
+                // Original closing card element: </li>
               );
             })}
-          </ul>
+          </Slider>
+          </div>
+          {/* Original closing list element: </ul> */}
         </div>
       )}
     </section>
