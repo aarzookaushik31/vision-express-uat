@@ -79,7 +79,11 @@ const handleWishlistToggle = (data) => {
 
   return (
     <div className={`${styles.recommendedWrapper} ${styles[customClass]}`}>
-      <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
+      {/* Original heading retained: <h2 className={styles.sectionTitle}>{sectionTitle}</h2> */}
+      <h2 className={styles.sectionTitle}>
+        {sectionTitle?.split(" ").slice(0, -1).join(" ")}{" "}
+        <span className={styles.titleAccent}>{sectionTitle?.split(" ").slice(-1).join(" ")}</span>
+      </h2>
 
       <div className={styles.productsWrap}>
         <div id="RecommendSlider" className={styles.sliderContainer}>
@@ -87,7 +91,13 @@ const handleWishlistToggle = (data) => {
             {product_lists?.items?.length > 0 ? (
               product_lists.items.map((product, index) => (
                 <FDKLink key={index} action={product?.action || ""}>
-                  <SliderCard product={product} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
+                  {/* Original card presentation retained:
+                  <SliderCard product={product}
+                  customClass={["figmaSimilarCard"]} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
+                  */}
+                  <SliderCard product={product}
+                  imageIndex={5} useSelectedImageOnHover={true}
+                  customClass={["figmaSimilarCard"]} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
                 </FDKLink>
               ))
             ) : (

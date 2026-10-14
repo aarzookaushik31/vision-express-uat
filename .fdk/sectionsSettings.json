@@ -3674,6 +3674,12 @@
     "label": "Find Store Section",
     "props": [
       {
+        "id": "use_figma_pdp_artwork",
+        "type": "checkbox",
+        "label": "Use Figma artwork on product pages",
+        "default": true
+      },
+      {
         "id": "backgroundImage",
         "type": "image_picker",
         "label": "Background Image"
@@ -4647,6 +4653,14 @@
   },
   "icon-text-list": {
     "label": "Icon List Section",
+    "props": [
+      {
+        "type": "checkbox",
+        "id": "use_figma_icons",
+        "label": "Use Figma benefit icons on product pages",
+        "default": true
+      }
+    ],
     "blocks": [
       {
         "type": "list_item",
@@ -7447,7 +7461,7 @@
         "type": "radio",
         "id": "variant_position",
         "label": "t:resource.sections.product_description.product_detail_postion",
-        "default": "accordion",
+        "default": "new_tabs",
         "options": [
           {
             "value": "accordion",
@@ -7456,8 +7470,42 @@
           {
             "value": "tabs",
             "text": "t:resource.sections.product_description.tab_style"
+          },
+          {
+            "value": "new_tabs",
+            "text": "Figma tabs (right side)"
           }
         ]
+      },
+      {
+        "type": "text",
+        "id": "content_description_label",
+        "label": "Description tab label (optional)",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "content_details_label",
+        "label": "Product details tab label",
+        "default": "Product Details"
+      },
+      {
+        "type": "text",
+        "id": "content_additional_label",
+        "label": "Additional details tab label",
+        "default": "Additional Details"
+      },
+      {
+        "type": "color",
+        "id": "content_panel_background",
+        "label": "Figma tabs background",
+        "default": "#fbf8fb"
+      },
+      {
+        "type": "color",
+        "id": "content_tab_active_color",
+        "label": "Figma tabs active colour",
+        "default": "#9e007e"
       },
       {
         "type": "checkbox",

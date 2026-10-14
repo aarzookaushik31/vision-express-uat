@@ -15,6 +15,8 @@
  * @param {boolean} [props.isWishlistIcon=true] - Flag to display a wishlist icon.
  * @param {boolean} [props.isImageFill=false] - Flag to determine if the image should fill its container.
  * @param {boolean} [props.showImageOnHover=false] - Flag to show a different image on hover.
+ * @param {number} [props.imageIndex=0] - Preferred image position among the product's image media.
+ * @param {boolean} [props.useSelectedImageOnHover=false] - Keep the selected presentation image on hover.
  * @param {string} [props.imageBackgroundColor=""] - Background color for the image.
  * @param {string} [props.imagePlaceholder=""] - Placeholder image URL.
  * @param {Object} [props.columnCount={ desktop: 4, tablet: 3, mobile: 1 }] - Number of columns for different viewports.
@@ -60,6 +62,8 @@ const ProductCard = ({
   isWishlistIcon = true,
   isImageFill = false,
   showImageOnHover = false,
+  imageIndex = 0,
+  useSelectedImageOnHover = false,
   imageBackgroundColor = "",
   imagePlaceholder = "",
   columnCount = { desktop: 4, tablet: 3, mobile: 1 },
@@ -143,15 +147,27 @@ const ProductCard = ({
   };
 
   const images = getProductImages();
-  const imageUrl = images?.[0]?.url || imagePlaceholder;
-  const hoverImageUrl = images?.[1]?.url || "";
-  const imageAlt =
-    images?.[0]?.alt || `${product?.brand?.name} | ${product?.name}`;
+  // Original first-image presentation retained:
+  // const imageUrl = images?.[0]?.url || imagePlaceholder;
+  // const hoverImageUrl = images?.[1]?.url || "";
+  // const imageAlt = images?.[0]?.alt || `${product?.brand?.name} | ${product?.name}`;
+  const selectedImage = images?.[imageIndex]?.url ? images[imageIndex] : images?.[0];
+  const imageUrl = selectedImage?.url || imagePlaceholder;
+  const hoverImage = useSelectedImageOnHover ? selectedImage : images?.[1];
+  const hoverImageUrl = hoverImage?.url || "";
+  const imageAlt = selectedImage?.alt || `${product?.brand?.name} | ${product?.name}`;
+  const hoverImageAlt = hoverImage?.alt || imageAlt;
 
     
   const shadeVariants = product.variants?.find(
     (variant) => variant.display_type === "color"
   );
+  // Figma recommendation swatches use variant colors rather than product thumbnails.
+  const useColorDots = customClass.includes("figmaSimilarCard");
+  const getVariantColor = (variant) => {
+    const color = variant?.color?.trim?.() || variant?.color_name?.trim?.() || "transparent";
+    return /^[0-9a-f]{3}([0-9a-f]{3})?$/i.test(color) ? `#${color}` : color;
+  };
   const shadeVariantsCount = shadeVariants?.items?.length - 1 || 0;
   const currentShade = shadeVariants?.items?.find(
     (variant) => product?.slug === variant?.slug
@@ -307,7 +323,8 @@ const ProductCard = ({
 
     {/* CURRENT SHADE */}
    <div className={`${styles.shade} ${styles.currentShade}`}>
-  {getShadeImage(currentShade?.medias) ? (
+  {/* Original image-first condition retained: getShadeImage(currentShade?.medias) */}
+  {!useColorDots && getShadeImage(currentShade?.medias) ? (
     <img
       src={getShadeImage(currentShade?.medias)}
       alt={currentShade?.name}
@@ -317,9 +334,8 @@ const ProductCard = ({
     <div
       className={styles.shadeColor}
       style={{
-        backgroundColor: currentShade?.color
-          ? `#${currentShade.color}`
-          : currentShade?.color_name,
+        // Original color formatting: currentShade?.color ? `#${currentShade.color}` : currentShade?.color_name,
+        backgroundColor: getVariantColor(currentShade),
       }}
     />
   )}
@@ -332,7 +348,8 @@ const ProductCard = ({
     key={variantItem.uid}
     className={`${styles.shade} ${styles.allShades}`}
   >
-    {getShadeImage(variantItem?.medias) ? (
+    {/* Original image-first condition retained: getShadeImage(variantItem?.medias) */}
+    {!useColorDots && getShadeImage(variantItem?.medias) ? (
       <img
         src={getShadeImage(variantItem?.medias)}
         alt={variantItem?.name}
@@ -342,9 +359,8 @@ const ProductCard = ({
       <div
         className={styles.shadeColor}
         style={{
-          backgroundColor: variantItem?.color
-            ? `#${variantItem.color}`
-            : variantItem?.color_name,
+          // Original color formatting: variantItem?.color ? `#${variantItem.color}` : variantItem?.color_name,
+          backgroundColor: getVariantColor(variantItem),
         }}
       />
     )}

@@ -424,3 +424,25 @@ display: grid;
     height: 28px;
   }
 }
+// Figma footer spacing applies to the PDP while links and configured content stay dynamic.
+.footer.pdpFooter {
+  padding-bottom: 0 !important;
+  .footer__top .footerContainer { max-width: 1180px; }
+  .footer__top--menu { gap: 16px; }
+  .linkBlock { flex: 1; max-width: 160px; }
+  .menuTitle { font-family: Verdana !important; font-size: 16px; margin-bottom: 16px; }
+  .menuItem { margin-bottom: 8px; a { font-family: Verdana !important; line-height: 20px; } }
+  .description:empty { display: none; }
+  @media (max-width: 768px) {
+    // Leave the final footer content clear of the mobile store action bar.
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+    .footer__top .footerContainer { padding: 48px 32px 0; }
+    .footer__top--info { margin-bottom: 48px; }
+    .logo img { width: 242px; height: 43px; max-height: 43px !important; object-fit: contain; }
+    .footer__top--menu { column-gap: 8px; row-gap: 16px; }
+    .linkBlock { max-width: none; margin-bottom: 24px; }
+    .footer__bottom { padding: 0 32px; .footerContainer { padding: 24px 0 48px !important; } }
+  }
+}
+
+.footer.pdpFooter .socialTitle { display: none; }

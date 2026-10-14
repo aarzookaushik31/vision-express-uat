@@ -151,3 +151,67 @@
     transition: none;
   }
 }
+// PDP store finder uses the existing pincode handler and configurable imagery.
+.findStoreWrapper.pdpFindStore {
+  padding: 80px max(20px, calc((100vw - 1200px) / 2)) !important;
+  background: #000;
+  .findStoreSection {
+    height: 341px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: var(--pdp-store-desktop) !important;
+    background-position: center;
+    opacity: 1;
+    transform: none;
+    &::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(8px); }
+  }
+  .overlay { position: relative; z-index: 1; }
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    h2 { font-family: Verdana !important; font-size: 40px; font-weight: 700; line-height: 1.4; margin: 0 0 13px; }
+    p { font-family: Verdana !important; font-size: 20px; line-height: 1.4; margin: 0 0 34px; }
+    .inputGroup { box-sizing: border-box; width: 628px; max-width: 100%; height: 56px; border: 2px solid #fff; border-radius: 40px; padding: 2px; }
+    .pincodeInput { flex: 1 1 auto; width: 0; min-width: 0; font-family: Verdana !important; font-size: 16px; }
+    .findButton { flex: 0 0 217px; justify-content: center; height: 48px; border-radius: 40px; padding: 0 16px; font-family: Verdana !important; font-weight: 700; }
+  }
+  .pdpLocationIcon { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; }
+  @media (max-width: 768px) {
+    padding: 0 !important;
+    .findStoreSection {
+      width: 100%;
+      // Original fixed mobile height: height: 530px;
+      min-height: 530px;
+      height: auto;
+      border-radius: 0;
+      padding: 334px 20px 40px;
+      align-items: flex-start;
+      background-image: linear-gradient(180deg, transparent 22%, #1a1a1a 72%, #000 100%), var(--pdp-store-mobile) !important;
+      background-size: 100% 100%, auto 376px;
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-color: #000;
+      &::before { backdrop-filter: none; top: auto; height: 224px; opacity: .3; background: var(--pdp-store-watermark) center / cover no-repeat; mix-blend-mode: soft-light; }
+      &::after { content: ""; position: absolute; width: 241px; height: 876px; left: calc(50% - 120px); top: -110px; transform: rotate(78deg); background: var(--pdp-store-glow) center / contain no-repeat; pointer-events: none; }
+    }
+    .contentWrapper {
+      position: relative;
+      z-index: 1;
+      h2 { width: 100%; font-family: Poppins, Verdana, sans-serif !important; font-size: 22px; line-height: 1.2; font-weight: 600; margin-bottom: 8px; }
+      p { font-family: Poppins, Verdana, sans-serif !important; font-size: 14px; line-height: 1.4; margin-bottom: 28px; }
+      .inputGroup { width: 352px; height: 54px; border-radius: 49px; padding: 1px; }
+      .pincodeInput { padding: 10px 16px 10px 28px; font-size: 14px; }
+      .findButton { flex-basis: 173px; font-family: Poppins, Verdana, sans-serif !important; font-size: 14px; padding: 0 10px; }
+    }
+  }
+  @media (max-width: 359px) {
+    .contentWrapper .pincodeInput { padding-left: 12px; }
+    .contentWrapper .findButton { flex-basis: 150px; font-size: 12px; }
+  }
+}

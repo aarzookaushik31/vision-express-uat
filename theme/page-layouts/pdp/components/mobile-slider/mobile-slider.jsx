@@ -10,6 +10,9 @@ import ReplayIcon from "../../../../assets/images/replay.svg";
 import MuteIcon from "../../../../assets/images/mute.svg";
 import UnmuteIcon from "../../../../assets/images/unmute.svg";
 import AutoRotateIcon from "../../../../assets/images/auto-rotate.svg";
+import ShareIcon from "../../../../assets/images/share-04.svg";
+import PreviousArrow from "../../../../assets/images/pdp-gallery/previous.svg";
+import NextArrow from "../../../../assets/images/pdp-gallery/next.svg";
 // import WishlistIcon from "../../../../assets/images/wishlist";
 
 function MobileSlider({
@@ -25,6 +28,9 @@ function MobileSlider({
   handleShare,
   showShareIcon = true,
   sources = [],
+  displayTag,
+  tryOnButton = null,
+  shareButton = null,
 }) {
   const { t } = useGlobalTranslation("translation");
   const [mainSlider, setMainSlider] = useState(null);
@@ -55,12 +61,16 @@ const mainSettings = {
   const thumbSettings = {
     dots: false,
     infinite: images?.length > 1,
-    slidesToShow: Math.min(images?.length, 5),
+    // slidesToShow: Math.min(images?.length, 5),
+    // Previous mobile count: slidesToShow: Math.min(images?.length, 3),
+    // Previous five-thumbnail presentation: slidesToShow: Math.min(images?.length, 5),
+    slidesToShow: Math.min(images?.length, 3),
     slidesToScroll: 1,
     swipeToSlide: true,
     focusOnSelect: true,
     asNavFor: mainSlider,
     centerMode: images?.length > 5,
+    centerPadding: "0px",
     arrows: false,
   };
 
@@ -72,12 +82,22 @@ const mainSettings = {
 
   return (
     <div className={styles.mobilePdpCarouselBox} style={{ maxWidth: "100vw" }}>
+      <div className={styles.mobileGalleryPanel}>
+        {displayTag && <div className={styles.mobileDisplayTag}>{displayTag}</div>}
+        {/* Previous mobile share button retained for reference:
+        {showShareIcon && handleShare && (
+          <button type="button" className={styles.mobileGalleryShare} aria-label="Share product" onClick={handleShare}>
+            <ShareIcon />
+          </button>
+        )} */}
+        {showShareIcon && shareButton && <div className={styles.mobileGalleryShare}>{shareButton}</div>}
       <Slider  className={styles.mainSlider} {...mainSettings} ref={(slider) => setMainSlider(slider)}>
         {images?.map((media, i) => (
           <div className={styles.mediaWrapper} key={i}>
             {media.type === "image" && (
               <div onClick={() => onImageClick()}>
                 <FyImage
+                  customClass={styles.mobileGalleryImage}
                   src={media?.url}
                   alt={media?.alt}
                   isImageFill={globalConfig?.img_fill}
@@ -173,7 +193,11 @@ const mainSettings = {
           </div>
         ))}
       </Slider>
+        {tryOnButton && <div className={styles.mobileTryOn}>{tryOnButton}</div>}
+      </div>
 
+      <div className={styles.mobileThumbnailNavigation}>
+        {images?.length > 1 && <button type="button" className={styles.mobileArrow} aria-label="Previous product image" onClick={() => mainSlider?.slickPrev()}><PreviousArrow /></button>}
       <Slider
         {...thumbSettings}
         ref={(slider) => setThumbSlider(slider)}
@@ -199,6 +223,8 @@ const mainSettings = {
           </div>
         ))}
       </Slider>
+        {images?.length > 1 && <button type="button" className={styles.mobileArrow} aria-label="Next product image" onClick={() => mainSlider?.slickNext()}><NextArrow /></button>}
+      </div>
     </div>
   );
 }

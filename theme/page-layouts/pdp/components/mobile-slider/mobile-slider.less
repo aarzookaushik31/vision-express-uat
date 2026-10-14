@@ -303,3 +303,174 @@
     }
   }
 }
+
+// Figma mobile gallery chrome, separate from the unchanged desktop slider.
+@media @tablet {
+  .mobilePdpCarouselBox.mobilePdpCarouselBox {
+    padding: 8px 12px 0;
+    .mobileGalleryPanel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 279 / 357;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fbf8fb;
+    }
+    .mainSlider {
+      height: 100%;
+      :global(.slick-list), :global(.slick-track), :global(.slick-slide), :global(.slick-slide) > div { height: 100%; }
+      :global(.slick-slide) { border: 0; }
+      .mediaWrapper {
+        box-sizing: border-box;
+        height: 100%;
+        aspect-ratio: auto;
+        padding: 20% 2% 24%;
+        border-radius: 0;
+        background: transparent;
+        &:after { pointer-events: none; background: transparent; }
+        > div:first-child { height: 100%; }
+        .mobileGalleryImage {
+          height: 100%;
+          width: 100%;
+          picture { height: 100%; width: 100%; aspect-ratio: auto !important; background: transparent; }
+          img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        }
+      }
+    }
+    .mobileDisplayTag {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      max-width: calc(100% - 88px);
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: #fff;
+      color: #9e007e;
+      font: bold 10px/12px Verdana, sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+    .mobileGalleryShare {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(158, 0, 126, 0.04);
+      cursor: pointer;
+      svg { width: 14px; height: 14px; path { stroke: #9e007e; } }
+    }
+    .mobileTryOn {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .thumbnailSlider { margin-top: 12px; }
+  }
+}
+
+@media @tablet {
+  .mobilePdpCarouselBox.mobilePdpCarouselBox {
+    .mobileGalleryShare > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .mobileThumbnailNavigation {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .mobileArrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      &:first-child { transform: scaleX(-1); }
+    }
+    .thumbnailSlider {
+      min-width: 0;
+      flex: 1 1 auto;
+      margin-top: 0;
+      .thumbnailmediaWrapper { background: #fbf8fb; }
+      .thumbnailImage { display: block; mix-blend-mode: multiply; }
+    }
+  }
+}
+
+// Match the mobile Figma thumbnail strip and retain the SVG's original view area.
+@media @tablet {
+  .mobilePdpCarouselBox.mobilePdpCarouselBox {
+    .mobileGalleryShare {
+      > span { width: 28px; height: 28px; overflow: visible; }
+      svg { width: 22px; height: 22px; flex: 0 0 22px; overflow: visible; }
+    }
+    .mainSlider .mediaWrapper .mobileGalleryImage {
+      mix-blend-mode: multiply;
+      background: transparent;
+      picture { background: transparent; }
+    }
+    .mobileThumbnailNavigation {
+      gap: 12px;
+      margin: 16px auto 0;
+      max-width: 350px;
+      .mobileArrow {
+        flex: 0 0 28px;
+        width: 28px;
+        height: 28px;
+        svg { flex: 0 0 40px; transform: scale(0.7); }
+      }
+    }
+    .thumbnailSlider {
+      .thumbnailWrapper { padding: 0 3px; }
+      .thumbnailmediaWrapper {
+        box-sizing: border-box;
+        aspect-ratio: 1;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: #fbf8fb;
+        &:after { pointer-events: none; background: transparent; }
+        .thumbnailImage { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+      }
+      :global(.slick-current) .thumbnailmediaWrapper { border-color: #9e007e; }
+    }
+  }
+}
+
+// Use the same background layer on the mobile gallery image wrapper.
+.mobilePdpCarouselBox.mobilePdpCarouselBox .mainSlider .mediaWrapper {
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fbf5fa;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+  }
+}

@@ -1,5 +1,111 @@
 @import "../.././../../styles/main.less";
 
+// Desktop slider is opt-in; existing grid and mobile styles are retained.
+.sliderGalleryBox {
+  @media @desktop {
+    width: 100%;
+    min-width: 0;
+    > .displayTagContainer { display: none; }
+  }
+}
+.desktopSlider {
+  @media @tablet { display: none; }
+  .sliderPanel {
+    position: relative;
+    aspect-ratio: 771 / 488;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fbf5fa;
+  }
+  .sliderItem {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0;
+    max-height: none;
+    height: 100%;
+    padding: 6% 3.2% 16%;
+    // &[hidden] { display: none; }
+    &:after { display: none; }
+    picture {
+      height: 100%;
+      img { height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+    }
+    video { width: 100%; height: 100%; object-fit: contain; }
+    .galleryImage {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      picture { width: 100%; height: 100%; }
+    }
+  }
+  .sliderTrack {
+    height: 100%;
+    min-width: 0;
+    :global(.slick-list) {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      touch-action: pan-y;
+      cursor: grab;
+      &:active { cursor: grabbing; }
+    }
+    :global(.slick-track) { height: 100%; }
+    :global(.slick-slide) {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      > div { height: 100%; }
+    }
+    img { -webkit-user-drag: none; user-select: none; }
+  }
+  .tryOnButton {
+    position: absolute;
+    bottom: 8.8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .sliderNavigation {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    max-width: 699px;
+    margin: 32px auto 0;
+  }
+  .sliderArrow {
+    flex: 0 0 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:first-child { transform: scaleX(-1); }
+  }
+  .sliderThumbnails {
+    display: flex;
+    gap: 13.735px;
+    overflow-x: auto;
+    min-width: 0;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+  .sliderThumbnail {
+    flex: 0 0 100px;
+    height: 100px;
+    padding: 0;
+    overflow: hidden;
+    border: 1.717px solid transparent;
+    border-radius: 13.735px;
+    background: #fbf5fa;
+    cursor: pointer;
+    img { mix-blend-mode: multiply; }
+    &.selectedThumbnail { border-color: #9e007e; }
+  }
+}
+
 
 .galleryBox{
   position: relative;
@@ -328,4 +434,65 @@ z-index:2;
 
 .removeWidth {
   width: unset !important;
+}
+
+// Mobile badge is now rendered inside the mobile panel, beside share/Try-On.
+@media @tablet {
+  .galleryBox > .displayTagContainer { display: none; }
+}
+
+.desktopGalleryShare {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(158, 0, 126, 0.04);
+    cursor: pointer;
+    svg path { stroke: #9e007e; }
+  }
+}
+.desktopSlider .sliderThumbnail { background: #fbf8fb; }
+.desktopSlider .sliderThumbnail img { mix-blend-mode: multiply; }
+
+// Blend the FyImage wrapper too, including any white background supplied by image styles.
+.desktopSlider .sliderItem .galleryImage { background: transparent; mix-blend-mode: multiply; }
+
+// Five visible desktop thumbnails; mobile uses its separate five-thumbnail slider.
+.desktopSlider {
+  // Previous three-thumbnail width: .sliderNavigation { max-width: 471.47px; }
+  .sliderNavigation { max-width: 699px; }
+  // Previous three-thumbnail width: .sliderThumbnails { flex: 1 1 0; max-width: 327.47px; }
+  .sliderThumbnails { flex: 1 1 0; max-width: 555px; }
+  .sliderThumbnail {
+    // Previous three-thumbnail sizing: flex: 0 0 calc((100% - 27.47px) / 3);
+    flex: 0 0 calc((100% - 54.94px) / 5);
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1;
+    box-sizing: border-box;
+  }
+}
+
+// Keep the gallery background behind the image while its white pixels blend into it.
+.desktopSlider .sliderItem {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fbf5fa;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+  }
 }

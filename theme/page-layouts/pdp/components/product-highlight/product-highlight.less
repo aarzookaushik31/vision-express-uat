@@ -1,3 +1,15 @@
+// Desktop presentation only; highlight content remains product-driven.
+@media only screen and (min-width: 769px) {
+  .highlightsContainer {
+    background: #faf2f9;
+    border-radius: 8px;
+    margin-top: 16px;
+    padding: 10px 12px;
+    gap: 20px;
+  }
+  .highlightItem { flex: 1 1 0; min-width: 0; }
+}
+
 .highlightsContainer {
   background: rgba(161, 90, 149, 0.1);
   padding: 10px 12px;
@@ -39,3 +51,44 @@
   height: 100%;
   }
 }
+
+@media only screen and (min-width: 769px) {
+  .highlightsContainer.highlightsContainer {
+    background: #faf2f9;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    .highlightItem {
+      min-width: 0;
+      .icon { flex: 0 0 30px; }
+      .text {
+        // Desktop override for the original white-space: nowrap declaration above.
+        min-width: 0;
+        flex: 1 1 auto;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .highlightsContainer.highlightsContainer {
+    box-sizing: border-box;
+    width: 100%;
+    background: #faf2f9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    gap: 12px;
+    .highlightItem {
+      flex: 1 1 110px;
+      min-width: 0;
+      .icon { flex: 0 0 30px; }
+      .text { min-width: 0; flex: 1 1 auto; white-space: normal; overflow-wrap: anywhere; font-family: Verdana, sans-serif; line-height: 1.4; }
+    }
+  }
+}
+
+// Prevent the global fontBody !important rule from overriding Figma highlights.
+.highlightsContainer .highlightItem .text { font-family: Verdana, sans-serif !important; }

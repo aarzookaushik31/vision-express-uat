@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import pdpStoreInterior from "../assets/images/pdp-footer/store-interior.png";
+import pdpStoreWatermark from "../assets/images/pdp-footer/logo-watermark.png";
+import pdpStoreGlow from "../assets/images/pdp-footer/store-glow.svg";
+import PdpLocationIcon from "../assets/images/pdp-footer/location.svg";
 import styles from "../styles/sections/find-store.less";
 import Location from "../assets/images/mage_location.png";
 import placeholderDesktop from "../assets/images/placeholder/slideshow-desktop2.jpg";
@@ -53,6 +58,9 @@ function useInView(ref) {
 
 export function Component(input = {}) {
   const props = (input && (input.props ?? input)) || {};
+  const location = useLocation();
+  const isPdpDesign = /^(?:\/[a-zA-Z-]+)?\/product\/[^/]+\/?$/i.test(location.pathname);
+  const useFigmaPdpArtwork = isPdpDesign && props.use_figma_pdp_artwork?.value !== false;
 
   const {
     backgroundImage,
@@ -90,7 +98,8 @@ export function Component(input = {}) {
     ? mobileBackgroundImage?.value || placeholderMobile
     : backgroundImage?.value || placeholderDesktop;
 
-  const isHome = window.location && window.location.pathname === "/";
+  // Original browser-only check retained: const isHome = window.location && window.location.pathname === "/";
+  const isHome = location.pathname === "/";
 
   const handleFindStore = () => {
     if (pincode) {
@@ -107,9 +116,15 @@ export function Component(input = {}) {
   return (
     <div
       ref={wrapperRef}
+      style={isPdpDesign ? {
+        "--pdp-store-desktop": `url("${useFigmaPdpArtwork ? pdpStoreInterior : backgroundImage?.value || pdpStoreInterior}")`,
+        "--pdp-store-mobile": `url("${useFigmaPdpArtwork ? pdpStoreInterior : mobileBackgroundImage?.value || backgroundImage?.value || pdpStoreInterior}")`,
+        "--pdp-store-watermark": `url("${pdpStoreWatermark}")`,
+        "--pdp-store-glow": `url("${pdpStoreGlow}")`,
+      } : undefined}
       className={`${styles.findStoreWrapper} ${
         isBlackBgEnabled ? styles.blackBgFindStore : ""
-      }  ${isHome ? styles.blackBgFindStore : ""}`}
+      }  ${isHome ? styles.blackBgFindStore : ""} ${isPdpDesign ? styles.pdpFindStore : ""}`}
     >
       <section
         className={`${styles.findStoreSection} ${
@@ -132,7 +147,8 @@ export function Component(input = {}) {
                 className={styles.pincodeInput}
               />
               <button className={styles.findButton} onClick={handleFindStore}>
-                <img src={Location} alt="Find" />{" "}
+                {/* Original icon remains on other pages: <img src={Location} alt="Find" /> */}
+                {isPdpDesign ? <span className={styles.pdpLocationIcon}><PdpLocationIcon /></span> : <img src={Location} alt="Find" />}{" "}
                 {buttonText?.value || "Find Stores"}
               </button>
             </div>
@@ -150,6 +166,7 @@ export default Component;
 export const settings = {
   label: "Find Store Section",
   props: [
+    { id: "use_figma_pdp_artwork", type: "checkbox", label: "Use Figma artwork on product pages", default: true },
     {
       id: "backgroundImage",
       type: "image_picker",

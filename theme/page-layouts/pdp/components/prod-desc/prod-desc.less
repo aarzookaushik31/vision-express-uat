@@ -1,5 +1,174 @@
 @import "../../../../styles/main.less";
 
+.desktopContentTabs { display: none; }
+@media @desktop {
+  .accordionMobileOnly { display: none; }
+  .desktopContentTabs {
+    display: block;
+    margin: 20px 0;
+    min-width: 0;
+    .contentTabList { display: flex; gap: 16px; }
+    .contentTab {
+      cursor: pointer;
+      // font: inherit;
+      font-family: Verdana, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15px;
+      padding: 0 2px 16px;
+      background: transparent;
+      border: 0;
+      // color: #2e2b2c;
+      color: #000;
+      &:focus-visible { outline: 2px solid @ButtonPrimary; outline-offset: 3px; }
+    }
+    .contentTabPanel {
+      padding-top: 21px;
+      color: #949293;
+      font-size: 12px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      &[hidden] { display: none; }
+      p { margin: 0 0 12px; }
+      .detailTable {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        td { padding: 12px; border: 1px solid rgba(158, 0, 126, 0.1); vertical-align: top; }
+        .prop { color: #2e2b2c; }
+      }
+    }
+  }
+  .figmaContentTabs {
+    margin: 20px 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    background: var(--content-panel-background, #fbf8fb);
+    border: 1px solid var(--content-panel-background, #fbf8fb);
+    border-radius: 12px;
+    .contentTabList {
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(158, 0, 126, 0.15);
+      gap: 8px;
+    }
+    // .contentTab { border-bottom: 1px solid transparent; margin-bottom: -1px; }
+    .contentTab {
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      text-align: center;
+      white-space: normal;
+      &:first-child { text-align: start; }
+      &:last-child { text-align: end; }
+    }
+    .contentTabPanel {
+      font-family: Verdana, sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      > div > :last-child { margin-bottom: 0; }
+    }
+    .contentTabActive {
+      color: var(--content-tab-active-color, #9e007e);
+      border-bottom-color: var(--content-tab-active-color, #9e007e);
+    }
+  }
+  .classicContentTabs {
+    .contentTabList { gap: 0; }
+    .contentTab { padding: 12px 24px; }
+    .contentTabActive {
+      background: @ThemeAccentL2;
+      border: 1px solid @DividerStokes;
+      border-radius: 12px 12px 0 0;
+      border-bottom-color: @ThemeAccentL2;
+      margin-bottom: -1px;
+    }
+    .contentTabPanel {
+      padding: 24px 16px;
+      background: @ThemeAccentL2;
+      border: 1px solid @DividerStokes;
+      border-radius: 0 12px 12px 12px;
+    }
+  }
+}
+
+// Figma colours and geometry also apply to the existing Tabs selection.
+// Original theme-accent classic-tab declarations above are retained for reference.
+@media @desktop {
+  .desktopContentTabs.classicContentTabs {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px 0 0;
+    padding: 16px;
+    background: #fbf8fb;
+    border: 1px solid #fbf8fb;
+    border-radius: 12px;
+    .contentTabList {
+      justify-content: space-between;
+      gap: 8px;
+      border-bottom: 1px solid rgba(158, 0, 126, 0.15);
+    }
+    .contentTab {
+      padding: 0 2px 16px;
+      margin-bottom: -1px;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: #000;
+      font-family: Verdana, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15px;
+      text-align: center;
+      &:first-child { text-align: start; }
+      &:last-child { text-align: end; }
+    }
+    .contentTabActive {
+      color: #9e007e;
+      border-bottom-color: #9e007e;
+    }
+    .contentTabPanel {
+      padding: 21px 0 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: #949293;
+      font-family: Verdana, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.8;
+      > div > :last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+// Figma panel styling while retaining existing accordion controls and dynamic content.
+@media @desktop {
+  .descContainerMobile.customDescContainer {
+    margin: 20px 0 0;
+    padding: 16px;
+    background: #fbf8fb;
+    border: 1px solid #fbf8fb;
+    border-radius: 12px;
+    button .accordiontitle {
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: capitalize;
+    }
+    .pdpDetail {
+      color: #949293;
+      font-size: 12px;
+      line-height: 1.8;
+      .detailTable {
+        border-color: rgba(158, 0, 126, 0.1);
+        td { padding: 12px; border-color: rgba(158, 0, 126, 0.1); }
+      }
+      p { margin: 0 0 12px; }
+      > :last-child { margin-bottom: 0; }
+    }
+  }
+}
+
 
 .customDescContainer{
   button{
@@ -434,5 +603,107 @@
   }
   & > :last-child {
     margin-bottom: 0;
+  }
+}
+
+// Keep the existing mobile accordion interaction and apply the Figma panel palette.
+@media @tablet {
+  .descContainerMobile.customDescContainer {
+    box-sizing: border-box;
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    background: #fbf8fb;
+    border: 1px solid #fbf8fb;
+    border-radius: 12px;
+    font-family: Verdana, sans-serif;
+    > div {
+      box-sizing: border-box;
+      padding: 16px 12px;
+      margin-bottom: 12px;
+      border-color: rgba(158, 0, 126, 0.1);
+      &:last-child { margin-bottom: 0; }
+      > button { min-height: 24px; gap: 12px; text-align: start; }
+    }
+    button .accordiontitle { font-size: 12px; line-height: 18px; text-transform: capitalize; }
+    .pdpDetail {
+      color: #949293;
+      font-size: 12px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      .detailTable {
+        border-color: rgba(158, 0, 126, 0.1);
+        td { padding: 10px 8px; border-color: rgba(158, 0, 126, 0.1); vertical-align: top; }
+      }
+      p { margin: 0 0 12px; }
+      > :last-child { margin-bottom: 0; }
+    }
+  }
+}
+
+// Display the selected tabs on mobile instead of the fallback accordion.
+@media @tablet {
+  .descContainerMobile.customDescContainer.accordionMobileOnly { display: none; }
+  .desktopContentTabs {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid var(--content-panel-background, #fbf8fb);
+    border-radius: 12px;
+    background: var(--content-panel-background, #fbf8fb);
+    font-family: Verdana, sans-serif;
+    .contentTabList {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 8px;
+      border-bottom: 1px solid rgba(158, 0, 126, 0.15);
+    }
+    .contentTab {
+      min-width: 0;
+      padding: 0 0 10px;
+      margin-bottom: -1px;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      border-radius: 0;
+      background: transparent;
+      color: #000;
+      font-family: Verdana, sans-serif;
+      font-size: clamp(9px, 2.7vw, 12px);
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+      &:first-child { text-align: start; }
+      &:last-child { text-align: end; }
+      &:focus-visible { outline: 2px solid #9e007e; outline-offset: 3px; }
+    }
+    .contentTabActive {
+      color: var(--content-tab-active-color, #9e007e);
+      border-bottom-color: var(--content-tab-active-color, #9e007e);
+    }
+    .contentTabPanel {
+      padding: 16px 0 0;
+      color: #949293;
+      font-family: Verdana, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+      &[hidden] { display: none; }
+      p { margin: 0 0 12px; }
+      > div > :last-child { margin-bottom: 0; }
+      .detailTable {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        td { padding: 10px 8px; border: 1px solid rgba(158, 0, 126, 0.1); vertical-align: top; overflow-wrap: anywhere; }
+        .prop { color: #2e2b2c; }
+      }
+    }
   }
 }

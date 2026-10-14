@@ -11,6 +11,9 @@ import ProductCompareButton from "../page-layouts/compare/product-compare-button
 import useProductDescription from "../page-layouts/pdp/product-description/useProductDescription";
 import RecommendedProducts from "../page-layouts/pdp/components/simiar-products/similar-products";
 import PdpImageGallery from "../page-layouts/pdp/components/image-gallery/image-gallery";
+import GlamARTrigger from "../components/GlamARTryOn/index.jsx";
+import TryOnIcon from "../assets/images/pdp-gallery/try-on.svg";
+import tryOnMask from "../assets/images/pdp-gallery/try-on-mask.svg";
 import ProductVariants from "../page-layouts/pdp/components/product-variants/product-variants";
 import SizeGuide from "../page-layouts/pdp/size-guide/size-guide";
 import DeliveryInfo from "../page-layouts/pdp/components/delivery-info/delivery-info";
@@ -77,6 +80,8 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   } = props;
 
   const addToCartBtnRef = useRef(null);
+  const storeActionSlotRef = useRef(null);
+  const [isStoreActionSticky, setIsStoreActionSticky] = useState(false);
   const params = useParams();
   const location = useLocation();
 
@@ -322,6 +327,37 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     offsetY: 0,
   });
   const isMobile = useViewport(0, 768);
+  const hasFindInStoreBlock = blocks.some((block) => block.type === "find_in_store");
+
+  useEffect(() => {
+    const slot = storeActionSlotRef.current;
+    if (!isMobile || !isPDP || !slot || typeof IntersectionObserver === "undefined") {
+      setIsStoreActionSticky(false);
+      return;
+    }
+
+    // Observe the original position so fixing the buttons cannot change visibility.
+    // Account for the sticky header covering the top of the mobile viewport.
+    let observer;
+    const observeSlot = () => {
+      observer?.disconnect();
+      const header = document.querySelector(".fdk-theme-header");
+      const headerPosition = header && window.getComputedStyle(header).position;
+      const headerHeight = ["sticky", "fixed"].includes(headerPosition)
+        ? Math.ceil(header.getBoundingClientRect().height)
+        : 0;
+      observer = new IntersectionObserver(([entry]) => {
+        setIsStoreActionSticky(!entry.isIntersecting);
+      }, { rootMargin: `-${headerHeight}px 0px 0px 0px` });
+      observer.observe(slot);
+    };
+    observeSlot();
+    window.addEventListener("resize", observeSlot);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", observeSlot);
+    };
+  }, [isMobile, isPDP, hasFindInStoreBlock, slug]);
   const {
     media,
     grouped_attributes,
@@ -623,6 +659,55 @@ const availableLabel =
 
 
 
+  const galleryShareButton = (
+<span
+                                className={styles.shareIcon}
+                                onClick={() => setShowSocialLinks(true)}
+                              >
+                                <ShareDesktopIcon />
+                              </span>
+  );
+
+  const frameDimensionsPanel = (
+frameSize && (
+  <div className={styles.sizeDimensions}>
+    <div className={styles.sizeDimensions__grid}>
+      {lensWidth && (
+        <div>
+          <img src={LensWidthImg} alt="Lens Width" />
+          <p>{lensWidth} mm</p>
+          <span>Lens Width</span>
+        </div>
+      )}
+
+      {bridgeWidth && (
+        <div>
+          <img src={BridgeWidthImg} alt="Bridge Width" />
+          <p>{bridgeWidth} mm</p>
+          <span>Bridge Width</span>
+        </div>
+      )}
+
+      {templeLength && (
+        <div>
+          <img src={TempleLengthImg} alt="Temple Length" />
+          <p>{templeLength} mm</p>
+          <span>Temple Length</span>
+        </div>
+      )}
+
+      {lensHeight && (
+        <div>
+          <img src={LensHeightImg} alt="Lens Height" />
+          <p>{lensHeight} mm</p>
+          <span>Lens Height</span>
+        </div>
+      )}
+    </div>
+  </div>
+)
+  );
+
   return (
     <>
 
@@ -640,6 +725,14 @@ const availableLabel =
                   <PdpImageGallery
                     key={slug}
                     images={media}
+                    desktopLayout="slider"
+                    shareButton={galleryShareButton}
+                    tryOnButton={
+                      <GlamARTrigger accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71" sku={productDetails?.item_code} buttonClassName={styles.galleryTryOn}>
+                        <span className={styles.galleryTryOnIcon} style={{ maskImage: `url(${tryOnMask})`, WebkitMaskImage: `url(${tryOnMask})` }}><TryOnIcon /></span>
+                        <span>Virtual Try-On</span>
+                      </GlamARTrigger>
+                    }
                     iconColor={icon_color?.value || ""}
                     globalConfig={globalConfig}
                     followed={followed}
@@ -655,6 +748,11 @@ const availableLabel =
             )}
           </div>
           <div className={styles.right}>
+            {productDetails?.attributes?.displaytag?.[0] && (
+              <div className={styles.desktopProductTag}>
+                {productDetails.attributes.displaytag[0]}
+              </div>
+            )}
             {zoom_in?.value && zoomData?.show && (
               <div className={styles.zoomContainer}>
                 <img
@@ -765,6 +863,8 @@ const availableLabel =
                       
 
                            <div className={styles.shareWishlistContainer}>
+                             {/* Keep wishlist beside the price when there is no Find in Store block. */}
+                             {!blocks?.some((item) => item.type === "find_in_store") && (
                              <button
               type="button"
               aria-label="Wishlist"
@@ -775,13 +875,16 @@ const availableLabel =
             >
               <WishlistIcon isActive={followed} />
             </button>
+                             )}
 
+                              {/* Original share control placement retained:
                               <span
                                 className={styles.shareIcon}
                                 onClick={() => setShowSocialLinks(true)}
                               >
                                 <ShareDesktopIcon />
                               </span>
+                              */}
                               {showSocialLinks && (
                                 <ShareItem
                                   setShowSocialLinks={setShowSocialLinks}
@@ -1086,7 +1189,9 @@ const availableLabel =
 
 
 
-                          {frameSize && (
+                          {!blocks?.some((item) => item.type === "find_in_store") && frameDimensionsPanel}
+                          {/* Original dimensions placement retained:
+{frameSize && (
   <div className={styles.sizeDimensions}>
     <div className={styles.sizeDimensions__grid}>
       {lensWidth && (
@@ -1123,15 +1228,7 @@ const availableLabel =
     </div>
   </div>
 )}
-
-
-
-
-
-
-
-
-
+                          */}
                               <div
                                 className={`${styles.cartWrapper} ${
                                   isSizeSelectionBlock(block) &&
@@ -1388,7 +1485,9 @@ const availableLabel =
                 case "find_in_store":      
                return  (
                 <div>
-                  <div  className={styles.findstorewrapper}>
+                  <div ref={storeActionSlotRef} className={styles.storeActionSlot}>
+                  {/* Original wrapper: <div className={styles.findstorewrapper}> */}
+                  <div className={`${styles.findstorewrapper} ${isMobile && isPDP && isStoreActionSticky ? styles.stickyStoreActions : ""}`}>
   <button
     type="button"
     className={styles.findInStoreButton}
@@ -1400,7 +1499,14 @@ const availableLabel =
     />
     FIND IN STORE
   </button>
+  <button type="button" aria-label="Wishlist"
+    className={`${styles.wishlistIcon} ${styles.storeWishlist} ${followed ? styles.activeWishlist : ""}`}
+    onClick={(e) => followed ? removeFromWishlist(e) : addToWishList(e)}>
+    <WishlistIcon isActive={followed} />
+  </button>
 </div>
+</div>
+{frameDimensionsPanel}
    <StoreModal
                             isOpen={showStoreModal}
                             buybox={buybox}
@@ -1581,7 +1687,9 @@ const availableLabel =
                 ))} */}
 
               {/* ---------- Prod Desc ---------- */}
-              {variant_position?.value === "accordion" && (
+              {/* Original condition: variant_position?.value === "accordion" */}
+              {/* Previous placement condition: variant_position?.value === "accordion" || variant_position?.value === "new_tabs" */}
+              {(["accordion", "tabs", "new_tabs"].includes(variant_position?.value) || !variant_position?.value) && (
                 <div className={styles.productDescDesktop}>
                   <ProdDesc product={productDetails} config={props} returnConfig={productPriceBySlug?.return_config} />
                 </div>
@@ -1607,12 +1715,12 @@ const availableLabel =
         </div>
         <ProdDesc
           customClass={
-            variant_position?.value === "tabs"
-              ? ""
-              : styles.productDescMobileAcc
+            // Previous tabs placement: variant_position?.value === "tabs" ? "" : styles.productDescMobileAcc
+            styles.productDescMobileAcc
           }
           product={productDetails}
           config={props}
+          // returnConfig={productPriceBySlug?.return_config}
         />
       </div>
 
@@ -1752,7 +1860,8 @@ export const settings = {
       type: "radio",
       id: "variant_position",
       label: "t:resource.sections.product_description.product_detail_postion",
-      default: "accordion",
+      // default: "accordion",
+      default: "new_tabs",
       options: [
         {
           value: "accordion",
@@ -1762,8 +1871,17 @@ export const settings = {
           value: "tabs",
           text: "t:resource.sections.product_description.tab_style",
         },
+        {
+          value: "new_tabs",
+          text: "Figma tabs (right side)",
+        },
       ],
     },
+    { type: "text", id: "content_description_label", label: "Description tab label (optional)", default: "" },
+    { type: "text", id: "content_details_label", label: "Product details tab label", default: "Product Details" },
+    { type: "text", id: "content_additional_label", label: "Additional details tab label", default: "Additional Details" },
+    { type: "color", id: "content_panel_background", label: "Figma tabs background", default: "#fbf8fb" },
+    { type: "color", id: "content_tab_active_color", label: "Figma tabs active colour", default: "#9e007e" },
     {
       type: "checkbox",
       id: "show_products_breadcrumb",

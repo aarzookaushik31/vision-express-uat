@@ -491,3 +491,88 @@ picture{
 //     transform: translateY(0);
 //   }
 // }
+// Presentation applies only to the PDP recommendation cards.
+.productCard.figmaSimilarCard {
+  height: 446px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 6px solid rgba(158, 0, 126, .08);
+  border-radius: 32px;
+  background: #fff;
+  isolation: isolate;
+  font-family: Verdana !important;
+  letter-spacing: 0;
+  &::after {
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(158, 0, 126, .12) 67.308%, #9e007e 100%);
+    pointer-events: none;
+  }
+  .imageContainer {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    margin: 0;
+    .productImage { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; }
+    picture { display: block; width: 100%; height: 100%; }
+    img { width: 100%; height: 100%; object-fit: cover; }
+    .wishlistBtn {
+      top: 16px !important;
+      inset-inline-end: 16px;
+      width: 40px;
+      height: 40px;
+      padding: 9px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: #9e007e !important;
+      cursor: pointer;
+      img { width: 21px; height: auto; object-fit: contain; }
+      &:focus-visible { outline: 2px solid #9e007e; outline-offset: 3px; }
+    }
+    .badge { top: auto; bottom: 140px; inset-inline-start: 50%; transform: translateX(-50%); z-index: 2; border-radius: 40px; background: white; color: #9e007e; }
+  }
+  .displayTagContainer {
+    top: auto;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 40px;
+    background: #fff;
+    color: #9e007e;
+    box-shadow: 0 0 12px rgba(0,0,0,.25);
+    line-height: 16px;
+    white-space: nowrap;
+    max-width: calc(100% - 32px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .displayTagContainer ~ .imageContainer .badge { bottom: 180px; }
+  .productDescContainer {
+    position: absolute;
+    bottom: 20px;
+    left: 13px;
+    right: 13px;
+    z-index: 2;
+    .productDesc { width: 100%; }
+    .productDesc .productBrand { color: #fff !important; font-size: 12px !important; line-height: 18px; margin-bottom: 4px; }
+    .productDesc .productName { color: #fff !important; font-family: Verdana !important; font-size: 14px !important; font-weight: 700; line-height: 1.6; margin-bottom: 12px; -webkit-line-clamp: 2; }
+    .productDesc .productPrice { gap: 4px; color: #fff; font-size: 16px; font-weight: 700; line-height: 1.6; }
+    .productPrice span { color: #fff; font-family: Verdana !important; }
+    .productPrice--sale { font-size: 16px; margin: 0; }
+    .productPrice--regular, .productPrice--discount { font-size: 11px; }
+    .productDesc .productVariants {
+      position: absolute;
+      left: 3px;
+      bottom: 340px;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      .shade { padding: 0; width: 16px; height: 16px; box-sizing: border-box; border: 1px solid rgba(255,255,255,.6); }
+      .shadeImage, .shadeColor { width: 14px; height: 14px; min-width: 14px; }
+    }
+  }
+}

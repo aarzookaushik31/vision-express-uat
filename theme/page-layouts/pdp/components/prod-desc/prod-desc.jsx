@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId } from "react";
 import FyAccordion from "../../../../components/core/fy-accordion/fy-accordion";
 import styles from "./prod-desc.less";
 import { useRichText } from "../../../../helper/hooks";
 import { useGlobalTranslation } from "fdk-core/utils";
 
-function ProdDesc({ product, config, customClass, returnConfig }) {
+// function ProdDesc({ product, config, customClass, returnConfig }) {
+// function ProdDesc({ product, config, customClass, returnConfig, presentation = config?.variant_position?.value || "accordion" }) {
+function ProdDesc({ product, config, customClass, returnConfig, presentation = config?.variant_position?.value || "new_tabs" }) {
   const { t } = useGlobalTranslation("translation");
+  const tabGroupId = useId();
 
   const getInitialActiveTab = (product) => {
     if ((product?.description || "").length) return 0;
@@ -192,10 +196,66 @@ const returnPolicy =
     { label: "Return Policy", value: returnPolicy },
   ].filter((item) => item.value);
 
+  // Presentation uses the same description and filtered tables as the accordions below.
+  const contentTabs = [
+    // Original heading source: productDescription.title.
+    { id: 0, title: config?.content_description_label?.value || (presentation === "new_tabs" ? "Description" : productDescription.title), available: isProductDescAvailable(), data: null },
+    { id: 1, title: config?.content_details_label?.value || "Product Details", available: productDetailsData.length > 0, data: productDetailsData },
+    { id: 2, title: config?.content_additional_label?.value || "Additional Details", available: additionalDetailsData.length > 0, data: additionalDetailsData },
+  ].filter((tab) => tab.available);
+  const currentTab = contentTabs.find((tab) => tab.id === activeTab) || contentTabs[0];
+  const hasDesktopTabs = presentation === "tabs" || presentation === "new_tabs";
+  const handleTabKeyDown = (event, index) => {
+    const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const last = contentTabs.length - 1;
+    const next = event.key === "Home" ? 0 : event.key === "End" ? last
+      : (index + (event.key === "ArrowRight" ? 1 : -1) + contentTabs.length) % contentTabs.length;
+    setActiveTab(contentTabs[next].id);
+    event.currentTarget.parentElement.querySelectorAll('[role="tab"]')[next]?.focus();
+  };
+
   return (
     <div className={customClass}>
+      {/* Previous wrapper retained: <div className={`${styles.desktopContentTabs} ${presentation === "new_tabs" ? styles.figmaContentTabs : styles.classicContentTabs}`}> */}
+      {hasDesktopTabs && currentTab && (
+        <div className={`${styles.desktopContentTabs} ${presentation === "new_tabs" ? styles.figmaContentTabs : styles.classicContentTabs}`}
+          style={presentation === "new_tabs" ? {
+            "--content-panel-background": config?.content_panel_background?.value || "#fbf8fb",
+            "--content-tab-active-color": config?.content_tab_active_color?.value || "#9e007e",
+          } : undefined}>
+          <div className={styles.contentTabList} role="tablist" aria-label="Product information">
+            {contentTabs.map((tab, index) => (
+              <button key={tab.id} type="button" role="tab"
+                id={`${tabGroupId}-tab-${tab.id}`} aria-controls={`${tabGroupId}-panel-${tab.id}`}
+                aria-selected={currentTab.id === tab.id} tabIndex={currentTab.id === tab.id ? 0 : -1}
+                className={`${styles.contentTab} ${currentTab.id === tab.id ? styles.contentTabActive : ""}`}
+                onClick={() => setActiveTab(tab.id)} onKeyDown={(event) => handleTabKeyDown(event, index)}>
+                {tab.title}
+              </button>
+            ))}
+          </div>
+          {contentTabs.map((tab) => (
+            <div key={tab.id} role="tabpanel" tabIndex={0} hidden={tab.id !== currentTab.id}
+              id={`${tabGroupId}-panel-${tab.id}`} aria-labelledby={`${tabGroupId}-tab-${tab.id}`}
+              className={`${styles.contentTabPanel} ${styles.pdpDetail}`}>
+              {tab.id === 0 ? (
+                <div dangerouslySetInnerHTML={{ __html: clientMarkedContent }} />
+              ) : (
+                <table className={styles.detailTable}>
+                  <tbody>{tab.data.map((item, index) => (
+                    <tr key={index}><td className={styles.prop}>{item.label}</td><td className={styles.val}>{item.value}</td></tr>
+                  ))}</tbody>
+                </table>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
       <div
-        className={`${styles.descContainerMobile} ${styles.customDescContainer}`}
+        // className={`${styles.descContainerMobile} ${styles.customDescContainer}`}
+        className={`${styles.descContainerMobile} ${styles.customDescContainer} ${hasDesktopTabs ? styles.accordionMobileOnly : ""}`}
       >
 
 

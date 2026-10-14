@@ -124,3 +124,242 @@
 
 }
 
+
+// Figma PDP benefits panel. Keep the original layouts above for reference and home use.
+.iconListSection.iconListSectioncontainer {
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  max-width: 1280px;
+  margin: 0 auto 80px;
+  padding: 17px 0 16px;
+  border: 0;
+  border-radius: 24px;
+  background: #fbf8fb;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    align-items: stretch;
+    text-align: center;
+  }
+  .iconItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    min-width: 0;
+    min-height: 192px;
+    max-width: none;
+    padding: 0 24px;
+    box-sizing: border-box;
+    background: transparent;
+    border-radius: 0;
+    & + .iconItem::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 56px;
+      height: 113px;
+      width: 1px;
+      background: rgba(0, 0, 0, .1);
+    }
+    > div:last-child { width: 100%; min-width: 0; }
+  }
+  .listIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 72px;
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #f6e6f3;
+    > div { width: 34px; height: 34px; background: transparent !important; }
+    picture { display: block; width: 34px; height: 34px; background: transparent !important; }
+    img { width: 34px !important; height: 34px !important; object-fit: contain; mix-blend-mode: multiply; }
+  }
+  .title {
+    margin: 0 0 16px;
+    color: #000;
+    font-family: Verdana !important;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    span { font-size: inherit; }
+  }
+  .text {
+    max-width: 272px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, .8);
+    font-family: Verdana !important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% - 32px);
+    margin: 0 auto 32px;
+    padding: 20px 0;
+    border-radius: 20px;
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 0; }
+    .iconItem {
+      min-height: 0;
+      padding: 0 16px;
+      gap: 14px;
+      & + .iconItem::before { top: 28px; height: calc(100% - 28px); }
+      &:nth-child(odd)::before { display: none; }
+    }
+    .listIcon {
+      flex-basis: 48px;
+      width: 48px !important;
+      height: 48px !important;
+      > div, picture { width: 24px; height: 24px; }
+      img { width: 24px !important; height: 24px !important; }
+    }
+    .title { font-size: 16px; line-height: 22px; margin: 0 0 8px !important; }
+    .text { font-size: 10px; line-height: 1.6; letter-spacing: .5px; }
+  }
+}
+
+// Mobile Figma carousel supersedes the earlier two-column presentation.
+.mobileBenefitsSlider { display: none; }
+.iconListSection.iconListSectioncontainer .listIcon {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background: #9e007e;
+    mask-image: var(--benefit-icon);
+    -webkit-mask-image: var(--benefit-icon);
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+  > div { opacity: 0; }
+}
+@media (max-width: 768px) {
+  .iconListSection.iconListSectioncontainer {
+    width: 100%;
+    max-width: none;
+    padding: 0 0 18px;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    .grid { display: none; }
+    .mobileBenefitsSlider {
+      display: block;
+      // Global Slick dots add bottom space that is absent from the Figma panel.
+      :global(.slick-slider) { padding-bottom: 0; margin-bottom: 0; }
+    }
+    :global(.slick-slide) > div { padding: 0 4px; }
+    .iconItem {
+      display: flex !important;
+      height: 225px;
+      padding: 17px 24px 16px;
+      gap: 24px;
+      background: #fbf8fb;
+      border-radius: 24px;
+      text-align: center;
+      &::before { display: none; }
+    }
+    .listIcon {
+      width: 72px !important;
+      height: 72px !important;
+      flex-basis: 72px;
+      &::after { width: 34px; height: 34px; }
+    }
+    .title { font-size: 20px; line-height: 24px; margin: 0 0 16px !important; }
+    .text { font-size: 14px; line-height: 1.6; letter-spacing: 1px; }
+    :global(.slick-dots) {
+      position: static;
+      // Reset the shared theme's absolute pagination placement and important transform.
+      inset: auto;
+      inset-inline-start: auto;
+      inset-inline-end: auto;
+      transform: none !important;
+      height: 6px;
+      line-height: 0;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      // Earlier pagination sizes retained:
+      // li { width: 6px; height: 6px; margin: 0; }
+      // button { display: block; width: 6px; height: 6px; padding: 0; border: 0; border-radius: 20px; background: rgba(158,0,126,.2); font-size: 0; cursor: pointer; &::before { display: none; } }
+      // :global(.slick-active) { width: 34px; button { width: 34px; background: #9e007e; } }
+      li {
+        display: block;
+        flex: 0 0 6px;
+        width: 6px;
+        height: 6px;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+        button {
+          display: block;
+          width: 6px;
+          height: 6px;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 20px;
+          background: rgba(158, 0, 126, .2);
+          box-shadow: none;
+          transform: none;
+          font-size: 0;
+          line-height: 0;
+          cursor: pointer;
+          &::before { display: none; }
+          &:focus-visible { outline: 2px solid #9e007e; outline-offset: 3px; }
+        }
+        &:global(.slick-active) {
+          flex-basis: 34px;
+          width: 34px;
+          button { width: 34px; background: #9e007e; }
+        }
+      }
+    }
+  }
+}
+
+// Keep Slick's numeric slide widths intact and tint the image without using its background as a mask.
+.iconListSection.iconListSectioncontainer .listIcon {
+  &::after { content: none; }
+  > div { opacity: 1; }
+  img { filter: brightness(0) saturate(100%) invert(13%) sepia(100%) saturate(3900%) hue-rotate(301deg) brightness(82%) contrast(115%); }
+}
+@media (max-width: 768px) {
+  .iconListSection.iconListSectioncontainer .mobileBenefitsSlider {
+    min-width: 0;
+    width: 100%;
+    :global(.slick-list) { overflow: hidden; }
+    :global(.slick-track) { display: block; }
+    :global(.slick-slide) { float: left; height: auto; }
+  }
+}
+
+// Extra configured benefits remain in the code; the PDP displays the four desktop Figma cards.
+.iconListSection.pdpBenefits .grid .iconItem:nth-child(n + 5) { display: none; }
+
+@media (max-width: 768px) {
+  // The mobile Figma group is 225px card + 12px gap + 6px dots, then 40px to the store finder.
+  .iconListSection.pdpBenefits { padding-bottom: 0; margin-bottom: 40px; }
+}

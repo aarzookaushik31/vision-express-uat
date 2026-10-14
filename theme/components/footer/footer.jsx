@@ -104,7 +104,7 @@ function Footer({ fpi }) {
 
   return (
     !isFooterHidden && (
-      <footer className={`${styles.footer} fontBody`} style={footerStyle}>
+      <footer className={`${styles.footer} ${isPDP ? styles.pdpFooter : ""} fontBody`} style={footerStyle}>
         <>
           <div className={styles.footer__top}>
             <div className={styles.footerContainer}>

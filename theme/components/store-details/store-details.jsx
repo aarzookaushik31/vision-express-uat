@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import styles from "./store-details.less";
 import placeholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
 import CardplaceholderImage from "../../assets/images/placeholder/Store-detail-placeholder-image.png";
-import PhoneIcon from "../../assets/images/phone.png";
-import Purchase from "../../assets/images/purchase.png";
-import Eye from "../../assets/images/eyeicon.png";
+import PhoneIcon from "../../assets/images/store-phone.svg";
+import Purchase from "../../assets/images/store-purchase.svg";
+import Eye from "../../assets/images/store-eye-test.svg";
 import Repair from "../../assets/images/repairIcon.png";
 import Replacement from "../../assets/images/replacementIcon.png";
 import ShareDesktopIcon from "../../assets/images/share-04.svg";
 import ShareItem from "../../components/share-item/share-item";
 import GoogleRating from "./store-ratings.jsx";
-import phoneIcon from "../../assets/images/phoneicon.png";
+import AddressIcon from "../../assets/images/store-location.svg";
+import ClockIcon from "../../assets/images/store-clock.svg";
 import BookCalender from "../../assets/images/bookcalender.png";
 
 const StoreDetails = ({ store, map_api_key, defaultPhone, nearbyStores = [] }) => {
@@ -107,18 +108,35 @@ if (typeof phone_number === "object" && phone_number !== null) {
 
 useEffect(() => {
     const fetchRatingsOnce = async () => {
+      const debug = (stage, data = {}) => console.info("[StoreReviews] " + stage, data);
+      debug("fetch started", {
+        keyPresent: Boolean(map_api_key),
+        storeName: store_name,
+        addressPresent: Boolean(formattedAddress),
+        origin: window.location.origin,
+        mapsAvailable: Boolean(window.google?.maps),
+        placesAvailable: Boolean(window.google?.maps?.places),
+        existingMapScripts: document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]').length,
+      });
       try {
         const maps = await new Promise((resolve, reject) => {
-          if (window.google?.maps?.places) return resolve(window.google.maps);
+          if (window.google?.maps?.places) {
+            debug("reusing existing Places library");
+            return resolve(window.google.maps);
+          }
+          debug("loading Google Maps script");
           const script = document.createElement("script");
           script.src = `https://maps.googleapis.com/maps/api/js?key=${map_api_key}&libraries=places`;
           script.async = true;
           script.defer = true;
-          script.onload = () =>
-            window.google?.maps?.places
-              ? resolve(window.google.maps)
-              : reject("Google Maps not available");
-          script.onerror = () => reject("Failed to load Google Maps");
+          script.onload = () => {
+            debug("script load event", { mapsAvailable: Boolean(window.google?.maps), placesAvailable: Boolean(window.google?.maps?.places) });
+            return window.google?.maps?.places ? resolve(window.google.maps) : reject("Google Maps not available");
+          };
+          script.onerror = () => {
+            console.error("[StoreReviews] Google Maps script failed to load");
+            reject("Failed to load Google Maps");
+          };
           document.body.appendChild(script);
         });
 
@@ -128,7 +146,10 @@ useEffect(() => {
           fields: ["place_id", "name", "formatted_address"],
         };
 
+        debug("store lookup requested", { query: request.query });
         service.findPlaceFromQuery(request, (results, status) => {
+          debug("store lookup completed", { status, resultCount: results?.length || 0 });
+          if (status !== maps.places.PlacesServiceStatus.OK || !results?.length) console.warn("[StoreReviews] Store lookup failed or returned no matches", { status });
           if (status === maps.places.PlacesServiceStatus.OK && results.length) {
             const place = results[0];
             const detailsRequest = {
@@ -136,7 +157,10 @@ useEffect(() => {
               fields: ["name", "rating", "user_ratings_total", "reviews", "photos"],
             };
 
+          debug("place details requested", { placeId: place.place_id });
           service.getDetails(detailsRequest, (details, status2) => {
+            debug("place details completed", { status: status2, detailsPresent: Boolean(details), rating: details?.rating, totalReviews: details?.user_ratings_total, returnedReviewCount: details?.reviews?.length || 0 });
+            if (status2 !== maps.places.PlacesServiceStatus.OK || !details) console.warn("[StoreReviews] Place details failed", { status: status2 });
   if (status2 === maps.places.PlacesServiceStatus.OK && details) {
 
     let googlePhoto = null;
@@ -148,6 +172,7 @@ useEffect(() => {
       });
     }
 
+    debug("saving Google review data", { reviewCount: details.reviews?.length || 0 });
     setGoogleData({
       ratingData: {
         name: details.name,
@@ -169,6 +194,14 @@ useEffect(() => {
     fetchRatingsOnce();
   }, [formattedAddress]);
 
+
+useEffect(() => {
+  console.info("[StoreReviews] runtime key availability", { keyPresent: Boolean(map_api_key) });
+}, [map_api_key]);
+
+useEffect(() => {
+  console.info("[StoreReviews] render data", { dataAvailable: Boolean(googleData), reviewCount: googleData?.reviews?.length || 0 });
+}, [googleData]);
 
 let weekdayTiming = "";
 let weekendTiming = "";
@@ -224,11 +257,11 @@ if (Array.isArray(store_timings)) {
   <GoogleRating preFetchedData={googleData} fetchReviews={false} />
 )}
 
-          <p className={styles.address}>{formattedAddress}</p>
+          <p className={styles.address}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span>{formattedAddress}</p>
 
           {contactNumber && (
             <div className={styles.phoneRow}>
-              <img src={PhoneIcon} alt="phone" />
+              <span className={styles.iconCircle} aria-hidden="true"><PhoneIcon /></span>
               <a href={`tel:${contactNumber}`}>{contactNumber}</a>
             </div>
           )}
@@ -272,14 +305,14 @@ if (Array.isArray(store_timings)) {
             <div className={styles.servicesGrid}>
               <div className={styles.serviceCard}>
                 <div className={styles.iconCircle}>
-                  <img src={Purchase} alt="Purchase" />
+                  <Purchase aria-hidden="true" />
                 </div>
                 <p>Purchase</p>
               </div>
 
               <div className={styles.serviceCard}>
                 <div className={styles.iconCircle}>
-                  <img src={Eye} alt="Eye" />
+                  <Eye aria-hidden="true" />
                 </div>
                 <p>Eye</p>
               </div>
@@ -307,7 +340,7 @@ if (Array.isArray(store_timings)) {
            
            
           {(weekdayTiming || weekendTiming) && (
-  <p className={styles.timings}>
+  <p className={styles.timings}><span className={styles.iconCircle} aria-hidden="true"><ClockIcon /></span>
     {weekdayTiming && <>MON - FRI: {weekdayTiming}</>}
     {weekdayTiming && weekendTiming && " | "}
     {weekendTiming && <>SAT - SUN: {weekendTiming}</>}
@@ -390,12 +423,12 @@ if (Array.isArray(store_timings)) {
 
                   <div className={styles.storeContent}>
                     <h4 className={styles.storeName}>{s.store_name}</h4>
-                    <p className={styles.storeAddress}>{formattedAddr}</p>
+                    <p className={styles.storeAddress}><span className={styles.iconCircle} aria-hidden="true"><AddressIcon /></span>{formattedAddr}</p>
 
                     <div className={styles.phonebookContainer}>
                       {contactNumber && (
                         <p>
-                          <img src={phoneIcon} alt="Phone Icon" />
+                          <span className={styles.iconCircle} aria-hidden="true"><PhoneIcon /></span>
                           <a href={`tel:${contactNumber}`}>{contactNumber}</a>
                         </p>
                       )}

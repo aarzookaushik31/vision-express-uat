@@ -5,6 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const GoogleRating = ({ preFetchedData, fetchReviews = false }) => {
+  React.useEffect(() => {
+    console.info("[StoreReviews] rating component", { mode: fetchReviews ? "reviews" : "badge", dataAvailable: Boolean(preFetchedData), reviewCount: preFetchedData?.reviews?.length || 0 });
+  }, [preFetchedData, fetchReviews]);
   if (!preFetchedData) {
     return <p className={styles.loadingtext}>Loading rating...</p>;
   }
