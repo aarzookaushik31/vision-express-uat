@@ -5143,6 +5143,12 @@
         "default": "THE IN-STORE ADVANTAGE"
       },
       {
+        "id": "highlightText",
+        "type": "text",
+        "label": "Highlight Text (part of the heading shown in purple)",
+        "default": "ADVANTAGE"
+      },
+      {
         "id": "primaryButtonText",
         "type": "text",
         "label": "Primary Button Text",
@@ -6801,41 +6807,64 @@
         "id": "heading",
         "type": "text",
         "label": "Heading",
-        "default": "Find a Store Near You"
+        "default": "Find A Store Near You"
       },
       {
         "id": "subheading",
         "type": "text",
         "label": "Sub Heading",
-        "default": "Search by city or pincode"
+        "default": ""
       },
       {
         "id": "inputPlaceholder",
         "type": "text",
         "label": "Search Placeholder",
-        "default": "Enter Pincode / City"
+        "default": "Search by city or pincode"
       },
       {
         "id": "buttonText",
         "type": "text",
         "label": "Locate Button Text",
-        "default": "Locate Stores"
+        "default": "Find Store"
       },
       {
-        "id": "currentLocationText",
+        "id": "popupHeading",
         "type": "text",
-        "label": "Current Location Text",
-        "default": "Use My Current Location"
+        "label": "Location Popup Heading",
+        "default": "Enable your location"
+      },
+      {
+        "id": "popupDescription",
+        "type": "textarea",
+        "label": "Location Popup Description",
+        "default": "Allow location access and we'll show the stores nearest to you first."
+      },
+      {
+        "id": "popupAllowText",
+        "type": "text",
+        "label": "Location Popup Allow Button Text",
+        "default": "Allow Location"
+      },
+      {
+        "id": "popupDenyText",
+        "type": "text",
+        "label": "Location Popup Deny Button Text",
+        "default": "Not now"
+      },
+      {
+        "id": "popupIcon",
+        "type": "image_picker",
+        "label": "Location Popup Icon (optional)"
       },
       {
         "id": "backgroundImage",
         "type": "image_picker",
-        "label": "Desktop Background Image"
+        "label": "Desktop Background Image (optional)"
       },
       {
         "id": "mobileBackgroundImage",
         "type": "image_picker",
-        "label": "Mobile Background Image"
+        "label": "Mobile Background Image (optional)"
       }
     ]
   },
