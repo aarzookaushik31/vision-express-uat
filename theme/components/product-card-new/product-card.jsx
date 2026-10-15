@@ -1,50 +1,166 @@
 /**
  * ProductCard Component
+ * (keep your existing doc comment here)
  *
- * This React component renders a product card with various customizable options such as displaying brand, price, sale badges, wishlist icons, and more. It supports responsive design with different layouts for mobile, tablet, and desktop views.
- *
- * @param {Object} props - The properties object.
- * @param {Object} props.product - The product data to be displayed.
- * @param {Array} [props.customClass=[]] - Custom CSS classes to apply to the card.
- * @param {string} [props.listingPrice="range"] - Determines the price display format ("min", "max", or "range").
- * @param {boolean} [props.isHdimgUsed=false] - Flag to determine if high-definition images should be used.
- * @param {number} [props.aspectRatio=0.8] - Aspect ratio for the product image.
- * @param {boolean} [props.isBrand=true] - Flag to display the brand name.
- * @param {boolean} [props.isPrice=true] - Flag to display the price.
- * @param {boolean} [props.isSaleBadge=false] - Flag to display a sale badge if applicable.
- * @param {boolean} [props.isWishlistIcon=true] - Flag to display a wishlist icon.
- * @param {boolean} [props.isImageFill=false] - Flag to determine if the image should fill its container.
- * @param {boolean} [props.showImageOnHover=false] - Flag to show a different image on hover.
- * @param {string} [props.imageBackgroundColor=""] - Background color for the image.
- * @param {string} [props.imagePlaceholder=""] - Placeholder image URL.
- * @param {Object} [props.columnCount={ desktop: 4, tablet: 3, mobile: 1 }] - Number of columns for different viewports.
- * @param {Function} [props.WishlistIconComponent=() => <SvgWrapper svgSrc="wishlist-plp" />] - Custom component for the wishlist icon.
- * @param {boolean} [props.isRemoveIcon=false] - Flag to display a remove icon.
- * @param {Function} [props.RemoveIconComponent=() => <SvgWrapper svgSrc="item-close" />] - Custom component for the remove icon.
- * @param {Array} [props.followedIdList=[]] - List of followed product IDs.
- * @param {Function} [props.onWishlistClick=() => {}] - Callback function for wishlist icon click.
- * @param {Function} [props.handleAddToCart=() => {}] - Callback function for add to cart action.
- * @param {Function} [props.onRemoveClick=() => {}] - Callback function for remove icon click.
- * @param {boolean} [props.centerAlign=true] - Flag to center align text.
- * @param {boolean} [props.showAddToCart=false] - Flag to display the add to cart button.
- * @param {"classic"|"overlay"} [props.cardVariant="classic"] - "classic" keeps the existing card (image on top, details below).
- *        "overlay" renders the image-bleed card with a gradient + badge + title/price on top of the image (Figma "Best Seller" design).
- *
- * @returns {JSX.Element} The rendered product card component.
- *
+ * Overlay variant: when the product has 2+ images, the image area becomes a
+ * slider (arrows, dots, swipe). Autoplay runs only while the card is hovered.
  */
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { currencyFormat, formatLocale } from "../../helper/utils.js";
 import { useMobile } from "../../helper/hooks/index.jsx";
 import FyImage from "../core/fy-image/fy-image.jsx";
 import SvgWrapper from "../core/svgWrapper/SvgWrapper.jsx";
-import  styles from "./product-card.less";
+import styles from "./product-card.less";
 import FyButton from "../core/fy-button/fy-button.jsx";
 import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
 import WishlistIcon from "../../assets/images/wishlist.jsx";
 import imagePlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import GlamARTrigger from "../GlamARTryOn/index.jsx";
+
+const MAX_SLIDES = 4;
+const AUTOPLAY_SPEED = 700;
+
+const OverlayImageCarousel = ({
+  images,
+  productName,
+  imgSrcSet,
+  imageBackgroundColor,
+  isHovered,
+  autoplaySpeed = AUTOPLAY_SPEED,
+}) => {
+  const [active, setActive] = useState(0);
+  const pointerStart = useRef(null);
+  const suppressClick = useRef(false);
+  const count = images.length;
+
+  // Autoplay only while hovered; return to the first image when hover ends
+  useEffect(() => {
+    if (!isHovered || count < 2) {
+      setActive(0);
+      return undefined;
+    }
+    const timer = setInterval(
+      () => setActive((current) => (current + 1) % count),
+      autoplaySpeed
+    );
+    return () => clearInterval(timer);
+  }, [isHovered, count, autoplaySpeed]);
+
+  // The card sits inside a link, so stop navigation when using the controls
+  const go = (event, index) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setActive((index + count) % count);
+  };
+
+  return (
+    <div
+      className={styles.cardImageCarousel}
+      role="group"
+      aria-roledescription="carousel"
+      aria-label={`${productName} images`}
+    >
+      <div
+        className={styles.cardImageTrack}
+        style={{ transform: `translateX(-${active * 100}%)` }}
+        onPointerDown={(e) => {
+          pointerStart.current = { x: e.clientX, y: e.clientY };
+          suppressClick.current = false;
+        }}
+        onPointerUp={(e) => {
+          const start = pointerStart.current;
+          pointerStart.current = null;
+          if (!start) return;
+          const dx = e.clientX - start.x;
+          const dy = e.clientY - start.y;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            suppressClick.current = true; // a swipe shouldn't open the product
+            go(e, active + (dx < 0 ? 1 : -1));
+          }
+        }}
+        onPointerCancel={() => {
+          pointerStart.current = null;
+        }}
+        onClickCapture={(e) => {
+          if (suppressClick.current) {
+            e.preventDefault();
+            e.stopPropagation();
+            suppressClick.current = false;
+          }
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+             className={`${styles.cardImageSlide} ${
+      index === 0 ? styles.slideCover : styles.slideContain
+    }`}
+            key={image.url}
+            aria-hidden={index !== active}
+          >
+            <FyImage
+              src={image.url}
+              alt={image.alt || productName}
+              backgroundColor={imageBackgroundColor}
+              isFixedAspectRatio={false}
+              customClass={styles.productImage}
+              sources={imgSrcSet}
+              defer={index !== 0}
+            />
+          </div>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        className={`${styles.cardImageArrow} ${styles.cardImagePrevious}`}
+        aria-label={`Previous image of ${productName}`}
+        onClick={(e) => go(e, active - 1)}
+      >
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path
+            d="M15 5l-7 7 7 7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        type="button"
+        className={`${styles.cardImageArrow} ${styles.cardImageNext}`}
+        aria-label={`Next image of ${productName}`}
+        onClick={(e) => go(e, active + 1)}
+      >
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path
+            d="M9 5l7 7-7 7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {/* <div className={styles.cardImageDots}>
+        {images.map((image, index) => (
+          <button
+            type="button"
+            key={image.url}
+            className={index === active ? styles.cardImageDotActive : ""}
+            aria-label={`View image ${index + 1} of ${productName}`}
+            aria-pressed={index === active}
+            onClick={(e) => go(e, index)}
+          />
+        ))}
+      </div> */}
+    </div>
+  );
+};
 
 const ProductCard = ({
   product,
@@ -65,7 +181,6 @@ const ProductCard = ({
   isImageFill = false,
   showImageOnHover = false,
   imageBackgroundColor = "",
-  // imagePlaceholder = "",
   columnCount = { desktop: 4, tablet: 3, mobile: 1 },
   WishlistIconComponent = () => <SvgWrapper svgSrc="wishlist-plp" />,
   isRemoveIcon = false,
@@ -91,6 +206,7 @@ const ProductCard = ({
   const countryCode = i18nDetails?.countryCode || "IN";
   const isMobile = useMobile();
   const isOverlay = cardVariant === "overlay";
+  const [isHovered, setIsHovered] = useState(false);
 
   const getListingPrice = (key) => {
     if (!product.price) return "";
@@ -143,16 +259,25 @@ const ProductCard = ({
 
   const productImages = getProductImages();
   // Prefer the 6th image (index 5) per design; fall back to the first
-  // image for products that don't have that many photos.
-  const imageUrl = productImages?.[5]?.url || productImages?.[0]?.url || "";
+  const preferredIndex = productImages?.[5]?.url ? 5 : 0;
+  const imageUrl = productImages?.[preferredIndex]?.url || "";
   const imageAlt =
-    productImages?.[5]?.alt ||
-    productImages?.[0]?.alt ||
+    productImages?.[preferredIndex]?.alt ||
     `${product?.brand?.name} | ${product?.name}`;
-  const hoverImageUrl = getProductImages()?.[1]?.url || "";
+  const hoverImageUrl = productImages?.[1]?.url || "";
   const hoverImageAlt =
-    getProductImages()?.[1]?.alt ||
-    `${product?.brand?.name} | ${product?.name}`;
+    productImages?.[1]?.alt || `${product?.brand?.name} | ${product?.name}`;
+
+  // Slider images: preferred image first, then the rest (max MAX_SLIDES)
+  const carouselImages = [
+    productImages?.[preferredIndex],
+    ...(productImages || []).filter((_, i) => i !== preferredIndex),
+  ]
+    .filter(
+      (img, i, list) =>
+        img?.url && list.findIndex((item) => item?.url === img.url) === i
+    )
+    .slice(0, MAX_SLIDES);
 
   const shadeVariants = product.variants?.find(
     (variant) => variant.display_type === "color"
@@ -328,6 +453,8 @@ const ProductCard = ({
         } ${styles[customClass[0]]} ${styles[customClass[1]]} ${
           styles[customClass[2]]
         } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
+        onMouseEnter={() => !isMobile && setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         {hasGlamAR && (
           <GlamARTrigger
@@ -337,25 +464,29 @@ const ProductCard = ({
         )}
 
         <div className={styles.imageContainer}>
-          <FyImage
-            src={imageUrl || imagePlaceholder}
-            alt={imageAlt}
-            backgroundColor={imageBackgroundColor}
-            isFixedAspectRatio={false}
-            customClass={`${styles.productImage} ${styles.mainImage}`}
-            sources={imgSrcSet}
-            defer={false}
-          />
+          {carouselImages.length > 1 ? (
+            <OverlayImageCarousel
+              images={carouselImages}
+              productName={product.name}
+              imgSrcSet={imgSrcSet}
+              imageBackgroundColor={imageBackgroundColor}
+              isHovered={isHovered}
+            />
+          ) : (
+            <FyImage
+              src={imageUrl || imagePlaceholder}
+              alt={imageAlt}
+              backgroundColor={imageBackgroundColor}
+              isFixedAspectRatio={false}
+              customClass={`${styles.productImage} ${styles.mainImage}`}
+              sources={imgSrcSet}
+              defer={false}
+            />
+          )}
 
           {renderSwatches()}
           {renderWishlistButton()}
           {renderRemoveButton()}
-
-          {displayTag && (
-            <div className={styles.displayTagContainer}>
-              <span>{displayTag}</span>
-            </div>
-          )}
 
           <div className={styles.cardOverlay}>
             {showBadge && badgeText && (
@@ -363,7 +494,14 @@ const ProductCard = ({
                 <span>{badgeText}</span>
               </div>
             )}
+
             <div className={styles.overlayContent}>
+              {displayTag && (
+                <div className={styles.displayTagContainer}>
+                  <span>{displayTag}</span>
+                </div>
+              )}
+
               {isBrand && product.brand && (
                 <h3 className={styles.productBrand}>{product.brand.name}</h3>
               )}

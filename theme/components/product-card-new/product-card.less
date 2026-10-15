@@ -63,20 +63,18 @@
 
 
 .displayTagContainer{
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  background-color: rgba(158, 0, 126, 0.05);
-border: 1px solid rgba(158, 0, 126, 0.1);
-color:rgba(158, 0, 126, 1);
+border-radius: 40px;
+background: #9E007E;
+box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.10);
+color:#fff;
 font-size: 12px;
+line-height: 140%;
 font-weight: 700;
-padding: 4px 10px;
-border-radius: 6px;
+padding: 5px 15px;
+display: inline-block;
 
 @media @mobile{
-  top: 5px;
-  left: 10px;
+font-size: 10px;
 }
 
 }
@@ -146,15 +144,16 @@ picture{
     @lg-min: 860px;
  
     .badge {
-      position: absolute;
+   
       min-width: 50px;
-      border-radius: @BadgeRadius;
       padding: 6px 12px;
       text-align: center;
-      background-color: @SaleBadgeBackground;
-      color: @SaleBadgeText;
+      color: #fff;
       overflow: hidden;
       max-width: 60%;
+      border-radius: 40px;
+background: #9E007E;
+box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.10);
 
       .text {
         display: -webkit-box;
@@ -516,27 +515,32 @@ picture{
   // sit on top of the photo. Opt-in via cardVariant="overlay",
   // so every other usage of ProductCard is completely unaffected.
   // ============================================================
-  &.overlayCard {
+    &.overlayCard {
     padding: 0;
+    background: #fff;
     box-shadow: 0 4px 16px rgba(158, 0, 126, 0.08);
 
     &::after {
       display: none;
     }
 
-    .displayTagContainer {
-      top: 16px;
-      left: auto;
-      inset-inline-start: 16px;
-      z-index: 6;
+    // Show slider arrows while the card is hovered (desktop only)
+    @media @desktop {
+      &:hover .cardImageArrow {
+        opacity: 1;
+      }
     }
 
     .imageContainer {
       padding-top: 0;
       margin-bottom: 0;
       position: relative;
-      aspect-ratio: 0.78 !important;
+      aspect-ratio: 0.7 !important;
       overflow: hidden;
+
+      @media (max-width: 500px) {
+        aspect-ratio: 0.6 !important;
+      }
 
       picture {
         height: 100%;
@@ -557,6 +561,106 @@ picture{
         }
       }
 
+      // ---------- Image slider ----------
+      .cardImageCarousel {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        touch-action: pan-y; // vertical scroll still works; horizontal swipe goes to the slider
+
+        .cardImageTrack {
+          display: flex;
+          height: 100%;
+          transition: transform 400ms ease;
+        }
+
+        .cardImageSlide {
+          flex: 0 0 100%;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+
+  picture,
+  .productImage {
+    width: 100%;
+    height: 100%;
+  }
+
+            &.slideCover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  &.slideContain img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center 40% !important;
+  }
+        }
+
+        .cardImageArrow {
+          position: absolute;
+          top: 45%;
+          transform: translateY(-50%);
+          z-index: 5;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 0;
+          border-radius: 50%;
+          padding: 0;
+          background: rgba(255, 255, 255, 0.9);
+          color: rgba(158, 0, 126, 1);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+          opacity: 0;
+          cursor: pointer;
+          transition: opacity 200ms ease;
+
+          @media (hover: none) {
+            display: none; // touch devices use swipe and dots
+          }
+        }
+
+        .cardImagePrevious {
+          inset-inline-start: 10px;
+        }
+
+        .cardImageNext {
+          inset-inline-end: 10px;
+        }
+
+        .cardImageDots {
+          position: absolute;
+          top: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 5;
+          display: flex;
+          gap: 6px;
+
+          button {
+            width: 6px;
+            height: 6px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: width 200ms ease, background-color 200ms ease;
+
+            &.cardImageDotActive {
+              width: 16px;
+              border-radius: 4px;
+              background: #fff;
+            }
+          }
+        }
+      }
+
       .wishlistBtn {
         top: 16px !important;
         inset-inline-end: 16px;
@@ -571,41 +675,50 @@ picture{
         &.active {
           color: rgba(158, 0, 126, 1) !important;
         }
+
+        @media (max-width: 768px) {
+          width: 24px;
+          height: 24px;
+
+          img {
+            width: 14px;
+          }
+        }
       }
 
-    .productVariants {
-      display: flex;
-  position: absolute;
-  top: 16px;
-  inset-inline-start: 16px;
-  flex-direction: column;
-  margin-bottom: 0;
-  gap: 8px;
-  z-index: 5;
+      .productVariants {
+        display: flex;
+        position: absolute;
+        top: 16px;
+        inset-inline-start: 16px;
+        flex-direction: column;
+        margin-bottom: 0;
+        gap: 8px;
+        z-index: 5;
 
-  .shadeImage {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+        .shadeImage {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
 
-  .shade {
-    width: 14px;
-    height: 14px;
-    border: none;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: transparent;
+        .shade {
+          width: 14px;
+          height: 14px;
+          border: none;
+          border-radius: 50%;
+          overflow: hidden;
+          background-color: transparent;
 
-    .shadeColor {
-      width: 14px;
-      height: 14px;
-      min-width: 14px;
-      border-radius: 50%;
-    }
-  }
-}
+          .shadeColor {
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            border-radius: 50%;
+          }
+        }
+      }
 
       .cardOverlay {
         position: absolute;
@@ -619,6 +732,7 @@ picture{
         text-align: center;
         padding: 28px 16px 22px;
         border-radius: 0 0 20px 20px;
+        pointer-events: none; // swipes and clicks pass through to the slider
         background: linear-gradient(
           180deg,
           rgba(94, 8, 79, 0) 0%,
@@ -675,21 +789,3 @@ picture{
     }
   }
 }
-
-
-// .animate {
-//   animation: 0.5s ease-in var(--delay, 0ms) fadeSlide;
-//   animation-fill-mode: both;
-// }
-
-// @keyframes fadeSlide {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(10px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }

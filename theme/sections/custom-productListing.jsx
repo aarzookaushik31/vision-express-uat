@@ -20,7 +20,6 @@ import Modal from "../components/core/modal/modal";
 import AddToCart from "../page-layouts/plp/Components/add-to-cart/add-to-cart";
 import { useViewport } from "../helper/hooks";
 import SizeGuide from "../page-layouts/plp/Components/size-guide/size-guide";
-import ListingGridIcon from "../assets/images/plp/grid.svg";
 import MobileGridIcon from "../assets/images/plp/mobile-grid.svg";
 import MobileFitCircle from "../assets/images/plp/mobile-fit-circle.svg";
 import MobileFitIcon from "../assets/images/plp/mobile-fit-icon.svg";
@@ -28,6 +27,44 @@ import MobileFilterIcon from "../assets/images/plp/mobile-filter.svg";
 import { useGlobalTranslation, useFPI } from "fdk-core/utils";
 import { GET_PRODUCT_DETAILS } from "../queries/pdpQuery";
 import { GET_CUSTOM_FIELDS } from "../queries/plpQuery";
+
+
+const GridIcon = ({
+  cols = 2,
+  rows = cols === 1 ? 2 : cols, 
+  size = 36,
+  color = "#9E007E",
+}) => {
+  const pad = 1;
+  const gap = 3;
+  const total = 36 - pad * 2;
+  const cellW = (total - gap * (cols - 1)) / cols;
+  const cellH = (total - gap * (rows - 1)) / rows;
+  const radius = Math.min(cellW, cellH) * 0.3;
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      {Array.from({ length: cols * rows }).map((_, i) => (
+        <rect
+          key={i}
+          x={pad + (i % cols) * (cellW + gap)}
+          y={pad + Math.floor(i / cols) * (cellH + gap)}
+          width={cellW}
+          height={cellH}
+          rx={radius}
+          fill={color}
+        />
+      ))}
+    </svg>
+  );
+};
 
 const ProductListing = ({
   breadcrumb = [],
@@ -291,7 +328,13 @@ const ProductListing = ({
                       : "resource.product.tablet_grid_two"
                 )}
               >
-                <MobileGridIcon aria-hidden="true" />
+                 <GridIcon
+    cols={
+      columnCount?.[isMobile ? "mobile" : "tablet"] === 2
+        ? isMobile ? 1 : 3  
+        : 2
+    }
+  />
               </button>
             </div>
           </div>
@@ -403,7 +446,7 @@ const ProductListing = ({
                           : "resource.product.desktop_grid_two"
                       )}
                     >
-                      <ListingGridIcon />
+                      <GridIcon cols={columnCount?.desktop === 2 ? 3 : 2} />
                     </button>
                   </div>
                 </div>

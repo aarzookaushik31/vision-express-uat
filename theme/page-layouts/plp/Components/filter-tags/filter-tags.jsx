@@ -54,7 +54,7 @@ const FilterTags = ({
     return (
       <div className={styles.compactContainer}>
         <div className={styles.compactTags}>
-          <button
+          {/* <button
             type="button"
             className={styles.compactTag}
             onClick={onResetFiltersClick}
@@ -62,7 +62,7 @@ const FilterTags = ({
           >
             <span>All</span>
             <FilterAllRemove aria-hidden="true" />
-          </button>
+          </button> */}
           {visibleFilters?.map((filter) =>
             filter?.values?.map((filterItem) => (
               <button

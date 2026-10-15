@@ -180,13 +180,22 @@ const handleWishlistToggle = (data) => {
                   <SliderCard product={product}
                   customClass={["figmaSimilarCard"]} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
                   */}
-                  <SliderCard product={product}
-                  imageIndex={5} useSelectedImageOnHover={true}
-                  imageCarouselIndices={[5, 6]}
-                  // Previous mobile-only image settings: imageCarouselAutoplay={isMobile && Boolean(mobileAutoplay)} imageCarouselAutoplaySpeed={resolvedAutoplaySpeed}
-                  imageCarouselAutoplay={Boolean(imageCarouselAutoplay)}
-                  imageCarouselAutoplaySpeed={imageCarouselAutoplaySpeed}
-                  customClass={["figmaSimilarCard"]} onWishlistClick={handleWishlistToggle} followedIdList={followedIdList} />
+                 
+
+
+<SliderCard
+  product={product}
+  imageIndex={5}
+  imageCarouselAll={true}
+  imageCarouselPlayOnHover={true}
+  imageCarouselAutoplay={Boolean(imageCarouselAutoplay)}
+  imageCarouselAutoplaySpeed={700}
+  customClass={["figmaSimilarCard"]}
+  onWishlistClick={handleWishlistToggle}
+  followedIdList={followedIdList}
+/>
+
+
                 </FDKLink>
               ))
             ) : (

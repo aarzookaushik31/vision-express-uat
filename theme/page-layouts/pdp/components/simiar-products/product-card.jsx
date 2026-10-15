@@ -1,77 +1,107 @@
 /**
  * ProductCard Component
+ * (keep your existing doc comment here)
  *
- * This React component renders a product card with various customizable options such as displaying brand, price, sale badges, wishlist icons, and more. It supports responsive design with different layouts for mobile, tablet, and desktop views.
- *
- * @param {Object} props - The properties object.
- * @param {Object} props.product - The product data to be displayed.
- * @param {Array} [props.customClass=[]] - Custom CSS classes to apply to the card.
- * @param {string} [props.listingPrice="range"] - Determines the price display format ("min", "max", or "range").
- * @param {boolean} [props.isHdimgUsed=false] - Flag to determine if high-definition images should be used.
- * @param {number} [props.aspectRatio=0.8] - Aspect ratio for the product image.
- * @param {boolean} [props.isBrand=true] - Flag to display the brand name.
- * @param {boolean} [props.isPrice=true] - Flag to display the price.
- * @param {boolean} [props.isSaleBadge=true] - Flag to display a sale badge if applicable.
- * @param {boolean} [props.isWishlistIcon=true] - Flag to display a wishlist icon.
- * @param {boolean} [props.isImageFill=false] - Flag to determine if the image should fill its container.
- * @param {boolean} [props.showImageOnHover=false] - Flag to show a different image on hover.
- * @param {number} [props.imageIndex=0] - Preferred image position among the product's image media.
- * @param {boolean} [props.useSelectedImageOnHover=false] - Keep the selected presentation image on hover.
- * @param {string} [props.imageBackgroundColor=""] - Background color for the image.
- * @param {string} [props.imagePlaceholder=""] - Placeholder image URL.
- * @param {Object} [props.columnCount={ desktop: 4, tablet: 3, mobile: 1 }] - Number of columns for different viewports.
- * @param {Function} [props.WishlistIconComponent=() => <SvgWrapper svgSrc="wishlist-plp" />] - Custom component for the wishlist icon.
- * @param {boolean} [props.isRemoveIcon=false] - Flag to display a remove icon.
- * @param {Function} [props.RemoveIconComponent=() => <SvgWrapper svgSrc="item-close" />] - Custom component for the remove icon.
- * @param {Array} [props.followedIdList=[]] - List of followed product IDs.
- * @param {Function} [props.onWishlistClick=() => {}] - Callback function for wishlist icon click.
- * @param {Function} [props.handleAddToCart=() => {}] - Callback function for add to cart action.
- * @param {Function} [props.onRemoveClick=() => {}] - Callback function for remove icon click.
- * @param {boolean} [props.centerAlign=true] - Flag to center align text.
- * @param {boolean} [props.showAddToCart=false] - Flag to display the add to cart button.
- *
- * @returns {JSX.Element} The rendered product card component.
- *
+ * Image carousel (PDP recommendations):
+ *  - imageCarouselAll: preferred image (imageIndex) first, then the rest, max 4.
+ *  - imageCarouselIndices: explicit list of image indices (used when imageCarouselAll is false).
+ *  - imageCarouselPlayOnHover: plays only while the card is hovered (desktop), always forward.
  */
 
-// import React, { useMemo } from "react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { currencyFormat, formatLocale } from "../../../../helper/utils";
 import { useMobile } from "../../../../helper/hooks";
 import FyImage from "../../../../components/core/fy-image/fy-image";
 import SvgWrapper from "../../../../components/core/svgWrapper/SvgWrapper";
-import  styles from "./product-card.less";
+import styles from "./product-card.less";
 import FyButton from "../../../../components/core/fy-button/fy-button";
 import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
 import WishlistIcon from "../../../../assets/images/wishlist";
 import PreviousArrow from "../../../../assets/images/pdp-gallery/previous.svg";
 import NextArrow from "../../../../assets/images/pdp-gallery/next.svg";
 
-const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColor, autoplay, autoplaySpeed }) => {
-  const [activeImage, setActiveImage] = useState(0);
-  // Initial combined pause state: const [isPaused, setIsPaused] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+const MAX_SLIDES = 4;
+
+/**
+ * Direction: always forward. A clone of the first image is appended, autoplay
+ * slides onto the clone, then snaps back to the real first slide with the
+ * transition disabled, so the track never slides backwards.
+ *
+ * hover is owned by the card (isHovered prop), like the listing card.
+ */
+const CardImageCarousel = ({
+  images,
+  productName,
+  imgSrcSet,
+  imageBackgroundColor,
+  autoplay,
+  autoplaySpeed,
+  playOnHover = false,
+  isMobile = false,
+  isHovered = false,
+}) => {
+  const count = images.length;
+  const [pos, setPos] = useState(0); // pos === count is the cloned first slide
+  const [animate, setAnimate] = useState(true);
   const [isFocused, setIsFocused] = useState(false);
-  const isPaused = isHovered || isFocused;
   const pointerStart = useRef(null);
   const suppressImageClick = useRef(false);
   const imageKey = images.map((image) => image.url).join("|");
   const interval = Number(autoplaySpeed);
   const resolvedInterval = Number.isFinite(interval) && interval > 0 ? interval : 3000;
 
-  useEffect(() => { setActiveImage(0); }, [imageKey]);
+  const hoverMode = playOnHover && !isMobile;
+  const shouldPlay = hoverMode ? isHovered : autoplay && !isHovered && !isFocused;
+
+  const activeImage = count > 0 ? pos % count : 0;
+
+  const snapTo = (index) => {
+    setAnimate(false);
+    setPos(index);
+  };
+
+  // Reset when the image set changes
+  useEffect(() => { snapTo(0); }, [imageKey]);
+
+  // Re-enable the transition one tick after an instant jump
   useEffect(() => {
-    if (!autoplay || isPaused || images.length < 2) return undefined;
+    if (animate) return undefined;
+    const id = setTimeout(() => setAnimate(true), 30);
+    return () => clearTimeout(id);
+  }, [animate]);
+
+  // Forward-only autoplay
+  useEffect(() => {
+    if (!shouldPlay || count < 2) return undefined;
     const timer = setInterval(() => {
-      setActiveImage((current) => (current + 1) % images.length);
+      setPos((current) => (current >= count ? current : current + 1));
     }, resolvedInterval);
     return () => clearInterval(timer);
-  }, [autoplay, isPaused, images.length, resolvedInterval]);
+  }, [shouldPlay, count, resolvedInterval]);
+
+  // Hover mode: back to the first image when the mouse leaves the card
+  useEffect(() => {
+    if (hoverMode && !isHovered) snapTo(0);
+  }, [isHovered, hoverMode]);
+
+  const resetFromClone = () => {
+    if (pos === count) snapTo(0);
+  };
+
+  // Fallback in case transitionend never fires
+  useEffect(() => {
+    if (pos !== count || count < 2) return undefined;
+    const id = setTimeout(resetFromClone, 800);
+    return () => clearTimeout(id);
+  }, [pos, count]);
 
   const selectImage = (event, index) => {
     event.preventDefault();
     event.stopPropagation();
-    setActiveImage((index + images.length) % images.length);
+    setAnimate(true);
+    if (index >= count) setPos(count);
+    else if (index < 0) setPos(count - 1);
+    else setPos(index);
   };
 
   return (
@@ -80,31 +110,33 @@ const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColo
       role="group"
       aria-roledescription="carousel"
       aria-label={`${productName} images`}
-      // Initial pause handlers: onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} onFocusCapture={() => setIsPaused(true)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onFocusCapture={() => setIsFocused(true)}
       onBlurCapture={(event) => {
-        // Initial combined pause reset: if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
         if (!event.currentTarget.contains(event.relatedTarget)) setIsFocused(false);
       }}
     >
       <div
         className={styles.cardImageTrack}
-        style={{ transform: `translateX(-${activeImage * 100}%)` }}
-        onMouseDown={(event) => { if (images.length > 1) event.stopPropagation(); }}
-        onTouchStart={(event) => { if (images.length > 1) event.stopPropagation(); }}
-        onTouchMove={(event) => { if (images.length > 1) event.stopPropagation(); }}
-        onTouchEnd={(event) => { if (images.length > 1) event.stopPropagation(); }}
+        style={{
+          transform: `translateX(-${pos * 100}%)`,
+          ...(animate ? {} : { transition: "none" }),
+        }}
+        onTransitionEnd={(event) => {
+          if (event.target === event.currentTarget) resetFromClone();
+        }}
+        onMouseDown={(event) => { if (count > 1) event.stopPropagation(); }}
+        onTouchStart={(event) => { if (count > 1) event.stopPropagation(); }}
+        onTouchMove={(event) => { if (count > 1) event.stopPropagation(); }}
+        onTouchEnd={(event) => { if (count > 1) event.stopPropagation(); }}
         onPointerDown={(event) => {
-          if (images.length > 1) event.stopPropagation();
+          if (count > 1) event.stopPropagation();
           pointerStart.current = { x: event.clientX, y: event.clientY };
           suppressImageClick.current = false;
         }}
         onPointerUp={(event) => {
           const start = pointerStart.current;
           pointerStart.current = null;
-          if (!start || images.length < 2) return;
+          if (!start || count < 2) return;
           const distance = event.clientX - start.x;
           if (Math.abs(distance) > 40 && Math.abs(distance) > Math.abs(event.clientY - start.y)) {
             suppressImageClick.current = true;
@@ -121,7 +153,13 @@ const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColo
         }}
       >
         {images.map((image, index) => (
-          <div className={styles.cardImageSlide} key={image.url} aria-hidden={index !== activeImage}>
+          <div
+            className={`${styles.cardImageSlide} ${
+              index === 0 ? styles.slideCover : styles.slideContain
+            }`}
+            key={image.url}
+            aria-hidden={index !== activeImage}
+          >
             <FyImage
               src={image.url}
               alt={image.alt || productName}
@@ -129,12 +167,30 @@ const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColo
               isFixedAspectRatio={false}
               customClass={styles.productImage}
               sources={imgSrcSet}
-              defer={false}
+              defer={index !== 0}
             />
           </div>
         ))}
+        {/* Clone of the first (cover) slide so autoplay keeps moving forward */}
+        {count > 1 && (
+          <div
+            className={`${styles.cardImageSlide} ${styles.slideCover}`}
+            key="loop-clone"
+            aria-hidden="true"
+          >
+            <FyImage
+              src={images[0].url}
+              alt=""
+              backgroundColor={imageBackgroundColor}
+              isFixedAspectRatio={false}
+              customClass={styles.productImage}
+              sources={imgSrcSet}
+              defer={false}
+            />
+          </div>
+        )}
       </div>
-      {images.length > 1 && (
+      {count > 1 && (
         <>
           <button type="button" className={`${styles.cardImageArrow} ${styles.cardImagePrevious}`} aria-label={`Previous image of ${productName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, activeImage - 1)}>
             <PreviousArrow viewBox="0 0 40 40" aria-hidden="true" />
@@ -142,11 +198,6 @@ const CardImageCarousel = ({ images, productName, imgSrcSet, imageBackgroundColo
           <button type="button" className={`${styles.cardImageArrow} ${styles.cardImageNext}`} aria-label={`Next image of ${productName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, activeImage + 1)}>
             <NextArrow viewBox="0 0 40 40" aria-hidden="true" />
           </button>
-          <div className={styles.cardImageDots}>
-            {images.map((image, index) => (
-              <button type="button" key={image.url} className={index === activeImage ? styles.cardImageDotActive : ""} aria-label={`View image ${index + 1} of ${productName}`} aria-pressed={index === activeImage} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => selectImage(event, index)} />
-            ))}
-          </div>
         </>
       )}
     </div>
@@ -174,8 +225,10 @@ const ProductCard = ({
   imageIndex = 0,
   useSelectedImageOnHover = false,
   imageCarouselIndices = [],
+  imageCarouselAll = false,
   imageCarouselAutoplay = false,
   imageCarouselAutoplaySpeed = 3000,
+  imageCarouselPlayOnHover = false,
   imageBackgroundColor = "",
   imagePlaceholder = "",
   columnCount = { desktop: 4, tablet: 3, mobile: 1 },
@@ -200,10 +253,7 @@ const ProductCard = ({
   const locale = i18nDetails?.language?.locale || "en";
   const countryCode = i18nDetails?.countryCode || "IN";
   const isMobile = useMobile();
-
-
-
-  
+  const [isHovered, setIsHovered] = useState(false);
 
   const getListingPrice = (key) => {
     if (!product.price) return "";
@@ -250,7 +300,7 @@ const ProductCard = ({
     return price;
   };
 
-   const getProductImages = () => {
+  const getProductImages = () => {
     return (
       product?.media ||
       product?.medias ||
@@ -259,24 +309,34 @@ const ProductCard = ({
   };
 
   const images = getProductImages();
-  // Original first-image presentation retained:
-  // const imageUrl = images?.[0]?.url || imagePlaceholder;
-  // const hoverImageUrl = images?.[1]?.url || "";
-  // const imageAlt = images?.[0]?.alt || `${product?.brand?.name} | ${product?.name}`;
   const selectedImage = images?.[imageIndex]?.url ? images[imageIndex] : images?.[0];
   const imageUrl = selectedImage?.url || imagePlaceholder;
   const hoverImage = useSelectedImageOnHover ? selectedImage : images?.[1];
   const hoverImageUrl = hoverImage?.url || "";
   const imageAlt = selectedImage?.alt || `${product?.brand?.name} | ${product?.name}`;
   const hoverImageAlt = hoverImage?.alt || imageAlt;
-  const carouselImages = imageCarouselIndices
-    .map((index) => images[index])
-    .filter((image, index, list) => image?.url && list.findIndex((item) => item?.url === image.url) === index);
-  if (imageCarouselIndices.length > 0 && !carouselImages.length && selectedImage?.url) {
+
+  const uniqueWithUrl = (list) =>
+    list.filter(
+      (image, index, arr) =>
+        image?.url && arr.findIndex((item) => item?.url === image.url) === index
+    );
+
+  // Same rule as the listing card: preferred image first, then the rest (max 4).
+  // Otherwise fall back to the explicit index list.
+  const carouselImages = imageCarouselAll
+    ? uniqueWithUrl([selectedImage, ...images.filter((img) => img !== selectedImage)]).slice(0, MAX_SLIDES)
+    : uniqueWithUrl(imageCarouselIndices.map((index) => images[index]));
+
+  if (
+    !imageCarouselAll &&
+    imageCarouselIndices.length > 0 &&
+    !carouselImages.length &&
+    selectedImage?.url
+  ) {
     carouselImages.push(selectedImage);
   }
 
-    
   const shadeVariants = product.variants?.find(
     (variant) => variant.display_type === "color"
   );
@@ -325,33 +385,27 @@ const ProductCard = ({
     handleAddToCart(product?.slug);
   };
 
-
-
   const getShadeImage = (medias) => {
-  if (!Array.isArray(medias)) return "";
+    if (!Array.isArray(medias)) return "";
 
-  const image99 = medias.find((media) =>
-    media?.url?.toLowerCase().includes("-99")
-  );
+    const image99 = medias.find((media) =>
+      media?.url?.toLowerCase().includes("-99")
+    );
 
-  if (image99) return image99.url;
+    if (image99) return image99.url;
 
-  const imageList = medias.filter((m) => m.type === "image");
-  const lastImage = imageList[imageList.length - 1];
+    const imageList = medias.filter((m) => m.type === "image");
+    const lastImage = imageList[imageList.length - 1];
 
-  return lastImage?.url || "";
-};
-
+    return lastImage?.url || "";
+  };
 
   const displayTag =
-  product?.attributes?.displaytag &&
-  Array.isArray(product.attributes.displaytag) &&
-  product.attributes.displaytag.length > 0
-    ? product.attributes.displaytag[0]
-    : null;
-
- 
-
+    product?.attributes?.displaytag &&
+    Array.isArray(product.attributes.displaytag) &&
+    product.attributes.displaytag.length > 0
+      ? product.attributes.displaytag[0]
+      : null;
 
   return (
     <div
@@ -360,21 +414,16 @@ const ProductCard = ({
       } ${styles[customClass[0]]} ${styles[customClass[1]]} ${
         styles[customClass[2]]
       } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
-    > 
-
-
-
-
-{displayTag && (
-  <div className={styles.displayTagContainer}>
-    {/* Original label retained: <span>{displayTag}</span> */}
-    <span>{useColorDots && /^best\s*seller$/i.test(String(displayTag).trim()) ? "Best Seller" : displayTag}</span>
-  </div>
-)}
-
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {displayTag && (
+        <div className={styles.displayTagContainer}>
+          <span>{useColorDots && /^best\s*seller$/i.test(String(displayTag).trim()) ? "Best Seller" : displayTag}</span>
+        </div>
+      )}
 
       <div className={styles.imageContainer}>
-        {/* Original condition: !isMobile && showImageOnHover && hoverImageUrl */}
         {!carouselImages.length && !isMobile && showImageOnHover && hoverImageUrl && (
           <FyImage
             src={hoverImageUrl}
@@ -386,18 +435,29 @@ const ProductCard = ({
             defer={true}
           />
         )}
-        {/* Original static image remains the fallback when the image carousel is not configured. */}
         {carouselImages.length ? (
-          <CardImageCarousel images={carouselImages} productName={product.name} imgSrcSet={imgSrcSet} imageBackgroundColor={imageBackgroundColor} autoplay={imageCarouselAutoplay} autoplaySpeed={imageCarouselAutoplaySpeed} />
-        ) : <FyImage
-          src={imageUrl || imagePlaceholder}
-          alt={imageAlt}
-          backgroundColor={imageBackgroundColor}
-          isFixedAspectRatio={false}
-          customClass={`${styles.productImage} ${styles.mainImage}`}
-          sources={imgSrcSet}
-          defer={false}
-        />}
+          <CardImageCarousel
+            images={carouselImages}
+            productName={product.name}
+            imgSrcSet={imgSrcSet}
+            imageBackgroundColor={imageBackgroundColor}
+            autoplay={imageCarouselAutoplay}
+            autoplaySpeed={imageCarouselAutoplaySpeed}
+            playOnHover={imageCarouselPlayOnHover}
+            isMobile={isMobile}
+            isHovered={isHovered}
+          />
+        ) : (
+          <FyImage
+            src={imageUrl || imagePlaceholder}
+            alt={imageAlt}
+            backgroundColor={imageBackgroundColor}
+            isFixedAspectRatio={false}
+            customClass={`${styles.productImage} ${styles.mainImage}`}
+            sources={imgSrcSet}
+            defer={false}
+          />
+        )}
         {isWishlistIcon && (
           <button
             className={`${styles.wishlistBtn} ${isFollowed ? styles.active : ""}`}
@@ -438,66 +498,44 @@ const ProductCard = ({
       </div>
       <div className={styles.productDescContainer}>
         <div className={styles.productDesc}>
+          {shadeVariantsCount !== 0 && (
+            <div className={styles.productVariants}>
+              <div className={`${styles.shade} ${styles.currentShade}`}>
+                {!useColorDots && getShadeImage(currentShade?.medias) ? (
+                  <img
+                    src={getShadeImage(currentShade?.medias)}
+                    alt={currentShade?.name}
+                    className={styles.shadeImage}
+                  />
+                ) : (
+                  <div
+                    className={styles.shadeColor}
+                    style={{ backgroundColor: getVariantColor(currentShade) }}
+                  />
+                )}
+              </div>
 
-
-
-{shadeVariantsCount !== 0 && (
-  <div className={styles.productVariants}>
-
-    {/* CURRENT SHADE */}
-   <div className={`${styles.shade} ${styles.currentShade}`}>
-  {/* Original image-first condition retained: getShadeImage(currentShade?.medias) */}
-  {!useColorDots && getShadeImage(currentShade?.medias) ? (
-    <img
-      src={getShadeImage(currentShade?.medias)}
-      alt={currentShade?.name}
-      className={styles.shadeImage}
-    />
-  ) : (
-    <div
-      className={styles.shadeColor}
-      style={{
-        // Original color formatting: currentShade?.color ? `#${currentShade.color}` : currentShade?.color_name,
-        backgroundColor: getVariantColor(currentShade),
-      }}
-    />
-  )}
-</div>
-
- 
-
-{variants?.map((variantItem) => (
-  <div
-    key={variantItem.uid}
-    className={`${styles.shade} ${styles.allShades}`}
-  >
-    {/* Original image-first condition retained: getShadeImage(variantItem?.medias) */}
-    {!useColorDots && getShadeImage(variantItem?.medias) ? (
-      <img
-        src={getShadeImage(variantItem?.medias)}
-        alt={variantItem?.name}
-        className={styles.shadeImage}
-      />
-    ) : (
-      <div
-        className={styles.shadeColor}
-        style={{
-          // Original color formatting: variantItem?.color ? `#${variantItem.color}` : variantItem?.color_name,
-          backgroundColor: getVariantColor(variantItem),
-        }}
-      />
-    )}
-  </div>
-))}
-
-
-
-  </div>
-)}
-
-       
-          
-
+              {variants?.map((variantItem) => (
+                <div
+                  key={variantItem.uid}
+                  className={`${styles.shade} ${styles.allShades}`}
+                >
+                  {!useColorDots && getShadeImage(variantItem?.medias) ? (
+                    <img
+                      src={getShadeImage(variantItem?.medias)}
+                      alt={variantItem?.name}
+                      className={styles.shadeImage}
+                    />
+                  ) : (
+                    <div
+                      className={styles.shadeColor}
+                      style={{ backgroundColor: getVariantColor(variantItem) }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
 
           {isBrand && product.brand && (
             <h3 className={styles.productBrand}>{product.brand.name}</h3>
@@ -513,16 +551,12 @@ const ProductCard = ({
               className={`${styles.productPrice} ${centerAlign ? styles.center : ""}`}
             >
               {product?.price?.effective && (
-                <span
-                  className={`${styles["productPrice--sale"]} ${styles.h4}`}
-                >
+                <span className={`${styles["productPrice--sale"]} ${styles.h4}`}>
                   {getListingPrice("effective")}
                 </span>
               )}
               {hasDiscount && (
-                <span
-                  className={`${styles["productPrice--regular"]} ${styles.captionNormal}`}
-                >
+                <span className={`${styles["productPrice--regular"]} ${styles.captionNormal}`}>
                   {getListingPrice("marked")}
                 </span>
               )}
@@ -535,7 +569,6 @@ const ProductCard = ({
               )}
             </div>
           )}
-         
         </div>
 
         {showAddToCart && (
