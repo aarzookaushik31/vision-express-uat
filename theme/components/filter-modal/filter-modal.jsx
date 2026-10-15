@@ -76,6 +76,7 @@ function FilterModal({
         modalType="right-modal"
         closeDialog={handleModalClose}
         title={t("resource.common.filter")}
+        overlayClassName={styles.mobileOverlay}
       >
 
         <div className={styles.modalHeader}>

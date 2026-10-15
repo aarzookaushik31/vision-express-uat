@@ -3,11 +3,15 @@ import styles from "./filter-tags.less";
 import SvgWrapper from "../../../../components/core/svgWrapper/SvgWrapper";
 import { useViewport } from "../../../../helper/hooks";
 import { useGlobalTranslation } from "fdk-core/utils";
+import FilterRemove from "../../../../assets/images/plp/filter-remove.svg";
+import FilterAllRemove from "../../../../assets/images/plp/filter-all-remove.svg";
+import FilterTagsDivider from "../../../../assets/images/plp/filter-tags-divider.svg";
 
 const FilterTags = ({
-  selectedFilters,
-  onFilterUpdate = () => { },
-  onResetFiltersClick = () => { },
+  selectedFilters = [],
+  compact = false,
+  onFilterUpdate = () => {},
+  onResetFiltersClick = () => {},
 }) => {
   const { t } = useGlobalTranslation("translation");
   const [isViewAll, setIsViewAll] = useState(false);
@@ -33,18 +37,54 @@ const FilterTags = ({
 
   const visibleFilters = useMemo(
     () =>
-      isViewAll || isTablet
+      compact || isViewAll || isTablet
         ? selectedFilters
         : getTotalVisibleValues(selectedFilters, 5),
-    [isViewAll, selectedFilters, isTablet]
+    [compact, isViewAll, selectedFilters, isTablet],
   );
 
   const showViewAll = useMemo(
     () =>
       selectedFilters?.reduce((acc, curr) => [...acc, ...curr?.values], [])
         .length > 5,
-    [selectedFilters]
+    [selectedFilters],
   );
+
+  if (compact) {
+    return (
+      <div className={styles.compactContainer}>
+        <div className={styles.compactTags}>
+          <button
+            type="button"
+            className={styles.compactTag}
+            onClick={onResetFiltersClick}
+            aria-label={t("resource.facets.clear_all_caps")}
+          >
+            <span>All</span>
+            <FilterAllRemove aria-hidden="true" />
+          </button>
+          {visibleFilters?.map((filter) =>
+            filter?.values?.map((filterItem) => (
+              <button
+                type="button"
+                key={`${filter.key.name}-${filterItem.value}`}
+                className={styles.compactTag}
+                onClick={() => onFilterUpdate({ filter, item: filterItem })}
+                aria-label={`Remove ${filterItem.display}`}
+              >
+                <span>{filterItem.display}</span>
+                <FilterRemove aria-hidden="true" />
+              </button>
+            )),
+          )}
+        </div>
+        <FilterTagsDivider
+          className={styles.compactDivider}
+          aria-hidden="true"
+        />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -62,7 +102,7 @@ const FilterTags = ({
                     <SvgWrapper svgSrc="cross" />
                   </span>
                 </div>
-              ))
+              )),
             )}
           </div>
           <div
@@ -76,7 +116,9 @@ const FilterTags = ({
               className={`${styles.actionButton} ${styles.viewAll}`}
               onClick={toggleViewAll}
             >
-              {isViewAll ? t("resource.facets.view_less_caps") : t("resource.facets.view_all")}
+              {isViewAll
+                ? t("resource.facets.view_less_caps")
+                : t("resource.facets.view_all")}
             </div>
           )}
         </div>

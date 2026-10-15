@@ -230,7 +230,7 @@ export const settings = {
           text: "t:resource.common.one_card",
         },
       ],
-      default: "1",
+      default: "2",
       label: "t:resource.common.default_grid_layout_mobile",
     },
     {

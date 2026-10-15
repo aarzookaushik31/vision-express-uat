@@ -9,6 +9,7 @@ function Modal({
   closeDialog,
   children,
   className = "",
+  overlayClassName = "",
 }) {
   const modalRef = useRef(null);
   const modalContainerRef = useRef(null);
@@ -38,7 +39,7 @@ function Modal({
     isOpen && (
       <div
         role="button"
-        className={`${styles.modal} ${modalType === "right-modal" ? styles.rightModal : ""}`}
+        className={`${styles.modal} ${modalType === "right-modal" ? styles.rightModal : ""} ${overlayClassName}`}
         ref={modalRef}
         tabIndex="0"
         onKeyDown={(e) => e.key === "Escape" && isCancelable && closeDialog()}

@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useEffect } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import SvgWrapper from "../../../../components/core/svgWrapper/SvgWrapper";
-import  styles from "./sort.less";
+import SortDivider from "../../../../assets/images/plp/sort-divider.svg";
+import styles from "./sort.less";
 import { useLocation } from "react-router-dom";
 import { useGlobalTranslation } from "fdk-core/utils";
 
-function Sort({ sortList = [], onSortUpdate = () => { } }) {
+function Sort({ sortList = [], onSortUpdate = () => {} }) {
   const { t } = useGlobalTranslation("translation");
   const [sortOpen, setSortOpen] = useState(false);
   const location = useLocation();
@@ -35,27 +35,39 @@ function Sort({ sortList = [], onSortUpdate = () => { } }) {
 
   return (
     <OutsideClickHandler onOutsideClick={closeSortOption}>
-      <div className={styles.dropdown}>
-        <span className={styles.sortLabel}>{t("resource.facets.sort_by")}: </span>
-        <div
-          className={styles.selectedSortWrapper}
+      <div
+        className={styles.dropdown}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") closeSortOption();
+        }}
+      >
+        <button
+          type="button"
+          className={styles.sortTrigger}
+          aria-expanded={sortOpen}
           onClick={() => setSortOpen(!sortOpen)}
+          title={selectedSort}
         >
-          <span className={styles.selectedSort}> {selectedSort} </span>
-          <SvgWrapper
-            className={`${styles.arrowIcon} ${sortOpen ? styles.open : ""}`}
-            svgSrc="arrow-down"
-          ></SvgWrapper>
-        </div>
+          <span className={styles.sortLabel}>
+            {t("resource.facets.sort_by")}
+          </span>
+          <span className={styles.sortDivider} aria-hidden="true">
+            <SortDivider />
+          </span>
+          <span className={styles.selectedSort}>{selectedSort}</span>
+        </button>
 
         {sortOpen && (
           <ul className={styles.dropdownList}>
             {sortList?.map((sortType, index) => (
-              <li
-                key={sortType.value + index}
-                onClick={(e) => updateSortOption(e, sortType.value)}
-              >
-                <span>{sortType.name}</span>
+              <li key={sortType.value + index}>
+                <button
+                  type="button"
+                  onClick={(e) => updateSortOption(e, sortType.value)}
+                  aria-pressed={sortType.is_selected}
+                >
+                  {sortType.name}
+                </button>
               </li>
             ))}
           </ul>

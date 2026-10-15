@@ -46,7 +46,7 @@ const useProductListing = ({ fpi, props }) => {
     hide_brand = false,
     grid_desktop = 3,
     grid_tablet = 3,
-    grid_mob = 1,
+    grid_mob = 2,
     description = "",
     show_add_to_cart = true,
     card_cta_text = t("resource.common.add_to_cart"),

@@ -20,12 +20,12 @@ import Modal from "../components/core/modal/modal";
 import AddToCart from "../page-layouts/plp/Components/add-to-cart/add-to-cart";
 import { useViewport } from "../helper/hooks";
 import SizeGuide from "../page-layouts/plp/Components/size-guide/size-guide";
-import TwoGridIcon from "../assets/images/desktop-2col.svg";
-import FourGridIcon from "../assets/images/grid-four.svg";
-import TwoGridMobIcon from "../assets/images/twogrid.svg";
-import OneGridMobIcon from "../assets/images/mob-1col.svg";
+import ListingGridIcon from "../assets/images/plp/grid.svg";
+import MobileGridIcon from "../assets/images/plp/mobile-grid.svg";
+import MobileFitCircle from "../assets/images/plp/mobile-fit-circle.svg";
+import MobileFitIcon from "../assets/images/plp/mobile-fit-icon.svg";
+import MobileFilterIcon from "../assets/images/plp/mobile-filter.svg";
 import { useGlobalTranslation, useFPI } from "fdk-core/utils";
-import Question from "../assets/images/question.png";
 import { GET_PRODUCT_DETAILS } from "../queries/pdpQuery";
 import { GET_CUSTOM_FIELDS } from "../queries/plpQuery";
 
@@ -47,7 +47,7 @@ const ProductListing = ({
   isProductLoading = false,
   isPageLoading = false,
   productList = [],
-  columnCount = { desktop: 4, tablet: 3, mobile: 1 },
+  columnCount = { desktop: 4, tablet: 3, mobile: 2 },
   isProductOpenInNewTab = false,
   isBrand = true,
   isSaleBadge = true,
@@ -90,6 +90,7 @@ const ProductListing = ({
 }) => {
   const { t } = useGlobalTranslation("translation");
   const isTablet = useViewport(0, 768);
+  const isMobile = useViewport(0, 480);
   const {
     handleAddToCart,
     isOpen: isAddToCartOpen,
@@ -225,29 +226,45 @@ const ProductListing = ({
             {title?.toLowerCase() !== "accessories" &&
               !title?.toLowerCase().includes("contact lens") &&
               isSizeGuideAvailable && (
-                <button onClick={handleOpenFindmyFit}>
-                  <span>Find My Fit</span>
+                <button
+                  type="button"
+                  className={styles.mobileFitButton}
+                  onClick={handleOpenFindmyFit}
+                  aria-label="Find My Fit"
+                  title="Find My Fit"
+                >
+                  <MobileFitCircle className={styles.mobileFitCircle} aria-hidden="true" />
+                  <MobileFitIcon className={styles.mobileFitIcon} aria-hidden="true" />
                 </button>
               )}
 
             {filterList.length > 0 && (
               <button
+                type="button"
                 className={styles.filterBtn}
                 onClick={onFilterModalBtnClick}
+                aria-label="Filters"
+                title="Filters"
               >
-                <span>Filters</span>
+                <MobileFilterIcon className={styles.mobileFilterIcon} aria-hidden="true" />
               </button>
             )}
           </div>
 
           <div className={styles.mobileHeader}>
             <div className={styles.headerLeft}>
-              <Breadcrumb breadcrumb={breadcrumb} />
+              {title && <h1 className={styles.mobileTitle}>{title}</h1>}
+              {isProductCountDisplayed && (
+                <span className={styles.mobileProductCount}>
+                  Showing {`${productCount} ${productCount > 1 ? "products" : "product"}`}
+                </span>
+              )}
             </div>
             <div className={styles.headerRight}>
               {sortList.length > 0 && (
                 <button
-                  className={`${styles.sortBtnMobile} ${styles.tablet}`}
+                  type="button"
+                  className={styles.sortBtnMobile}
                   onClick={onSortModalBtnClick}
                 >
                   <span>Sort By</span>
@@ -255,48 +272,26 @@ const ProductListing = ({
               )}
 
               <button
-                className={`${styles.colIconBtn} ${styles.mobile} ${
-                  columnCount?.mobile === 1 ? styles.active : ""
-                }`}
-                onClick={() =>
-                  onColumnCountUpdate({ screen: "mobile", count: 1 })
-                }
-                title={t("resource.product.mobile_grid_one")}
+                type="button"
+                className={styles.mobileGridButton}
+                onClick={() => {
+                  const screen = isMobile ? "mobile" : "tablet";
+                  onColumnCountUpdate({
+                    screen,
+                    count: columnCount?.[screen] === 2 ? (isMobile ? 1 : 3) : 2,
+                  });
+                }}
+                aria-label={t(
+                  isMobile
+                    ? columnCount?.mobile === 2
+                      ? "resource.product.mobile_grid_one"
+                      : "resource.product.mobile_grid_two"
+                    : columnCount?.tablet === 2
+                      ? "resource.product.tablet_grid_four"
+                      : "resource.product.tablet_grid_two"
+                )}
               >
-                <OneGridMobIcon />
-              </button>
-              <button
-                className={`${styles.colIconBtn} ${styles.mobile} ${
-                  columnCount?.mobile === 2 ? styles.active : ""
-                }`}
-                onClick={() =>
-                  onColumnCountUpdate({ screen: "mobile", count: 2 })
-                }
-                title={t("resource.product.mobile_grid_two")}
-              >
-                <TwoGridMobIcon />
-              </button>
-              <button
-                className={`${styles.colIconBtn} ${styles.tablet} ${
-                  columnCount?.tablet === 2 ? styles.active : ""
-                }`}
-                onClick={() =>
-                  onColumnCountUpdate({ screen: "tablet", count: 2 })
-                }
-                title={t("resource.product.tablet_grid_two")}
-              >
-                <TwoGridIcon />
-              </button>
-              <button
-                className={`${styles.colIconBtn} ${styles.tablet} ${
-                  columnCount?.tablet === 3 ? styles.active : ""
-                }`}
-                onClick={() =>
-                  onColumnCountUpdate({ screen: "tablet", count: 3 })
-                }
-                title={t("resource.product.tablet_grid_four")}
-              >
-                <FourGridIcon />
+                <MobileGridIcon aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -315,30 +310,34 @@ const ProductListing = ({
                   <div className={styles.filterHeaderContainer}>
                     <div className={styles.filterHeader}>
                       <h4 className={styles.title}>
-                        {t("resource.product.filters_caps")}
+                        {t("resource.product.filters_caps").toLowerCase()}
                       </h4>
-                      {!isResetFilterDisable && (
-                        <button
-                          className={styles.resetBtn}
-                          onClick={onResetFiltersClick}
-                        >
-                          Clear all
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className={styles.resetBtn}
+                        onClick={onResetFiltersClick}
+                        disabled={isResetFilterDisable}
+                      >
+                        Clear All
+                      </button>
                     </div>
                     <FilterTags
+                      compact
                       selectedFilters={selectedFilters}
                       onFilterUpdate={onFilterUpdate}
+                      onResetFiltersClick={onResetFiltersClick}
                     />
                   </div>
-                  {filterList?.map((filter, idx) => (
-                    <FilterItem
-                      isMobileView={false}
-                      key={idx + "-desktop" + filter.key.display}
-                      filter={filter}
-                      onFilterUpdate={onFilterUpdate}
-                    />
-                  ))}
+                  {filterList
+                    ?.filter((filter) => filter.values?.length > 0)
+                    .map((filter, idx) => (
+                      <FilterItem
+                        isMobileView={false}
+                        key={idx + "-desktop" + filter.key.display}
+                        filter={filter}
+                        onFilterUpdate={onFilterUpdate}
+                      />
+                    ))}
                 </div>
 
                 {/* {title?.toLowerCase() !== "accessories" &&
@@ -360,7 +359,7 @@ const ProductListing = ({
             <div className={styles.right}>
               <div className={styles.rightHeader}>
                 <div className={styles.headerLeft}>
-                  {/* {title && <h1 className={styles.title}>{title}</h1>} */}
+                  {title && <h1 className={styles.title}>{title}</h1>}
                   {isProductCountDisplayed && (
                     <span className={styles.productCount}>
                       Showing{" "}
@@ -369,41 +368,44 @@ const ProductListing = ({
                   )}
                 </div>
                 <div className={styles.headerRight}>
-                  <Sort sortList={sortList} onSortUpdate={onSortUpdate} />
-
                   {title?.toLowerCase() !== "accessories" &&
                     !title?.toLowerCase().includes("contact lens") &&
-                    sizeGuide?.sizes?.length > 0 && (
+                    isSizeGuideAvailable && (
                       <button
                         onClick={handleOpenFindmyFit}
                         className={styles.findMyFitButton}
                       >
-                        find my fit <img src={Question} />
+                        Find My Fit
                       </button>
                     )}
 
-                  <button
-                    className={`${styles.colIconBtn} ${
-                      columnCount?.desktop === 2 ? styles.active : ""
-                    }`}
-                    onClick={() =>
-                      onColumnCountUpdate({ screen: "desktop", count: 2 })
-                    }
-                    title={t("resource.product.desktop_grid_two")}
-                  >
-                    <TwoGridIcon />
-                  </button>
-                  <button
-                    className={`${styles.colIconBtn} ${
-                      columnCount?.desktop === 3 ? styles.active : ""
-                    }`}
-                    onClick={() =>
-                      onColumnCountUpdate({ screen: "desktop", count: 3 })
-                    }
-                    title={t("resource.product.desktop_grid_four")}
-                  >
-                    <FourGridIcon />
-                  </button>
+                  <div className={styles.sortControls}>
+                    {sortList.length > 0 && (
+                      <Sort sortList={sortList} onSortUpdate={onSortUpdate} />
+                    )}
+                    <button
+                      type="button"
+                      className={styles.listingGridButton}
+                      onClick={() =>
+                        onColumnCountUpdate({
+                          screen: "desktop",
+                          count: columnCount?.desktop === 2 ? 3 : 2,
+                        })
+                      }
+                      aria-label={t(
+                        columnCount?.desktop === 2
+                          ? "resource.product.desktop_grid_four"
+                          : "resource.product.desktop_grid_two"
+                      )}
+                      title={t(
+                        columnCount?.desktop === 2
+                          ? "resource.product.desktop_grid_four"
+                          : "resource.product.desktop_grid_two"
+                      )}
+                    >
+                      <ListingGridIcon />
+                    </button>
+                  </div>
                 </div>
               </div>
               {banner?.desktopBanner && (
@@ -545,7 +547,7 @@ function ProductGrid({
   aspectRatio,
   WishlistIconComponent,
   isProductOpenInNewTab = false,
-  columnCount = { desktop: 4, tablet: 3, mobile: 1 },
+  columnCount = { desktop: 4, tablet: 3, mobile: 2 },
   productList = [],
   followedIdList = [],
   listingPrice = "range",

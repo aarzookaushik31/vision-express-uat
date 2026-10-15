@@ -47,6 +47,7 @@ function SortModal({
           modalType="right-modal"
           closeDialog={onCloseModalClick}
           title={t("resource.facets.sort_by")}
+          overlayClassName={styles.mobileOverlay}
         >
           <div className={styles.contentWrapper}>
             <div className={styles.modalContent}>

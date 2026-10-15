@@ -1,7 +1,5 @@
 @import "./main.less";
 
-@lg-min: 1024px;
-
 .addToCartContainer {
   @media @desktop {
     max-width: unset !important;
@@ -27,8 +25,13 @@
   max-width: 1300px;
   margin: auto;
 
+  @media @desktop {
+    max-width: 1320px;
+    padding-top: 40px;
+  }
+
   @media @tablet {
-    padding: 30px 20px 60px;
+    padding: 28px 20px 60px;
   }
 
   .loader {
@@ -51,14 +54,13 @@
 
     @media @desktop {
       display: flex;
-      gap:70px;
+      gap: 32px;
     }
 
     .left {
-      flex: 0 0 259px;
-      margin-inline-end: 16px;
+      flex: 0 0 285px;
       z-index: 9;
-      max-width: 259px;
+      max-width: 285px;
 
       @media @tablet {
         display: none;
@@ -74,6 +76,7 @@
 
     .right {
       flex-grow: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -337,6 +340,9 @@
 
 .breadcrumbWrapper {
  margin-bottom: 40px;
+ @media @desktop {
+   display: none;
+ }
 }
 
 .customFindmyFitContainer{
@@ -379,40 +385,38 @@
 
 
 .filterContainerCustom{
-   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  border-radius: 24px;
-  flex: 0 0 230px !important;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
 }
 
 .filterHeaderContainer {
-  padding-bottom: 16px;
-  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 9px;
 
   .filterHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
     .title {
-       color:rgba(26, 26, 26, 0.8) !important;
-  font-size: 12px !important;
-  font-weight: 700;
-  letter-spacing: 0px;
-  text-transform: uppercase;
+      color: #000;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+      letter-spacing: 0.32px;
+      text-transform: capitalize;
     }
     .resetBtn {
-       background-color: rgba(158, 0, 126, 0.04)  !important;
-  padding: 8px 12px !important;
-  border-radius: 500px !important;
-  font-size: 10px !important;
-  color:rgba(158, 0, 126, 1) !important;
-  text-transform: uppercase !important;
-  font-weight: 700 !important;
-  letter-spacing: 0px !important;
-  text-decoration: none !important;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      font-size: 12px;
+      line-height: 15px;
+      color: #9e007e;
+      font-weight: 400;
+      letter-spacing: 0;
+      cursor: pointer;
   
       &:disabled {
         cursor: default;
@@ -422,67 +426,134 @@
   }
 }
 
-.stickyMobileFilter{
-  position:fixed;
-  bottom: 0;
-  left:0;
-  z-index: 5;
-    padding: 5px ;
-    box-shadow: 0px -2px 39.7px 0px rgba(0, 0, 0, 0.25);
-    background-color: var(--pageBackground, #f8f8f8);
-    width: 100%;
-    z-index: 9;
-    gap: 5px;
-    display: flex;
-  width: 100%;
+// Mobile controls follow the PLP viewport design; desktop uses the sidebar.
+.stickyMobileFilter {
+  position: fixed;
+  inset-inline-end: 12px;
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   @media @desktop {
     display: none;
   }
 
-  button{
-     flex: 1;
-    border-radius: 8px;
-    background-color: rgba(158, 0, 126, 0.1);
-     padding: 16px;
-     border: none;
-     color:rgba(158, 0, 126, 1) !important;
-     text-transform: uppercase;
-     font-size: 14px !important;
-     font-weight: 700 !important;
-    justify-content: center !important;
-    margin:0 !important;
-    letter-spacing: 0px  !important;
+  button {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid #9e007e;
+      outline-offset: 3px;
+    }
   }
 
-  .filterBtn{
-background-color: rgba(158, 0, 126, 1);
-color: #fff  !important
+  svg {
+    position: absolute;
+    pointer-events: none;
   }
 
+  .mobileFitCircle {
+    top: -24px;
+    left: -24px;
+  }
+
+  .mobileFitIcon {
+    top: 14.63px;
+    left: 13.63px;
+  }
+
+  .mobileFilterIcon {
+    top: -25px;
+    left: -25px;
+  }
 }
 
 .mobileHeader {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-margin-bottom: 30px;
+  gap: 16px;
+  margin-bottom: 28px;
 
   @media @desktop {
     display: none;
   }
- 
+
+  .headerLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .mobileTitle {
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.32px;
+    text-transform: uppercase;
+  }
+
+  .mobileProductCount {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
   .headerRight {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+    gap: 7px;
+  }
 
-    .sortBtnMobile{
-      margin-right: 20px;
+  .sortBtnMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 81px;
+    height: 28px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(158, 0, 126, 0.05);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    white-space: nowrap;
+  }
 
-      span{
-        white-space: nowrap;
-      }
-    }
+  .mobileGridButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  button:focus-visible {
+    outline: 2px solid #9e007e;
+    outline-offset: 2px;
   }
 }
 
@@ -492,8 +563,16 @@ margin-bottom: 30px;
   justify-content: space-between;
   padding: 0 4px;
 
+  @media @tablet {
+    display: none;
+  }
+
   @media @desktop {
-    padding: 0 8px;
+    padding: 0;
+    min-height: 42px;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
   .headerLeft {
     display: flex;
@@ -501,16 +580,26 @@ margin-bottom: 30px;
     column-gap: 4px;
     max-width: 100%;
     @media @desktop {
-      column-gap: 8px;
+      column-gap: 16px;
     }
     .title {
+      display: none;
       overflow: hidden;
       text-overflow: ellipsis;
-      display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       font-size: 18px;
       font-weight: 600;
+      @media @desktop {
+        display: -webkit-box;
+        color: #000;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.48px;
+        text-transform: uppercase;
+        margin: 0;
+      }
     }
     .productCount {
       white-space: nowrap;
@@ -520,11 +609,19 @@ font-size: 12px !important;
 line-height: 120%;
 letter-spacing: 0px;
 font-weight: 400 !important;
+      @media @desktop {
+        color: rgba(0, 0, 0, 0.6) !important;
+        text-transform: capitalize;
+        line-height: 15px;
+      }
     }
   }
   .headerRight {
     display: flex;
     align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-inline-start: auto;
     @media @tablet {
       display: none;
     }
@@ -532,24 +629,51 @@ font-weight: 400 !important;
 
 
   .findMyFitButton{
-    border: 1px solid rgba(158, 0, 126, 1);
-    padding: 6px 12px;
+    border: 0.8px solid rgba(158, 0, 126, 0.2);
+    background: #9e007e;
+    width: 143px;
+    height: 42px;
+    padding: 10px 20px;
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
-    color:rgba(158, 0, 126, 1);
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 0px;
     line-height: 120%; 
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 0 15px;
-
-    img{
-      width: 20px;
-    }
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    cursor: pointer;
   }
+}
+
+.sortControls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.listingGridButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.resetBtn:focus-visible,
+.findMyFitButton:focus-visible,
+.listingGridButton:focus-visible {
+  outline: 2px solid #9e007e;
+  outline-offset: 2px;
 }
 
 .colIconBtn {
@@ -591,6 +715,10 @@ font-weight: 400 !important;
   grid-template-rows: 1fr;
   min-height: 300px;
   gap: 14px;
+  @media @tablet {
+    column-gap: 16px;
+    row-gap: 20px;
+  }
   grid-template-columns: repeat(var(--item-count), 1fr);
   @media @mobile-up {
     --item-count: var(--tablet-col, 3);
