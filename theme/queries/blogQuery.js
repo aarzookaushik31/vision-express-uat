@@ -1,12 +1,13 @@
 export const FETCH_BLOGS_LIST = `query ApplicationContent(
   $pageNo: Int
+  $pageSize: Int = 6
   $tags: String
   $search: String
 ) {
   applicationContent {
     blogs(
         pageNo: $pageNo 
-        pageSize: 6 
+        pageSize: $pageSize
         tags: $tags 
         search: $search
     ) {

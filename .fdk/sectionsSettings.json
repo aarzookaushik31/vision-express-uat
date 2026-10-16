@@ -7159,7 +7159,7 @@
     ]
   },
   "might-like-blog-list": {
-    "label": "Blog List (3 Cards)",
+    "label": "Blog List (4 Cards)",
     "props": [
       {
         "id": "title",
