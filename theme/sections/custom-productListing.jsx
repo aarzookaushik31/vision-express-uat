@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { FDKLink } from "fdk-core/components";
 import styles from "../styles/product-listing.less";
 import InfiniteLoader from "../components/infinite-loader/infinite-loader";
 import Breadcrumb from "../components/breadcrumb/breadcrumb";
-import ProductCard from "../components/product-card-new/product-card";
+import ProductCard from "../components/product-card-plp/product-card";
 import Sort from "../page-layouts/plp/Components/sort/sort";
 import FilterItem from "../page-layouts/plp/Components/filter-item/filter-item";
 import StickyColumn from "../page-layouts/plp/Components/sticky-column/sticky-column";
@@ -239,8 +239,11 @@ const ProductListing = ({
     banner_button_link,
     banner_button_text,
     customFieldsData,
-    cardVariant, // NEW
-    showBadge, // NEW
+    cardVariant, 
+    showBadge, 
+      resetKey: `${title}|${JSON.stringify(selectedFilters)}|${JSON.stringify(
+      sortList?.map((s) => s?.is_selected)
+    )}`, 
   };
 
   return (
@@ -611,9 +614,31 @@ function ProductGrid({
   banner_button_link,
   banner_button_text,
   customFieldsData,
-  cardVariant = "overlay", // NEW
-  showBadge = true, // NEW
+  cardVariant = "overlay",
+  showBadge = true,
+  resetKey,
 }) {
+
+    const orderRef = useRef({ key: null, map: new Map() });
+  if (orderRef.current.key !== resetKey) {
+    orderRef.current = { key: resetKey, map: new Map() };
+  }
+  productList.forEach((p) => {
+    const id = String(p?.uid);
+    if (!orderRef.current.map.has(id)) {
+      orderRef.current.map.set(id, orderRef.current.map.size);
+    }
+  });
+  const getGlobalIndex = (product, fallback) =>
+    orderRef.current.map.get(String(product?.uid)) ?? fallback;
+
+
+  const isFeaturedPosition = (globalIndex) => {
+  const n = globalIndex + 1;  
+  const r = n % 30;
+  return n > 30 && r >= 1 && r <= 3;  
+};
+
   const subtitle = isEyeglassCollection
     ? banner_subtitle_eyeglass?.value
     : banner_subtitle?.value;
@@ -668,12 +693,13 @@ function ProductGrid({
                   imagePlaceholder={imagePlaceholder}
                   handleAddToCart={handleAddToCart}
                   hasGlamAR={hasGlamAR}
-                  cardVariant={cardVariant} // NEW
-                  showBadge={showBadge} // NEW
+                  cardVariant={cardVariant} 
+                  showBadge={showBadge} 
+                  isFeaturedCard={isFeaturedPosition(getGlobalIndex(product, index))}
                 />
               </FDKLink>
 
-              {index === 11 &&
+              {/* {index === 11 &&
                 (bgImage ||
                   banner_title?.value ||
                   subtitle ||
@@ -703,7 +729,7 @@ function ProductGrid({
                       </div>
                     </div>
                   </div>
-                )}
+                )} */}
             </React.Fragment>
           );
         })}

@@ -392,24 +392,6 @@
               "footer": true
             }
           }
-        },
-        {
-          "page": "lens-test-latest",
-          "settings": {
-            "props": {
-              "header": false,
-              "footer": false
-            }
-          }
-        },
-        {
-          "page": "lens-test-test",
-          "settings": {
-            "props": {
-              "header": false,
-              "footer": false
-            }
-          }
         }
       ]
     }

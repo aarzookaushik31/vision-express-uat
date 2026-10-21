@@ -106,13 +106,15 @@
     "settings_schema": {
       "common": {
         "typography": "Typografie",
-        "algolia_configuration": "Algolia-Konfiguration",
+        "search_and_recommendation_extension": "Search and Recommendation Extension",
         "footer": "Fußzeile",
         "cart_and_button_configuration": "Warenkorb- und Schaltflächenkonfiguration",
         "product_card_configuration": "Produktkartenkonfiguration",
         "other_page_configuration": "Andere Seitenkonfiguration",
         "google_maps": "Google Maps",
-        "mobile_logo_max_height": "Maximale Höhe des mobilen Logos"
+        "mobile_logo_max_height": "Maximale Höhe des mobilen Logos",
+        "logo_header": "Desktop -Header -Logo Maximalhöhe",
+        "mobile_logo_header": "Mobile Header -Logo Maximale Höhe"
       },
       "typography": {
         "font_header": "Schriftart-Header",
@@ -156,8 +158,8 @@
         "transparent_header": "Transparent Header",
         "transparent_header_info": "show transparent header when application banner or image slideshow used as first section"
       },
-      "algolia_configuration": {
-        "enable_algolia": "Algolia aktivieren"
+      "search_and_recommendation_extension": {
+        "enable": "Enable"
       },
       "footer": {
         "logo": "Logo",
@@ -169,7 +171,9 @@
         "social_media_text": "Social-Media-Textbeschriftung",
         "social_media_text_info": "Beschriftungstext für soziale Medien anzeigen",
         "footer_logo_max_height_mobile": "Maximale Höhe des Fußzeilenlogos (mobil)",
-        "footer_logo_max_height_desktop": "Maximale Höhe des Fußzeilenlogos (Desktop)"
+        "footer_logo_max_height_desktop": "Maximale Höhe des Fußzeilenlogos (Desktop)",
+        "open_same_tab": "Öffnen Sie soziale Links auf derselben Registerkarte",
+        "open_same_tab_info": "Sehen Sie sich dies an, um soziale Medien Links auf derselben Registerkarte anstelle eines neuen zu öffnen"
       },
       "cart_and_button_configuration": {
         "cart_options": "Warenkorb-Optionen",
@@ -301,6 +305,7 @@
         "desktop_content_alignment": "Ausrichtung des Inhalts auf dem Desktop",
         "banner_horizontal_scroll": "Banner mit horizontalem Scroll",
         "banner_with_stack": "Banner mit Stapel",
+        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Layout (Mobil)",
         "content_alignment_mobile": "Ausrichtung von Inhalten auf Mobilgeräten",
         "text_alignment": "Textausrichtung",

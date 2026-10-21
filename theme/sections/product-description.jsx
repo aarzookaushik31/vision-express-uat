@@ -56,7 +56,7 @@ import LensWidthImg from "../assets/images/width.png";
 import BridgeWidthImg from "../assets/images/bridge-width.png";
 import TempleLengthImg from "../assets/images/temple-length.png";
 import LensHeightImg from "../assets/images/lens-height.png";
-
+import { GET_CUSTOM_FIELDS } from "../queries/plpQuery";
 
 export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
   const fpi = useFPI();
@@ -338,6 +338,48 @@ export function Component({ props = {}, globalConfig = {}, blocks = [] }) {
     ? configuredSimilarImageInterval * 1000
     : 3000;
   const hasFindInStoreBlock = blocks.some((block) => block.type === "find_in_store");
+
+
+
+// Virtual Try-On availability (same rule as the PLP: glamarmeta custom field)
+const [hasGlamAR, setHasGlamAR] = useState(false);
+
+useEffect(() => {
+  const uid = productDetails?.uid;
+  setHasGlamAR(false);
+  if (!uid) return undefined;
+
+  let cancelled = false;
+  fpi
+    .executeGQL(GET_CUSTOM_FIELDS, {
+      resource: "product",
+      resourceIds: [String(uid)],
+      keys: ["glamarmeta"],
+    })
+   .then((res) => {
+  if (cancelled) return;
+  const data = res?.data?.customFieldsByResource;
+
+  const hasField = data?.fields?.some(
+    (field) => field?.key === "glamarmeta" && field?.values?.length > 0
+  );
+  const hasGroup = data?.groups?.some(
+    (group) => group.resource_id === String(uid)
+  );
+
+  setHasGlamAR(!!(hasField || hasGroup));
+})
+    .catch((err) => {
+      if (!cancelled) setHasGlamAR(false);
+      console.error("Error fetching custom fields:", err);
+    });
+
+  return () => {
+    cancelled = true;
+  };
+}, [fpi, productDetails?.uid]);
+
+
 
   useEffect(() => {
     const slot = storeActionSlotRef.current;
@@ -740,12 +782,26 @@ frameSize && (
                     showDesktopShare={false}
                     mobileAutoplay={mobileSliderAutoplay}
                     mobileAutoplaySpeed={mobileSliderAutoplaySpeed}
-                    tryOnButton={
-                      <GlamARTrigger accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71" sku={productDetails?.item_code} buttonClassName={styles.galleryTryOn}>
-                        <span className={styles.galleryTryOnIcon} style={{ maskImage: `url(${tryOnMask})`, WebkitMaskImage: `url(${tryOnMask})` }}><TryOnIcon /></span>
-                        <span>Virtual Try-On</span>
-                      </GlamARTrigger>
-                    }
+                tryOnButton={
+  hasGlamAR ? (
+    <GlamARTrigger
+      accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+      sku={productDetails?.item_code}
+      buttonClassName={styles.galleryTryOn}
+    >
+      <span
+        className={styles.galleryTryOnIcon}
+        style={{
+          maskImage: `url(${tryOnMask})`,
+          WebkitMaskImage: `url(${tryOnMask})`,
+        }}
+      >
+        <TryOnIcon />
+      </span>
+      <span>Virtual Try-On</span>
+    </GlamARTrigger>
+  ) : null
+}
                     iconColor={icon_color?.value || ""}
                     globalConfig={globalConfig}
                     followed={followed}
