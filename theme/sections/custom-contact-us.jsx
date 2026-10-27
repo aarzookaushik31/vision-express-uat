@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useHeader from "../components/header/useHeader";
-import { CREATE_TICKET } from "../queries/supportQuery";
+import { GET_CUSTOM_FORM, POST_CUSTOM_FORM } from "../queries/bookFormQuery";
 import { useSnackbar } from "../helper/hooks";
-import Base64 from "crypto-js/enc-base64";
-import Utf8 from "crypto-js/enc-utf8";
 import { useFPI, useGlobalTranslation } from "fdk-core/utils";
-import { getConfigFromProps } from "../helper/utils";
 import { useLocation } from "react-router-dom";
 import styles from "../styles/sections/custom-contact-us.less";
 import ContactEmailIcon from "../assets/images/contact-email-icon.png";
@@ -14,11 +11,32 @@ import ContactAddressIcon from "../assets/images/contact-address-icon.png";
 import FormSubmitEye from "../assets/images/form-submit-eye-white.png";
 import CloseIcon from "../assets/images/close.svg";
 
+// Must match the slug of the form created in Fynd Platform -> Forms
+const FORM_SLUG = "contact-us";
+
+// The input keys in the Fynd form can be named differently from our state keys.
+// Each state field below is matched to a Fynd input by any of these keys.
+const FIELD_ALIASES = {
+  name: ["name", "full-name", "full_name", "fullname"],
+  phone: ["phone", "contact-number", "contact_number", "mobile"],
+  email: ["email", "email-address", "email_address"],
+  comment: ["comment", "message", "comments"],
+};
+
+// Finds which of our state fields (name/phone/email/comment) a Fynd input key maps to
+const getFieldForInputKey = (inputKey = "") => {
+  const k = String(inputKey).toLowerCase();
+  return (
+    Object.keys(FIELD_ALIASES).find((field) =>
+      FIELD_ALIASES[field].includes(k)
+    ) || null
+  );
+};
+
 function Component({ props = {} }) {
   const fpi = useFPI();
-  const { globalConfig, supportInfo, appInfo, contactInfo } = useHeader(fpi);
+  const { supportInfo, appInfo, contactInfo } = useHeader(fpi);
   const { t } = useGlobalTranslation("translation");
-  const pageConfig = getConfigFromProps(props);
   const { showSnackbar } = useSnackbar();
   const location = useLocation();
 
@@ -27,6 +45,8 @@ function Component({ props = {} }) {
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const [formInputs, setFormInputs] = useState([]); // input definitions from Fynd form
 
   const { email, phone } = supportInfo?.contact ?? {};
   const { active: emailActive = false, email: emailArray = [] } = email ?? {};
@@ -53,61 +73,6 @@ function Component({ props = {} }) {
     };
   };
 
-  const validateField = (name, value) => {
-    const nameRegex = /^[A-Za-z\s]+$/;
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    const phoneRegex = /^\d{10}$/;
-
-    let error = "";
-
-    if (!value || value.trim() === "") {
-      return "This field is required";
-    }
-    if (name === "name") {
-      if (!nameRegex.test(value)) {
-        error = "Please enter a valid name (letters only)";
-      }
-    }
-
-    if (name === "phone") {
-      if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
-        error = "Please enter a valid 10 digit mobile number";
-      }
-    }
-
-    if (name === "email") {
-      if (!emailRegex.test(value)) {
-        error = "Please enter a valid email address";
-      }
-    }
-
-    return error;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
-  };
-
-  const handleBlur = (e) => {
-    const { name, value } = e.target;
-    const error = validateField(name, value);
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: error,
-    }));
-  };
-
   const prefillData = getPrefillData(location.search);
 
   const [formData, setFormData] = useState({
@@ -117,70 +82,130 @@ function Component({ props = {} }) {
     comment: "",
   });
 
-  const handleSubmitForm = () => {
-    try {
-      const newErrors = {};
+  /* ---------- Load the form definition so we use the exact input keys ---------- */
+  useEffect(() => {
+    let cancelled = false;
 
-      Object.keys(formData).forEach((field) => {
-        if (field === "comment") return;
+    const fetchForm = async () => {
+      try {
+        const res = await fpi.executeGQL(GET_CUSTOM_FORM, { slug: FORM_SLUG });
+        const inputs = res?.data?.support?.custom_form?.inputs || [];
+        if (!cancelled) setFormInputs(inputs);
+      } catch (err) {
+        // Not fatal: submit falls back to default keys
+        console.error("Could not load contact form definition:", err);
+      }
+    };
 
-        const error = validateField(field, formData[field]);
-        if (error) newErrors[field] = error;
+    fetchForm();
+    return () => {
+      cancelled = true;
+    };
+  }, [fpi]);
+
+  /* ---------- Validation ---------- */
+  const validateField = (name, value) => {
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    const phoneRegex = /^\d{10}$/;
+
+    if (!value || value.trim() === "") {
+      return "This field is required";
+    }
+
+    if (name === "name" && !nameRegex.test(value)) {
+      return "Please enter a valid name (letters only)";
+    }
+
+    if (name === "phone") {
+      if (!phoneRegex.test(value) || /^(\d)\1{9}$/.test(value)) {
+        return "Please enter a valid 10 digit mobile number";
+      }
+    }
+
+    if (name === "email" && !emailRegex.test(value)) {
+      return "Please enter a valid email address";
+    }
+
+    return "";
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+  /* ---------- Build the payload the Fynd form API expects ---------- */
+  const buildResponsePayload = () => {
+    // Preferred: one entry per input defined in the Fynd form, using its exact key
+    if (formInputs.length) {
+      return formInputs.map((input) => {
+        const field = getFieldForInputKey(input.key);
+        return { key: input.key, value: field ? formData[field] : "" };
       });
-      if (Object.keys(newErrors).length) {
-        setErrors(newErrors);
-        return;
+    }
+
+    // Fallback if the form definition could not be loaded
+    return [
+      { key: "name", value: formData.name },
+      { key: "phone", value: formData.phone },
+      { key: "email", value: formData.email },
+      { key: "comment", value: formData.comment },
+    ];
+  };
+
+  /* ---------- Submit ---------- */
+  const handleSubmitForm = async () => {
+    if (submitting) return;
+
+    const newErrors = {};
+
+    Object.keys(formData).forEach((field) => {
+      if (field === "comment") return;
+
+      const error = validateField(field, formData[field]);
+      if (error) newErrors[field] = error;
+    });
+
+    if (Object.keys(newErrors).length) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const res = await fpi.executeGQL(POST_CUSTOM_FORM, {
+        slug: FORM_SLUG,
+        customFormSubmissionPayloadInput: {
+          response: buildResponsePayload(),
+        },
+      });
+
+      // executeGQL can resolve with GraphQL errors instead of throwing
+      if (res?.errors?.length) {
+        throw new Error(res.errors[0]?.message || "Form submission failed");
       }
 
-      let finalText = "";
-
-      if (formData.name)
-        finalText += `<b>${t("resource.common.name")}: </b>${formData.name}<br>`;
-      if (formData.phone)
-        finalText += `<b>${t("resource.common.phone")}: </b>${formData.phone}<br>`;
-      if (formData.email)
-        finalText += `<b>${t("resource.common.email")}: </b>${formData.email}<br>`;
-      if (formData.comment)
-        finalText += `<b>${t("resource.common.message")}: </b>${formData.comment}<br>`;
-
-      finalText = `<div>${finalText}</div>`;
-
-      const wordArray = Utf8.parse(finalText);
-      finalText = Base64.stringify(wordArray);
-
-      const values = {
-        addTicketPayloadInput: {
-          _custom_json: {
-            comms_details: {
-              name: formData.name,
-              email: formData.email,
-              phone: formData.phone,
-            },
-          },
-          category: "contact-us",
-          content: {
-            attachments: [],
-            description: finalText,
-            title: t("resource.header.contact_request"),
-          },
-          priority: "low",
-        },
-      };
-
-      fpi
-        .executeGQL(CREATE_TICKET, values)
-        .then(() => {
-          setShowSuccessMessage(true);
-        })
-        .catch(() => {
-          showSnackbar(t("resource.common.error_message"), "error");
-        });
+      setShowSuccessMessage(true);
+      setFormData({ name: "", phone: "", email: "", comment: "" });
     } catch (error) {
-      console.error(error);
+      console.error("Contact form submission error:", error);
       showSnackbar(
         t("resource.common.error_occurred_submitting_form"),
         "error"
       );
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -267,7 +292,7 @@ function Component({ props = {} }) {
               <CloseIcon className={styles.closeIcon} />
             </span>
 
-            <img src={FormSubmitEye} />
+            <img src={FormSubmitEye} alt="" />
 
             <h2 className={styles.success_message}>
               Thanks for Getting in Touch!
@@ -300,6 +325,7 @@ function Component({ props = {} }) {
                 <div className={styles.inputfieldcontainer}>
                   <label htmlFor="name">Full Name</label>
                   <input
+                    id="name"
                     type="text"
                     name="name"
                     placeholder="Enter your Full Name"
@@ -316,6 +342,7 @@ function Component({ props = {} }) {
                 <div className={styles.inputfieldcontainer}>
                   <label htmlFor="phone">Contact Number</label>
                   <input
+                    id="phone"
                     type="tel"
                     name="phone"
                     placeholder="XXXXX XXXXX"
@@ -326,15 +353,8 @@ function Component({ props = {} }) {
                         .replace(/\D/g, "")
                         .slice(0, 10);
 
-                      setFormData((prev) => ({
-                        ...prev,
-                        phone: value,
-                      }));
-
-                      setErrors((prev) => ({
-                        ...prev,
-                        phone: "",
-                      }));
+                      setFormData((prev) => ({ ...prev, phone: value }));
+                      setErrors((prev) => ({ ...prev, phone: "" }));
                     }}
                     onBlur={handleBlur}
                     maxLength={10}
@@ -349,6 +369,7 @@ function Component({ props = {} }) {
               <div className={styles.inputfieldcontainer}>
                 <label htmlFor="email">Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="Enter your Email address"
@@ -365,6 +386,7 @@ function Component({ props = {} }) {
               <div className={styles.inputfieldcontainer}>
                 <label htmlFor="comment">Message</label>
                 <textarea
+                  id="comment"
                   name="comment"
                   placeholder="Leave a message"
                   rows={5}
@@ -373,8 +395,12 @@ function Component({ props = {} }) {
                   className={styles.formTextarea}
                 />
               </div>
-              <button type="submit" className={styles.submitButton}>
-                Submit
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={submitting}
+              >
+                {submitting ? "Submitting..." : "Submit"}
               </button>
             </form>
           </div>
