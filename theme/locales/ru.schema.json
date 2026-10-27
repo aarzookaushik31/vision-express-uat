@@ -106,15 +106,13 @@
     "settings_schema": {
       "common": {
         "typography": "Типографика",
-        "search_and_recommendation_extension": "Search and Recommendation Extension",
+        "algolia_configuration": "Конфигурация Алголии",
         "footer": "Нижний колонтитул",
         "cart_and_button_configuration": "Конфигурация корзины и кнопки",
         "product_card_configuration": "Конфигурация карточки продукта",
         "other_page_configuration": "Другая конфигурация страницы",
         "google_maps": "Карты Google",
-        "mobile_logo_max_height": "Максимальная высота мобильного логотипа",
-        "logo_header": "Логотип заголовка на рабочем столе максимальная высота",
-        "mobile_logo_header": "Mobile Logo Logo Max Height"
+        "mobile_logo_max_height": "Максимальная высота мобильного логотипа"
       },
       "typography": {
         "font_header": "Заголовок шрифта",
@@ -154,12 +152,10 @@
         "date_range_info": "Показать обещание доставки в диапазоне дат",
         "bold": "Смелый",
         "regular": "Обычный",
-        "semibold": "Полужирный",
-        "transparent_header": "Прозрачный заголовок",
-        "transparent_header_info": "Примените прозрачный заголовок, когда баннер применения или слайд изображений."
+        "semibold": "Полужирный"
       },
-      "search_and_recommendation_extension": {
-        "enable": "Enable"
+      "algolia_configuration": {
+        "enable_algolia": "Включить Алголию"
       },
       "footer": {
         "logo": "Логотип",
@@ -171,9 +167,7 @@
         "social_media_text": "Текстовая метка для социальных сетей",
         "social_media_text_info": "Показать текст метки для социальных сетей",
         "footer_logo_max_height_mobile": "Максимальная высота логотипа нижнего колонтитула (мобильная версия)",
-        "footer_logo_max_height_desktop": "Максимальная высота логотипа нижнего колонтитула (для ПК)",
-        "open_same_tab": "Откройте социальные ссылки в той же вкладке",
-        "open_same_tab_info": "Проверьте это, чтобы открыть ссылки на социальные сети на той же вкладке вместо новой"
+        "footer_logo_max_height_desktop": "Максимальная высота логотипа нижнего колонтитула (для ПК)"
       },
       "cart_and_button_configuration": {
         "cart_options": "Параметры корзины",
@@ -305,7 +299,6 @@
         "desktop_content_alignment": "Выравнивание контента на рабочем столе",
         "banner_horizontal_scroll": "Баннер с горизонтальной прокруткой",
         "banner_with_stack": "Баннер со стеком",
-        "banner_vertical": "Banner Vertical",
         "layout_mobile": "Макет (мобильный)",
         "content_alignment_mobile": "Выравнивание контента в мобильных устройствах",
         "text_alignment": "Выравнивание текста",
