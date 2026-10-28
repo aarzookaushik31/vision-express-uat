@@ -785,3 +785,28 @@ backdrop-filter: blur(2px);
     }
   }
 }
+.view360Button {
+  position: absolute;
+  z-index: 4;
+  top: 113px;
+  inset-inline-end: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+
+  &:focus-visible { outline: 2px solid #9e007e; outline-offset: 2px; }
+
+  @media (max-width: 768px) {
+    top: 86px;
+    inset-inline-end: 15px;
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -12,6 +12,7 @@ import useProductDescription from "../page-layouts/pdp/product-description/usePr
 import RecommendedProducts from "../page-layouts/pdp/components/simiar-products/similar-products";
 import PdpImageGallery from "../page-layouts/pdp/components/image-gallery/image-gallery";
 import GlamARTrigger from "../components/GlamARTryOn/index.jsx";
+import View360Icon from "../assets/images/view-360.svg";
 import TryOnIcon from "../assets/images/pdp-gallery/try-on.svg";
 import tryOnMask from "../assets/images/pdp-gallery/try-on-mask.svg";
 import ProductVariants from "../page-layouts/pdp/components/product-variants/product-variants";
@@ -784,6 +785,7 @@ frameSize && (
                     mobileAutoplaySpeed={mobileSliderAutoplaySpeed}
                 tryOnButton={
   hasGlamAR ? (
+    <div className={styles.galleryViewActions}>
     <GlamARTrigger
       accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
       sku={productDetails?.item_code}
@@ -798,8 +800,19 @@ frameSize && (
       >
         <TryOnIcon />
       </span>
-      <span>Virtual Try-On</span>
+      <span>Try-On</span>
     </GlamARTrigger>
+    <GlamARTrigger
+      accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+      sku={productDetails?.item_code}
+      mode="modelViewer"
+      ariaLabel="View product in 360°"
+      buttonClassName={styles.galleryTryOn}
+    >
+      <View360Icon aria-hidden="true" />
+      <span>View</span>
+    </GlamARTrigger>
+    </div>
   ) : null
 }
                     iconColor={icon_color?.value || ""}

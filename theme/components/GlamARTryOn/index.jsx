@@ -5,36 +5,29 @@ import btnImg from "../../assets/images/glam-ar-btn.png";
 import styles from "./style.less";
 
 // export default function GlamARTrigger({ accessToken, sku }) {
-export default function GlamARTrigger({ accessToken, sku, children, buttonClassName }) {
+export default function GlamARTrigger({ accessToken, sku, children, buttonClassName, mode, ariaLabel }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const config = {
-    platform: "web",
-  };
-
   useEffect(() => {
-    if (isOpen) {
-      GlamAR.init("container__frame_wrapper", accessToken, config);
-
-      GlamAR.addEventListener("loaded", () => {
-        console.log("SDK Loaded");
-
-        if (sku) {
-          GlamAR.applyBySku(sku);
-        }
-      });
-
-      GlamAR.addEventListener("sku-applied", () => {
-        console.log("SKU Applied Successfully");
-      });
-    }
+    if (!isOpen) return undefined;
+    const handleLoaded = () => {
+      if (sku) GlamAR.applyBySku(sku);
+    };
+    const handleSkuApplied = () => {
+      if (mode) GlamAR.open(mode);
+    };
+    GlamAR.addEventListener("loaded", handleLoaded);
+    GlamAR.addEventListener("sku-applied", handleSkuApplied);
+    GlamAR.init("container__frame_wrapper", accessToken, { platform: "web" });
 
     return () => {
+      GlamAR.removeEventListener("loaded", handleLoaded);
+      GlamAR.removeEventListener("sku-applied", handleSkuApplied);
       if (GlamAR && typeof GlamAR.destroy === "function") {
         GlamAR.destroy();
       }
     };
-  }, [isOpen, sku]);
+  }, [isOpen, sku, accessToken, mode]);
 
   const openAR = (e) => {
     e.stopPropagation();
@@ -65,18 +58,18 @@ export default function GlamARTrigger({ accessToken, sku, children, buttonClassN
   return (
     <>
       {/* <button type="button" onClick={openAR} className={styles.glamArBtn}> */}
-      <button type="button" onClick={openAR} className={buttonClassName || styles.glamArBtn}>
+      <button type="button" onClick={openAR} aria-label={ariaLabel} className={buttonClassName || styles.glamArBtn}>
         {children || <img src={btnImg} alt="Try 3D" />}
       </button>
 
       {/* Original inline overlay condition retained: isOpen && (...) */}
       {isOpen && typeof document !== "undefined" && createPortal(
-        <div className={styles.glamOverlay} role="dialog" aria-modal="true" aria-label="Virtual Try-On">
+        <div className={styles.glamOverlay} role="dialog" aria-modal="true" aria-label={mode === "modelViewer" ? "360° product view" : "Virtual Try-On"}>
           <div className={styles.glamARModal}>
             <button
               type="button"
               onClick={closeAR}
-              aria-label="Close Virtual Try-On"
+              aria-label={mode === "modelViewer" ? "Close 360° product view" : "Close Virtual Try-On"}
               className={styles.closeBtn}
             >
               ✕

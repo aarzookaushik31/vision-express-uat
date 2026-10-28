@@ -22,6 +22,7 @@ import { useGlobalStore, useFPI, useGlobalTranslation } from "fdk-core/utils";
 import WishlistIcon from "../../assets/images/wishlist.jsx";
 import imagePlaceholder from "../../assets/images/placeholder/no-product-image.png";
 import GlamARTrigger from "../GlamARTryOn/index.jsx";
+import View360Icon from "../../assets/images/view-360.svg";
 
 const AUTOPLAY_SPEED = 700;
 
@@ -478,10 +479,22 @@ const ProductCard = ({
         onMouseLeave={() => setIsHovered(false)}
       >
         {hasGlamAR && (
+          <>
           <GlamARTrigger
             accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
             sku={product?.item_code}
+            ariaLabel={`Virtual try-on for ${product.name}`}
           />
+          <GlamARTrigger
+            accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+            sku={product?.item_code}
+            mode="modelViewer"
+            ariaLabel={`View ${product.name} in 360°`}
+            buttonClassName={styles.view360Button}
+          >
+            <View360Icon aria-hidden="true" />
+          </GlamARTrigger>
+          </>
         )}
 
         <div className={styles.imageContainer}>
@@ -563,10 +576,22 @@ const ProductCard = ({
       } ${styles.animate} ${gridClass} ${isSlider ? styles.sliderCard : ""}`}
     >
       {hasGlamAR && (
+        <>
         <GlamARTrigger
           accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
           sku={product?.item_code}
+          ariaLabel={`Virtual try-on for ${product.name}`}
         />
+        <GlamARTrigger
+          accessToken="c466f1ed-059d-42e5-abcb-4a041d3f1e71"
+          sku={product?.item_code}
+          mode="modelViewer"
+          ariaLabel={`View ${product.name} in 360°`}
+          buttonClassName={styles.view360Button}
+        >
+          <View360Icon aria-hidden="true" />
+        </GlamARTrigger>
+        </>
       )}
 
       {displayTag && (
