@@ -56,6 +56,8 @@ function MegaMenuLarge({ headerNavigation, l1MenuClassName = "" }) {
         className={styles.l1Logo}
         src={VecareLogo}
         alt={menu.display}
+        width={"90px"}
+        height={"40px"}
       />
     ) : (
       menu.display

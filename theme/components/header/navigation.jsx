@@ -932,6 +932,8 @@ const L1Label = ({ nav }) => {
         className={styles.l1Logo}
         src={VecareLogo?.src || VecareLogo}
         alt={nav.display}
+        width={"90px"}
+        height={"40px"}
       />
     );
   }
