@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { isRunningOnClient } from "../helper/utils";
 import styles from "../styles/sections/hero-video.less";
-import placeholderImage from "../assets/images/placeholder/hero-video.png";
+import placeholderImage from "../assets/images/placeholder/hero-image-desktop.jpg";
 import { useGlobalTranslation } from "fdk-core/utils";
 import PlayIcon from "../assets/images/play.svg";
 import PauseIcon from "../assets/images/pause.svg";

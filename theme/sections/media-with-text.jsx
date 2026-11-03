@@ -8,7 +8,7 @@ import { FEATURE_PRODUCT_DETAILS } from "../queries/featureProductQuery";
 import { useViewport } from "../helper/hooks";
 import { FDKLink } from "fdk-core/components";
 import placeholderDesktop from "../assets/images/placeholder/media-with-text-desktop.jpg";
-import placeholderMobile from "../assets/images/placeholder/media-with-text-mobile.jpg";
+import placeholderMobile from "../assets/images/placeholder/slideshow-mobile1.jpg";
 import { MEDIA_WITH_TEXT_HOTSPOT_PLACEHOLDER_PRODUCT } from "../helper/constant";
 
 export function Component({ props, globalConfig, blocks, fpi }) {
