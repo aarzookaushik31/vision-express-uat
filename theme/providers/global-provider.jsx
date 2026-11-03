@@ -281,7 +281,7 @@ useEffect(() => {
         <meta name="twitter:image" content={image} />
         <meta name="og:url" content={domainUrl} />
         <meta name="og:type" content="website" />
-        <script src="https://cdn.glamar.io/sdk/wrapper"></script>
+        {/* <script src="https://cdn.glamar.io/sdk/wrapper"></script> */}
        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       {children}
